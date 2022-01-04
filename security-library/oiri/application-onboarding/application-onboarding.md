@@ -124,7 +124,7 @@ This lab assumes you have:
     Display Name : <copy>Document Management System</copy>
     ```
 
-    ![](images/13-basicinfo.png)
+    ![](images/1-app.png)
 
 4. Expand the Advanced Settings section, enter value for the parameter *flatFileLocation*.
 
@@ -132,21 +132,19 @@ This lab assumes you have:
     flatFileLocation : <copy>/u01/files/target/accounts/accounts.csv</copy>
     ```
 
-    ![](images/14-basicinfo.png)
+    ![](images/3-app.png)
 
 5. Click on *Parse Headers* to parse the headers of your flat file.
 
 6. In the Flat File Schema Properties table.
-    * Select the Name column for username attribute.
-    * Select the UID column for id attribute.
-    * Change the datatype of `start_date` attribute by selecting the Date datatype from the Data Type column.
     * Mark the `document_access` as multivalued by selecting the corresponding checkbox in the MVA column.
+    * Select the Name column for username attribute.
+    * Change the datatype of `start_date` attribute by selecting the Date datatype from the Data Type column.
+    * Select the UID column for id attribute.
 
-  ![](images/15-basicinfo.png)
+  ![](images/4-app.png)
 
 7. Click Next to proceed to the Schema page.
-
-    ![](images/16-basicinfo.png)
 
 ## Task 5: Updating Schema Information
 
@@ -156,7 +154,7 @@ This lab assumes you have:
     Display Name : <copy>DMS Access</copy>
     ```
 
-    ![](images/17-schema.png)
+    ![](images/5-app.png)
 
 2. Click the Advanced Setting icon for *`document_access`* attribute.
     * Select the Lookup and Entitlement checkbox.
@@ -170,17 +168,15 @@ This lab assumes you have:
         Length : <copy>15</copy>
         ```
 
-  ![](images/17b-schema.png)
+  ![](images/5a-app.png)
 
-  ![](images/18-schema.png)
+  ![](images/6-app.png)
 
 3. Select the Case Insensitive column for username, id and `document_access` attributes.
 
-    ![](images/19-schema.png)
+    ![](images/7-app.png)
 
 4. Click Next to proceed to the Settings page.
-
-    ![](images/20-schema.png)
 
 ## Task 6: Providing Settings Information
 
@@ -188,18 +184,18 @@ This lab assumes you have:
 
 2. On the Provisioning tab, select the Account Name as *username* from the dropdown.
 
-    ![](images/21-settings.png)
+    ![](images/8-app.png)
 
 3. On the Reconciliation tab ,expand the Reconciliation Jobs.
 
-    ![](images/39-jobs.png)
+    ![](images/9-app.png)
 
-    ![](images/22-settings.png)
+    ![](images/10-app.png)
 
 
 4. Delete the jobs under Flat File Diff Sync, Flat File Delete Sync and Flat File Delete as these jobs are not necessary for this workshop.
 
-    ![](images/40-jobs.png)
+    ![](images/11-app.png)
 
 5. Expand the DMS Flat File Entitlements Loader under the Flat File Entitlement job and fill these details.
 
@@ -219,7 +215,7 @@ This lab assumes you have:
     Decode Attribute : <copy>Access</copy>
     ```
 
-    ![](images/24-settings.png)
+    ![](images/13-app.png)
 
 6. Expand the DMS Flat File Accounts Loader under the Flat File Full job and fill these details.
 
@@ -227,64 +223,64 @@ This lab assumes you have:
     Flat File directory : <copy>/u01/files/target/accounts/</copy>
     ```
 
-    ![](images/25-settings.png)
+    ![](images/14-app.png)
 
 7. Click Next to proceed to the Finish page.
 
-    ![](images/26-settings.png)
+    ![](images/15-app.png)
 
 ## Task 7: Reviewing and Submitting the Application Details
 
 1. On the Finish page, review your application summary and click Finish to submit the application.
 
-    ![](images/27-finish.png)
+    ![](images/16-app.png)
 
 2. Click Yes to create default request form.
 
-    ![](images/28-finish.png)
+    ![](images/17-app.png)
 
 3. On the Application page, click on the Search icon. Notice that the DMS application we created is listed.
 
-    ![](images/29-finish.png)
+    ![](images/18-app.png)
 
 4. Log out and log in again into the Identity Self Service.
 
 ## Task 8: Performing Reconciliation
 1. Choose the Applications box on the Manage tab.
 
-2. Click Search icon and click on the DMS application.
+2. Click Search icon and select the DMS application row.
 
 3. Now select Manage Jobs.
 
-    ![](images/30-recon.png)
+    ![](images/19-app.png)
 
 4. Performing Entitlement Reconciliation
     - Expand the Flat File Entitlement and then expand the DMS Flat File Entitlements Loader.
-    - Click Run now and click on the Refresh icon multiple times until you notice that the Success result appears under Job history
+    - Click Run now and click on the Refresh icon multiple times until you see that the Stopped::Success result appears under Job history
 
-    ![](images/31-recon.png)
+    ![](images/20-app.png)
 
-    ![](images/32-recon.png)
+    ![](images/21-app.png)
 
 5. Performing Full Reconciliation
     - Expand the Flat File Full and then expand the DMS Flat File Accounts Loader.
-    - Click Run now and click on the Refresh icon multiple times until you notice that the Success result appears under Job history
+    - Click Run now and click on the Refresh icon multiple times until you notice that the Stopped::Success result appears under Job history
 
-    ![](images/33-recon.png)
+    ![](images/22-app.png)
 
-    ![](images/34-recon.png)
+    ![](images/23-app.png)
 
 6. Go to Users box on the Manage tab and click any user.
 
-    ![](images/35-users.png)
+    ![](images/24-app.png)
 
-    ![](images/36-users.png)
+    ![](images/25-app.png)
 
 7. Click on the Entitlements tab and Accounts tab and notice that the user is provisioned to the "DMS" application with appropriate Entitlement.
 
-    ![](images/37-users.png)
+    ![](images/26-app.png)
 
-    ![](images/38-users.png)
+    ![](images/27-app.png)
 
 
 ## Acknowledgements

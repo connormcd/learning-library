@@ -1,4 +1,4 @@
-# Create Computes #
+# Create the Computes #
 
 ## Introduction
 
@@ -208,8 +208,8 @@ Let's see how your security list are set up to ensure they allow the right traff
 
 4. Check security list for private subnet.
 
-	- Ingress allows SSH from the VCN (this will also allow ingress for SCP copy of the ATP Wallet we will do shortly).
-   	- Egress allows all protocol traffic to all destination.
+   - Ingress allows SSH from the VCN (this will also allow ingress for SCP copy of the ATP Wallet we will do shortly).
+   - Egress allows all protocol traffic to all destination.
 
 
   ![](./images/seclist-ingress-private-subnet.png)

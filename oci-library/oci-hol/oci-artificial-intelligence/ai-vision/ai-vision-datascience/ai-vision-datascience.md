@@ -6,11 +6,12 @@ In this lab session, we will show you how to access OCI Vision services in a Dat
 
 The Datascience Notebook is a web application that contains code, results and visualizations that makes testing and sharing ML pipelines simple.
 
+*Estimated Lab Time*: 30 minutes
 
 ### Objectives:
 * Learn how to use Vision Services within a DataScience notebook.
 
-## **Data Science Prerequisites**
+### **Prerequisites**
 
 Before you can start using Data Science, your tenancy administrator should set up the following networking, dynamic group, and policies.
 
@@ -148,25 +149,10 @@ In the terminal, move those files to the .oci folder.
 
 Each notebook contains certain feature demos as mentioned below.
 
-<table>
-    <tr>
-        <th>Notebook</th>
-        <th>Features</th>
-    </tr>
-    <tr>
-        <td>Image Demo 1</td>
-        <td>Image Classification</td>
-    </tr>
-    <tr>
-        <td>Image Demo 2</td>
-        <td>
-            <ul>
-                <li>Object Detection</li>
-                <li>Text Detection</li>
-            </ul>
-        </td>
-    </tr>
-</table>
+| Notebook | Features |
+| --- | --- |
+| Image Demo 1 | Image Classification |
+| Image Demo 2 | * Object Detection<br>* Text Detection |
 
 ### 1. Download and Upload the Files
 Download [Image Demo 1](./files/image_demo1.ipynb) and [Image Demo 2](./files/image_demo2.ipynb) files and upload them in the Notebook. 
@@ -185,26 +171,10 @@ These notebooks demonstrate how you can be more productive by using the Image fe
 
 Each notebook contains certain feature demos as mentioned below.
 
-<table>
-    <tr>
-        <th>Notebook</th>
-        <th>Features</th>
-    </tr>
-    <tr>
-        <td>Document AI Demo 1</td>
-        <td>Text Classification</td>
-    </tr>
-    <tr>
-        <td>Document AI Demo 2</td>
-        <td>
-            <ul>
-                <li>Document Classification</li>
-                <li>Language Classification</li>
-                <li>Table Detection</li>
-            </ul>
-        </td>
-    </tr>
-</table>
+| Notebook | Features |
+| --- | --- |
+| Document AI Demo 1 | Text Classification |
+| Document AI Demo 2 | * Document Classification<br>* Language Classification<br>* Table Detection |
 
 ### 1. Download and Upload the Files
 Download [Document AI Demo 1](./files/document_demo1.ipynb) and [Document AI Demo 2](./files/document_demo2.ipynb) files and upload them in the Notebook. 
@@ -223,20 +193,10 @@ These notebooks demonstrate how you can be more productive by using the Document
 
 Each notebook contains certain feature demos as mentioned below.
 
-<table>
-    <tr>
-        <th>Notebook</th>
-        <th>Features</th>
-    </tr>
-    <tr>
-        <td>Image Batch Demo</td>
-        <td>Image Classification</td>
-    </tr>
-    <tr>
-        <td>Document Batch Demo</td>
-        <td>Text Detection</td>
-    </tr>
-</table>
+| Notebook | Features |
+| --- | --- |
+| Image Batch Demo | Image Classification |
+| Document Batch Demo | Text Detection |
 
 ### 1. Download and Upload the Files
 Download [Image Batch Demo](./files/image_batch_demo.ipynb) and [Document Batch Demo](./files/document_batch_demo.ipynb) files and upload them in the Notebook. 
@@ -257,8 +217,8 @@ Congratulations on completing this lab!
 
 ### Acknowledgements:
 * **Authors**
-    * Kate D'Orazio - Oracle AI Services
-    * Vaishnavi Kotturu - Oracle OCI AI Vision Services
+    * Kate D'Orazio - Oracle OCI Vision Services
+    * Vaishnavi Kotturu - Oracle OCI Vision Services
 
 * **Last Updated By/Date**
-    * Vaishnavi Kotturu - Oracle OCI AI Vision Services, November 2021
+    * Vaishnavi Kotturu - Oracle OCI Vision Services, November 2021

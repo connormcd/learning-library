@@ -226,8 +226,8 @@ Your Autonomous Data Warehouse includes a number of helper packages that can sim
     MATCH_RECOGNIZE (
         PARTITION BY movie_id ORDER BY day_id
         MEASURES
-            classifier() event,
-            match_number() match,
+            classifier() as event,
+            match_number() as match,
             title as movie,
             day_id as d,
             sum(pre_award_views.num_views) as pre_award_views,

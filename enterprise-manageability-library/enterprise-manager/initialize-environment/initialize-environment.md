@@ -186,8 +186,6 @@ Navigate to "***Enterprise >> Job >> Library***" and select "SETUP ORACLE CREDEN
 
     ![](images/named_creds_job_succeeded.jpg " ")
 
-You may now [proceed to the next lab](#next).
-
 ## Appendix 1: Managing Startup Services
 
 1. Database services (All databases and Standard Listener)

@@ -10,7 +10,7 @@ Oracle GoldenGate, the industry-leading data replication and integration softwar
 
 Estimated Time: 120 minutes
 
-<if type="odbw">If you would like to watch us do the workshop, click [here](https://youtu.be/6KsirCdeUXw).</if>
+If you would like to watch us do the workshop, click [here](https://youtu.be/6KsirCdeUXw).
 
 ### About Oracle Cloud Infrastructure GoldenGate
 

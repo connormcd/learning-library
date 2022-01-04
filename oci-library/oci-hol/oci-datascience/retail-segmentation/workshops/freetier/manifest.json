@@ -1,0 +1,35 @@
+{
+    "workshoptitle": "Using Oracle Data Science for Retail Segmentation",
+    "help": "livelabs-help-oci_us@oracle.com",
+	"tutorials": [
+        {
+            "title": "Getting Started",
+            "description": "An Oracle Cloud tenancy is required for all labs in this workshop.",
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
+        },
+        {
+            "title": "Introduction",
+            "description": "Introduction.",
+            "filename": "../../introduction/introduction.md"
+        },
+        {
+            "title": "Lab 1: Getting Started with OCI Data Science",
+            "description": "Set up Data Science environment",
+            "filename": "../../oci-datascience/oci-datascience.md"
+        },
+        {
+            "title": "Lab 2: Setting up ADW",
+            "description": "Setting up the ADW environment to run your Notebook",
+            "filename": "../../setup-adw/setup-adw.md"
+        },
+        {
+            "title": "Lab 3: Running the Notebook ",
+            "filename": "../../running-notebook/running-notebook.md"
+        },
+        {
+            "title": "Need Help?",
+            "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/oci-library/need-help/need-help-livelabs.md"
+        }
+    ]
+}

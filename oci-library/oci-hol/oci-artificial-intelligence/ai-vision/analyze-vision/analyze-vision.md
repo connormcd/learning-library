@@ -3,6 +3,7 @@
 ## Introduction
 In this session, we will walk through the OCI Console to familiarize ourselves with the Vision Service. We'll discuss the data requirements and formats, and provide some sample datasets as examples. We will also show you how to upload to Oracle object storage for later to train a custom model.
 
+*Estimated Lab Time*: 20 minutes
 
 ### Objectives
 
@@ -49,37 +50,11 @@ If you want to limit access to a user group, create a new policy with the below 
 The vision service works with multiple formats of image data in order to detect objects, assign labels to images, extract text, and more. The service accepts data through Object Storage and locally stored images (if using via OCI console).
 
 The service offers sync and async APIs to analyze images, with data requirements for each detailed below:
-<table>
-  <tbody>
-    <tr>
-      <th>API</th>
-      <th>Description</th>
-      <th>Supported Input Format</th>
-    </tr>
-    <tr>
-      <td>sync API (analyzeImage, analyzeDocument)</td>
-      <td>Analyzes individual images</td>
-      <td>
-      <ul>
-        <li>JPG, PNG, (PDF and Tiff for analyzeDocument)</li>
-        <li>Up to 8 MB</li>
-        <li>Single image input</li>
-      </ul>
-      </td>
-    </tr>
-    <tr>
-      <td>async API<br>/jobs/startImageAnalysisjob<br>/jobs/start</td>
-      <td>Analyze multiple images or multi-page PDFs</td>
-      <td>
-      <ul>
-        <li>JPG, PNG (PDF and Tiff for analyzeDocument)</li>
-        <li>Up to 2000 images input</li>
-        <li>Supports multi-page PDF </li>
-      </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
+
+| API | Description | Supported Input Format |
+| --- | --- | --- |
+| sync API (analyzeImage, analyzeDocument) | Analyzes individual images | * JPG, PNG, (PDF and Tiff for analyzeDocument)<br>* Up to 8 MB<br>* Single image input |
+| async API  <br>/jobs/startImageAnalysisjob  <br>/jobs/start | Analyze multiple images or multi-page PDFs | * JPG, PNG (PDF and Tiff for analyzeDocument)<br>* Up to 2000 images input<br>* Supports multi-page PDF |
 
 ## **TASK 2:** Upload Data to Object Storage
 
@@ -129,55 +104,14 @@ On the Vision page, select “Document AI” on the left navigation menu and pro
 ![](./images/document_ai_features.png " ")
 
 Features you can test out: 
-<table>
-  <tbody>
-    <tr>
-      <th>Feature</th>
-      <th>Description</th>
-      <th>Details on Console</th>
-    </tr>
-    <tr>
-      <td>OCR (Optical Character Recognition)</td>
-      <td>Locates and digitizes text information from images</td>
-      <td>
-        Text will appear under the "raw text" header of the results pane of the console
-        <a href="./images/ocr.png">[Reference]</a>
-      </td>
-    </tr>
-    <tr>
-      <td>Document Image Classification</td>
-      <td>Classifies documents into different types based on their visual appearance, high-level features, and extracted keywords</td>
-      <td>
-      Classification along with confidence score appears directly under "Results" pane
-      <a href="./images/dic.png">[Reference]</a>
-      </td>
-    </tr>
-    <tr>
-      <td>Language Classification</td>
-      <td>Classifies the language of document based on visual features</td>
-      <td>
-      Classification along with confidence score appears under document classification in Results pane
-      <a href="./images/language-classification.png">[Reference]</a>
-      </td>
-    </tr>
-    <tr>
-      <td>Table extraction</td>
-      <td>Extracts content in tabular format, maintaining row/column relationships of cells </td>
-      <td>
-      Toggle to the Table tab to get table information
-      <a href="./images/table-extraction.png">[Reference]</a>
-      </td>
-    </tr>
-    <tr>
-      <td>Searchable PDF output</td>
-      <td>Embeds a transparent layer on top of document image in PDF format to make it searchable by keywords</td>
-      <td>
-      You need to test on a PDF document to use this feature. When you've selected a PDF, the searchable PDF button will be clickable. Clicking on it will download an OCR PDF to your computer.
-      <a href="./images/searchable-pdf-output.png">[Reference]</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+
+| Feature | Description | Details on Console |
+| --- | --- | --- |
+| OCR (Optical Character Recognition) | Locates and digitizes text information from images | Text will appear under the "raw text" header of the results pane of the console [\[Reference\]](./images/ocr.png) |
+| Document Image Classification | Classifies documents into different types based on their visual appearance, high-level features, and extracted keywords | Classification along with confidence score appears directly under "Results" pane [\[Reference\]](./images/dic.png) |
+| Language Classification | Classifies the language of document based on visual features | Classification along with confidence score appears under document classification in Results pane [\[Reference\]](./images/language-classification.png) |
+| Table extraction | Extracts content in tabular format, maintaining row/column relationships of cells | Toggle to the Table tab to get table information [\[Reference\]](./images/table-extraction.png) |
+| Searchable PDF output | Embeds a transparent layer on top of document image in PDF format to make it searchable by keywords | You need to test on a PDF document to use this feature. When you've selected a PDF, the searchable PDF button will be clickable. Clicking on it will download an OCR PDF to your computer. [\[Reference\]](./images/searchable-pdf-output.png) |
 
 **Task 3c:** Use Image Analysis Features 
 
@@ -187,31 +121,10 @@ On the Vision page, select “Image Classification” or "Object Detection" on t
 
 Features you can test out: 
 
-<table>
-  <tbody>
-    <tr>
-      <th>Feature</th>
-      <th>Description</th>
-      <th>Details on Console</th>
-    </tr>
-    <tr>
-      <td>Image classification</td>
-      <td>Categorizes object(s) within an image</td>
-      <td>
-        Select "Image Classification." Labels and confidence scores will appear under the Results pane.
-        <a href="./images/image-classification.png">[Reference]</a>
-      </td>
-    </tr>
-    <tr>
-      <td>Object detection</td>
-      <td>Locates and identifies objects within an image</td>
-      <td>
-      Select "Object Detection." Objects, confidence score, and highlighted bounding box will all appear under the Results pane. Clicking on one of the labels on the results pane will also highlight where on the image that object was detected.
-      <a href="./images/object-detection.png">[Reference]</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Feature | Description | Details on Console |
+| --- | --- | --- |
+| Image classification | Categorizes object(s) within an image | Select "Image Classification." Labels and confidence scores will appear under the Results pane. [\[Reference\]](./images/image-classification.png) |
+| Object detection | Locates and identifies objects within an image | Select "Object Detection." Objects, confidence score, and highlighted bounding box will all appear under the Results pane. Clicking on one of the labels on the results pane will also highlight where on the image that object was detected. [\[Reference\]](./images/object-detection.png) |
 
 Congratulations on completing this lab!
 
@@ -219,8 +132,8 @@ Congratulations on completing this lab!
 
 ### Acknowledgements:
 * **Authors**
-    * Kate D'Orazio - Oracle AI Services
-    * Vaishnavi Kotturu - Oracle OCI AI Vision Services
+    * Kate D'Orazio - Oracle OCI Vision Services
+    * Vaishnavi Kotturu - Oracle OCI Vision Services
 
 * **Last Updated By/Date**
-    * Vaishnavi Kotturu - Oracle OCI AI Vision Services, November 2021
+    * Vaishnavi Kotturu - Oracle OCI Vision Services, November 2021

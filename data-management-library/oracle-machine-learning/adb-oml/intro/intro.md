@@ -4,10 +4,6 @@
 
 Oracle Machine Learning is a powerful technique for analyzing data, and in this sequence of labs, we will show you how to apply it to the most valuable data in your organization - existing enterprise data in Oracle Database. If you are an Oracle data professional but not a data scientist, this workshop will take you through your first machine learning project from data preparation to a successful deployment of a model integrated into an APEX application.
 
-Watch the quick video on introduction to Oracle Machine Learning.
-
-[](youtube:O_BzGrIh5_Y)
-
 Estimated Workshop Time: 2 hours
 
 ### Workshop Scenario - Alpha Office

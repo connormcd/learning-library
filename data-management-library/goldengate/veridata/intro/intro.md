@@ -20,7 +20,6 @@ In this lab, you will:
 
 ### Prerequisites
 * A Free Tier, Paid or LiveLabs Oracle Cloud account
-* SSH Private Key to access the host via SSH (*Free-tier* and *Paid Tenants* only)
 * The following are required to complete this lab:
     * Prior knowledge of using Linux command-line options and Oracle WebLogic Server
     * Prior knowledge of Database basic concepts

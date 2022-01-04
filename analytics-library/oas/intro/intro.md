@@ -5,7 +5,7 @@ Oracle Analytics Server is a comprehensive enterprise analytics solution that em
 
 This workshop illustrates how organizations worldwide rely on Oracle to manage their data and uncover value across the entire data lifecycle: creating and blending data, self-service data discovery and visual analysis, securely collaborating and sharing analysis across teams, and leveraging embedded augmented analytics and machine learning capabilities to deliver deeper insight.
 
-*Estimated Workshop Time:* 2 Hours
+*Estimated Completion Time:* 2 Hours
 
 ### About Product/Technology
 Oracle Analytics Server helps organizations discover deep, unique insights from their data through augmented analytics.  Streamline data access and data preparation with machine learning. Provide self-service analytics enabling users to build compelling visual stories and to confidently make highly informed decisions.

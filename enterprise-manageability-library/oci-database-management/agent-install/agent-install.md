@@ -96,11 +96,9 @@ This lab assumes you have completed the following labs:
     ```
     <copy>
     AgentDisplayName = dbm_demo
-    CredentialWalletPassword = Passw0rd#
+    CredentialWalletPassword = password
     </copy>
     ```
-    ![Credentials Wallet](./images/credentialwallet.png " ") 
-
 
 5. As **opc** user, configure the management agent using the response file. 
 

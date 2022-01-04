@@ -6,7 +6,7 @@ This lab shows how you can create pages and buttons that allow you to edit data,
 
 Estimated Time: 15 minutes
 
-### Background
+### About this Lab
 In a previous lab, you used a couple of Quick Starts to create pages that let your users add departments and employees. In this lab, you'll use the rest of them to add pages for users to edit and delete departments and employees. You'll also get a chance to test your web pages as they will appear to the user.
 
 ### Objectives
@@ -20,9 +20,9 @@ This lab assumes you have:
 * A Chrome browser
 * All previous labs successfully completed
 
-## Task 1: Add an Edit Page for the Department Business Object
+## Task 1: Add a page to edit a department's details
 
-An Edit page lets you edit a row in your table. In this task, you'll add an edit page that lets users change a department's Name and Location. 
+An Edit page lets you edit a row in your table. In this task, you'll add a page that lets users change a department's Name and Location. 
 
 1.  Click **Web Applications** ![Web Applications icon](images/web-applications-icon.png), go to the **main-departments** page and click the **Table** component in the Page Designer. If necessary, click **Reload page** ![Reload page icon](images/reload-icon.png) to view the new departments.
 2.  In the Properties pane, click **Quick Start** to display the Quick Start menu, then click **Add Edit Page**.
@@ -36,9 +36,9 @@ An Edit page lets you edit a row in your table. In this task, you'll add an edit
 
     An **Edit Department** button is displayed in the toolbar on the main-departments page. The button is inactive.
 
-## Task 2: Add a Detail Page for the Department Business Object
+## Task 2: Add a page to view a department's details
 
-A Detail page lets you view additional details of a row in your table. In this task, you'll add a detail page for users to see more information about each of your departments.
+A Detail page lets you view additional details of a row in your table. In this task, you'll add a page for users to see more information about each of your departments.
 
 1.  In the Quick Start menu, click **Add Detail Page**.
 2.  On the Select Endpoint page, select **Department** under Business Objects (if necessary) and click **Next**. VB Studio will automatically select the endpoint to read a single record.
@@ -50,7 +50,7 @@ A Detail page lets you view additional details of a row in your table. In this t
 5.  Click **Design** to return to Design view.
 6.  Click the **Input Text** field for the second **Name** label to open the Input Text's properties. In the **General** tab, change the **Label Hint** value to `Location`.
 
-## Task 3: Add a Delete Button for the Department Business Object
+## Task 3: Add a button to delete a department
 A Delete button lets you delete a selected row in your table. In this task, you'll add a delete button to remove a department if you wanted.
 
 1.  Return to the **main-departments** page. Click **Quick Start** if necessary, and click **Add Delete Action**.
@@ -58,7 +58,7 @@ A Delete button lets you delete a selected row in your table. In this task, you'
 
     A **Delete Department** button is displayed in the toolbar on the main-departments page. The button is inactive.
 
-## Task 4: Test Your New Department Pages
+## Task 4: Test your new Department pages
 
 Now, let's test your web pages.
 
@@ -81,7 +81,7 @@ Now, let's test your web pages.
 8.  Select the new department and click **Delete Department**. A success message appears. The department is no longer displayed.
 9.  Close the browser tab.
 
-## Task 5: Add an Edit Page for the Employee Business Object
+## Task 5: Add a page to edit an employee's details
 
 Now that we've added options to let users manage departments, we'll do the same for employees. In this task, you'll add an Edit page to update details of your employees.
 
@@ -97,7 +97,7 @@ Now that we've added options to let users manage departments, we'll do the same 
 7.  Click **Design**.
 8.  Click within the form on the page but outside of a component (that is, in the **Form Layout** component on the page). In the General tab of the form's properties, set the **Max Columns** value to **2**. The fields now appear in two columns.
 
-## Task 6: Add Detail and Delete Pages for the Employee Business Object
+## Task 6: Add a page to view an employee's details and a button to delete an employee
 
 1.  Go to the **main-employees** page. If necessary, click the table, then click **Quick Start**.
 2.  In the Quick Start menu, click **Add Detail Page**.
@@ -116,7 +116,7 @@ Now that we've added options to let users manage departments, we'll do the same 
 9.  Click the **Input Text** component for the second **Name** label. In the Properties pane, change the **Label Hint** value to `Department`.
 10.  Click within the form on the page but outside of a component (that is, in the **Form Layout** component on the page). In the General tab, set the **Max Columns** value to **2**.
 
-## Task 7: Test Your New Employee Pages
+## Task 7: Test your Employee pages
 
 1.  Click **Preview** ![Preview icon](images/preview-icon.png).
 
@@ -136,6 +136,8 @@ Now that we've added options to let users manage departments, we'll do the same 
 7.  Click **Create Employee** and specify the data for a new employee, then click **Save**. A success message appears, and the new employee is displayed in the table.
 8.  Select the new employee and click **Delete Employee**. A success message appears. The employee is no longer displayed.
 9.  Close the browser tab.
+
+    You may **proceed to the next lab**.
 
 ## Acknowledgements
 * **Created By/Date** - Sheryl Manoharan, VB Studio User Assistance, November 2021

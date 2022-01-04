@@ -1,6 +1,5 @@
-# RUN MYSQL AUTO PILOT
-![INTRO](./images/00_mds_heatwave_2.png " ") 
-
+# Run MySQL Autopilot
+![INTRO](./images/00_mds_heatwave_2.png " ")
 
 ## Introduction
 
@@ -9,8 +8,7 @@ MySQL Autopilot provides machine learning automation that improves performance, 
 - Auto Data Placement recommends data placement keys for optimizing JOIN and GROUP BY query performance.
 In this lab, you will learn how to use two of the MySQL Autopilot advisors (Auto Encoding and Auto Data Placement) to optimize HeatWave memory usage and performance for your workload
 
-
-_Estimated Lab Time:_ 10 minutes
+_Estimated Time:_ 10 minutes
 
 Watch the video below for a quick walk through of the lab.
 
@@ -23,20 +21,17 @@ In this lab, you will be guided through the following tasks:
 - Improve Heatwave memory usage using Auto Encoding advisor
 - Improve query performance using Auto Data Placement advisor
 
-
-
 ### Prerequisites
 
 - An Oracle Trial or Paid Cloud Account
 - Some Experience with MySQL Shell
 - Completed Task 4
 
-
 ## Task 1: Improve Query performance and Heatwave memory usage using Auto Encoding
 
 1. If not already connected with SSH, connect to Compute instance using Cloud Shell
 
-    (Example: **ssh -i ~/.ssh/id_rsa opc@132.145.170...**) 
+    (Example: **ssh -i ~/.ssh/id_rsa opc@132.145.170...**)
 
 2. On command Line, connect to MySQL using the MySQL Shell client tool with the following command:
 
@@ -50,19 +45,19 @@ In this lab, you will be guided through the following tasks:
     <copy>USE airportdb;</copy>
     ```
 
-4. If not already on turn on  the `use_secondary_engine` 
+4. If not already on turn on  the `use_secondary_engine`
 
     Enter the following command at the prompt
      ```
     <copy>SET SESSION use_secondary_engine=ON;</copy>
     ```
-  
+
 5.	Run the following four queries and record the runtime:
 
  **Query 1)** Find per-company average age of passengers from Switzerland, Italy and France
 
     ```
-<copy>SELECT 
+<copy>SELECT
     airline.airlinename,
     AVG(DATEDIFF(departure, birthdate) / 365.25) AS avg_age,
     COUNT(*) AS nb_people
@@ -83,7 +78,7 @@ LIMIT 10;
     ```
 **Query 2)** Find top 10 companies selling the biggest amount of tickets for planes taking off from US airports
     ```
-<copy>SELECT 
+<copy>SELECT
     airline.airlinename,
     SUM(booking.price) AS price_tickets,
     COUNT(*) AS nb_tickets
@@ -105,7 +100,7 @@ LIMIT 10;
 **Query 3)** Ticket price greater than 500, grouped by price
     ```
     <copy> -- Query c) Ticket price greater than 500, grouped by price
-SELECT 
+SELECT
     booking.price, COUNT(*)
 FROM
     booking
@@ -117,7 +112,7 @@ LIMIT 10; </copy>
     ```
 **Query 4)** Ticket price greater than 400, grouped by firstname , lastname
     ```
-<copy>SELECT 
+<copy>SELECT
     firstname,
     lastname,
     COUNT(booking.passenger_id) AS count_bookings
@@ -151,15 +146,16 @@ GROUP BY firstname , lastname;
 9.	Run the same queries in step 1 and record the time. You can see that total query runtime has improved.
 
     **Your results should look like this:**
-    ![INTRO](./images/pilot01.png " ") 
- 
+    ![INTRO](./images/pilot01.png " ")
+
 ## Task 2: Improve Query performance using Auto Data Placement
+
 1. Run MySQL Autopilot Auto Data Placement advisor to get suggestions on data placement keys.
 
     ```
 <copy>call sys.heatwave_advisor(json_object('target_schema', JSON_ARRAY('airportdb'), 'auto_dp', json_object('benefit_threshold',0) ));</copy>
     ```
-![INTRO](./images/pilot02.png " ") 
+![INTRO](./images/pilot02.png " ")
 
 2. To apply the suggestion, access the auto-generated script
 
@@ -170,15 +166,18 @@ SELECT GROUP_CONCAT(log->>"$.sql" SEPARATOR '\n') AS "SQL Script" FROM sys.heatw
     ```
 
 3. Copy and paste auto-generated script to apply data placement changes
+
 4.	Run the query in Task 1 step 1 again. You can see that total query runtime has improved.
 
-    ![INTRO](./images/pilot03.png " ") 
+    ![INTRO](./images/pilot03.png " ")
 
 ## Learn More
 
 * [Oracle Cloud Infrastructure MySQL Database Service Documentation ](https://docs.cloud.oracle.com/en-us/iaas/MySQL-database)
 * [MySQL Database Documentation](https://www.MySQL.com)
+
 ## Acknowledgements
-* **Author** - Perside Foster, MySQL Solution Engineering 
+
+* **Author** - Perside Foster, MySQL Solution Engineering
 * **Contributors** - Mandy Pang, MySQL Principal Product Manager,  Priscila Galvao, MySQL Solution Engineering, Nick Mader, MySQL Global Channel Enablement & Strategy Manager
 * **Last Updated By/Date** - Perside Foster, MySQL Solution Engineering, September 2021

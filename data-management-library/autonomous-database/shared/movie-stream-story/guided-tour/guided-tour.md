@@ -24,7 +24,7 @@ In this lab, you will:
 ## Task 1: Familiarize with the Autonomous Database console
 The Autonomous Data Warehouse console provides a user interface to create and manage autonomous databases, plus database tools to perform typical data warehouse tasks including loading and managing data, and a Performance Hub to monitor real-time and historical performance.
 
-1. Navigate to the Autonomous Database Details page for your new database, My Quick Start ADW. There are 5 buttons across the top, and 3 tabs under those, to navigate among the many functions and tools of the Autonomous Database console. Click the **More Actions** drop down menu, and note the dozen actions you can perform.
+1. Navigate to the Autonomous Database Details page for your new database, My Quick Start ADW. There are 5 buttons across the top, and 3 tabs under those, to navigate among the many functions and tools of the Autonomous Database console. Click the **More Actions** drop down menu, and note the many actions you can perform.
 
     ![The More Actions drop down menu](images/more-actions-menu.png " ")
 
@@ -56,11 +56,13 @@ There are two ways to access the Autonomous Database built-in tool suite:
 * From the Autonomous Database console page
 * Directly from a URL
 
-1. Switch back to the browser tab showing the Autonomous Database Details page. Click the **Tools** tab, and in the **Database Actions** card, click the link to **Open Database Actions**:
+1. Switch back to the browser tab showing the Autonomous Database Details page. Click the **Database Actions** button:
 
     ![Contents of the Tools tab of the Autonomous Database Details page](images/2879072598.png " ")
 
-2. This will open a browser tab taking you to the Autonomous Data Warehouse **Database Actions** home page (shown below). This page has a card for each of the most common tasks that the data warehouse user would want to perform. The cards are grouped by theme. For example, here you see groups for Development and Data Tools. Each card has a title and description.  
+    In the log-in dialog, enter ADMIN for the username and click **Next**. On the next form, enter the ADMIN password - which is the one you entered when creating your Autonomous Data Warehouse. Click **Sign in**.
+
+2. This will open a browser tab taking you to the Autonomous Data Warehouse **Database Actions Launchpad** page (shown below). This page has a card for each of the most common tasks that the data warehouse user would want to perform. The cards are grouped by theme. For example, here you see groups for Development and Data Tools. Each card has a title and description.  
 
     ![Database Actions home page](images/2879071279.png " ")
 

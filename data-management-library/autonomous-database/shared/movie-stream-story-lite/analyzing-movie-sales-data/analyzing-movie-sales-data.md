@@ -25,9 +25,9 @@ Watch the video below for a quick walk through of the lab.
 ## Task 1: Log into the SQL Worksheet
 Make sure you are logged into Autonomous Database's **Database Tools** as the MOVIESTREAM user.   
 
-1. Navigate to the Details page of the Autonomous Database you provisioned in the "Provision an ADW Instance" lab. In this example, the database name is "My Quick Start ADW." Launch **Database Actions** by clicking the **Tools** tab and then click **Open Database Actions**.
+1. Navigate to the Details page of the Autonomous Database you provisioned in the "Provision an ADW Instance" lab. In this example, the database name is "My Quick Start ADW." Click **Database Actions**.
 
-    ![Details page of your Autonomous Database](images/2878884319.png " ")
+    ![Click Database Actions](images/launchdbactions.png " ")
 
 2. Enter MOVIESTREAM for the username and click **Next**. On the next form, enter the MOVIESTREAM password - which is the one you entered when creating your MOVIESTREAM user. Click **Sign in**.
 
@@ -138,7 +138,7 @@ In the previous SQL code we used an inner join to merge time, customer and genre
     The result will look like this:
 
     ![inner join query](images/lab3-q1.png " ")
- 
+
 
     Unless you had a detailed knowledge of all the available genres, you would probably miss the fact that there is no row shown for the genre "News" because there were no purchases of movies within this genre during 2020. This type of analysis requires a technique that is often called "densification." This means that all the rows in a dimension table are returned even when no corresponding rows exist in the fact table. To achieve data densification we use an OUTER JOIN in the SQL query. Compare the above result with the next query.
 
@@ -206,7 +206,7 @@ Time comparisons are one of the most common types of analyses. MovieStream has j
 1. Let's start by looking at sales in December for the latest two years for our major genres (we can use an INNER JOIN because there is always a current and previous year value):
 
     ```
-    <copy>SELECT 
+    <copy>SELECT
         g.name as genre,
         TO_CHAR(c.day_id,'YYYY-MM') as month,
         ROUND(sum(c.actual_price),0) sales
@@ -229,7 +229,7 @@ Time comparisons are one of the most common types of analyses. MovieStream has j
 
     ```
     <copy>WITH sales_vs_lastyear as (
-    SELECT 
+    SELECT
         g.name as genre,
         TO_CHAR(c.day_id,'YYYY-MM') as month,
         ROUND(SUM(c.actual_price),0) as sales,
@@ -244,8 +244,8 @@ Time comparisons are one of the most common types of analyses. MovieStream has j
     GROUP BY TO_CHAR(c.day_id,'YYYY-MM'), c.genre_id, g.name
     ORDER BY genre, month
     )
-    SELECT 
-        genre, 
+    SELECT
+        genre,
         sales as sales,
         last_year as last_year,
         sales - last_year as change
@@ -253,8 +253,8 @@ Time comparisons are one of the most common types of analyses. MovieStream has j
     WHERE last_year is not null
     ORDER BY round(last_year - sales) DESC;</copy>
     ```
-    
-    The subquery **sales\_vs\_lastyear** aggregates sales by genre and month for both this year and last. The **LAG** function is looking back "1" row for each genre name **PARTITION** - or grouping. The **ORDER BY** clause is critical to ensure that the prior row is indeed the prior month for that genre. The subquery is then used by the SELECT statement that calculates the sales change. 
+
+    The subquery **sales\_vs\_lastyear** aggregates sales by genre and month for both this year and last. The **LAG** function is looking back "1" row for each genre name **PARTITION** - or grouping. The **ORDER BY** clause is critical to ensure that the prior row is indeed the prior month for that genre. The subquery is then used by the SELECT statement that calculates the sales change.
 
     You can see that Action and Comedy genres have shown a significant drop off. This drop off was more than offset by a large increase in Drama movies:
 
@@ -290,7 +290,7 @@ Explore the movie-genre relationship.
     ORDER BY sales desc
     FETCH FIRST 20 ROWS ONLY;</copy>
     ```
- 
+
     Here are the top genre-movie combinations:
 
     ![top 20 genre-movie combos](images/lab3-q7.png " ")
@@ -313,7 +313,7 @@ Explore the movie-genre relationship.
     ),
     genre_ranking_by_movie as (
         -- rank the genres for the top 10 movies
-        SELECT 
+        SELECT
             t.movie_id,
             c.genre_id,
             ROUND(SUM(c.actual_price), 0) as sales,
@@ -389,8 +389,8 @@ Customers will be categorized into 5 buckets measured (using the NTILE function)
     Below is a snapshot of the result (and your result may differ):
 
     ![binned customers by sales](images/lab3-q9.png " ")
-    
-    
+
+
     The last column in the report shows the "Bin" value. A value of 1 in this column indicates that a customer is a low spending customer and a value of 5 indicates that a customer is a high spending customer. For more information about using the `NTILE` function, see [the SQL documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/NTILE.html#GUID-FAD7A986-AEBD-4A03-B0D2-F7F2148BA5E9).
 
 2.  Binning customer sales by frequency
@@ -444,10 +444,10 @@ Customers will be categorized into 5 buckets measured (using the NTILE function)
     The result only shows customers who have history had significant spend (equal to 5) but have not visited the site recently (equal to 1).  MovieStream does not want to lose these important customers!
 
     ![RFM query](images/lab3-q11.png " ")
-    
+
 
 ### Recap
-We covered alot of ground in this lab. You learned how to use different types of analytic functions, time series functions and subqueries to answer important questions about the business. 
+We covered alot of ground in this lab. You learned how to use different types of analytic functions, time series functions and subqueries to answer important questions about the business.
 These features include:
 
 - Different ways of joining tables
@@ -466,4 +466,4 @@ You may now [proceed to the next lab](#next).
 
 - **Authors** - Keith Laker and Marty Gubar, Oracle Autonomous Database Product Management
 - **Adapted for Cloud by** - Richard Green, Principal Developer, Database User Assistance
-- **Last Updated By/Date** - Marty Gubar, October 2021
+- **Last Updated By/Date** - Richard Green, November 2021

@@ -3,7 +3,7 @@
 ## Introduction
 This lab will show you how to download the Oracle Resource Manager (ORM) stack zip file needed to setup the resource needed to run this workshop. This workshop requires a compute instance running the Oracle Enterprise Manager 13c Marketplace image with monitored database targets and a Virtual Cloud Network (VCN).
 
-Estimated Time: 15 minutes
+*Estimated Time:* 15 minutes
 
 ### Objectives
 -   Download ORM stack
@@ -14,7 +14,7 @@ This lab assumes you have -
 - An Oracle Free Tier or Paid Cloud account
 
 ## Task 1: Download Oracle Resource Manager (ORM) stack zip file
-1.  Click on the link below to download the Resource Manager zip file you need to build your environment: [instdb21c-mkplc-freetier.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/mZMIb1j-Ne-DYQ4wH1ZjkfIDjX3deu5NSvlDsQjFZ4sInFIBSFpFJtpEUP2gCSRe/n/natdsecurity/b/stack/o/instdb21c-mkplc-freetier.zip)
+1.  Click on the link below to download the Resource Manager zip file you need to build your environment: [emcc-de-mkplc-freetier.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/g-lr0Sxu62wacBSXQDDS-YmOgDrXLvjEPLbiQ7_8FKHLf7DZ8VJ1vc7ITJGvduWi/n/natdsecurity/b/stack/o/emcc-de-mkplc-freetier.zip)
 
 2.  Save in your downloads folder.
 
@@ -45,6 +45,6 @@ Using the details from the two tasks above, proceed to the lab **Setup Compute I
 -  Create Stack:  **Compute only** with an existing VCN where security lists have been updated as per *Task 2* above
 
 ## Acknowledgements
-  - **Author** - Rene Fontcha, LiveLabs Platform Lead, NA Technology
-  - **Contributors** -  
-  - **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, October 2021
+- **Author** - Rene Fontcha, LiveLabs Platform Lead, NA Technology
+- **Contributors** -  
+- **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, December 2021

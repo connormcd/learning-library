@@ -1,4 +1,4 @@
-# Using Enhanced Analytic Functions
+# Use Enhanced Analytic Functions
 
 ## Introduction
 This lab shows how to benefit from the new options of the window frame clause, `GROUPS` and `EXCLUDE`, and also from the `WINDOW` clause in the table expression.
@@ -11,7 +11,7 @@ In this lab, you will:
 * Setup the environment
 </if>
 <if type="atp">
-* Login to SQL Developer Web on ADB
+* Login to SQL Developer Web on Oracle Autonomous Database
 </if>
 * Experiment with the usage of the `GROUPS` clause of the window frame
 * Experiment with the usage of the `EXCLUDE` clause of the window frame
@@ -26,7 +26,7 @@ In this lab, you will:
 </if>
 <if type="atp">
 * An Oracle Always Free/Free Tier, Paid or LiveLabs Cloud Account
-* Lab: Provision ADB
+* Lab: Provision Oracle Autonomous Database
 * Lab: Setup
 </if>
 
@@ -118,15 +118,16 @@ The `setup_analytic_table.sh` shell script creates in both `PDB21` and `PDB19` t
     ```
 </if>
 <if type="atp">
-## Task 1: Login to SQL Developer Web on ADB
+## Task 1: Login to SQL Developer Web on Oracle Autonomous Database
 
 There are multiple ways to access your Autonomous Database.  You can access it via sqlplus or by using SQL Developer Web.  To access it via sqlplus, skip to [Step 1B](#STEP1B:LogintoADBusingSQLPlus).
 
-1.  If you aren't still logged in, login to your ADB screen by clicking on the Hamburger Menu and selecting the Autonomous Database flavor you selected (ATP, ADW or AJD). Otherwise skip to #7 of this section.
+1.  If you aren't still logged in, login to your Oracle Autonomous Database screen by clicking on the navigation menu and selecting the Autonomous Database flavor you selected (Oracle Autonomous Transaction Processing, Oracle Autonomous Data Warehouse, or Oracle Autonomous JSON Database). Otherwise skip to #7 of this section.
     ![](../set-operators/images/21c-home-adb.png " ")
 
-2.  If you can't find your ADB instance, ensure you are in the correct compartment, you have chosen the flavor of ADB you choose in the earlier lab and that you are in the correct region.
-3.  Click on the **Display Name** to go to your ADB main page.
+2.  If you can't find your Oracle Autonomous Database instance, ensure you are in the correct compartment, you have chosen the flavor of Oracle Autonomous Database you choose in the earlier lab and that you are in the correct region.
+
+3.  Click on the **Display Name** to go to your Oracle Autonomous Database main page.
       ![](../set-operators/images/21c-adb.png " ")
 
 4.  Click on the **Tools** tab, select **Database Actions**, a new browser will open up.
@@ -135,7 +136,7 @@ There are multiple ways to access your Autonomous Database.  You can access it v
 5.  Enter the username *report* and password *WElcome123##*
 6.  Click on the **SQL** button.
 
-## Task 1B: Login to ADB using SQL Plus
+## Task 1B: Login to Oracle Autonomous Database using SQL Plus
 1. If you aren't logged into the cloud, log back in
 2. Open up Cloud Shell
 3. Connect to the REPORT user using sqlplus by entering the commands below.
@@ -533,4 +534,4 @@ You may now [proceed to the next lab](#next).
 ## Acknowledgements
 * **Author** - Donna Keesling, Database UA Team
 * **Contributors** -  David Start, Kay Malcolm, Didi Han, Database Product Management
-* **Last Updated By/Date** -  Tom McGinn, July 2021
+* **Last Updated By/Date** - Arabella Yao, Product Manager, Database Product Management, December 2021

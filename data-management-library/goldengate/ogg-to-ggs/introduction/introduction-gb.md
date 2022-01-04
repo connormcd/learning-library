@@ -10,7 +10,7 @@ You will be working in the Oracle GoldenGate Marketplace Web UI and the OCI Gold
 
 Estimated Time: 120 minutes
 
-<if type="odbw">If you would like to watch us do the workshop, click [here](https://youtu.be/6KsirCdeUXw).</if>
+If you would like to watch us do the workshop, click [here](https://youtu.be/6KsirCdeUXw).
 
 ### About Oracle Cloud Infrastructure GoldenGate
 

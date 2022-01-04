@@ -1,17 +1,15 @@
-# RUN QUERIES WITH MYSQL SHELL
-![INTRO](./images/00_mds_heatwave_2.png " ") 
-
+# Run Queries with MySQL Shell
+![INTRO](./images/00_mds_heatwave_2.png " ")
 
 ## Introduction
 
 In this lab, you will run queries in HeatWave and in MySQL. You will see the query performance improvements on HeatWave compare to MySQL.
 
-_Estimated Lab Time:_ 10 minutes
+_Estimated Time:_ 10 minutes
 
 Watch the video below for a quick walk through of the lab.
 
 [](youtube:fOcDBTf-KqE)
-
 
 ### Objectives
 
@@ -19,21 +17,17 @@ In this lab, you will be guided through the following tasks:
 
 - Run Queries with MySQL Shell
 
-
-
 ### Prerequisites
 
 - An Oracle Trial or Paid Cloud Account
 - Some Experience with MySQL Shell
 - Completed Task 3
 
-
-
 ## Task 1: Run Queries in HeatWave
 
 1. If not already connected with SSH, connect to Compute instance using Cloud Shell
 
-    (Example: **ssh -i ~/.ssh/id_rsa opc@132.145.170...**) 
+    (Example: **ssh -i ~/.ssh/id_rsa opc@132.145.170...**)
 
 2. On command Line, connect to MySQL using the MySQL Shell client tool with the following command:
 
@@ -47,6 +41,7 @@ In this lab, you will be guided through the following tasks:
     ```
     <copy>USE airportdb;</copy>
     ```
+
 4. **Query 1** - Find per-company average age of passengers from Switzerland, Italy and France
 
 5. Before running a query, use EXPLAIN to verify that the query can be offloaded to the HeatWave cluster. You should see "Use secondary engine RAPID" in the explain plan. For example:
@@ -127,9 +122,10 @@ LIMIT 10;</copy>
      ```
     <copy>SHOW VARIABLES LIKE 'use_secondary_engine%';</copy>
     ```
-10. Run additional queries. Remember to turn on and off the `use_secondary_engine`  to compare the execution time. 
-   
-    (Example  **SET SESSION `use_secondary_engine`=On;**) 
+
+10. Run additional queries. Remember to turn on and off the `use_secondary_engine`  to compare the execution time.
+
+    (Example  **SET SESSION `use_secondary_engine`=On;**)
 
     (Example  **SET SESSION `use_secondary_engine`=Off;**)      
 
@@ -137,6 +133,7 @@ LIMIT 10;</copy>
      ```
     <copy>SET SESSION use_secondary_engine=ON;</copy>
     ```
+
 12. **Query 2** -  Find top 10 companies selling the biggest amount of tickets for planes taking off from US airports.	Run Pricing Summary Report Query:
 
     ```
@@ -158,6 +155,7 @@ ORDER BY
 LIMIT 10;
     </copy>
     ```
+
 13. Enter the following command at the prompt:
      ```
     <copy>SET SESSION use_secondary_engine=OFF;</copy>
@@ -183,6 +181,7 @@ ORDER BY
 LIMIT 10;
     </copy>
     ```
+
 14. **Query 3** - Give me the number of bookings that Neil Armstrong and Buzz Aldrin made for a price of > $400.00
 
     ```
@@ -190,7 +189,7 @@ LIMIT 10;
     ```
 
     ```
-    <copy>SELECT 
+    <copy>SELECT
     firstname,
     lastname,
     COUNT(booking.passenger_id) AS count_bookings
@@ -208,9 +207,9 @@ GROUP BY firstname , lastname;</copy>
     ```
     <copy>SET SESSION use_secondary_engine=OFF;</copy>
     ```
-    
+
     ```
-    <copy>SELECT 
+    <copy>SELECT
     firstname,
     lastname,
     COUNT(booking.passenger_id) AS count_bookings
@@ -233,15 +232,15 @@ GROUP BY firstname , lastname;</copy>
     ```
 16. The final results should look like the following:
 
-    ![RUN](./images/final-result.png " ") 
+    ![RUN](./images/final-result.png " ")
 
-You may now proceed to the next lab.
-    
 ## Learn More
 
 * [Oracle Cloud Infrastructure MySQL Database Service Documentation ](https://docs.cloud.oracle.com/en-us/iaas/MySQL-database)
 * [MySQL Database Documentation](https://www.MySQL.com)
+
 ## Acknowledgements
-* **Author** - Perside Foster, MySQL Solution Engineering 
+
+* **Author** - Perside Foster, MySQL Solution Engineering
 * **Contributors** - Mandy Pang, MySQL Principal Product Manager,  Priscila Galvao, MySQL Solution Engineering, Nick Mader, MySQL Global Channel Enablement & Strategy Manager
 * **Last Updated By/Date** - Perside Foster, MySQL Solution Engineering, September 2021

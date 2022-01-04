@@ -2,11 +2,11 @@
 
 ## Introduction
 
-This lab will show you how to test different failure scenarios and compare/contrast the behavior when using different resources.
+This lab will show you how to test different failure scenarios and compare the behavior when using different resources.
 
 Estimated Time: 10 minutes
 
-Watch the video below for a quick walk through of the lab.
+Watch the video below for a quick walk-through of the lab.
 
 [](youtube:ivyPwQDl7GQ)
 
@@ -20,9 +20,9 @@ Watch the video below for a quick walk through of the lab.
 
 ### Prerequisites
 
-* Completion of Lab 1 Setup and Lab 2 Microservices Walk-through
+* Completion of Lab 1: Setup and Lab 2: Microservices Walk-through
 
-## Task 1: Install MongoDB, Postgres, and Kafka, and deploy Order and Inventory services that use them
+## Task 1: Install MongoDB, Postgres, and Kafka, and Deploy Order and Inventory Services that Use Them
 
 1.  Install MongoDB, Postgres, and Kafka
 
@@ -30,8 +30,21 @@ Watch the video below for a quick walk through of the lab.
     <copy>cd $GRABDISH_HOME/mongodb-kafka-postgres;./install-all.sh</copy>
     ```
 
+2. Verify all pods and services are running by running the `pods` and `services` shortcut commands.
 
-2.  Undeploy any existing Order, Inventory, and Supplier Services and deploy the MongoDB, Postgres, and Kafka backed Order and Inventory implementations by copying and running the following commands.
+    ```
+    <copy>pods</copy>
+    ```
+
+   ![](images/kafkamongodbpostgresspods.png " ")
+
+   ```
+    <copy>services</copy>
+    ```
+
+   ![](images/kafkamongodbpostgressservices.png " ")
+
+3.  Undeploy any existing Order, Inventory, and Supplier Services and deploy the MongoDB, Postgres, and Kafka backed Order and Inventory implementations by copying and running the following commands.
 
     ```
     <copy>
@@ -43,14 +56,15 @@ Watch the video below for a quick walk through of the lab.
     </copy>
     ```
 
-3. Check that all pods and services are running by running the `msdataworkshop` command.
+4. Verify all pods and services are running by running the `msdataworkshop` command.
 
     ```
     <copy>msdataworkshop</copy>
     ```
 
+   ![](images/console-kafkamongodbpostgres.png " ")
 
-## Task 2: Run tests on MongoDB, Postgres, Kafka implementations
+## Task 2: Run Tests on MongoDB, Postgres, Kafka Implementations
 
 
 1. Add Inventory until there is a value of 10 for sushi.
@@ -119,7 +133,7 @@ Watch the video below for a quick walk through of the lab.
 18. Click the `Get Inventory` button and notice inventory has been reduced to an incorrect value of 7 as the duplicate message delivery has reduced inventory twice for the same order.
    ![](images/getinventory7.png " ")
 
-## Task 3: Deploy Order and Inventory services that use Oracle and AQ/TEQ
+## Task 3: Deploy Order and Inventory Services that use Oracle and AQ/TEQ
 
 1.  Undeploy MongoDB, Postgres, and Kafka backed Order and Inventory implementations and deploy the Oracle + TEQ/AQ backed Order and Inventory implementations by copying and running the following commands.
 
@@ -134,13 +148,13 @@ Watch the video below for a quick walk through of the lab.
     </copy>
     ```
 
-3. Check that all pods and services are running by running the `msdataworkshop` command.
+3. Verify all pods and services are running by running the `msdataworkshop` command.
 
     ```
     <copy>msdataworkshop</copy>
     ```
 
-## Task 4: Run tests against Oracle DB + AQ implementations
+## Task 4: Run Tests Against Oracle DB + AQ Implementations
 
 
 1. Add Inventory until there is a value of 10 for sushi.

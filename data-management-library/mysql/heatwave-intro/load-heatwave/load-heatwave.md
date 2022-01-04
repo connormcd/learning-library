@@ -1,6 +1,5 @@
-# LOAD HEATWAVE CLUSTER IN MYSQL DATABASE SYSTEM  
-![INTRO](./images/00_mds_heatwave_2.png " ") 
-
+# Load HeatWave cluster in MySQL Database System  
+![INTRO](./images/00_mds_heatwave_2.png " ")
 
 ## Introduction
 
@@ -8,7 +7,7 @@ A HeatWave cluster comprise of a MySQL DB System node and two or more HeatWave n
 
 ![Connect](./images/10addheat00.png " ")
 
-_Estimated Lab Time:_ 10 minutes
+_Estimated Time:_ 10 minutes
 
 Watch the video below for a quick walk through of the lab.
 
@@ -30,7 +29,7 @@ In this lab, you will be guided through the following task:
 ## Task 1: Load airportdb Data into HeatWave Cluster
 1. If not already connected with SSH, connect to Compute instance using Cloud Shell
 
-    (Example: **ssh -i ~/.ssh/id_rsa opc@132.145.17....**) 
+    (Example: **ssh -i ~/.ssh/id_rsa opc@132.145.17....**)
 
 2. On command Line, connect to MySQL using the MySQL Shell client tool with the following command:
 
@@ -39,7 +38,6 @@ In this lab, you will be guided through the following task:
     ```
 
 3. Run the following Auto Parallel Load command to load the airportdb tables into HeatWave..
-
 
     ![Connect](./images/heatwave-load-01-shell.png " ")
 
@@ -62,13 +60,13 @@ In this lab, you will be guided through the following task:
     ```
     ![Connect](./images/heatwave-load-04.png " ")
 
-You may now proceed to the next lab.
-
 ## Learn More
 
 * [Oracle Cloud Infrastructure MySQL Database Service Documentation ](https://docs.cloud.oracle.com/en-us/iaas/MySQL-database)
 * [MySQL Database Documentation](https://www.MySQL.com)
+
 ## Acknowledgements
-* **Author** - Perside Foster, MySQL Solution Engineering 
+
+* **Author** - Perside Foster, MySQL Solution Engineering
 * **Contributors** - Mandy Pang, MySQL Principal Product Manager,  Priscila Galvao, MySQL Solution Engineering, Nick Mader, MySQL Global Channel Enablement & Strategy Manager
 * **Last Updated By/Date** - Perside Foster, MySQL Solution Engineering, September 2021

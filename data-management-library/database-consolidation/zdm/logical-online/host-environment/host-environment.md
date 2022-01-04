@@ -40,7 +40,7 @@ Estimate Lab Time: 20 minutes
     ```
 
 ## **Task 2: Set ZDM Group and User and Create Directories**
-1. Run code below to add the group zdm, create the user zdmuser, and add directories for the ZDM.
+1. Run code below to add the group zdm, create the user zdmuser, and add directories for the ZDM. Please bear in mind that enter must be needed to enter twice after having copied the below statement. 
 
     ```
     <copy>
@@ -61,7 +61,7 @@ Estimate Lab Time: 20 minutes
     * glib-devel
     * oraclelinux-developer-release-el7
 
-    Run the below command to check each of the 3 packages above:
+    Run the below command to check each of the 3 packages above. Please bear in mind that enter must be needed to enter twice after having copied the below statement :
 
     ```
     <copy>

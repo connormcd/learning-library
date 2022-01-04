@@ -1,54 +1,29 @@
-# Introduction                                  
+# Introduction
 
-The labs in this workshop walk you through all the steps to get started using the **Oracle Autonomous Database on Shared Infrastructure (ADB-S)**. You will provision a new ADB instance, load data from the object store and troubleshoot data loads, query external data residing on the object store, and create rich data visualizations using Oracle Analytics Desktop.
+The labs in this workshop walk you through all the steps to get started using the **Oracle Autonomous Database on Shared Infrastructure (ADB-S)**.
 
-With Oracle Autonomous Database we make it quick and easy for you to create a secure, fully managed database service in the Oracle Cloud which enables you to start loading and analyzing your data immediately.
+<if type="odbw">If you would like to watch us do the workshop, click [here](https://youtu.be/otS5PvJcxMQ).
+</if>
 
-<if type="odbw">If you would like to watch us do the workshop, click [here](https://youtu.be/otS5PvJcxMQ).</if>
-
-## What is an Oracle Autonomous Database?
-Oracle Autonomous Data Warehouse and Oracle Autonomous Transaction Processing are built around the market leading Oracle database. They come with fully automated data warehouse and transaction processing specific features that deliver outstanding query performance. This environment provides a fully managed cloud service running on optimized high-end Oracle hardware systems. You don’t need to spend time thinking about how you should store your data, when or how to back it up or how to tune your queries. We take care of everything for you.
-
-Watch our short video that explains key features in Oracle's Autonomous Database:
-
-[](youtube:c-DUIePFKco)
-
-Oracle’s Autonomous Database is the perfect quick-start service for fast data loading and sophisticated data reporting and analysis. Oracle manages everything for you so you can focus on your data.
-
-## Workshop objectives
-- Get comfortable with Oracle's public cloud services
+## **Workshop Objectives**
 - Provision a new Autonomous Database instance on Shared Infrastructure
-- Run sample queries on the sample data sets
-- Load data from the object store
-- Query external data from the object store
+- Run Queries on the sample data sets
+- Upload files to the Oracle Cloud Infrastructure (OCI) Object Storage, create sample tables, load data into them from files on the OCI Object Storage
+- Query files on the OCI Object Storage directly without loading them to your database
 - Visualize your data using Oracle Analytics Desktop
 
-## Lab breakdown
-- **Lab 1:** Provision your first Autonomous Data Warehouse.
-- **Lab 2:** Explore the provided sample data sets that come with your Autonomous Database.
-- **Lab 3:** Upload files to the Oracle Cloud Infrastructure (OCI) Object Storage, create sample tables, load data into them from files on the OCI Object Storage, and troubleshoot data loads with errors.
-- **Lab 4:** Query files on the Oracle Cloud Infrastructure (OCI) Object Storage directly without loading them to your database.
-- **Lab 5:** Visualize your data using Oracle Analytics Desktop.
+### **Workshop Prerequisites**
 
-**After reading the following workshop prerequisites, get started by clicking Get Started in the Contents menu on the left.**
+This workshop requires an Oracle Cloud account. You may use your existing account or create one in the following lab.
 
-## Workshop prerequisites
-This workshop requires an Oracle Cloud account. You may use your own cloud account, a cloud account that you obtained through a trial, a Free Tier account, or a training account whose details you received from an Oracle instructor.
+**Let's begin! If you need to create an account, please click Get Started in the Contents menu on the left. Otherwise, if you have an existing account, click "Lab 1: Provision Autonomous Database".**
 
-## Learn more
+## Want to Learn More About Autonomous Database?
 
-Use these links to get more information about Oracle Autonomous Database:
-
-- <a href="https://www.oracle.com/database/autonomous-database.html" target="\_blank">Oracle Autonomous Database website</a>
-- <a href="https://www.oracle.com/database/adw-cloud.html" target="\_blank">Oracle Autonomous Data Warehouse website</a>
-- <a href="https://www.oracle.com/database/atp-cloud.html" target="\_blank">Oracle Autonomous Transaction Processing website</a>
-- <a href="http://www.oracle.com/us/products/database/autonomous-dw-cloud-ipaper-3938921.pdf" target="\_blank">Oracle Autonomous Data Warehouse ipaper</a>
 - <a href="https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/index.html" target="\_blank">Oracle Autonomous Data Warehouse Documentation</a>
-- <a href="https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/videos.html" target="\_blank">Autonomous Data Warehouse Videos</a>
-- <a href="https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/tutorials.html" target="\_blank">More Autonomous Data Warehouse Tutorials</a>
+- <a href="https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/tutorials.html" target="\_blank">Additional Autonomous Data Warehouse Tutorials</a>
 
 ## Acknowledgements
 
-- **Author** - Nilay Panchal, Oracle Autonomous Database Product Management
-- **Adapted for Cloud by** - Richard Green, Principal Developer, Database User Assistance
-- **Last Updated By/Date** - Richard Green, October 2021
+- **Authors** - Nilay Panchal, ADB Product Management; Richard Green, Database User Assistance
+- **Last Updated By/Date** - Richard Green, November 2021

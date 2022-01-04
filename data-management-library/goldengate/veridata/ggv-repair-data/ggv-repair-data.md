@@ -19,9 +19,7 @@ In this lab, you will:
 ### Prerequisites
 This lab assumes you have:
 - A Free Tier, Paid or LiveLabs Oracle Cloud account
-- SSH Private Key to access the host via SSH (*Free-tier* and *Paid Tenants* only)
 - You have completed:
-    * Lab: Generate SSH Keys (*Free-tier* and *Paid Tenants* only)
     * Lab: Prepare Setup (*Free-tier* and *Paid Tenants* only)
     * Lab: Environment Setup
     * Lab: Initialize Environment
@@ -36,38 +34,49 @@ You can generate SQL files only for Jobs that have been configured for datasourc
 To generate SQL files:
   1. From the left navigation pane, click **Finished Jobs** to view the page containing details of all the finished jobs. You can select Jobs, groups, and compare pairs for generating SQL statements.
   2. From the table under **Finished Jobs**, click the Job name link under **Job Name**:
-          ![](./images/1-select-out-of-sync-link.png " ")
+
+    ![](./images/1-select-out-of-sync-link.png " ")
+
   3. Click the Group name under the **Group Name**:
-          ![](./images/2-select-group-name-link.png " ")
+
+    ![](./images/2-select-group-name-link.png " ")
 
  4. Click the **Out of Sync** link for the Compare Pair name **Case\_Insensitive_Table\=CASE\_INSENSITIVE\_TABLE**:
+
     ![](./images/4-Case_Insensitive_Table=CASE_INSENSITIVE_TABLE.png " ")
 
   5. Click **Generate SQL**.
+
     ![](./images/1-select-out-of-sync-generate-sql.png " ")
+
     The SQL file gets generated.
 
   6. Open a terminal to view the generated SQL file. Navigate to the generated location:
 
-      ![](./images/4-unzip-generated-sql.png " ")
+    ![](./images/4-unzip-generated-sql.png " ")
 
   7. Unzip the SQL file to view its contents.
 
-      ![](./images/3-view-generated-sql.png " ")
+    ![](./images/3-view-generated-sql.png " ")
 
 ## Task 2: Repair Out-of-Sync Jobs
 
   To repair out-of-sync jobs:
   1. From the left navigation pane, click **Finished Jobs** to view the page containing details of all the finished jobs. You can select Jobs, groups, and compare pairs for repairing out-of-sync records.
   2. From the table under **Finished Jobs**, click the Job name link under **Job Name**:
-          ![](./images/1-select-out-of-sync-link.png " ")
+
+    ![](./images/1-select-out-of-sync-link.png " ")
+
   3. Click the Group name under the **Group Name**:
-          ![](./images/2-select-group-name-link.png " ")
+
+    ![](./images/2-select-group-name-link.png " ")
 
  4. Click the **Out Of Sync** link for the Compare Pair name **Case\_Insensitive_Table\=CASE\_INSENSITIVE\_TABLE**:
+
     ![](./images/4-Case_Insensitive_Table=CASE_INSENSITIVE_TABLE.png " ")
 
   5. Click **Run Repair**.
+
     ![](./images/2-click-run-repair1.png " ")
 
     ![](./images/5-repaired-data.png " ")
@@ -86,4 +95,4 @@ You may now [proceed to the next lab](#next).
 ## Acknowledgements
 * **Author** - Anuradha Chepuri, Principal UA Developer, Oracle GoldenGate User Assistance
 * **Contributors** -  Nisharahmed Soneji, Sukin Varghese , Rene Fontcha
-* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, June 2021
+* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, November 2021

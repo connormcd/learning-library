@@ -18,6 +18,10 @@ In marketing, [life-time value (LTV)](https://en.wikipedia.org/wiki/Customer_lif
 
 Estimated Lab Time: 2 hours 50 min
 
+Watch the video below for a quick walk through of the lab.
+
+[](youtube:u1jGQJLdaZE)
+
 ### Objectives
 
 In this lab, you will:
@@ -320,6 +324,10 @@ An artificial neural network is composed of a large number of interconnected neu
 
 At this step, you will build, test, and tune a neural network that can classify your customers in four `LTV_BIN` classes (*LOW*, *MEDIUM*, *HIGH*, and *VERY HIGH*). You will test both types of classification.
 
+Watch the video below for a quick walk through of the lab.
+
+[](youtube:VT2R3zJ2A2Q)
+
 1. Generate an OML data frame from your database table.
 
     ```
@@ -504,6 +512,10 @@ Decision Tree (DT) is a supervised machine learning algorithm used for classifyi
 > **Note** : For more information on this algorithm, visit [Decision Tree](https://docs.oracle.com/en/database/oracle/machine-learning/oml4sql/21/dmcon/decision-tree.html#GUID-14DE1A88-220F-44F0-9AC8-77CA844D4A63) documentation.
 
 In this example, you will not only classify your customers in four `LTV_BIN` classes (*LOW*, *MEDIUM*, *HIGH*, and *VERY HIGH*), but you will also retrieve the rules (conditions) that are behind the customers classification.
+
+Watch the video below for a quick walk through of the lab.
+
+[](youtube:FSV_UDp_QNs)
 
 1. Create the OML data frame for this step. Drop `LTV` column as you will use only the `LTV_BIN` classes for the predicted value.
 
@@ -737,6 +749,10 @@ Generalized Linear Model (GLM) is a statistical technique used for linear modeli
 
 In your case, the independent predictors are customer attributes, and the response target value is the customer life-time value.
 
+Watch the video below for a quick walk through of the lab.
+
+[](youtube:ZsQ2MBP9TrA)
+
 1. Create an OML data frame proxy object in Python that represents your Oracle Database data set.
 
     ```
@@ -917,6 +933,10 @@ Oracle Machine Learning supports enhanced k-Means (KM) clustering algorithm. The
 
 You will group customers in four clusters. KM algorithm is more appropriate for data sets with a low number of attributes. For this reason, you will reduce the training and test data to just one dimension, customer life-time value.
 
+Watch the video below for a quick walk through of the lab.
+
+[](youtube:tx9yKjutc0M)
+
 1. Create training and test data. Use only `CUST_ID` column that contains unique case identifiers, and `LTV` column that contains customer life-time values.
 
     ```
@@ -1044,6 +1064,10 @@ Oracle Machine Learning supports the Attribute Importance (AI) machine learning 
 
 In this example, you will use the entire data set, however you will drop `LTV` column. This column represents the exact numeric value of your customers LTV, and you already know there is a direct relationship between this column and the customer class represented in `LTV_BIN` column, so LTV value cannot be considered an attribute.
 
+Watch the video below for a quick walk through of the lab.
+
+[](youtube:K88tfKgNPjI)
+
 1. Create an OML data frame proxy object in Python that represents your Oracle Database data set.
 
     ```
@@ -1131,6 +1155,10 @@ Singular Value Decomposition (SVD) is an unsupervised algorithm for feature extr
 > **Note** : For more information, visit [Singular Value Decomposition](https://docs.oracle.com/en/database/oracle/machine-learning/oml4sql/21/dmcon/singular-value-decomposition.html#GUID-703B237F-D9C5-4543-97DD-31A914BB6A05) documentation.
 
 At this step, you want to identify the most important features and how are these related to your customers attributes.
+
+Watch the video below for a quick walk through of the lab.
+
+[](youtube:Vk4vutHr1f8)
 
 1. Create an OML data frame proxy object in Python that represents your Oracle Database data set.
 
@@ -1266,6 +1294,10 @@ Any modeling problem for a specified data set and prediction task involves a seq
 
 At this step, you will use AutoML to select the best Oracle Machine Learning algorithm based on the characteristics of the data set and the task. No single algorithm works best for all modeling problems. AutoML ranks the candidate algorithms according to how likely each is to produce a quality model. Compare this to the first part of the workshop where you experimented with Decision Tree and Neural Networks algorithms manually.
 
+Watch the video below for a quick walk through of the lab.
+
+[](youtube:5YritI-0_KY)
+
 1. Import `automl` from `oml` Python library.
 
     ```
@@ -1366,6 +1398,10 @@ AutoML Feature Selection identifies the most relevant feature subsets for a trai
 
 In this AutoML example, you will reduce the number of features of your customers data set, and compare the accuracy score of a Support Vector Machine (SVM) algorithm for a classification task.
 
+Watch the video below for a quick walk through of the lab.
+
+[](youtube:oU7_kRoXVG8)
+
 1. Create an OML data frame proxy object in Python that represents your Oracle Database data set.
 
     ```
@@ -1456,6 +1492,10 @@ AutoML Model Selection automatically selects an Oracle Machine Learning algorith
 
 In this example, you will create an AutoML `ModelSelection` object and then use this object to select and tune the best model for your task.
 
+Watch the video below for a quick walk through of the lab.
+
+[](youtube:u697lA4XjPM)
+
 1. Create an OML data frame proxy object that represents your database table.
 
     ```
@@ -1508,6 +1548,10 @@ AutoML Model Tuning tunes the hyperparameters for the specified classification o
 > **Note** : For more information on this algorithm, visit [Model Tuning](https://docs.oracle.com/en/database/oracle/machine-learning/oml4py/1/mlpug/model-tuning.html#GUID-0F5153CC-39E5-4189-9615-09D8F39D7FBF) documentation.
 
 In this case, you will execute an automated model tuning process for a classification task using Decision Tree (DT) algorithm.
+
+Watch the video below for a quick walk through of the lab.
+
+[](youtube:lBAKjZvLZmE)
 
 1. Create an OML data frame proxy object in Python that represents your Oracle Database data set.
 

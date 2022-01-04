@@ -10,7 +10,7 @@ We will:
 2. Log out and then login again in the Database Actions, now as the new F1 user.
 3. Load the data into the tables as the F1 user.
 
-Estimated Lab Time: 10 minutes
+Estimated Time: 10 minutes
 
 ### Objectives
 - Learn how to load data into the data warehouse, so you can analyze it later.
@@ -32,17 +32,19 @@ This new user/schema will hold the Grand Prix data.
 
    ![ADW Menu](images/open-redbull2.png)
 
-3. Go to **Tools** tab and click **Open Database Actions**.
+3. Click **Database Actions**.
+
+   (if your Autonomous Data Warehouse was created earlier, you can find the Database Actions under "Tools")
 
    ![ADW Menu](images/open-database-actions.png)
 
-   Login with user **ADMIN**, password **Oracle_12345** (you specified this upon creation of the Autonomous Data Warehouse earlier).
+   If asked, login with user **ADMIN**, password **Oracle_12345** (you specified this upon creation of the Autonomous Data Warehouse earlier).
 
 4. Click the **SQL** tile under **Development** section.
 
     ![ADW Menu](images/open-sql.png)
 
-5. **Download** <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/QBIpPOnfRdUezN-5rzycJqiPTwK0fOxTqiEUaEstDb7l9ou55SeTIMPQv9Umfh01/n/odca/b/workshops-livelabs-do-not-delete/o/redbull-create-user.sql" target="\_blank">`redbull-create-user.sql`</a>. Save the file on your local machine. Make sure that the file is saved with extension `.sql`.
+5. **Download** <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/jC_T4nG83jOCnR93ELi24nCKmGqPZw7GO6fw3vahKqOrFmmbAZcgRcbdzvPwg4mC/n/odca/b/workshops-livelabs-do-not-delete/o/redbull-create-user.sql" target="\_blank">`redbull-create-user.sql`</a>. Save the file on your local machine. Make sure that the file is saved with extension `.sql`.
 
 6. Open the `redbull-create-user.sql` file with a text editor and copy-and-paste all of its contents into the database actions worksheet area. This file will create a new user "F1" for us.
 
@@ -52,33 +54,31 @@ This new user/schema will hold the Grand Prix data.
 
     ![ADW Menu](images/run-script.png)
 
-8. Log out from the Data Actions as the ADMIN user.
-
-   ![ADW Menu](images/signoutadmin.png)
-
 ## **Task 2**: Upload the Grand Prix data to Autonomous Data Warehouse
 
 1. **Download** the 6 files that contain the data that we'll use in our analysis:
 
-   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/mss-m7_Hu1acplYpDU9jQE6LQzYGMNCJAw2kv-TZtK7WZ8XB0IkWvnMLGQ77zx3p/n/odca/b/workshops-livelabs-do-not-delete/o/RACES.csv" target="\_blank">Races data</a>
+   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/vP6XaNcGjlu1W8TThO75ehALwJuA4OgVG_K_LyLEwJ6HGCUjaNIIMOJyYIh1aKxD/n/odca/b/workshops-livelabs-do-not-delete/o/RACES.csv" target="\_blank">Races data</a>
 
-   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/Ste8VTJD85wJLXrIIz8jvachpw197cfhUrv_l3ACX0-_9x0A15_icePdsLBgUtm-/n/odca/b/workshops-livelabs-do-not-delete/o/LAP_TIMES.csv" target="\_blank">Lap Times data</a>
+   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/TPFi3tHQVT21Ect8sowpATq0DVNb8szksMSK2NX3Oby3o6QmBuWUaSWggPkaqvRd/n/odca/b/workshops-livelabs-do-not-delete/o/LAP_TIMES.csv" target="\_blank">Lap Times data</a>
 
-   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/tFVH460U7oe_cxN4zX7deI9w5PuvFDUCw0QidTrrrlGI8HqSQ_BO9OzAYBFIaoax/n/odca/b/workshops-livelabs-do-not-delete/o/SAFETY_CAR.csv" target="\_blank">Safety Car data</a>
+   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/mXEu65kUFpi4Kg7QPt6f7RM4h2jGYvmnFSVV38pb2pi4oBNsmJ3QI-tm120TbO20/n/odca/b/workshops-livelabs-do-not-delete/o/SAFETY_CAR.csv" target="\_blank">Safety Car data</a>
 
-   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/NevYKwlbSVmGGks9t63Zs-V7Wi4_L_NXjFyLdG-sKFApIgjy4QMrROzxikPT5GDD/n/odca/b/workshops-livelabs-do-not-delete/o/PIT_STOPS.csv" target="\_blank">Pit Stop data</a>
+   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/oWf_acJmIMFN_XTBlVXKhIR97kO8Ww_TU8nU-aHekxD1Fpy1IK49zx_d3w-GqSvq/n/odca/b/workshops-livelabs-do-not-delete/o/PIT_STOPS.csv" target="\_blank">Pit Stop data</a>
 
-   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/pLhQUqTCanEp3IAF1EnNSQaDI0f2uoF2La0MN_PjXAQNWXgqa5oqOrBwEaW8T56A/n/odca/b/workshops-livelabs-do-not-delete/o/RESULTS.csv" target="\_blank">Race Results data</a>
+   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/zSiu-rJu8FvLSAzi12UOtZk8S3f8RmRMP1OErBrbTPfBwjFpSIERhW5755yTaIzl/n/odca/b/workshops-livelabs-do-not-delete/o/RESULTS.csv" target="\_blank">Race Results data</a>
 
-   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/SJriQFzJGysZkyUpbGvcZvk_ID6gOANvPV9TIvDczQNN3FC_2ECSpuOZaC5YzuSG/n/odca/b/workshops-livelabs-do-not-delete/o/DRIVER_STANDINGS.csv" target="\_blank">Driver Ranking data</a>
+   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/vj6p4kGjYizRm4S_8dOqeUBqBObmxqBaXRA2C4rm_PdRf6K7Ak5s7p2Y5em5Imz6/n/odca/b/workshops-livelabs-do-not-delete/o/DRIVER_STANDINGS.csv" target="\_blank">Driver Ranking data</a>
 
    Save the files on your local machine. **Make sure that the files are saved with extension `.csv`**
 
-2. Next, come back to your `REDBULL` ADW console, go to **Tools** tab and click **Open Database Actions**.
+2. **Important**: Make sure that you **change to the "F1" user**. Note that you created this "F1" user earlier (when you ran the create_user.sql script).
 
-   ![Open Database Actions](images/open-database-actions.png)
+   Log out from the Data Actions (currently showing "ADMIN").
 
-   It's **important** that you **use the F1 user** (_not_ the ADMIN user) to log in. Note that you created this "F1" user earlier (when you ran the create_user.sql script).
+   ![ADW Menu](images/signoutadmin.png)
+
+   Now log in to Data Actions again using the following:
 
    - Username: F1
    - Password: Oracle_12345
@@ -91,7 +91,7 @@ This new user/schema will hold the Grand Prix data.
 
     ![Start Data Load](images/start-data-load.png)
 
-5. Select the files that you downloaded earlier.
+5. Select the files that you downloaded earlier (6 in total).
 
     ![Select Files](images/select-files.png)
 
@@ -114,8 +114,6 @@ This new user/schema will hold the Grand Prix data.
     ![Load Completed](images/load-completed.png)
 
 Congratulations! You've successfully loaded the data into Autonomous Data Warehouse.
-
-You can now proceed to the next lab.
 
 ## **Acknowledgements**
 

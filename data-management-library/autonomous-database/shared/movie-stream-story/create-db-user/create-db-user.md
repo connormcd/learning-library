@@ -28,7 +28,7 @@ When you create a new data warehouse, you automatically get an account called AD
 
 For this workshop we need to create one new user.
 
-1. Navigate to the Details page of the Autonomous Database you provisioned in the "Provision an ADW Instance" lab. In this example, the database name is "My Quick Start ADW." Launch **Database Actions** by clicking the **Tools** tab and then click **Open Database Actions**.
+1. Navigate to the Details page of the Autonomous Database you provisioned in the "Provision an ADW Instance" lab. In this example, the database name is "My Quick Start ADW." Click the **Database Actions** button.
 
     ![Details page of your Autonomous Database](images/2878884319.png " ")
 
@@ -154,7 +154,7 @@ Now you need to switch from the ADMIN user to the MOVIESTREAM user, before start
 
     ![Sign in dialog filled with username and password](images/2878885088.png " ")
 
-4. This will launch the Database Actions home page.
+4. This will launch the Database Actions Launchpad page.
 
     ![The Database Actions home page](images/2878885105.png " ")
 

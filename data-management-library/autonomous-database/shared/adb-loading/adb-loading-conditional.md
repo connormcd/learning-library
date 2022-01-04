@@ -15,10 +15,6 @@ You can load data into your new Oracle Autonomous Database (Oracle Autonomous Da
 
 Estimated Time: 30 minutes
 
-Watch the video below for a quick walk through of the lab.
-
-[](youtube:/Dasim678fYM)
-
 ### Objectives
 
 -   Learn how to create and load an ADW table with sample data from your local file system
@@ -44,9 +40,9 @@ In Tasks 1 and 2, you will create one ADW table, **CHANNELS_LOCAL**, and load it
 
 ## Task 2: Load local data using the Database Actions DATA LOAD tool
 
-1. In your ADW Finance Mart database's details page, click the **Tools** tab. Click **Open Database Actions**.
+1. In your database's details page, click the **Database Actions** button.
 
-    ![Click Tools and Open Database Actions.](./images/Picture100-15.png " ")
+    ![Click the Database Actions button](./images/click-database-actions-button.png " ")
 
 2.  A sign-in page opens for Database Actions. For this lab, simply use your database instance's default administrator account, **Username - admin**, and click **Next**. Enter the administrator **Password** you specified when creating the database. Click **Sign in**.
 
@@ -206,9 +202,9 @@ In the first part of this lab, you loaded data from a file that you located on y
 + Set up connection to the Oracle Object Store.
 + Load the files.
 
-1. First, define a **Cloud Location** to connect to the Oracle Object Store. To begin this process you need to navigate back to the **Data Load** page. In your ADW Finance Mart database's details page, click the **Tools** tab. Click **Open Database Actions**.
+1. First, define a **Cloud Location** to connect to the Oracle Object Store. To begin this process you need to navigate back to the **Data Load** page. In your ADW Finance Mart database's details page, click the **Database Actions** button.
 
-    ![Click Tools and Open Database Actions.](./images/Picture100-15.png " ")
+    ![Click the Database Actions button](./images/click-database-actions-button.png " ")
 
 2.  The sign-in page opens for Database Actions. For this lab, simply use your database instance's default administrator account, **Username - admin**, and click **Next**. Enter the administrator **Password** you specified when creating the database. Click **Sign in**.
 
@@ -230,8 +226,10 @@ In the first part of this lab, you loaded data from a file that you located on y
     + Specify the name **ADWCLab** and a description.
     + Choose **Oracle** as the cloud store, since you will be loading from your Oracle Object Store bucket.
     + Specify the URI and bucket that you recorded in Task 6.
-    + Use the default **Create Credential** setting. Specify the credential name **OBJ\_STORE\_CRED**.
-    To access data in the Object Store, you need to enable your database user to authenticate itself with the Object Store using your OCI object store account and Auth Token. You do this by creating a private CREDENTIAL object for your user that stores this information encrypted in your Autonomous Data Warehouse. This information is only usable for your user schema.
+    + Use the default **Create Credential** setting. Specify the credential name **OBJ\_STORE\_CRED**. To access data in the Object Store, you need to enable your database user to authenticate itself with the Object Store using your OCI object store account and Auth Token. You do this by creating a private CREDENTIAL object for your user that stores this information encrypted in your Autonomous Data Warehouse. This information is only usable for your user schema.
+
+      **Note:** The credential name must conform to Oracle object naming conventions, which do not allow spaces or hyphens.
+
     + Specify your Oracle Cloud Infrastructure user name.
     + Copy and paste the Auth Token that you generated in Task 7. Click **Create**.
 
@@ -365,4 +363,4 @@ See the documentation [Loading Data with Autonomous Database](https://docs.oracl
 
 - **Author** - Nilay Panchal, Oracle Autonomous Database Product Management
 - **Adapted for Cloud by** - Richard Green, Principal Developer, Database User Assistance
-- **Last Updated By/Date** - Richard Green, September 2021
+- **Last Updated By/Date** - Richard Green, November 2021

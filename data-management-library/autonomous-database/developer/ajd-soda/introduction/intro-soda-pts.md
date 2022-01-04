@@ -18,6 +18,10 @@ In this lab, you will:
 * Provision Oracle Autonomous JSON Database
 * Create MongoDB document store on MongoDB Cloud
 
+Watch the video below to see how to prepare your development environment for Python and SODA.
+
+[](youtube:AdnmMDB8NF8)
+
 ### Prerequisites
 * SSH Keys for Putty or OpenSSH (`id_rsa.ppk` or `id_rsa`, and `id_rsa.pub`)
     * SSH Keys can be obtained when the compute node is created (OpenSSH)
@@ -49,8 +53,8 @@ In this lab, you will:
 
 1. Click on main menu ≡, then Compute > **Instances**. Click **Create Instance**.
 
-    - Name: [Your Initials]-ClientVM (e.g. VLT-ClientVM)
-    - Image or operating system: Change Image > Image source: Oracle Images > Oracle Cloud Developer Image (this image may be on the second page, you need to move the blue lifebuoy/donut icon up to click next)
+    - Name: ClientVM
+    - Image or operating system: Change Image > Image source: Oracle Images > **Oracle Cloud Developer Image** (this image may be on the second page, you need to move the blue lifebuoy/donut icon up to click next)
     - Shape: Change Shape > Intel: VM.Standard2.1
     - Virtual cloud network: existing VCN (default)
     - Subnet: Public Subnet (default)
@@ -62,7 +66,9 @@ In this lab, you will:
 3. Connect to the Compute node using SSH. In OpenSSH, local port forwarding is configured using the -L option. Use this option to forward any connection to port 3389 on the local machine to port 3389 on your Compute node. (Mac/Linux only)
 
     ````
+    <copy>
     ssh -C -i id_rsa -L 3389:localhost:3389 opc@[ClientVM Public IP Address]
+    </copy>
     ````
 
 4. Connect to the Compute node using SSH Connection From a Windows Client. Connect to Compute Public IP Address port 22. (Windows only)
@@ -73,11 +79,13 @@ In this lab, you will:
 
     ![](./images/putty2.png "")
 
-    ![](./images/putty3.png "")
-
-6. Create a SSH tunnel from source port 5001 to localhost:3389. (Windows only)
+6. Create a SSH tunnel from Source port 5001 to Destination localhost:3389. Click **Add**. (Windows only)
 
     ![](./images/putty4.png "")
+
+7. Go back to Session, give it a name, and save it. When asked if you trust this host, click **Yes**. (Windows only)
+
+    ![](./images/putty3.png "")
 
 
 ## Task 3: Configure Compute Node for development
@@ -87,18 +95,23 @@ For some of the labs we need graphical user interface, and this can be achieved 
 1. Use the substitute user command to start a session as **root** user.
 
     ````
+    <copy>
     sudo su -
+    </copy>
     ````
 
 2. Create a new script that will install and configure all the components required for the Remote Desktop connection.
 
     ````
+    <copy>
     vi xRDP_config.sh
+    </copy>
     ````
 
 3. Press **i** to insert text, and paste the following lines:
 
     ````
+    <copy>
     #!/bin/bash
 
     yum -y groupinstall "Server with GUI"
@@ -128,24 +141,31 @@ For some of the labs we need graphical user interface, and this can be achieved 
     sed -i -e 's/^/#/' /etc/profile.d/oracle-instantclient*
 
     printf "\nORACLE_HOME=/opt/oracle/product/19c/dbhome_1\nLD_LIBRARY_PATH=\$ORACLE_HOME/lib\nPATH=\$PATH:\$ORACLE_HOME/bin\nexport ORACLE_HOME LD_LIBRARY_PATH PATH\n" >> /etc/profile
+    </copy>
     ````
 
 4. Press **Esc**, type **:wq** and hit **Enter** to save the file and close. Make this script executable.
 
     ````
+    <copy>
     chmod u+x xRDP_config.sh 
+    </copy>
     ````
 
 5. Run the script and check that all goes well.
 
     ````
+    <copy>
     ./xRDP_config.sh
+    </copy>
     ````
 
 6. Close session as **root** user.
 
     ````
+    <copy>
     exit
+    </copy>
     ````
 
 7. Use Microsoft Remote Desktop to open a connection to **localhost**. (Mac/Linux only)
@@ -165,8 +185,8 @@ For some of the labs we need graphical user interface, and this can be achieved 
 1. Click on main menu ≡, then Oracle Database > **Autonomous JSON Database**. **Create Autonomous Database**.
 
     - Select a compartment: [Your Compartment]
-    - Display name: [Your Initials]-AJD (e.g. VLT-AJD)
-    - Database name: [Your Initials]AJD (e.g. VLTAJD)
+    - Display name: WS-AJD
+    - Database name: WSAJD
     - Choose a workload type: JSON
     - Choose a deployment type: Shared Infrastructure
     - Choose database version: 19c
@@ -188,13 +208,13 @@ For some of the labs we need graphical user interface, and this can be achieved 
 
     - Password: DBlearnPTS#21_
 
-6. Click **Sing In to Administration**. Click **Create Workspace**.
+6. Click **Sing In to Administration**. Click **Create Workspace**. Use these values:
 
     - Database User: DEMO
     - Password: DBlearnPTS#21_
     - Workspace Name: DEMO
 
-7. Click **Create Workspace**. Click AD on upper right corner, **Sign out**. Click **Return to Sign In Page**.
+7. Click AD on upper right corner, **Sign out**. Click **Return to Sign In Page**.
 
     - Workspace: demo
     - Username: demo
@@ -212,6 +232,7 @@ For some of the labs we need graphical user interface, and this can be achieved 
 11. Click Development > SQL, and run the following code:
 
     ````
+    <copy>
     BEGIN 
        ords_admin.enable_schema (
           p_enabled => TRUE,
@@ -223,6 +244,7 @@ For some of the labs we need graphical user interface, and this can be achieved 
       commit ;
     END ; 
     /
+    </copy>
     ````
 
     >**Note** : For all code you run in SQL Developer Web, make sure you receive a success message:
@@ -234,7 +256,9 @@ For some of the labs we need graphical user interface, and this can be achieved 
 12. Grant **SODA_APP** to DEMO user. This role provides privileges to use the SODA APIs, in particular, to create, drop, and list document collections.
 
     ````
+    <copy>
     GRANT SODA_APP TO demo;
+    </copy>
     ````
 
 13. Click **ADMIN** upper right corner, and **Sign Out**. 
@@ -264,10 +288,10 @@ One of the objectives of this workshop is to show the integration of Oracle Auto
 7. Click Connect Your Application: Python 3.6 or later. You will receive a connection string like this:
 
     ````
-    mongodb+srv://mongoUser:[password]@[cluster_name].dsbwl.mongodb.net/[dbname]?retryWrites=true&w=majority
+    mongodb+srv://mongoUser:[password]@[cluster_name].[domain].mongodb.net/[dbname]?retryWrites=true&w=majority
     ````
 
-8. Save this string in your notes. Replace `[password]`, `[cluster_name]` and `[dbname]` with your values.
+8. Save this string in your notes. Replace `[password]`, `[cluster_name]`, `[dbname]` and the 5 characters `[domain]` (e.g. dsbwl) with your values.
 
 9. Click the cluster name **Cluster0**. Under Collections, use Load a Sample Dataset wizard to generate some JSON documents for different use cases in your MongoDB database. Navigate these sample datasets and familiarize yourself with JSON documents, if this is your first experience.
 

@@ -6,7 +6,7 @@ This lab shows you how to set up navigation between pages in a web app. It also 
 
 Estimated Time: 10 minutes
 
-### Background
+### About this Lab
 With your changes committed to a remote branch, you'll now create buttons that help users navigate between the Departments page and the Employees page in the web app. Each button is associated with an event that sets off a series of actions when you click it. In VB Studio, this sequence of actions is called an _action chain_. You can use and customize predefined actions, or define your own.
 
 You'll also populate your business objects by importing data from a file. You did this for the Location business object in a previous lab, and you'll do the same for the Department and Employee business objects here.
@@ -22,7 +22,7 @@ This lab assumes you have:
 * A Chrome browser
 * All previous labs successfully completed
 
-## Task 1: Create an Action Chain to Navigate from the Departments Page to the Employees Page
+## Task 1: Create an action chain to navigate from the Departments page to the Employees page
 
 1.  Click **Workspaces**![Workspaces icon](images/vbs-workspaces-icon.png), then click **HR Visual Application** in the Workspaces table.
 2.  Click **Web Applications** ![Web Applications icon](images/web-applications-icon.png), then **main-departments** under the hrwebapp and main nodes.
@@ -49,7 +49,7 @@ This lab assumes you have:
 10.  Click **Display Employees**, then click **Create Employee**. Add another employee, specifying the new department, and click **Save**. You'll notice there's no way to get back to the main-departments page from the main-employees page. Close the browser tab.
 
 
-## Task 2: Create an Action Chain to Navigate from the Employees Page to the Departments Page
+## Task 2: Create an action chain to navigate from the Employees page to the Departments page
 
 1.  In the Web Apps pane, click **main-employees** under the hrwebapp and main nodes. If necessary, click **Reload page** ![Reload page icon](images/reload-icon.png) to display the new employee you created.
 2.  In the Components palette, drag a **Button** component to the Toolbar, to the right of the Create Employee button.
@@ -68,7 +68,7 @@ This lab assumes you have:
 
     ![](images/page-flow.png " ")
 
-## Task 3: Import Data for the Business Objects
+## Task 3: Import data for the business objects
 
 Let's now add data for the Department and Employee business objects. Instead of using the Data Manager to import data, this time you'll use each business object's Data tab to do the same thing.
 
@@ -99,6 +99,8 @@ Let's now add data for the Department and Employee business objects. Instead of 
    Click **Close** after the file has been successfully imported. Nine employees are displayed in the table.
 
 	![](images/employees-data-import-result.png " ")
+
+   You may **proceed to the next lab**.
 
 ## Acknowledgements
 * **Created By/Date** - Sheryl Manoharan, VB Studio User Assistance, November 2021

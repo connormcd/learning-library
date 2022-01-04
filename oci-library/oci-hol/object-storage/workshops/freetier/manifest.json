@@ -3,18 +3,19 @@
     "help": "livelabs-help-oci_us@oracle.com",
 	"tutorials": [
         {
+            "title": "Introduction",
+            "type": "freetier",
+            "filename": "./../../intro/intro.md"
+        },
+        {
             "title": "Getting Started",
             "description": "Login to Oracle Cloud",
             "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
         },
         {
-            "title": "Introduction",
-            "filename": "./../../intro/intro.md"
-        },
-        {
             "title": "Lab 1: Create an Object Storage Service",
             "type": "freetier",
-            "filename": "./../../os/object-storage.md"
+            "filename": "./../../object-storage/object-storage.md"
         },
         {
             "title": "Need Help?",

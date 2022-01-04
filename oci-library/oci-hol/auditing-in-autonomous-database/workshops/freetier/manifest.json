@@ -1,18 +1,18 @@
 {
-    "workshoptitle": "Auditing in an Autonomous Database",
+    "workshoptitle": "Audit in an Autonomous Database",
     "help": "livelabs-help-oci_us@oracle.com",
 	"tutorials": [
-        {
-            "title": "Getting Started",
-            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
-        },
         {
             "title": "Introduction",
             "filename": "../../intro/intro.md"
         },
         {
-            "title": "Lab 1: Auditing in Autonomous Database",
-            "filename": "./../../auditing-in-autonomous-database/auditing-in-autonomous-database.md"
+            "title": "Get Started",
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
+        },
+        {
+            "title": "Lab 1: Audit in Autonomous Database",
+            "filename": "./../../audit-in-autonomous-database/audit-in-autonomous-database.md"
         },
         {
             "title": "Need Help?",

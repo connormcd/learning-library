@@ -15,7 +15,7 @@ In this lab, you will:
 * Provision a block volume to serve as the storage point for Hyperion installer files
 * Mount/attach the block volume to all Hyperion instances
 
-## Task 1: provision the block volume
+## Task 1: Provision the Block Volume
 
 1. From the hamburger menu in OCI, click on **Storage** -> **Block Storage** -> **Block Volume**.
 
@@ -38,7 +38,7 @@ I understand that data might become corrupted if the volume is used before a clu
 
 ![More attaching block volume to instances](images/diskconfig4.png)
 
-## Task 2: mount the volume to all instances
+## Task 2: Mount the Volume to All Instances
 
 The mounting of this block volume to all instances is covered in detail through documentation from Oracle. Use [this link](https://docs.oracle.com/en-us/iaas/Content/GSG/Tasks/addingstorageForWindows.htm) for attaching to a Windows machine, and [this link](https://docs.oracle.com/en-us/iaas/Content/GSG/Tasks/addingstorage.htm) for attaching to Linux.
 
@@ -54,6 +54,8 @@ Cleaning up on the cloud is relatively simple. The Terraform stack we used in OR
 ## Summary
 
 Congratulations! You have now learned how to set up Hyperion infrastructure on OCI.
+
+This is the final lab in this series; however, if you need help, you may now **proceed to the next lab.**
 
 ## Acknowledgements
 * **Author** - Mitsu Mehta, Cloud Engineer, Packaged Apps

@@ -1,139 +1,262 @@
-# Introduction
+# Configure and Use Database Replay at the PDB Level
 
-## About this Workshop
+## Introduction
 
-This introduction covers the complete "parent" workshop. The objectives are written to cover all of the labs included in the workshop.
+In this lab, you will learn how to capture a workload from PDB1 and replay the workload at the PDB level into PDB19. The Database Replay operations can be performed at the PDB level.
 
-Estimated Lab Time: &lt;n&gt; minutes -- this estimate is for the entire workshop - it is the sum of the estimates provided for each of the labs included in the workshop.
+You can use Database Replay to capture a workload on the production system and replay it on a test system with the exact timing, concurrency, and transaction characteristics of the original workload. This enables you to test the effects of a system change without affecting the production system.
 
-### About Product/Technology
-Enter background information here....
+When workload capture is enabled, all external client requests directed to Oracle Database are tracked and stored in binary files—called capture files—on the file system. You can specify the location where the capture files will be stored. Once workload capture begins, all external database calls are written to the capture files. The capture files contain all relevant information about the client request, such as SQL text, bind values, and transaction information. Background activities and database scheduler jobs are not captured. These capture files are platform independent and can be transported to another system.
+* `EXEC DBMS`: one of a set of Oracle Streams packages, provides subprograms for starting, stopping, and configuring a capture process. The source of the captured changes is the redo logs, and the repository for the captured changes is a queue.
 
-*You may add an option video, using this format: [](youtube:&lt;YouTube video id&gt;)*
+After a captured workload has been preprocessed, it can be replayed on a test system. During the workload replay phase, Oracle Database performs the actions recorded during the workload capture phase on the test system by re-creating all captured external client requests with the same timing, concurrency, and transaction dependencies of the production system.
 
-  [](youtube:zNKxJjkq0Pw)
+The workload capture report and workload replay report provide basic information about the workload capture and replay, such as errors encountered during replay and data divergence in rows returned by DML or SQL queries. A comparison of several statistics—such as database time, average active sessions, and user calls—between the workload capture and the workload replay is also provided.
+
+Finally, A workload capture can be enabled and a workload replay can be started at the pluggable database (PDB) level.
+* `wrc client`: The replay client is a multithreaded program (an executable named wrc located in the `$ORACLE_HOME/bin` directory) where each thread submits a workload from a captured session. Before replay begins, the database will wait for replay clients to connect. At this point, you need to set up and start the replay clients, which will connect to the replay system and send requests based on what has been captured in the workload.
+
+
+Estimated Time: 25 minutes
 
 ### Objectives
 
-*List objectives for the lab - if this is the intro lab, list objectives for the workshop, for example:*
-
 In this lab, you will:
-* Provision
-* Setup
-* Data Load
-* Query
-* Analyze
-* Visualize
+* Prepare your environment
+* Start capturing data `workload.sh` from `PDB1` using the Database Replay Procedure
+* Process the capture files in `PDB19` 
+* Initialize and prepare the replay
+* Replay the captured workload in `PDB19` using the `wrc` clients
+* Verify that the captured workload is executing on `PDB19`
+* Reset your environment
 
 ### Prerequisites
 
-*Use this section to describe any prerequisites, including Oracle Cloud accounts, set up requirements, etc.*
+This lab assumes you have:
+* Obtained and signed in to your `workshop-installed` compute instance.
 
-* An Oracle Free Tier, Always Free, Paid or LiveLabs Cloud Account
-* Item no 2 with url - [URL Text](https://www.oracle.com).
+## Task 1: Prepare your environment
 
-*This is the "fold" - below items are collapsed by default*
+In this lab, you require two PDBs. The `workshop-installed` compute instance comes with a container database (CDB1) that has one PDB already created called PDB1. In this task, you will log in to PDB1 and create the logical directories where the replay capture files will be stored.
 
-## Task 1: **TEST**: Create Your Free Trial Account - Pass in a marketing code appended to the free trial link
+You will also be working in two seperate terminal windows labelled **Session1** and **Session2**, where you will capture the workload and run the workload respectively.
 
-This test demonstrates that the appended marketing code is passed to other labs.
+1. Open up the terminal window for **Session1**
 
-In this section, you will fill out the registration form at [oracle.com/cloud/free](https://myservices.us.oraclecloud.com/mycloud/signup) to receive your Oracle Free Trial with $300 in credits.
-
-1.  Click on the "Start for free" button and enter the appropriate information to create your account.
-    * Enter the same **email address** you used to register for Oracle Open World / Oracle Code One. A popup should appear recognizing your email. If not, the registration form will ask for additional information later.
-    * Select your **country/territory**.
-    * Click **Next**.
-
-    ![](images/signup-for-freetier.png " ")
-
-2.  Enter a few details for your new Oracle Cloud account.
-    * You can choose almost anything for your Cloud Account Name. Remember what you wrote. You'll need this name later to sign in.
-    * Click **Enter Password**.
-
-3.  If your email wasn't recognized or you're using a different email address, you will need to provide additional information.
-    * Provide a mobile number and click **Next: Verify Mobile Number**. In a few seconds, you should receive a verification code through SMS-text. Enter this code in the appropriate field and click **Verify**.
-    * Click **Add Credit Card Details**. You will NOT be charged unless you elect to upgrade the account later. Enter the billing information, card details, and click **Finish**.
-
-4. Validate your address.
-
-5. Enter a password. Remember this password so you can sign in to the Cloud later.
-
-6. Click **Review Terms and Conditions**. Read and agree to the Terms & Conditions by checking the box and click **Complete Sign-Up**.
-
-7. Your account is provisioning and should be available in a few seconds! When it's ready, you're automatically taken to a sign in page. You'll also receive a confirmation email containing sign in information.
-## Task 1: title
-
-Step 1 opening paragraph.
-
-1. Sub step 1
-
-  To create a link to local file you want the reader to download, use this format:
-
-  Download the [starter file](files/starter-file.sql) SQL code.
-
-  *Note: do not include zip files, CSV, PDF, PSD, JAR, WAR, EAR, bin or exe files - you must have those objects stored somewhere else. We highly recommend using Oracle Cloud Object Store and creating a PAR URL instead. See [Using Pre-Authenticated Requests](https://docs.cloud.oracle.com/en-us/iaas/Content/Object/Tasks/usingpreauthenticatedrequests.htm)*
-
-2. Sub step 2 with image and link to the text description below. The `sample1.txt` file must be added to the `files` folder.
-
-    ![Image alt text](images/sample1.png "Image title")
-
-3. Ordered list item 3 with the same image but no link to the text description below.
-
-    ![Image alt text](images/sample1.png " ")
-
-4. Example with inline navigation icon ![Image alt text](images/sample2.png) click **Navigation**.
-
-5. One example with bold **text**.
-
-   If you add another paragraph, add 3 spaces before the line.
-
-## Task 2: title
-
-1. Sub step 1
-
-  Use tables sparingly:
-
-  | Column 1 | Column 2 | Column 3 |
-  | --- | --- | --- |
-  | 1 | Some text or a link | More text  |
-  | 2 |Some text or a link | More text |
-  | 3 | Some text or a link | More text |
-
-2. You can also include bulleted lists - make sure to indent 4 spaces:
-
-    - List item 1
-    - List item 2
-
-3. Code examples
+2. Execute the `DBReplay.sh` shell script in Session1. The script re- creates `PDB1` and `PDB19`, removing any existing database replay files.
 
     ```
-    Adding code examples
-  	Indentation is important for the code example to appear inside the step
-    Multiple lines of code
-  	<copy>Enclose the text you want to copy in &lt;copy&gt;&lt;/copy&gt;.</copy>
+    $ <copy>$HOME/labs/19cnf/DBReplay.sh</copy>
+    
+    ...
+    
+    $
+    ```
+3. Set the Oracle environment variables. At the prompt, enter **CDB1**.
+
+    ```
+    $ <copy>. oraenv</copy>
+    CDB1
+    ```
+4. In Session1, log in to `PDB1` and capture the workload data by using Database Replay.
+
+    ```
+    $ <copy>sqlplus system@PDB1</copy>
+    
+    Enter password: password
+
+    SQL>
+    ```
+5. The Database Replay capture creates files in a directory. Create the logical directory for the capture files.
+
+    ```
+    SQL> <copy>HOST mkdir -p /home/oracle/PDB1/replay</copy>
+    ```
+    ```
+    SQL> <copy>CREATE OR REPLACE DIRECTORY oltp AS '/home/oracle/PDB1/replay';</copy>
+
+    Directory created.
+    
+    SQL>
     ```
 
-4. Code examples that include variables
+## Task 2: Start capturing data `workload.sh` from `PDB1` using the Database Replay Procedure
 
-  To include `<` and `>` in your code fragments, use ``&lt;`` and ``&gt;`` to escape the characters in the code block:
+1. Start capturing data with the Database Replay procedure.
+    
+    ```
+    SQL> <copy>EXEC DBMS_WORKLOAD_CAPTURE.START_CAPTURE ( -
+        name => 'OLTP_peak', - 
+        dir => 'OLTP')</copy>
+    > >
+    PL/SQL> procedure successfully completed.
+    ```
+2. Open another terminal window, **Session2**. During the capture, in this session you will execute the workload on `PDB1` by executing the `$HOME/labs/19cnf/workload.sh` shell script.
 
-	```
-  <copy>ssh -i &lt;ssh-key-file&gt;</copy>
-  ```
+    ```
+    $ <copy>$HOME/labs/19cnf/workload.sh</copy>
+    ```
+3. When you think the workload is sufficient for replay testing, stop the capture in **Session1**.
 
-*At the conclusion of the lab add this statement:*
-You may proceed to the next lab.
+    ```
+    SQL> <copy>EXEC DBMS_WORKLOAD_CAPTURE.FINISH_CAPTURE ()</copy>
+
+    PL/SQL> procedure successfully completed
+    ```
+    ```
+    SQL> <copy>EXIT</copy>
+
+    ...
+    $
+    ```
+
+## Task 3: Process the capture files in `PDB19`
+
+As in the normal process of Database Replay, after capturing the workload into files, you process the capture files. You will replay the capture files in `PDB19`.
+
+1. Process the capture files and replay the workload in **Session1** in `PDB19`.
+
+    ```
+    $ <copy>sqlplus system@PDB19</copy> 
+    
+    Enter password: password
+
+    SQL>
+    ```
+2. Create the logical directory in `PDB19` for processing and initializing the capture files stored in `/home/oracle/PDB1/replay` to be replayed.
+
+    ```
+    SQL> <copy>CREATE OR REPLACE DIRECTORY oltp AS '/home/oracle/PDB1/replay';</copy>
+
+    Directory created.
+
+    SQL>
+    ```
+3. Process the capture files.
+
+    ```
+    SQL> <copy>EXEC DBMS_WORKLOAD_REPLAY.PROCESS_CAPTURE ( -
+        capture_dir => 'OLTP')</copy>
+    >
+    PL/SQL> procedure completed successfully.
+
+    SQL>
+    ```
+## Task 4: Initialize and prepare the replay
+
+1. Initialize the replay.
+
+    ```
+    SQL> <copy>EXEC DBMS_WORKLOAD_REPLAY.INITIALIZE_REPLAY ( -
+        replay_name => 'R', replay_dir => 'OLTP')</copy>
+    
+    PL/SQL> procedure successfully completed.
+
+    SQL>
+    ```
+2. Prepare the replay.
+
+    ```
+    SQL> <copy>EXEC DBMS_WORKLOAD_REPLAY.PREPARE_REPLAY ()</copy>
+
+    PL/SQL> procedure successfully completed.
+
+    SQL>
+    ```
+## Task 5: Replay the captured workload in `PDB19` using the `wrc` clients
+
+You are ready to start workload clients to replay the captured workload in `PDB19` with `wrc` clients.
+
+1. In **Session2**, if the workload is still not finished, interrupt the `$HOME/labs/19cnf/workload.sh` shell script using `cntrl z`, quit the SQL*Plus session, and start the `wrc` process into `PDB19`.
+
+    Note: Replay time stamps may be different then the one's shown below.
+
+    ```
+    $ <copy>. oraenv</copy>
+    CDB1
+    ```
+
+    ```
+    $ <copy>wrc REPLAYDIR=/home/oracle/PDB1/replay USERID=system SERVER=PDB19</copy>
+
+    ...
+    password: password
+    Wait for the replay to start (11:40:35)
+    ```
+    Note: The password required is your respective `SYSTEM` password.
+
+2. The `wrc` client is waiting for Database Replay to start in the `PDB`. In **Session1**, execute the `START_REPLAY` procedure.
+
+    ```
+    SQL> <copy>exec DBMS_WORKLOAD_REPLAY.START_REPLAY ()</copy>
+
+    PL/SQL> procedure successfully completed.
+
+    SQL>
+    ```
+3. As soon as the Database Replay procedure is started in `PDB19`, the client starts replaying.
+
+    ```
+    Replay client 1 started (11:42:05)
+    ```
+## Task 6: Verify that the captured workload is executing on `PDB19`
+
+1. Meanwhile, in **Session1**, verify that the client is executing on `PDB19`.
+
+    ```
+    SQL> <copy>CONNECT system@PDB19</copy>
+    
+    Enter password: password
+    
+    Connected.
+    ```
+    ```
+    SQL> <copy>SELECT username, con_id, module
+        FROM  v$session
+        WHERE username <> 'SYS' AND con_id <> 0;</copy>
+
+    
+    USERNAME     CON_ID      MODULE
+    -----------  ----------  -----------------
+    SYSTEM                5  WRC$
+    SYSTEM                5  SQL*Plus
+    ```
+    ```
+    SQL> <copy>EXIT</copy>
+
+    ...
+    $
+    ```
+## Task 7: Reset your environment
+
+When the `wrc` client finally completes, `EXIT` out of **session2** and execute both the `$HOME/labs/19cnf/cleanup_PDBs_in_CDB1.sh` and `$HOME/labs/19cnf/DBReplay.sh` shell script in **session1** to drop and reset your `CDB1` as well as remove the Database Replay capture files.
+
+ 
+```
+Replay client 1 finished (11:50:11)
+
+$
+```
+```
+$ <copy>$HOME/labs/19cnf/cleanup_PDBs_in_CDB1.sh</copy>
+
+...
+$
+```
+```
+$ <copy>$HOME/labs/19cnf/DBReplay.sh</copy>
+
+...
+$
+```
 
 ## Learn More
 
-*(optional - include links to docs, white papers, blogs, etc)*
-
-* [URL text 1](http://docs.oracle.com)
-* [URL text 2](http://docs.oracle.com)
+- [Introduction to Database Replay](https://docs.oracle.com/en/database/oracle/oracle-database/19/ratug/introduction-to-database-replay.html)
+- [Replaying a Database Workload](https://docs.oracle.com/en/database/oracle/oracle-database/19/ratug/replaying-a-database-workload.html)
 
 ## Acknowledgements
-* **Author** - <Name, Title, Group>
-* **Adapted for Cloud by** -  <Name, Group> -- optional
-* **Last Updated By/Date** - <Name, Group, Month Year>
-* **Workshop (or Lab) Expiry Date** - <Month Year> -- optional, use this when you are using a Pre-Authorized Request (PAR) URL to an object in Oracle Object Store.
+
+- **Author**- Dominique Jeunot, Consulting User Assistance Developer
+- **Last Updated By/Date** - Ethan Shmargad, Santa Monica Specialists Hub, November 2021
+

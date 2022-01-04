@@ -5,7 +5,7 @@ One of the more sophisticated features of Oracle’s self-service offering is th
 
 Advanced analytics functions such as forecasting, trend analysis and clustering can be applied to a visualization within your canvas with one-click. Additionally, users can call custom machine learning scripts either using the evaluate script function from within your self-service projects, or by adding custom scripts as part of your data flow when preparing data.
 
-*Estimated Lab Time:* 30 Minutes.
+*Estimated Completion Time:* 30 Minutes.
 
 ### Video Preview
   [](youtube:VlMiMnk287Q)

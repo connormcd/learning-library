@@ -1,12 +1,12 @@
-# Oracle Machine Learning for Python
+# Use Oracle Machine Learning for Python
 
 ## Introduction
 
-This lab walks you through the steps to create a database table, create a proxy object, explore and prepare data, build and evaluate models, and use those models to score data using OML4Py. This will use a classification example available in OML Notebooks. For illustrative purposes, Task 1 and Task 2 of this lab use iris from sklearn datasets to create a database table. The rest of the steps walk you through the example available in OML Notebooks that use the SH schema. The SH schema and associated data sets can be readily accessed in Oracle Autonomous Database.
+This lab walks you through the steps to create a database table, create a proxy object, explore and prepare data, build and evaluate models, and use those models to score data using OML4Py. This will use a classification example available in OML Notebooks. For illustrative purposes, Task 1 and Task 2 of this lab use iris data set from sklearn datasets to create a database table. The rest of the steps take you through the example that uses the SH schema and is available in OML Notebooks. In Oracle Autonomous Database (ADB), the SH schema and associated data sets are easily accessible.
 
 Estimated Time: 30 minutes
 ### About Oracle Machine Learning for Python(OML4Py)
-Oracle Machine Learning for Python (OML4Py) is a component of Oracle Autonomous Database, which includes Oracle Autonomous Data Warehouse (ADW), Oracle Autonomous Transaction Processing (ATP), and Oracle Autonomous JSON Database (AJD). OML4Py is also included with Oracle Database on premises and Database Cloud Service with separate installation. By using Oracle Machine Learning Notebooks, you can use standard Python syntax and overloaded Python functions, use a natural Python API to in-database machine learning algorithms, invoke user-defined Python functions in database-spawned and controlled Python engines, and leverage automated machine learning (AutoML).
+Oracle Machine Learning for Python (OML4Py) is a component of Oracle Autonomous (ADB), which includes Oracle Autonomous Data Warehouse (ADW), Oracle Autonomous Transaction Processing (ATP), and Oracle Autonomous JSON Database (AJD). OML4Py is also included with on-premise Oracle Database and Database Cloud Service with separate installation. By using OML Notebooks, you can use standard Python syntax and overloaded Python functions, use a natural Python API to load in-database machine learning algorithms, call user-defined Python functions in database-spawned and controlled Python engines, and leverage automated machine learning (AutoML).
 ### Objectives
 
 In this lab, you will learn how to:
@@ -17,7 +17,8 @@ In this lab, you will learn how to:
 *	Prepare the data
 *	Build your model
 *	Evaluate your model using standard classification metrics
-*	Score data using your model
+*	Score data for deployment
+* Save and load python objects in a datastore instance
 
 ### Prerequisites
 
@@ -27,7 +28,8 @@ This lab assumes you have:
 
 ## Task 1: Create a Database Table
 
-OML4Py transparently translates many standard Python functions into SQL. With OML4Py, you can create Python proxy objects that can be used to access, analyze, and manipulate data that resides in the database. In this step, the *iris* data set is used for illustrative purposes to load the data into a temporary database table. The temporary table is automatically deleted when the OML Notebook connection to the database ends unless you have saved its proxy object to a datastore before disconnecting.
+With OML4Py, you can create Python proxy objects that can be used to access, analyze, and manipulate data that resides in the database. OML4Py uses these proxy objects and transparently translates many standard Python functions into SQL.
+In this step, the iris data set is used for illustrative purposes to load the data into a temporary database table. Such temporary tables are automatically deleted when the OML Notebook connection to the database ends unless you have saved its proxy object to a datastore, which we'll discuss in step 10, before disconnecting.
 To use OML4Py, you must first import the `oml` module and the Pandas library. Use the `oml.push` function to create a temporary table.
 1. Run the following scripts to import the `oml` package, the Pandas library, and set the display options:
 	```
@@ -63,67 +65,45 @@ To use OML4Py, you must first import the `oml` module and the Pandas library. Us
 	```
 
   You use the zeppelin-context z.show method to display Python objects and proxy object content. Here, you display the first few rows of IRIS_TMP using z.show.
-	![Top rows of IRIS_TMP.](images/rows_iris_temp.png)
+	![Top rows of IRIS_TMP.](images/rows-iris-temp.png)
 
 ## Task 2: Create a Persistent Database Table
-You can also create a persistent table using the create function and specifying a table name, IRIS as done below. This table is now accessible both within OML4Py and directly from SQL. Here, you will load the iris data and combine target and predictors into a single DataFrame, which matches the form of the data in the database table. Use the z.show function to display the desired data in the notebook. To create the persistent table IRIS, run the following script.
+1. You can also create a persistent table using the create function and specifying a table name, IRIS as done below. The `oml.create` function creates a table in the database schema and returns an `oml.DataFrame` object. This table is now accessible both within OML4Py and directly from SQL. Use the z.show function to display the desired data in the notebook. To create the persistent table IRIS, run the following script.
 
-```
-<copy>
-%python
-
-from sklearn import datasets
-from sklearn import linear_model
-import pandas as pd
-iris = datasets.load_iris()
-x = pd.DataFrame(iris.data, columns = ['SEPAL_LENGTH','SEPAL_WIDTH',
-                                       'PETAL_LENGTH','PETAL_WIDTH'])
-y = pd.DataFrame(list(map(lambda x: {0: 'setosa', 1: 'versicolor',
-                 2:'virginica'}[x], iris.target)), columns = ['SPECIES'])
-try:
-    oml.drop(table='IRIS')
-except:
-    pass
-IRIS = oml.create(pd.concat([x, y], axis=1), table = 'IRIS')
-iris = pd.concat([x, y], axis=1)
-print(IRIS.columns)
-
-print("Shape:",IRIS.shape)
-z.show(IRIS.head(10))
-</copy>
-```
-
-The output is as follows:
-![Columns,Shape and Top rows of IRIS.](images/description_iris.png)
-
-## Task 3: Create a Proxy Object for a Database Object
-Use the `oml.sync` function to create a Python object as a proxy for a database table. The `oml.sync` function returns an `oml.DataFrame` object or a dictionary of `oml.DataFrame` objects. The `oml.DataFrame` object returned by `oml.sync` is a proxy for the database object.  
-```
-<copy>
-%python
-
-DEMO = oml.sync(table = "SUPPLEMENTARY_DEMOGRAPHICS", schema = "SH")
-z.show(DEMO.head())
-</copy>
-```
-In this step, you are viewing a few rows from the SUPPLEMENTARY_DEMOGRAPHICS table using the overloaded head function.
-![Top rows of DEMO.](images/rows_demo.png)
-
-## Task 4: Explore the Data
-In this example, use describe, shape and crosstab functions to explore and view the data.
-1. Use the transparency layer function `describe()` to calculate descriptive statistics that summarize the central tendency, dispersion, and shape of the DEMO table in each numeric column. A few rows of the output are displayed using the `z.show` function.
 	```
 	<copy>
 	%python
-	summary_df = DEMO.describe()
-	summary_df = summary_df.reset_index()
-	summary_df = summary_df.rename(columns = {'index': 'statistics'})
-	z.show(summary_df.head())
+	try:
+		oml.drop(table='IRIS')
+	except:
+		pass
+	IRIS = oml.create(iris_df, table = 'IRIS')
+	print(IRIS.columns)
+
+	print("Shape:",IRIS.shape)
+	z.show(IRIS.head(10))
 	</copy>
 	```
-	![Statistical details of DEMO.](images/statistical_data_demo.png)
 
-2. Run the shape function to view the rows and columns of an `oml.DataFrame`.
+	The output is as follows:
+	![Columns,Shape and Top rows of IRIS.](images/description-iris.png)
+
+## Task 3: Create a Proxy Object for a Database Object
+1. Use the `oml.sync` function to create a Python object as a proxy for a database table or view. The `oml.sync` function returns an `oml.DataFrame` object or a dictionary of `oml.DataFrame` objects. The `oml.DataFrame` object returned by `oml.sync` is a proxy for the database object.  
+	```
+	<copy>
+	%python
+
+	DEMO = oml.sync(table = "SUPPLEMENTARY_DEMOGRAPHICS", schema = "SH")
+	z.show(DEMO.head())
+	</copy>
+	```
+	In this step, you are viewing a few rows from the SUPPLEMENTARY_DEMOGRAPHICS table using the overloaded head function.
+	![Top rows of DEMO.](images/rows-demo.png)
+
+## Task 4: Explore the Data
+In this example, use shape, describe and crosstab functions to explore and view the data.
+1. Run the shape function to view the rows and columns of an `oml.DataFrame`.
 	```
 	<copy>
 	%python
@@ -132,6 +112,17 @@ In this example, use describe, shape and crosstab functions to explore and view 
 	</copy>
 	(4500, 14)
 	```
+2. Use the transparency layer function `describe()` to calculate descriptive statistics that summarize the central tendency, dispersion, and shape of the DEMO table in each numeric column.Note that all computations are computed in the database and only the summary results are returned to the Python client, in this case, the notebook. Eliminating the need to move data greatly increases scalability.A few rows of the output are displayed using the `z.show` function.
+		```
+		<copy>
+		%python
+		summary_df = DEMO.describe()
+		summary_df = summary_df.reset_index()
+		summary_df = summary_df.rename(columns = {'index': 'statistics'})
+		z.show(summary_df.head())
+		</copy>
+		```
+	![Statistical details of DEMO.](images/statistical-data-demo.png)
 3. Use the crosstab function to perform cross-column analysis of an `oml.DataFrame` object. The crosstab method computes a cross-tabulation of two or more columns. By default, it computes a frequency table for the columns unless a column and an aggregation function have been passed to it.  In this example, the crosstab function displays the distribution of `AFFINITY_CARD` responders.
 	```
 	<copy>
@@ -140,7 +131,7 @@ In this example, use describe, shape and crosstab functions to explore and view 
 	z.show(DEMO.crosstab('AFFINITY_CARD'))
 	</copy>
 	```
-	![Crosstab of attribute AFFINITY_CARD.](images/crosstab_affinity_card.png)
+	![Crosstab of attribute AFFINITY_CARD.](images/crosstab-affinity-card.png)
 4. To view the distribution of house size of the `AFFINITY_CARD` responders, run the following function:
 	```
 	<copy>
@@ -149,9 +140,10 @@ In this example, use describe, shape and crosstab functions to explore and view 
 	z.show(DEMO.crosstab(['HOUSEHOLD_SIZE', 'AFFINITY_CARD']))
 	</copy>
 	```
-	![Crosstab of attributes HOUSEHOLD_SIZE and AFFINITY_CARD.](images/crosstab_householdsize_affinitycard.png)
+	![Crosstab of attributes HOUSEHOLD_SIZE and AFFINITY_CARD.](images/crosstab-householdsize-affinitycard.png)
+
 ## Task 5: Prepare the Data
-In this step, you will create a `DEMO_DF` dataframe, select the necessary columns for further analysis, display a few rows of the `DEMO_DF` dataframe, and split your data into TRAIN and TEST sets.
+In this step, you will create a `DEMO_DF` DataFrame, select the necessary columns for further analysis, display a few rows of the `DEMO_DF` DataFrame, and split your data into TRAIN and TEST sets.
 1. Use the DEMO proxy object to create a new proxy object `DEMO_DF` by selecting the necessary columns. Run the following script:
 	```
 	<copy>
@@ -170,8 +162,8 @@ In this step, you will create a `DEMO_DF` dataframe, select the necessary column
 	z.show(DEMO_DF.head())
 	</copy>
 	```
-	![Top rows of DEMO_DF.](images/rows_demo_df.png)
-3. In this example, you are splitting the `DEMO_DF` data into 60 percent TRAIN data set and 40 percent TEST data set. The split method splits the data referenced by DataFrame proxy object `DEMO_DF` into two new DataFrame proxy objects, TRAIN, and TEST.
+	![Top rows of DEMO_DF.](images/rows-demo-df.png)
+3. In this example, you are splitting the `DEMO_DF` data with 60 percent of the records for the TRAIN data set and 40 percent for the TEST data set. The split method splits the data referenced by DataFrame proxy object `DEMO_DF` into two new DataFrame proxy objects, TRAIN, and TEST.
 	```
 	<copy>
 	%python
@@ -183,6 +175,9 @@ In this step, you will create a `DEMO_DF` dataframe, select the necessary column
 	TEST_Y = TEST['AFFINITY_CARD']
 	</copy>
 	```
+
+Since we’ll be using automatic data preparation provided by the in-database algorithms, no further data preparation is required.
+
 ## Task 6: Build Your Model
 Use the `oml.dt` class to build a Decision Tree model. You can build a model with default settings or specify custom model settings.
 1. To build a Decision Tree model with the default settings, run the following script:
@@ -201,9 +196,8 @@ Use the `oml.dt` class to build a Decision Tree model. You can build a model wit
 	</copy>
 
 	```
-	Here, the setting = dict() means the values of datatypes (dbtypes) may be either a dict that maps str to str values or a list of str values. For a dict, the keys are the names of the columns.
 
-	The `oml.dt` class uses the Decision Tree algorithm for classification and a model object `dt_mod` is created with the default parameter settings.  The `_.fit()` fits the Decision Tree model according to the training data and parameter settings.
+	The `oml.dt` class uses the Decision Tree algorithm for classification and a model object `dt_mod` is created with the default parameter settings.  The **fit** function builds the Decision Tree model according to the training data and parameter settings.
 	```
 	<copy>
 	Model Name: DT_CLAS_MODEL
@@ -323,7 +317,7 @@ Use the `oml.dt` class to build a Decision Tree model. You can build a model wit
 	</copy>
 	```
 	The following is the list of model settings that are applied in the example:
-* `TREE_IMPURITY_METRIC`: Specifies tree impurity metric for a Decision Tree model. Tree algorithms seek the best test question for splitting data at each node. The best splitter and split value are those that result in the largest increase in target value homogeneity (purity) for the entities in the node. Purity is measured by a metric. Decision trees can use either gini (`TREE_IMPURITY_GINI`) or entropy (`TREE_IMPURITY_ENTROPY`) as the purity metric. By default, the algorithm uses `TREE_IMPURITY_GINI`.
+* `TREE_IMPURITY_METRIC`: Specifies tree impurity metric for a Decision Tree model. Tree algorithms seek the best column/attribute and values for splitting data at each node. The best splitter and split value are those that result in the largest increase in target value homogeneity (purity) for the entities in the node. Purity in the decision trees algorithm can use either gini (`TREE_IMPURITY_GINI`) or entropy (`TREE_IMPURITY_ENTROPY`) as the purity metric. By default, the algorithm uses `TREE_IMPURITY_GINI`.
 * `TREE_TERM_MAX_DEPTH`: Specifies the criteria for splits: maximum tree depth (the maximum number of nodes between the root and any leaf node, including the leaf node). The default is 7.
 * `TREE_TERM_MINPCT_NODE`: Specifies the minimum number of training rows in a node expressed as a percentage of the rows in the training data. The default value is 0.05, indicating 0.05%.
 * `TREE_TERM_MINPCT_SPLIT`: Specifies the minimum number of rows required to consider splitting a node expressed as a percentage of the training rows. The default value is 0.1, indicating 0.1%.
@@ -332,8 +326,8 @@ Use the `oml.dt` class to build a Decision Tree model. You can build a model wit
 * `CLAS_MAX_SUP_BINS`: Specifies the maximum number of bins for each attribute. The default value is 32.
 
 ## Task 7: Evaluate Your Model
-To evaluate your model you need to score the test data and then evaluate the model using various metrics.
-1. In this step, you will make predictions on the test case and add the `CASE_ID` as a supplemental column so that you can uniquely associate scores with the original data. To do so run the below script.
+To evaluate your model you need to score the test data using the model and then evaluate the model using various metrics.
+1. In this step, you will make predictions on the test case and add the `CASE_ID` as a supplemental column so that you can uniquely associate scores with the original data. To do so run the below script:
 	```
 	<copy>
 	%python
@@ -348,8 +342,9 @@ To evaluate your model you need to score the test data and then evaluate the mod
 	RES_DF = RES_DF.merge(RES_PROB, how = "inner", on = case_id, suffixes = ["", ""])
 	</copy>
 	```
-2. To evaluate the model, pass a proxy `oml.Dataframe` containing predictions and the target columns in a user-defined function named evaluate_model. Evaluate your model using standard metrics. For a classification example, you can evaluate your model using Confusion Matrix, Lift Chart, Gains Chart, and ROC curve chart. The Confusion Matrix displays the number of correct and incorrect predictions made with respect to the actual classification in the test data. It is an *n*-by-*n* matrix where n is the number of classes. Lift Chart applies only to binary classifications requiring the designation of the only positive class. It measures the degree to which the predictions of a classification model are better than randomly generated predictions. ROC curve applies only to binary classification and requires the designation of the only positive class. It is a metric for comparing predicted and actual target values in a classification model.
-Here is a custom script to generate the metrics and charts as described above. Run the below script.
+2. To evaluate the model, pass a proxy `oml.Dataframe` containing predictions and the target columns in a user-defined function named evaluate_model. Evaluate your model using standard metrics. For a classification example, you can evaluate your model using Confusion Matrix, Lift Chart, Gains Chart, and ROC curve chart. The Confusion Matrix displays the number of correct and incorrect predictions made with respect to the actual classification in the test data. It is an **n**-by-**n** matrix where **n** is the number of classes. A lift chart applies only to binary classifications requiring the designation of the positive class. It measures the degree to which the predictions of a classification model are better than randomly generated predictions. The ROC curve also applies to binary classification and requires the designation of the positive class. These are metrics for comparing predicted and actual target values in a classification model.
+
+	Here is a custom script to generate the metrics and charts as described above. Run the below script:
 	```
 	<copy>
 	%python
@@ -528,10 +523,10 @@ Here is a custom script to generate the metrics and charts as described above. R
 	_ = evaluate_model(pred_data=RES_DF, settings_name='Gini,Max Depth:7,Min%Node:0.05,Min%Split:0.1', name='Decision Tree', target='AFFINITY_CARD')
 	</copy>
 	```
-	![Confusion Matrix.](images/confusion_matrix.png)
-	![Evaluation of Decision Tree Model.](images/decision_tree_model.png)
+	![Confusion Matrix.](images/confusion-matrix.png)
+	![Evaluation of Decision Tree Model.](images/decision-tree-model.png)
 
-3. Invoke the score function to get the model accuracy computed on the TEST data provided.
+3. You can also call the score function to get the model accuracy computed on the TEST data provided.
 	```
 	<copy>
 	%python
@@ -541,8 +536,8 @@ Here is a custom script to generate the metrics and charts as described above. R
 	```
 	You obtain an accuracy of 0.824789 or approximately 82.5% of the result are correctly predicted.
 
-## Task 8: Score Data Using Your Model
-After building and evaluating the model you will now filter, predict the model in-database data.
+## Task 8: Score Data for Deployment Using Your Model
+Having built and evaluated the model, you will now filter scores computed above. Such results can be computed in batch and materialized as a table for static lookup by applications and dashboards or results can be computed dynamically using in-database models using OML4Py functions or SQL queries.
 1. You can also display results of customers responding to affinity card with a probability greater than 0.5. You can also select the columns from the `RES_DF` dataset to display. To do so, run the following script.
 	```
 	<copy>
@@ -550,10 +545,10 @@ After building and evaluating the model you will now filter, predict the model i
 	z.show(RES_DF[RES_DF['PROBABILITY_OF_1'] > 0.5][['PREDICTION', 'PROBABILITY_OF_1', 'CUST_ID', 'AFFINITY_CARD','EDUCATION','OCCUPATION', 'HOUSEHOLD_SIZE', 'YRS_RESIDENCE', 'OS_DOC_SET_KANJI','BULK_PACK_DISKETTES']])
 	</copy>
 	```
-	The output is similar to the following:
-	![Filtering result from RES_DF dataset on the basics of customers having an affinity greater than 50%.](images/prediction_result_res_df.png)
+	The output is as follows:
+	![Filtering result from RES_DF dataset on the basics of customers having an affinity greater than 50%.](images/prediction-result-res-df.png)
 
-2. Now use the model to make predictions on the test data by using the predict function. To do so run the below script.
+2. Now use the model to make predictions again on the test data by using the predict function, but also specify to retrieve prediction details using the `topN_attrs` parameter. To do so run the below script.
 	```
 	<copy>
 	%python
@@ -562,32 +557,135 @@ After building and evaluating the model you will now filter, predict the model i
 	z.show(RES_DF)
 	</copy>
 	```
-	where topN_attrs returns the top *N* most influential attributes of the predicted value. The output is similar to the following:
-	![Prediction of model on the test data.](images/score_display_predict.png)
+	where `topN_attrs` returns the top **N** most influential attributes of the predicted value. For each attribute, three columns are provided: the attribute name, specific value, and corresponding weight of that attribute are provided. The output is similar to the following:
+	![Prediction of model on the test data.](images/score-display-predict.png)
 
-In this example, you classified customers who are most likely to be positive responders to an Affinity Card loyal program. You built and applied a classification decision tree model using the Sales history (SH) schema data. You were also able to successfully identify the top *N* attributes that are important to the model built.
+## Task 9: Use the SQL Interface to Score Data and Display Prediction Details
+You can score data and make similar predictions using the SQL interface. The test data is materialized into DT\_TEST\_TABLE so that you can query it using SQL. The materialized method writes the contents of an Oracle Machine Learning proxy object (a view, a table, and so on) to an Oracle Database table.
+1. Run the following command to materialize the test dataset:
+	```
+	<copy>
+	%python
+
+	try:
+	    oml.drop(table = 'DT_TEST_TABLE')
+	except:
+	    pass
+	_ = TEST_X.materialize(table = 'DT_TEST_TABLE')
+	</copy>
+	```
+2. Run the following SQL command to score and display the prediction details. The prediction functions apply a decision tree classification model named `DT_CLAS_MODEL` to the data from the materialized table `DT_TEST_TABLE`. The query includes information about the predictors that have the greatest influence on the prediction.
+	```
+	<copy>
+	%sql
+
+	SELECT CUST_ID,
+	    round(PREDICTION_YRS_RES,3) PRED_YRS_RES,
+	    RTRIM(TRIM(SUBSTR(OUTPRED."Attribute1",17,100)),'rank="1"/>') FIRST_ATTRIBUTE,
+	    RTRIM(TRIM(SUBSTR(OUTPRED."Attribute2",17,100)),'rank="2"/>') SECOND_ATTRIBUTE,
+	    RTRIM(TRIM(SUBSTR(OUTPRED."Attribute3",17,100)),'rank="3"/>') THIRD_ATTRIBUTE
+	FROM (SELECT CUST_ID,
+	             PREDICTION(DT_CLAS_MODEL USING *) PREDICTION_YRS_RES,
+	             PREDICTION_DETAILS(DT_CLAS_MODEL USING *) PD
+	     FROM DT_TEST_TABLE
+	     WHERE CUST_ID < 100015
+	     ORDER BY CUST_ID) OUT,
+	     XMLTABLE('/Details'
+	              PASSING OUT.PD
+	              COLUMNS
+	              "Attribute1" XMLType PATH 'Attribute[1]',
+	              "Attribute2" XMLType PATH 'Attribute[2]',
+	              "Attribute3" XMLType PATH 'Attribute[3]')
+	     OUTPRED
+	</copy>
+	```
+	The output is similar to the following:
+	![Illustration of prediction of model on materialized test data and its greatest attribute influence on the prediction.](images/score-predict-sql-interface.png)
+
+
+## Task 10: Save and Load Python Objects in a Datastore Instance
+You can save the python objects you create in one python session and load them in another session using the OML4Py datastore. Python objects and OML4Py proxy objects exist only during the current Python session, unless they are saved to a Datastore. OML4Py creates the datastore in the current user’s database schema. Until you delete the datastore and objects, they remain in the database. OML4Py provides functions for managing the objects in the datastore, such as `oml.ds.save`, `oml.ds.load`, `oml.ds.dir`, and so on.
+
+1. To save one or more python objects to a datastore, use the `oml.ds.save` function. Here the DataFrame object is stored to `ds_pydata` and python model object is stored to `ds_pymodel`.
+	- To save IRIS and res_df `oml.DataFrame` proxy object to the `ds_pydata` datastore, run the script below. You can give some descriptive text using the description argument, which will appear when you get information on the datastore.
+	```
+	<copy>
+	%python
+	oml.ds.save(objs={'iris':IRIS, 'res_df':RES_DF},name="ds_pydata", description = "python datasets", overwrite=True)
+	</copy>
+	```
+	- Run the below script to save the `dt_mod` model proxy object to the `ds_pymodel` datastore. When the **overwrite**  boolean argument is set to TRUE (overwrite=TRUE), an existing datastore is replaced with a new datastore with the same name.
+	```
+	<copy>
+	%python
+	oml.ds.save(objs={'dt_mod':dt_mod},name="ds_pymodel",description = "python model", grantable=True, overwrite=True)
+	</copy>
+	```
+	- The `oml.ds.dir` function returns a list of existing datastores that are available to you. Run the script below to get the list.
+	```
+	<copy>
+	%python
+	oml.ds.dir()
+	</copy>
+	```
+	The output is similar to the following:
+	![List of all datastore available and their object_count, size, date and description.](images/datastore-list.png)
+	The output also includes the size in bytes consumed, the date, and the descriptive text provided by the user when loading the python objects into the datastore.
+
+2. In this step, you will use `oml.ds.load` function for loading one or more python objects from the datastore to the global workspace or the user's workspace.
+	- Run the following script to load all the python objects of a datastore into global Workspace and sort them by their name
+	```
+	<copy>
+	%python
+	sorted(oml.ds.load(name="ds_pydata"))
+	</copy>
+	```
+	![Sorted list of python proxy objects in a datastore.](images/sorted-objects-datastore.png)
+
+	- Run the following script to load the named python object from the datastore into the global workspace.
+	```
+	<copy>
+	%python
+	oml.ds.load(name="ds_pymodel", objs=["dt_mod"])
+	</copy>
+	```
+	The output is similar to the following:
+	![list of python model proxy objects in a datastore.](images/model-object-datastore.png)
+
+	- Run the following script to load the named python object from the datastore into the global workspace.
+	```
+	<copy>
+	%python
+	oml.ds.load(name="ds_pymodel", objs=["dt_mod"], to_globals=False)
+	</copy>
+	```
+	The output is similar to the following:
+	![Illustration of a dictionary object containing the models name and value.](images/loaded-dictionaryobject-datastore.png)
+	Also, the boolean input **to\_globals** is set to True by default. If to\_global=True then the `oml.ds.load` loads the python object to the global workspace. If to\_global=False, then the `oml.ds.load` function returns a dictionary object containing the object's name and value.
+	To learn more about how to use datastores to store python objects click this [link](https://docs.oracle.com/en/database/oracle/machine-learning/oml4py/1/mlpug/save-python-objects-in-database.html#GUID-C02396D1-2B30-47A0-AE27-37B123E15710).
+
+In this example, you classified customers who are most likely to be positive responders to an Affinity Card loyal program. You built and applied a classification decision tree model using the Sales history (SH) schema data. You were also able to successfully identify the top **N** attributes that are important to the model built.
 
 You may now **proceed to the next lab**.
 
 ## Learn More
 
-OML4Py enables data scientists to hand-off their user-defined Python functions to application developers for invocation from REST or SQL interfaces, where the database environment spawns and controls the Python engines. This facilitates making machine learning models and predictions readily available for enterprise solutions. Given below are some of the functionality that OML4Py offers:
+OML4Py enables data scientists to hand-off their user-defined Python functions to application developers for invocation from REST or SQL interfaces, where the database environment spawns and controls the Python engines, loads the user-defined function, and if required, loads the specified data as a Pandas DataFrame. This facilitates making native python machine learning models and predictions readily available for enterprise solutions as well, with the option to leverage data parallelism for greater performance and scalability. Given below are some of the functionalities that OML4Py offers:
 1. [Embedded Python Execution](https://docs.oracle.com/en/database/oracle/machine-learning/oml4py/1/mlpug/about-embedded-python-execution.html#GUID-A15F3A62-736A-4276-83F2-7C54BE026639)
-	OML4Py Embedded Python Execution provides users the ability to invoke user-defined Python functions in one or more Python engines spawned and managed by the Oracle database environment.
+	OML4Py Embedded Python Execution provides users the ability to call user-defined Python functions in one or more Python engines spawned and managed by the Oracle database environment.
 
 2. [Automated Machine Learning (Auto ML)](https://docs.oracle.com/en/database/oracle/machine-learning/oml4py/1/mlpug/about-automl.html#GUID-9F514C2B-1772-4073-807F-3E829D5D558C)
-	AutoML provides built-in data science expertise about data analytics and modeling that you can employ to build machine learning models.Given below is an example on how you can automate the above scenario with the help of Auto ML by following the three steps:
-	1. Prepare the Demo data and then rank the classification algorithms from the set of supported Auto Ml algorithms with the 	 use of Algorithm Selection.
-	![The images shows how to prepare the demo data and rank the classification with the help of AutoML.](images/automl_algorithm_selections.png)
-	2. Identify the most relevant feature subset with the use of Automatic Feature Selection.
-	![It shows how AutoMl can be used for selection of relevant features.](images/automl_subset_feature_selection.png)
-	3. Finally tuning the hyperparameters for the classification algorithm with the help of Automatic Model Tuning.
-	![The image shows how to fine tune hyperparameters with help of AutoML](images/automl_hyperparameter_tuning.png)
+	AutoML provides built-in data science expertise about data analytics and modeling that you can employ to build machine learning models. Given below is an example on how you can automate the above scenario with the help of Auto ML by following the three steps:
+	1. Prepare the Demo data and then rank the classification algorithms from the set of algorithms supported by AutoML using automatic algorithm selection.
+	![The images shows how to prepare the demo data and rank the classification with the help of AutoML.](images/automl-algorithm-selections.png)
+	2. Identify the most relevant feature subset using automatic feature selection.
+	![It shows how AutoMl can be used for selection of relevant features.](images/automl-subset-feature-selection.png)
+	3. Finally tune the hyperparameters for the selected classification algorithm and features using automatic model tuning.
+	![The image shows how to fine tune hyperparameters with help of AutoML](images/automl-hyperparameter-tuning.png)
 
-3. [Machine Learning Explainability (MLX)](https://docs.oracle.com/en/database/oracle/machine-learning/oml4py/1/mlpug/explain-model.html#GUID-1936962D-38AD-4E7E-9B96-EEE3EE2BD15C)
-	It is used in the process of explanation and interpretation of the machine learning model to identify the important features to help the model impact its prediction.
+3. [Machine Learning Explainability (MLX)](https://docs.oracle.com/en/database/oracle/machine-learning/oml4py/1/mlpug/explain-model.html#GUID-1936962D-38AD-4E7E-9B96-EEE3EE2BD15C) is used to help explain and interpret the machine learning model by identifying the features that most impact model predictions.
 
 ## Acknowledgements
-* **Author** - Sarika Surampudi, Senior User Assistance Developer, Database Documentation; Dhanish Kumar, Member of Technical Staff, User Assistance Developer.
+* **Authors** - Sarika Surampudi, Senior User Assistance Developer, Oracle Database User Assistance Development; Dhanish Kumar, Member of Technical Staff, User Assistance Developer.
 * **Contributors** -  Mark Hornick, Senior Director, Data Science and Machine Learning; Sherry LaMonica, Principal Member of Tech Staff, Advanced Analytics, Machine Learning.
-* **Last Updated By/Date** - Dhanish Kumar, November 2021
+* **Last Updated By/Date** - Dhanish Kumar, December 2021

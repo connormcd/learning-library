@@ -31,7 +31,13 @@ Estimated Time: 30 minutes.
 
     In this lab we use the Sales History (SH) sample schema to create our demo graph. The SH schema is available in all Autonomous Database instances. You can, however, apply the steps of this lab to any relational data available in your database, regardless of where the data originated from. All the schemas and tables - including views - that you have access to will show up as possible input tables at te start of the modeling workflow.
 
-    ![ALT text is not available for this image](./images/modeler-select-tables.png)
+    ![ALT text is not available for this image](./images/choose-pg-objects-as-graph-type.png)  
+
+    **Important:** Choose **PG Objects** as the graph type from the drop-down box. That is, change the default option of *PG Views* and select **PG Objects** instead. 
+
+    PG Views will not work with the SH schema as is because of current restrictions. For example, PG Views only supports ID (or key) columns of type NUMBER or VARCHAR2 and not DATE. So the SH.TIMES table cannot be included in the graph without some modifications. Similarly, PG Views require that each table or view has a single column which it a primary or unique key. So SH.SALES and SH.COSTS also need to be modified before they can be used in a graph created as a PG View.
+
+    Proceed to the next step once you have selected **PG Objects** as the Graph Type.  
 
 3. Open up the **SH** schema and double click on the **COUNTRIES** table.
 

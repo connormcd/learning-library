@@ -28,7 +28,7 @@ To provision an Oracle Autonomous Database:
 
 1. Sign into your OCI account, and under the Launch Resources section, click **Create an ADW database**.
 
-	![Create ADW Database](images/adw_database.png)
+	![Create ADW Database](images/adw-database.png)
 
 	 Alternatively, you may click the left navigation pane on the upper left corner, and click **Autonomous Data Warehouse** under **Oracle Database**.
 
@@ -38,41 +38,41 @@ To provision an Oracle Autonomous Database:
 
    ![Create Autonomous Database option](images/create-autonomous-db.png)
 
-4. On the Create Autonomous Database page, provide the basic information about the database. By default, a database name and a display name for the database are provided. You can modify these names to enter a user-friendly display name for the ADB instance to easily identify the resource. The display name does not have to be unique.    
+3. On the Create Autonomous Database page, provide the basic information about the database. By default, a database name and a display name for the database are provided. You can modify these names to enter a user-friendly display name for the ADB instance to easily identify the resource. The display name does not have to be unique.    
 
-   ![Autonomous Database information](images/adb_basic_info.png)
+   ![Autonomous Database information](images/adb-basic-info.png)
 
-5. For Workload Type, click **Data Warehouse**.
+4. For Workload Type, click **Data Warehouse**.
 
-	 ![Autonomous Database Workload type](images/workload_type.png)
+	 ![Autonomous Database Workload type](images/workload-type.png)
 
-6. For Deployment, select **Shared Infrastructure**.
+5. For Deployment, select **Shared Infrastructure**.
 
-	 ![Autonomous Database deployment type](images/deployment_type.png)
+	 ![Autonomous Database deployment type](images/deployment-type.png)
 
-7. For Database Configuration, select Always Free. For the Always Free option, the database configuration options - OCPU count, Storage, and Auto scaling are not available. You must upgrade to a paid account to avail of it.
+6. For Database Configuration, select Always Free. For the Always Free option, the database configuration options - OCPU count, Storage, and Auto scaling are not available. You must upgrade to a paid account to avail of it.
 
 	 >**Note:** You can create Always Free resources both in Free Tier and Paid accounts
 
-  ![Configure Database](images/db_configuration.png)
+  ![Configure Database](images/db-configuration.png)
 
-8. Create your Autonomous Database administrator credentials by providing a password. You will need these credentials to sign into this Autonomous Database instance.   
+7. Create your Autonomous Database administrator credentials by providing a password. You will need these credentials to sign into this Autonomous Database instance.   
 
 	>**Note:** The default administrator username is ADMIN.
 
-	![Database Administrator credentials](images/db_admin_credentials.png)
+	![Database Administrator credentials](images/db-admin-credentials.png)
 
-9. For network access, select **Allow secure access from everywhere.**
+8. For network access, select **Allow secure access from everywhere.**
 
     ![Network Access settings](images/create-adw-network.png)
 
-10. For License, select **License Included**.
+9. For License, select **License Included**.
 
     ![License settings](images/create-adw-license.png)
 
-11. Click **Create Autonomous Database**. The Oracle Autonomous Data Warehouse instance starts provisioning. Once your Autonomous Database is created, the database details are listed with the status Available.
+10. Click **Create Autonomous Database**. The Oracle Autonomous Data Warehouse instance starts provisioning. Once your Autonomous Database is created, the database details are listed with the status Available.
 
-	  ![ADB details](images/adw_details.png)
+	  ![ADB details](images/adw-details.png)
 
 This completes the task of provisioning an Oracle Autonomous Database.
 
@@ -91,7 +91,7 @@ To create a user account:
 
 2. Click on an Autonomous Database instance.   
 
-	![Oracle Autonomous Data Warehouse](images/adb_instance.png)
+	![Oracle Autonomous Data Warehouse](images/adb-instance.png)
 
 
 3. On the Autonomous Database Details page, click **Service Console**.
@@ -106,21 +106,21 @@ To create a user account:
 
 5. Click **Manage Oracle ML Users** to open the Oracle Machine Learning User Administration page.
 
-	![Oracle Autonomous Data Warehouse](images/manage_oml_users.png)
+	![Oracle Autonomous Data Warehouse](images/manage-oml-users.png)
 
 6. On the Oracle Machine Learning User Administration Sign in page, enter the username and password to sign in.
 
 	>**Note:** The username is ADMIN. The password is what is you have defined while provisioning the Autonomous Database instance.   
 
-	![Oracle Machine Learning User Administration Sign in page](images/database_admin_signin.png)
+	![Oracle Machine Learning User Administration Sign in page](images/database-admin-signin.png)
 
 7. Click **Create** on the Oracle Machine Learning User Administration page.
 
-	![Oracle Autonomous Data Warehouse](images/oml_um_page.png)
+	![Oracle Autonomous Data Warehouse](images/oml-um-page.png)
 
 7. On the Create User page, enter the following details to create the user:
 
-	![Oracle Autonomous Data Warehouse](images/create_user.png)
+	![Oracle Autonomous Data Warehouse](images/create-user.png)
 
 	* **Username:** Enter a username for the account. Using the username, the user will log in to an Oracle Machine Learning instance.
 	* **First Name:** Enter the first name of the user.
@@ -128,7 +128,7 @@ To create a user account:
 	* **Email Address:** Enter the email ID of the user.
 	* Select the option **Generate password and email account details to user. User will be required to reset the password on first sign in** to auto generate a temporary password and send an email with the account credentials to the user. If you select this option, you need not enter values in the Password and Confirm Password fields; the fields are grayed out.
 	* **Password:** Enter a password for the user, if you choose to create a password for the user.
-	>**Note:** This option is disabled if you select the **Generate password...** option to auto generate a temporary password for the user.
+		>**Note:** This option is disabled if you select the **Generate password...** option to auto generate a temporary password for the user.
 
 	* **Confirm Password:** Enter a password to confirm the value that you entered in the Password field. By doing so, you create the password for the user. The user can change the password when first logging in.
 
@@ -136,28 +136,28 @@ To create a user account:
 
 This completes the task of creating an Oracle Machine Learning user.
 
-## Task 3: Sign into Oracle Machine Learning Notebooks
+## Task 3: Sign into Oracle Machine Learning
 
-A notebook is a web-based interface for data analysis, data discovery, data visualization, and collaboration. You create and run notebooks in Oracle Machine Learning Notebooks. You can access Oracle Machine Learning Notebooks from Autonomous Database.
+A notebook is a web-based interface for data analysis, data discovery, data visualization, and collaboration. You create and run notebooks in Oracle Machine Learning user interface. You can access Oracle Machine Learning user interface from Autonomous Database.
 
 1. From the tab on your browser with your ADW instance, click **Service Console**, then select **Development** on the left.
 
-	![Development option in ADW Service Console](images/adw_development.png)
+	![Development option in ADW Service Console](images/adw-development.png)
 
 
-2. Click **Oracle Machine Learning Notebooks.**
+2. Click **Oracle Machine Learning Notebooks User Interface.**
 
-	 ![Oracle Machine Learning Notebooks in ADW](images/oml_notebooks_dev.png)
+	 ![Oracle Machine Learning Notebooks in ADW](images/oml-notebooks-dev.png)
 
 3. Enter your user credentials and click **Sign in**.
 
 	>**Note:** The credential is what you have defined while creating the Oracle Machine Learning user.
 
-	![Oracle Machine Learning Notebooks Sign in page](images/omluser_signin.png)
+	![Oracle Machine Learning Notebooks Sign in page](images/omluser-signin.png)
 
 4. Click **Notebooks** in the Quick Actions section.
 
-	![Notebooks option in OML homepage](images/homepage_notebooks.png)
+	![Notebooks option in OML homepage](images/homepage-notebooks.png)
 
 This completes the task of signing into Oracle Machine Learning user interface.
 
@@ -191,7 +191,7 @@ To create the table:
 		</copy>
     ```
 
-	![SQL script to create Customers360 table](images/sql_script.png)
+	![SQL script to create Customers360 table](images/sql-script.png)
 
 6. In the next paragraph, run the following script to view the data:
 
@@ -203,9 +203,11 @@ To create the table:
 	 ```
 
 
-	![Script to view Customers360 table](images/script_view_customers360.png)
+	![Script to view Customers360 table](images/script-view-customers360.png)
 
 This completes the task of creating the CUSTOMERS360 table.
+
+You may now **proceed to the next lab**.
 
 ## Learn More
 
@@ -215,4 +217,4 @@ This completes the task of creating the CUSTOMERS360 table.
 ## Acknowledgements
 * **Author** - Moitreyee Hazarika, Principal User Assistance Developer, Database User Assistance Development
 * **Contributors** -  Mark Hornick, Senior Director, Data Science and Machine Learning; Marcos Arancibia Coddou, Product Manager, Oracle Data Science; Sherry LaMonica, Principal Member of Tech Staff, Advanced Analytics, Machine Learning
-* **Last Updated By/Date** - Moitreyee Hazarika, November 2021
+* **Last Updated By/Date** - Moitreyee Hazarika, December 2021

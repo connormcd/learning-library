@@ -13,13 +13,16 @@ Administrators can still assign passwords to the default schema-only accounts. O
 
 The benefit of this feature is that administrators no longer have to periodically rotate the passwords for these Oracle Database provided schemas. This feature also reduces the security risk of attackers using default passwords to hack into these accounts.
 
+In this lab, you will query the Oracle-supplied schema-only account as well as create your own schema-only account.
+
 Estimated Lab Time: 5 minutes
 
 ### Objectives
 In this lab, you will:
 - Prepare your environment
-- Find the Oracle-supplied schemas that are now schema-only accounts.
-- Create a schema-only account with administrator privileges.
+- Find the Oracle-supplied schemas that are now schema-only accounts
+- Create a schema-only account with administrator privileges
+- Reset your environment
 
 ### Prerequisites
 
@@ -97,7 +100,7 @@ This lab assumes you have:
     31 rows selected.
     ```
 
-## Task 3: Create schema-only account with administrative privileges. 
+## Task 3: Create a schema-only account with administrative privileges. 
 
 1. Create new common user without password. 
 
@@ -119,12 +122,37 @@ This lab assumes you have:
 
     ```
     SQL> <copy>SELECT username, authentication_type from dba_users WHERE username = 'C##USER';</copy>
+
+    USERNAME                 AUTHENTI
+    ------------------------ --------
+    C##USER                  NONE
     ```
 
 4. Query the password file view `pwfile_users`.
 
     ```
     SQL> <copy>SELECT username, authentication_type FROM v$pwfile_users;</copy>
+
+    USERNAME                 AUTHENTI
+    ------------------------ --------
+    SYS                      PASSWORD
+    C##USER                  NONE
+    ```
+
+## Task 4: Reset your environment
+
+1. Drop the common user `C##USER`.
+
+    ```
+    SQL> <copy>DROP USER C##USER;</copy>
+
+    User dropped.
+    ```
+
+2. Exit SQL*Plus.
+
+    ```
+    SQL> <copy>EXIT</copy>
     ```
 
 ## Learn More
@@ -134,4 +162,4 @@ This lab assumes you have:
 
 - **Author**- Dominique Jeunot, Consulting User Assistance Developer
 - **Contributors** - Matthew McDaniel, Austin Specialists Hub, October 2021
-- **Last Updated By/Date** - Matthew McDaniel, Austin Specialists Hub, October 2021
+- **Last Updated By/Date** - Matthew McDaniel, Austin Specialists Hub, December 21 2021

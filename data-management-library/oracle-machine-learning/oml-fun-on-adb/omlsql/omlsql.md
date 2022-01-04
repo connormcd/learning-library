@@ -1,8 +1,8 @@
-# Introduction to Oracle Machine Learning for SQL
+# Use Oracle Machine Learning for SQL
 
 ## Introduction
 
- This lab walks you through the steps to explore, build, evaluate, and score data using OML4SQL from a Time Series example available in OML Notebooks. The data set used in this example is from the SH schema. The SH schema can be readily accessed in Oracle Autonomous Database. Oracle includes the Exponential Smoothing algorithm for time series. Exponential smoothing is a forecasting method for time series data. It is a moving average method where exponentially decreasing weights are assigned to past observations.
+ This lab walks you through the steps to explore, build, evaluate, and score data using OML4SQL from a Time Series example available in OML Notebooks. The data set used in this example is from the SH schema. The SH schema can be readily accessed in Oracle Autonomous Database. Oracle includes the Exponential Smoothing (ESM) algorithm for time series. Exponential smoothing is a forecasting method for time series data. It is a moving average method where exponentially decreasing weights are assigned to past observations.
 
 Estimated Time: 30 minutes
 
@@ -97,7 +97,7 @@ The output is follows:
     </copy>
     ```
 
-	![Displays few rows from the created view](images/timeseries_table_view.png)
+	![Displays few rows from the created view](images/timeseries-table-view.png)
 
 ## Task 3: Build Your Model
 To build a model using the time series data, you will use the Exponential Smoothing algorithm on the `ESM_SH_DATA` view that is generated during the data preparation stage. In this example you build a time series model by applying the Holt-Winters model on time series aggregated on a quarterly interval.
@@ -188,9 +188,9 @@ Evaluate your model by viewing diagnostic metrics and performing quality checks.
     ORDER BY SETTING_NAME;
     </copy>
     ```
-	![Review model settings](images/timeseries_modelsettings.png)
+	![Review model settings](images/timeseries-modelsettings.png)
 
-2. To view the model diagonistic view, `DM$VG`, and evaluate the model, run the following query:
+2. To view the model diagnostic view, `DM$VG`, and evaluate the model, run the following query:
 
     ```
     <copy>
@@ -201,7 +201,7 @@ Evaluate your model by viewing diagnostic metrics and performing quality checks.
     </copy>
     ```
 
-	![Review diagnostic metrics](images/timeseries_diagnosticview.png)
+	![Review diagnostic metrics](images/timeseries-diagnosticview.png)
 The `DM$VG` view for time series contains the global information of the model along with the estimated smoothing constants, the estimated initial state, and global diagnostic measures.
 
 - `NAME`: Indicates the diagnostic attribute name.
@@ -215,12 +215,12 @@ The `DM$VG` view for time series contains the global information of the model al
     - `MAE`: Indicates Mean Absolute Error.
     - `MSE`: Indicates Mean Square Error.
 
-In exponential smoothing a series extends infinitely into the past, but that influence of past on future decays smoothly and exponentially fast. The smooth rate of decay is expressed by one or more smoothing constants. The smoothing constants are parameters that the model estimates. These smoothing constants are represented as _α_, _β_, and _γ_. Values of a smoothing constant near one put almost all weight on the most recent observations. Values of a smoothing constant near zero allow the distant past observations to have a large influence.
+In exponential smoothing, a series extends infinitely into the past, but that influence of past on future decays smoothly and exponentially fast. The smooth rate of decay is expressed by one or more smoothing constants. The smoothing constants are parameters that the model estimates. These smoothing constants are represented as _α_, _β_, and _γ_. Values of a smoothing constant near one put almost all weight on the most recent observations. Values of a smoothing constant near zero allow the distant past observations to have a large influence.
 
 Note that _α_ is associated with the error or noise of the series, _β_ is associated with the trend, and _γ_ is associated with the seasonality factors.
 
-## Task 5 Score Your Model
-For a time series model, you can use the `DM$VP` view to retrieve the forecasts for the requested time periods.
+## Task 5: Access Forecasts from Your Model
+For a time series model, you use the `DM$VP` view to retrieve the forecasts for the requested time periods.
 1. Query the `DM$VP` model detail view to see the forecast (sales for four quarters). The `DM$VP` view for time series contains the result of an ESM model. The output has a set of records such as partition, `CASE_ID`, value, prediction, lower, upper, and so on and ordered by partition and `CASE_ID` (time). Run the following statement:
 
     ```
@@ -235,16 +235,16 @@ For a time series model, you can use the `DM$VP` view to retrieve the forecasts 
     </copy>
     ```
 
-	![The image displays the forecast using the DM$VP model detail view](images/timeseries_forecast.png)
+	![The image displays the forecast using the DM$VP model detail view](images/timeseries-forecast.png)
 	In this step, the forecast shows the amount sold along with the `case_id`. The forecasts display upper and lower confidence bounds showing that the estimates can vary between those values.
 
 	Examine the statement:
 	- `TO_CHAR(CASE_ID,'YYYY-MON') DATE_ID`: The `DATE_ID` column has timestamp or `case_id` extracted in year-month (yyyy-mon) format.
-	- `round(VALUE,2) ACTUAL_SOLD`: Specifies the `AMOUNT_SOLD` value as `ACTUAL_SOLD` rounded to two numericals after the decimal.
-	- `round(PREDICTION,2) FORECAST_SOLD`: Specifies the predicted value as `FORECAST_SOLD` rounded to two numericals after the decimal.
-	- `round(LOWER,2) LOWER_BOUND, round(UPPER,2) UPPER_BOUND`: Specifies the lower and upper confidence levels rounded to two numericals after the decimal.
+	- `round(VALUE,2) ACTUAL_SOLD`: Specifies the `AMOUNT_SOLD` value as `ACTUAL_SOLD` rounded to two decimal places.
+	- `round(PREDICTION,2) FORECAST_SOLD`: Specifies the predicted value as `FORECAST_SOLD` rounded to two decimal places.
+	- `round(LOWER,2) LOWER_BOUND, round(UPPER,2) UPPER_BOUND`: Specifies the lower and upper confidence levels rounded to two decimal places.
 
-2. To see a visual representation of the predictions in OML Notebooks, run the above same query with the following settings:
+2. To see a visual representation of the predictions in OML Notebooks, run the same query above with the following settings:
 Click **settings** and drag `DATE_ID` to **keys** and `FORECASTED_SOLD (avg)`, `ACTUAL_SOLD (avge)`, `LOWER_BOUND (avg)`, and `UPPER_BOUND(avg)` to **values**.
 
     ```
@@ -259,13 +259,13 @@ Click **settings** and drag `DATE_ID` to **keys** and `FORECASTED_SOLD (avg)`, `
     ```
 
 
-	![A visual representation of the forecast](images/timeseries_forecast_graph.png)
+	![A visual representation of the forecast](images/timeseries-forecast-graph.png)
 
 
 
 This completes the prediction step. The model has successfully forecast sales for the next four quarters.
 
-You may now proceed to the next lab.
+You may now **proceed to the next lab**.
 
 
 ## Learn More
@@ -280,4 +280,4 @@ You may now proceed to the next lab.
 ## Acknowledgements
 * **Author** - Sarika Surampudi, Senior User Assistance Developer, Oracle Database User Assistance Development
 * **Contributors** -  Mark Hornick, Sr. Director, Data Science and Oracle Machine Learning Product Management; Sherry LaMonica, Principal Member of Technical Staff, Oracle Machine Learning
-* **Last Updated By/Date** - Sarika Surampudi, October 2021
+* **Last Updated By/Date** - Sarika Surampudi, December 2021

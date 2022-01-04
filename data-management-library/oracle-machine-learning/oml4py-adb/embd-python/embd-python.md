@@ -35,7 +35,7 @@ In this lab, you will:
 
 1. Go back to the main notebooks listing by clicking on the "hamburger" menu (the three lines) on the upper left of the screen, and then select **Notebooks**.
 
- ![Oracle Machine Learning Notebooks menu](images/go-back-to-notebooks.png " ")
+ ![Oracle Machine Learning Notebooks menu](images/go-back-to-notebooks.png "Test ")
 
 2. Click the **Lab 5 notebook name** to view it.
    <if type="freetier">
@@ -46,7 +46,7 @@ In this lab, you will:
   OML Notebooks will create a session and make the notebook available for editing.
 
   You can optionally click the **Run all paragraphs** (![](images/run-all-paragraphs.png =20x*)) icon, and then click **OK** to confirm to refresh the content with your data, or just scroll down and read the pre-recorded results.  
-   
+
   ![Lab 5 main screen](images/lab5-main.png " ")
 
 > **NOTE:** If you had problems downloading and extracting the ZIP file for the labs, please [**CLICK HERE** to download the lab5\_embed\_python.json notebook file](./../notebooks/lab5_embed_python.json?download=1). Download the notebook file for this lab to your local machine and then import it like illustrated in **Lab 1, Task 2**.
@@ -64,28 +64,28 @@ Follow the flow of the notebook by scrolling to view and run each paragraph of t
 
 Scroll down to the beginning of Task 2.
 
-  ![Lab 5 Task 2 screen](images/lab5-task2.png " ") 
+  ![Lab 5 Task 2 screen](images/lab5-task2.png " ")
 
 ## Task 3: Build the model using Embedded Python Execution
 Follow the flow of the notebook by scrolling to view and run each paragraph of this lab.
 
 Scroll down to the beginning of Task 3.
 
-  ![Lab 5 Task 3 screen](images/lab5-task3.png " ") 
+  ![Lab 5 Task 3 screen](images/lab5-task3.png " ")
 
 ## Task 4: Build one model per species using group_apply function
 Follow the flow of the notebook by scrolling to view and run each paragraph of this lab.
 
 Scroll down to the beginning of Task 4.
 
-  ![Lab 5 Task 4 screen](images/lab5-task4.png " ") 
+  ![Lab 5 Task 4 screen](images/lab5-task4.png " ")
 
 ## Task 5: Return multiple images from Embedded Python Execution
 Follow the flow of the notebook by scrolling to view and run each paragraph of this lab.
 
 Scroll down to the beginning of Task 5.
 
-  ![Lab 5 Task 5 screen](images/lab5-task5.png " ") 
+  ![Lab 5 Task 5 screen](images/lab5-task5.png " ")
 
 After you reach the end of Lab 5, you can *proceed to the next lab*.
 

@@ -38,27 +38,23 @@ Although you can connect to your autonomous database using local PC desktop tool
 
     ![Autonomous Databases homepage.](images/step1.1-adb.png " ")
 
-2. In your ADW Finance Mart database's details page, click the **Tools** tab.
+2. In your ADW Finance Mart database's details page, click the **Database Actions** button.
 
-    ![Click on Tools tab.](./images/Picture100-34.png " ")
+    ![Click Database Actions button.](./images/click-database-actions-button.png " ")
 
-3.  The Tools page provides you access to database administration and developer tools for Autonomous Database: Database Actions, Oracle Application Express, Oracle ML User Administration, and SODA Drivers. In the Database Actions box, click **Open Database Actions**.
-
-    ![Select Open Database Actions.](./images/Picture100-15.png " ")
-
-4.  A sign-in page opens for Database Actions. For this lab, simply use your database instance's default administrator account, **Username - admin**, and click **Next**.
+3.  A sign-in page opens for Database Actions. For this lab, simply use your database instance's default administrator account, **Username - admin**, and click **Next**.
 
     ![Enter the admin username.](./images/Picture100-16.png " ")
 
-5. Enter the admin **Password** you specified when creating the database. Click **Sign in**.
+4. Enter the admin **Password** you specified when creating the database. Click **Sign in**.
 
     ![Enter the admin password.](./images/Picture100-16-password.png " ")
 
-6. The Database Actions page opens. In the **Development** box, click **SQL**.
+5. The Database Actions page opens. In the **Development** box, click **SQL**.
 
     ![Click on SQL.](./images/Picture100-16-click-sql.png " ")
 
-7.  The first time you open SQL Worksheet, a series of pop-up informational boxes introduce you to the main features. Click **Next** to take a tour through the informational boxes.
+6.  The first time you open SQL Worksheet, a series of pop-up informational boxes introduce you to the main features. Click **Next** to take a tour through the informational boxes.
 
     ![SQL Worksheet.](./images/Picture100-sql-worksheet.png " ")
 

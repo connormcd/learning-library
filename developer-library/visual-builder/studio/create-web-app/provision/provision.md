@@ -6,7 +6,7 @@ This lab walks you through the process of provisioning an Oracle Visual Builder 
 
 Estimated Time: 20 minutes
 
-### Background
+### About this Lab
 If you just created a new Cloud account following the instructions in Getting Started, you might want to wait before you attempt to create Visual Builder and VB Studio instances. It could take anywhere between 10 and 30 minutes for a new user account to be fully provisioned and for the navigation menu to show. If you already have a Cloud account, you don't need to wait. Either way, make sure you've signed in to the Oracle Cloud as an Oracle Identity Cloud Service user before proceeding. *Note: If you log in using an Oracle Cloud Infrastructure account, the navigation menu to Visual Builder won't show.*
 
 ### Objectives
@@ -20,7 +20,7 @@ This lab assumes you have:
 * An Oracle Cloud Account
 * A Chrome browser
 
-## Task 1: Create an Instance of Visual Builder
+## Task 1: Create an instance of Visual Builder
 Provision a service instance of Visual Builder to host apps created in VB Studio. The Visual Builder instance provides the runtime environment for the web app you'll create in VB Studio. You must provision the Visual Builder instance first, so you have it available for selection as a deployment target when you create a project in VB Studio.
 
 1.  On the Oracle Cloud Get Started page, click the menu in the upper left corner to display the services you can provision:
@@ -46,7 +46,7 @@ Provision a service instance of Visual Builder to host apps created in VB Studio
 
    ![](./images/open.png)
 
-## Task 2: Create an Instance of VB Studio
+## Task 2: Create an instance of VB Studio
 Provision a service instance of VB Studio to develop and deploy your web app. You can create only one VB Studio instance in an Oracle Cloud account. Before you attempt to create an instance, make sure there's no existing VB Studio instance in your account.
 
 1. Navigate back to your Cloud Console and click the menu in the upper left corner, click **OCI Classic Services**, then select **Developer**.
@@ -80,7 +80,7 @@ Provision a service instance of VB Studio to develop and deploy your web app. Yo
 
   The free account provides a minimal set of resources (detailed [here](https://docs.oracle.com/en/cloud/paas/visual-builder/visualbuilder-administration/set-oracle-visual-builder-studio.html#GUID-759853ED-5561-4031-AC01-773D58992CA3)), sufficient to try out VB Studio. If this is enough for your needs, you can [jump to the next lab](#next) and get started with creating a project. If your data center does not include this free account or you want to explore more of VB Studio, continue with the following tasks to connect your own OCI account.
 
-## Task 3: Set Up the OCI Account
+## Task 3: Set up the OCI account
 
 To connect your VB Studio instance to OCI resources such as VMs for builds and storage buckets for project data, you need to set up your OCI account with a dedicated compartment and a separate Identity and Access Management (IAM) user. This allows you to organize VB Studio resources better because they aren't mixed with your other resources.
 
@@ -197,7 +197,7 @@ To connect your VB Studio instance to OCI resources such as VMs for builds and s
     f. Click **Create**.
        ![](./images/oci-policies-create-details.png)
 
-## Task 4: Get OCI Credentials
+## Task 4: Get OCI credentials
 
 You now need the unique Oracle Cloud Identifiers (OCIDs) of the VB Studio compartment and user, as well as other details of your environment to help you connect VB Studio to OCI. You can get all this information from the Oracle Cloud console.
 
@@ -238,7 +238,7 @@ You now need the unique Oracle Cloud Identifiers (OCIDs) of the VB Studio compar
 
 9. Finally, check for the private key. The private key file was generated and saved on your computer when you created the private-public key pair in the PEM format. As you recall, we copied the private key at the beginning of this lab and pasted it into a notepad. You'll now need this for the next task.
 
-## Task 5: Connect the OCI Account
+## Task 5: Connect the OCI account
 With all the necessary information copied, connect your VB Studio instance to the OCI account.
 
 1. Return to the VB Studio console, then on the Organization page, select **OCI Account** and click **Connect** (or **Connect OCI Account**).
@@ -253,6 +253,8 @@ With all the necessary information copied, connect your VB Studio instance to th
 3. Select the requirements check box, click **Validate**, then **Save**.
 
    ![](./images/oci-account.png)
+
+    You may **proceed to the next lab**.
 
 ## Acknowledgements
 * **Created By/Date** - Sheryl Manoharan, VB Studio User Assistance, November 2021

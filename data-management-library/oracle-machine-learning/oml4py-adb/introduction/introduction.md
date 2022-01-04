@@ -12,7 +12,7 @@ Watch this quick video on Oracle Machine Learning for Python (OML4Py).
 
 Estimated Time: 120 minutes
 
-<if type="odbw">If you would like to watch us do the workshop, click [here](https://youtu.be/fLJazKAT28c).</if>
+If you would like to watch us do the workshop, click [here](https://youtu.be/fLJazKAT28c).
 
 ### About Oracle Machine Learning for Python (OML4Py)
 Oracle Machine Learning for Python (OML4Py) is a component of Oracle Autonomous Database, which includes Oracle Autonomous Data Warehouse (ADW), Oracle Autonomous Transaction Processing (ATP), and Oracle Autonomous JSON Database (AJD). By using Oracle Machine Learning Notebooks on Oracle Autonomous Database, you can run Python functions on database data for exploration, preparation, and modeling while leveraging Oracle Database as a high-performance computing environment. 

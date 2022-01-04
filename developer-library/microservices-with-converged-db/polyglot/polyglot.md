@@ -2,17 +2,17 @@
 
 ## Introduction
 
-The illustration below shows four microservices–Order, Inventory, Delivery, Supplier, and the infrastructure required to run them.
+The illustration below shows four microservices: Order, Inventory, Delivery, Supplier, and the infrastructure required to run them.
 
 ![](images/architecture.png " ")
 
 For more information on microservices visit http://developer.oracle.com/microservices
 
-This lab will show you how to switch the Inventory microservice to a Python, Node.js, .NET, Go, Spring Boot or Java Helidon SE implementation while retaining the same application functionality.
+In this workshop, you'll switch the Inventory microservice to a Python, Node.js, .NET, Go, Spring Boot or Java Helidon SE implementation while retaining the same application functionality.
 
-Estimates Lab Time - 10 minutes
+Estimated Time - 10 minutes
 
-Quick walk through on how to switch the Inventory microservice to Python while retaining the same application functionality.
+The following video provides a quick walk-through of how to switch the Inventory microservice to Python while retaining the same application functionality.
 
 [](youtube:zltpjX721PA)
 
@@ -36,7 +36,7 @@ This lab assumes you have already completed the earlier labs.
 
    ![](images/undeploy-inventory-helidon-mp.png " ")
 
-## Task 2: Deploy an alternate implementation of the Inventory Microservice
+## Task 2: Deploy an Alternate Implementation of the Inventory Microservice
 
 In this step you can choose between six different implementations of the Inventory Microservice: PL/SQL, Python, NodeJS, .NET, Go, or Java Helidon SE.
 
@@ -78,17 +78,43 @@ In this step you can choose between six different implementations of the Invento
     <copy>cd $GRABDISH_HOME/inventory-helidon-se; ./deploy.sh</copy>
     ```
 
-## Task 3: Verify application functionality
+   If you selected **Micronaut**, deploy this service:
+
+    ```
+    <copy>cd $GRABDISH_HOME/inventory-micronaut; ./deploy.sh</copy>
+    ```
+
+   If you selected **Quarkus**, deploy this service:
+
+    ```
+    <copy>cd $GRABDISH_HOME/inventory-quarkus; ./deploy.sh</copy>
+    ```
+
+   If you selected **GraalVM Native Image**, you will need to build the image in an environment/machine that has more memory/space than the cloud console.
+   Refer to the `Task 11: ` in Lab 2 for details on how to do this and run the following command to build and push the image from that environment:
+
+    ```
+    <copy>cd $GRABDISH_HOME/inventory-micronaut; ./build-native-image.sh</copy>
+    ```
+
+   Then run the following command to deploy. This can be done from either the same environment/machine as the build or the cloud shell.
+
+    ```
+    <copy>cd $GRABDISH_HOME/inventory-micronaut; ./deploy-native-image.sh</copy>
+    ```
+
+## Task 3: Verify Application Functionality
 
 1. Repeat **Lab 2: Step 3** to verify that the functionality of the GrabDish store remains the same while using the new implementation. You will need to use different order ID's, for example 166 and 167.
 
 ## Task 4: Re-deploy the Java Helidon MP Inventory Microservice
 
-1. To undeploy any other inventory services and then deploy the Inventory Helidon MP service, issue the following commands.
+1. To undeploy any other inventory services and then deploy the Inventory Helidon MP service, issue the following commands:
 
     ```
     <copy>
     for i in inventory-plsql inventory-helidon-se inventory-python inventory-nodejs inventory-dotnet inventory-go inventory-springboot; do cd $GRABDISH_HOME/$i; ./undeploy.sh; done
+    cd $GRABDISH_HOME/inventory-micronaut ; ./undeploy-native-image.sh
     cd $GRABDISH_HOME/inventory-helidon ; ./deploy.sh
     cd $GRABDISH_HOME
     </copy>

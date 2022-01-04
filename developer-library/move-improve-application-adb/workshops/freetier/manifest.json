@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Move and Improve Application to ATP and OCI",
+    "workshoptitle": "Move and improve your application on Autonomous Database and OCI",
     "help": "livelabs-help-db_us@oracle.com",
     "tutorials": [
         {
@@ -18,15 +18,15 @@
             "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/generate-ssh-key/generate-ssh-keys.md"
         },
         {
-            "title": "Lab 2: Generate Auth Token",
+            "title": "Lab 2: Generate the Auth Token",
             "filename": "../../generate-auth-token/generate-auth-token.md"
         },
         {
-            "title": "Lab 3: Create Virtual Cloud Network",
+            "title": "Lab 3: Create the Virtual Cloud Network",
             "filename": "../../create-vcn/create-vcn.md"
         },
         {
-            "title": "Lab 4: Create Computes",
+            "title": "Lab 4: Create the Computes",
             "filename": "../../create-compute/create-compute.md"
         },
         {
@@ -49,6 +49,7 @@
             "title": "Lab 9: Managing Storage and Images",
             "filename": "../../managing-storage-volume/managing-storage-volume.md"
         },
+
         {
             "title": "Need Help?",
             "description": "Solutions to Common Problems and Directions for Receiving Live Help",

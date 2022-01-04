@@ -5,7 +5,7 @@
       {
           "title": "Introduction",
           "description": "Introduction to Oracle Database 19c and the Oracle Database 19c New Features Workshop.",
-          "filename": "../../intro/intro.md"
+          "filename": "../../intro/intro-security.md"
       },
       {
           "title": "Getting Started",
@@ -16,13 +16,13 @@
       {
           "title": "Prepare Your Environment",
           "description": "Steps to create the workshop-staged and workshop-installed compute instances.",
-          "filename": "./../../prepare-environment/prepare-environment.md",
+          "filename": "./../../prepare-environment/prepare-environment-security.md",
           "type": "freetier"
       },
       {
         "title": "Initialize Your Environment",
         "description": "Steps to verify the workshop-installed compute instance and download the lab files.",
-        "filename": "./../../initialize-environment/initialize-environment.md",
+        "filename": "./../../initialize-environment/initialize-environment-security.md",
         "type": "freetier"
       },
       {
@@ -33,10 +33,10 @@
       {
           "title": "Protect Application Data by Using Database Vault Operations Control",
           "description": "TBA",
-          "filename": "./../../protect-application-data-by-using-database-vault-operations-control/protect-application-data-by-using-database-vault-operations-control.md"
+          "filename": "./../../protect-application-database-vault-operations-control/protect-application-database-vault-operations-control.md"
       },
       {
-          "title": "Restrict Users from Executing the AUDIT POLICY and NOAUDIT POLICY SQL Commands by Using Oracle Database Vault Command",
+          "title": "Restrict Users from Executing the AUDIT POLICY and NOAUDIT POLICY SQL Commands by Using Oracle Database Vault Command Rules",
           "description": "TBA",
           "filename": "./../../restrict-audit-policy-sql-commands-with-oracle-database-vault/restrict-audit-policy-sql-commands-with-oracle-database-vault.md"
       },
@@ -48,7 +48,7 @@
       {
           "title": "Handle Operations on Oracle-Managed and User-Managed Tablespaces Encrypted in TDE",
           "description": "TBA",
-          "filename": "./../../operations-on-oracle-and-user-managed-tablespaces-encrypted-in-tde/operations-on-oracle-and-user-managed-tablespaces-encrypted-in-tde.md"
+          "filename": "./../../operations-on-managed-tablespaces-encrypted-in-tde/operations-on-managed-tablespaces-encrypted-in-tde.md"
       },
         {
             "title": "Need Help?",

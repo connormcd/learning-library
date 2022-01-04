@@ -1,4 +1,4 @@
-# Setup 21C Environment
+# Set up 21C Environment
 
 ## Introduction
 In this lab, you will run the scripts to setup the environment for the Oracle Database 21c workshop.
@@ -28,9 +28,9 @@ In this lab, you will:
 2. In Cloud Shell or your terminal window, navigate to the folder where you created the SSH keys and enter this command, using your IP address:
 
     ```
-    $ <copy>ssh -i <<sshkeyname>> opc@</copy>123.123.123.123
+    $ <copy>ssh -i <<sshkeyname>> opc@</copy>< your_IP_address >
     Enter passphrase for key './myOracleCloudKey':
-    Last login: Tue Feb  4 15:21:57 2020 from 123.123.123.123
+    Last login: Tue Feb  4 15:21:57 2020 from < your_IP_address >
     [opc@tmdb1 ~]$
     ```
 3. You will need to create the directories for the container database as well as the pluggable databases.
@@ -216,5 +216,4 @@ You may now [proceed to the next lab](#next).
 ## Acknowledgements
 * **Author** - Donna Keesling, Database UA Team
 * **Contributors** -  David Start, Kay Malcolm, Database Product Management
-* **Last Updated By/Date** -  David Start, December 2020
-
+* **Last Updated By/Date** - Arabella Yao, Product Manager, Database Product Management, December 2021

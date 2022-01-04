@@ -5,6 +5,10 @@ This lab will show you how to download the Oracle Resource Manager (ORM) stack z
 
 *Estimated Lab Time:* 15 minutes
 
+Watch the video below for a quick walk through of the lab.
+
+[](youtube:HI9iczwKwJ4)
+
 ### Objectives
 -   Download ORM stack need to create Compute Instance(Virtual Machine) for this workshop.
 

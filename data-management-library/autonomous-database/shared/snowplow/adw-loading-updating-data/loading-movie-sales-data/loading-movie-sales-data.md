@@ -40,13 +40,13 @@ A wide range of file formats are supported including comma-separated, tab delimi
 
 In this step, we will add a link from the Autonomous Data Warehouse to the public bucket on OCI Object Storage so that it can load data from this location.
 
-1. From your cloud console page, click the **Tools** tab, then click the **Open Database Actions** button:
+1. From your Autonomous Database Details page, click the **Database Actions** button:
 
-    ![Click the Open Database Actions button.](images/3054194717.png)
+    ![Click the Database Actions button.](images/launchdbactions.png)
 
 2. On the login screen, enter the username **ADMIN**, then click the blue **Next** button.
 
-3. Enter the admin password you set up when provisioning the ADW instance.
+3. Enter the admin password you set up when provisioning the ADW instance. Click **Sign in**.
 
 4. In the **Data Tools** section of the Database Actions page, click the **Data Load** card:
 

@@ -48,7 +48,7 @@ Cloud Shell is a small virtual machine running a "bash" shell which you access t
 1. To work with the application code, you need to make a clone from the GitHub repository using the following command.  
 
     ```
-    <copy>git clone -b 21.10.1 --single-branch https://github.com/oracle/microservices-datadriven.git
+    <copy>git clone -b 21.11.3 --single-branch https://github.com/oracle/microservices-datadriven.git
     </copy>
     ```
 
@@ -112,9 +112,9 @@ Cloud Shell is a small virtual machine running a "bash" shell which you access t
 
   f. Click Close to close the Generate Token dialog.
 
-4. The setup will ask you to enter an Admin password for the databases. For simplicity, the same password will be used for both the Order and Inventory databases. 
+4. The setup will ask you to enter an Admin password for the databases. For simplicity, the same password will be used for both the Order and Inventory databases.
 
-Database passwords must be 12 to 30 characters and contain at least one uppercase letter, one lowercase letter, and one number. The password cannot contain the double quote (") character or the word "admin". 
+Database passwords must be 12 to 30 characters and contain at least one uppercase letter, one lowercase letter, and one number. The password cannot contain the double quote (") character or the word "admin".
 
 **Note**: The passwords typed are not displayed.
 
@@ -140,7 +140,15 @@ ls -al $GRABDISH_LOG
 </copy>
 ```
 
-Once the setup has completed you are ready to move to the next lab. 
+You can also cat through the logs by using the `showsetuplogs` shortcut command.
+
+```
+<copy>
+showsetuplogs
+</copy>
+```
+
+Once the setup has completed you are ready to move to the next lab.
 
 Note, the non-java-builds.sh script may continue to run even after the setup has completed. The non-Java builds are only required in Lab 3 and so we can continue with Lab 2 while the builds continue in the background.
 

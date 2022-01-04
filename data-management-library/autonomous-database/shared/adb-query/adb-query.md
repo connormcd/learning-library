@@ -6,10 +6,6 @@ In this lab, you will query files on the Oracle Cloud Infrastructure (OCI) Objec
 
 Estimated Time: 10 minutes
 
-Watch the video below for a quick walk through of the lab.
-
-[](youtube:/PX7FrSYRTRM)
-
 ### Objectives
 
 -   Learn how to create external tables on top of files residing on the object store
@@ -27,9 +23,9 @@ Watch the video below for a quick walk through of the lab.
 
     ![Select your database instance.](images/step1.1-adb.png " ")
 
-2.  If you are not already logged in to SQL Worksheet, in your ADW Finance Mart Database Details page, click the **Tools** tab and then click **Open Database Actions**.
+2.  If you are not already logged in to SQL Worksheet, in your ADW Finance Mart Database Details page, click the **Database Actions** button.
 
-    ![Select Tools tab and click Open Database Actions.](./images/Picture100-15.png " ")
+    ![Click the Database Actions button.](./images/click-database-actions-button.png " ")
 
 3.  A sign-in page opens for Database Actions. For this lab, simply use your database instance's default administrator account, **Username - ADMIN** and click **Next**.
 
@@ -75,4 +71,4 @@ For more information about querying external data, see the documentation [Queryi
 
 - **Author** - Nilay Panchal, Oracle Autonomous Database Product Management
 - **Adapted for Cloud by** - Richard Green, Principal Developer, Database User Assistance
-- **Last Updated By/Date** - Richard Green, September 2021
+- **Last Updated By/Date** - Richard Green, November 2021

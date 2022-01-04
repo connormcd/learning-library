@@ -1,5 +1,5 @@
 {
-  "workshoptitle": "Unified Observability in Grafana with Converged Oracle Database",
+  "workshoptitle": "Unified Observability in Grafana with converged Oracle Database",
   "help": "livelabs-help-db_us@oracle.com",
 	"tutorials": [
       {
@@ -7,7 +7,7 @@
         "filename": "../../intro/intro.md"
       },
       {
-        "title": "Getting started",
+        "title": "Get started",
         "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
       },
       {
@@ -15,32 +15,39 @@
         "filename": "../../setup/setup_paid.md"
       },
       {
-        "title": "Lab 2: Data-centric microservices walkthrough with Helidon MP",
-        "filename": "../../walkthrough-helidon/walkthrough-helidon.md"
+        "title": "Lab 2: Deploy and Test Data-centric Microservices Application",
+        "filename": "../../deploy-and-test-app/deploy-and-test-app.md",
+        "type": "paid"
       },
       {
-        "title": "Lab 3: Polyglot microservices",
-        "filename": "../../polyglot/polyglot.md"
+        "title": "Lab 3: Enable Observability with Database Metrics, Logs Exporters",
+        "filename": "../../../microservices-with-converged-db/observability/observability.md",
+        "type": "paid"
       },
       {
-        "title": "Lab 4: Scaling",
-        "filename": "../../scaling/scaling.md"
+        "title": "Lab 4: Configure Alert Channel",
+        "filename": "../../configure-alert-channel/configure-alert-channel.md",
+        "type": "paid"
       },
       {
-        "title": "Lab 5: Observability",
-        "filename": "../../observability/observability.md"
+        "title": "Lab 5: Diagnosability and Debugging Use Case",
+        "filename": "../../diagnosability-usecase/diagnosability-usecase.md",
+        "type": "paid"
       },
       {
-        "title": "Lab 6: Create an APEX app to view and update data",
-        "filename": "../../apex/apex.md"
+        "title": "Lab 6: Performance Analysis Use Case",
+        "filename": "../../performance-usecase/performance-usecase.md",
+        "type": "paid"
       },
       {
-        "title": "Lab 7: Transactional tests: compare MongoDB, Postgres, and Kafka to Oracle DB with TEQ/AQ",
-        "filename": "../../transactional/transactional.md"
+        "title": "Lab 7: Better Understand and Modify Metrics, Logging, and Tracing",
+        "filename": "../../extended-usage/extended-usage.md",
+        "type": "paid"
       },
       {
         "title": "Lab 8: Tear down",
-        "filename": "../../teardown/teardown.md"
+        "filename": "../../../microservices-with-converged-db/teardown/teardown.md",
+        "type": "paid"
       },
       {
         "title": "Need Help?",

@@ -53,6 +53,11 @@
             "filename": "../../cloud-databases/cloud-databases.md"
         },
         {
+            "title": "Lab 9: Setup Database Management for Oracle Autonomous Databases",
+            "description": "Setup Database Management for Oracle Autonomous Databases",
+            "filename": "../../autonomous-database/autonomous-database.md"
+        },
+        {
             "title": "Need Help?",
             "description": "Solutions to Common Problems and Directions for Receiving Live Help",
             "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/oci-library/need-help/need-help-livelabs.md"

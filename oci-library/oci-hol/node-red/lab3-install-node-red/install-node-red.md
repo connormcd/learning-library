@@ -1,9 +1,9 @@
-# Installing Node-RED
+# Install Node-RED
 
 ## Introduction
 This lab describes how to install Node-RED on Oracle Autonomous Linux.
 
-Estimated Lab Time: 20 minutes
+Estimated time: 20 minutes
 
 ### Objectives
 
@@ -17,7 +17,7 @@ In this lab, you will:
 
 * Access to a compute instance running Oracle Autonomous Linux
 
-## Task 1: Installing Node.js
+## Task 1: Install Node.js
 
 First, we need to install Node.js. Make sure you are connected to the compute instance via SSH. To configure the Node.js and the Oracle Instant Client repository:
 
@@ -27,7 +27,7 @@ To install the latest Node.js:
 
 `sudo yum install nodejs`
 
-## Task 2: Installing Git
+## Task 2: Install Git
 
 Git is required in order to clone the latest Node-RED repository. To install Git run:
 
@@ -62,7 +62,7 @@ Finally, we can build the application. To build Node-RED:
 You are done with the installation of Node-RED. Before we run Node-RED, we want to first update the Network Security List in OCI and the
 `iptables` of the OAL installatio.
 
-You may now [proceed to the next lab](#next).
+You may now proceed to the next lab.
 
 ## Learn More
 
@@ -71,7 +71,5 @@ You may now [proceed to the next lab](#next).
 * [Node-RED](https://nodered.org/)
 
 ## Acknowledgements
-* **Author** - Kevin Lazarz, Program Manager, TE Hub
-* **Last Updated By/Date** - Kevin Lazarz, Program Manager, TE Hub March 2021
-
-Test
+* **Author** - Kevin Lazarz, Product Manager
+* **Last Updated By/Date** - Kevin Lazarz, Product Manager, November 2021

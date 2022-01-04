@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Database 21c Big Data and Data Warehousing",
+    "workshoptitle": "Improve Performance and Functionality of Oracle Big Data Cloud Service and Oracle Autonomous Data Warehouse in Oracle Database 21c",
     "help": "livelabs-help-db_us@oracle.com",
 	"tutorials": [
         {
@@ -8,7 +8,7 @@
             "filename": "../../introduction/intro-bigdata-dw.md"
         },
         {
-            "title": "Getting Started",
+            "title": "Get Started",
             "description": "This is the prerequisites for customers using Free Trial and Paid tenancies, and Always Free accounts (if applicable). The title of the lab and the Contents Menu title (the title above) match for Prerequisite lab. This lab is always first.",
             "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
         },
@@ -22,29 +22,29 @@
             "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/data-management-library/database/oci-vm-database/create-oci-vm-db/create-oci-vm-db/create-oci-vm-db-vcn.md"
         },
         {
-            "title": "Lab 3: 21C Setup",
+            "title": "Lab 3: Set up 21C",
             "filename": "../../setup/setup.md"
         },{
-            "title": "Lab: Bitwise Aggregate Functions",
+            "title": "Lab 4: Use Bitwise Aggregate Functions",
             "filename": "../../bitwise-agg/bitwise-agg.md",
             "type": "dbcs"
         },
         {
-            "title": "Lab: Enhanced Analytic Functions",
+            "title": "Lab 5: Use Enhanced Analytic Functions",
             "filename": "../../enhanced-analytics/enhanced-analytics.md",
             "type": "dbcs"
         },
         {
-            "title": "Lab: Detecting Data Tampering",
+            "title": "Lab 6: Detect Data Tampering",
             "filename": "../../data-tampering/data-tampering.md",
             "type": "dbcs"
         },
         {
-            "title": "Lab: Measuring Asymmetry in Data",
+            "title": "Lab 7: Measure Asymmetry in Data",
             "filename": "../../skewness/skewness.md"
         },
         {
-            "title": "Lab: Measuring Tailedness of Data",
+            "title": "Lab 8: Measure Tailedness of Data",
             "filename": "../../kurtosis/kurtosis.md"
         },
         {

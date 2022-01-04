@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Autonomous Data Warehouse: Load and update data using Data Tools (Moviestream)",
+    "workshoptitle": "Load and update MovieStream data in Oracle Autonomous Data Warehouse using Data Tools",
     "help": "livelabs-help-db_us@oracle.com",
 	"tutorials": [
       {

@@ -6,11 +6,12 @@ Welcome to the Cloud Storage (File System Storage) self-paced lab from Oracle!
 
 Oracle Cloud Infrastructure (OCI) File Storage Service provides a durable, scalable, distributed, enterprise-grade network file system. You can connect to a File Storage Service file system from any bare metal, virtual machine, or container instance in your Virtual Cloud Network (VCN). You can also access a file system from outside the VCN using Oracle Cloud Infrastructure FastConnect and Internet Protocol security (IPSec) virtual private network (VPN).
 
+Estimated Time: 60 minutes
+
 ### Objectives
 In this lab, you will:
 - Create and mount File Storage System to a compute instance
 - Verify availability of the File Storage system
-
 
 ### Prerequisites
 This lab assumes you have:

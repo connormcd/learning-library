@@ -18,7 +18,7 @@ In this lab, you will:
 * Make sure we have a way to view a desktop in that instances (RealVNC/VNC viewer of choice)
 * Make sure we have public/private keys to use to keep our instances secure
 
-## Task 1: install PuTTY and PuTTYGen (Windows)
+## Task 1: Install PuTTY and PuTTYGen (Windows)
 
 Most Unix-based OSs, including MacOS and various Linux distros, innately boot an SSH service to allow for SSH connections to remote instances. If you are using a Windows machine, this functionality was only recently added within Windows Terminal, and finding documentation on how to perform many of the actions you can perform on Unix-based machines is difficult.
 
@@ -28,13 +28,13 @@ Installing PuTTY is simple. Just visit the PuTTY release page [here](https://www
 
 PuTTY public/private keys are in a slightly different format than the SSH protocol that most Unix-based OSs will have. As such, if you're downloading PuTTY, it also makes sense to download **PuTTYGen** from the PuTTY release page above. PuTTYGen is a PuTTY-based extension designed specifically for key generation.
 
-## Task 2: Install a VNC viewer
+## Task 2: Install a VNC Viewer
 
 The infrastructure set up in this workshop utilizes a Linux bastion host. We will be performing remote operations on the rest of the infrastructure from this host; as such, getting a GUI on this host will make our job easier down the line. Actual setup of the GUI for the host happens in Lab 3; this task makes sure that your local computer can view the GUI as well.
 
 The software that we will use to view the desktop once it is up is called **RealVNC Viewer**. VNC is maintained by RealVNC in the US, and they also maintain this viewer. If you do not have it downloaded already, install the corresponding OS version at the following link [here](https://www.realvnc.com/en/connect/download/viewer/).
 
-## Task 3: Create SSH key bundles
+## Task 3: Create SSH Key Bundles
 
 The SSH protocol uses a public/private key pair to secure its connections. If you already have a key bundle created and are fine with utilizing it for this infrastructure, take a note of where they're saved and continue along. If not, follow the instructions below to create a new key-pair.
 
@@ -95,6 +95,8 @@ As alluded to earlier, we'll be using the PuTTYGen application to create our key
 ## Summary
 
 You have now completed all the necessary prerequisites on your local machine to set up Hyperion on OCI. In the next lab, we'll use a Terraform stack along with OCI Resource Manager to provision the infrastructure we need to run Hyperion.
+
+You may now **proceed to the next lab.**
 
 ## Learn More
 

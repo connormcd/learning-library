@@ -3,6 +3,7 @@
 ## Introduction
 In this session, we will show you how to create a vision project, select your training data, and train a custom model.
 
+*Estimated Lab Time*: 15 minutes
 
 ### Objectives
 
@@ -98,8 +99,8 @@ Congratulations on completing this lab!
 
 ### Acknowledgements:
 * **Authors**
-    * Kate D'Orazio - Oracle AI Services
-    * Vaishnavi Kotturu - Oracle OCI AI Vision Services
+    * Kate D'Orazio - Oracle OCI Vision Services
+    * Vaishnavi Kotturu - Oracle OCI Vision Services
 
 * **Last Updated By/Date**
-    * Vaishnavi Kotturu - Oracle OCI AI Vision Services, November 2021
+    * Vaishnavi Kotturu - Oracle OCI Vision Services, November 2021

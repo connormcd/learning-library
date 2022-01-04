@@ -136,7 +136,7 @@ The Availability Domain must be the same as the rest of your resources. The Comp
 
 ![](./images/ogg-hub-create.png " ")
 
-13. Upon creation, scroll down to the bottom of the logs and copy the __ogg\_instance\_id__ __ogg\_instance_\_id__ and the __ogg\_public\_ip__. Save them for later use, you will require it during the migration
+13. Upon creation, scroll down to the bottom of the logs and copy the __ogg\_image\_id__ __ogg\_instance_\_id__ and the __ogg\_public\_ip__. Save them for later use, you will require it during the migration
 
 ![](./images/ogg-copy-ocid.png " ")
 

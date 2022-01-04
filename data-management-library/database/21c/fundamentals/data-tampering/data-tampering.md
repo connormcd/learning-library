@@ -1,4 +1,4 @@
-# Detecting Data Tampering with the CHECKSUM Function
+# Detect Data Tampering with the CHECKSUM Function
 
 ## Introduction
 This lab shows how to use the `CHECKSUM` aggregate function to detect changes in a table. The function can be applied on a column, a constant, a bind variable, or an expression involving them. All datatypes except ADT and JSON are supported. The order of the rows in the table does not affect the result.
@@ -13,7 +13,7 @@ In this lab, you will:
   * Examine data after tampering
 </if>
 <if type="atp">
-  * Login to SQL Developer Web on ADB
+  * Login to SQL Developer Web on Oracle Autonomous Database
   * Examine data before tampering
   * Examine data after tampering
 </if>
@@ -28,7 +28,7 @@ In this lab, you will:
 </if>
 <if type="atp">
 * An Oracle Always Free/Free Tier, Paid or LiveLabs Cloud Account
-* Lab: Provision ADB
+* Lab: Provision Oracle Autonomous Database
 * Lab: Setup
 </if>
 
@@ -128,14 +128,15 @@ In this lab, you will:
     ```
 </if>
 <if type="atp">
-## Task 1: Login to SQL Developer Web on ADB
+## Task 1: Login to SQL Developer Web on Oracle Autonomous Database
 There are multiple ways to access your Autonomous Database.  You can access it via sqlplus or by using SQL Developer Web.  To access it via sqlplus, skip to [Step 1B](#STEP1B:LogintoADBusingSQLPlus).
 
-1.  If you aren't still logged in, login to your ADB screen by clicking on the Hamburger Menu and selecting the Autonomous Database flavor you selected (ATP, ADW or AJD). Otherwise skip to the next step.
+1.  If you aren't still logged in, login to your Oracle Autonomous Database screen by clicking on the navigation menu and selecting the Autonomous Database flavor you selected (Oracle Autonomous Transaction Processing, Oracle Autonomous Data Warehouse, or Oracle Autonomous JSON Database). Otherwise skip to the next step.
       ![](../set-operators/images/21c-home-adb.png " ")
 
-2.  If you can't find your ADB instance, ensure you are in the correct compartment, you have chosen the flavor of ADB you choose in the earlier lab and that you are in the correct region.
-3.  Click on the **Display Name** to go to your ADB main page.
+2.  If you can't find your Oracle Autonomous Database instance, ensure you are in the correct compartment, you have chosen the flavor of Oracle Autonomous Database you choose in the earlier lab and that you are in the correct region.
+
+3.  Click on the **Display Name** to go to your Oracle Autonomous Database main page.
       ![](../set-operators/images/21c-adb.png " ")
 
 4.  Click on the **Tools** tab, select **Database Actions**, a new browser will open up.
@@ -145,7 +146,7 @@ There are multiple ways to access your Autonomous Database.  You can access it v
 6.  Enter the username *admin* and password *WElcome123##*
 7.  Click on the **SQL** button.
 
-## Task 1B: Login to ADB using SQL Plus
+## Task 1B: Login to Oracle Autonomous Database using SQL Plus
 1.  Open up Cloud Shell below if it isn't already open
 2.  Connect to the OE user using sqlplus by entering the commands below.
     ```
@@ -510,5 +511,4 @@ You may now [proceed to the next lab](#next).
 ## Acknowledgements
 * **Author** - Donna Keesling, Database UA Team
 * **Contributors** -  David Start, Kay Malcolm, Database Product Management
-* **Last Updated By/Date** -  David Start, December 2020
-
+* **Last Updated By/Date** - Arabella Yao, Product Manager, Database Product Management, December 2021

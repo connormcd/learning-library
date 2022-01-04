@@ -22,9 +22,7 @@ Watch our short video that explains the partitioning feature in Oracle GoldenGat
 ### Prerequisites
 This lab assumes you have:
 - A Free Tier, Paid or LiveLabs Oracle Cloud account
-- SSH Private Key to access the host via SSH (*Free-tier* and *Paid Tenants* only)
 - You have completed:
-    * Lab: Generate SSH Keys (*Free-tier* and *Paid Tenants* only)
     * Lab: Prepare Setup (*Free-tier* and *Paid Tenants* only)
     * Lab: Environment Setup
     * Lab: Initialize Environment
@@ -32,15 +30,24 @@ This lab assumes you have:
 
 ## Task 1: Create a Group
 
-  To create a group:
+To create a group:
+
 1. From the left navigation pane, click **Configuration** and then click **Group Configuration** to display the **Group configuration** page.
+
     ![](./images/1-group-configuration.png " ")
+
 2. Click **New** to display the **New Group Assistant** page to create a group.
+
 3. Enter the **Name** and **Description** for the Group and click **Next**.
+
   ![](./images/2-new-group-from-name-description.png " ")
+
 4. Click **Next** to enter the connection information.
+
 5. Browse to select the **Source Connection** and **Target Connection** (that you have created in **Lab: Create Datasource Connections**).
+
   ![](./images/3-new-group-connection-information.png " ")
+
 6. Click **Finish**.
 
 Your new Group has been created.
@@ -49,21 +56,34 @@ Your new Group has been created.
 Use the **Manual Mapping** tab to map source objects to target objects one at a time. This method is useful when source and target names differ vastly and cannot be mapped by using wildcards.
 To create compare pairs on the **Manual Mapping** tab:
 1. After you have created the Group, click **Go to Compare Pair Configuration...** check box in the **New Group Assistant** page to display the **Compare Pair Configuration** page.
+
 2. Click **OK**.
+
     ![](./images/4-new-group-create-compare-pair-checkbox.png " ")
+
 3. Click **Manual Mapping**.
+
 4. Select a Source **Schema** and a Target **Schema** under **Datasource Information**, and then select the tables from **Source Tables** and **Target Tables** for Manual Compare Pair Mapping. Enter:
+
     * Source schema: **SOURCE**
     * Target schema: **TARGET**
     * Source Table: **CHAR_TYPES**
     * Target Table: **CHAR_TYPES**
+
     ![](./images/5-compare-pair-manual-mappng-select-tables.png " ")
+
 5. Click **Generate Compare Pair** to add the compare pair to the preview list.
+
     ![](./images/6-generate-compare-pair-manual-mappng.png " ")
+
 6. Go the **Preview** tab and click **Save** to save the generated compare pair.
+
     ![](./images/6A-generate-compare-pair-manual-mapping-preview.png " ")
+
     The control moves to the **Existing Compare Pairs** tab.
+
     ![](./images/7-compare-pair-manual-mapping-generated-saved-existingCPtab.png " ")
+
 Similarly, you can create any number of compare pairs for other tables.
 
 ## Task 3: Create Compare Pairs (on Pattern Mapping Tab)
@@ -75,35 +95,44 @@ If you don’t want to add new compare pairs, you may directly jump to **Lab Cre
 
 To create compare pairs on the **Pattern Mapping** tab:
 1. In the **Compare Pair Configuration** page, click **Pattern Mapping**.
+
     ![](./images/9a-click-pattern-mapping-tab.png " ")
+
 2. Select a Source **Schema** and a Target **Schema** under **Datasource Information**. Enter:
+
     * Source schema: **SOURCE**
     * Target schema: **TARGET**
 
 3. Under **Pattern Compare Pair Mapping**, select a **Table Mapping Method**. You can select any of the following:
 
-  a. **Map Source and Target Tables Using Exact Names**: Let's select this option here:
-        ![](./images/9-pattern-mapping-pair-mapping-option1.png " ")
-  b.  **Map Source and Target Tables Using SQL % Wildcard Pattern. (Use only one % on each side.)**.
+    - **Map Source and Target Tables Using Exact Names**: Let's select this option here:
 
-    Enter:
-    * Where Source Names Like: **%\_Table**
+    ![](./images/9-pattern-mapping-pair-mapping-option1.png " ")
 
-    * Where Target Names Like: **%\_Table**
+    - Map Source and Target Tables Using SQL % Wildcard Pattern. (Use only one % on each side.)**.
+
+        Enter:
+        * Where Source Names Like: **%\_Table**
+
+        * Where Target Names Like: **%\_Table**
+
     ![](./images/8-pattern-mapping-pair-mapping-option2.png " ")
 
-  c. **Map Source and Target Tables Using GoldenGate * Wildcard Pattern. (Use only one * on each side.)**.
+    - **Map Source and Target Tables Using GoldenGate * Wildcard Pattern. (Use only one * on each side.)**.
 
-    Enter:
-    * Pattern for Source Names: **DUMMY_TABLE**
+        Enter:
+        * Pattern for Source Names: **DUMMY_TABLE**
 
-    * Pattern for Target Names: *****
+        * Pattern for Target Names: *****
+
     ![](./images/10-pattern-mapping-pair-mapping-option3.png " ")
 
 4. Click **Generate Mappings**. The control moves to the **Preview** tab. Here, option **3b** has been selected.
+
     ![](./images/10-pattern-mapping-pair-mapping-option3b_has_been_selected.png " ")
 
 5. Click **Save** to save the generated compare pair. The control moves to the **Existing Compare Pairs** tab.
+
     ![](./images/11-pattern-mapping-pair-saved-existing-compare-pairs.png " ")
 
 You may now [proceed to the next lab](#next).
@@ -117,5 +146,5 @@ You may now [proceed to the next lab](#next).
 
 ## Acknowledgements
 * **Author** - Anuradha Chepuri, Principal UA Developer, Oracle GoldenGate User Assistance
-* **Contributors** -  Nisharahmed Soneji, Sukin Varghese , Rene Fontcha
-* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, June 2021
+* **Contributors** -  Sukin Varghese , Jonathan Fu, Rene Fontcha
+* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, November 2021

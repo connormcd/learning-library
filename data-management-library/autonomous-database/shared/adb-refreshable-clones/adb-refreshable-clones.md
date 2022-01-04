@@ -40,9 +40,9 @@ In this lab, you'll:
 
 ## Task 1: Create a Table in the Source Database
 
-1. Navigate to your existing **ADW Finance Mart** database instance that you created in this workshop's &quot;Getting Started&quot; lab. (Alternatively, create a new database as your source.) Insert a line of data into this source database before you clone it, by opening a Database Actions worksheet via the **Tools** tab in the Autonomous Database Details page of the OCI console. Connect to Database Actions as the user named **admin** with the password you created for the admin user in the Getting Started lab. On the Database Actions page, under the **Development** heading, click **SQL**.
+1. Navigate to your existing **ADW Finance Mart** database instance that you created in this workshop's "Provision Autonomous Database" lab. (Alternatively, create a new database as your source.) Insert a line of data into this source database before you clone it, by opening a Database Actions worksheet via the **Tools** tab in the Autonomous Database Details page of the OCI console. Connect to Database Actions as the user named **admin** with the password you created for the admin user in the Getting Started lab. On the Database Actions **Launchpad**, under the **Development** heading, click **SQL**.
 
-  ![ALT text is not available for this image](images/2676055911.png)
+  ![ALT text is not available for this image](images/database-actions-launchpad-click-sql.png)
 
 2. Create a table named refreshclonetests with a single row of data in it, before you proceed to clone the database. In the worksheet, note the time that you perform this action.
 
@@ -60,7 +60,7 @@ In this lab, you'll:
 Now that you have created a table in the source database and populated it with a row of data, you will create a refreshable clone from the source database.
 
 1. Return to the Autonomous Database Details page of your source database. From the **More Actions** drop-down menu, select **Create Clone**.
-  ![ALT text is not available for this image](images/2676056493.png)
+  ![ALT text is not available for this image](images/select-create-clone.png)
 
 2. Select the **Refreshable Clone** option. Note the text describing it; a refreshable clone must be refreshed every 7 days or less, otherwise it falls too far out of sync from the source and can no longer be refreshed.
 
@@ -135,4 +135,4 @@ You may now proceed to the next lab.
 
 - **Author** - Rick Green, Principal Developer, Database User Assistance
 - **Contributor** - Nilay Panchal, ADB Product Management
-- **Last Updated By/Date**  - Kamryn Vinson, May 2021
+- **Last Updated By/Date**  - Rick Green, November 2021

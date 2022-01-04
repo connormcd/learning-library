@@ -2,15 +2,15 @@
 
 ## Introduction
 
-In this lab, we will provision and setup the resources to execute microservices in your tenancy.  
+In this tutorial, you'll provision and set up the resources to execute microservices in your tenancy.  
 
 Estimated Time: 25 minutes
 <if type="multicloud-freetier">
-- Estimates Lab Time - 25 minutes
-+ Estimates Lab Time - 25 minutes
+- Estimated Lab Time - 25 minutes
++ Estimated Lab Time - 25 minutes
 </if>
 
-Watch the video below for a quick walk through of the lab.
+Watch the video below for a quick walk-through of the lab.
 
 [](youtube:yqCbkHh9EVA)
 
@@ -19,7 +19,7 @@ Watch the video below for a quick walk through of the lab.
 * Clone the setup and microservices code
 * Execute setup
 
-## Task 1: Log in to the Oracle Cloud Console and launch the Cloud Shell
+## Task 1: Log in to the Oracle Cloud Console and Launch the Cloud Shell
 
 If you haven't already, sign in to your account.
 
@@ -86,7 +86,7 @@ Cloud Shell is a small virtual machine running a "bash" shell which you access t
 1. To work with the application code, you need to make a clone from the GitHub repository using the following command.  
 
     ```
-    <copy>git clone -b 21.10.1 --single-branch https://github.com/oracle/microservices-datadriven.git
+    <copy>git clone -b 21.11.3 --single-branch https://github.com/oracle/microservices-datadriven.git
     </copy>
     ```
 
@@ -125,9 +125,9 @@ Cloud Shell is a small virtual machine running a "bash" shell which you access t
 
    Be sure to provide the user OCID and not the user name or tenancy OCID.
 
-   User information is available in the Oracle Cloud Console. 
-   
-   The user OCID will look something like `ocid1.user.oc1..aaaaaaaanu5dhxbl4oiasdfasdfasdfasdf4mjhbta`. Note the "ocid1.user" prefix. 
+   User information is available in the Oracle Cloud Console.
+
+   The user OCID will look something like `ocid1.user.oc1..aaaaaaaanu5dhxbl4oiasdfasdfasdfasdf4mjhbta`. Note the "ocid1.user" prefix.
 
    Note, sometimes the name link is missing in which case select the `User Settings` link. Do not select the "Tenancy" link.
 
@@ -165,18 +165,18 @@ Cloud Shell is a small virtual machine running a "bash" shell which you access t
 
     ```
     <copy>
-    You are limited to only one OKE cluster in this tenancy. This workshop will create one additional OKE cluster and so any other OKE clusters must be terminated. 
+    You are limited to only one OKE cluster in this tenancy. This workshop will create one additional OKE cluster and so any other OKE clusters must be terminated.
     Please confirm that no other un-terminated OKE clusters exist in this tenancy and then hit [RETURN]?
     </copy>
     ```
    To confirm that there are no other un-terminated OKE clusters, click the Navigation Menu in the upper left of Oracle Cloud Console, navigate to Developer Services and click on Kubernetes Clusters (OKE).
 
     ![](images/dev-services-menu.png " ")
-  
+
     ![](images/get-oke-info.png " ")
 
    If there are any un-terminated OKE cluster(s), please delete it(them) and continue with setup steps.
-   
+
     ![](images/get-oke-details.png " ")
 
 
@@ -221,7 +221,15 @@ ls -al $GRABDISH_LOG
 </copy>
 ```
 
-Once the setup has completed you are ready to [move on to Lab 2](#next). 
+You can also cat through the logs by using the `showsetuplogs` shortcut command.
+
+```
+<copy>
+showsetuplogs
+</copy>
+```
+
+Once the setup has completed you are ready to [move on to Lab 2](#next).
 
 Note, the non-java-builds.sh script may continue to run even after the setup has completed. The non-Java builds are only required in Lab 3 and so we can continue with Lab 2 while the builds continue in the background.
 

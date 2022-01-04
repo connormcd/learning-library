@@ -21,7 +21,7 @@ We will go through the following phases:
 - Prediction: Predict the fan scores for a number of races.
 - Evaluation: Verify the accuracy of the model. We'll take a visual approach to see how accurate our model is.
 
-Estimated Lab Time: 30 minutes
+Estimated Time: 30 minutes
 
 ### Objectives
 - Identify the factors that we can influence to improve the fan experience of F1 races.
@@ -49,7 +49,7 @@ Therefore we need to create a connection from Oracle Analytics Cloud to Autonomo
 
 2. We will download the wallet file. The wallet file (client credentials), along with the database user ID and password, provides access to your Autonomous Database in the most secure way possible.
 
-   > NOTE: Store wallet files in a secure location. Share wallet files only with authorized users.
+   > **NOTE:** Store wallet files in a secure location. Share wallet files only with authorized users.
 
 3. On the ADW detail page,click **DB Connection**.
 
@@ -79,7 +79,7 @@ Therefore we need to create a connection from Oracle Analytics Cloud to Autonomo
 8. **Open** the Cloud Analytics **URL** associated with your instance (we created this earlier) by using the dots menu button on the right-hand side of your instance information and selecting **Analytics Home Page**.
 
    > Make sure your Oracle Analytics Cloud instance is in status `Active` (not `Creating`) before you go to the **Analytics Home Page**.
-   >
+	 >
    > Please be patient, Analytics Cloud can sometimes take a few more minutes to provision.
 
    ![Cloud Analytics URL](images/select-oac-instance.png)
@@ -567,4 +567,5 @@ Let's review our notes:
 -->
 
 ## **Acknowledgements**
+
 - **Author** - Jeroen Kloosterman, Technology Product Strategy Director

@@ -98,18 +98,18 @@ Fortunately, Oracle Cloud Infrastructure provides a wizard that simplifies the c
 
 4. On the resources tab, click **Nodes** to gather your IP address. Note your Public IP Address
 
-  ![](images/VM-DB-IP.png " ")
+  ![](images/vm-db-ip.png " ")
 
-4. In Cloud Shell or your terminal window, navigate to the folder where you created the SSH keys and enter this command, using your IP address:
+5. In Cloud Shell or your terminal window, navigate to the folder where you created the SSH keys and enter this command, using your IP address:
 
     ```
-    $ <copy>ssh -i ./myOracleCloudKey opc@</copy>123.123.123.123
+    $ <copy>ssh -i ./myOracleCloudKey opc@</copy>< your_IP_address >
     Enter passphrase for key './myOracleCloudKey':
-    Last login: Tue Feb  4 15:21:57 2020 from 123.123.123.123
+    Last login: Tue Feb  4 15:21:57 2020 from < your_IP_address >
     [opc@tmdb1 ~]$
     ```
 
-5. Once connected, you can switch to the "oracle" OS user and connect using SQL*Plus:
+6. Once connected, you can switch to the "oracle" OS user and connect using SQL*Plus:
 
     ```
     [opc@tmdb1 ~]$ sudo su - oracle
@@ -150,4 +150,4 @@ Error:  Renderable Exception From Internal-API.You have reached your service lim
 
 ## Acknowledgements
 * **Author** - Tom McGinn, Learning Architect, Database User Assistance
-* **Last Updated By/Date** - Kay Malcolm, December 7, 2020
+* **Last Updated By/Date** - Arabella Yao, Product Manager, Database Product Management, December 2021

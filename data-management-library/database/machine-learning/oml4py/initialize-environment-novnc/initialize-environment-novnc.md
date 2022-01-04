@@ -5,6 +5,10 @@ This lab will show you how launch Jupyter Notebooks in your NoVNC instance.
 
 *Estimated Lab Time*: 30 minutes
 
+Watch the video below for a quick walk through of the lab.
+
+[](youtube:HI9iczwKwJ4)
+
 ### Objectives
 * Get familiar with the lab Instance
 * Launch Jupyter Notebooks

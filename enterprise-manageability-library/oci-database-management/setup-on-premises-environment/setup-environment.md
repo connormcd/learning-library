@@ -97,7 +97,7 @@ When using Resource Manager to deploy an environment, execute a terraform **Plan
 
           ssh -i labkey opc@xxx.xxx.xxx.xxx
           The authenticity of host 'xxx.xxx.xxx.xxx (xxx.xxx.xxx.xxx)' can't be established.
-          ECDSA key fingerprint is SHA256:Wq+YNHzgc1JUySBJuTRO0T4NKpeRz5Udw82Mn5RCe6c.
+          ECDSA key fingerprint is xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
           Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
           Warning: Permanently added 'xxx.xxx.xxx.xxx' (ECDSA) to the list of known hosts.
           Activate the web console with: systemctl enable --now cockpit.socket

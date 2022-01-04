@@ -4,7 +4,7 @@
 
 In this lab we will review and startup all components required to successfully run this workshop.
 
-Estimated Time: 10 Minutes
+*Estimated Time:* 10 Minutes
 
 ### Objectives
 - Initialize the workshop environment.
@@ -32,7 +32,7 @@ This lab assumes you have -
 2. On the *Firefox* window on the right preloaded with *Enterprise Manager*, click on the *Username* field and select the saved credentials to login. These credentials have been saved within *Firefox* and are provided below for reference
 
     ```
-    Username: <copy>sysman</copy>
+    User name: <copy>sysman</copy>
     ```
     ```
     Password: <copy>welcome1</copy>
@@ -143,7 +143,7 @@ This lab assumes you have -
 
 5. Click Edit. Replace the existing entry with the *SSH Private Key* you copied to *"/tmp"*. Keep the General section unchanged and update the *Credential Properties* as followed:
 
-    - Username: *oracle*
+    - User name: *oracle*
     - Delete any content from *SSH Public Key* Textbox
     - Click *Browse* to select the *Private Key*
 
@@ -264,7 +264,7 @@ If for any reason you want to login from a location that is external to your rem
 1.  Enterprise Manager 13c Console
 
     ```
-    Username: <copy>sysman</copy>
+    User name: <copy>sysman</copy>
     ```
     ```
     Password: <copy>welcome1</copy>

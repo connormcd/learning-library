@@ -8,34 +8,34 @@
             "filename": "../../introduction/introduction.md"
         },
         {
-            "title": "Getting Started",
+            "title": "Get Started",
             "description": "This is the prerequisites for customers using Free Trial and Paid tenancies, and Always Free accounts (if applicable). The title of the lab and the Contents Menu title (the title above) match for Prerequisite lab. This lab is always first.",
             "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
         },
         {
-            "title": "Getting Started with Free Tier Setup",
+            "title": "Get Started with Free Tier Setup",
             "description": "This is the prerequisites for customers using Free Trial and Paid tenancies, and Always Free accounts (if applicable). The title of the lab and the Contents Menu title (the title above) match for Prerequisite lab. This lab is always first.",
             "filename": "../../get-started-livelabs/get-started-livelabs.md"
         },
         {
-            "title": "Lab 1: Oracle Machine Learning Notebooks",
+            "title": "Lab 1: Use Oracle Machine Learning Notebooks",
             "description": "Labs that follow the introduction are numbered, starting with Lab 1",
             "filename": "../../oml-notebooks/oml-notebooks.md"
         },
         {
-            "title": "Lab 2: Introduction to Oracle Machine Learning for SQL",
+            "title": "Lab 2: Use Oracle Machine Learning for SQL",
             "filename": "../../omlsql/omlsql.md"
         },
         {
-            "title": "Lab 3: Introduction to Oracle Machine Learning for Python",
+            "title": "Lab 3: Use Oracle Machine Learning for Python",
             "filename": "../../omlpy/omlpy.md"
         },
         {
-            "title": "Lab 4: Using Oracle Machine Learning AutoML UI",
+            "title": "Lab 4: Use Oracle Machine Learning AutoML UI",
             "filename": "../../automl/automl.md"
         },
         {
-            "title": "Lab 5: Using Oracle Machine Learning Services",
+            "title": "Lab 5: Use Oracle Machine Learning Services",
             "filename": "../../omlserv/omlserv.md"
         },
         {

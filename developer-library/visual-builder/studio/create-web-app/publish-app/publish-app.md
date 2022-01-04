@@ -6,7 +6,7 @@ This lab shows you how to publish your web app by merging your changes to the pr
 
 Estimated Time: 15 minutes
 
-### Background
+### About this Lab
 When the process of reviewing your HR web app is done, you are ready to publish the application and make your changes public. Publishing saves your application's code to a remote branch and then to the project's default (`main`) branch. You can use the **Commit** and **Push** Git options in your workspace to save your changes to a remote branch (as we did in a previous lab), then use the **Merge** option to push your changes to `main`. Or, you can do all of this at the click of a single **Publish** button (as we'll do in this lab).
 
 No matter how you decide to save your changes, it's a good idea to always get your code reviewed and approved before you merge it to the project's `main` branch. Because the `main` code base is meant to be stable, it is usually protected, requiring code to be reviewed through a merge request. If your project was set up to protect the main branch, merging your changes will require approval. In this lab, you'll create a merge request to review your changes, but for demonstration purposes, you'll merge the code to the `main` branch without approval.
@@ -16,7 +16,7 @@ Once your changes are successfully merged, VB Studio automatically deploys the w
 ### Objectives
 In this lab, you will:
 * Create a merge request to publish your changes
-* Merge your changes and view the deployed application 
+* Merge your changes and view the deployed application
 * Import data to your deployed application
 
 ### Prerequisites
@@ -25,7 +25,7 @@ This lab assumes you have:
 * A Chrome browser
 * All previous labs successfully completed
 
-## Task 1: Create a Merge Request for Approval
+## Task 1: Create a merge request for approval
 
 Now that you are ready to publish your changes to the project's `main` branch, let's create a merge request to get someone to sign off on your changes.
 
@@ -47,7 +47,7 @@ Now that you are ready to publish your changes to the project's `main` branch, l
 
     You can't create another merge request from your workspace until your changes are merged, but you can use the **Commit** and **Push** options in the header's Git repository menu to update a merge request that's pending approval.
 
-## Task 2: Merge Changes to the Default Branch
+## Task 2: Merge changes to the default branch
 
 Assuming your merge request has been approved, let's now merge your changes to the project's `main` branch in the remote repository.
 
@@ -62,7 +62,7 @@ Assuming your merge request has been approved, let's now merge your changes to t
 
     ![](images/merge-mr-result.png " ")
 
-## Task 3: View the Deployed Application
+## Task 3: View the deployed application
 After your application is successfully deployed to the development environment, you can view it from your environment's list of deployments.
 
 1.  In the left navigation, click **Environments** ![Environments icon](images/vbs-environments-icon.png), then **Deployments**.
@@ -72,7 +72,7 @@ After your application is successfully deployed to the development environment, 
 
     The application opens in a new browser tab, but without any data. While you can use an empty database in your development environment, we'll see how to import data for the application in the next step.
 
-## Task 4: Import Data to the Deployed Application
+## Task 4: Import data to the deployed application
 A deployed application does not automatically include its business object data, so you'll need to manually import data for the application in the development environment. You can import the data you used in your workspace or add entirely different data, as we'll do now.
 
 1.  Click [this link](https://objectstorage.us-ashburn-1.oraclecloud.com/p/lCxTIc--7cvqEdu8cqRh4rnuAFVrORh4Ja20UxVNt3FjDVjsRPP3P5K5BJjjX-v4/n/c4u03/b/oci-library/o/WMS7601-HR_Application.zip) and download the `HR_Application.zip` file. The zip file contains CSV files of the Location, Department, and Employee business objects with more records and data.

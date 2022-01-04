@@ -13,7 +13,7 @@ We will do the following:
 - Evaluate the accuracy of the model: we will take a visual approach in OAC to compare predicted scores with actual scores.
 - Finally, we will draw conclusions on the entire exercise.
 
-Estimated Lab Time: 20 minutes
+Estimated Time: 20 minutes
 
 ### Objectives
 - Learn how to generate new features from one or more data sets
@@ -68,7 +68,7 @@ We will run these SQL statements in a Notebook. A notebook is not just a conveni
 
 1. **Download** the prepared notebook that contain the SQL instructions to Generate the new Features:
 
-   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/ZrrZp04CIH07Xc5Nq4lBo9muEwuiCRpSjPZ-NV8O1VSL4dDZ3_AVDaQEVkxevP63/n/odca/b/workshops-livelabs-do-not-delete/o/redbull-notebook.json" target="\_blank">Notebook to Generate Features</a>
+   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/8EVz39WrfDLErwJPlqWUP6U_ClrmVuZBeBiCV5A_nVdurePGbN9FRO7_vSxqReMt/n/odca/b/workshops-livelabs-do-not-delete/o/redbull-notebook.json" target="\_blank">Notebook to Generate Features</a>
 
    Save the file on your local machine. Make sure that the file is saved with extension `.json`.
 
@@ -129,7 +129,7 @@ We will run these SQL statements in a Notebook. A notebook is not just a conveni
 
     You can follow the progress as the paragraphs are run one by one.
 
-    To check that everything has run successfully, go to the last paragraph, and check that you see a message such as the following "Took X secs. Last updated..."
+    To check that everything has run successfully, go to the last paragraph, and check that you see a message such as the following "Took X secs. Last updated...". If all is well, **it should show the current date**.
 
     ![pic1](images/notebook-success.png)
 
@@ -249,17 +249,21 @@ Now we're ready to train the ML model.
 
    ![pic1](images/edit-definition.png)
 
-5. When we ran the notebook, we created several new fields in the database table RACES (laps_with_change_pos_1, laps_with_change_pos_1_5, overtaken_positions_due_to_pitstop_total, overtaken_positions_real_total, max_comebackscore, rank_versus_position and safety_car).
+5. When we ran the notebook, we created several new fields in the database table RACES (LAPS\_WITH\_CHANGE\_POS\_1, LAPS\_WITH\_CHANGE\_POS\_1\_5, OVERTAKEN\_POSITIONS\_DUE\_TO\_PITSTOP\_TOTAL, OVERTAKEN\_POSITIONS\REAL\_TOTAL, MAX\_COMEBACKSCORE, RANK\_VERSUS\_POSITION and SAFETY\_CAR).
 
    Click "Add All" to also add these newly columns in the data set in Oracle Analytics Cloud.
 
    ![pic1](images/press-add-all.png)
 
-6. Press "Save" to apply the changes.
+6. Press "OK".
+
+   ![pic1](images/press-ok.png)
+
+7. Press "Save" to apply the changes.
 
    ![pic1](images/save-changes.png)
 
-7. Go back to the home page.
+8. Go back to the home page.
 
    ![pic1](images/home-page.png)
 
@@ -330,9 +334,10 @@ Now it's time to predict the race score on our _test_ data set: 2020. We can do 
    Configure the "Save Data" operation as follows:
 
    Dataset: `Predicted scores`
-   Table: `PREDICTED_SCORES`
 
-   Also, verify that the "Treat As" value for each column is as follows (adapt if necessary):
+   Table: `PREDICTED_SCORES` (this is displayed at the bottom of the screen, don't confuse this with "Dataset Table")
+
+   Verify that the "Treat As" value for each column is set as in the screenshot (adapt if necessary):
 
    > `RACEID`: Attribute
    >
@@ -341,6 +346,8 @@ Now it's time to predict the race score on our _test_ data set: 2020. We can do 
    > `SCORE`: Measure
    >
    > `Prediction`: Measure
+
+   Verify that the "Default Aggregation" for SCORE and Prediction is as in the screenshot (adapt if necessary):
 
    ![pic1](images/save-data.png)
 
@@ -386,6 +393,10 @@ Now it's time to predict the race score on our _test_ data set: 2020. We can do 
    Notice how the predicted scores follow the actual scores nicely.
 
    ![pic1](images/check-accuracy3.png)
+
+5. Finally, save the chart and call it "Check prediction accuracy".
+
+   ![pic1](images/save-project5.png)
 
 ## **Task 8:** Bonus exercise: Calculate the difference between predicted and actual scores
 
@@ -438,4 +449,5 @@ What this tells us is that these factors are indeed important for the experience
 Congratulations on completing the workshop! Now you've learned the basics of machine learning, hopefully you are inspired to apply it to many more challenges!
 
 ## **Acknowledgements**
+
 - **Author** - Jeroen Kloosterman, Technology Product Strategy Director

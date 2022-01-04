@@ -4,7 +4,7 @@
 
 In this lab, you will learn how to start up Node-RED and start using it.
 
-Estimated Lab time: 20 minutes
+Estimated time: 20 minutes
 
 ### Objetives:
 * Start up Node-RED
@@ -39,5 +39,5 @@ To test your first flow, click the inject button next to th inject node. You sho
 **Congratulations!* You have successfully installed Node-RED and implemented you very first flow!
 
 ## Acknowledgements
-* **Author** - Kevin Lazarz, Program Manager, TE Hub
-* **Last Updated By/Date** - Kevin Lazarz, Program Manager, TE Hub March 2021
+* **Author** - Kevin Lazarz, Product Manager 
+* **Last Updated By/Date** - Kevin Lazarz, Product Manager, November 2021

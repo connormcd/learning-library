@@ -195,7 +195,7 @@ In this lab, you will:
 	```
 
 	```
-	<copy>wget -O airport-db.zip https://bit.ly/3zLorXQ</copy>
+	<copy>wget -O airport-db.zip https://bit.ly/3pZ1PiW</copy>
 	```
 
 	![database sample download](./images/Lab1-task3.6-2.png)

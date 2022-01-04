@@ -243,9 +243,9 @@ But, how do you know if the results from a query are returned from the **result 
 
     ![Autonomous Database Details page, with Tools tab selected](images/3038282369.png " ")
 
-9. Click the **Performance Hub** button to open the monitoring window.
+    Click the **Performance Hub** button to open the monitoring window.
 
-    **Note:** Your performance charts will look a little different because we have only just started using our new Autonomous Data Warehouse:
+9. Note that your performance charts will look a little different because we have only just started using our new Autonomous Data Warehouse:
 
     ![Monitoring window of Performance Hub](images/3038282370.png " ")
 

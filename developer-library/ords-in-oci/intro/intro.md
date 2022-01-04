@@ -1,4 +1,4 @@
-# Expanding Oracle REST Data Services into Oracle Cloud Infrastructure
+# Expand Oracle REST Data Services into Oracle Cloud Infrastructure
 
 ## About this Workshop
 
@@ -48,4 +48,4 @@ More about Logging can be found [here](https://docs.oracle.com/en-us/iaas/Conten
 ## Acknowledgements
 
 - **Authors** - Jeff Smith and Brian Spendolini
-- **Last Updated By/Date** - Brian Spendolini, June 2021
+- **Last Updated By/Date** - Brian Spendolini, December 2021

@@ -1,0 +1,39 @@
+{
+    "workshoptitle": "Database 21c - Security",
+    "help": "livelabs-help-db_us@oracle.com",
+	"tutorials": [
+        {
+            "title": "Introduction",
+            "filename": "../../introduction/intro-security.md"
+        },
+        {
+            "title": "Lab 1: Manage Blockchain Tables & Rows",
+            "filename": "../../blockchain-table/blockchain-table.md"
+        },
+        {
+            "title": "Lab 2: Set Tablespace Encryption Algorithm",
+            "filename": "../../tbsp-encryption/tbsp-encryption.md"
+        },
+        {
+            "title": "Lab 3: Use Realms to Prevent Local Users from Blocking Common Operations",
+            "filename": "../../realms/realms.md"
+        },
+        {
+            "title": "Lab 4: Authentication and Administration",
+            "filename": "../../introduction/intro-admin.md"
+        },
+        {
+            "title": "Lab 5: Force Upgraded Password File Case Sensitivity",
+            "filename": "../../upgraded-pwd/upgraded-pwd.md"
+        },
+        {
+            "title": "Lab 6: Enforce Password Length Enforcement",
+            "filename": "../../enforce-min-pwd/enforce-min-pwd.md"
+        },
+        {
+            "title": "Need Help?",
+            "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+            "filename":"https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-freetier.md"
+        }
+    ]
+}

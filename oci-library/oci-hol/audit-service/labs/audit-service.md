@@ -41,11 +41,11 @@ The purpose of this lab is to give you an overview of the Audit Service and an e
 
 1. Open a terminal window on your laptop.
 
-2. Change directory to the Downloads folder Enter command: 
+2. Change directory to the Downloads folder Enter command by substituting your username: 
     
     ```
     <copy>
-    cd /c/Users/PhotonUser/Downloads/**
+    cd /c/Users/username/Downloads/**
     </copy>
     ```
     ![](./../labs/images/AUDIT005.PNG " ")

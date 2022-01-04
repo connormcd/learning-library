@@ -86,6 +86,10 @@ Association is an Oracle Machine Learning function that discovers the probabilit
 
 At this step, you want to identify the relationship between your customers marital status and their LVT class.
 
+Watch the video below for a quick walk through of the lab.
+
+[](youtube:Lg7ab4Ujm3c)
+
 1. Create training data. For this exercise, use a query to retrieve necessary values from `CUST_INSUR_LTV` table.
 
     > **Note** :  Notice at this step you create an OML data frame from a database query, instead of a database table, using the same `oml.sync` transparency layer function.
@@ -189,6 +193,10 @@ Expectation Maximization (EM) is a probabilistic, density-estimation clustering 
 > **Note** : For more information on this algorithm, visit [Expectation Maximization](https://docs.oracle.com/en/database/oracle/machine-learning/oml4sql/21/dmcon/expectation-maximization.html#GUID-F4D117F3-FA0C-4CA4-9034-67D12339AE90) documentation.
 
 Similar to K-Means (KM) clustering analysis, this is a market segmentation example, you group customers in four clusters, and you will let the algorithm define these four segments.
+
+Watch the video below for a quick walk through of the lab.
+
+[](youtube:CDdLMmSsDe4)
 
 1. Generate an OML data frame from your database table. Use the entire data set, attributes and labels.
 
@@ -370,6 +378,10 @@ Naive Bayes (NB) algorithm is based on conditional probabilities. It uses Bayes'
 > **Note** : For more information on this algorithm, visit [Naive Bayes](https://docs.oracle.com/en/database/oracle/machine-learning/oml4sql/21/dmcon/naive-bayes.html#GUID-BB77D68D-3E07-4522-ACB6-FD6723BDA92A) documentation.
 
 In this example, you will classify your customers in four `LTV_BIN` classes (*LOW*, *MEDIUM*, *HIGH*, and *VERY HIGH*), based on combinations of feature values and their probability of occurrence.
+
+Watch the video below for a quick walk through of the lab.
+
+[](youtube:IPe74lNdPGI)
 
 1. Create an OML data frame proxy object in Python that represents your Oracle Database data set.
 
@@ -570,6 +582,10 @@ Random Forest is a classification algorithm that builds an ensemble (forest) of 
 
 In this example, you will use a Random Forest model to classify your customers in four `LTV_BIN` classes (*LOW*, *MEDIUM*, *HIGH*, and *VERY HIGH*), and provide attribute importance ranking of predictors.
 
+Watch the video below for a quick walk through of the lab.
+
+[](youtube:Mt1qZDp2mlM)
+
 1. Create an OML data frame proxy object that represents your database table.
 
     ```
@@ -726,6 +742,10 @@ Support Vector Machine (SVM) is a powerful algorithm based on statistical learni
 
 In this example, you will build a SVM model to classify your customers in four `LTV_BIN` classes (*LOW*, *MEDIUM*, *HIGH*, and *VERY HIGH*), and score it for mean accuracy.
 
+Watch the video below for a quick walk through of the lab.
+
+[](youtube:6ms79gE0qgY)
+
 1. Create training and test data as data frame proxy objects that represent your database table.
 
     ```
@@ -821,6 +841,10 @@ This is a relatively small dataset for binary sentiment classification, featurin
 * Download link: [http://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz](http://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz).
 
 During this exercise, you will use Oracle Data Mining with Text capabilities to create a Generalized Linear Model (GLM) classification model that will be trained to perform sentiment analysis on free text. Classification is a predictive mining function. A classification model uses historical data to predict a categorical target. Both training and testing reviews are prelabeled, to calibrate and evaluate the performance of your sentiment analysis classification model.
+
+Watch the video below for a quick walk through of the lab.
+
+[](youtube:gSpiNszuR90)
 
 1. Select one review comment from any of the two tables, to see the format. These reviews are gathered on a web portal, and may contain some HTML tags.
 

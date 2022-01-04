@@ -279,7 +279,7 @@ Next, we need to associate our dynamic group to some policies so that it has the
 
    ![admin password section](./images/adb-12.png)
 
-11. For the **Choose network access** section, select **Secure access from everywhere** if not already selected. Leave the **Configure access control rules** checkbox unchecked.
+11. For the **Choose network access** section, select **Secure access from everywhere** if not already selected.
 
    ![admin password section](./images/adb-13.png)
 
@@ -588,4 +588,4 @@ In this section, you created a compartment, dynamic group a database and policie
 ## Acknowledgements
 
 - **Author** - Jeff Smith, Distinguished Product Manager and Brian Spendolini, Trainee Product Manager
-- **Last Updated By/Date** - Brian Spendolini, June 2021
+- **Last Updated By/Date** - Brian Spendolini, December 2021

@@ -6,10 +6,6 @@ In this lab, you will explore the provided sample data sets that come with your 
 
 Estimated Time: 5 minutes
 
-Watch the video below for a quick walk through of the lab.
-
-[](youtube:/t1f-N-CaqWA)
-
 ### Before you begin
 
 This lab uses SQL Worksheet, one of the features of the Database Actions web-based interface for Oracle Autonomous Database.
@@ -41,27 +37,23 @@ Although you can connect to your Oracle Autonomous Database using local PC deskt
 
     ![Autonomous Databases homepage.](images/step1.1-adb.png " ")
 
-2. In your ADW Finance Mart database's details page, click the **Tools** tab.
+2. In your ADW Finance Mart database's details page, click the **Database Actions** button.
 
-    ![Click Tools tab.](./images/Picture100-34.png " ")
+    ![Click Database Actions button.](./images/click-database-actions-button.png " ")
 
-3.  The Tools page provides you access to database administration and developer tools for Autonomous Database: Database Actions, Oracle Application Express, Oracle ML User Administration,  SODA Drivers, and Graph Studio. In the Database Actions box, click **Open Database Actions**.
-
-    ![Select Open Database Actions.](./images/Picture100-15.png " ")
-
-4.  A sign-in page opens for Database Actions. For this lab, simply use your database instance's default administrator account, **Username - admin**, and click **Next**.
+3.  A sign-in page opens for Database Actions. For this lab, simply use your database instance's default administrator account, **Username - admin**, and click **Next**.
 
     ![Enter the admin username.](./images/Picture100-16.png " ")
 
-5. Enter the admin **Password** you specified when creating the database. Click **Sign in**.
+4. Enter the admin **Password** you specified when creating the database. Click **Sign in**.
 
     ![Enter the admin password.](./images/Picture100-16-password.png " ")
 
-6. The Database Actions page opens. In the **Development** box, click **SQL**.
+5. The Database Actions page opens. In the **Development** box, click **SQL**.
 
     ![Click SQL.](./images/Picture100-16-click-sql.png " ")
 
-7.  The first time you open SQL Worksheet, a series of pop-up informational boxes may appear, providing you a tour that introduces the main features. If not, click the Tour button (labeled with binoculars symbol) in the upper right corner. Click **Next** to take a tour through the informational boxes.
+6.  The first time you open SQL Worksheet, a series of pop-up informational boxes may appear, providing you a tour that introduces the main features. If not, click the Tour button (labeled with binoculars symbol) in the upper right corner. Click **Next** to take a tour through the informational boxes.
 
     ![SQL Worksheet.](./images/Picture100-sql-worksheet.png " ")
 
@@ -99,4 +91,4 @@ Go to [the documentation](https://docs.oracle.com/en/cloud/paas/autonomous-datab
 - **Author** - Nilay Panchal, Oracle Autonomous Database Product Management
 - **Adapted for Cloud by** - Richard Green, Principal Developer, Database User Assistance
 - **Contributors** - Oracle LiveLabs QA Team (Arabella Yao, Product Manager Intern | Ayden Smith, QA Intern)
-- **Last Updated By/Date** - Richard Green, September 2021
+- **Last Updated By/Date** - Richard Green, November 2021

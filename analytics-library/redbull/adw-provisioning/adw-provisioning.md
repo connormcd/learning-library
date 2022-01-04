@@ -6,7 +6,7 @@
 
 In this lab, you will provision a new Autonomous Data Warehouse (ADW) instance. This database will hold the data that you will analyze.
 
-Estimated Lab Time: 5 minutes
+Estimated Time: 5 minutes
 
 ### Objectives
 
@@ -72,8 +72,6 @@ To complete this lab, you need to have the following:
    ![AWD Active](images/adw_active_state.png)
 
 7. Your Autonomous Data Warehouse is ready to use.
-
-Please *proceed to the next lab*.
 
 ## **Acknowledgements**
 

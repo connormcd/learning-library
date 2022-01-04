@@ -37,7 +37,7 @@ The first step is to create two new users.
 
 2.  In the Details page for your Autonomous Data Warehouse instance, click **Service Console**.
 
-    ![](./images/Picture700-1.png " ")
+    ![](./images/click-service-console.png " ")
 
 3.  Go to the **Administration** tab and click **Manage Oracle ML Users** to go to the OML user management page. This page allows you to manage OML users.
 
@@ -296,4 +296,4 @@ Click [here](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-clo
 
 - **Author** - Nilay Panchal, ADB Product Management
 - **Adapted for Cloud by** - Richard Green, Principal Developer, Database User Assistance
-- **Last Updated By/Date** - Arabella Yao, Product Manager Intern, DB Product Management, July 2020
+- **Last Updated By/Date** - Richard Green, November 2021

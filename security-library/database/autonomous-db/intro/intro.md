@@ -10,7 +10,7 @@ Based on an Oracle Cloud Infrastructure architecture, deployed in a few minutes 
 
 Now, you no longer need important resources on your PC (storage, CPU or memory), nor complex tools to master, making you completely autonomous to discover at your leisure how to use Database Vault to better protect your Autonomous Database.
 
-<if type="odbw">If you would like to watch us do the workshop, click [here](https://youtu.be/gouMOmKueQc).</if>
+If you would like to watch us do the workshop, click [here](https://youtu.be/gouMOmKueQc).
 
 ## Objectives
 

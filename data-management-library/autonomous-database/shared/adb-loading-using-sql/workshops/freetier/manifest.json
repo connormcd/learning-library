@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Autonomous Data Warehouse: Load and update data using SQL (Moviestream)",
+    "workshoptitle": "Load and update Moviestream data in Oracle Autonomous Data Warehouse using SQL",
     "help": "livelabs-help-db_us@oracle.com",
 	"tutorials": [
       {
@@ -31,7 +31,7 @@
         "title": "Lab 4: Updating the Sales Data",
         "description": "Finding Our Most Important Customers",
         "filename": "../../updating-sales-data/updating-sales-data.md"
-      },      
+      },
       {
         "title": "Need Help?",
         "description": "Solutions to Common Problems and Directions for Receiving Live Help",

@@ -62,7 +62,7 @@ Estimated Time: 30 minutes
 
 4. Now edit the terraform.tfvars file. We will update these variables :- tenancy_ocid, region, compartment_ocid. Keep the ssk_public_key blank and as it is.
 
-Make sure to have the values ready which was saved in earlier steps.
+    Make sure to have the values ready which was saved in earlier steps.
 
     ```
     vi terraform.tfvars

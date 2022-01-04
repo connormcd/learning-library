@@ -41,7 +41,7 @@ The Cloud Shell machine is a small virtual machine running a Bash shell which yo
     ````
 
     ````
-    ssh-keygen -b 2048 -t rsa -f <<sshkeyname>>
+    <copy>ssh-keygen -b 2048 -t rsa -f <<sshkeyname>></copy>
     ````
 
     *Note: The angle brackets <<>> should not appear in your code.*

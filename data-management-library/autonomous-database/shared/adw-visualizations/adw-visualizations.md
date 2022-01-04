@@ -57,27 +57,23 @@ Although you can connect to your Oracle Autonomous Database using local PC deskt
 
 For simplicity's sake, in this exercise, we will use the Oracle Sales History (SH) schema provided to create a simple view.
 
-1. In your Database Details page, click the **Tools** tab.
+1. In your Database Details page, click the **Database Actions** button.
 
-   ![Click Tools.](./images/Picture100-34.png " ")
+   ![Click the Database Actions button.](./images/click-database-actions-button.png " ")
 
-2. The Tools page provides you access to database administration and developer tools for Autonomous Database: Database Actions, Oracle Application Express, Oracle ML User Administration, and SODA Drivers. In the Database Actions box, click **Open Database Actions**.
-
-   ![Click Open SQL Developer Web.](./images/Picture100-15.png " ")
-
-3. A sign-in page opens for Database Actions. For this lab, simply use your database instance's default administrator account, **Username - ADMIN** and click **Next**.
+2. A sign-in page opens for Database Actions. For this lab, simply use your database instance's default administrator account, **Username - ADMIN** and click **Next**.
 
    ![Enter login details and click Sign in.](./images/Picture100-16.png " ")
 
-4. Enter the ADMIN **Password** you specified when creating the database and click **Sign in**.
+3. Enter the ADMIN **Password** you specified when creating the database and click **Sign in**.
 
     ![Enter the ADMIN password.](./images/Picture100-16-password.png " ")
 
-5. The Database Actions page opens. In the **Development** box, click **SQL**.
+4. The Database Actions page opens. In the **Development** box, click **SQL**.
 
     ![Click SQL.](./images/Picture100-16-click-sql.png " ")
 
-6. In a SQL Worksheet, copy and execute the following script.  
+5. In a SQL Worksheet, copy and execute the following script.  
 
       ```
       <copy>drop view DV_SH_VIEW;
@@ -245,4 +241,4 @@ View [documentation on working with analytics and visualization of data](https:/
 
 - **Author** - Nilay Panchal, Oracle Autonomous Database Product Management
 - **Adapted for Cloud by** - Richard Green, Principal Developer, Database User Assistance
-- **Last Updated By/Date** - Richard Green, September 2021
+- **Last Updated By/Date** - Richard Green, November 2021

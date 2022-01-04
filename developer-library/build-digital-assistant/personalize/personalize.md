@@ -4,8 +4,7 @@
 
 Once you have created a digital assistant and added skills to it, you can customize some of the aspects of the digital assistant, such as the invocation name of the digital assistant’s skills and the language in the digital assistant’s help and exit intents.
 
-Estimated Lab Time: 20 minutes
-
+Estimated Time: 20 minutes
 
 ### Objectives
 
@@ -69,10 +68,8 @@ To see the new utterances and prompt in action:
 1. Click the tester icon. ![](./images/test_button.png " ")
 2. In the tester's **Message** field, type *Can someone help me*, press Enter, and note the DA's response.
 
-
-You may proceed to the next lab.
-
 ## Acknowledgements
+
 * **Author** - Marcie Samuelsen
 * **Contributors** -  Kamryn Vinson
 * **Last Updated By/Date** - Kamryn Vinson, October 2020

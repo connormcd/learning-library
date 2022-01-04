@@ -38,7 +38,8 @@ In this lab we will create a compute instance, install httpd server, attach bloc
 7. Click **View Virtual Cloud Network** to display your VCN details.
 
 8. We will open port 80 on this VCN to provide http access to app on the compute instance(to be installed later on. Scroll down and Click **Security List** under **Resources** and then **Default Security list for`<YOUR_VCN_NAME>`**
-![](./../oci-quick-start/images/QuickStart_S1P8.PNG " ")
+
+![](./images/QuickStart_S1P8.PNG " ")
 
 9. Click **Add Ingress Rule**
 
@@ -58,6 +59,12 @@ In this lab we will create a compute instance, install httpd server, attach bloc
 1. Launch **Cloud Shell** by clicking the icon next to region name on top right of OCI console. ('<=' icon)
 
 2. Once cloud Shell is launched. Enter command **ssh-keygen**, press enter for all prompts. This will create a ssh key pair. Enter command;
+```
+ <copy>
+ssh-keygen
+</copy>
+```
+
 ```
  <copy>
 bash
@@ -176,8 +183,9 @@ Copy the key displayed. Thsi will be used when creating the compute instance.
       ```
       (Reload the firewall to activate the rules).
 
-      ![](./../oci-quick-start/images/Quick_S4P2.PNG " ")
-      *NOTE: The above screenshot shows parts 2-5*
+      ![](./images/Quick_S4P2.PNG " ")
+
+*NOTE: The above screenshot shows parts 2-5*
 
 3. Start httpd, Enter command:
 
@@ -195,7 +203,7 @@ Copy the key displayed. Thsi will be used when creating the compute instance.
       </copy>
       ```
 
-     ![](./../oci-quick-start/images/Quick_S4P4.PNG " ")
+     ![](./images/Quick_S4P4.PNG " ")
 
       **HINT:** The name of the block volume storage will start with 'sd'. In this case it is sdb, but could change for your specific attachment (i.e sdc, sda). In the above example this volume is called sdb, shown by its 50GB volume (the size of the compute instance created in Step 2).
 
@@ -226,7 +234,8 @@ Copy the key displayed. Thsi will be used when creating the compute instance.
       This will create the file system on the entire disk. Enter **y** when prompted with **Proceed anyway (y/n)?**. (For this lab we will not be creating additional partitions.)
 
 
-      ![](./../oci-quick-start/images/Quick_S4P6.PNG " ")
+      ![](./images/Quick_S4P6.PNG " ")
+      
       *NOTE: The above screenshot shows parts 6 & 7.*
 
 7. Create a directory where the disk will be mounted,Enter commands:
@@ -246,7 +255,7 @@ Copy the key displayed. Thsi will be used when creating the compute instance.
       ```
       *NOTE: VOLUME_NAME should be replaced by the string starting with 'sd' that you identified as the block volume storage in part 4.*
 
-      ![](./../oci-quick-start/images/Quick_S4P8.PNG " ")
+      ![](./images/Quick_S4P8.PNG " ")
 
       *NOTE: The above screenshot shows parts 8 & 9.*
 
@@ -259,7 +268,7 @@ Copy the key displayed. Thsi will be used when creating the compute instance.
       ```
       (in this case the volume is called sdc)
 
-     ![](./../oci-quick-start/images/Customer_Lab_006.PNG " ")
+     ![](./images/Customer_Lab_006.PNG " ")
 
 10. Next we will download an app and install it. Enter command:
 
@@ -268,7 +277,9 @@ Copy the key displayed. Thsi will be used when creating the compute instance.
       cd /home/opc
       </copy>
       ```
-      ![](./../oci-quick-start/images/Quick_S4P10.PNG " ")
+      
+      ![](./images/Quick_S4P10.PNG " ")
+      
       *NOTE: The above screenshot shows parts 10 & 11.*
 
 11. Enter Command:
@@ -285,7 +296,9 @@ Copy the key displayed. Thsi will be used when creating the compute instance.
       unzip master.zip
       </copy>
       ```
-      ![](./../oci-quick-start/images/Quick_S4P12.PNG " ")
+      
+      ![](./images/Quick_S4P12.PNG " ")
+      
       *NOTE: The above screenshot shows parts 12-14.*
 
 13. Enter Command:
@@ -323,7 +336,9 @@ Copy the key displayed. Thsi will be used when creating the compute instance.
       sudo chcon -R --type=httpd_sys_rw_content_t /mnt
       </copy>
       ```
-      ![](./../oci-quick-start/images/Quick_S4P17.PNG " ")
+      
+      ![](./images/Quick_S4P17.PNG " ")
+      
       *NOTE: The above screenshot shows parts 17-19.*
 
 18. Restart httpd server, Enter command:
@@ -344,7 +359,7 @@ Copy the key displayed. Thsi will be used when creating the compute instance.
 
 20. Open a new tab and enter **http://PUBLIC-IP** where PUBLIC-IP is the IP address of the compute instance from STEP 2 and a screen like below should appear.
 
-     ![](./../oci-quick-start/images/Customer_Lab_008.PNG " ")
+     ![](./images/Customer_Lab_008.PNG " ")
 
 We have initialized httpd.conf file. Next we will create a second compute instance using the boot volume of the first compute instance and attach Block Volume to it
 
@@ -361,11 +376,11 @@ In this section we will detach the block volume, Stop the compute instance, use 
       </copy>
       ```
 
-      ![](./../oci-quick-start/images/Quick_S5P1.PNG " ")
+      ![](./images/Quick_S5P1.PNG " ")
 
 2. In OCI console window, Click your compute instance name and in **Attached Block Volume** section  Click the action icon and **Click Detach**. Then, verify the detachment by pressing **Continue Detachment** and **OK** in the Confirm Window.
 
-      ![](./../oci-quick-start/images/Quick_S5P2.4.PNG " ")
+      ![](./images/Quick_S5P2.4.PNG " ")
 
 3. Stop your compute instance by Clicking **Stop** in compute instance details page. Then, click **Stop Instance** in the Confirm window.
 
@@ -376,7 +391,7 @@ In this section we will detach the block volume, Stop the compute instance, use 
 
 6. Click the action icon, Click **View Boot Volume Details**.
 
-      ![](./../oci-quick-start/images/Quick_S5P6.PNG " ")
+      ![](./images/Quick_S5P6.PNG " ")
 
 7. In the Boot Volume Details window Click **Create Instance:**
 
@@ -394,7 +409,9 @@ In this section we will detach the block volume, Stop the compute instance, use 
       sudo mount  /dev/DEVICE_PATH  /mnt/www/html
       </copy>
       ```
-      ![](./../oci-quick-start/images/Quick_S5P10-11.PNG " ")
+      
+      ![](./images/Quick_S5P10-11.PNG " ")
+
 *NOTE: This screenshot shows steps 10 & 11.*
 
 
@@ -410,7 +427,7 @@ In this section we will detach the block volume, Stop the compute instance, use 
 
 13. Screen like below should appear, Enter the required information.
 
-     ![](./../oci-quick-start/images/Customer_Lab_015.PNG " ")
+     ![](./images/Customer_Lab_015.PNG " ")
 
 We have now successfully launched a compute instance using another instance's boot volume and re-attached a block volume that was attached to another instance. The block volume preserved all the data on it during this process. Moreover the compute instance launched using the boot volume had httpd server and fire wall configuration already present.
 

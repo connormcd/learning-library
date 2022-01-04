@@ -174,7 +174,7 @@ In this lab, you will:
 
 ## Task 5: Create Jupyter Notebook Environment
 
-1. **Download** the Notebook <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/7NRyIRdKbZ6x3yNsDxqwTlWOk5s3aEzZ-sxTQ7bAGBGZrtrgtEczXxO2Jg_Uc8da/n/odca/b/workshops-livelabs-do-not-delete/o/mds-di-ds-FishSurvey.ipynb" target="\_blank">here</a>.
+1. **Download** the Notebook <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/accWutecVkW3_TtuapnHBzeCEGkAYiFijcU4slJLVBBZwoO00Bxicgreqs1mBFGQ/n/fruktknlrefu/b/workshop-marine-life/o/mds-di-ds-FishSurvey.ipynb" target="\_blank">here</a>.
 
 2. Click **Upload files**.
 

@@ -1,10 +1,10 @@
 {
-  "workshoptitle": "Expanding Oracle REST Data Services into Oracle Cloud Infrastructure",
+  "workshoptitle": "Expand Oracle REST Data Services into Oracle Cloud Infrastructure",
     "help": "livelabs-help-db_us@oracle.com",
 	"tutorials": [
         {
             "title": "Introduction",
-            "description": "Expanding Oracle REST Data Services into Oracle Cloud Infrastructure",
+            "description": "Expand Oracle REST Data Services into Oracle Cloud Infrastructure",
             "filename": "../../intro/intro.md"
         },
         {

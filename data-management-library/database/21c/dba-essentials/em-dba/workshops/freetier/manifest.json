@@ -1,12 +1,12 @@
 {
-  "workshoptitle": "DBA Essentials - Oracle EM Database Administration (DBA)",
-  "help": "livelabs-help-em_us@oracle.com",
+  "workshoptitle": "DBA Essentials - DB Admin with Enterprise Manager Cloud Control",
+  "help": "livelabs-help-em_us_grp@oracle.com",
   "tutorials": [
     {
       "title": "Introduction",
-      "description": "The workshop on Oracle Enterprise Manager Cloud Control (Oracle EMCC) Database Administration (DBA).",
+      "description": "Introduction.",
       "filename": "./../../intro-emcc/intro-emcc.md",
-	  "type": "em-dba"
+      "type": "em-dba"
     },
     {
       "title": "Get Started",
@@ -23,7 +23,7 @@
       "title": "Lab 2: Setup Compute Instance",
       "description": "How to provision the workshop environment and connect to it",
       "publisheddate": "08/31/2021",
-      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/setup-compute-generic/setup-compute-novnc.md"
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/setup-compute-generic/setup-compute-novnc-ssh.md"
     },
     {
       "title": "Lab 3: Initialize Environment",
@@ -38,7 +38,7 @@
     },
     {
       "title": "Lab 5: Log in to Oracle EMCC",
-      "description": "How to log in to Oracle Enterprise Manager Cloud Control (Oracle EMCC) and access the homepage.",
+      "description": "How to log in to Oracle Enterprise Manager Cloud Control (Oracle EMCC) and access the home page.",
       "filename": "./../../log-into-emcc/log-into-emcc.md"
     },
     {
@@ -47,14 +47,14 @@
       "filename": "./../../manage-targets/manage-targets.md"
     },
     {
-      "title": "Lab 7: Access Container Homepage from Cloud Control",
-      "description": "How to access the container homepage from Oracle EMCC. Learn how to switch between containers and manage your favorites.",
+      "title": "Lab 7: Access Container Home Page from Cloud Control",
+      "description": "How to access the container home page from Oracle EMCC. Learn how to switch between containers and manage your favorites.",
       "filename": "./../../access-homepage/access-homepage.md"
     },
     {
       "title": "Need Help?",
       "description": "Solutions to Common Problems and Directions for Receiving Live Help",
-      "filename":"https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-freetier.md"
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-freetier.md"
     }
   ]
 }

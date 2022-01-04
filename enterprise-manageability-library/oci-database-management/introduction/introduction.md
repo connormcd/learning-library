@@ -2,13 +2,17 @@
 
 ## About this Workshop
 
-In this workshop there are eight lab exercises. They have been organized to help you become familiar with the setup and use of this service's key capabilities: performing common Database Management tasks using the Oracle Cloud. In this lab, we have simulated an on-premises database so you do not have to setup or use one of your own on-premises databases.
+In this workshop there are nine lab exercises. They have been organized to help you become familiar with the setup and use of this service's key capabilities: performing common Database Management tasks using the Oracle Cloud. In this lab, we have simulated an on-premises database so you do not have to setup or use one of your own on-premises databases.
 
 Estimated Workshop Time: 5 hours
 
 ### About Oracle Cloud Infrastructure Database Management (OCI Database Management)
 
-As a DevOps user or Database Administrator, you can use the OCI Database Management service to monitor and manage your Oracle Databases. The Database Management service currently supports Oracle Databases located on-premises and connected to a resource in the Oracle Cloud Infrastructure External Database service (referred to as External Oracle Databases). Database Management supports Oracle Database versions 11.2.0.4 and later. Using the Database Management service you can:
+As a DevOps user or Database Administrator, you can use the OCI Database Management service to monitor and manage your Oracle Databases. The Database Management service supports Oracle Databases located on-premises and connected to a resource in the Oracle Cloud Infrastructure External Database service (referred to as External Oracle Databases). Database Management service also supports Oracle Autonomous Databases and Oracle Cloud Databases, which are Oracle Databases on the following Co-managed Oracle Database Cloud solutions:
+-	Bare Metal and Virtual Machine DB Systems
+-	Exadata Cloud Service
+
+Database Management supports Oracle Database versions 11.2.0.4 and later. Using the Database Management service you can:
 
 * Monitor the key performance and configuration metrics of all your Oracle Databases together (Fleet of databases).
 * You can compare and analyze database metrics over a selected period.
@@ -25,6 +29,7 @@ In this workshop, you will:
 * Monitor the key performance and configuration metrics of your fleet of Oracle Databases.
 * Monitor and administer an on-premises Oracle Database(simulated).
 * Monitor and administer Oracle Cloud Databases.
+* Monitor and administer Oracle Autonomous Databases.
 
 ### Prerequisites
 

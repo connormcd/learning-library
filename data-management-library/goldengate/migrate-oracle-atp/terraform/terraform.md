@@ -18,7 +18,7 @@ This first lab is very important and where we will create all of our resources:
 
 -   Create SSH keys in a cloud-shell environment
 -   Configure API keys for your cloud user
--	Modify bash profile to interact with terraform 
+-	Modify bash profile to interact with terraform
 -   Prepare our work environment and create our lab resources using a Terraform script.
 
 If you are running this lab in your existing tenancy, **make sure** you have the following compute quotas and resources available to use:
@@ -57,7 +57,7 @@ For a technical overview of this lab step, please watch the following video:
 
 	![](/images/1.git-0.png)
 
-## **Task 3**: Generate SSH keys 
+## **Task 3**: Generate SSH keys
 
 1. Once the cloud shell environment is ready, issue the below 4 lines of commands. This will create the ssh key files and the api signing keys:
 
@@ -75,7 +75,7 @@ For a technical overview of this lab step, please watch the following video:
 
 ## **Task 4**: Add Public API keys
 
-1. Click on the top right corner of your OCI web console and then click on your **profile name**. 
+1. Click on the top right corner of your OCI web console and then click on your **profile name**.
 
 	![](/images/0.prep-1-1.png)
 
@@ -114,24 +114,21 @@ For a technical overview of this lab step, please watch the following video:
 	terraform apply --auto-approve
 	</copy>
 	```
-	
+
 	After you ran the apply command, terraform will start installation of several virtual machines and an autonomous database. Be patient, it will approximately take 6 to 10 minutes, as it is now creating OCI GoldenGate, source and target databases, also registrations of them in GoldenGate deployment. During terraform script, if you see an error **Service limits exceeded** in output, please visit the Appendix section for instructions to correct the issue.
-	
+
 3. Make a copy of your output results in your notepad for later use.
 
 	![](/images/1.git-1.png)
 
-
-This concludes this lab. You may now **[proceed to the next lab](#next).**
-
 ## **Appendix**: Troubleshooting
 
 ###	Issue #1 Service Limits Exceeded
-	
-If you see **Service Limits Exceeded** issues when running _**terraform apply**_ command, follow the steps below to resolve them.
-When creating a stack, you must have the available quotas for your tenancy and your compartment. 
 
-Depending on the quota limit you have in your tenancy you can choose from any VM Standard Compute shapes, AMD shapes or Flex Shapes. 
+If you see **Service Limits Exceeded** issues when running _**terraform apply**_ command, follow the steps below to resolve them.
+When creating a stack, you must have the available quotas for your tenancy and your compartment.
+
+Depending on the quota limit you have in your tenancy you can choose from any VM Standard Compute shapes, AMD shapes or Flex Shapes.
 
 This lab uses the following compute types but not limited to:
 
@@ -149,11 +146,11 @@ This lab uses the following compute types but not limited to:
 
 6. Fix the above "VM.Standard2.2" value accordingly to your **Available** resources.
 7. Go to **Step 5: Terraform**, and continue from substep **2**.
-	
+
 However, if you are unable to resolve it using above fix, please skip to the **Need Help** section to submit your issue via our support forum.
 
 ## Acknowledgements
 
 * **Author** - Bilegt Bat-Ochir - Senior Solution Engineer
 * **Contributors** - Tsengel Ikhbayar - GenO Lift Implementation
-* **Last Updated By/Date** - Bilegt Bat-Ochir 11/09/2021
+* **Last Updated By/Date** - Bilegt Bat-Ochir 18/09/2021

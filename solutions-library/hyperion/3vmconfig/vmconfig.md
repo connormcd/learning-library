@@ -31,7 +31,7 @@ You should already be logged into the Oracle console; have these things ready as
 
 To find the last two, you might have to view the instances in the OCI console. Click on the menu, then on **Compute** --> **Instances**; a few instances with `eps` should pop up. Click on each of them to get the requisite information.
 
-## Task 1: open ports on the security list
+## Task 1: Open Ports on the Security List
 
 The first thing we need to do is to open up the requisite ports on the security list so that people can actually access our applications. Note that in a production scenario, we'd probably be more restrictive about who could connect to these ports by using different CIDR ranges; here, we use the non-restrictive `0.0.0.0/0`, which opens these ports to everyone.
 
@@ -39,39 +39,39 @@ The first thing we need to do is to open up the requisite ports on the security 
 
 2. Click on the VCN called `epmvcn`. You should see 5 distinct subnets within it.
 
-![The VCN screen](images/vmconfig1.png " ")
+	![The VCN screen](images/vmconfig1.png " ")
 
-![The 5 subnets](images/vmconfig2.png " ")
+	![The 5 subnets](images/vmconfig2.png " ")
 
 3. Select the subnet called `bassubnet`, which houses our bastion host. Then select its security list, `BastionSecList`.
 
-![The bastion host subnet](images/vmconfig3.png " ")
+	![The bastion host subnet](images/vmconfig3.png " ")
 
 4. Click "Add Ingress Rule". Here, we'll add an ingress rule that allows all connections from all incoming connections. (In a production scenario, we would be more selective about which ports we could enter from and only provision ports for SSH/VNC connections, but to ease the lab's completion, we open all ports here.) In the Source CIDR box, type in the string `0.0.0.0/0`, then click "Add Ingress Rules" to add this ingress rule.
 
-![The bastion host security list](/images/vmconfig4.png " ")
+	![The bastion host security list](/images/vmconfig4.png " ")
 
-![Opening all ports, part 1](images/vmconfig5.png " ")
+	![Opening all ports, part 1](images/vmconfig5.png " ")
 
 5. Now switch to "Egress Rules" by clicking on the left side, and add a similar "non-restrictive" egress rule by again filling in the string `0.0.0.0/0`, then clicking "Add Egress Rules" to add this egress rule.
 
-![Opening all ports, part 2](images/vmconfig6.png " ")
+	![Opening all ports, part 2](images/vmconfig6.png " ")
 
 6. You're now familiar with adding security rules to subnets. Perform the same exercise with the app and web subnets (`appsubnet` and `websubnet`, respectively). Add an ingress rule for both with a destination CIDR `0.0.0.0/0` and enter the Destination port as `3389`.
 
-## Task 2: install a desktop interface on the bastion host
+## Task 2: Install a Desktop Interface on the Bastion Host
 
 We now can access the instances we need. We'll start with configuring the bastion host.
 
 1. From the menu, click on **Compute** --> **Instances**.
 
-![Selecting instances from the menu](images/vmconfig7.png " ")
+	![Selecting instances from the menu](images/vmconfig7.png " ")
 
 2. Click on the `epmbasash11` instance, and copy its public IP address.
 
-![List of instances](images/vmconfig8.png " ")
+	![List of instances](images/vmconfig8.png " ")
 
-![Selecting the bastion host instance](images/vmconfig9.png " ")
+	![Selecting the bastion host instance](images/vmconfig9.png " ")
 
 3. We'll now need to connect to the instance. Depending on what OS you're using, the method will likely be slightly different.
 
@@ -82,7 +82,7 @@ On Mac or Linux, you'll type the command below:
 
 The system will ask if you want to continue connecting; confirm you want to and the system will connect.
 
-![Connecting on Mac](images/vmconfig10.png " ")
+	![Connecting on Mac](images/vmconfig10.png " ")
 
 On Windows, you'll use PuTTY:
 
@@ -108,7 +108,7 @@ In the terminal, execute the following command to install the GNOME desktop:
 	</copy>
 	```
 
-![Installing GNOME](images/vmconfig11.png " ")
+	![Installing GNOME](images/vmconfig11.png " ")
 
 Execute the following command to install TigerVNC:
 	```
@@ -117,7 +117,7 @@ Execute the following command to install TigerVNC:
 	</copy>
 	```
 
-![Installing TigerVNC](images/vmconfig12.png " ")
+	![Installing TigerVNC](images/vmconfig12.png " ")
 
 Install the Reminna client using the following set of commands:
 	```
@@ -130,7 +130,7 @@ Install the Reminna client using the following set of commands:
 
 If you're prompted to accept a size of installation, accept.
 
-![Installing Reminna](images/vmconfig13.png " ")
+	![Installing Reminna](images/vmconfig13.png " ")
 
 Install the Firefox browser using the following command:
 	```
@@ -141,7 +141,7 @@ Install the Firefox browser using the following command:
 
 If you're prompted to accept a size of installation, accept.
 
-![Installing Firefox](images/vmconfig14.png " ")
+	![Installing Firefox](images/vmconfig14.png " ")
 
 Start the VNC server using the following command:
 	```
@@ -150,9 +150,9 @@ Start the VNC server using the following command:
 	</copy>
 	```
 
-![Starting the VNC server](images/vmconfig15.png " ")
+	![Starting the VNC server](images/vmconfig15.png " ")
 
-	You'll be prompted to set up a password for the VNC server. You're not restricted on this, but we recommend **Welcome#1234**. Type this password in; do _not_ copy paste it. After confirming this password, the prompt will also ask for a view-only password; reject the view-only password.
+You'll be prompted to set up a password for the VNC server. You're not restricted on this, but we recommend **Welcome#1234**. Type this password in; do _not_ copy paste it. After confirming this password, the prompt will also ask for a view-only password; reject the view-only password.
 
 5. We can now view a desktop on our bastion host. We will set up an SSH tunnel for our VNC client to connect through. Mac and Windows will again have different ways to do this.
 
@@ -165,7 +165,7 @@ On Mac or Linux, you'll type the command below:
 
 The terminal will appear to freeze and not give any output; this is normal. Continue to the next step.
 
-![Setting up an SSH tunnel](images/vmconfig16.png " ")
+	![Setting up an SSH tunnel](images/vmconfig16.png " ")
 
 On Windows, you'll have to do the following.
 		1.	Start a new window of PuTTY (from the Start menu, choose All Programs, PuTTY, PuTTY).
@@ -185,15 +185,15 @@ On Windows, you'll have to do the following.
 
 6. We can now use our VNC Viewer on our local machine to view the instance. Open up the VNC viewer and type in the address `localhost:5901`.
 
-![Using the VNC Viewer](images/vmconfig17.png " ")
+	![Using the VNC Viewer](images/vmconfig17.png " ")
 
 7. You will be prompted to authenticate; type the password you decided on earlier while starting the server (**Welcome#1234**), and the viewer should connect.
 
-![VNC authentication](images/vmconfig18.png " ")
+	![VNC authentication](images/vmconfig18.png " ")
 
 8. If all went well, you should now be seeing the desktop of our bastion host.
 
-![Bastion host desktop](images/vmconfig19.png " ")
+	![Bastion host desktop](images/vmconfig19.png " ")
 
 ## Task 3: reset the passwords on the Windows instances
 
@@ -201,25 +201,27 @@ We'll now have to use our bastion host to reset the passwords of all 3 of the Wi
 
 1. From the menu, click on **Compute** --> **Instances**.
 
-![Selecting instances from the menu](images/vmconfig7.png " ")
+	![Selecting instances from the menu](images/vmconfig7.png " ")
 
 2. Click on the `epmfndash11, emphfmash11` and `epmwebash11` instances, and take a note of their private IP addresses and their default passwords. We'll have to use these to reset the passwords on each Windows instance.
 
-![Identifying the private IP addresses](images/vmconfig21.png " ")
+	![Identifying the private IP addresses](images/vmconfig21.png " ")
 
-![Identifying the default passwords](images/vmconfig22.png " ")
+	![Identifying the default passwords](images/vmconfig22.png " ")
 
 3. Back on our bastion host (and VNC Viewer), open the Reminna client by going to Application --> Internet --> Reminna.
 
-![Opening Reminna](images/vmconfig23.png " ")
+	![Opening Reminna](images/vmconfig23.png " ")
 
 4. Select RDP from the list of protocols, Enter the private IP address of one of the three Windows instances in the text box and hit Enter. You will be prompted to enter the initial password that you took down earlier. Once that's confirmed, you can then change the password. You can either change it to something you'll remember, or simply use the default we've already been using, **Welcome#1234**.
 
-![Using Reminna to connect](images/vmconfig24.png " ")
+	![Using Reminna to connect](images/vmconfig24.png " ")
 
 ## Summary
 
 We have now set up all of the infrastructure that we'll need to start installing the Hyperion application. The final lab is optional; it will provision a shared disk to put installer files on so that we don't have to copy them to every single machine.
+
+You may now **proceed to the next lab.**
 
 ## Acknowledgements
 * **Author** - Mitsu Mehta, Cloud Engineer, Packaged Apps

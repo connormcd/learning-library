@@ -13,39 +13,39 @@
             "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
         },
         {
-            "title": "Provision Your Instances",
+            "title": "Lab 1: Provision Your Instances",
             "filename": "../../provision/provision.md"
         },
         {
-            "title": "Lab 1: Create a Project for a New Visual Application",
+            "title": "Lab 2: Create a Project for a New Visual Application",
             "filename": "../../create-project/create-project.md"
         },
         {
-            "title": "Lab 2: Create a Web App in a Visual Application",
+            "title": "Lab 3: Create a Web App in a Visual Application",
             "filename": "../../create-app/create-app.md"
         },
         {
-            "title": "Lab 3: Create Pages for a Web App",
+            "title": "Lab 4: Create Pages for a Web App",
             "filename": "../../add-pages/add-pages.md"
         },
         {
-            "title": "Lab 4: Save Changes to a Remote Branch",
+            "title": "Lab 5: Save Changes to a Remote Branch",
             "filename": "../../save-changes/save-changes.md"
         },
         {
-            "title": "Lab 5: Add Navigation and Data",
+            "title": "Lab 6: Add Navigation and Data",
             "filename": "../../add-data/add-data.md"
         },
         {
-            "title": "Lab 6: Add Pages to Manage Data",
+            "title": "Lab 7: Add Pages to Manage Data",
             "filename": "../../add-other-pages/add-other-pages.md"
         },
         {
-            "title": "Lab 7: Share a Web App",
+            "title": "Lab 8: Share a Web App",
             "filename": "../../share-app/share-app.md"
         },
         {
-             "title": "Lab 8: Publish a Web App",
+             "title": "Lab 9: Publish a Web App",
              "filename": "../../publish-app/publish-app.md"
         },
         {

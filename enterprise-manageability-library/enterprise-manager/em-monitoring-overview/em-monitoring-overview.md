@@ -18,7 +18,7 @@ Watch the video below for a quick walk through of the lab.
 ### Objectives
 The objective of this lab is to become familiar with Enterprise Monitoring capabilities using Oracle Enterprise Manager Cloud Control 13c.
 
-*Estimated Lab Time*: 55 minutes
+*Estimated Time*: 55 minutes
 
 
 ### Lab Timing (Estimated)
@@ -49,7 +49,7 @@ The Overview pane shows the Target Status of your IT estate. The Status section 
 
     ![](images/emmonlab1step3.png " ")
 
-4. Click on the Red slice of the pie in the “Status” section. Note: You can ignore any differences between the count of targets in the screenshots vs. what you see in your lab environment. The number of targets may vary based on your lab environment.
+4. Click on the Red slice of the pie in the “Status” section. **Note:** You can ignore any differences between the count of targets in the screenshots vs. what you see in your lab environment. The number of targets may vary based on your lab environment.
 
     ![](images/emmonlab1step4.png " ")  
 
@@ -590,7 +590,7 @@ To create this hierarchy, use target properties to define the membership criteri
 
      ![](images/emmonlab7step27.png " ")
 
-28.	Notice in the Synchronization Status section, there is now one additional (total of 4) synchronized targets for Monitoring Templates. Note: You may need to click on the page refresh icon if the count under Synchronized Targets doesn’t update right away.
+28.	Notice in the Synchronization Status section, there is now one additional (total of 4) synchronized targets for Monitoring Templates. **Note:** You may need to click on the page refresh icon if the count under Synchronized Targets doesn’t update right away.
 
      ![](images/emmonlab7step28.png " ")
 
@@ -728,7 +728,7 @@ Severity: In Critical
 
      ![](images/emmonlab8step28.png " ")
 
-    Note:  Rule Sets are evaluated and executed in the order specified under the Order column.  When you create your own rule set that has an action to create an incident, you typically want to reorder it such that its order is ahead of the out-of-box rule sets.  This is to ensure that your rule set that creates the incident will be used instead of the out-of-box rule set.   However, for this lab exercise, we can skip this step.
+    **Note:**  Rule Sets are evaluated and executed in the order specified under the Order column.  When you create your own rule set that has an action to create an incident, you typically want to reorder it such that its order is ahead of the out-of-box rule sets.  This is to ensure that your rule set that creates the incident will be used instead of the out-of-box rule set.   However, for this lab exercise, we can skip this step.
 
 ## Learn More?
 
@@ -740,4 +740,4 @@ Severity: In Critical
 - **Author** - Karilyn Loui, Oracle Enterprise Manager Product Management
 - **Contributing Author** - Ana McCollum, Daniel Suherman, Murtaza Husain, Oracle Enterprise Manager Product Management
 - **Adapted for Cloud** - Rene Fontcha, Master Principal Solutions Architect, NA Technology
-- **Last Updated By/Date** – Daniel Suherman - Enterprise Manager Product Management [Apr 2021]
+- **Last Updated By/Date** – Desiree Abrokwa - Enterprise Manager Product Management [Dec 2021]

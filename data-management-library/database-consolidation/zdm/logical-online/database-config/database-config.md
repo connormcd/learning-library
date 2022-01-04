@@ -117,7 +117,7 @@ Estimate Lab Time: 15 minutes
 
 ## **Task 2: Creating Users for Your Database Migration**
 
-1.  Create a GoldenGate administration user, c##ggadmin, in CDB$ROOT, granting all of the permissions listed in the example
+1.  Create a GoldenGate administration user, c##ggadmin, in CDB$ROOT, granting all of the permissions listed in the example. Please bear in mind that you may need to press enter twice after copying the following statement for it to fully create the users, grant the privileges and execute the required PL/SQL procedure.
 
     ```
     <copy>    
@@ -142,7 +142,7 @@ Estimate Lab Time: 15 minutes
     </copy>
     ```
 
-3. Create a GoldenGate administration user, ggadmin, in the PDB, granting all of the permissions listed in the example
+3. Create a GoldenGate administration user, ggadmin, in the PDB, granting all of the permissions listed in the example. Please bear in mind that you may need to press enter twice after copying the following statement for it to fully create the users, grant the privileges and execute the required PL/SQL procedure.
 
     ```
     <copy>    
@@ -165,7 +165,8 @@ Estimate Lab Time: 15 minutes
     </copy>
     ```
 
-5. Grant the user privileges it will need for the migration.
+5. Grant the user privileges it will need for the migration. Please bear in mind that you may need to press enter twice after copying the following statement for it to fully create the users, grant the privileges and execute the required PL/SQL procedure.
+
     ```
     <copy>
     GRANT CONNECT,RESOURCE,CREATE TABLE,CREATE SEQUENCE to ZDML;
@@ -191,7 +192,8 @@ Estimate Lab Time: 15 minutes
     ```
 
 
-2. As ZDML run the following code to create a sample table.
+2. As ZDML run the following code to create a sample table. Please bear in mind that you may need to press enter twice after copying the following statement for it to fully execute.
+
     ```
     <copy>
     SET ECHO OFF 

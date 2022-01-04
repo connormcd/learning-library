@@ -127,7 +127,7 @@ Cloud Shell is a small virtual machine running a "bash" shell which you access t
 1. To work with the application code, you need to make a clone from the GitHub repository using the following command.  
 
     ```
-    <copy>git clone -b 21.10.1 --single-branch https://github.com/oracle/microservices-datadriven.git
+    <copy>git clone -b 21.11.3 --single-branch https://github.com/oracle/microservices-datadriven.git
     </copy>
     ```
 
@@ -165,8 +165,8 @@ Cloud Shell is a small virtual machine running a "bash" shell which you access t
 
 2. The setup will ask for you to enter your User OCID.  
 
-   Be sure to provide the user OCID and not the user name or tenancy OCID. 
-   
+   Be sure to provide the user OCID and not the user name or tenancy OCID.
+
    The user OCID will look something like `ocid1.user.oc1..aaaaaaaanu5dhxbl4oiasdfasdfasdfasdf4mjhbta` . Note the "ocid1.user" prefix.
 
    Note, sometimes the name link is missing in which case select the `User Settings` link. Do not select the "Tenancy" link.
@@ -203,18 +203,18 @@ Cloud Shell is a small virtual machine running a "bash" shell which you access t
 
     ```
     <copy>
-    You are limited to only one OKE cluster in this tenancy. This workshop will create one additional OKE cluster and so any other OKE clusters must be terminated. 
+    You are limited to only one OKE cluster in this tenancy. This workshop will create one additional OKE cluster and so any other OKE clusters must be terminated.
     Please confirm that no other un-terminated OKE clusters exist in this tenancy and then hit [RETURN]?
     </copy>
     ```
    To confirm that there are no other un-terminated OKE clusters, click the Navigation Menu in the upper left of Oracle Cloud Console, navigate to Developer Services and click on Kubernetes Clusters (OKE).
 
     ![](images/dev-services-menu.png " ")
-  
+
     ![](images/get-oke-info.png " ")
 
    If there are any un-terminated OKE cluster(s), please delete it(them) and continue with setup steps.
-   
+
     ![](images/get-oke-details.png " ")
 
 ## Task 9: Monitor the Setup
@@ -255,6 +255,14 @@ Their log files are located in the $GRABDISH_LOG directory.
 ```
 <copy>
 ls -al $GRABDISH_LOG
+</copy>
+```
+
+You can also cat through the logs by using the `showsetuplogs` shortcut command.
+
+```
+<copy>
+showsetuplogs
 </copy>
 ```
 

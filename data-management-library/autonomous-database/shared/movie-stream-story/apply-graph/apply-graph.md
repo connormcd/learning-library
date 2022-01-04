@@ -43,13 +43,13 @@ You will first create two new tables for this lab. The table CUSTOMER\_PROMOTION
 
 Connect to Autonomous Database tool as the MOVIESTREAM user:
 
-1. In your Autonomous Database console, click the Tools tab. Click **Open Database Actions**
+1. In your Autonomous Database Details page, click **Database Actions**.
 
 	  ![Click Tools, then Database Actions](images/launchdbactions.png " ")
 
 2. On the login screen, enter the username MOVIESTREAM, then click the blue **Next** button.
 
-3. Enter the password for the MOVIESTREAM user you set up in the Create User lab.
+3. Enter the password for the MOVIESTREAM user you set up in the Create User lab. Click **Sign in**.
 
 4. Open the SQL Worksheet from the Launchpad:
 

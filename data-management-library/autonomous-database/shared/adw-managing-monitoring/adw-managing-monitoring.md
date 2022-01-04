@@ -164,5 +164,5 @@ Click [here](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-clo
 
 ## **Acknowledgements**
 
-- **Author** - Richard Green, DB Docs Team
-- **Last Updated By/Date** - Kamryn Vinson, May 2021
+- **Author** - Richard Green, Principal Developer, Database User Assistance
+- **Last Updated By/Date** - Richard Green, November 2021

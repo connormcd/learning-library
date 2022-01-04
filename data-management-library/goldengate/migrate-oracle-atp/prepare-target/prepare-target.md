@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Up to now we have created all of the necessary resources using Terraform in OCI. It is now time to prepare the Target Database, the Autonomous database. 
+Up to now we have created all of the necessary resources using Terraform in OCI. It is now time to prepare the Target Database, the Autonomous database.
 
 *Estimated time*: 10 minutes
 
@@ -14,21 +14,25 @@ We need to create our target tables for our GoldenGate migration and enable GGAD
 
 * This lab assumes that you completed all preceding labs.
 
-## **Task 1**: Open SQL Developer Web 
+## **Task 1**: Open SQL Developer Web
 
 1. Go to the top-left hamburger icon, navigate to **Oracle Database** and choose **Autonomous Transaction Processing**. It will show you all available ATP workload type databases. Click on **Target ATP** database.
 
 	![](/images/2.atp-main.png)
 
-2. In **Tools** tab, where you will see **Database Actions**, click on **Open Database Actions**. You may need to enable a pop-up in your browser if it doesn't open anything.
+2. You will see **Database Actions**, please click on it. It would redirect you to the SQL web developer.
 
 	![](/images/2.atp-1.png)
 
-3. A new sign-in page opens, enter **ADMIN** in Username, when it asks you to enter the password, which is in the terraform output. Go and copy, then paste here.
+	**Option A**: You will see a small notification saying that **Please wait. Initializing DB Actions**. This will only take few seconds, please do not press any button until it opens the SQL web developer in a new tab.
 
-	![](/images/sql_dev-1.png)
+	![](/images/2.atp-2.png)
 
-4. In the **DEVELOPMENT** section, click on **SQL**. 
+	**Option B**: If a sign-in page opens and asks you to provide username, please enter **ADMIN** and press next. Then it will ask you to enter a password, which is in your terraform output. Go and copy, then paste here.
+
+	![](/images/sql-dev-1.png)
+
+3. In the **DEVELOPMENT** section, click on **SQL**.
 
 	![](/images/sql-dev-5.png)
 
@@ -42,7 +46,7 @@ We need to create our target tables for our GoldenGate migration and enable GGAD
 
 	There should have **7** tables created after script execution.
 
-## **Task 3**: Enable GGADMIN 
+## **Task 3**: Enable GGADMIN
 
 1. Now let's continue to unlock and change the password for Oracle GoldenGate user (ggadmin) in the Autonomous Database. Enable GGADMIN by running the following query.
 
@@ -54,7 +58,7 @@ We need to create our target tables for our GoldenGate migration and enable GGAD
 
 	![](/images/sql-dev-3.png)
 
-2. Let's check whether the parameter `enable_goldengate_replicaton` is set to true. 
+2. Let's check whether the parameter `enable_goldengate_replicaton` is set to true.
 
 	```
 	<copy>
@@ -64,12 +68,10 @@ We need to create our target tables for our GoldenGate migration and enable GGAD
 
 	![](/images/sql-dev-4.png)
 
-	We successfully enabled GGADMIN in our target Autonomous Database and created target HR database table structures. 
-
-This concludes this lab. You may now **[proceed to the next lab](#next).**
+	We successfully enabled GGADMIN in our target Autonomous Database and created target HR database table structures.
 
 ## Acknowledgements
 
 * **Author** - Bilegt Bat-Ochir - Senior Solution Engineer
 * **Contributors** - Tsengel Ikhbayar - GenO Lift Implementation
-* **Last Updated By/Date** - Bilegt Bat-Ochir 11/09/2021
+* **Last Updated By/Date** - Bilegt Bat-Ochir 18/09/2021

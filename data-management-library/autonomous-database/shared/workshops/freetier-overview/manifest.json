@@ -5,7 +5,6 @@
         {
             "title": "Introduction",
             "description": "Introduction to ADB on Shared Infrastructure",
-            "type": "odbw",
             "filename": "./intro.md"
         },
         {
@@ -38,7 +37,7 @@
         {
             "title": "Lab 5: Visualize Your Data",
             "description": "Visualizing Your Data",
-            "filename": "./../../adw-visualizations/adw-visualizations.md"
+            "filename": "./../../adw-visualizations-using-oad6pt3/adw-visualizations.md"
         },
         {
             "title": "Need Help?",

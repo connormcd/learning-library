@@ -10,7 +10,7 @@ However, we're not yet done. In practice, the data that holds predictive value i
 
 It is up to us to _uncover_ the patterns that are important to be able to make a prediction. After all, the success of our machine learning model will depend on the data that we present to it, and we have to make the most of the data that we have.
 
-Estimated Lab Time: 20 minutes
+Estimated Time: 20 minutes
 
 ### Objectives
 - Learn how to use visualization techniques to uncover additional data points that may be of value in predicting the score of a race.
@@ -157,4 +157,5 @@ In this lab, we've gone a step further by uncovering useful pieces of data that 
 Congratulations on completing the lab! In the next lab we'll see how we can actually extract these new pieces of information from the data sets (Features Generation). We'll also train a model and review the model's performance.
 
 ## **Acknowledgements**
+
 - **Author** - Jeroen Kloosterman, Technology Product Strategy Director

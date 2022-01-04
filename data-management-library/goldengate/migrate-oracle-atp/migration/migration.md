@@ -2,32 +2,32 @@
 
 ## Introduction
 
-Up to now, we have created all of the necessary resources using Terraform in OCI. It is now time to prepare the Target Database, the Autonomous Database. 
+Up to now, we have created all of the necessary resources using Terraform in OCI. It is now time to prepare the Target Database, the Autonomous Database.
 
-Many Oracle Cloud Infrastructure (OCI) GoldenGate customers overlook the need to ensure that the source and target database schemas to be replicated are in sync before replicating the data. GoldenGate’s underlying architecture for data replication ensures 100% consistency for all changes that occur on the source database. For each change on the source, such as an update or delete, GoldenGate guarantees the transaction was completed on the target. If the data didn’t exist on the target for an update or delete, then the replication of the transaction will fail and stop with an abnormal error. Many first-time GoldenGate users don’t understand this guaranteed consistency architecture and expect that GoldenGate would ignore these errors by default. However, if this was the case, then the target data would never match the source data.
+Many Oracle Cloud Infrastructure (OCI) GoldenGate customers overlook the need to ensure that the source and target database schemas to be replicated are in sync before replicating the data. GoldenGate’s underlying architecture for data replication ensures 100% consistency for all changes that occur on the source database. For each change on the source, such as an update or delete, GoldenGate guarantees the transaction was completed on the target. If the data didn’t exist on the target for an update or delete, then the replication of the transaction will fail and stop with an abnormal error. Usually, first-time GoldenGate users don’t understand this guaranteed consistency architecture and expect that GoldenGate would ignore these errors by default. However, if this was the case, then the target data would never match the source data.
 
-For the purposes of this lab, the source database is an on-premise 12c database and the target is Autonomous database.  There are seven source tables in HR schema and each table and associated resources, such as primary key constraints, will be created in the target schema as part of the target instantiation. 
+For the purposes of this lab, the source database is an on-premise 12c database and the target is Autonomous database.  There are seven source tables in HR schema and each table and associated resources, such as primary key constraints, will be created in the target schema as part of the target instantiation.
 
 To complete the lab, we will configure _**two extract**_ processes at the source database and _**two replicat**_ processes at the target database:
 
-* An extract for **changed data capture**. This process will start by capturing changes also create some files called trail files. We will use these files after the initial load finish at the target database. Let's call it **the primary extract** during this workshop. 
+* An extract for **changed data capture**. This process will start by capturing changes also create some files called trail files. We will use these files after the initial load finish at the target database. Let's call it **the primary extract** during this workshop.
 
 * We will connect to the source database and retrieve the oldest available System Change Number (SCN) using SQLPlus connection. This SCN will be used to the instantiation SCN, in other words, it means we will export database rows until that given SCN.
 
 * The migration step needs another 'special' type of extract process while changes are being captured by the first extract process from the source database. This 'special' process is called the **Initial-Load extract**. It captures data from a specified list of tables and later will be loaded into target database tables using the SCN.
 
-	> **NOTE:** The Oracle Database expdp and impdp are fully documented in the Oracle Documentation. You can also use the Replicate Data Using OCI GoldenGate, and it is preferred method of instantiation. However, we will use simple initial-load for purpose of this lab. You can also use [this quick start guide](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=797).
+	> **NOTE:** This is very simple initial-load method for purpose of this lab, because our source database size is small. The Oracle Database expdp and impdp are fully documented in the Oracle Documentation and it is preferred method of instantiation. You may also use [official instantiation document for this type of initial load](https://docs.oracle.com/en/middleware/goldengate/core/19.1/admin/instantiating-oracle-goldengate-initial-load.html#GUID-3AA4446C-6875-40BC-9944-006435FCF240)
 
 * When the initial-load extract finishes at the source, we will create the first replicat process to apply those changes. We will call it **Initial-Load replicat**, it is responsible for populating the target database using extracted data by the initial-load extract.
 
 * The second replicat is for applying **changed data**. We will call it **the primary replicat**. Once the first replicat process, the initial-load finish, we will create a replicat process for applying changed data captured during the initial load to the target database. But how do we know from which starting point we start to replicate? How do we ensure there are no duplicates?
-We will start applying changes after the **same SCN** we used for the initial-load extract. This is the instantiation SCN we used to mark the starting point for the replicat process. 
+We will start applying changes after the **same SCN** we used for the initial-load extract. This is the instantiation SCN we used to mark the starting point for the replicat process.
 
 *Estimated time*: 15 minutes
 
 ### Objectives
 
-We will complete the below tasks: 
+We will complete the below tasks:
 * Add the extracts and replicats processes
 * Add transaction data and a checkpoint tables
 * Capture System Change Number (SCN) from the source database
@@ -37,7 +37,7 @@ We will complete the below tasks:
 
 * This lab assumes that you completed all preceding labs.
 
-## **Task 1**: Log in to OCI GoldenGate Deployment 
+## **Task 1**: Log in to OCI GoldenGate Deployment
 
 1. Click the left-top hamburger icon, navigate to **Oracle Database** and choose **GoldenGate**. The page will list all available GoldenGate deployments. Click on **_`HOL_GG_Service`_**, this is what terraform has been created in the first lab.
 
@@ -63,11 +63,11 @@ We will complete the below tasks:
 
 	![](/images/3.goldengate-config-source.png)
 
-3. Scroll down to the **Checkpoint** and click on **+** icon, then provide **_`ggadmin.chkpt`_** and click **SUBMIT**. 
+3. Scroll down to the **Checkpoint** and click on **+** icon, then provide **_`ggadmin.chkpt`_** and click **SUBMIT**.
 
 	![](/images/3.goldengate-config-source-0.png)
 
-	The checkpoint table contains the data necessary for tracking the progress of capture process from source database's transactions. 
+	The checkpoint table contains the data necessary for tracking the progress of capture process from source database's transactions.
 
 4. Now let's add trandata for HR schema, right below the checkpoint, find **TRANDATA Information**. Make sure you choose **Schema** option then click on the **+** icon. Enter **_`HR`_** in the **Schema Name**, then click submit to save. This will enable trandata for all objects in the HR schema.
 
@@ -89,7 +89,7 @@ We will complete the below tasks:
 
 	![](/images/3.goldengate-config-target.png)
 
-3. Scroll down to the **Checkpoint** and click on **+** icon, then provide **_`ggadmin.chkpt`_** and **SUBMIT**. 
+3. Scroll down to the **Checkpoint** and click on **+** icon, then provide **_`ggadmin.chkpt`_** and **SUBMIT**.
 
 	![](/images/3.goldengate-config-target-0.png)
 
@@ -137,33 +137,33 @@ We will complete the below tasks:
 
 	![](/images/3.goldengate-ext-5.png)
 
-	> **NOTE:** You need to make sure [purge old trail files](https://docs.oracle.com/en/middleware/goldengate/core/21.3/ggmas/working-data-replications.html#GUID-41771EA7-8C7B-40D9-80EF-AF4DC0CA2FB5) in production scenario. The Purge Trail page works the same way as the Manager `PURGEOLDEXTRACTS` parameter in the Classic Architecture. It allows you to purge trail files when Oracle GoldenGate has finished processing them. Automating this task ensures that the trail files are periodically deleted to avoid excessive consumption of disk space. 
+	> **NOTE:** You need to make sure [purge old trail files](https://docs.oracle.com/en/middleware/goldengate/core/21.3/ggmas/working-data-replications.html#GUID-41771EA7-8C7B-40D9-80EF-AF4DC0CA2FB5) in production scenario. The Purge Trail page works the same way as the Manager `PURGEOLDEXTRACTS` parameter in the Classic Architecture. It allows you to purge trail files when Oracle GoldenGate has finished processing them. Automating this task ensures that the trail files are periodically deleted to avoid excessive consumption of disk space.
 
 ## **Task 5**: Get the SCN from The Source Database
 
 1. Remember that we copied the terraform output? Go and find the IP address of `Source_DB_Public_IP` from your note and connect to the source database using sqlplus connection. Modify the below line with your IP address, then run in your cloud shell.
-	
+
 	```
 	<copy>
 	sqlplus ggadmin/GG##lab12345@ip_address_source_database:1521/ORCL
 	 </copy>
 	```
-	
+
 	> **NOTE:** Make sure you replace _`ip_address_source_database`_ with your IP address for successful connection.
 
 2. You will be successfully connected to your source database, then run the below command to get the SCN:
 
 	```
 	<copy>
-	SELECT MIN(SCN) AS INSTANTIATION_SCN FROM 
-	(SELECT MIN(START_SCN) AS SCN FROM V$TRANSACTION UNION All 
+	SELECT MIN(SCN) AS INSTANTIATION_SCN FROM
+	(SELECT MIN(START_SCN) AS SCN FROM V$TRANSACTION UNION All
 	SELECT CURRENT_SCN FROM V$DATABASE);
 	</copy>
 	```
 
 3. Copy the SCN output! The below image shows the successful output. In this workshop, SCN is **1667664**. We will also use this in the last step.
 
-	![](/images/3.goldengate-ext-scn.png)
+	![](/images/3.goldengate-ext-scn-1.png)
 
 ## **Task 6**: Configure the Initial-Load Extract at the Source Database.
 
@@ -190,7 +190,7 @@ We will complete the below tasks:
 	</copy>
 	```
 
-5. Then modify the initload parameter file should be looking like the below image. 
+5. Then modify the initload parameter file should be looking like the below image.
 
 	![](/images/3.goldengate-ext-9.png)
 
@@ -200,13 +200,13 @@ We will complete the below tasks:
 
 7. In the overview dashboard, you should see **initload** extract is stopped. Click on **Action** button, choose **Details**. Initial-load takes only a matter of seconds to finish sample 7 tables. You can see actual extract process details in the **Report** tab. Please refer to the below recording for your reference of this step.
 
-	![](/images/3.goldengate-initial-load.gif)
+	![](/images/3.goldengate-initial-load-1.gif)
 
 	_RECAP:_ So far, we have configured two extract processes. EXTPRIM is capturing change data and INITLOAD captured every row of the source seven tables. Now we need to create two replicat processes for these two extracts.
 
 ## **Task 7**: Configure the Initial-Load Replicat at the Target Database.
 
-1. The process for initial load replication is simple and easy to configure. There are four types of Replicats supported by OCI GoldenGate. Go to the Replicat part and click on the **+** icon to create our replicat process on the overview page, 
+1. The process for initial load replication is simple and easy to configure. There are four types of Replicats supported by OCI GoldenGate. Go to the Replicat part and click on the **+** icon to create our replicat process on the overview page,
 
 	![](/images/3.goldengate-repload-0.png)
 
@@ -232,8 +232,8 @@ We will complete the below tasks:
 
 7. OCI GoldenGate created a draft parameter file, replace the below line from the existing draft parameter:
 
-	```MAP *.*, TARGET *.*``` 
-	
+	```MAP *.*, TARGET *.*```
+
 	with the following lines:
 
 	```
@@ -271,13 +271,13 @@ We will complete the below tasks:
 	```
 
 2. Then run the below to make some changes at the source database.
-	
+
 	```
 	<copy>
 	sqlplus hr/GG##lab12345@ip_address_source_database:1521/ORCL @update.sql
 	</copy>
 	```
-	
+
 	> **NOTE:** Make sure you replace _`ip_address_source_database`_ with your IP address for successful connection.
 
 	This statement updates a row in the countries table. Also, it must be captured by the **EXTPRIM** process. We now need to create the second replicat process to apply these captured changes at the source to the target database.
@@ -286,11 +286,11 @@ We will complete the below tasks:
 
 ## **Task 9**: Configure The Continuous Replicat at The Target Database.
 
-1. Go to the Replicat part and click on the **+** icon to create our continuous replicat process on the overview page, 
+1. Go to the Replicat part and click on the **+** icon to create our continuous replicat process on the overview page,
 
 	![](/images/3.goldengate-repcont-0.png)
 
-2. We will choose **Non-Integrated Replicat** for initial load, click **Next**. 
+2. We will choose **Non-Integrated Replicat** for initial load, click **Next**.
 
 	![](/images/3.goldengate-repcont-1.png)
 
@@ -312,8 +312,8 @@ We will complete the below tasks:
 
 7. Again, replace the below line from the existing draft parameter:
 
-	```MAP *.*, TARGET *.*``` 
-	
+	```MAP *.*, TARGET *.*```
+
 	with the following lines:
 
 	```
@@ -354,10 +354,8 @@ We will complete the below tasks:
 
 	You successfully migrated the Oracle 12c on-premises database to Oracle Autonomous Database in OCI. If you wish to continue to migrate a sample HR application, please proceed to the next Bonus lab.
 
-This concludes this lab. You may now **[proceed to the next lab](#next).**
-
 ## Acknowledgements
 
 * **Author** - Bilegt Bat-Ochir - Senior Solution Engineer
 * **Contributors** - Tsengel Ikhbayar - GenO Lift Implementation
-* **Last Updated By/Date** - Bilegt Bat-Ochir 11/09/2021
+* **Last Updated By/Date** - Bilegt Bat-Ochir 18/09/2021

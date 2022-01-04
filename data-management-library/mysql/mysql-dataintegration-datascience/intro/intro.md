@@ -19,7 +19,11 @@ In this workshop, you will:
 
 - Explore Oracle Cloud Free Tier.
 
+## Task 1: Requirements
 
+1. An Oracle Trial Account. 
+
+Here's a video to help with signing up:[](youtube:4U-0SumNz6w)
 
 _At this point, you are ready to start learning! Please proceed._
 

@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Autonomous Data Warehouse: Analytics using SQL (Moviestream)",
+    "workshoptitle": "Analyze Moviestream data in Oracle Autonomous Data Warehouse using SQL",
     "help": "livelabs-help-db_us@oracle.com",
 	"tutorials": [
       {

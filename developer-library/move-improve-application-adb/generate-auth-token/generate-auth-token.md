@@ -1,4 +1,4 @@
-# Generate Auth Token #
+# Generate the Auth Token #
 
 ## Introduction
 

@@ -145,7 +145,7 @@ There are multiple ways to create an Oracle Wallet for ADB.  We will be using Or
       <copy>
       cd $HOME
       pwd
-      wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/X312bI3U-DsOUoKgeFt8bt5U7nLOEpEbKg4cBQjljGDTChLIr__YJD6ab6SlChHP/n/idcd8c1uxhbm/b/temp-converged-atp-bucket/o/load-atp.sh
+      wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/xQHESjLHhezsWtbKk4cEoNjyLfvYx52cKGMx2COyL_8siPbv7hCCPyJxfWuPbtfB/n/c4u04/b/developer-library/o/load-atp.sh
       </copy>
       ````
 

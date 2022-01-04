@@ -130,7 +130,7 @@
 
    ![](./images/performance-monitoring.PNG)
 
-   You can hit crtl-C to stop the workload run.
+  You can hit crtl-C to stop the workload run.
 
 ### Auto Scaling
 
@@ -209,7 +209,7 @@
 2. Set up another connection from SQL Developer to your ATP with a database service of **Medium**.
    This will be good for running our database queries.
 
-   ![](./images/sql-developer-medium-connection.PNG)                             
+    ![](./images/sql-developer-medium-connection.PNG)                             
 
 3. From SQL Developer worksheet, check your cpu count is 4 (ie: 2 cores thus 4 Hyper-threads)
 

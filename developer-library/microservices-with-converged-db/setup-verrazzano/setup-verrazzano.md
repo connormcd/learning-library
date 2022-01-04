@@ -2,9 +2,9 @@
 
 ## Introduction
 
-In this lab we will provision and setup the resources to execute microservices in your tenancy.  
+In this tutorial, you'll provision and set up the resources to execute microservices in your tenancy.  
 
-Estimates Lab Time - 20 minutes
+Estimated Time - 20 minutes
 
 ### Objectives
 
@@ -42,7 +42,7 @@ Note, you will not be able to complete this workshop with the 'Always Free' acco
             verrazzano-system   vmi-system-prometheus      <none>   prometheus.vmi.system.default.158.101.26.111.nip.io      158.101.26.111   80, 443   37h
             verrazzano-system   vmi-system-prometheus-gw   <none>   prometheus-gw.vmi.system.default.158.101.26.111.nip.io   158.101.26.111   80, 443   37h
 
-## Task 2: Walkthrough of consoles
+## Task 2: Walk-through of Consoles
 
 
 

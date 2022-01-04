@@ -6,9 +6,9 @@ This lab shows you how to create a project for a new visual application, which s
 
 Estimated Time: 15 minutes
 
-### Background
+### About this Lab
 
-You can create engaging web and mobile applications in VB Studio using a _visual application_ template, which provides everything you need to visually develop a web or mobile application.
+VB Studio lets you create engaging web and mobile applications using a _visual application_ template, which provides everything you need to visually develop a web or mobile application.
 
 In this workshop, you'll build a simple Human Resources visual application, using a _project_ as a starting point. Every project in VB Studio is devoted to a discrete software effort, and the project you create in this lab is exclusive to the HR visual application. The project brings together all the tools you need to create your application, such as a Git repository to store your source code, a pipeline to provide continuous integration and delivery, an issue tracking system, and more.
 
@@ -27,9 +27,9 @@ This lab assumes you have:
 * A Chrome browser
 * A VB Studio instance and a separate VB instance
 
-## Task 1: Create a Project for a Visual Application
+## Task 1: Create a project for a visual application
 
-As someone who creates a project, you'll automatically become the project's owner, responsible for project management. For the purposes of this tutorial, we'll assume that you're also the developer who will create the HR web application.
+As someone who creates a project, you'll automatically become the project's owner, responsible for project management. For the purposes of this workshop, we'll assume that you're also the developer who will create the HR web application.
 
 1.  On VB Studio's Organization page, click the **Projects** tab, then click **\+ Create**.
 
@@ -56,7 +56,7 @@ As someone who creates a project, you'll automatically become the project's owne
 
     ![](images/project-home.png " ")
 
-## Task 2: Explore the Project Environment
+## Task 2: Explore the project environment
 
 Everything you need to start building a visual application is now created for you in this project. Let's step through some key components to better understand your project environment.
 
@@ -80,7 +80,7 @@ Everything you need to start building a visual application is now created for yo
 
     ![](images/build-pipeline.png " ")
 
-## Task 3: Add Credentials to Deploy the Visual Application
+## Task 3: Add credentials to deploy the visual application
 
 Now that your project is provisioned, let's set up the credentials that VB Studio will use to deploy your visual application to the VB development instance.
 
@@ -98,9 +98,9 @@ Now that your project is provisioned, let's set up the credentials that VB Studi
     - Notice the **Include the application version in the URL** check box that's selected by default. This option adds a version to the URL when your application is deployed (for example, https://host/something-else/0.1/index.html). This version number is useful to identify multiple versions during development, but when your app is ready to go live, you'll want to deselect this option to remove the version and replace it instead with **live** (https:/host/something-else/live/index.html).
     - Take note of the **Use clean database** option, also selected by default. This option uses a new database by default to store your application's data. To keep your data after initially importing it (which we'll do in a later lab), you'll need to select the **Keep existing environment data** option.
 
-## Task 4: Add Team Members
+## Task 4: Add team members
 
-For the purposes of this tutorial, let's assume that other members of your team will work with you on this visual application—which means you'll need to add them to this project. As the project owner, you can control what others can do in this project by granting them membership as a Developer Full Access, Developer Limited Access, or Contributor.
+For the purposes of this workshop, let's assume that other members of your team will work with you on this visual application—which means you'll need to add them to this project. As the project owner, you can control what others can do in this project by granting them membership as a Developer Full Access, Developer Limited Access, or Contributor.
 
 1.  Click **Project Home** ![Project Home icon](images/vbs-project-home-icon.png) in the left navigation.
 
@@ -108,11 +108,13 @@ For the purposes of this tutorial, let's assume that other members of your team 
 
     ![](images/team.png " ")
 
-3.  In the Add Member dialog box, enter the username of a teammate, select the new user's membership, and click **Add**. For demonstration purposes, this tutorial adds Clara Coder with the Developer Limited Access role, which lets her access most project components but limits management actions.
+3.  In the Add Member dialog box, enter the username of a teammate, select the new user's membership, and click **Add**. For demonstration purposes, this lab adds Clara Coder with the Developer Limited Access role, which lets her access most project components but limits management actions.
 
     ![](images/team-add-member.png " ")
 
     An email containing project details is sent to Clara Coder. Your recent activities feed is also updated.
+
+    You may **proceed to the next lab**.
 
 ## Acknowledgements
 * **Created By/Date** - Sheryl Manoharan, VB Studio User Assistance, November 2021

@@ -42,17 +42,13 @@ In tasks 1 through 3, with auto scaling **disabled**, you will have 3 SQL Develo
 
 ## Task 1: Disable Auto Scaling and Create Four Connections in SQL Developer Web to your ADW Database
 
-1. You created an Autonomous Data Warehouse database in an earlier lab named *Provision Autonomous Database*. Go to the details page for the database, click the  **Scale Up/Down** button, and deselect the **Auto Scaling** checkbox to disable auto scaling if you have not done so already.
+1. You created an Autonomous Data Warehouse database in an earlier lab named *Provision Autonomous Database*. Go to the details page for the database, click the **More Actions** button and select **Scale Up/Down**, and deselect the **Auto Scaling** checkbox to disable auto scaling if you have not done so already.
 
     ![](images/disable-auto-scaling.png " ")
 
-2. Go back to the details page for your ADW database. Click the **Tools** tab. In the next screen, click **Open Database Actions**. In the log-in dialog, provide the username `admin` and the administrator password you specified when you created the Autonomous Database. (Note that you can alternatively use SQL Developer desktop client instead of SQL Developer Web.)
+2. Go back to the Details page for your autonomous database. Click the **Database Actions** button. In the log-in dialog, provide the username `admin` and the administrator password you specified when you created the Autonomous Database. On the Database Actions **Launchpad**, click the **SQL** card. (Note that you can alternatively use SQL Developer desktop client instead of SQL Developer Web.)
 
-    ![](./images/click-tools-tab.png " ")
-
-    ![](./images/open-sql-developer-web.png)
-
-    ![](./images/click-sql.png)
+    ![](./images/database-actions-launchpad.png)
 
 3. Create and save 4 SQL Developer Web worksheets. In SQL Developer Web worksheets, you choose the consumer group from the drop-down menu in the upper-right corner.:
     - Save the first worksheet with the name **Setup**. You will use this worksheet with the LOW consumer group in Task 2, to run the setup that creates a procedure for running test queries. The LOW consumer group is appropriate for non-CPU-intensive tasks such as this creation of a procedure.
@@ -179,9 +175,9 @@ In this task, you run a script that will:
 
 ## Task 3: Run the `test_proc` Procedure Concurrently in Three Worksheets
 
-1. Open 3 worksheets you named **Query 1**, **Query 2**, and **Query 3**. To open 3 SQL Developer Web worksheets, simply go to the OCI console's Details page for your database, open the **Tools** tab and click the **Open Database Actions** button on the console 3 times. Each time you click it, a new SQL Developer Web instance will open in a tab in the browser.
+1. Open 3 worksheets you named **Query 1**, **Query 2**, and **Query 3**. To open 3 SQL Developer Web worksheets, simply go back to the OCI console's Details page for your database, click the **Database Actions** button and in the Database Actions **Launchpad**, click the **SQL** card to open a SQL worksheet in a tab in your browser. Do this 3 times so that you have 3 SQL worksheets open in your browser. In the first SQL worksheet, select your saved Query 1. In the second worksheet, select Query 2. In the third worksheet, select Query 3.
 
-    ![](./images/open-sql-developer-web.png " ")
+    ![Click the SQL card.](./images/database-actions-launchpad.png " ")
 
 2. **Make sure that each of the 3 worksheets are set to the HIGH consumer group.** Enter - but do not immediately execute - the following execute command in each worksheet. After you have entered the command into all 3 worksheets, quickly execute the command in each worksheet so that they begin at nearly the same time.
 
@@ -238,7 +234,7 @@ In tasks 4 through 6, you will enable auto scaling and again have 3 SQL Develope
 
 ## Task 4: Enable Auto Scaling
 
-1. Enable auto scaling, to allow you to use 3X the amount of base CPU and IO. Go to the details page for the database, click the  **Scale Up/Down** button, and select the **Auto Scaling** checkbox to **re-enable** auto scaling.
+1. Enable auto scaling, to allow you to use 3X the amount of base CPU and IO. Go to the details page for the database, click the **More Actions** drop-down menu and select  **Scale Up/Down**, and select the **Auto Scaling** checkbox to **re-enable** auto scaling.
 
     ![](images/enable-auto-scaling.png " ")
 
@@ -323,4 +319,4 @@ For more information about auto scaling, see the documentation [Use Auto Scaling
 
 - **Authors** - Rick Green, Database User Assistance; Nilay Panchal, ADB Product Management
 - **Contributors** - John Zimmerman, Real World Performance Team; Keith Laker, ADB Product Management
-- **Last Updated By/Date** - Kamryn Vinson, May 2021
+- **Last Updated By/Date** - Rick Green, November 2021

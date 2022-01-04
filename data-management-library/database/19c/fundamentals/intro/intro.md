@@ -31,7 +31,7 @@ The following general database overall enhancement labs are available:
 - Use RMAN to Connect to a PDB to Use the Recovery Catalog
 - Explore Automatic Deletion of Flashback Logs
 
-<if type="odbw">If you would like to watch us do the workshop, click [here](https://youtu.be/Kdw7uugt0-E).</if>
+If you would like to watch us do the workshop, click [here](https://youtu.be/Kdw7uugt0-E).
 
 ## Acknowledgements
 

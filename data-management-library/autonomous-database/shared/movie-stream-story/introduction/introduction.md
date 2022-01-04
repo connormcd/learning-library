@@ -49,7 +49,7 @@ The workshop will continue to evolve and highlight more capabilities that will h
 
 ## Acknowledgements
 * **Author** - Marty Gubar, Product Manager
-* **Last Updated By/Date** - Richard Green, Database User Assistance, September 2021
+* **Last Updated By/Date** - Richard Green, Database User Assistance, November 2021
 
 Data about movies in this workshop were sourced from **Wikipedia**.
 

@@ -65,7 +65,7 @@ There are two ways to access the Autonomous Database built-in tool suite:
 
 ### Access Autonomous Database Tools via the ADW Console
 
-On the Autonomous Data Warehouse console page, click the **Tools** tab, and in the **Database Actions** card, click the link to **Open Database Actions**:
+On the Autonomous Database Details page, click the **Database Actions** button:
 
   ![ALT text is not available for this image](images/database-tools.png)
 
@@ -74,14 +74,23 @@ On the Autonomous Data Warehouse console page, click the **Tools** tab, and in 
 When user QTEAM was created (in a previous step), a card appeared on the Database Users screen, similar to what is shown below. Notice the URI at the bottom of the card.
 
 1. Click the **Copy to clipboard** icon to copy this to your clipboard. This URI may be used to access the Database Actions page of Autonomous Database Tools directly, without needing to use the OCI Console.
+
   ![ALT text is not available for this image](images/2879073226.png)
+
 2. In the dialog that appears, sign in as user QTEAM, with the password assigned previously, and click **Sign In**.
+
   ![ALT text is not available for this image](images/qteam-login.png)
-3. This will take you to the Autonomous Data Warehouse **Database Actions** home page (shown below). This page has a card for each of the most common tasks that the data warehouse user would want to perform. The cards are grouped by theme. For example, here you see groups for Development and Data Tools. Each card has a title and description.  
+
+3. This will take you to the Autonomous Data Warehouse **Database Actions Launchpad** page (shown below). This page has a card for each of the most common tasks that the data warehouse user would want to perform. The cards are grouped by theme. There are groups for Development, Data Tools, Administration, and Monitoring. Each card has a title and description.  
+
   ![ALT text is not available for this image](images/database-actions.png)
+
 4. If you want more information about each of the tasks related to each card, then you can access the online help by clicking the **Question Mark** in the title bar, as indicated in the image below:
+
   ![ALT text is not available for this image](images/question-mark.png)
+
 5. This will pop out a tray containing links to the relevant topics in the Autonomous Data Warehouse documentation. To close the help tray, simply click the  **X**.
+
   ![ALT text is not available for this image](images/help.png)
 
 ### RECAP
@@ -114,7 +123,7 @@ Watch a video demonstration of the Data Load tool of Autonomous Database:
 
 ### Launch Your Data Load Workflow
 
-1. Click the **Data Load** card on the **Database Actions** home page.
+1. Click the **Data Load** card on the **Database Actions Launchpad** page.
 
   ![ALT text is not available for this image](images/data-load.png)
 
@@ -155,13 +164,13 @@ Below are the four files that you will be using during this part of the workshop
 
 **Before you proceed -**  be sure to take note of the location of the three files that you downloaded earlier to your local computer.
 
-3. To load the files from your local computer, you need to click on the first card in each of the first two rows of cards (in row one - **LOAD DATA** and row two - **LOCAL FILE** ) which will mark each box with a blue tick in the bottom right corner. To move forward to the next step in this process, simply click the blue **Next** button. 
+3. To load the files from your local computer, you need to click on the first card in each of the first two rows of cards (in row one - **LOAD DATA** and row two - **LOCAL FILE** ) which will mark each box with a blue tick in the bottom right corner. To move forward to the next step in this process, simply click the blue **Next** button.
   ![ALT text is not available for this image](images/load-local.png)
 4. This is where you need to locate the three files (Countries.csv, Days_Months.xlsx and Devices.xlsx) that you downloaded earlier! If they are easily accessible, then you can simply drag **ALL THREE** files at one time, and drop them onto to canvas as stated in the text on the screen.
   ![ALT text is not available for this image](images/upload.png)
-5. An alternative approach is to click **Select Files** button in the middle of the screen, which will open the file explorer on your local computer where you can locate your data files: Countries.csv, Days\_Months.xlsx, and Devices.xlsx. 
+5. An alternative approach is to click **Select Files** button in the middle of the screen, which will open the file explorer on your local computer where you can locate your data files: Countries.csv, Days\_Months.xlsx, and Devices.xlsx.
     >**Note:** Even though you only picked three files, four cards will appear for the data TARGETS to be loaded.
-  
+
   ![ALT text is not available for this image](images/2879071275.png)
   Why do you have  ***four***  cards listed on the data loading screen? This is because your spreadsheet file **Days\_Months.xlsx** contains two worksheets: one for Days and one for Months. The data loading wizard automatically parsed your spreadsheet and created a separate data loading card for each worksheet. 
   ![ALT text is not available for this image](images/2879071187.png)
@@ -418,7 +427,7 @@ In this section of the workshop, you'll create a Business Model over table MOVIE
 15. Press the three dots on the top right of the card and select **Show DDL** from the list that appears. 
   ![ALT text is not available for this image](images/show-ddl.png)
 
-16. Experienced users of Oracle Database will note that the Business Model is implemented in the database as an Analytic View. Experienced or not, it's nice to know that you didn't have to type any of that DDL! Click **Close** to return to the Business Model screen, click the **three dots** on the Business Model's card again and this time select **Analyze** from the list that appears. 
+16. Experienced users of Oracle Database will note that the Business Model is implemented in the database as an Analytic View. Experienced or not, it's nice to know that you didn't have to type any of that DDL! Click **Close** to return to the Business Model screen, click the **three dots** on the Business Model's card again and this time select **Analyze** from the list that appears.
 
 17. You should see a data summary similar to this.
     ![ALT text is not available for this image](images/data-summary.png)
@@ -482,7 +491,7 @@ Watch a video demonstration of the Data Insights tool of Autonomous Database:
 ### Generate New Insights
 
 1. From the Autonomous Database **Tools** home page, click the **Data Insights** card. If this is the first time you've accessed this tool (or any other in the Built-In Tool Suite), you'll see a series of tool tips to show you how to use it.
-  
+
 2. If the tool tips do not appear, they can be accessed by clicking the binoculars icon on the upper-right of the screen (under your username). Click **Next** repeatedly to browse through the tool tips for the Data Insights module. (To exit at any time, press X in the upper right of the tool tip.)
   ![ALT text is not available for this image](images/insights.png)
 

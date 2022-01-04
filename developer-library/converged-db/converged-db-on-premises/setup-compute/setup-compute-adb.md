@@ -28,7 +28,7 @@ This lab assumes you have:
 If you already have a VCN setup, please visit the appendix to see how to optionally create a stack with just Compute + ADB.
 
 1.  Click on the link below to download the Resource Manager zip file you need to build your environment.  
-      - [converged-db-adb.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/SkUC15rHseuHYjEmashs0PEuQYWofh2ver_pSBxHtphjaRG0MU6XgrMbMZpb3yIf/n/idcd8c1uxhbm/b/converged-db/o/converged-db-adb.zip)
+      - [converged-db-adb.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/kRDaL2RIx7SyrunGBPwPbSF0sMJr0kEriJimtcjsBQfdRPk_vYH-3fzwC2icHfbE/n/c4u04/b/workshop-terraform-src/o/converged-db-adb.zip)
 
 2.  Save in your downloads folder.
 3.  Login to Oracle Cloud
@@ -280,4 +280,4 @@ The Oracle Cloud Marketplace is a catalog of solutions that extends Oracle Cloud
 
 * **Author** - Rene Fontcha, Master Principal Solutions Architect, NA Technology
 * **Contributors** - Kay Malcolm, Kamryn Vinson
-* **Last Updated By/Date** - Kamryn Vinson, January 2021
+* **Last Updated By/Date** - Troy Anthony, December 2021

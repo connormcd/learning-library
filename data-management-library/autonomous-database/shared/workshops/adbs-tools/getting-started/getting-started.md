@@ -31,15 +31,15 @@ When you create a new data warehouse, you automatically get an account called AD
 
 For this workshop, we need to create one new user.
 
-1. Navigate to the Details page of the Autonomous Database you provisioned in the "Provision an ADB Instance" lab. In this example, the database is named "ADW Finance Mart." Launch **Database Actions** by clicking the **Tools** tab and then click the button to open the Database Actions home page.
+1. Navigate to the **Details** page of the Autonomous Database you provisioned in the "Provision an ADB Instance" lab. In this example, the database is named "ADW Finance Mart." Click the **Database Actions** button.
 
-  ![ALT text is not available for this image](images/database-tools.png)
+  ![ALT text is not available for this image](images/click-database-actions-button.png)
 
-2. Enter ADMIN for the username and click **Next**. On the next form, enter the ADMIN password - which is the one you entered when creating your Autonomous Data Warehouse.
+2. In the login form, enter ADMIN for the username and click **Next**. On the next form, enter the ADMIN password - which is the one you entered when creating your Autonomous Data Warehouse.
 
   ![ALT text is not available for this image](images/admin.png)
 
-3. On the Database Actions home page, under Administration, click the **Database Users** card.
+3. On the Database Actions launchpad page, under Administration, click the **Database Users** card.
 
   ![ALT text is not available for this image](images/database-users.png)
 
@@ -75,7 +75,7 @@ For this workshop, we need to create one new user.
   - Select **UNLIMITED** from the drop down menu for Quota on tablespace DATA
   - Leave the **Password Expired** toggle button as off (note this controls whether the user will be prompted to change their password when they next login).
   - Leave the **Account is Locked** toggle button as off. 
-  
+
   Next you will examine the form.
 
 6. When you examine the form, it should look like this:
@@ -102,9 +102,9 @@ Now you need to switch to working as the user QTEAM, so you can start the next l
 
   ![ALT text is not available for this image](images/qteam-login.png)
 
-3. This will launch the Database Actions home page.
+3. This will launch the Database Actions Launchpad page.
 
-  ![ALT text is not available for this image](images/database-actions.png)
+  ![ALT text is not available for this image](images/database-actions-launchpad.png)
 
 
 Now you have connected to your Autonomous Data Warehouse with your new user. You are ready to go to the next lab!
@@ -117,4 +117,4 @@ See the documentation on [Managing Users on Autonomous Database](https://docs.o
 
 - Created By/Date - Keith Laker, Product Manager, Autonomous Database, March 2021
 - Contributors - Nilay Panchal, Rick Green, Patrick Wheeler, Marty Gubar, Bud Endress, Jayant Mahto, Mike Matthews
-- Last Updated By - Arabella Yao, August 2021
+- Last Updated By - Rick Green, November 2021

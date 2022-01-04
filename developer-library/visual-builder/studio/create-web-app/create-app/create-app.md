@@ -6,7 +6,7 @@ This lab shows you how to create a web app in your visual application project. I
 
 Estimated Time: 15 minutes
 
-### Background
+### About this Lab
 Web and mobile applications in VB Studio take shape within the _Designer_, a rich graphical user interface that lets you design and develop your application by dragging and dropping components on a page. Each component depends on a _business object_ for its data. A business object is just a resource—like a purchase order or invoice—that has fields to hold your application's data. It is similar to a database table, as it provides the structure for your data; in fact, business objects are stored in a database. Your application accesses the data in these business objects through REST endpoints that VB Studio generates for you.
 
 In this lab, you'll create the Employee, Department, and Location business objects for the HR web application. Each business object has its own set of fields as shown here:
@@ -29,7 +29,7 @@ This lab assumes you have:
 * A Chrome browser
 * All previous labs successfully completed
 
-## Task 1: Create a Web App
+## Task 1: Create a web app
 
 Add your first web app to the HR visual application that you've just created. A visual application is a container for all your web and mobile applications. In this task, you add a single web app to your visual application, but you can have more than one, even both web and mobile apps in the same visual application.
 
@@ -72,7 +72,7 @@ Add your first web app to the HR visual application that you've just created. A 
 
     In the Web Apps pane, expand the **hrwebapp** node, then the **main** node to get a tree view of your web application.
 
-## Task 2: Create a Location Business Object and Import Data
+## Task 2: Create a Location business object and import data
 
 Let's create your first business object and add data to it by importing a CSV file. Every business object needs data associated with it, and there are many ways to do that, as you'll see. 
 
@@ -119,7 +119,7 @@ Let's create your first business object and add data to it by importing a CSV fi
 
     In the next task, we'll associate these locations with the departments that are located on these floors.
 
-## Task 3: Create a Department Business Object
+## Task 3: Create a Department business object
 
 Create the Department business object, which will have fields to show a department's name and location. In this task, you'll set up the department's Location field to pull in data from the Location business object you created in the previous task, but you won't actually add data to the Department business object just yet.
 
@@ -156,7 +156,7 @@ Create the Department business object, which will have fields to show a departme
     A Reference Type field refers to the key (the Id field) of another business object and links two business objects together. When you create a department now, you'll be able to select its Location (one of the floors). The Display Field indicates that the referenced object's Name field will be displayed instead of the Id.
 
 
-## Task 4: Create an Employee Business Object
+## Task 4: Create an Employee business object
 
 Create the last business object you need, the Employee object, which contains employee names and identifying data. The Employee object also has a Reference type field that refers to the Department object.
 
@@ -208,7 +208,7 @@ Create the last business object you need, the Employee object, which contains em
 
     Click ![Back to Table icon](images/backtotable-icon.png) **Endpoints** to return to the main Endpoints page.
 
-## Task 5: Create a Business Object Diagram
+## Task 5: Create a business object diagram
 
 Now that you have your business objects, create a diagram that visualizes the business objects and their relationships.
 
@@ -224,7 +224,9 @@ Now that you have your business objects, create a diagram that visualizes the bu
 
     ![](images/bo-diagram-selectall.png)
 
-    The diagram looks just like the graphic in the Background section.
+    The diagram looks just like the graphic in the About this Lab section.
+
+    You may **proceed to the next lab**.
 
 ## Acknowledgements
 * **Created By/Date** - Sheryl Manoharan, VB Studio User Assistance, November 2021

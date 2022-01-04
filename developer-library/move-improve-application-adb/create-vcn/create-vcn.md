@@ -1,4 +1,4 @@
-# Create Virtual Cloud Network #
+# Create the Virtual Cloud Network #
 
 ## Introduction
 
@@ -44,7 +44,7 @@ We are taking the quick option, but there is also a custom option to create reso
 
 5. Click Start VCN Wizard
 
-   ![](./images/start-vcn-wizard.PNG)
+  ![](./images/start-vcn-wizard.PNG)
 
 ## Task 2: Create the Network  ##
 

@@ -35,7 +35,7 @@ This lab assumes that you have already completed the earlier labs.
 
     ![](images/ingress-nginx-loadbalancer-externalip.png " ")
 
-    Set the LB environment variable to the external IP address of the ext-order service. Replace 123.123.123.123 in the following command with the external IP address.
+    Set the LB environment variable to the external IP address of the ingress-nginx-controller service. Replace 123.123.123.123 in the following command with the external IP address.
 
     ```
     <copy>export LB='123.123.123.123'</copy>
