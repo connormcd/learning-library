@@ -6,10 +6,6 @@ This lab walks you through the steps to get started using the Oracle Autonomous 
 
 Estimated Time: 10 minutes
 
-Watch the video below for a quick walk through of the lab.
-
-[](youtube:ICHM8bDast0)
-
 ### Objectives
 
 In this lab, you will:
@@ -56,7 +52,7 @@ In this lab, you will:
 <if type="freetier">
     ![Check the workload type on the left.](./images/compartments.png " ")
 </if>
-    ![](./images/workload-type.png " ")
+    ![Check the workload type](./images/workload-type.png " ")
 
 <if type="freetier">
    > **Note:** Avoid the use of the ManagedCompartmentforPaaS compartment as this is an Oracle default used for Oracle Platform Services.
@@ -87,7 +83,7 @@ In this lab, you will:
 <if type="livelabs">
     - __Database Name__ - Use letters and numbers only, starting with a letter. Maximum length is 14 characters. (Underscores not initially supported.) For this lab, use __JSONDB__ and append you LiveLabs user id. For example, __JSONDB7199__.
 
-    ![](./images/adb-info-livelabs.png)
+    ![Supply a database name](./images/adb-info-livelabs.png)
 </if>
 
 4. Choose a workload type: Select the workload type for your database from the choices:
@@ -132,22 +128,34 @@ In this lab, you will:
     - The password must not be the same password that is set less than 24 hours ago.
     - Re-enter the password to confirm it. Make a note of this password.
 
+    Later stages of this LiveLab will be easier if you avoid any of the characters / : ? # [ ] and @ in your password.
+
     ![Enter password and confirm password.](./images/administration.png " ")
 
 8. Choose network access:
 
-    - __Secure access from everywhere__ - For this lab, accept the default, "__Secure access from everywhere__.
-    - __Private endpoint access only__ - If you want a private endpoint, to allow traffic only from the VCN you specify - where access to the database from all public IPs or VCNs is blocked, then select "Virtual cloud network" in the Choose network access area.
-    - __Configure access control rule__ - You can control and restrict access to your Autonomous Database by setting network access control lists (ACLs). You can select from 4 IP notation types: IP Address, CIDR Block, Virtual Cloud Network, Virtual Cloud Network OCID).
+    - Choose __Secure access from allowed IPs and VCNs only__ 
 
-    ![](./images/network-access.png " ")
+    In the drop-down box, set __IP notation type__ to __CIDR Block__ and enter the following in the __Values__ box:
+
+    ```
+    <copy>
+    0.0.0.0/0
+    </copy>
+    ```
+
+    Note: this is insecure, and will allow access to your database from any IP address. For a production database, you should *always* provide a list of the IP addresses for the specific (usually mid-tier) machines that need to access your database. However, using this CIDR block simplifies later parts of this lab.
+
+    ![Apply CIDR block](./images/network-access.png " ")
+
+
 
 9. Choose a license type:
 
     - __Bring Your Own License (BYOL)__ - Select this type when your organization has existing database licenses.
     - __License Included__ - Select this type when you want to subscribe to new database software licenses and the database cloud service. For this lab, choose __License Included__.
 
-    ![](./images/license-type.png " ")
+    ![Choose license included](./images/license-type.png " ")
 
 10. Click __Create Autonomous Database__.
 
@@ -157,41 +165,63 @@ In this lab, you will:
 
     ![Database instance homepage.](./images/provisioning.png " ")
 
-## Task 3: Connect to your Autonomous Database using "JSON Workshop" UI
+## Task 3: Find REST and MongoDB API Connection URLs
 
-1. On the Autonomous Database Details page, click on the Tools tab.
+These will be needed in later labs.
 
-    ![](./images/tools.png)
+1. Open Database Actions
 
-2. The Tools page provides you access to Database Actions, Oracle Application Express, Oracle ML User Administration and SODA Drivers. In the Database Actions box, click **Open Database Actions**.
+    On the Autonomous Database Information page, click on the Database Actions button
 
-    ![](./images/db-actions.png)
+    ![Database Actions button](./images/db-actions.png " ")
 
-3. On Database Actions page, sign in with the database instance's default administrator account, **Username - ADMIN** and click **Next**.
+    The Database Actions Console will open in a new browser tab.
 
-    ![](./images/username.png)
+2. Find ORACLE DATABASE API FOR MONGODB under Related Services
 
-4. Provide the ADMIN user with the password you specified when creating the database. Click **Sign in**.
+    Scroll down until you find the **Related Services** section. There should be a card for __ORACLE DATABASE API FOR MONGODB__. Click on that card (if the card is not present, most likely you did not correctly configure your database for secure access).
 
-    ![](./images/sign-in.png)
+    ![Card for MongoDB API](./images/mongo-card.png " ")
 
-5. It displays the Database Actions console. On the Database Actions console under **Development** choose **JSON** to manager your JSON documents.
+3. Save the URL for __Oracle Database API for MongoDB__
 
-    ![](./images/json.png)
+    Once you've clicked on the card, a window will pop-up with two URLs listed.
+
+    Copy the first one (containing port number 27017) and save it with a text editor for later use in lab 3. Close the pop-up window when done.
+
+    ![Copy MongoDB API URL](./images/mongodb-url.png " ")
+
+4. Also under **Related Services**, you'll see a card for __RESTFUL SERVICES AND SODA__. Click on that card.
+
+    ![Card for REST](!/images/rest-card.png " ")
+
+5. Save the URL for RESTful Services and SODA in your text editor. Close the pop-up windows when done.
+
+    ![Copy REST URL](./images/rest-url.png " ")
+
+
+
+## Task 4: Connect to your Autonomous Database using "JSON Workshop" UI
+
+1. You should still be in the Database Actions tab from the previous step. Scroll up to the top of the page, to the **Development** section.
+
+2. You'll see a variety of developer tools under **Development** choose **JSON** to manage your JSON documents.
+
+    ![Choose JSON](./images/json.png)
 
 6. It opens on a worksheet. The first time you open JSON, a series of pop-up informational boxes introduce the main features. Click Next to know more or click on `X` to close the pop-up.
 
-    ![](./images/tutorials.png " ")
-    ![](./images/tour2.png " ")
-    ![](./images/tour3.png " ")
-    ![](./images/tour4.png " ")
-    ![](./images/tour5.png " ")
-    ![](./images/tour6.png " ")
-    ![](./images/tour7.png " ")
-    ![](./images/tour8.png " ")
-    ![](./images/tour9.png " ")
-    ![](./images/tour10.png " ")
-    ![](./images/tour11.png " ")
+    ![Tutorial pane 1](./images/tutorials.png " ")
+    ![Tutorial pane 2](./images/tour2.png " ")
+    ![Tutorial pane 3](./images/tour3.png " ")
+    ![Tutorial pane 4](./images/tour4.png " ")
+    ![Tutorial pane 5](./images/tour5.png " ")
+    ![Tutorial pane 6](./images/tour6.png " ")
+    ![Tutorial pane 7](./images/tour7.png " ")
+    ![Tutorial pane 8](./images/tour8.png " ")
+    ![Tutorial pane 9](./images/tour9.png " ")
+    ![Tutorial pane 10](./images/tour10.png " ")
+    ![Tutorial pane 11](./images/tour11.png " ")
 
 
 
@@ -206,4 +236,4 @@ You may now proceed to the next lab.
 ## Acknowledgements
 
 - **Author** - Anoosha Pilli, Product Manager, Oracle Database
-- **Last Updated By/Date** - Tom McGinn, July 2021
+- **Last Updated By/Date** - Madhusudhan Rao, Apr 2022

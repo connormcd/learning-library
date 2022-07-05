@@ -91,5 +91,5 @@ This completes Module 3. You now know how to utilize **apex\_data\_parser** and 
 ## **Acknowledgements**
 
  - **Author/Contributors** -  David Peake, Consulting Member of Technical Staff
- - **Last Updated By/Date** - Tom McGinn, Database Cloud Services, Product Management, June 2020
+ - **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

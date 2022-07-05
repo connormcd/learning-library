@@ -19,7 +19,7 @@ As a LOB user
 - A pre-provisioned source database instance. (Above Oracle Version 10.2)
 - A precreated Source DB user with DBA privileges or SYS User.
 
-## Task 1: Download and Install the ADW Schema Advisor
+## STEP 1: Download and Install the ADW Schema Advisor
 
 - Download the Schema Advisor installer SQL file from the [MOS Note 2462677.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=277447597426018&parent=EXTERNAL_SEARCH&sourceId=BULLETIN&id=2462677.1&_afrWindowMode=0&_adf.ctrl-state=14ax6bm2am_4)
 
@@ -37,7 +37,7 @@ As a LOB user
 
 *Note: The above step will create the ADB Advisor schema with the supplied password. If the schema already exists, the above script will ignore “user name conflicts with another user or role” message and continue the installation.*
   
-## Task 2: Generate the Advisor report on a Database Schema
+## STEP 2: Generate the Advisor report on a Database Schema
 
 - Start a SQL*Plus session as the ADB Advisor Schema owner and setup the SQL*Plus environment.
 
@@ -69,7 +69,7 @@ Where <adb_type> is one of the following migration destinations:*
     
 *You may specify a maximum of 30 schemas in a single advisor run. If you like to run more than 30, consider running using schemas=>’ALL’.*
     
-## Task 3: Analyze the Advisor Report
+## STEP 3: Analyze the Advisor Report
 
 The report has 4 sections (see Sample Report for ATP-D): 
 
@@ -105,3 +105,5 @@ If you wish to de-install the Advisor, execute the following command using a pri
 - **Last Updated By/Date** - Jayshree Chatterjee, July 2020
 
 
+## See an issue or have feedback?  
+Please submit feedback [here](https://apexapps.oracle.com/pls/apex/f?p=133:1:::::P1_FEEDBACK:1).   Select 'Autonomous DB on Dedicated Exadata' as workshop name, include Lab name and issue / feedback details. Thank you!

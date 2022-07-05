@@ -1,0 +1,49 @@
+{
+    "workshoptitle": "Get Started with Oracle Integration",
+    "help": "livelabs-help_oic_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "Introduction",
+            "filename": "../../introduction/introduction.md"
+        },
+        {
+            "title": "Get Started",
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
+        },
+        {
+            "title": "Lab 1: Provision an Oracle Integration Instance",
+            "description": "Follow these steps to create a new OCI Integration service instance",
+            "filename": "../../../../common/provision-oic/provision.md"
+        },
+        {
+            "title": "Lab 2: Enable File Server",
+            "filename": "../../../../common/enable-file-server/enable-file-server.md"
+        },
+        {
+            "title": "Lab 3: Provision an Oracle Autonomous Database",
+            "type": "freetier",
+            "filename": "../../../../common/adb-provision/adb-provision.md"
+        },
+        {
+            "title": "Lab 4: Setup",
+            "filename": "../../setup/setup.md"
+        },
+        {
+            "title": "Lab 5: Create Connections",
+            "filename": "../../create-connections/create-connections.md"
+        },
+        {
+            "title": "Lab 6: Create Integration flow",
+            "filename": "../../create-flow/create-flow.md"
+        },
+        {
+            "title": "Lab 7: Run end-to-end Integration Flow",
+            "filename": "../../run-demo/run-demo.md"
+        },
+        {
+            "title": "Need Help?",
+            "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+            "filename":"https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-freetier.md"
+        }
+    ]
+}

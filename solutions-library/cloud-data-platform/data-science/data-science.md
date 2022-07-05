@@ -77,9 +77,9 @@ Estimated Lab Time: 20 minutes.
 
     ![](./images/12.png " ")
 
-3. Let's import a notebook to see the capabilities of the platform. Download the sample notebook by clicking on this link: [sampleNotebook]( https://objectstorage.us-ashburn-1.oraclecloud.com/p/uY7nwFRtU7oPi62sVTaspkw7Im3-xhkUzB15JP01U7extqkNrIfvfZx42M7PmWeF/n/c4u04/b/austindatamanagement/o/sampleNotebook.ipynb)
+3. Let's import a notebook to see the capabilities of the platform. Download the sample notebook by clicking on this link: [sampleNotebook]( https://objectstorage.us-ashburn-1.oraclecloud.com/p/sAL1iD_tUFyG50EJoqrjJuBhgwFKggXiPNF6z0FcrEN41Tj8gkeGCNGEC9zNtOsQ/n/c4u04/b/livelabsfiles/o/austindatamanagement/sampleNotebook.ipynb)
 
-4. Now, let's download the datasets for this project- there are 3 you will download. For the first, download by clicking on this link: [sampleDataset](https://objectstorage.us-ashburn-1.oraclecloud.com/p/uK4SPxDcbvK2UHWWaCeIX4QinBhHycfg2SpKzeAnlkuu7kTFyaSbbGO2jzKzBs2P/n/c4u04/b/austindatamanagement/o/sampleDataset.csv). For the second, download by clicking on this link: [trainDataset](https://objectstorage.us-ashburn-1.oraclecloud.com/p/-I4yLdDr2RQnrYGh1zU8-_9YcvOi5o-eY29byXkFQlydOBJdfuDlbbbZ5OrzvBm0/n/c4u04/b/austindatamanagement/o/trainDataset.csv). For the third and final dataset, download by clicking on this link: [testDataset](https://objectstorage.us-ashburn-1.oraclecloud.com/p/_Er0LvOWP7ZWCFuoQMIHtqWSxOCBQHg-bSiOZxOv5wGD0Vhacbrirzi2mhCrQN39/n/c4u04/b/austindatamanagement/o/testDataset.csv)
+4. Now, let's download the datasets for this project- there are 3 you will download. For the first, download by clicking on this link: [sampleDataset](https://objectstorage.us-ashburn-1.oraclecloud.com/p/sAL1iD_tUFyG50EJoqrjJuBhgwFKggXiPNF6z0FcrEN41Tj8gkeGCNGEC9zNtOsQ/n/c4u04/b/livelabsfiles/o/austindatamanagement/sampleDataset.csv). For the second, download by clicking on this link: [trainDataset](https://objectstorage.us-ashburn-1.oraclecloud.com/p/-I4yLdDr2RQnrYGh1zU8-_9YcvOi5o-eY29byXkFQlydOBJdfuDlbbbZ5OrzvBm0/n/c4u04/b/austindatamanagement/o/trainDataset.csv). For the third and final dataset, download by clicking on this link: [testDataset](https://objectstorage.us-ashburn-1.oraclecloud.com/p/sAL1iD_tUFyG50EJoqrjJuBhgwFKggXiPNF6z0FcrEN41Tj8gkeGCNGEC9zNtOsQ/n/c4u04/b/livelabsfiles/o/austindatamanagement/testDataset.csv)
 
 5. Then, start by clicking on the **^ icon** to **Upload Files** in the OCI Data Science notebook session interface. Then, select the datasets from the previous step to import it. It may take a minute for them to completely upload the dataset, but it will continue the upload process in the background. You may still continue to the next step.
 
@@ -121,7 +121,7 @@ Estimated Lab Time: 20 minutes.
 
 1. Let's try to deploy our newly created machine learning model using Oracle Functions. This allows us to use a lightweight method, that can be used outside of OCI Data Science, to test payloads for whether or not they are fraud.
 
-2. Download the ADS-Model-Deployment notebook by clicking on this link: [ADS-Model_Deployment.ipynb](https://objectstorage.us-ashburn-1.oraclecloud.com/p/RH-51Z6lopnFuwOBCH5MYnMJ_fBvtCyX8-9b9Z3VCpSF3GiKJkCaI2p7LukYg60s/n/c4u04/b/austindatamanagement/o/ADS-Model-Deployment.ipynb). Then, similarly to how you uploaded a file before, begin by clicking on the **^ icon** to **Upload Files** in the OCI Data Science notebook session interface. Then, select the ADS notebook from the previous step to import it.
+2. Download the ADS-Model-Deployment notebook by clicking on this link: [ADS-Model_Deployment.ipynb](https://objectstorage.us-ashburn-1.oraclecloud.com/p/sAL1iD_tUFyG50EJoqrjJuBhgwFKggXiPNF6z0FcrEN41Tj8gkeGCNGEC9zNtOsQ/n/c4u04/b/livelabsfiles/o/austindatamanagement/ADS-Model-Deployment.ipynb). Then, similarly to how you uploaded a file before, begin by clicking on the **^ icon** to **Upload Files** in the OCI Data Science notebook session interface. Then, select the ADS notebook from the previous step to import it.
 
     ![](./images/12b.png " ")
 

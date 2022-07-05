@@ -1,27 +1,34 @@
-# Configure the ZDM Environment
+# Configure the ZDM environment
 
 ## Introduction
-In this lab on your host instance, you will:
-* Install Oracle Cloud Infrastructure Command Line Interface (OCI CLI)
+In this lab on your host instance, you will learn how to congifute the ZDM Service Node, generate and configure the required API Keys and configure connectivity between ZDM's Service Node and the GoldenGate Hub. 
+
+The CLI is a small-footprint tool that you can use on its own or with the Console to complete Oracle Cloud Infrastructure tasks. The CLI provides the same core functionality as the Console, plus additional commands. Some of these, such as the ability to run scripts, extend Console functionality.
+
+The API keys you are generating are to allow the Oracle Cloud Infrastructure CLI you installed on your host instance to connect to your Oracle Cloud Infrastructure user profile to run commands. The RSA keys will allow you to SSH connect directly to 'oci' from 'zdmuser' which will be needed when running the Zero Downtime Migration.
+
+The reason your Oracle Cloud Infrastructure directory is being copied to 'zdmuser', 'oracle', and 'opc' is so that each of these 3 users can utilize the Oracle Cloud Infrastructure CLI.
+
+Estimated Time: 20 minutes
+
+### Objectives
+
+In this lab, you will:
+
+* Install Oracle Cloud Infrastructure Command Line Interface (Oracle Cloud Infrastructure CLI)
 * Create a Zero Downtime Migration (ZDM) group and user
 * Add directories for ZDM  
 * Install and Start ZDM
 * Generate API keys
-* Create your OCI directories and configuration files under all 3 users: 'zdmuser', 'oracle', and 'opc'
+* Create your Oracle Cloud Infrastructure directories and configuration files under all 3 users: 'zdmuser', 'oracle', and 'opc'
 * Create RSA keys
 
+### Prerequisites
+* This workshop section requires having completed all previous workshop sections.
 
-The CLI is a small-footprint tool that you can use on its own or with the Console to complete Oracle Cloud Infrastructure tasks. The CLI provides the same core functionality as the Console, plus additional commands. Some of these, such as the ability to run scripts, extend Console functionality.
+**Disclaimer**: Throughout the workshop there will be locations where you are copying and pasting multiple lines of code at a time from the instructions into SQLPlus. However, the last line pasted will not commit until you manually press enter a second time. To avoid statement failure, please be cognizant of this and press enter twice when pasting.
 
-The API keys you are generating are to allow the OCI CLI you installed on your host instance to connect to your OCI user profile to run commands. The RSA keys will allow you to SSH connect directly to 'oci' from 'zdmuser' which will be needed when running the Zero Downtime Migration.
-
-The reason your OCI directory is being copied to 'zdmuser', 'oracle', and 'opc' is so that each of these 3 users can utilize the OCI CLI.
-
-Estimate Lab Time: 20 minutes
-
-**Disclaimer**: Throughout the workshop there will be locations where you are copying and pasting multiple lines of code at a time from the instructions into SQLPlus. However, the last line pasted will not commit until you manually hit enter a second time. To avoid statement failure, please be cognizant of this and hit enter twice when pasting.
-
-## **Task 1: Install OCI CLI**
+## Task 1: Install Oracle Cloud Infrastructure CLI
 1. Return to your compute instance command prompt as 'opc'. If you navigated away while creating your target database, you can reconnect through your command prompt with the following command. Replace < sshkeyname > and < Your Compute Instance Public IP Address > with the key file name and IP address of your source compute instance:
 
     ```
@@ -31,7 +38,7 @@ Estimate Lab Time: 20 minutes
     ```
 
 
-2. Install OCI CLI. Respond y at the prompt.
+2. Install Oracle Cloud Infrastructure CLI. Respond y at the prompt.
 
     ```
     <copy>
@@ -39,7 +46,7 @@ Estimate Lab Time: 20 minutes
     </copy>
     ```
 
-## **Task 2: Set ZDM Group and User and Create Directories**
+## Task 2: Set ZDM Group and User and Create Directories
 1. Run code below to add the group zdm, create the user zdmuser, and add directories for the ZDM. Please bear in mind that enter must be needed to enter twice after having copied the below statement. 
 
     ```
@@ -55,7 +62,7 @@ Estimate Lab Time: 20 minutes
     </copy>
     ```
 
-## **Task 3: Install Zero Downtime Migration**
+## Task 3: Install Zero Downtime Migration
 1. As 'opc' check that the following packages are installed:
     * expect
     * glib-devel
@@ -90,25 +97,25 @@ Estimate Lab Time: 20 minutes
 
 3. Bear in mind you must be signed in to perform a download, please proceed to sign if you have not done so. Once signed in, click on Download, Accept the Licensing terms and download the ZDM binaries to your Desktop
 
-    ![Go to Download Link](./images/download-link.png)
+    ![Screenshot of ZDM Download Menu](./images/download-link.png)
 
-    ![Accept Terms](./images/accept-terms.png)
+    ![Screenshot of ZDM's Oracle License Agreement](./images/accept-terms.png)
 
 
-4. Go back to your Cloud Shell environment and click on the Hamburguer menu on the top left of Cloud Shell and click on the __Upload__ option, an upload window will appear
+4. Go back to your Cloud Shell environment and click on the navigation menu on the top left of Cloud Shell and click on the __Upload__ option, an upload window will appear
 
-    ![Cloud Shell Hamburguer Menu - Upload Option](./images/hamburguer-upload.png)
+    ![Screenshot of Cloud Shell navigation Menu - Upload Option](./images/navigation-menu-upload.png)
 
-    ![Upload Window](./images/upload-pane.png)
+    ![Screenshot of Cloud Shell Upload Window](./images/upload-pane.png)
 
 
 5. Click on __select from your computer__, select the recently ZDM downloaded binaries and click __Upload__
 
 
-    ![Select ZDM File](./images/zdm-file.png)
+    ![Screenshot of Cloud Shell select file window](./images/zdm-file.png)
 
 
-6. Upon finalizing the upload process, click on __Hide__, then exit the zdmuser and the opc user:
+6. Upon finalizing the upload process, click on __Hide__, then exit the opc user:
 
     ```
     <copy>
@@ -142,7 +149,7 @@ Estimate Lab Time: 20 minutes
     ```
 
 
-10. Cd to the /tmp folder, copy the zdm binaries to the zdmdownload file and, unzip the files and cd to the unziped directory: 
+10. Cd to the /tmp folder, copy the zdm binaries to the zdmdownload file and, unzip the files and cd to the unziped directory. Bear in mind that at the time of creation of this workshop ZDM's current version was 21.2, if a newer version is available, please change the commands from 21.2 to the current version so that the unzip proceeds correctly: 
 
      ```
     <copy>
@@ -181,9 +188,9 @@ Estimate Lab Time: 20 minutes
     </copy>
     ```
 
-    ![Check Status](./images/check-status.png)
+    ![Screenshot of ZDM Service Status](./images/check-status.png)
 
-## **Task 4: Generating API Keys**
+## Task 4: Generating API Keys
 1. As 'zdmuser' go to 'zdmhome' directory.
 
     ```
@@ -204,19 +211,19 @@ Estimate Lab Time: 20 minutes
     </copy>
     ```
 
-3. On your OCI Dashboard navigate to and click on your user profile in the top right. Select the top option, your user.
-    ![Dashboard Profile](./images/dashboard-profile.png)
+3. On your Oracle Cloud Infrastructure Dashboard navigate to and click on your user profile in the top right. Select the top option, your user.
+    ![Screenshot of Oracle Cloud Infrastructure Dashboard Profile](./images/dashboard-profile.png)
 
 4. Select 'API Keys' and 'Add API Key'.
-    ![Add API Keys](./images/add-api-keys.png)
+    ![Screenshot of Oracle Cloud Infrastructure Add API Keys Menu](./images/add-api-keys.png)
 
-5. Paste your public OCI API key file you copied above and click "Add Key".
-    ![Paste Public Key](./images/paste-pub-key.png)
+5. Paste your public Oracle Cloud Infrastructure API key file you copied above and click "Add Key".
+    ![Screenshot of Add API Key Window](./images/paste-pub-key.png)
 
 6. You will see a configuration file preview. Copy its contents to clipboard. You will be using it to populate your configuration file in the following step.
-    ![Configuration File Preview](./images/config-file-preview.png)
+    ![Screenshot of Configuration File Preview](./images/config-file-preview.png)
 
-## **Task 5: Creating Your Configuration File and Copying Your Directory**
+## Task 5: Creating Your Configuration File and Copying Your Directory
 1. Back in your command prompt create your config file.
 
     ```
@@ -243,7 +250,7 @@ Estimate Lab Time: 20 minutes
     </copy>
     ```
 
-    ![Update Path](./images/update-path.png)
+    ![Screenshot of Oracle Cloud Infrastructure Cloud Shell Configuration File Edit](./images/update-path.png)
 
 5. Press the escape key to escape insert.
 
@@ -306,7 +313,7 @@ Estimate Lab Time: 20 minutes
     ~/.oci/oci_api_key.pem
     </copy>
     ```
-    ![Update Key File Path](./images/update-keyfile-path.png)
+    ![Screenshot of Oracle Cloud Infrastructure Cloud Shell Configuration File Edit](./images/update-keyfile-path.png)
 
 
 12. To save and quit vi editor.
@@ -327,7 +334,7 @@ Estimate Lab Time: 20 minutes
 
 
 
-14. Test OCI CLI as 'opc'. Ignore any warnings. If the output is similar to the image below the test was successful.
+14. Test Oracle Cloud Infrastructure CLI as 'opc'. Ignore any warnings. If the output is similar to the image below the test was successful.
 
     ```
     <copy>
@@ -335,7 +342,7 @@ Estimate Lab Time: 20 minutes
     </copy>
     ```
 
-    ![OCI CLI Test](./images/cli-test.png)
+    ![Screenshot of Oracle Cloud Infrastructure Cloud Shell CLI Test listing Oracle Cloud Infrastructure Regions](./images/cli-test.png)
 
 15. Repeat the steps for 'oracle'.
 
@@ -375,7 +382,7 @@ Estimate Lab Time: 20 minutes
     ~/.oci/oci_api_key.pem
     </copy>
     ```
-    ![Update Key File Path](./images/update-keyfile-path.png)
+    ![Screenshot of Oracle Cloud Infrastructure Cloud Shell Configuration File Edit](./images/update-keyfile-path.png)
 
 
 19. To save and quit vi editor.
@@ -395,14 +402,14 @@ Estimate Lab Time: 20 minutes
     </copy>
     ```
 
-21. Test OCI CLI with 'oracle'. Ignore any warnings. If the output is similar to the image below the test was successful.
+21. Test Oracle Cloud Infrastructure CLI with 'oracle'. Ignore any warnings. If the output is similar to the image below the test was successful.
 
     ```
     <copy>
     oci iam region list
     </copy>
     ```
-    ![OCI CLI Test](./images/cli-test.png)
+    ![Screenshot of Oracle Cloud Infrastructure Cloud Shell CLI Test listing Oracle Cloud Infrastructure Regions](./images/cli-test.png)
 
     
 22. Lock 'zdmuser' private key file.
@@ -416,9 +423,9 @@ Estimate Lab Time: 20 minutes
     </copy>
     ```
 
-## **Task 6: Creating RSA Keys**
+## Task 6: Creating RSA Keys
 
-1. As 'zdmuser' go to root directory and generate RSA keys. Hit enter key 3 times for no password and to save to /home/zdmuser/.ssh/id_rsa.
+1. As 'zdmuser' go to root directory and generate RSA keys. Press enter key 3 times for no password and to save to /home/zdmuser/.ssh/id_rsa.
 
     ```
     <copy>
@@ -452,26 +459,26 @@ Estimate Lab Time: 20 minutes
     </copy>
     ```
 
-    ![RSA Key Check](./images/cat-rsa.png)    
+    ![Screenshot of RSA Key Check](./images/cat-rsa.png)    
 
 
-## **Task 7: Configuring Connectivity Between ZDM and the OGG Hub**
+## Task 7: Configuring Connectivity Between ZDM and the OGG Hub
 
-1. In order to configure connectivity between ZDM and the OGG Hub, you will need to modify the etc/hosts file. Let's first gather the relevant information, you will need to OGG Hub hostname, it's private IP and it's Internal FQDN.
+1. To configure connectivity between ZDM and the OGG Hub, you will need to modify the etc/hosts file. Let's first gather the relevant information, you will need to OGG Hub hostname, it's private IP and it's Internal FQDN.
 
-2. From your cloud account, select the top left hamburger menu and click on the __Compute__ Option. It will display different options, please click on __Instances__
+2. From your cloud account, select the top left navigation menu and click on the __Compute__ Option. It will display different options, please click on __Instances__
 
-    ![Compute](./images/compute-menu.png)   
+    ![Screenshot of Oracle Cloud Infrastructure Compute Menu with Instances Option](./images/compute-menu.png)   
 
 3. Right next to the Oracle GoldenGate Hub instance, you will see a Public IP address and a Private IP address. Copy the Private IP Adress and save it, you will need in the following steps. Then, proceed to Select the Oracle GoldenGate Compute Instances by clicking it's name.
 
-    ![Compute OGG](./images/compute-ogg.png)
+    ![Screenshot of Oracle Cloud Infrastructure Compute Instances Menu with Instances in current compartment](./images/compute-ogg.png)
 
 4. On the Oracle GoldenGate Hub instance __Instance Information__ tab, scroll down and copy the instances's __Hostname__ and the __Internal FQDN__ information. You might have to click on __Show__ in order for the information to reveal.
 
 
 
-    ![Compute OGG 2](./images/compute-ogg-2.png)
+    ![Screenshot of OGG Compute Instance Information](./images/compute-ogg-info.png)
 
 5. Having copied the information, go back to your Cloud Shell and edit the /etc/hosts file
 
@@ -506,9 +513,9 @@ Estimate Lab Time: 20 minutes
     ```
 
 
-## **Task 8: Updating IPTables on the Source DB Server**
+## Task 8: Updating IPTables on the Source DB Server
 
-It is important to update the IPTables on the Source DB Server. In order to do so: 
+It is important to update the IPTables on the Source DB Server. To do so: 
 
 1. Switch to the opcuser, verify the Cloud Shell prompt is on __opc@workshop__ after entering exit: 
 
@@ -525,11 +532,10 @@ It is important to update the IPTables on the Source DB Server. In order to do s
     </copy>
     ```
 
-You may now [proceed to the next lab](#next). 
-
+Please *proceed to the next lab*.
 
 ## Acknowledgements
 * **Author** - Zachary Talke, Solutions Engineer, NA Tech Solution Engineering
 - **Contributors** - Ricardo Gonzalez, Senior Principal Product Manager, Oracle Cloud Database Migration
 * **Contributors** - LiveLabs Team, ZDM Development Team
-* **Last Updated By/Date** - Ricardo Gonzalez, August 2021
+* **Last Updated By/Date** - Ricardo Gonzalez, January 2022

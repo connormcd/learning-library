@@ -59,5 +59,5 @@ This completes Lab 4. You now know how to remove and reposition regions. [Click 
 
  - **Author** -  Salim Hlayel, Principle Product Manager
  - **Contributors** - Arabella Yao, Product Manager Intern, DB Product Management
- - **Last Updated By/Date** - Tom McGinn, Database Innovations Architect, Product Management, July 2020
+ - **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

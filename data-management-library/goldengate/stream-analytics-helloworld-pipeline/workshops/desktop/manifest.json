@@ -1,5 +1,5 @@
 {
-  "workshoptitle": "GoldenGate Stream Analytics",
+  "workshoptitle": "Create a Pipeline in 15 minutes with GoldenGate Stream Analytics",
   "help": "livelabs-help-license_us@oracle.com",
   "tutorials": [
     {
@@ -19,9 +19,10 @@
       "filename": "../../initialize-environment/initialize-environment.md"
     },
     {
-      "title": "Lab 2: Create Your HelloWorld Pipeline in 15 Minutes",
+      "title": "Lab 2: Create Your HelloWorld Pipeline",
       "description": "How to create a basic pipeline using a File stream and add a Query Stage and a Filter to it,",
       "filename": "../../1-ggsa-hwp/1-ggsa-hwp.md"
+    },
     {
       "title": "Need Help?",
       "description": "Solutions to Common Problems and Directions for Receiving Live Help",

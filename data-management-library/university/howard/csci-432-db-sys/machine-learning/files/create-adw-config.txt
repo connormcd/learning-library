@@ -1,0 +1,1 @@
+This is the screenshot of the Configure Database dialog. It has the settings for database version, OCPU Count, storage, and auto scaling. 

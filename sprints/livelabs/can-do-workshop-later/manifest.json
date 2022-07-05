@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Will I be able to do the workshop later?",
+         "description": "",
+         "filename": "./can-do-workshop-later.md"
+      },
+      {
+         "title": "How can I request an Oracle LiveLabs reservation?",
+         "description": "",
+         "filename": "../request-reservation/request-reservation.md"
+      }
+   ],
+   "task_type": "Sections"
+}

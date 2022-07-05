@@ -7,7 +7,7 @@ Estimated workshop Time: 2 minutes.
 
 ## Task 1: Upgrade Instances to Paid
 
-![Oracle Cloud Pricing](./images/next_banner.png)
+![Oracle Cloud Pricing](./images/next-banner.png)
 
 I hope you could complete all the workshops on this ADW and OAC workshop and you have learned the basic concepts from the technologies that we have used: - **Oracle Autonomous Database** - **Oracle Analytics Cloud**.
 
@@ -21,25 +21,25 @@ We will show you how to Upgrade from **Always Free** instances right now.
 
 Remember that you will see **Always Free** logo next to the name of your database as part of the database details information. You can see **Instance Type** filled out with **Free Upgrade to Paid**.
 
-![Always Free Database Details](./images/always_free_upgrade.png)
+![Always Free Database Details](./images/always-free-upgrade.png)
 
 1. We will upgrade to Paid License in this step. You can either click on the **Instance Type** that I referred before or click on **More Actions** bottom and go to **Upgrade Database Instance to Paid**, both ways bring you to the same step.
 
-    ![Always Free Database Details More Actions](./images/always_free_upgrade_actions.png)
+    ![Always Free Database Details More Actions](./images/always-free-upgrade-actions.png)
 
 2. **Confirm Upgrade** window. You can click **Upgrade Database Instance to Paid**.
 
-    ![Always Free Database Details Confirmation](./images/always_free_upgrade_confirmation.png)
+    ![Always Free Database Details Confirmation](./images/always-free-upgrade-confirmation.png)
 
 3. After you perform this action, your database will be upgrade to **Paid** subscription. The update will take a few minutes.
 
-    ![Always Free Database Details Confirmation Updating](./images/always_free_upgrade_confirmation_updating.png)
+    ![Always Free Database Details Confirmation Updating](./images/always-free-upgrade-confirmation-updating.png)
 
     You can observe two things:
     1. **Instance Type** information has changed from **Free Upgrade to Paid** to **Paid**
     2. The **Always Free** Logo next to the **Database Name** is not there anymore.
 
-    ![Always Free Database Details Paid](./images/always_free_upgrade_paid.png)
+    ![Always Free Database Details Paid](./images/always-free-upgrade-paid.png)
 
     You have learned how to Upgrade your Always Free Account to a subscription model!
 
@@ -47,7 +47,7 @@ Remember that you will see **Always Free** logo next to the name of your databas
 
 If you have enjoyed the workshop, give me a star on Github: [click here](https://github.com/PriscilaIruela/ADW-OAC-HOLs)!
 
-![Github start](./images/gthib_start.png)
+![Github start](./images/gthib-start.png)
 
 Learn more about [Oracle Autonomous Data Warehouse](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud).
 
@@ -59,5 +59,4 @@ Learn more about [Oracle Analytics Cloud](https://docs.oracle.com/en/cloud/paas/
 
 - **Author** - Priscila Iruela - Technology Product Strategy Director, Juan Antonio Martin Pedro - Analytics Business Development
 - **Contributors** - Victor Martin, Melanie Ashworth-March, Andrea Zengin
-- **Last Updated By/Date** - Kamryn Vinson, October 2020
-
+- **Last Updated By/Date** - Priscila Iruela, June 2022

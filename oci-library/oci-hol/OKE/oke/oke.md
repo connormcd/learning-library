@@ -124,7 +124,7 @@ Follow the steps under the **Quick Start** Section.
 1. Create nginx deployment with three replicas,  Enter Command:
     ```
     <copy>
-    kubectl run nginx  --image=nginx --port=80 --replicas=3
+    kubectl run nginx  --image=nginx --port=80
     </copy>
     ```
 
@@ -149,7 +149,7 @@ Follow the steps under the **Quick Start** Section.
 4.  Create a service to expose the application. The cluster is integrated with the OCI Cloud Controller Manager (CCM). As a result, creating a service of type --type=LoadBalancer will expose the pods to the Internet using an OCI Load Balancer.In git-bash window Enter command:
     ```
     <copy>
-    kubectl expose deployment nginx --port=80 --type=LoadBalancer
+    kubectl expose pod nginx --port=80 --type=LoadBalancer
     </copy>
     ```
 
@@ -159,7 +159,7 @@ Follow the steps under the **Quick Start** Section.
 
 6. Once the Load Balancer is Active, click the Load Balancer name and from Load Balancer details page note down its IP address.
 
-    ![Load Balancer Details](./../OKE/images/OKE_012.PNG " ")
+    ![Load Balancer Details](./../OKE/images/ip-address.png " ")
 
 7. open a new browser tab and enter URL  http://`<Load-Balancer-Public-IP>` (http://129.213.76.26 in this example). The Nginx welcome screen should be displayed.
 
@@ -180,7 +180,7 @@ Follow the steps under the **Quick Start** Section.
     and then  
     ```
     <copy>
-    kubectl delete deployments nginx
+    kubectl delete pod nginx
     </copy>
     ```
 
@@ -192,7 +192,7 @@ Follow the steps under the **Quick Start** Section.
 
 2. Navigate to your cluster. Click the action icon and **Delete** and click **Delete** in the confirmation window.
 
-    ![Delete Cluster](./../OKE/images/delete_cluster.png " ")
+    ![Delete Cluster](./../OKE/images/delete-cluster.png " ")
 
 ### Delete VCN
 
@@ -201,19 +201,8 @@ Follow the steps under the **Quick Start** Section.
 
 2. Locate your VCN , click the action icon and then **Terminate**. Click **Terminate All** in the Confirmation window. Click **Close** once VCN is deleted.
 
-    ![Terminate VCN](./../OKE/images/terminate_vcn.png " ")
+    ![Terminate VCN](./../OKE/images/terminate-vcn.png " ")
 
-
-### Delete API Key
-
-1. To navigate to user settings, Click the **Profile** icon in the top right corner of the window. Then, select User Settings.
-    ![Select User Settings](./../OKE/images/user_settings.png " ")
-
-2. Scroll down to select **API Keys** under the **Resources** section.
-
-3. Click on the Action icon and click **Delete** to delete the API key.
-
-    ![Delete API Key](./../OKE/images/delete_apikey.png " ")
 
 **Congratulations! You have successfully completed the lab.**
 
@@ -222,5 +211,5 @@ Follow the steps under the **Quick Start** Section.
 - **Author** - Flavio Pereira, Larry Beausoleil
 - **Adapted by** -  Yaisah Granillo, Cloud Solution Engineer
 - **Contributors** - LiveLabs QA Team (Arabella Yao, Product Manager Intern | Isa Kessinger, QA Intern)
-- **Last Updated By/Date** - Kamryn Vinson, December 2021
+- **Last Updated By/Date** - Kamryn Vinson, May 2022
 

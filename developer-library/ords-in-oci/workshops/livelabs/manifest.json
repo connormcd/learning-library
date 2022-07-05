@@ -1,14 +1,14 @@
 {
   "workshoptitle": "Expand Oracle REST Data Services into Oracle Cloud Infrastructure",
     "help": "livelabs-help-db_us@oracle.com",
-	"tutorials": [
+    "tutorials": [
         {
             "title": "Introduction",
             "description": "Expand Oracle REST Data Services into Oracle Cloud Infrastructure",
             "filename": "../../intro/intro.md"
         },
         {
-            "title": "Getting Started",
+            "title": "Get Started",
             "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login-livelabs.md"
         },
         {

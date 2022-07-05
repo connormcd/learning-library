@@ -1,27 +1,55 @@
-# Simplify Microservices Transactions Using Oracle Database Sagas
-## Introduction and Overview
+# Introduction
 
+## About this Workshop
 
 This workshop will help you understand the technical capabilities of the forthcoming saga support in the Oracle database.
 
-You will use a travel agency application 
+Estimated Workshop Time: 50 minutes
 
-The application comes in three versions: PL/SQL, Java, and Apex
+###About Product/Technology
 
-Below is the architectural diagram of application.
+PL/SQL, Java, and (in the near future) Apex Workflow saga examples will be demonstrated.
 
-![](./images/architecture.png " ")
+###Objectives
+
+- Learn about Oracle's forthcoming saga support in the Oracle database and how to use the Osaga API.
+
+### Prerequisites
+
+- This workshop assumes you have an Oracle cloud account and have signed in to the account.
+- The workshop also requires Always Free 21c ATP instances and so is currently limited to the following regions: Ashburn (IAD), Phoenix (PHX), Frankfurt (FRA) and London (LHR) regions
+
+
+A travel booking application is used to demonstrate.
+
+The application comes in three versions: PL/SQL, Java, and in the near future an Apex Workflow
+
+The following illustrates the flow of the application where an attempt is made to book participants (flight, hotel, and car) and depending upon the outcoming of these reservations, the booking saga is either completed/committed or compensated/rolledback.
+
+![](./images/travelagencyapp.png " ")
+
+
+The following shows the overall communication flow of an (orchestration) saga.  
+
+The blue boxes refer to the Oracle Database Saga implementation and the red the application itself.
+The TravelAgency contacts the Coordinator in order to begin a saga and then calls participants to reserve bookings. These participants are enrolled in the saga with the Coordinator, providing the Coordinator with a callback to them. Finally, the TravelAgency instructs the Coordinator to either commit or rollback the saga and the Coordinator calls the related commit or rollback callbacks on the participants. 
+
+![](./images/sagaflow.png " ")
+
+The following table shows a comparison of support between the MicroProfile Long Running Actions specification*, the Oracle Database Saga implementation, the case where neither LRA nor the Oracle Database Saga support are used.
+
+![](./images/osagacomparison.png " ")
 
 ### Let's Get Started
 
-Proceed to the next lab.
+You may now **proceed to the next lab.**..
 
 ## Want to Learn More?
 
-* [Multitenant Database–Oracle 19c](https://www.oracle.com/database/technologies/multitenant.html)
+* [Blog On This Workshop](https://dzone.com/articles/simplify-microservice-transactions-with-oracle-dat)
+* [Related Blogs](https://dzone.com/users/4571557/paulparkinson.html)
 * [Oracle Advanced Queuing](https://docs.oracle.com/en/database/oracle/oracle-database/19/adque/aq-introduction.html)
-* [Microservices Architecture with the Oracle Database](https://www.oracle.com/technetwork/database/availability/trn5515-microserviceswithoracle-5187372.pdf)
-* [https://developer.oracle.com/](https://developer.oracle.com/)
+* [https://developer.oracle.com/](http://developer.oracle.com/microservices/)
 
 ## Acknowledgements
 * **Author** - Paul Parkinson, Architect and Developer Advocate

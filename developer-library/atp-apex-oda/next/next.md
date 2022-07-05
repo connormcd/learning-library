@@ -60,5 +60,4 @@ Check [Oracle Tech Exchange](https://fnimphiu.github.io/OracleTechExchange/) con
 
 - **Author** - Victor Martin - Technology Product Strategy Manager, Priscila Iruela - Technology Product Strategy Director
 - **Contributors** - Melanie Ashworth-March
-- **Last Updated By/Date** - Kamryn Vinson, October 2020
-
+- **Last Updated By/Date** - Priscila Iruela, June 2022

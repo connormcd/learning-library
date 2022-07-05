@@ -4,7 +4,7 @@
 
 This lab shows you how to install the Verrazzano platform on a single Kubernetes cluster and deploy a sample application using Verrazzano concepts.
 
-The [Bob’s Books](https://verrazzano.io/docs/samples/bobs-books/) sample application consists of three main parts:
+The [Bobby’s Books](https://verrazzano.io/docs/samples/bobs-books/) sample application consists of three main parts:
 
 - A back-end “order processing” application, which is a Java EE application with REST services and a very simple JSP UI, which stores data in a MySQL database. This application runs on WebLogic Server.
 - A front-end web store “Robert’s Books”, which is a general book seller. This is implemented as a Helidon microservice, which gets book data from Coherence, uses a Coherence cache store to persist data for the order manager, and has a React web UI.
@@ -22,11 +22,16 @@ Verrazzano includes the following capabilities:
 - Integrated security
 - DevOps and GitOps enablement
 
-### Objectives
+![Verrazzano](images/verrazzano.png)
 
-1. Set up an Oracle Kubernetes Engine instance on the Oracle Cloud Infrastructure.
+### Objectives
+<if type="freetier">
+1. Set up an Oracle Kubernetes Engine instance on the Oracle Cloud Infrastructure.</if>
+<if type="livelabs">
+1. Configure `kubectl` to interact with the Oracle Kubernetes Engine instance on the Oracle Cloud Infrastructure.
+</if>
 2. Install and get to know the Verrazzano platform.
-3. Deploy the *Bob’s Books* sample application.
+3. Deploy the *Bobby’s Books* sample application.
 4. Modify and redeploy the Helidon-based *Stock* application component.
 
 ## Learn More
@@ -37,4 +42,4 @@ Verrazzano includes the following capabilities:
 
 * **Author** -  Ankit Pandey
 * **Contributors** - Maciej Gruszka, Peter Nagy
-* **Last Updated By/Date** - Kamryn Vinson, July 2021
+* **Last Updated By/Date** - Ankit Pandey, May 2022

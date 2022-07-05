@@ -54,15 +54,10 @@ In this lab, you will:
 - Install STAR-CCM+ on your instance by adding all the required libraries and binary files
 - Run STAR-CCM+ 
 
+Please note: You need to provide your own license of STAR-CCM+!
 
 
 ## Acknowledgements
 * **Author** - High Performance Compute Team
 * **Contributors** -  Chris Iwicki, Harrison Dvoor, Gloria Lee, Selene Song, Bre Mendonca, Samrat Khosla
 * **Last Updated By/Date** - Samrat Khosla, October 2020
-
-
-<<<<<<< HEAD
-=======
-
->>>>>>> upstream/master

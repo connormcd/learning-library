@@ -3,11 +3,6 @@
     "help": "livelabs-help-oci_us@oracle.com",
 	"tutorials": [
         {
-            "title": "Getting Started",
-            "description": "Sign up for and log into the Oracle Cloud",
-            "filename": "../../pre-register-free-tier-account/pre-register-free-tier-account.md"
-        },
-        {
             "title": "Introduction: OCI Vision",
             "description": "Learn about the features provided by Vision services",
             "filename": "./intro.md"

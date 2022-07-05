@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I restore an ADB instance?",
+         "description": "",
+         "filename": "sprint-restore-adb.md"
+      },
+      {
+         "title": "How can I restart an ADB instance?",
+         "description": "",
+         "filename": "../sprint-restart-adb/sprint-restart-adb.md"
+      }
+   ],
+   "task_type": "Sections"
+}

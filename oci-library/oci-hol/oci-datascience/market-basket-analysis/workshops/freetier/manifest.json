@@ -3,7 +3,7 @@
     "help": "livelabs-help-oci_us@oracle.com",
 	"tutorials": [
         {
-            "title": "Getting Started",
+            "title": "Get Started with OCI",
             "description": "An Oracle Cloud tenancy is required for all labs in this workshop.",
             "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
         },
@@ -13,17 +13,17 @@
             "filename": "../../introduction/introduction.md"
         },
         {
-            "title": "Lab 1: Getting Started with OCI Data Science",
+            "title": "Lab 1: Get Started with OCI Data Science",
             "description": "Set up Data Science environment",
-            "filename": "../../getting-started-wtih-data-science/getting-started.md"
+            "filename": "../../getting-started/getting-started.md"
         },
         {
-            "title": "Lab 2: Connecting to Jupyter Noebook through ADW (Optional)",
+            "title": "Lab 2: Upload Data Through ADW (Optional)",
             "filename": "../../adw/adw.md"
         },
         {
-            "title": "Lab 3: Data Exploration, Data Preparation and Building the Model ",
-            "filename": "../../locally-upload/local.md"
+            "title": "Lab 3: Build the Model ",
+            "filename": "../../local/local.md"
         },
         {
             "title": "Need Help?",

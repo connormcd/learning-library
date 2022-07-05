@@ -2,13 +2,15 @@
 
 ## Introduction
 
-Before we start the lab exercises, let's examine the use case and understand what we are trying to achieve with machine learning.  
+Before starting the lab exercises, let's examine the use case and understand what we are trying to achieve with machine learning.  
 
-We are using customer insurance data for a business selling insurance.  The data contains over 15,000 records of customer information such as name, customer ID, age, marital status, income, and also important business information such as whether the customer bought the insurance, and whether the customer is considered to have business value with an attribute called life time value or LTV.  
+We are using customer insurance data for a business selling insurance. The data contains over 15,000 customer information records such as name, customer ID, age, marital status, income, and important business information such as whether the customer bought the insurance and whether the customer is considered to have business value with an attribute called lifetime value or LTV.  
 
-The insurance business wants to predict whether new customers will buy insurance and whether customers have high life time value (LTV). High life time value customers have the potential to generate more revenue in the future so the business will want to retain the customer long term by providing promotions or discounts.  Attributes such as buy insurance and LTV are important to the business and can be used by machine learning to predict future customer outcomes.
+The insurance business wants to predict whether new customers will buy the insurance and whether customers have a high lifetime value (LTV). High lifetime value customers have the potential to generate more revenue in the future, so the business will want to retain the customer long-term by providing promotions or discounts. Attributes such as buy insurance and LTV are essential to the insurance business and can use by machine learning to predict future customer outcomes.
 
-We can use historical records to make predictions with machine learning.  An employee of the business has been keeping records of the customers on a spreadsheet for many years. The records already have the data and whether a customer bought insurance and an analyst has determined LTV with business formulas.  Recently the CFO has asked all these records to be kept in a database and to figure out a way to predict customer outcomes faster.
+We can use historical records to make predictions with machine learning. An employee of the business has kept records of the customers on a spreadsheet for many years. The records already have the data and whether a customer bought insurance, and an analyst has determined LTV with business formulas. Recently the CFO has asked all these records to be kept in a database and figure out a way to predict customer outcomes faster.
+
+Estimated Time:  5 min
 
 ### Objectives
 
@@ -30,7 +32,7 @@ In this lab, you will:
 
   ![customer-data-2](./images/customer-data-2.png)
 
-Since the data already has the buy insurance and LTV information along with the other data, we can use all this information in machine learning to "train" and build a model that can predict new customer outcomes for buy insurance and LTV.
+Since the data already has the buy insurance and LTV information and the other data, we can use all this information in machine learning to "train" and build a model that can predict new customer outcomes for buy insurance and LTV.
 
 3. Consider the following new customer records with the buy insurance column empty.
 
@@ -40,10 +42,10 @@ Since the data already has the buy insurance and LTV information along with the 
 
   ![customer-data-4](./images/customer-data-4.png)
 
-In this workshop, you will pass new records to machine learning models to predict whether the customer will buy insurance and also determine the LTV automatically without humans.  Have fun.
+In this workshop, you will pass new records to machine learning models to predict whether the customer will buy the insurance and automatically determine the LTV without humans.  Have fun.
 
 You may now [proceed to the next lab](#next).
 
 ## Acknowledgements
-* **Author** - Valentin Leonard Tabacaru, Milton Wan
-* **Last Updated By/Date** -  Milton Wan, August 2021
+* **Author** - Valentin Leonard Tabacaru, Milton Wan, Rajeev Rumale
+* **Last Updated By/Date** -  Rajeev Rumale, April 2022

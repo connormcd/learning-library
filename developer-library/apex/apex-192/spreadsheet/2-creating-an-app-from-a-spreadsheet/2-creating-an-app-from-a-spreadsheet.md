@@ -112,7 +112,6 @@ If you want to change a page's name after you create an application, the process
 
 ## **Acknowledgements**
 
- - **Author** -  David Peake, Consulting Member of Technical Staff
- - **Contributors** - Tom McGinn, Database Cloud Services, Product Management
+ - **Author** -  David Peake, Consulting Member of Technical Staff 
  - **Last Updated By/Date** - Arabella Yao, Product Manager Intern, Database Mangement, July 2020
 

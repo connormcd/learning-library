@@ -52,23 +52,26 @@ Optionally (part 2), you can:
 3. Copy the code lines and paste them in the notebook current cell. Click **Run** to execute the code. Wait until you get a number in front of the cell, meaning the execution is complete. The first block of Python code retrieves the host name and the database service name from your environment.
 
     ```
+    <copy>
     # Run the following commands to get your hostname and pluggable database service name
     import os
-    print('Hostname: ',os.uname()[1])
-    stream = os.popen('lsnrctl status | grep mlpdb1')
-    print('Database service: ',stream.read())
+    hostname = os.uname()[1]
+    servicename = os.popen('lsnrctl status | grep mlpdb1 | cut -d \'"\' -f2').read()
+    print('Hostname: ', hostname)
+    print('Service name: ', servicename)
+    </copy>
     ```
 
-
-4. Connect to your Oracle 21c Pluggable Database, and check connectivity. Verify and change the `host` and `service_name` values with the actual host name and database service name you retrieved in the previous step.
+4. Connect to your Oracle 21c Pluggable Database, and check connectivity.
 
     ```
     <copy>
+    # Connect to your Oracle 21c Pluggable Database, and check connectivity.
     import oml
     import pandas as pd
-    oml.connect(user="oml_user", password="MLlearnPTS#21_",
-                host="<YOUR-HOSTNAME>", port=1521,
-                service_name="<YOUR-SERVICE>",
+    oml.connect(user="oml_user", password="MLlearnPTS#21_", 
+                host=hostname, port=1521, 
+                service_name=servicename,
                 automl=True)
     oml.isconnected()
     </copy>

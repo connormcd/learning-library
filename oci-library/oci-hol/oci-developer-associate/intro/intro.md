@@ -21,7 +21,6 @@ Click on the next lab in this workshop to get started.
 
 ## Acknowledgements
 
-- **Author** - Flavio Pereira, Larry Beausoleil
-- **Adapted by** -  Tom McGinn, Database Product Management
-- **Last Updated By/Date** - Tom McGinn, July 2020
+- **Author** - Flavio Pereira, Larry Beausoleil 
+- **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

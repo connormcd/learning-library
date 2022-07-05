@@ -31,11 +31,11 @@ You create notebooks in Oracle Machine Learning Notebooks. You can access Oracle
 
     ![Development tab in Service Console](images/service-console-development.png " ")
 
-2. Click **Oracle Machine Learning Notebooks**.
+2. Click **Oracle Machine Learning User Interface**.
 
-    ![Oracle Machine Learning Notebooks option in Development tab in Oracle ADW](images/open-oml-notebooks.png " ")
+    ![Oracle Machine Learning User interface option in Development tab in Oracle ADW](images/open-oml-notebooks.png " ")
 
-3. <if type="livelabs">Sign in with the **`omluser`** using the password **`AAbbcc123456`**. </if><if type="freetier">Enter the **`omluser`** credentials using the password **`AAbbcc123456`** that was used when creating it with the SQL code (if you changed the password in the SQL code, use that one here instead).  Then click the blue **Sign in** button</if>
+3. <if type="livelabs">Sign in with the **`OMLUSER`** using the password **`AAbbcc123456`**. </if><if type="freetier">Enter the **`OMLUSER`** credentials using the password **`AAbbcc123456`** that was used when creating it with the SQL code.  If you changed the password in the SQL code, use that one here instead.  Then click the blue **Sign in** button</if>
 
     ![Oracle Machine Learning Notebooks Sign-in page](images/signin-to-oml.png " ")
 

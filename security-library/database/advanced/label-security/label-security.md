@@ -5,10 +5,10 @@ This workshop introduces the various features and functionality of Oracle Label 
 
 *Estimated Lab Time:* 30 minutes
 
-*Version tested in this lab:* Oracle DB 19.10
+*Version tested in this lab:* Oracle DB 19.13
 
 ### Video Preview
-Watch a preview of "*Understanding Oracle Label Security (April 2020)*" [](youtube:o4-XpUQWfaM)
+Watch a preview of "*LiveLabs - Oracle Label Security (May 2022)*" [](youtube:7hBsg0ygZt4)
 
 ### Objectives
 The objective of this lab is to provide guidance on how Oracle Label Security could be used to help tracking consent and enforce restriction of processing under the General Data Protection Regulation requirements.
@@ -17,9 +17,9 @@ The details provided here are merely to serve as an example.
 
 ### Prerequisites
 This lab assumes you have:
-- A Free Tier, Paid or LiveLabs Oracle Cloud account
+- An Oracle Cloud account
 - You have completed:
-    - Lab: Prepare Setup (*Free-tier* and *Paid Tenants* only)
+    - Lab: Prepare Setup 
     - Lab: Environment Setup
     - Lab: Initialize Environment
 
@@ -57,7 +57,13 @@ Different applications have different purposes:
 
 ### **The Labs**
 
-1. As OS user *oracle* on your **DBSec-Lab** VM remote desktop session, Double-Click on the *Terminal* icon on the desktop to launch a session
+1. Open a Terminal session on your **DBSec-Lab** VM as OS user *oracle*
+
+    ````
+    <copy>sudo su - oracle</copy>
+    ````
+
+    **Note**: If you are using a remote desktop session, double-click on the *Terminal* icon on the desktop to launch a session
 
 2. Go to the scripts directory
 
@@ -71,11 +77,12 @@ Different applications have different purposes:
     <copy>./ols_setup_env.sh</copy>
     ````
 
-    ![](./images/ols-001.png " ")
+    ![](./images/ols-001a.png " ")
+    ![](./images/ols-001b.png " ")
 
     **Note**:
     - This script creates `C##OSCAR_OLS` user, creates a table, loads data, creates users that will be used to showcase difference scenarios and it also configures, and enables OLS
-    - This sql script invoke `load_crm_customer_data.sql` script to create the table `CRM_CUSTOMER` in `APPCRM` schema and inserts **389 rows**
+    - This sql script invoke `load_crm_customer_data.sql` script to create the table `CRM_CUSTOMER` in `APPCRM` schema and inserts **391 rows**
     - For each step, you can review the output of the script that you executed (example "`more ols_setup_env.out`")
 
 4. Next, you create the Label Security policy. A policy consists of  levels, groups and/or compartments. The only mandatory component of a policy is at least one level
@@ -85,6 +92,7 @@ Different applications have different purposes:
     ````
 
     ![](./images/ols-002.png " ")
+    ![](./images/ols-002b.png " ")
 
     **Note**:
     - This script will create Policy (Levels, Groups, and Labels), set Levels and Groups for Users, and apply the Policy to the `APPCRM.CRM_CUSTOMER` table
@@ -157,7 +165,8 @@ Different applications have different purposes:
     <copy>./ols_setup_glassfish_policy.sh</copy>
     ````
 
-    ![](./images/ols-008.png " ")
+    ![](./images/ols-008a.png " ")
+    ![](./images/ols-008b.png " ")
 
     **Note**:   
     - This script enable OLS, so it will reboot the DB
@@ -317,9 +326,10 @@ Different applications have different purposes:
     <copy>./ols_restore_glassfish_env.sh</copy>
     ````
 
-    ![](./images/ols-023.png " ")
+    ![](./images/ols-023a.png " ")
+    ![](./images/ols-023b.png " ")
 
-You may now [proceed to the next lab](#next).
+You may now proceed to the next lab!
 
 ## **Appendix**: About the Product
 ### **Overview**
@@ -328,7 +338,7 @@ OLS works by comparing the row label with a user's label authorizations to enabl
 
 This way, users with different authorization levels (for example, managers and sales representatives) can have access to specific rows of data in a table. You can apply OLS policies to one or more application tables. The design of OLS is similar to Oracle Virtual Private Database (VPD). However, unlike VPD, OLS provides the access mediation functions, data dictionary tables, and policy-based architecture out of the box, eliminating customized coding and providing a consistent label based access control model that can be used by multiple applications.
 
-    ![](./images/ols-concept.png " ")
+![](./images/ols-concept.png " ")
 
 OLS is based on multi-level security (MLS) requirements that are found in government and defense organizations. OLS software is installed by default, but not automatically enabled. You can enable OLS in either SQLPlus or by using the Oracle Database Configuration Assistant (DBCA). The default administrator for OLS is the user `LBACSYS`. To manage OLS, you can use either a set of PL/SQL packages and standalone functions at the command-line level or Oracle Enterprise Manager Cloud Control. To find information about OLS policies, you can query `ALL_SA_*`, `DBA_SA_*`, or `USER_SA_*` data dictionary views.
 
@@ -348,9 +358,13 @@ OLS provides several benefits for controlling row level management:
 - It integrates with Oracle Database Vault and Oracle Advanced Security Data Redaction, enabling security clearances to be use in both Database Vault command rules and Data Redaction policy definitions.
 
 ## Want to Learn More?
-Technical Documentation: [Oracle Label Security 19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/olsag/part1.html)
+Technical Documentation:
+- [Oracle Label Security 19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/olsag/part1.html)
+
+Video:
+- *Understanding Oracle Label Security (April 2020)*[](youtube:o4-XpUQWfaM)
 
 ## Acknowledgements
 - **Author** - Hakim Loumi, Database Security PM
-- **Contributors** - Alan Williams, Gian Sartor, Rene Fontcha
-- **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, September 2021
+- **Contributors** - Alan Williams, Rene Fontcha
+- **Last Updated By/Date** - Hakim Loumi, Database Security PM - May 2022

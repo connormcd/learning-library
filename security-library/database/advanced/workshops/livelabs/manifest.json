@@ -11,7 +11,7 @@
     {
       "title": "Lab 1: Environment Setup",
       "description": "Verify Setup of compute instance",
-      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/verify-compute/verify-compute-novnc.md"
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/verify-compute/verify-compute-ssh-and-novnc.md"
     },
     {
       "title": "Lab 2: Initialize Environment",
@@ -54,6 +54,12 @@
       "description": "In this lab you can see how to leverage Oracle Audit Vault and DB Firewall (AVDF)",
       "publisheddate": "10/20/2020",
       "filename": "../../avdf/avdf.md"
+    },
+    {
+      "title": "Lab 9: Oracle Key Vault (OKV)",
+      "description": "In this lab you can see how to leverage Oracle Key Vault (OKV)",
+      "publisheddate": "10/20/2020",
+      "filename": "../../key-vault/key-vault.md"
     },
     {
       "title": "Need Help?",

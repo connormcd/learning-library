@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Can I change the SSH key after I have created my reservation?",
+         "description": "",
+         "filename": "./change-ssh-key-after-reserving.md"
+      },
+      {
+         "title": "How can I extend my Oracle LiveLabs reservation?",
+         "description": "",
+         "filename": "../extend-reservation/extend-reservation.md"
+      }
+   ],
+   "task_type": "Sections"
+}

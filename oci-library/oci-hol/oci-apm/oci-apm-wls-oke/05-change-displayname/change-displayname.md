@@ -1,24 +1,22 @@
-# Change the display name of the spans
+# Change the display name format of the spans
 
 ## Introduction
 
-In this step you will change the name of the spans that will be displayed in the APM Trace Explorer. By default, DisplayName format is **Domain Name-Host Name-Port-Managed Server Name**. You will change the format to is **Domain Name-Managed Server Name** to leave out the host name and the port.
+In this lab you will change the display format of the span names that show up in the APM Trace Explorer. By default, the display name format is **Domain Name-Host Name-Port-Managed Server Name**. You will change the format to is **Domain Name-Managed Server Name** to leave out the host name and the port.
 
-You will modify the AgentConfig.properites, located in the APM Agent directory, which resides in the file system associated with the container.  However, because there is no editing tool inside the container, you will copy the file from the container to the Cloud Shell, edit the file, then copy back to the container.
-
+You will modify the ***AgentConfig.properties*** file, located in the APM Agent directory, which resides in the file system associated with the container.  However, because there is no editing tool inside the container, you will copy the file from the container to the Cloud Shell, edit the file, then copy back to the container.
 
 Estimated time: 10 minutes
 
 ### Objectives
-* Obtain the configuration file from the container
-*	Open the file in the Cloud shell, change the format of the Display Name
-*	Transfer the file back to the container
 
+* Obtain the configuration file from the container
+*	Open the file in the Cloud shell, change the display format
+*	Transfer the file back to the container
 
 ### Prerequisites
 
-* Completion of the Labs 1 to 4 in this workshop.
-
+* Completion of the Tasks 1 to 4 in this workshop.
 
 ## Task 1: Download the configuration file from the container to the Cloud Shell
 
@@ -57,6 +55,7 @@ Estimated time: 10 minutes
     com.oracle.apm.agent.resource.display.name = ${com.oracle.apm.agent.resource.appserver.domain.name}_${weblogic.Name}
     </copy>
     ```
+
    ![Oracle Cloud console, Cloud Shell](images/5-1-2-cloudshell.png " ")
 
 3.	Save and close the file.
@@ -70,6 +69,7 @@ Estimated time: 10 minutes
     kubectl cp  ~/AgentConfig.properties sample-domain1-ns/sample-domain1-admin-server:/apmlab-fss/apmagent/oracle-apm-agent/config/<apm-agent-version>/AgentConfig.properties
     </copy>
     ```
+
 2.	Access the container by running the command below:
 
     ```bash
@@ -93,18 +93,18 @@ Estimated time: 10 minutes
     cat AgentConfig.properties
     </copy>
     ```
+
    ![Oracle Cloud console, Cloud Shell](images/5-3-1-cloudshell.png " ")
+
    ![Oracle Cloud console, Cloud Shell](images/5-3-2-cloudshell.png " ")
 
-
-
-
-You may now [proceed to the next lab](#next).
+5. type exit and return to the Cloud Shell.
 
 ## Acknowledgements
 
 * **Author** - Yutaka Takatsu, Product Manager, Enterprise and Cloud Manageability
 - **Contributors** - Steven Lemme, Senior Principal Product Manager,<br>
 David Le Roy, Director, Product Management,<br>
+Mahesh Sharma, Consulting Member of Technical Staff,<br>
 Avi Huber, Senior Director, Product Management
-* **Last Updated By/Date** - Yutaka Takatsu, December 2021
+* **Last Updated By/Date** - Yutaka Takatsu, January 2022

@@ -1,0 +1,20 @@
+{
+    "workshoptitle": "LiveLabs Sprints",
+    "help": "livelabs-help-db_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "How do I enable Cloud Guard?",
+            "description": "",
+            "filename": "sprint-enable-cloud-guard.md"
+        },
+        { "title": "How do I create conditional operators in Cloud Guard?",
+            "description": "",
+            "filename": "../sprint-conditional-operators-cloud-guard/sprint-conditional-operators-cloud-guard.md"
+        },
+        {"title": "How do I create user groups in Cloud Guard?",
+            "description":"",
+            "filename": "../sprint-create-user-group-cloud-guard/sprint-create-user-group-cloud-guard.md"
+        }
+    ],
+    "task_type": "Sections"
+}

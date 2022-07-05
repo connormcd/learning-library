@@ -30,7 +30,6 @@
                 "description": "Steps ",
                 "labels": {"version": "Instructor Led"}
             },
-           
             {
                 "number": "3",
                 "filename": "GGBDWorkshop_GG4BD_310.md",
@@ -78,12 +77,7 @@
                 "filename": "GGBDWorkshop_GG4BD_910.md",
                 "title": "Lab 9 - MySQL to Oracle using JDBC",
                 "labels": {"version": "Instructor Led"}
-            },
-            {
-           
-            },
-            {
-        
+            }
         ]
     }
 }

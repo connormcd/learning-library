@@ -1,4 +1,4 @@
-# Getting Started
+# Build a Datapipeline with OCI DataFlow and Metastore
 
 ## Introduction
 
@@ -12,7 +12,7 @@ OCI Data Flow integrates with OCI Data Catalog Metastore which acts as the platf
 
   ![Lab Overview](../images/lab-objective-data-pipeline.png " ")
 
-*Estimated Lab Time*: 90 minutes
+Estimated Time: 90 minutes
 
 ### Personas for this lab
 
@@ -104,7 +104,7 @@ This lab guides you step by step, and provides the parameters you need. The pyth
 
 * Connection between OAC and  OCI Data Flow Interactive SQL server cluster is already setup. If you want to learn more, read the [Guide](https://objectstorage.us-ashburn-1.oraclecloud.com/n/idehhejtnbtc/b/workshop-scripts/o/Hackathon%20User%20Guide%20(1).pdf)
 
-## **STEP 1**: Inspect the Input JSON files and the scripts for the lab
+## Task 1: Inspect the Input JSON files and the scripts for the lab
 
 1. From the Console navigate to the object storage
 
@@ -120,7 +120,7 @@ This lab guides you step by step, and provides the parameters you need. The pyth
 
     ![Files](../images/Hive-Example.png " ")
 
-## **STEP 2**: Inspect the MetaStore
+## Task 2: Inspect the MetaStore
 
 1. In the Console, open the navigation menu and click ```Analytics & AI```. Click ```Data Catalog```.
 
@@ -142,7 +142,7 @@ This lab guides you step by step, and provides the parameters you need. The pyth
 
     ![DF Metastore](../images/DF-metastore.png " ")
 
-## **STEP 3**: Create a python Data Flow Application in Oracle Cloud Infrastructure Data Flow
+## Task 3: Create a python Data Flow Application in Oracle Cloud Infrastructure Data Flow
 
 As a Data engineer we start by building a Python based batch application the application calls a script that does the following :
 
@@ -156,58 +156,59 @@ As a Data engineer we start by building a Python based batch application the app
 
 Perform the following steps to create an application
 
-1. Navigate to  ```Data Flow`` from the console
+1. Navigate to  **Data Flow** from the console
 
    ![Files](../images/data-flow-console.png " ")
 
-2. Click ```Create Application``` from the page to launch the ```Create Application```  page
+2. Click **Create Application** from the page to launch the Create Application page.
 
    ![Create Application](../images/Dataflow-Create-Application.png " ")
 
-3. On the ```Create Application``` page, provide a `Name` and `Description`
+3. On the Create Application page, provide a **Name** and **Description**.
 
-4. In the `Resource Configuration`. Leave the default values for `Spark Version`, `Driver Shape` , `Exexutor Shape` and `Number of Executors`
+4. In the **Resource Configuration**, leave the default values for **Spark Version**, **Driver Shape** , **Executor Shape** and **Number of Executors**.
 
-5. In the Application Configuration
+5. In the Application Configuration:
 
-    3.1 Choose `Language` as `Python`
+    - **Language**: Select **Python**
 
-    3.2 In `Select a File` pick the Object Storage File Name bucket as `Field-Training` and file name as `oci-df-lab-script.py`
+    - In **Select a File**: pick the Object Storage File Name bucket as **Field-Training** and file name as **oci-df-lab-script.py**
 
-    3.3 Leave the `Main class Name` and the `Archive URI` empty
+    - Leave the **Main class Name** and the **Archive URI** empty
 
-    3.4 In the `Argument` field enter the path for the Input Yelp JSON files (seperated by space) that we saw in Step#1 above and also provide a unique name for the hive DB (for e.g the workshop participants can give your UUID + "DB"). The format of path is as following ```oci://<<bucketname@namespace/folder-path>>```
+    - In the **Arguments** field: enter the path for the Input Yelp JSON files (separated by space) that we saw in Step#1 above and also provide a unique name for the hive DB (for e.g the workshop participants can give your UUID + "DB"). The format of path is as follows ```oci://<<bucketname@namespace/folder-path>>```
 
-    for e.g. `oci://workshop-data@idehhejtnbtc/yelp_review/yelp_review_yelp_academic_dataset_review.json oci://workshop-data@idehhejtnbtc/yelp_business/yelp_business_yelp_academic_dataset_business.json aachandaDB`
+        for e.g. `oci://workshop-data@idehhejtnbtc/yelp_review/yelp_review_yelp_academic_dataset_review.json oci://workshop-data@idehhejtnbtc/yelp_business/yelp_business_yelp_academic_dataset_business.json aachandaDB`
 
-    3.5 In the `Metastore in dataflow-demo` choose ```DF-metastore``` and you should see the path of the Managed table getting populated automatically.
+    - In the **Metastore in dataflow-demo**: choose **DF-metastore** and you should see the path of the Managed table getting populated automatically.
+
 6. Double-check your Application configuration, and confirm it is similar to the following
 
    ![Sample Application Configuration](../images/Hive-MetaStore-Application.png " ")
 
    ![Sample Application Configuration](../images/Hive-MetaStore-Application-2.png " ")
 
-7. When done, click **Create**. When the Application is created, you should see it in the Application list.
+7. When done, click **Create**. When the Application is created, you should see it in the Applications list.
 
    ![Sample Application](../images/MetaStore-App.png " ")
 
-## **STEP 4**: Run the Oracle Cloud Infrastructure Data Flow application
+## Task 4: Run the Oracle Cloud Infrastructure Data Flow application
 
-1. Launch the Application that was created in Step#3 above. The status of the application should be ```Active```
+1. Launch the Application that was created in Task #3 above. The status of the application should be Active.
 
    ![Run Sample Application](../images/Launch-Sample-Application.png " ")
 
-   Notice the application has the correct values for ```Metastore``` and ```Arguments```
+   Notice the application has the correct values for Metastore and Arguments.
 
-2. Click **Run** to launch the run configuration screen
+2. Click **Run** to launch the run configuration screen.
 
    ![Run Sample Application](../images/Run-Hive-MetaStore.png " ")
 
-3. Click on ```Run``` and see all the applications. Initally the status of the run is ```Accepted```
+3. Click on **Run** and see all the applications. Initially the status of the run is Accepted.
 
    ![Run Sample Application](../images/Run-Application-Accepted.png " ")
 
-4. Click launch the application and its status should change to ```In Progress``` in few seconds
+4. Click the application and its status should change to In Progress in few seconds.
 
     ![Run Sample Application](../images/Run-Application-InProgress.png " ")
 
@@ -221,27 +222,27 @@ Perform the following steps to create an application
 
    On the screen users can look at:
 
-   1. The list of the ```Active Jobs```
+    1. The list of the **Active Jobs**
   
-   2. The list of ```Completed Jobs```
+    2. The list of **Completed Jobs**
   
-   3. Navigate to the  ```Executors``` tab at the top to see the list of ```Executors```
+    3. Navigate to the  **Executors** tab at the top to see the list of Executors.
       ![Spark UI](../images/SparkUI-Hive-MetaStore-Executors.png " ")
   
-   4. Navigate to the ```SQL``` tab at the top to see the SQL Queries
+   4. Navigate to the **SQL** tab at the top to see the SQL Queries
       ![Spark UI](../images/SparkUI-Hive-MetaStore-SQL.png " ")
 
-7. After few mins the  `Data Flow Run`  should complete and the State should change to ```Succeeded```:
+7. After few mins the Data Flow Run should complete and the State should change to Succeeded.
 
    ![Run Succeeded](../images/hive-metastore-run-success.png " ")
 
-8. Drill into the Run to see more details, and scroll to the bottom to see a listing of logs.
+8. Drill into the Run to see more details and scroll to the bottom to see a listing of logs.
 
    ![Run logs](../images/hive-metastore-log-run.png " ")
 
-9. When you click the `spark_application_stdout.log.gz`  file, it should download a file ```View``` to your local file system.
+9. When you click the **spark\_application\_stdout.log.gz** file, it should download a file **View** to your local file system.
 
-10. Click open the file and you should see the following output
+10. Open the file and you should see the following output:
 
     ![Application logs](../images/Hive-MetaStore-log.png " ")
 
@@ -255,11 +256,11 @@ Perform the following steps to create an application
 
     4. The DDL of the view
 
-11. Navigate to the Object Store Bucket ```DF-default-storage``` that was used as location for the tables.
+11. Navigate to the Object Store Bucket **DF-default-storage** that was used as location for the tables.
 
     ![Application logs](../images/Hive-Metastore-Bucket.png " ")
 
-12. Click open the Bucket ```DF-default-storage``` to show the content of the bucket and scrolls to bottom of the page  
+12. Open the Bucket **DF-default-storage** to show the content of the bucket and scroll to bottom of the page.  
 
 13. The content of the Bucket shows the table and the parquet files
 
@@ -267,55 +268,55 @@ Perform the following steps to create an application
 
    You should see the following :
 
-   1. The folder corresponding to the the DB Name (for e.g. ```aachandadb.db```) that was provided while running the application
+    1. The folder corresponding to the DB Name (for e.g. aachandadb.db) that was provided while running the application.
 
-   2. A folder corresponding to tables name for e.g. ```yelp_business_raw``` and ```yelp_review``` that was provided to the application.
+    2. A folder corresponding to tables name (for e.g. yelp\_business_raw and yelp\_review) that was provided to the application.
 
-   3. Expanding the folder should show the data split across different  ```.parquet``` files.
+    3. Expanding the folder should show the data split across different .parquet files.
 
-## **STEP 5**  Create and Run a sample Application to Query the metastore and build a Machine learning Model
+## Task 5: Create and Run a sample Application to Query the metastore and build a Machine learning Model
 
 As a Data scientist, we create another OCI Data Flow Application. This application would do the following :
 
-   * Query the review data  to get the count of review by avg rating from the table ```yelp_review``` which was created in Step#3 above. This makes metastore a central repository for applications across data platform.
+   * Query the review data  to get the count of review by avg rating from the table **yelp_review** which was created in Task #3 above. This makes metastore a central repository for applications across data platform.
 
    * Build an NLP machine learning model to predict sentiment given a restaurant review text.
 
    * Analyze which terms are most contributive to a positive or a negative restaurant review. We will be predicting whether a review is positive or negative using classifier algorithms Linear Support Vector Machine and Logistics Regression  
 
-   1. Navigate to OCI Data Flow and create another Python Application in OCI Dataflow similar to how it was done in Step #4 above. Launch the ```Create Application``` page :
+   1. Navigate to OCI Data Flow and create another Python Application in OCI Dataflow similar to how it was done in Task #4 above. Launch the **Create Application** page.
 
-   2. On the ```Create Application``` page, provide a `Name` and `Description`
+   2. On the Create Application page, provide a **Name** and **Description**.
 
-   3. In the `Resource Configuration`. Leave the default values for `Spark Version`, `Driver Shape`, `Executor Shape`
+   3. In the **Resource Configuration** field, leave the default values for **Spark Version**, **Driver Shape**, **Executor Shape**.
 
-   4. For the  `Number of Executors` select ```4```
+   4. For the  **Number of Executors** field, select **4**.
 
-   5. In the Application Configuration
+   5. In the Application Configuration:
 
-      1. Select the ```query_metastore_and_model.py``` from the bucket ```workshop-scripts```
+      1. Select the **query\_metastore\_and\_model.py** from the bucket **workshop-scripts**.
 
-      2. In the argument Pass the DBName that used to create the Managed Table.
+      2. In the arguments field, Pass the DBName that used to create the Managed Table.
 
-      3. In the `Metastore in dataflow-demo` choose ```DF-metastore``` and you should the path of the Managed table getting populated automatically.
+      3. In the **Metastore in dataflow-demo** field, choose **DF-metastore**. You should see the path of the Managed table getting populated automatically.
 
-   6. The configuration should look like as shown in the snapshot
+   6. The configuration should look like the snapshot shown below:
 
        ![Query MetaStore Application ](../images/query-metastore-application-1.png " ")
 
        ![Query MetaStore Application ](../images/query-metastore-application-2.png " ")
 
-   7. Click ```Create``` and save the application.
+   7. Click **Create** and save the application.
 
-   8. Next Run the Application, by launching the application and clicking on ```Run```
+   8. Next, run the application by launching the application and clicking on **Run**.
 
-      ![Query MetaStore Application Run ](../images/Query-metastore-run-application.png " ")
+    ![Query MetaStore Logs ](../images/Query-metastore-run-application-log.png " ")
 
-   9. Application status changes from ```Accepted``` to ```In-Progress``` and ```Succeeded```
+   9. The application status changes from Accepted to In-Progress and Succeeded.
 
-   10. Open the logs and you should see count of reviews by avg rating
+   10. Open the logs. You should see the count of reviews by avg rating
 
-       ![Query MetaStore Logs ](../images/Query-metastore-run-application-log.png " ")
+    ![Query MetaStore Application Run ](../images/Query-metastore-run-application.png " ")
 
    11. Also seen in the logs is the F score, which is really the measure of the of Precision and Recall for the two algorithms. The higher the F1 score the better.
 
@@ -325,19 +326,19 @@ As a Data scientist, we create another OCI Data Flow Application. This applicati
 
        ![Query MetaStore Logs ](../images/Query-metastore-run-application-fscore.png " ")
 
-## **STEP 6**: Connect to the Metastore from Oracle Analytics Cloud (OAC)
+## Task 6: Connect to the Metastore from Oracle Analytics Cloud (OAC)
 
 As a Data analyst, we want to build visualization on top of the raw data that was created by the data engineer. OAC can connect to the OCI Metastore via Data Flow Interactive (DFI) SQL Cluster. For this workshop DFI SQL Cluster is already setup. And the connection between DFI Cluster and OAC via Oracle Remote Data Gateway (RDG) is also established. 
 
-1. From the Console navigate to  ```Analytics Cloud```
+1. From the Console navigate to  **Analytics Cloud**.
 
    ![OAC Navigation ](../images/OAC-Navigation.png " ")
 
-2. In the ```dataflow-demo``` compartment you should see the following instances created that are created for the workshop
+2. In the dataflow-demo compartment you should see the following instances created that are created for the workshop
 
    ![OAC Instances ](../images/OAC-Instances.png " ")
 
-3. Click on the Instance ```DFWorkshop1``` and click open the ```URL```
+3. Click on the **DFWorkshop1** instance and click the URL.
 
    ![OAC Instances URL ](../images/OAC-Instance-URL.png " ")
 
@@ -345,61 +346,61 @@ As a Data analyst, we want to build visualization on top of the raw data that wa
 
    ![OAC Console ](../images/OAC-console.png " ")
 
-5. On the console first we create a dataset
+5. On the console, we will create a dataset first.
 
-   1. Click ```Connect to Your Data```
+    1. Click **Connect to Your Data**
 
        ![OAC Console ](../images/OAC-Connect-to-your-Data.png " ")
 
-   2. Select the OAC instance ```DF-Workshop-1```
+    2. Select the OAC DF-Workshop-1 instance
 
        ![OAC Console ](../images/OAC-Create-Data-Set.png " ")
 
-   3. It should show the databases that we created in step #3 above .
+    3. It should show the databases that we created in Task #3 above .
 
        ![OAC Console ](../images/OAC-DB.png " ")
 
-   4. Drag and drop or double click ```yelp_data``` to the editor on the righthand side. It should load the data for ```yelp_data```. It can take few mins for the data to show up
+    4. Drag and drop (or double click) **yelp\_data** to the editor on the righthand side. It should load the data for **yelp\_data**. It can take a few minutes for the data to show up.
 
         ![OAC Console ](../images/yelp-data-set.png " ")
 
-   5. Enter a name for Dataset and Save.
+    5. Enter a name for the Dataset and Save.
 
-   6. Open the Dataset and it explore the data
+    6. Open the Dataset and explore the data.
 
         ![OAC DataSet ](../images/OAC-yelp-dataset.png " ")
 
-6. (Optional) Create a project to Visualize the data in Map Interface as described in [tutorial](https://docs.oracle.com/en/cloud/paas/analytics-cloud/tutorial-create-map-view-of-data/#background) and selecting ```state``` and ```average_star``` columns from  the
+6. (Optional) Create a project to Visualize the data in Map Interface as described in [tutorial](https://docs.oracle.com/en/cloud/paas/analytics-cloud/tutorial-create-map-view-of-data/#background) and select the **state** and **average_star** columns.
 
-   1. Add a new ```calculation``` by right clicking ```My Calcuation``` and then ```Add Calculation```
+    1. Add a new calculation by right clicking **My Calcuation** and then **Add Calculation**.
 
-        ![OAC My Calculation ](../images/OAC-New-Calculation.png " ")
+        ![OAC My Calculation](../images/OAC-New-Calculation.png " ")
 
-   2. Name the calculation and enter the  below calculation on the editor
+    2. Name the calculation and enter the calculation shown below in the editor
 
         ![OAC My Calculation ](../images/OAC-New-Calculation-Formula.png " ")
 
-   3. Click ```Save``` and the new Calculation should be displayed under ```My Calculations``
+    3. Click **Save** and the new Calculation should be displayed under My Calculations.
 
          ![OAC My Calculation Save ](../images/OAC-New-Calculation-Save.png " ")
 
-   4. Click on ```Visualize``` on the top left hand and drop the map on the right side
+    4. Click on **Visualize** on the top left and drop the map on the right side.
 
          ![OAC Map Visualization ](../images/OAC-Map-Visualization.png " ")
 
-   5. On the ```state layer``` in the map drag the ```state``` column in the ```Location``` and drag the calculation ```avg-star``` on the ```Color``` field
+    5. On the **state layer** in the map, drag the **state** column in the **Location** field and drag the calculation **avg-star** on the **Color** field.
 
         ![OAC Map Visualization ](../images/OAC-Map-Columns.png " ")
 
-   6. On the ```Filters```  drag ```goodForKids```, ```alchohol```, ```years```,```takeout``` columns
+    6. Drag the **goodForKids**, **alcohol**, **years**, and **takeout** columns to Filters.
 
         ![OAC Map Visualization ](../images/OAC-Map-Filter.png " ")
 
-   7. And save the map and visualize the data
+    7. Save the map and visualize the data.
 
          ![OAC Map Visualization ](../images/OAC-Map.png " ")
 
-## **STEP 6**: Advanced lab to look at the code for the Sample Application
+## Task 7: Advanced lab to look at the code for the Sample Application
 
 1. Begin by importing the python modules
 
@@ -561,61 +562,51 @@ As a Data analyst, we want to build visualization on top of the raw data that wa
 
 4. Create Tables in Hive MetaStore.
 
-```python
-    <copy>
-   def createHiveTable(spark_session, review_input_dataframe, business_input_dataframe, db_name):
+    ```python
+        <copy>
+    def createHiveTable(spark_session, review_input_dataframe, business_input_dataframe, db_name):
 
-    try:
-        spark_session.sql("CREATE DATABASE IF NOT EXISTS " + db_name)
-    except:
-        print(traceback.format_exc())
-        print(traceback.print_stack())
+        try:
+            spark_session.sql("CREATE DATABASE IF NOT EXISTS " + db_name)
+        except:
+            print(traceback.format_exc())
+            print(traceback.print_stack())
 
-    spark_session.sql("USE " + db_name)
+        spark_session.sql("USE " + db_name)
 
-    try:
-        review_input_dataframe.write.mode("overwrite").saveAsTable(
-            db_name + ".yelp_review")
-    except Exception as err:
-        print(traceback.format_exc())
-        print(traceback.print_stack())
+        try:
+            review_input_dataframe.write.mode("overwrite").saveAsTable(
+                db_name + ".yelp_review")
+        except Exception as err:
+            print(traceback.format_exc())
+            print(traceback.print_stack())
 
-    try:
-        business_input_dataframe.write.mode("overwrite").saveAsTable(
-            db_name + ".yelp_business_raw")
-    except Exception as err:
-        print(traceback.format_exc())
-        print(traceback.print_stack())
-        print("Table yelp_business_raw already exists")
+        try:
+            business_input_dataframe.write.mode("overwrite").saveAsTable(
+                db_name + ".yelp_business_raw")
+        except Exception as err:
+            print(traceback.format_exc())
+            print(traceback.print_stack())
+            print("Table yelp_business_raw already exists")
 
-    spark_session.sql("SHOW Tables").show()
-    spark_session.sql("DESCRIBE TABLE yelp_review").show()
-    spark_session.sql("DESCRIBE TABLE yelp_business_raw").show()
+        spark_session.sql("SHOW Tables").show()
+        spark_session.sql("DESCRIBE TABLE yelp_review").show()
+        spark_session.sql("DESCRIBE TABLE yelp_business_raw").show()
 
-    ddl = 'CREATE OR REPLACE VIEW yelp_data AS SELECT business.name, year(date),business.state, business.attributes_Alcohol alcohol,attributes_GoodForKids goodForKids, business.attributes_RestaurantsTakeOut takeout, avg(review.stars) average_star FROM ' \
-          + db_name + '.yelp_review review,' + db_name + '.yelp_business_raw business' \
-          + ' WHERE business.business_id = review.business_id GROUP BY business.name, year(date),business.state,business.attributes_Alcohol,business.attributes_GoodForKids, business.attributes_RestaurantsTakeOut ORDER BY average_star DESC '
+        ddl = 'CREATE OR REPLACE VIEW yelp_data AS SELECT business.name, year(date),business.state, business.attributes_Alcohol alcohol,attributes_GoodForKids goodForKids, business.attributes_RestaurantsTakeOut takeout, avg(review.stars) average_star FROM ' \
+            + db_name + '.yelp_review review,' + db_name + '.yelp_business_raw business' \
+            + ' WHERE business.business_id = review.business_id GROUP BY business.name, year(date),business.state,business.attributes_Alcohol,business.attributes_GoodForKids, business.attributes_RestaurantsTakeOut ORDER BY average_star DESC '
 
-    print("view ddl" + ddl)
+        print("view ddl" + ddl)
 
-    try:
-        spark_session.sql(ddl)
-    except Exception as err:
+        try:
+            spark_session.sql(ddl)
+        except Exception as err:
 
-    </copy>
- ```
+        </copy>
+    ```
 
 ## Acknowledgements
 
 * **Author** - Anand Chandak
-
-* **Adapted by** -  
-* **Contributors** -
-
-* **Last Updated By/Date** -
-
-## Need Help?
-
-Please submit feedback or ask for help using our [LiveLabs Support Forum](<https://community.oracle.com/tech/developers/categories/Data> flow). Please click the **Log In** button and login using your Oracle Account. Click the **Ask A Question** button to the left to start a *New Discussion* or *Ask a Question*.  Please include your workshop name and lab name.  You can also include screenshots and attach files.  Engage directly with the author of the workshop.
-
-If you do not have an Oracle Account, [click](https://profile.oracle.com/myprofile/account/create-account.jspx) to create one.
+* **Last Updated By/Date** - Kamryn Vinson, March 2022

@@ -249,12 +249,12 @@ First, we'll need to edit the `datapump_import_atp.sh` script to target the OCI 
 
     TARGET_DB_PORT=1522
     TARGET_DB_USER=admin
-    TARGET_DB_PWD=YpdCNR6nua4nahj8__
+    TARGET_DB_PWD=<YOUR DB ADMIN PASSWORD>
     ```
 
 2. Enter the `BASTION_IP`.
 
-     The `BASTION_IP` is the **public IP** through which to reach the database subnet (either the WLS Admin server Public IP if you provisioned in a public subnet, or the Bastion Instance Public IP if you provisioned in a private subnet). Either are found in the **Output** of the WebLogic deployment stack.
+     The `BASTION_IP` is the **public IP** through which to reach the database subnet (the Bastion Instance Public IP you provisioned in a private subnet). Either are found in the **Output** of the WebLogic deployment stack.
 
 3. Go to **Oracle Database -> Autonomous Transaction Processing**.
 
@@ -290,7 +290,9 @@ First, we'll need to edit the `datapump_import_atp.sh` script to target the OCI 
 
     *Make sure to use single quotes to delimitate the OCI_TOKEN as it may contain characters that would cause script errors.*
 
-17. Save the file (with `CTRL+x` then `y`).
+17. Enter your DB SYS password for `TARGET_DB_PWD`.
+
+18. Save the file (with `CTRL+x` then `y`).
 
 ## Task 6: Import the Data into the Target Database
 
@@ -334,35 +336,7 @@ We have downloaded the wallet locally already to migrate the database, and we ca
 
 2. Run the following command, to copy the wallet on each server.
 
-    If you provisioned in a *Public Subnet*, set the variable:
-
-    ```bash
-    <copy>
-    export TARGET_WLS_SERVER=<Public IP of a WLS server>
-    </copy>
-    ```
-
-    Then:
-
-    ```bash
-    <copy>
-    scp wallet.zip opc@${TARGET_WLS_SERVER}:~/
-    </copy>
-    ```
-    ```bash
-    <copy>
-    ssh opc@${TARGET_WLS_SERVER} "sudo chown oracle:oracle wallet.zip"
-    </copy>
-    ```
-    ```bash
-    <copy>
-    ssh opc@${TARGET_WLS_SERVER} "sudo unzip wallet.zip -d /u01/data/domains/nonjrf_domain/config/atp/"
-    </copy>
-    ```
-
-    *Make sure to specify the proper domain name (here `nonjrf_domain`)* if you didn't follow the naming convention of this workshop.
-
-    If you provisioned in a *Private Subnet* set the variables:
+    Set the variables:
     ```bash
     <copy>
     export TARGET_WLS_SERVER=<Private IP of a WLS server>

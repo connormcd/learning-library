@@ -43,7 +43,7 @@ Estimated Time: 30 minutes
 1. Next, download the Terraform sample code. Enter the following command into the cloud shell.
 
     ```
-    curl https://objectstorage.us-ashburn-1.oraclecloud.com/p/W7d4rKt71E8pOkTyB1ca5lbuerxDcyL0ZjuIMIRQ15-i-JW7KJOC6TMKSnD-_bZO/n/ociobenablement/b/lab/o/terraform_demo.zip -o terraform-demo.zip
+    <copy>curl https://objectstorage.us-ashburn-1.oraclecloud.com/p/W7d4rKt71E8pOkTyB1ca5lbuerxDcyL0ZjuIMIRQ15-i-JW7KJOC6TMKSnD-_bZO/n/ociobenablement/b/lab/o/terraform_demo.zip -o terraform-demo.zip</copy>
     ```
 
     This will download the sample terraform zip file.
@@ -51,13 +51,13 @@ Estimated Time: 30 minutes
 2. Next unzip the file:
 
     ```
-    unzip terraform-demo.zip
+    <copy>unzip terraform-demo.zip</copy>
     ```
 
 3. We will need to modify **terraform.tfvars** file. Enter the following command.
 
     ```
-    cd terraform_demo
+    <copy>cd terraform_demo</copy>
     ```
 
 4. Now edit the terraform.tfvars file. We will update these variables :- tenancy_ocid, region, compartment_ocid. Keep the ssk_public_key blank and as it is.
@@ -65,7 +65,7 @@ Estimated Time: 30 minutes
     Make sure to have the values ready which was saved in earlier steps.
 
     ```
-    vi terraform.tfvars
+    <copy>vi terraform.tfvars</copy>
     ```
 
     Next, type **i** to edit and populate the values for the above variables.
@@ -81,7 +81,7 @@ Estimated Time: 30 minutes
 6. Now initialize terraform with the following command.
 
     ```
-    terraform init
+    <copy>terraform init</copy>
     ```
 
     Verify successful initialization.
@@ -91,7 +91,7 @@ Estimated Time: 30 minutes
 7. To see the deployment plan enter the following command.
 
     ```
-    terraform plan
+    <copy>terraform plan</copy>
     ```
 
     This will provide details on what will be configured in OCI.
@@ -99,7 +99,7 @@ Estimated Time: 30 minutes
 8. Finally apply the plan to create the infrastructure. Enter the following command.
 
     ```
-    terraform apply
+    <copy>terraform apply</copy>
     ```
 
     *NOTE: You must type yes when prompted.*
@@ -111,7 +111,7 @@ Estimated Time: 30 minutes
 10. Finally, destroy the infrastructure that we created. Enter the following command.
 
     ```
-    terraform destroy
+    <copy>terraform destroy</copy>
     ```
 
     *NOTE: You must type yes when prompted.*

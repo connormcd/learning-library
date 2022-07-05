@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+     {
+        "title": "How do I query data in Query Service?",
+        "type": "tenancy",
+        "description": "",
+        "filename": "./../sprint-query-data-qs/sprint-query-data-qs.md"
+     }
+   ],
+   "task_type": "Sections"
+}

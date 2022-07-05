@@ -1,0 +1,55 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I provision a Data Catalog instance?",
+         "type": "freetier",
+         "description": "This lab walks you through how to create a new OCI Data Catalog instance.",
+         "filename": "./../sprint-provision-dcat-instance/sprint-provision-dcat-instance.md"
+      },
+      {
+         "title": "How do I find a Data Catalog instance OCID?",
+         "type": "freetier",
+         "description": " ",
+         "filename": "./../../oci/sprint-find-data-catalog-ocid/sprint-find-data-catalog-ocid.md"
+      },
+      {
+         "title": "How do I create an OCI compartment?",
+         "type": "freetier",
+         "description": "This lab walks you through how to create a new OCI compartment.",
+         "filename": "./../../oci/sprint-create-compartment/sprint-create-compartment.md"
+      },
+      {
+         "title": "How do I find the compartment OCID?",
+         "type": "freetier",
+         "description": "This lab walks you through how to create a new OCI compartment.",
+         "filename": "./../../oci/sprint-find-compartment-ocid/sprint-find-compartment-ocid.md"
+      },
+      {
+         "title": "How do I find a region identifier?",
+         "type": "freetier",
+         "description": "This lab walks you through how to create a new OCI compartment.",
+         "filename": "./../../oci/sprint-find-region-identifier/sprint-find-region-identifier.md"
+      },
+      {
+         "title": "How do I grant users access to a Data Catalog instance?",
+         "type": "freetier",
+         "description": "",
+         "filename": "./../../oci/sprint-grant-access-data-catalog/sprint-grant-access-data-catalog.md"
+      },
+      {
+         "title": "How do I create a Dynamic Group?",
+         "type": "freetier",
+         "description": "This lab walks you through how to create a new dynamic group.",
+         "filename": "./../../oci/sprint-create-dynamic-group/sprint-create-dynamic-group.md"
+      },
+      {
+         "title": "How do I create an access policy for a Dynamic Group?",
+         "type": "freetier",
+         "description": "This lab walks you through how to create a new dynamic group policy.",
+         "filename": "./../../oci/sprint-create-dynamic-group-access-policy/sprint-create-dynamic-group-access-policy.md"
+      }
+   ],
+   "task_type": "Sections"
+}

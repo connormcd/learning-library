@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How can I handle insufficient privileges error while creating a sequence in an autonomous database?",
+         "description": "",
+         "filename": "sprint-privilege-crtseq-adb.md"
+      },
+      {
+         "title": "How can I grant common privileges to individual database users?",
+         "description": "",
+         "filename": "../sprint-grant-privileges/sprint-grant-privileges.md"
+      }
+   ],
+   "task_type": "Sections"
+}

@@ -1,0 +1,17 @@
+{
+    "workshoptitle": "LiveLabs Sprints",
+    "help": "livelabs-help-oci_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "How can I know my OCI username?",
+            "description": "",
+            "filename": "sprint-know-oci-username.md"
+        },
+        {
+            "title": "How can I create an OCI Token?",
+            "description": "",
+            "filename": "../sprint-gen-oauth-token/sprint-gen-oauth-token.md"
+        }
+    ],
+    "task_type": "Sections"
+}

@@ -1,0 +1,46 @@
+{
+  "workshoptitle": "Simplify Event-driven Apps with TEQ in Oracle Database (with Kafka interoperability)",
+  "help": "livelabs-help-db_us@oracle.com",
+	"tutorials": [
+      {
+        "title": "Introduction",
+        "filename": "../../intro/intro.md",
+        "type": "event-freetier"
+      },
+      {
+        "title": "Getting started",
+        "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/event-register-free-tier-account.md",
+        "type": "event-freetier"
+      },
+      {
+        "title": "Lab 1: Workshop setup",
+        "filename": "../../setup/setup.md",
+        "type": "event-freetier"
+      },
+      {
+        "title": "Lab 2: Build Spring Boot microservices with Apache Kafka",
+        "filename": "../../deploy-and-test-kafka/deploy-and-test-kafka.md",
+        "type": "event-freetier"
+      },
+      {
+        "title": "Lab 3: Build Spring Boot microservices with Oracle Transactional Event Queues",
+        "filename": "../../deploy-and-test-teq/deploy-and-test-teq.md",
+        "type": "event-freetier"
+      },
+      {
+        "title": "Lab 4: Setup the connection between Kafka and Oracle Transactional Event Queues",
+        "filename": "../../kafka-connect-teq/kafka-connect-teq.md",
+        "type": "event-freetier"
+      },      
+      {
+        "title": "Lab 5: Tear down",
+        "filename": "../../teardown/teardown.md",
+        "type": "event-freetier"
+      },
+      {
+        "title": "Need Help?",
+        "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+        "filename":"https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-freetier.md"
+      }
+    ]
+}

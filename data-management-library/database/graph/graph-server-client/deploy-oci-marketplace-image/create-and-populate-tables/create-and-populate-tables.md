@@ -6,7 +6,7 @@ In this lab, you are going to log in as user `CUSTOMER_360`. You will learn how 
 
 You will create 7 tables (customer, account, merchant, purchased, transfer, parent_of). The entity-relationship diagram for these tables is shown below.
 
-![](images/er-diagram.jpg)
+![er-diagram](images/er-diagram.jpg)
 
 Estimated time: 7 minutes
 
@@ -23,9 +23,9 @@ Estimated time: 7 minutes
 
 Login as `CUSTOMER_360` using the password you entered when creating the user. The correct URL for Database Actions should contain `/customer_360/`
 
-![](images/login-c360.jpg)
+![login-c360](images/login-c360.jpg)
 
-![](images/sdw-c360.jpg)
+![sdw-c360](images/sdw-c360.jpg)
 
 ## Task 2: Drop existing tables if any
 
@@ -43,7 +43,7 @@ DROP TABLE transfer;
 </copy>
 ```
 
-![](images/drop-table.jpg)
+![drop-table](images/drop-table.jpg)
 
 ## Task 3: Create and populate the `ACCOUNT` table
 
@@ -70,7 +70,7 @@ COMMIT;
 </copy>
 ```
 
-![](images/create-table.jpg)
+![create-table](images/create-table.jpg)
 
 ## Task 4: Create and populate the `CUSTOMER` table
 
@@ -195,6 +195,5 @@ You may now proceed to the next lab.
 ## Acknowledgements
 
 * **Author** - Jayant Sharma, Product Manager, Spatial and Graph
-* **Contributors** - Thanks to Jenny Tsai and Arabella Yao for helpful, constructive feedback that improved this workshop.
-* **Last Updated By/Date** - Ryota Yamanaka, August 2021
-
+* **Contributors** - Jenny Tsai, Arabella Yao
+* **Last Updated By/Date** - Ryota Yamanaka, April 2022

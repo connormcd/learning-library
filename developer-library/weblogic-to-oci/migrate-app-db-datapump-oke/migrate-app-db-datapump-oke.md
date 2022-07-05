@@ -138,6 +138,8 @@ First, we'll need to edit the `datapump_import.sh` script to target the OCI data
 
    ![](./images/provision-db-27-connection2.png " ")
 
+5. Enter your DB SYS password for `TARGET_DB_PWD`.
+
 ## Task 4: Import the Data into the Target Database
 
 1. Run the `datapump_import.sh` script you edited at the previous step:

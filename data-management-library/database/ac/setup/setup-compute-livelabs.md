@@ -186,4 +186,4 @@ There may be several reasons why you can't login to the instance.  Here are some
 
 * **Author** - Rene Fontcha, Master Principal Platform Specialist, NA Technology
 * **Contributors** - Kay Malcolm, Product Manager, Database Product Management
-* **Last Updated By/Date** - Tom McGinn, June 2021
+* **Last Updated By/Date** - Madhusudhan Rao, Apr 2022

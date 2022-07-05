@@ -1,8 +1,18 @@
-# Virtual Cloud Network
+# Create your Virtual Cloud Network and Related Components
 
-## **Create your Virtual Cloud Network (VCN) and related components**
+## Introduction
 
-## **Create your VCN and subnets**
+This lab will guide you throught the procees to create your Virtual Cloud Network (VCN) and related components
+
+Estimated time: x minutes
+
+### Ojectives
+
+* Create your VCN
+* Configure Security List to allow HTTP inbound connections
+* Configure Security List to allow MySQL inbound connections
+
+## Task 1: Create your VCN
 
 Set up a VCN to connect your Linux instance to the internet. You will configure all the components needed to create your virtual network.
 
@@ -33,8 +43,7 @@ Note: Notice the public and private subnets have different CIDR blocks.
 
 6. After the workflow completes, click on **View Virtual Cloud Networks** and you will be directed to the details page of the VCN you created.
 
-
-## **Configure Security List to allow HTTP inbound connections**
+## Task 2: Configure Security List to allow HTTP inbound connections
 
 Create the rules in the default security list that will allow incomming comnections on ports 80/TCP and 443/TCP
 
@@ -53,34 +62,30 @@ Create the rules in the default security list that will allow incomming comnecti
 
 5. Enter the following:
 
-| Field | Value |
-| --- | --- |
-| Stateless: | Checked |
-| Source Type: | CIDR | 
-| Source CIDR: | 0.0.0.0/0 |
-| IP Protocol: | TCP |
-| Source port range: | (leave-blank) |
-| Destination Port Range: | 80 |
-| Description: | Allow HTTP connections |
+* Stateless: *Checked*
+* Source Type: *CIDR*
+* Source CIDR: *0.0.0.0/0*
+* IP Protocol: *TCP*
+* Source port range: *(leave-blank)*
+* Destination Port Range: *80*
+* Description: *Allow HTTP connections*
         
 Once you click Add Ingress Rule, inbound HTTP connections are allowed.
 
 6. Repeat the steps from 1-4 and enter the following:
 
-| Field | Value |
-| --- | --- |
-| Stateless: | Checked |
-| Source Type: | CIDR | 
-| Source CIDR: | 0.0.0.0/0 |
-| IP Protocol: | TCP |
-| Source port range: | (leave-blank) |
-| Destination Port Range: | 443 |
-| Description: | Allow HTTPS connections |
+* Stateless: *Checked*
+* Source Type: *CIDR*
+* Source CIDR: *0.0.0.0/0*
+* IP Protocol: *TCP*
+* Source port range: *(leave-blank)*
+* Destination Port Range: *443*
+* Description: *Allow HTTPS connections*
 
 Once you click Add Ingress Rule, inbound HTTPS connections are allowed.
 
 
-## **Configure Security List to allow MySQL inbound connections**
+## Task 3: Configure Security List to allow MySQL inbound connections
 
 Create a rule in the **Security List for Private Subnet-*VCN Name*** security list that will allow incomming comnections on ports 3306/TCP and 33060/TCP
 
@@ -100,28 +105,29 @@ Create a rule in the **Security List for Private Subnet-*VCN Name*** security li
 
 5. Enter the following:
 
-| Field | Value |
-| --- | --- |
-| Stateless: | Checked |
-| Source Type: | CIDR | 
-| Source CIDR: | 10.0.0.0/24 |
-| IP Protocol: | TCP |
-| Source port range: | (leave-blank) |
-| Destination Port Range: | 3306 |
-| Description: | Allow MySQL connections |
+* Stateless: *Checked*
+* Source Type: *CIDR*
+* Source CIDR: *10.0.0.0/24*
+* IP Protocol: *TCP*
+* Source port range: *(leave-blank)*
+* Destination Port Range: *3306*
+* Description: *Allow MySQL connections*
         
 Once you click Add Ingress Rule, inbound MySQL connections from the public subnet are allowed.
 
 6. Repeat the steps from 1-4 and enter the following:
 
-| Field | Value |
-| --- | --- |
-| Stateless: | Checked |
-| Source Type: | CIDR | 
-| Source CIDR: | 10.0.0.0/24 |
-| IP Protocol: | TCP |
-| Source port range: | (leave-blank) |
-| Destination Port Range: | 33060 |
-| Description: | Allow MySQL X connections |
+* Stateless: *Checked*
+* Source Type: *CIDR*
+* Source CIDR: *10.0.0.0/24*
+* IP Protocol: *TCP*
+* Source port range: *(leave-blank)*
+* Destination Port Range: *33060*
+* Description: *Allow MySQL X connections*
 
 Once you click Add Ingress Rule, inbound  MySQL X connections from the public subnet are allowed.
+
+## Acknowledgements
+* **Author** - Perside Foster, MySQL Solution Engineering, Orlando Gentil, Principal Training Lead and Evangelist
+* **Contributors** - Frédéric Descamps, MySQL Community Manager 
+* **Last Updated By/Date** - Perside Foster, MySQL Solution Engineering, March 2022

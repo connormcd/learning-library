@@ -1,0 +1,12 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I locate which View Object I should use in my Data Augmentation for Fusion Analytics Warehouse (FAW)?",
+         "description": "Learn how to locate view objects for Data Augmentation in Fusion Analytics Warehouse (FAW).",
+         "filename": "faw-locate-vo.md"
+      }
+   ],
+   "task_type": "Sections"
+}

@@ -7,7 +7,7 @@ This lab provides detailed instructions of connecting to Oracle Analytics Server
 
 ### Objectives
 - Validate that the environment has been initialized and is ready
-<if type="external">- Download and stage workshop artifacts</if>
+<if type="external">- Download and stage workshop artifacts (*Only needed if not using the remote desktop*)</if>
 
 ### Prerequisites
 This lab assumes you have:
@@ -24,7 +24,7 @@ This lab has been designed to be executed end-to-end with any modern browser on 
     - Database Listener
         - LISTENER
     - Database Server instance
-        - ORCLCDB
+        - PDB1
     - Oracle Analytics Server (OAS)
 
 2. On the *Web Browser* window on the right preloaded with *OAS Web Console*, click on the *Username* field and select the saved credentials to login. These credentials have been saved within *Web Browser* and are provided below for reference
@@ -54,7 +54,7 @@ This lab has been designed to be executed end-to-end with any modern browser on 
 
     ```
     URL: <copy>http://[your instance public-ip address]:9502/dv/ui</copy>
-    e.g: http://111.888.111.888:9502/dv/ui
+    e.g: http://xxx.xxx.xxx.xxx:9502/dv/ui
     ```
     </if>
 
@@ -97,13 +97,13 @@ This lab has been designed to be executed end-to-end with any modern browser on 
     sudo sudo systemctl restart oas
     </copy>
     ```
-
 <if type="external">
 
-## Task 2: Download and Stage Workshop Artifacts (not needed if using the remote desktop)
+## Task 2: Download and Stage Workshop Artifacts (*not needed if using the remote desktop*)
 In order to run this workshop, you will need a set of files that have been conveniently packaged and stage on the instance for you. If you are bypassing the remote desktop and  connecting directly to OAS UI from your local computer/workstation, proceed as indicated below.
 
-1. Download [OAS_Workshop.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/6_WvdYP8HOSRFYJpU2958aV8WpEq2sDaqZUP4dJdFlz2NvBPIdlRg8uHyDC0WMyA/n/natdsecurity/b/labs-files/o/OAS_Workshop.zip) and save to a staging area on your laptop or workstation.
+1. Download and save to a staging area on your laptop or workstation.
+    - [`OAS_LiveLabs_Content.zip`](https://objectstorage.us-ashburn-1.oraclecloud.com/p/xbVJyW3I6DNh8WpyM26FgFTxytc-cFCwL2BomFq6TBTM9Xu8s81G8vGOdESuA-jt/n/natdsecurity/b/labs-files/o/OAS_LiveLabs_Content.zip)
 
 2. Uncompress the ZIP archive
 </if>
@@ -171,4 +171,4 @@ Your workshop instance is configured to automatically start all processes needed
 ## Acknowledgements
 * **Authors** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, January 2021
 * **Contributors** - Diane Grace
-* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, September 2021
+* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, May 2022

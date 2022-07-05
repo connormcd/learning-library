@@ -1,9 +1,9 @@
-# Getting Started
+# Sample Python Application to convert CSV into Parquet
 
 ## Clean and Convert Data with Data Flow    
 This tutorial introduces you to build a sample python spark application to convert a CSV file into Parquet File locally. Once build, you will learn how to run the application on Oracle Cloud Infrastructure Data Flow, a fully managed service that lets you run any Apache Spark Application  at any scale with no infrastructure to deploy or manage. This tutorial requires basic knowledge of python spark. All the data used in the tutorial have been provided for you.
 
-*Estimated Lab Time*: 40 minutes
+Estimated Time: 40 minutes
 
 ### Objectives
 
@@ -143,7 +143,7 @@ The data is provided in CSV format and your objective is to convert this data to
     ```
 
 
- *Note:  This step requires OCI python library.*
+ > **Note:** This step requires OCI python library.
 
  4. Load the csv file into the input dataframe
      ```
@@ -204,7 +204,7 @@ The data is provided in CSV format and your objective is to convert this data to
 
 ## Task 2: Upload application and data to the Object store
 
-*Note: If you not familar on how to upload the content to object, it is recommended that you refer to this [lab](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=655) to learn more.*
+> **Note:** If you not familar on how to upload the content to object, it is recommended that you refer to this [lab](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=655) to learn more.
 
 
  1. From the Console navigate to the object storage
@@ -251,7 +251,7 @@ The data is provided in CSV format and your objective is to convert this data to
       ```
       <copy>oci://dataflow-sample-data@bigdatadatasciencelarge/Movies/netflix_titles.csv</copy>
       ```
-*Note:  For this workshop the datacleaning.py file is already uploaded to the object storage.*
+> **Note:** For this workshop the datacleaning.py file is already uploaded to the object storage.
 
 3. Double-check your Application configuration, and confirm it is similar to the following
    
@@ -275,7 +275,7 @@ The data is provided in CSV format and your objective is to convert this data to
  
 3. You are automatically redirected to the Apache Spark UI, which is useful for debugging and performance tuning.
 
-   ![](../images/SparkUI..png " ")
+   ![](../images/SparkUI.png " ")
 
 4. When the `Run` completes, open it and navigate to the logs
 
@@ -297,15 +297,9 @@ The data is provided in CSV format and your objective is to convert this data to
 
    ![](../images/run-object-storage-file.png " ")
  
+You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
 - **Author** - Anand Chandak
-- **Adapted by** -  
-- **Contributors** -
-- **Last Updated By/Date** -
-
-## Need Help?
-Please submit feedback or ask for help using our [LiveLabs Support Forum](https://community.oracle.com/tech/developers/categories/Data flow). Please click the **Log In** button and login using your Oracle Account. Click the **Ask A Question** button to the left to start a *New Discussion* or *Ask a Question*.  Please include your workshop name and lab name.  You can also include screenshots and attach files.  Engage directly with the author of the workshop.
-
-If you do not have an Oracle Account, click [here](https://profile.oracle.com/myprofile/account/create-account.jspx) to create one.
+- **Last Updated By/Date** - Kamryn Vinson, March 2022

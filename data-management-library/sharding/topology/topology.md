@@ -1,4 +1,4 @@
-# Exploring Sharding Topology
+# Explore Sharding Topology
 
 ## Introduction   
 Docker is a set of platform-as-a-service products that use OS-level virtualization to deliver software in packages called containers. Docker containers are used to deploy the Oracle Sharding topology and the eShop application.
@@ -8,12 +8,9 @@ In this workshop, we attempt to use minimal resources to show the demonstration,
 You can find more details at [Oracle Sharding on Docker](https://github.com/oracle/db-sharding/tree/master/docker-based-sharding-deployment)
 
 
-*Estimated Lab Time*: 15 Minutes
+*Estimated Time*: 15 Minutes
 
-Watch the video below for a walk through of the lab.
-[](youtube:lMZ8WdxeD7I)
-
- ![](./images/topology.jpg " ")  
+ ![<workshop architecture>](./images/topology.jpg " ")  
 
 As shown in the diagram above, the sharded database is deployed as multiple containers all running within the same Compute VM.
 
@@ -43,7 +40,7 @@ This lab assumes you have:
     </copy>
     ```
 
-     ![](./images/containers.jpg " ")
+     ![<vm containers>](./images/containers.jpg " ")
 
 ## Task 2: Connect to Shard director
 
@@ -66,7 +63,7 @@ For more details check [GDSCTL with Oracle Sharding] (https://docs.oracle.com/en
     </copy>
     ```
 
-    ![](./images/docker.jpg " ")
+    ![<connect to shard director>](./images/docker.jpg " ")
 
 2. Verify sharding topology using the  **CONFIG** command.
 
@@ -76,7 +73,7 @@ For more details check [GDSCTL with Oracle Sharding] (https://docs.oracle.com/en
     </copy>
     ```
 
-    ![](./images/config.jpg " ")
+    ![<config command>](./images/config.jpg " ")
 
 3. Lists all of the database shards and the chunks that they contain.
 
@@ -86,7 +83,7 @@ For more details check [GDSCTL with Oracle Sharding] (https://docs.oracle.com/en
     </copy>
     ```
 
-    ![](./images/chunks.jpg " ")
+    ![<list chunks>](./images/chunks.jpg " ")
 
 4. Display information about all table families in the sharded database.
 
@@ -96,7 +93,7 @@ For more details check [GDSCTL with Oracle Sharding] (https://docs.oracle.com/en
     </copy>
     ```
 
-    ![](./images/tablefamily.jpg " ")
+    ![<table family>](./images/tablefamily.jpg " ")
 
 5. Show all the services in the user's Global Data Services pool.
 
@@ -106,7 +103,7 @@ For more details check [GDSCTL with Oracle Sharding] (https://docs.oracle.com/en
     </copy>
     ```
 
-    ![](./images/service.jpg " ")
+    ![<list services>](./images/service.jpg " ")
 
 6. Check  for DDL statements execution status.
 
@@ -116,15 +113,7 @@ For more details check [GDSCTL with Oracle Sharding] (https://docs.oracle.com/en
     </copy>
     ```
 
-    ![](./images/showddl.jpg " ")
-
-7. Now **exit** from here.
-
-    ```
-    <copy>
-    exit
-    </copy>
-    ```
+    ![<show ddl statements>](./images/showddl.jpg " ")
 
 ## Task 3: Connect to Catalog
 
@@ -149,7 +138,7 @@ For more details see [Oracle Sharding documentation] (https://docs.oracle.com/en
     </copy>
     ```
 
-    ![](./images/catalog.jpg " ")
+    ![<connect to catalog>](./images/catalog.jpg " ")
 
 2. Connect to the shard schema in catalog server.
 
@@ -180,15 +169,7 @@ For more details see [Oracle Sharding documentation] (https://docs.oracle.com/en
     </copy>
     ```
 
-   ![](./images/query.jpg " ")
-
-5. Now **exit** from SQLPLUS and Catalog as well.
-
-    ```
-    <copy>
-    exit
-    </copy>
-    ```
+   ![<check row count at catalog>](./images/query.jpg " ")
 
 ## Task 4: Connect to Shard 1 Database
 
@@ -235,17 +216,9 @@ For more details see [Oracle Sharding documentation] (https://docs.oracle.com/en
     </copy>
     ```
 
-    ![](./images/query1.jpg " ")
+    ![check row count at shard](./images/shardcount.jpg " ")
 
    You can find the difference in the row count between the shard catalog and the shard-database (porcl1cdb\_porcl1pdb, porcl2cdb\_porcl2pdb, porcl3cdb\_porcl3pdb).
-
-5. Now **exit** from SQLPLUS and Shard 1 as well.
-
-    ```
-    <copy>
-    exit
-    </copy>
-    ```
 
 ## Task 5: Run Application Queries on a sharded Database
 
@@ -280,7 +253,7 @@ Run each SQL query by logging in to the shard catalog database as well as one of
     </copy>
     ```
 
-    ![](./images/1.jpg " ")
+    ![<application queries>](./images/appquery.jpg " ")
 
 **Run Application Queries on sharding Database.**
 
@@ -294,9 +267,9 @@ Run the below each sql query by login into Catalog database as well as one of th
     </copy>
     ```
 
-    ![](./images/query2.jpg " ")
+    ![<oracle fuzzy query>](./images/fuzzyquery.jpg " ")
 
-2. Top Selling Products: Return top Selling products in the store ranging from high to low from last one year by fetching from LINE_ITEM (Relational ) & Products (JSON) & Reviews (JSON) Tables.
+2. Top Selling Products: Return top Selling products in the store ranging from high to low from last two months by fetching from LINE_ITEM (Relational ) & Products (JSON) & Reviews (JSON) Tables.
 
     ```
     <copy>
@@ -304,22 +277,22 @@ Run the below each sql query by login into Catalog database as well as one of th
     col SKU for a20
     col PRODUCT_NAME for a30
     col BEST_REVIEW for a50
-    select le.SKU,pr.Product_Name,le.count,le.SELL_VALUE,re.Avg_Senti_Score,rev.BEST_REVIEW from (select product_id as SKU, sum(PRODUCT_QUANTITY) as count,ROUND(sum(PRODUCT_COST*PRODUCT_QUANTITY),2) as SELL_VALUE from LINE_ITEM where DATE_ORDERED > sysdate -365 group by product_id ) le,(select r.sku as id,round(avg(r.senti_score)) as Avg_Senti_Score from reviews r group by r.sku) re,(select p.sku as pid,substr(p.json_text.NAME,0,30) as Product_Name from products p) pr,(select r.sku as rvid,r.revid,substr(r.json_text.REVIEW,0,40) as BEST_REVIEW from reviews r,(select sku as pid ,max(senti_score) as bestscore from reviews group by sku) where r.sku=pid and r.senti_score=bestscore) rev where re.id=le.SKU and pr.pid=le.SKU and rev.rvid=le.SKU order by 3 desc;
+    select le.SKU,pr.Product_Name,le.count,le.SELL_VALUE,re.Avg_Senti_Score,rev.BEST_REVIEW from (select product_id as SKU, sum(PRODUCT_QUANTITY) as count,ROUND(sum(PRODUCT_COST*PRODUCT_QUANTITY),2) as SELL_VALUE from LINE_ITEM where DATE_ORDERED > sysdate -60 group by product_id ) le,(select r.sku as id,round(avg(r.senti_score)) as Avg_Senti_Score from reviews r group by r.sku) re,(select p.sku as pid,substr(p.json_text.NAME,0,30) as Product_Name from products p) pr,(select r.sku as rvid,r.revid,substr(r.json_text.REVIEW,0,40) as BEST_REVIEW from reviews r,(select sku as pid ,max(senti_score) as bestscore from reviews group by sku) where r.sku=pid and r.senti_score=bestscore) rev where re.id=le.SKU and pr.pid=le.SKU and rev.rvid=le.SKU order by 3 desc;
     </copy>
     ```
-    ![](./images/queryone.jpg " ")
+    ![<top selling products>](./images/queryone.jpg " ")
 
 
-3. Select products ordered by maximum sell from last one year.
+3. Select products ordered by maximum sell
 
     ```
     <copy>
     set lines 200 pages 200
     col SKU for a40
-    select product_id as SKU, sum(PRODUCT_QUANTITY) as count,ROUND(sum(PRODUCT_COST*PRODUCT_QUANTITY),2) as SELL_VALUE from LINE_ITEM where DATE_ORDERED > sysdate -365 group by product_id order by count desc;
+    select product_id as SKU, sum(PRODUCT_QUANTITY) as count,ROUND(sum(PRODUCT_COST*PRODUCT_QUANTITY),2) as SELL_VALUE from LINE_ITEM where DATE_ORDERED > sysdate -60 group by product_id order by count desc;
     </copy>
     ```
-    ![](./images/query5.jpg " ")
+    ![<maximum sell>](./images/maximumsell.jpg " ")
 
 4. Customer Average Review and review count
 
@@ -334,9 +307,9 @@ Run the below each sql query by login into Catalog database as well as one of th
     </copy>
     ```
 
-    ![](./images/query6.jpg " ")
+    ![<average review>](./images/average.jpg " ")
 
-5.  Let's try one query at **shard2** database as the default user **'demo@eshop.com'** belongs to shard2. Open another terminal and execute below as **opc** user to connect to **shard2**.
+5.  Let's try one query at **shard2** database. Open another terminal and execute below as **opc** user to connect to **shard2**.
 
     ```
     <copy>
@@ -357,7 +330,7 @@ Run the below each sql query by login into Catalog database as well as one of th
     </copy>
     ```
 
-   ![](./images/query3.jpg " ")
+   ![<run at another shard>](./images/anothershard.jpg " ")
 
 This is the end of the Oracle Sharding Workshop.
 
@@ -366,7 +339,7 @@ This is the end of the Oracle Sharding Workshop.
 
 **Oracle Sharding** is a feature of Oracle Database that lets you automatically distribute and replicate data across a pool of Oracle databases that share no hardware or software. Oracle Sharding provides the best features and capabilities of mature RDBMS and NoSQL databases.
 
-![](./images/arch.jpg " ")  
+![<architecture>](./images/arch.jpg " ")  
 
 **Core Components of the Oracle Sharding Architecture**
 

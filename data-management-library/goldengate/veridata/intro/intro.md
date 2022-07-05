@@ -9,7 +9,6 @@ The labs in this workshop walk you through several use cases with Oracle GoldenG
 ### About Oracle GoldenGate Veridata
 Oracle GoldenGate Veridata compares a source (original, or trusted) set of data with a target (secondary) set of data to identify discrepancies. By accounting for data that is being replicated while a comparison takes place, Oracle GoldenGate Veridata can run concurrently with data transactions and replication, while still producing an accurate comparison report. You can use Oracle GoldenGate Veridata to compare data sets that reside in identical or different types of databases; the workflow is essentially the same for all supported databases, with only very minor differences.
 
-
 ### Objectives
 In this lab, you will:
 * Create Datasource Connections for source and target databases

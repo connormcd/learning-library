@@ -1,0 +1,27 @@
+{
+    "workshoptitle": "LiveLabs Sprints",
+    "help": "livelabs-help-db_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "How can I load data from Oracle Object Storage to my ADB instance using Data Tools?",
+            "description": "",
+            "filename": "sprint-load-data-objstr-dbtools.md"
+        },
+        {
+            "title": "How can I know my OCI username?",
+            "description": "",
+            "filename": "../../oci/sprint-know-oci-username/sprint-know-oci-username.md"
+        },
+        {
+            "title": "How can I create an OCI Token?",
+            "description": "",
+            "filename": "../../oci/sprint-gen-oauth-token/sprint-gen-oauth-token.md"
+        },
+        {
+            "title": "How do I get the URI for a bucket in Object Storage?",
+            "description": "",
+            "filename": "../../oci/sprint-get-bucket-uri/sprint-get-bucket-uri.md"
+        }
+    ],
+    "task_type": "Sections"
+}

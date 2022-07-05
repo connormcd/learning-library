@@ -23,7 +23,7 @@ In this lab, you will:
 
 This workshop assumes you have:
 
-* An Oracle Free Tier, Always Free, Paid or LiveLabs Cloud Account
+* LiveLabs Cloud Account
 * Successfully completed the previous labs
 
 ## Task 1: Create APEX Workspace
@@ -99,7 +99,7 @@ APEX application will interact with the blockchain tables using REST API through
     Also, notice how clicking on modules shows that there are no modules defined.
     ![](./images/task2-32.png " ")
 
-4. Click [here](https://objectstorage.us-ashburn-1.oraclecloud.com/p/nlUdle-us1TMJ-yTOL-sVxXazoDqQegCYakiXiA8zIONnFMWsaCt2u3tNHlz4sUx/n/c4u04/b/data-management-library-files/o/blockchain/ORDS-REST-Blockchain.sql) to download the ORDS-REST-Blockchain.sql file that has the SQL Script to REST Enable this schema and also to create modules for the bank_ledger table with the appropriate handlers.
+4. Click [here](https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/blockchain/ORDS-REST-Blockchain.sql) to download the ORDS-REST-Blockchain.sql file that has the SQL Script to REST Enable this schema and also to create modules for the bank_ledger table with the appropriate handlers.
 
 5. Let's import the modules by clicking on **Import**.
 
@@ -177,7 +177,7 @@ APEX application will interact with the blockchain tables using REST API through
 
 Now, we have the blockchain module, the handlers, and the templates defined. Let's import the apex application.
 
-1. Click [here](https://objectstorage.us-ashburn-1.oraclecloud.com/p/iKksQSRJLdhamFt0fsQ4Fb0KhipXg-y5OP9hdFHqVH0CCLeSl_H9WV5HlBtujS8U/n/c4u04/b/data-management-library-files/o/blockchain/Blockchain-APEX-Application.sql) to download the Blockchain-APEX-Application.sql.
+1. Click [here](https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/blockchain/Blockchain-APEX-Application.sql) to download the Blockchain-APEX-Application.sql.
 
 2.  Click on the **App Builder** drop-down menu and select **Import**.
 
@@ -266,4 +266,4 @@ Now, we have the blockchain module, the handlers, and the templates defined. Let
 
 * **Author** - Mark Rakhmilevich, Anoosha Pilli
 * **Contributors** - Anoosha Pilli, Salim Hlayel, Brianna AmblerProduct Manager, Oracle Database
-* **Last Updated By/Date** - Anoosha Pilli, September 2021
+* **Last Updated By/Date** - Marion Smith, April 2022

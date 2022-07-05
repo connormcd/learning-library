@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I enable OLTP table compression?",
+         "description": "",
+         "filename": "sprint-oltp-compression.md"
+      },
+      {
+         "title": "How do I get table compression ratio?",
+         "description": "",
+         "filename": "../sprint-dbms-compression/sprint-dbms-compression.md"
+      }
+   ],
+   "task_type": "Sections"
+}

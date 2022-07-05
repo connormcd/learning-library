@@ -42,5 +42,5 @@ This will construct an email in your default mail application that is auto popul
 ## Acknowledgements
 
 * **Author** - Didi Han, Database Product Management
-* **Contributors** - Tom McGinn, Kay Malcolm
+* **Contributors** - Kay Malcolm
 * **Last Updated By/Date** - Orlando Gentil, March 2021

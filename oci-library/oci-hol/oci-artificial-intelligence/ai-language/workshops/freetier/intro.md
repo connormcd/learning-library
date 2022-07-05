@@ -6,8 +6,8 @@ OCI Language empowers developers with production ready pre-trained models to aut
 
 The Language service contains these pretrained language processing capabilities:
 
-### 1. Aspect-Based Sentiment Analysis
-Identifies aspects from the given text and classifies each into positive, negative, or neutral polarity.
+### 1. Sentiment Analysis
+Identifies sentiment at the document, sentence and aspect level.
 
 ### 2. Named Entity Recognition
 Identifies common entities, people, places, locations, email, and so on.
@@ -61,4 +61,4 @@ Explore the Language service within the Oracle Cloud AI service group to perform
     * Rajat Chawla  - Oracle AI OCI Langauge Services
     * Ankit Tyagi -  Oracle AI OCI Langauge Services
 * **Last Updated By/Date**
-    * Srijon Sarkar  - Oracle AI Services, September 2021
+    * Rajat Chawla  - Oracle AI Services, February 2021

@@ -64,7 +64,7 @@ Start SQL Developer and create a connection for your database using the default 
 
 ### Task 1: Download the Data File to Your Local Computer
 
-For this lab, you will need a data file. Click [here](https://objectstorage.us-ashburn-1.oraclecloud.com/p/ToEvY1LAoW4Ql0qt3ba2xGWeRHhmEhiwNwzBWvUEVJrmcOZhyH0xY6XxHNNSjpxL/n/c4u04/b/labfiles/o/flights_aircraft_weather.zip) to download a zipfile of the data file and unzip it to a directory on your local computer. This data file is the resulting integrated table including flight, weather, and aircraft data at each time and each airport.
+For this lab, you will need a data file. Click [here](https://objectstorage.us-ashburn-1.oraclecloud.com/p/jyHA4nclWcTaekNIdpKPq3u2gsLb00v_1mmRKDIuOEsp--D6GJWS_tMrqGmb85R2/n/c4u04/b/livelabsfiles/o/labfiles/flights_aircraft_weather.zip) to download a zipfile of the data file and unzip it to a directory on your local computer. This data file is the resulting integrated table including flight, weather, and aircraft data at each time and each airport.
 
 ### Task 2: Load the Data File to the ADW Instance using SQL Developer Data Import Wizard**
 

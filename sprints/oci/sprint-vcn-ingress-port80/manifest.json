@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-oci_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How can I configure the VNC to allow ingress traffic on port 80?",
+         "description": "",
+         "filename": "sprint-vcn-ingress-port80.md"
+      },
+      {
+         "title": "How do I create a VCN using OCI CLI?",
+         "description": "",
+         "filename": "../sprint-create-vcn/sprint-create-vcn.md"
+      }
+   ],
+   "task_type": "Sections"
+}

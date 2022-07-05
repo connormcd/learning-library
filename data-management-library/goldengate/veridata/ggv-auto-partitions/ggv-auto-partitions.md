@@ -40,7 +40,7 @@ To configure Automatic Row Partitioning:
     * Source Table: **XMLTABLE**
     * Target Table: **XMLTABLE**
 
-    ![](./images/1_AP.png " ")
+    ![](./images/enter-source-target-schema.png " ")
 
 4. Select the **Automatic Row Partitions** check box.
 
@@ -50,18 +50,18 @@ To configure Automatic Row Partitioning:
 
     * **Automatic Row Partitions**: **12**
 
-    ![](./images/2_AP.png " ")
+    ![](./images/enter-numeric-value.png " ")
 
 6. Click **Generate Mappings**. The control moves to the **Preview** tab.
 
-    ![](./images/3_AP.png " ")
+    ![](./images/preview-tab-auto-partition.png " ")
 
 7. Click **Save** to save the generated compare pair.
 
 The control moves to the **Existing Compare Pairs** tab.
 Notice the compare pairs that have been generated with Automatic Row Partition.
 
-    ![](./images/4_AP.png " ")
+    ![](./images/existing-cp-autopartition.png " ")
 
 You may now [proceed to the next lab](#next).
 

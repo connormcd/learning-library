@@ -112,15 +112,15 @@ In this section we will create a Network Security Group for the WebLogic subnet 
 
   ![](./images/provision-db-atp4.png " ")
 
-6. Keep the defaults for **Database Version**, **OCPU count**, **Storage** and **Auto Scaling**.
+6. For this lab, you can use the Always Free option, but this is not recommended for production. If you want to use that option, click the **Show Only Always Free Options**, otherwise keep the defaults for **Database Version**, **OCPU count**, **Storage** and **Auto Scaling** or adjust to your needs.
 
   ![](./images/provision-db-atp5.png " ")
 
-7. Enter and confirm the **Admin Database password** as it is on-premises:
+7. Enter and confirm the **Admin Database password** :
 
     ```
     <copy>
-    YpdCNR6nua4nahj8__
+    <Your password with 9 to 30 characters: 2 upper, 2 lower, 2 numbers, 2 special characters (#_-)>
     </copy>
     ```
 

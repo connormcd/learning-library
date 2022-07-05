@@ -23,7 +23,7 @@
       "title": "Lab 2: Environment Setup",
       "description": "How to provision the workshop environment and connect to it",
       "publisheddate": "06/30/2020",
-      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/setup-compute-generic/setup-compute-novnc.md"
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/setup-compute-generic/setup-compute-novnc-ssh.md"
     },
     {
       "title": "Lab 3: Initialize Environment",
@@ -61,7 +61,6 @@
       "publisheddate": "7/16/2020",
       "filename": "./../../em-configuration-compliance-management/em-configuration-compliance-management.md"
     },
-
     {
       "title": "Lab 9: Job System Automation",
       "description": "This lab provides an overview of the Enterprise Manager Job System and how to use it to automate routine administrative tasks such as backup, SQL scripts, OS jobs etc.",
@@ -79,6 +78,12 @@
       "description": "This lab provides an overview of Enterprise Monitoring capabilities using Oracle Enterprise Manager Cloud Control 13c",
       "publisheddate": "9/15/2021",
       "filename": "./../../em-monitoring-overview/em-monitoring-overview.md"
+    },
+    {
+      "title": "Lab 12: Deploy and Manage Oracle Databases with Ansible and Enterprise Manager",
+      "description": "The objective is to become familiar with the extensibility capabilities of Oracle Enterprise Manager and how to integrate them with 3rd party automation/orchestration DevOps tools",
+      "publisheddate": "1/16/2022",
+      "filename": "./../../em-devops-automation/em-devops-automation.md"
     },
     {
       "title": "Appendix: Frequently Asked Questions (FAQ)",

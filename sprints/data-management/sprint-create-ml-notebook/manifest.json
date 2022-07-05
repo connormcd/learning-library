@@ -1,0 +1,27 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How can I create a new Machine Learning Notebook in Oracle Autonomous Database?",
+         "description": "",
+         "filename": "sprint-create-ml-notebook.md"
+      },
+      {
+         "title": "How can I define paragraphs using the md, SQL, PL/SQL, and Python interpreters in Oracle Machine Learning Notebook?",
+         "description": "",
+         "filename": "../sprint-define-paragraphs-ml-notebook/sprint-define-paragraphs-ml-notebook.md"
+      },
+      {
+         "title": "How can I change my Machine Learning Notebook interpreter binding settings in Oracle Autonomous Database?",
+         "description": "",
+         "filename": "../sprint-change-ml-nb-interpreter-binding-settings/sprint-change-ml-nb-interpreter-binding-settings.md"
+      },
+      {
+         "title": "How can I create jobs to schedule a Machine Learning Notebook to run in Oracle Autonomous Database?",
+         "description": "",
+         "filename": "../sprint-create-ml-notebooks-jobs/sprint-create-ml-notebooks-jobs.md"
+      }
+   ],
+   "task_type": "Sections"
+}

@@ -1,4 +1,4 @@
-create user f1 identified by Oracle_12345;
+create user f1 identified by &secure_password;
 grant dwrole to f1;
 alter user f1 quota unlimited on data;
 grant create session to f1;

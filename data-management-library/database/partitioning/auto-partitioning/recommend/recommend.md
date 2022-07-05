@@ -7,31 +7,35 @@ Use auto partitioning to evaluate the performance benefits of partitioning a can
 Estimated Time: 20mins
  
 ### Objectives
-- Use auto partitioning to *recommend* a partitioning method and confirm it will  yield performance benefits for our workload.
+- Use auto partitioning to *recommend* a partitioning method and confirm it will yield performance benefits for our workload.
 
 ### Prerequisites
 This lab assumes you have completed the following labs:
 
-- Provision an ADB instance (19c, Always Free)
+- Provision an ADB instance (19c)
 - Create non-partitioned table
 - Validate the table
 
-## Task 1: Call the Recommend API and Report Results
+## Task 1: Recommend a Partitioning Strategy for your Candidate Table
 
-The *recommend\_partition\_method* procedure will perform an analysis of the workload queries and the table itself. From this information, a candidate partitioning scheme will be identified. Next, a partitioned copy of the table is built and the workload queries are re-tested on that. Finally, a summary report will be generated.
+The *recommend\_partition\_method* procedure will perform an analysis of the workload queries and the table itself. From this information, a candidate partitioning scheme will be identified using synthesized statistics of your table and its data. Next, a partitioned copy of the table including data is built and the workload queries are re-tested on that. Finally, a summary report will be generated.
 
 The time to complete the following proceure is dependent on the table size, the number of indexes, and the elapsed execution time for the captured workload (and auto partitioning may choose to use a subset of the workload rather than the whole thing). 
 
-1. Run the following PL/SQL block. It will take approcimately 20 mins to complete (for a 5GB table and the workload we captured earlier).
+1. Run the following PL/SQL block. It will take approximately 20 mins to complete (for a 5GB table and the workload we captured earlier).
 
     ````
     <copy>
-     var rep clob
      set timing on
      set serveroutput on
+     set trimspool on
+     set trim on
+     set pages 0
+     set linesize 1000
      set long 1000000
-     set pagesize 10000
-     set linesize 200
+     set longchunksize 1000000
+     set heading off
+     set feedback off
  
      exec dbms_auto_partition.configure('AUTO_PARTITION_MODE','REPORT ONLY');
      
@@ -43,7 +47,6 @@ The time to complete the following proceure is dependent on the table size, the 
             where recommendation_id = r;
 
      begin
-        :rep := null;
         r :=
            dbms_auto_partition.recommend_partition_method(
             table_owner    => 'ADMIN',
@@ -59,13 +62,11 @@ The time to complete the following proceure is dependent on the table size, the 
         dbms_output.put_line('Method: '||c.partition_method);
         dbms_output.put_line('Key   : '||c.partition_key);
         dbms_output.put_line('=============================================');
-        :rep := c.report;
      end loop;
 
      end;
      /
 
-     select :rep from dual;
     </copy>
     ````
 
@@ -79,10 +80,11 @@ The time to complete the following proceure is dependent on the table size, the 
       =============================================
       `````
 
-The partitioning method is not a standard range partition because it needs to account for NULL partition keys and it allows us to avoid creating a large number of partitions if, for example, column D is inserted/updated with a date value far into the future.
+Auto Partitioning has identified an optimal schema for your nonpartitioned table that will improve the performance. The partitioning method is not a standard range or interval partitioning because it needs to account for NULL partition keys and it allows us to avoid creating a large number of partitions if, for example, column D is inserted/updated with a date value far into the future.
 
 You may now **proceed to the next lab**.
 
 ## Acknowledgements
 * **Author** - Nigel Bayliss, Dec 2021 
-* **Last Updated By/Date** - Nigel Bayliss, Dec 2021
+* **Contributor** - Hermann Baer
+* **Last Updated By/Date** - Nigel Bayliss, Jan 2022

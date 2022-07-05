@@ -12,7 +12,7 @@ This workshop is loosely based on the video below where an "order processing sys
 
 This workshop is not a 'cookbook' or 'design guideline' on how to build an online shop - the purpose is to illustrate various JSON features that the Oracle Database offers. That said, you likely find that many examples are applicable to your business needs!
 
-The workshop uses the 'Autonomous JSON Database' cloud service. But everything shown here also works in other Oracle cloud and on-premise databases.
+The workshop uses the 'Autonomous JSON Database' cloud service. But everything shown here also works in other Oracle cloud and on-premise databases, with the exception of the database API for MongoDB which is currently only available for Autonomous Database. 
 
 You can complete this entire workshop using your web browser. There is no need to install any extra software. Obviously, when writing a real application, you would call many of the functionalities from a programming language like Java, JavaScript(nodeJS) or Python.
 
@@ -41,7 +41,7 @@ JSON is a human-readable, self-describing format to represent data in a hierarch
 	"lastName":"Smith",
 	"age":25,
 	"address":{
-		"street":"21 2nd Street“,"city":"New York",
+		"street":"21 2nd Street","city":"New York",
 		"state":"NY","postalCode":"10021",	 
 		"isBusiness":false	
 	},	
@@ -59,7 +59,7 @@ Objects consist of key-value pairs: the key "id" has the value 100. Keys are alw
 No problem, if this does not make much sense yet, you'll get more comfortable with JSON very soon - it is really easy!
 
 One thing to keep in mind is that JSON needs no upfront definition of keys or data types. You can easily modify the shape (schema) of your data.
-
+ß
 #### Why is JSON so popular for application development?
 
 Schema-flexibility is a big reason why JSON makes a lot of sense for application development. Especially in the initial phase an application is quite dynamic, new fields are needed, interfaces get changed, etc. Maintaining a relational schema is hard if application changes often need a change in the underlying tables and existing data needs to be modified to fit into the new schema. JSON makes this much easier as new documents may look different than old one (for example have additional fields).
@@ -73,13 +73,14 @@ Now you know what JSON is and also why so many people love it. Enough theory for
 In this workshop, you will explore: 
 *	How to start an Oracle Autonomous (JSON) Database,
 *	Fundamentals on the JSON data model and when to use it,
-*	How to store, query and process JSON document in collections using the SODA Api,
+*	How to store, query and process JSON document in collections using the SODA API,
 *	How to use SQL to query, generate and process JSON data,
 *	How to convert JSON data to the relational model (for example: for analytics or reporting),
 *	How to generate JSON data from relational sources (for example: to serve a microservice),
 *	How to update JSON data,
 *	How to perform transactions over JSON data,
 *	How to use stored procedures with JSON business logic.
+*   How to connect to Autonomous Database using MongoDB tools
 
 ### Prerequisites
 

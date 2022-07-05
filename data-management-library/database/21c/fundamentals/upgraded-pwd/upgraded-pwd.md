@@ -4,7 +4,7 @@
 
 This lab shows how the passwords in the password files in Oracle Database 21c are case-sensitive. In earlier Oracle Database releases, password files by default retain their original case-insensitive verifiers. The parameter to enable or disable password file case sensitivity `IGNORECASE` is removed. All passwords in new password files are case-sensitive.
 
-Estimated Lab Time: 2 minutes
+Estimated Time: 2 minutes
 
 ### Objectives
 
@@ -13,11 +13,10 @@ In this lab, you will:
 
 ### Prerequisites
 
-* An Oracle Free Tier, Paid or LiveLabs Cloud Account
-* Lab: SSH Keys
-* Lab: Create a DBCS VM Database
-* Lab: 21c Setup
-
+* An Oracle Account
+* SSH Keys
+* Create a DBCS VM Database
+* 21c Setup
 
 ## Task 1: Display the password file format of CDB21
 
@@ -30,7 +29,6 @@ In this lab, you will:
 	$ <copy>orapwd describe file=orapwCDB21</copy>
 	Password file Description : format=12
 	$
-
 	```
 
 ## Task 2: Change `SYS` password and verify that the password is now case-sensitive
@@ -38,7 +36,6 @@ In this lab, you will:
 1. Change the `SYS` user password in the password file.
 
 	```
-
 	$ <copy>orapwd file=$ORACLE_BASE/dbs/orapwCDB21 sys=Y force=Y format=12 ignorecase=Y</copy>
 
 	Usage 1: orapwd file=<fname> force={y|n} asm={y|n}
@@ -134,35 +131,28 @@ In this lab, you will:
 		There must be no spaces around the equal-to (=) character.
 
 	$
-
 	```
 
   *The usage notes mention all parameters that can be used in the command. `IGNORECASE` is not mentioned because it is now a deprecated parameter.*
 
 2. Re-enter the command without the deprecated parameter.
 
-
 	```
-
 	$ <copy>orapwd file=$ORACLE_BASE/dbs/orapwCDB21 sys=Y force=Y format=12</copy>
 	Enter password for SYS: <i>WElcome123##</i>
 
 	$
-
 	```
 
 3. Log on as `SYS` to `CDB21`. Then try logging in with the same password but without using the correct case.
 
-
 	```
-
 	$ <copy>sqlplus sys@CDB21 AS SYSDBA</copy>
 	Enter password: <i>WElcome123##</i>
 
 	Connected to:
 	```
 	```
-
 	SQL> <copy>CONNECT sys@CDB21 AS SYSDBA</copy>
 	Enter password: <i>welcome123##</i>
 
@@ -171,11 +161,9 @@ In this lab, you will:
 	Warning: You are no longer connected to ORACLE.
 
 	SQL>
-
 	```
 
 4. Display the list of the users.
-
 
 	```
 	SQL> <copy>CONNECT sys@CDB21 AS SYSDBA</copy>
@@ -183,7 +171,6 @@ In this lab, you will:
 	Connected.
 	```
 	```
-
 	SQL> <copy>SET PAGES 100</copy>
 	SQL> <copy>COL username FORMAT A30</copy>
 	SQL> <copy>SELECT username, password_versions FROM dba_users ORDER BY 2,1;</copy>
@@ -196,20 +183,14 @@ In this lab, you will:
 	APPQOSSYS
 	AUDSYS
 	CTXSYS
-
 	...
-
 	SQL> <copy>EXIT</copy>
 
 	$
-
 	```
-
-You may now [proceed to the next lab](#next).
 
 ## Acknowledgements
 
 * **Author** - Donna Keesling, Database UA Team
 * **Contributors** -  Kay Malcolm, Database Product Management
 * **Last Updated By/Date** -  Kay Malcolm, November 2020
-

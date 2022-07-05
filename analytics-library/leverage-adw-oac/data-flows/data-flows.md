@@ -1,4 +1,4 @@
-# Leveraging OAC Data Flow with ADW
+# Leverage OAC Data Flow with ADW
 
 ## Introduction
 
@@ -6,9 +6,9 @@ In this lab, you will learn about OAC Data Flow, the use case, benefits and how 
 Data Flow is a lightweight, simple and easy to use tool for business users to combine, organize and integrate data-sets and produce a curated data set (or data sets) that your users can analyze.
 Data Flow, is an important enabler of self – service, analytics environment.
 You can curate data from data sets, subject areas, or database connections.
-Curated data can also be send back to a relational database or Essbase for any downstream processing.
+Curated data can also be send back to a relational database for any downstream processing.
 
-_Estimated Lab Time_: 20 minutes
+_Estimated Time_: 20 minutes
 
 ![Data Flow](../data-flows/images/data-flows.png)
 
@@ -18,16 +18,8 @@ _Estimated Lab Time_: 20 minutes
 
 ### Prerequisites
 
-* An Oracle Cloud Free Tier or Paid account
-* You should have completed  
-    * Lab 1: Provisioning your Autonomous Database instance
-    * Lab 2: Provisioning your Oracle Analytics Cloud instance
-    * Lab 3: Connecting OAC to ADW and adjusting Data Set properties
-    * Lab 5: Gaining Insights with Visual Data Dialog
-    * Lab 6: Monitoring and Ad-hoc scaling up ADW activity for optimal OAC experience
-    * Lab 7: Building simple Interactive Analysis
-    * Lab 8: Mashing up additional Data Sets, Contextual Data Preparation
-    * Lab 10: Geo Maps and Custom Binning
+* An [_Oracle Cloud Free Tier Account_](https://www.oracle.com/cloud/free/) or a Paid account
+* All previous labs successfully completed
 
 ## Task 1: Data Flow
 
@@ -119,7 +111,6 @@ Click **Add a Step(+)** and Click **Save**.
 **When run**: select **Replace existing data**
 
      ![Save](../data-flows/images/savedata2small.png)
-     ![Save](../data-flows/images/savedata3small.png)
 
 15.  Column property can be changed at the time of saving the data to attribute/metric if needed.
 
@@ -141,27 +132,32 @@ Click on **Go Back** icon.
 
      ![Go Back](../data-flows/images/gobacksmall.png)
 
-## Task 2: Connect to SQL Developer Web tool to check your data
+## Task 2: Connect to Database Actions tool to check your data
 
-**Oracle SQL Developer Web (Database Actions)** is the web-based version of Oracle SQL Developer that enables you to execute queries and scripts, create database objects, load data, build data models, and monitor database performance.  
+**Database Actions** is the web-based version of Oracle SQL Developer that enables you to execute queries and scripts, create database objects, load data, build data models, and monitor database performance.  
 To connect to Oracle SQL Developer Web you have at least a couple of options.
 
-1.  First option: you can replicate the steps from ""**Lab 3: Connecting OAC to ADW and adjusting Data Set properties**"", "**STEP 1: Load data to your Autonomous Database**".  
-Essentially from your **Autonomous Database Details** page, click the **Tools** tab. Click **Open SQL Developer Web**..
+1.  First option: you can replicate the steps from ""**Lab 3: Connecting OAC to ADW and adjusting Data Set properties**"", "**STEP 1: Load data to your Autonomous Database**".
 
-2.  Second option: you can directly connect to the SQL Developer Web page URL. The URL should be similar to  
+2.  Second option: you can directly connect to the **Database Actions** page URL. The URL should be similar to  
 <https://dbname.adb.us-ashburn-1.example.com/ords/schema-alias/_sdw/?nav=worksheet>  
-In the SQL Developer Web Sign in page, enter your **Username** and **Password**...
+In the Database Actions Sign in page, enter your **Username** and **Password**...
+
+    ![ADWH](../data-flows/images/adwh-signin.png)
     > For more details please check [Connect with Built-in Oracle Database Actions](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/sql-developer-web.html#GUID-102845D9-6855-4944-8937-5C688939610F)
 
-3.  Go to the **Worksheet** pane and **Run** a basic Select statement (SELECT * FROM ADMIN.DCA\_CUST\_DATA;)
+3.  Go to the **SQL** pane
+
+    ![Sql](../data-flows/images/sql.png)
+
+4.  Go to the **Worksheet** pane and **Run** a basic Select statement (SELECT * FROM ADMIN.DCA\_CUST\_DATA;)
 
     ![Sql Dev Web](../data-flows/images/sqldev-web.png)
 
 
 You have just finished learning about the Data Flow feature of OAC.
 
-You may now [proceed to the next lab](#next)
+You may now **proceed to the next lab**.
 
 ## Want to Learn More?
 
@@ -177,5 +173,5 @@ You may now [proceed to the next lab](#next)
 
 - **Author** - Lucian Dinescu, Product Strategy, Analytics
 - **Contributors** -
-- **Reviewed by** - Shiva Oleti, Product Strategy, Analytics
-- **Last Updated By/Date** - Lucian Dinescu, April 2021
+- **Reviewed by** - Shiva Oleti, Product Strategy, Analytics, Sebastien Demanche, Andor Imre (Oracle Cloud Center of Excellence)
+- **Last Updated By/Date** - Lucian Dinescu, February 2022

@@ -45,7 +45,7 @@ This lab assumes you have completed the following labs:
 
     **(right-click and download the file with the following link)**
 
-    [csv data](https://objectstorage.us-ashburn-1.oraclecloud.com/p/Q4ShRkHMFyl4RiSUfoR5zH_KS8rfFeRDpM-wHkY6Ytt4YcpmnlOiOpoPUNzdzbtf/n/c4u04/b/developer-library/o/csv_data.csv)
+    [csv data](https://objectstorage.us-ashburn-1.oraclecloud.com/p/LNAcA6wNFvhkvHGPcWIbKlyGkicSOVCIgWLIu6t7W2BQfwq2NSLCsXpTL9wVzjuP/n/c4u04/b/livelabsfiles/o/developer-library/csv_data.csv)
 
 6. Once on your desktop, **drag the file into the Upload Data into New Table model**. You can also click the Select Files button and find where you downloaded it via your operating system's/Web Browser's file browser.
 
@@ -59,7 +59,11 @@ This lab assumes you have completed the following labs:
 
     ![Data Column Layout from uploaded file](./images/sdw-21.png)
 
-    **Click Next** on the bottom right of the modal when done looking at this step.
+    Set all the columns to be of VARCHAR2 with the length of 4000. This will provide a flawless data loading experience.
+    
+    ![Set Columns to VARCHAR2 4000](./images/sdw-21a.png)
+
+    When table and columns look like the below image, **Click Next** on the bottom right of the modal.
 
     ![Check out data then Click Next Button](./images/sdw-22.png)
 
@@ -154,5 +158,5 @@ You may now [proceed to the next lab](#next).
 ## Acknowledgements
 
 - **Author** - Jeff Smith, Distinguished Product Manager and Brian Spendolini, Trainee Product Manager
-- **Last Updated By/Date** - Brian Spendolini, September 2021
-- **Workshop Expiry Date** - May 2022
+- **Last Updated By/Date** - Brian Spendolini, April 2022
+- **Workshop Expiry Date** - June 2022

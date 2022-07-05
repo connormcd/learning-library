@@ -31,11 +31,11 @@ where:
 
 Occasionally, new commands are added to the database CLI and other commands are updated to support new features. You can use the **cliadm update-dbcli** command to update the database CLI with the latest new and updated commands. 
 
-1. From your Compute node, connect to the Database node using SSH.
+1. Connect to the Database node using SSH (Use Putty on Windows).
 
     ````
     <copy>
-    ssh -C -i id_rsa opc@<DB Node Private IP Address>
+    ssh -C -i Downloads/ssh-key-XXXX-XX-XX.key opc@<DB Node Public IP Address>
     </copy>
     ````
 
@@ -115,7 +115,7 @@ Occasionally, new commands are added to the database CLI and other commands are 
                     Message:  Dcs cli will be updated
     ````
 
-5. Verify the update job has finished successfully. Use the Job ID from your update command response. Use your job ID.
+5. Verify the update job has finished successfully. Replace the attribute in the example with the Job ID from your update command response.
 
     ````
     <copy>
@@ -203,7 +203,7 @@ With dbcli you can retrieve all the information about a database installation on
 
     ID                                       Type   DBUnique Name        Status    
     ---------------------------------------- ------ -------------------- ----------
-    cb07c003-edf2-4d2c-9bb7-980df0d1c5d5     Lvm    DBS001_fra14j        Configured
+    cb07c003-edf2-4d2c-9bb7-980df0d1c5d5     Lvm    WSDB_fra14j        Configured
     ````
 
 4. You can use the list databases command to list all databases on the DB system, and additional information.
@@ -215,7 +215,7 @@ With dbcli you can retrieve all the information about a database installation on
 
     ID                                       DB Name    DB Type  DB Version           CDB        Class    Shape    Storage    Status        DbHomeID                                
     ---------------------------------------- ---------- -------- -------------------- ---------- -------- -------- ---------- ------------ ----------------------------------------
-    512eb207-b4ff-4145-83e6-0212e08d8f3e     DBS001     Si       19.7.0.0.0           true       Oltp              LVM        Configured   bee69ef5-2a12-4d87-a694-4f540ff777e9
+    512eb207-b4ff-4145-83e6-0212e08d8f3e     WSDB     Si       19.7.0.0.0           true       Oltp              LVM        Configured   bee69ef5-2a12-4d87-a694-4f540ff777e9
     ````
 
 5. Use the list backup configs command to list all the backup configurations in the DB system.
@@ -265,7 +265,7 @@ With dbcli you can control the running status of a database on a DB System.
 
     Database Status                          Running Status                   Node Name           
     ---------------------------------------- -------------------------------- ------------------
-    Open                                     running                          dbs01h   
+    Open                                     running                          db-host   
     ````
 
 2. Stop the database running on this DB System. Use your database ID for the command. This command generates a job.
@@ -318,7 +318,7 @@ With dbcli you can control the running status of a database on a DB System.
 
     Database Status                          Running Status                   Node Name           
     ---------------------------------------- -------------------------------- --------------------
-    Closed                                   not running                      dbs01h             
+    Closed                                   not running                      db-host             
     ````
 
 5. Start the database on this DB System. Use your database ID for the command. This command generates a job.
@@ -350,7 +350,7 @@ With dbcli you can control the running status of a database on a DB System.
 
     Database Status                          Running Status                   Node Name           
     ---------------------------------------- -------------------------------- ------------------
-    Open                                     running                          dbs01h             
+    Open                                     running                          db-host             
     ````
 
 ## Task 4: Manage Pluggable Databases
@@ -366,7 +366,8 @@ With dbcli command you can manage pluggable databases on the container database 
 
     ID                                       PDB Name             CDB Name             Status              
     ---------------------------------------- -------------------- -------------------- --------------------
-    52fa1489-2a1c-47d4-9124-9a2f40fc7ce0     PDB011               DBS001               Configured           
+    52fa1489-2a1c-47d4-9124-9a2f40fc7ce0     PDB011               WSDB               Configured           
+    90e6109a-ba96-47da-b09e-bb54223fb5a6     PDB012               WSDB               Configured           
     ````
 
 2. Get more details about pluggable databases with the describe PDBs command.
@@ -378,14 +379,14 @@ With dbcli command you can manage pluggable databases on the container database 
 
     ID                                       PDB Name             CDB Name             Open Mode            Restricted Mode      Database Instance Name 
     ---------------------------------------- -------------------- -------------------- -------------------- -------------------- -------------------- 
-    52fa1489-2a1c-47d4-9124-9a2f40fc7ce0     PDB011               DBS001               READ WRITE           NO                   DBS001              
+    52fa1489-2a1c-47d4-9124-9a2f40fc7ce0     PDB011               WSDB               READ WRITE           NO                   WSDB              
     ````
 
-3. Create a new pluggable database, name it **pdb2**. Provide a password for the Admin user, and the password of the Transparent Data Encryption Wallet when asked. Use **DBlabsPTS#22_** for both passwords. A new job is generated.
+3. Create a new pluggable database, name it **pdb013**. Provide a password for the Admin user, and the password of the Transparent Data Encryption Wallet when asked. Use **DatabaseCloud#22_** for both passwords. A new job is generated.
 
     ````
     <copy>
-    dbcli create-pdb -i 512eb207-b4ff-4145-83e6-0212e08d8f3e -n pdb2 -p -tp
+    dbcli create-pdb -i 512eb207-b4ff-4145-83e6-0212e08d8f3e -n pdb013 -p -tp
     </copy>
 
     Admin password of the PDB to be created: 
@@ -394,7 +395,7 @@ With dbcli command you can manage pluggable databases on the container database 
     Job details                                                      
     ----------------------------------------------------------------
                          ID:  62ee73cc-e353-4e4b-90f0-f752cd5df6ec
-                Description:  Create Pluggable Database :PDB2 in database:DBS001
+                Description:  Create Pluggable Database :PDB013 in database:WSDB
                      Status:  Created
                     Created:  July 30, 2020 10:14:04 AM UTC
                    Progress:  0%
@@ -411,7 +412,7 @@ With dbcli command you can manage pluggable databases on the container database 
     Job details                                                      
     ----------------------------------------------------------------
                          ID:  62ee73cc-e353-4e4b-90f0-f752cd5df6ec
-                Description:  Create Pluggable Database :PDB2 in database:DBS001
+                Description:  Create Pluggable Database :PDB013 in database:WSDB
                      Status:  Running
                     Created:  July 30, 2020 10:14:04 AM UTC
                    Progress:  5%
@@ -419,7 +420,7 @@ With dbcli command you can manage pluggable databases on the container database 
 
     Task Name                                                                Start Time                          End Time                            Status    
     ------------------------------------------------------------------------ ----------------------------------- ----------------------------------- ----------
-    Create pluggable Database:pdb2                                           July 30, 2020 10:14:06 AM UTC       July 30, 2020 10:14:06 AM UTC       Running   
+    Create pluggable Database:pdb013                                         July 30, 2020 10:14:06 AM UTC       July 30, 2020 10:14:06 AM UTC       Running   
     ````
 
 5. Repeat the previous command to check if the create PDB job has finished successfully.
@@ -432,7 +433,7 @@ With dbcli command you can manage pluggable databases on the container database 
     Job details                                                      
     ----------------------------------------------------------------
                          ID:  62ee73cc-e353-4e4b-90f0-f752cd5df6ec
-                Description:  Create Pluggable Database :PDB2 in database:DBS001
+                Description:  Create Pluggable Database :PDB013 in database:WSDB
                      Status:  Success
                     Created:  July 30, 2020 10:14:04 AM UTC
                    Progress:  100%
@@ -440,11 +441,11 @@ With dbcli command you can manage pluggable databases on the container database 
 
     Task Name                                                                Start Time                          End Time                            Status    
     ------------------------------------------------------------------------ ----------------------------------- ----------------------------------- ----------
-    Create pluggable Database:pdb2                                           July 30, 2020 10:14:06 AM UTC       July 30, 2020 10:15:47 AM UTC       Success   
+    Create pluggable Database:pdb013                                         July 30, 2020 10:14:06 AM UTC       July 30, 2020 10:15:47 AM UTC       Success   
     Configure init params                                                    July 30, 2020 10:15:47 AM UTC       July 30, 2020 10:15:48 AM UTC       Success   
     ````
 
-6. Use again the list PDBs command to show all pluggable databases, and verify the new pluggable database **PDB2** is in the list.
+6. Use again the list PDBs command to show all pluggable databases, and verify the new pluggable database **PDB013** is in the list.
 
     ````
     <copy>
@@ -453,8 +454,9 @@ With dbcli command you can manage pluggable databases on the container database 
 
     ID                                       PDB Name             CDB Name             Status              
     ---------------------------------------- -------------------- -------------------- -----------------
-    52fa1489-2a1c-47d4-9124-9a2f40fc7ce0     PDB011               DBS001               Configured           
-    5531cec9-0dcf-4d2a-b536-eb87db31c677     PDB2                 DBS001               Configured           
+    52fa1489-2a1c-47d4-9124-9a2f40fc7ce0     PDB011               WSDB               Configured
+    90e6109a-ba96-47da-b09e-bb54223fb5a6     PDB012               WSDB               Configured                      
+    5531cec9-0dcf-4d2a-b536-eb87db31c677     PDB013               WSDB               Configured           
     ````
 
 7. Type **exit** command two times followed by Enter to close all sessions (root user, and SSH).
@@ -471,11 +473,11 @@ With dbcli command you can manage pluggable databases on the container database 
 
 You can apply patches and updates with dbcli command. Our primary database should is (or will be) patched using the cloud console. For this exercise, we use the standby database.
 
-1. Connect to the Standby DB System node using SSH.
+1. Connect to the Standby DB System node using SSH (Use Putty on Windows).
 
     ````
     <copy>
-    ssh -C -i id_rsa opc@<Standby Node Public IP Address>
+    ssh -C -i Downloads/ssh-key-XXXX-XX-XX.key opc@<Standby Node Public IP Address>
     </copy>
     ````
 
@@ -563,6 +565,18 @@ You can apply patches and updates with dbcli command. Our primary database shoul
     -------------------- --------------------
     No                   No        
     ````
+
+    >**Note** : If there are OS patches available, you can run the OS update with the following commands:
+    >
+    >Pre-update check.
+    >````
+    >dbcli update-server -c os -p
+    >````
+    >OS update.
+    >````
+    >dbcli update-server -c os
+    >````
+    >Reboot DB System Node.
 
 8. Use the update server command to apply patches to the server components in the DB system. In case of a DB System using Oracle Grid Infrastructure (OGI), this command updates OGI components.
 

@@ -35,8 +35,10 @@ Estimated workshop time: 3 hours and 45 minutes
 - **Lab 7:** Use wallets for secure connections to the autonomous database.
 - **Lab 8:** Manage and monitor your autonomous Database.
 - **Lab 9:** Scale up your Oracle Autonomous Database service to have more CPUs.
-- **Lab 10:** Create Oracle Machine Learning SQL notebooks.
-- **Lab 11:** Use the in-database DBMS\_PREDICTIVE\_ANALYTICS functionality.
+- **Lab 10:** Apply auto scaling.
+- **Lab 11:** Enable disaster recovery.
+- **Lab 12:** Create refreshable clones.
+- **Lab 13:** Set event and alarm notifications.
 
 **After reading the following workshop prerequisites, get started by clicking Lab 1 in the Contents menu on the left.**
 
@@ -66,4 +68,4 @@ Use these links to get more information about Oracle Autonomous Database:
 
 - **Author** - Nilay Panchal, Oracle Autonomous Database Product Management
 - **Adapted for Cloud by** - Richard Green, Principal Developer, Database User Assistance
-- **Last Updated By/Date** - Richard Green, September 2021
+- **Last Updated By/Date** - Richard Green, February 2022

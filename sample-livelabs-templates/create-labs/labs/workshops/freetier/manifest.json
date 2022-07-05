@@ -18,7 +18,7 @@
       "filename": "./../../1-labs-git-hub-get-started-install-configure/1-labs-git-hub-get-started-install-configure.md"
     },
     {
-      "title": "Lab 2: Understand the learning-library Folder Structure",
+      "title": "Lab 2: Understand the Oracle LiveLabs Folder Structure",
       "description": "This lab describes the prescribed folder structure that we need follow for developing labs and workshops.",
       "filename": "./../../2-labs-templates-folder-structure/2-labs-templates-folder-structure.md"
     },
@@ -38,14 +38,14 @@
       "filename": "./../../4-labs-github-merge-commit-pullrequest/4-labs-github-merge-commit-pullrequest.md"
     },
     {
-      "title": "Optional Lab 5: Add GitHub Hosted Labs and Workshop to OHC",
-      "description": "This lab shows you how to to use Oracle Learning Library (OLL) administration tools to manage links and how to add a link to an OHC page.",
-      "filename": "./../../5-labs-add-git-hub-hosted-tutorials-to-ohc/5-labs-add-git-hub-hosted-tutorials-to-ohc.md"
+      "title": "(Optional) Lab 5: Generate SSH keys",
+      "description": "This lab shows you how to generate SSH keys for authentification",
+      "filename": "https://objectstorage.us-phoenix-1.oraclecloud.com/p/SJgQwcGUvQ4LqtQ9xGsxRcgoSN19Wip9vSdk-D_lBzi7bhDP6eG1zMBl0I21Qvaz/n/c4u02/b/common/o/labs/generate-ssh-key-local/generate-ssh-keys-local.md"
     },
     {
       "title": "Need Help?",
       "description": "Solutions to Common Problems and Directions for Receiving Live Help",
-      "filename":"https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-freetier.md"
+      "filename":"./../../need-help/need-help.md"
     }
   ]
 }

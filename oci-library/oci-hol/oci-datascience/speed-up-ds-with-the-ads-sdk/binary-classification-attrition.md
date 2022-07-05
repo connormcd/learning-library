@@ -1,4 +1,4 @@
-# Binary Classification Model 
+# Binary Classification Model
 
 ## Introduction
 
@@ -10,15 +10,16 @@ In addition to the modeling aspects, the lab will demonstrate some of the featur
 
 The lab also demonstrates the feature engineering abilities in ``ADS``. For example, it can fix class imbalance by up or downsampling. There are many transforms that ADS can also apply. You can have ADS perform an analysis of the data and automatically perform the transformations that it thinks would improve the model. This is done with the ``auto_transform()`` method. The ``suggest_recommendations()`` method allows you to explore the suggested transforms using the notebook's UI and select the transformations that you want it to make.
 
-The Oracle ``AutoML`` package automatically tunes a model class to produce the best models. In this lab, Oracle ``AutoML`` is used to create, tune and select the best supervised binary classification model. Oracle ``AutoML`` supports binary and multi-class classifications, as well as regression problems. It automates three major stages of the ML pipeline, feature selection, algorithm selection, and hyperparameter tuning. These pieces are combined into a pipeline which automatically optimizes the whole process with minimal user interaction.
+The Oracle ``AutoML`` environment automatically tunes a model class to produce the best models. In this lab, Oracle ``AutoML`` is used to create, tune and select the best supervised binary classification model. Oracle ``AutoML`` supports binary and multi-class classifications, as well as regression problems. It automates three major stages of the ML pipeline, feature selection, algorithm selection, and hyperparameter tuning. These pieces are combined into a pipeline that automatically optimizes the whole process with minimal user interaction.
 
-The ``ADSEvaluator`` class is used to evaluate model performance. Since this is a binary classification problem, ``ADSEvaluator`` is used to create precision-recall, ROC, lift, and gain plots. Each model under study is plotted together. This allows for easy comparison. In addition, the normalized confusion matrices are provided.
+The ``ADSEvaluator`` class is used to evaluate model performance. Since this is a binary classification problem,  the ``ADSEvaluator`` is used to create precision-recall, ROC, lift, and gain plots. Each model under study is plotted together. This allows for easy comparison. In addition, the normalized confusion matrices are provided.
 
 After the models have been built and evaluated, it is often important to understand what features are important. This lab examines employee attrition data and an important part of this process is to understand the factors that tend to cause employees to resign. The ``ADSExplainer`` class provides information at the global level, which is the general trends in the behavior of the black-box machine learning model. It does this by providing feature importance data and graphs. It also provides Partial Dependence Plots (PDP) and Individual Conditional Expectations (ICE) plots. The Machine Learning Explainability (MLX) features in ``ADS`` also allow the data scientist to examine the local behavior of the machine learning model. That is, given a single prediction, what were the important features used by the model to make the prediction on a specific observation. This can often be quite different than the feature importance on a global scale.
 
-*Estimated Lab Time*: 90 minutes
+*Estimated Time*: 90 minutes
 
 ### Objectives
+
 In this lab, you will:
 * Learn how to execute cells in JupyterLab and perform other basic operations in a notebook.
 * Learn how to launch a **Notebook Example**.
@@ -30,12 +31,13 @@ In this lab, you will:
 * Learn about machine learning explainability (MLX) for global and local model behavior.
 
 ### Prerequisites
+
 This lab assumes that you have:
 * A Data Science notebook session.
 
 ## Task 1: Working with JupyterLab
 
-Now that JupyterLab is open, it can be seen that the screen is split into two sections. By default, the left side has the file browser open but it can change based on what navigation icons are selected on the far left side of the screen. The right side of the screen contains the workspace. It will have a notebook, terminal, console, launcher, Notebook Examples, etc..
+Now that JupyterLab is open, it can be seen that the screen is split into two sections. By default, the left side has the file browser open but it can change based on what navigation icons are selected on the far left side of the screen. The right side of the screen contains the workspace. It will have a notebook, terminal, console, launcher, Notebook Examples, etc.
 
 ![](./../speed-up-ds-with-the-ads-sdk/images/notebook-session.png)
 
@@ -56,55 +58,49 @@ The following is a summary of the steps that are covered in this lab along with 
 1. **Local explanations**: ``local_explainer = explainer.local_explanation()``
 1. **Feature important**: ``global_explainer.feature_importance_summary()`` and ``global_explainer.compute_feature_importance()``
 
-## Task 3: Install a Conda Package
+## Task 3: Install a Conda Environment
 
-A conda package is a collection of libraries, programs, components and metadata. It defines a reproducible set of libraries that are used in the data science environment. There is an Environment Explore that allows you to learn about the different conda environments that are available. We are going to use the General Machine Learning for CPUs conda.
+A conda environment is a collection of libraries, programs, components and metadata. It defines a reproducible set of libraries that are used in the data science environment. There is an Environment Explore that allows you to learn about the different conda environments that are available. We are going to use the General Machine Learning for CPUs conda.
 
 1. Open a terminal window by clicking on **File**, **New** and then **Terminal**.
-1. Run the command: `odsc conda install -s mlcpuv1`
+1. Run the command: `odsc conda install -s generalml_p37_cpu_v1`
 1. You will receive a prompt related to what version number you want. Press `Enter` to select the default.
-1. Wait for the conda package to be installed.
-
+1. Wait for the conda environment to be installed.
 
 ## Task 4: Binary Classification Model
 
-To open the notebook, that is used in this lab, have the launcher open. The launcher is open by default but if it is currently closed it can be opened by clicking on **File** and then click on **New Launcher**. 
+To open the notebook, that is used in this lab, have the launcher open. The launcher is open by default but if it is currently closed it can be opened by clicking on **File** and then clicking on **New Launcher**.
 
 1. Click on the **Notebook Examples**. A drop down will appear.
-    ![](./../speed-up-ds-with-the-ads-sdk/images/click-ne.png)
+![](./../speed-up-ds-with-the-ads-sdk/images/click-notebook-explorer.png)
 
-1. Select the environment **mlcpuv1** and then the notebook **binary\_classification\_attrition.ipynb**. 
-    ![](./../speed-up-ds-with-the-ads-sdk/images/load-example.png)
+1. Select the environment **generalml\_p37\_cpu\_v1** and then the notebook **binary\_classification\_attrition.ipynb**.
+![](./../speed-up-ds-with-the-ads-sdk/images/notebook-example-generalml_p37_cpu_v1.png)
 
 1. Click **Load Example**. The notebook will open in a new tab.
-    ![](./../speed-up-ds-with-the-ads-sdk/images/binary-notebook.png)
+![](./../speed-up-ds-with-the-ads-sdk/images/binary-notebook.png)
 
 1. Read through the document. When you encounter a chunk of code, click in the cell and press *shift + enter* to execute it. When the cell is running a ``[*]`` will appear in the top left corner of the cell. When it is finished, a number will appear in ``[ ]``, for example ``[1]``.
-    ![](./../speed-up-ds-with-the-ads-sdk/images/running-cell.png)
-    ![](./../speed-up-ds-with-the-ads-sdk/images/finished-cell.png)
-
+![](./../common/images/jlab-running-cell.png)
+![](./../common/images/jlab-executed-cell.png)
 
 1. Execute the cells in order. If you run into problems and want to start over again, click the **restart** button then click **Restart**.
-    ![](./../speed-up-ds-with-the-ads-sdk/images/restart-kernel.png)
-    ![](./../speed-up-ds-with-the-ads-sdk/images/restart.png)
+![](./../common/images/restart-kernel-button.png)
+
+![](./../common/images/restart-kernel-confirmation.png)
 
 1. Step through the lab and look at the tools that are provided by Oracle Accelerated Data Science (ADS) SDK. This automates a number of time-consuming and repetitive processes by analyzing the data and creating appropriate outputs.
 
 ## Task 5: Next Steps
 
-**Congratulations! You have successfully completed the lab**
+There are some other notebooks that you may find interesting. They can be accessed by clicking **File** and then clicking **New Launcher**. This will open Launcher. Click **Notebook Examples** and select a notebook and then click **Load Example**. Some notebooks of interest are:
 
-There are some other notebooks that you may find interesting. They can be accessed by clicking **File** then clicking **New Launcher**. This will open Launcher. Click **Notebook Examples** and select a notebook then click **Load Example**. Some notebooks of interest are:
-
+* **ads\_feature\_type.ipynb**: Learn how to use Feature Types to speed up your EDA and improve the robustness of your data.
 * **data\_visualizations.ipynb**: It provides a comprehensive overview of the data visualization tools in ADS. This includes smart data visualization for columns based on data types and values.
 * **transforming\_data.ipynb**: Learn about the ``ADSDatasetFactory`` and how it can clean and transform data.
-* **model\_from\_other\_library.ipynb**: See the capabilities of the ``ADSModel`` class. See how ``ADSModel`` makes the ADS pipeline completely modular and adaptable to 3rd party models.
-
-You may now *proceed to the next lab*.
 
 ## Acknowledgements
 
 * **Author**: [John Peach](https://www.linkedin.com/in/jpeach/), Principal Data Scientist
 * **Last Updated By/Date**:
-    * [John Peach](https://www.linkedin.com/in/jpeach/), Principal Data Scientist, January 2021
-
+  * [John Peach](https://www.linkedin.com/in/jpeach/), Principal Data Scientist, April 2022

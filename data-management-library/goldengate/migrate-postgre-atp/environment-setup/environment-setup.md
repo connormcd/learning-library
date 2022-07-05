@@ -7,8 +7,8 @@ This first lab is very important and where we will create all of our resources:
 - Virtual Cloud Network
 - Source Postgreqsql database
 - Target Autonomous database
-- Goldengate for non-Oracle deployment
-- Goldengate Microservices deployment
+- GoldenGate for non-Oracle deployment
+- GoldenGate Microservices deployment
 
 *Estimated lab time*: 10 minutes
 
@@ -19,14 +19,14 @@ If you are running this lab in your existing tenancy, **make sure** you have the
 
 1. ATP for Target database - 1 OCPU, 1 TB storage
 2. Virtual Machine for Source Database - VM.StandardE2.1
-3. Virtual Machine for Goldengate Postgresql - VM.Standard2.1  
-4. Virtual Machine for Goldengate Microservices - VM.Standard2.1
+3. Virtual Machine for GoldenGate Postgresql - VM.Standard2.1  
+4. Virtual Machine for GoldenGate Microservices - VM.Standard2.1
 
-	![](/images/architecture.png)
+	![Work environment architecture](/images/architecture.png)
 
 For a technical overview of this lab step, please watch the following video:
 
-[](youtube:LWcwzXPw9ZU)
+[Video showing technical overview](youtube:LWcwzXPw9ZU)
 
 ### Prerequisites
 
@@ -44,7 +44,7 @@ For a technical overview of this lab step, please watch the following video:
 	</copy>
 	```
 
-	![](/images/1.Git.PNG)
+	![Cloned directory in Cloud Shell Terminal.](/images/1-git.png)
 
 ## Task 2: Create Terraform Variables
 
@@ -95,7 +95,7 @@ For a technical overview of this lab step, please watch the following video:
 	
 3. Make a copy of your output results in your notepad for later use.
 
-	![](/images/1.git_1.PNG)
+	![Copy and save output results.](/images/1-git-1.png)
 
 **This concludes this lab. You may now [proceed to the next lab](#next).**
 
@@ -111,8 +111,8 @@ Depending on the quota limit you have in your tenancy you can choose from any VM
 This lab uses the following compute types but not limited to:
 
 - Virtual Machine for Source Database - **VM.StandardE2.1**
-- Virtual Machine for Goldengate Postgresql - **VM.Standard2.1**
-- Virtual Machine for Goldengate Microservices - **VM.Standard2.1**
+- Virtual Machine for GoldenGate Postgresql - **VM.Standard2.1**
+- Virtual Machine for GoldenGate Microservices - **VM.Standard2.1**
 
 #### Fix for Issue #1
 
@@ -122,7 +122,7 @@ This lab uses the following compute types but not limited to:
 4. Look for "Standard2 based VM" and "Standard.E2 based VM", then check **Available** column numbers and sum  them up. All you need to have is at least **3** or more. If you have found correct available capacity, please continue to the next step.
 5. Go to `migrate_to_atp` folder in your cloud-shell and modify variables file with: **`vi vars.tf`**
 
-	![](/images/fix_1.png)
+	![Troubleshooting service limits exceeded.](/images/fix-1.png)
 
 6. Fix above accordingly to your **Available** resources.
 7. Go to **Step 3: Terraform**, and continue from substep **2**.
@@ -133,4 +133,4 @@ However, if you are unable to resolve it using above fix, please skip to the **N
 
 * **Author** - Bilegt Bat-Ochir - Senior Solution Engineer
 * **Contributors** - John Craig - Technology Strategy Program Manager, Patrick Agreiter - Senior Cloud Engineer
-* **Last Updated By/Date** - Bilegt Bat-Ochir 4/15/2021
+* **Last Updated By/Date** - Bilegt Bat-Ochir 04/04/2022

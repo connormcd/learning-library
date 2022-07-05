@@ -1,5 +1,5 @@
 ﻿
-# Deploying ODI Web Edition
+# Deploy ODI Web Edition
 
 ## Introduction
 
@@ -110,61 +110,55 @@ To complete this lab, you need to have the following:
 
     ![ALT text is not available for this image](images/3018104742.png)
 
-2. In the details screen that appears, you should review and (if suitable) accept the Oracle Terms of Use. Then press **Launch Stack**. 
+2. In the details screen that appears, you should review and (if suitable) accept the Oracle Terms of Use. Then click **Launch Stack**. 
 
-    ![ALT text is not available for this image](images/3018104743.png)
+    ![Launch ODI Web Edition Stack](images/Launch_ODI_Web_Edition_Stack.jpg)
 
-3. What follows is a simple fill-in-the-blanks dialog to configure the OCI software stack appropriately. In the **Stack Information** section, provide a name and description for this software stack. You can ignore the target compartment in this dialog, but it's important to specify this appropriately in the next dialog. 
+3. What follows is a simple fill-in-the-blanks dialog to configure the OCI software stack appropriately. In the **Stack Information** section, provide a name and description for this software stack. Specify target compartment in in which you want to create the stack and the compute instance. Then click **Next**. 
 
-    ![ALT text is not available for this image](images/3018104744.png)
+    ![Create Stack configuration menu 01](images/Create_Stack_menu_01.jpg)
 
-4. The **Configure Variables** section is a rather long form, broken up here into three separate screenshots. 
+4. In the **Oracle Data Transforms Instance Settings** section, enter your own OCI Public key into the field SSH PUBLIC KEY. Then click **Next**.
 
-    **Important**: In the **General Settings** section, be sure to specify the same TARGET COMPARTMENT as you used to deploy your Autonomous Database.
+    ![Create Stack configuration menu 02](images/Create_Stack_menu_02.jpg)
 
-    ![ALT text is not available for this image](images/3018104745.png)
+5. Next comes the **Review** section. Be sure to check the values specified here, so that the stack is deployed successfully. Go back and make any corrections necessary. When you're satisfied, click **Create**. 
 
-5. In the **Oracle Data Transforms Instance Settings** section, enter your own OCI Public key into the field SSH PUBLIC KEY. You'll also need to specify a password for ORACLE DATA TRANSFORMS VNC PASSWORD. 
+    ![Create Stack configuration menu 03](images/Create_Stack_menu_03.jpg)
 
-    ![ALT text is not available for this image](images/3018104746.png)
+6. First status will be yellow **In Progress** and when the OCI components of the stack are successfully deployed, the status icon will turn green, as shown below.
 
-6. In the **New Oracle Data Transforms Metadata Repository** section, pick the name of your Autonomous Database from the pick list at the top. (This pick list is populated with names of Autonomous Databases in the same Compartment as you're using here. This is why it was important to pick the Target Compartment carefully in the **General Settings** section above.)
+    **NOTE:** It can take several minutes to finish.
 
-    **Important**: Be sure to check the box next to REGISTER ORACLE DATA TRANSFORMS WITH THE AUTONOMOUS DATABASE, DATABASE ACTIONS PAGE. This is what puts the Data Transforms card on your Database Actions page.
+    ![Stack is being created](images/Stack_being_created.jpg)In this window, you can view the progress of the stack deployment log.
 
-    **Important**: Carefully type the passwords. Autonomous Database Admin password is not verified at this stage and deployment may fail if you type in incorrect password. For new passwords (VNC, SUPERVISOR and SCHEMA), follow the passwords guidelines. It is better to write these passwords in an editor and do copy and paste here. This will make sure that passwords are correctly entered.
+7. Wait for the job to finish and scroll to the end of the log and copy Data Transforms URL.
 
-    ![ALT text is not available for this image](images/3018104747.png)
+    ![Copy Data Transforms URL from the log](images/Data_Transforms_URL_in_job_log.jpg)
 
-7. Next comes the **Review** section. Be sure to check the values specified here, so that the stack is deployed successfully. Go back and make any corrections necessary. When you're satisfied, press **Create**. 
+8. In a browser window, launch Data Transforms using the URL copied in previous step. Click on **Create a new Data Transforms Repository**.
 
-    ![ALT text is not available for this image](images/3018104748.png)
+    **NOTE:** It may take one minute to start the Transforms service. Refresh the page after one minute if you don't get the UI immediately
 
-    **Important**:  Data Transforms is still not ready to use at this stage. Deployment of the ODI components in your Autonomous Database will take 10-15 minutes. 
+    ![Create Data Transforms repository](images/Create_Data_Transforms_repository_01.jpg)
 
-    Because of the time required to set up Data Transforms completely, this is an ideal time to take a 10 min break from the workshop. We suggest a walk, a nice meal, or perhaps a coffee break. 
+9. Provide Autonomous Database Details where the repository will be created. You can select the Autonomous database from the list in a specified compartment. If your database doesn't show in the list then it means OCI policies are not set in order to access the database from your compartment. Refer to the Task 1 to review the policies. Ask your Autonomous Database administrator for the Admin password. Then click **Next**.
 
-8. During Phase 1 (deployment of OCI components), you'll see a dialog similar to this:
+    ![Provide Autonomous Database Details](images/Create_Data_Transforms_repository_02.jpg)
 
-    ![ALT text is not available for this image](images/3018104749.png)
+10. Provide schema Details where the repository will be created. Data Transforms repository schema name is prefixed with the text provide. Schema password will be used to create the schema. Then click **Next**.
 
-9. When the OCI components of the stack are successfully deployed, the status icon will turn green, as follows:
+    ![Provide repository schema Details](images/Create_Data_Transforms_repository_03.jpg)
 
-    **NOTE:** This can take several minutes to finish.
+11. Provide Supervisor password for Data Transforms. Carefully note down this password. Then click **Next**.
 
-    ![ALT text is not available for this image](images/3018104750.png)In this window, you can view the progress of the stack deployment log, if you're interested. 
+    ![Provide Supervisor password](images/Create_Data_Transforms_repository_05.jpg)
 
-    **NOTE:** After the stack is successfully deployed, your compute instance is created. However, ODI deployment script is running in the background  to do the following:
+12. Repository creation process will start and you can see the progress. It will take around 15 minutes for the process to complete. After the process is successfully complete, you can launch Data Transforms by clicking on **Login to Data Transforms**. In future you can also use the previously copied URL to start Data Transforms.
 
-    - **Installing ODI Web Edition software**
+    **Note:** If there is an error then you can download the logs and look for the cause of the failure. Please refer to the documentation linked in the Marketplace listing for error logs.
 
-    - **Creating repository in ADW**
-
-    - **Starting ODI agents**
-
-  **All the above steps take around 10-15 minutes to finish. You can come back after 15 minutes and check for Data Transforms using direct URL as shown in Step 3. If it is not ready then give it another 5 minutes.**
-
-  **In order to check the progress of the deployment script, one need to login to VNC viewer to the compute instance and check the log file. This is beyond the scope of this workshop. To keep steps simple, we simply wait for 10-15 minutes and launch the Data Transforms tool.**
+    ![Monitor repository creation progress](images/Create_Data_Transforms_repository_06_final.jpg)
 
 ## Task 3: Launch The Data Transforms Tool
 

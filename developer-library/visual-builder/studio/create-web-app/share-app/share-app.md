@@ -31,11 +31,11 @@ Share the HR web application you've created to create a URL that your team can u
 1.  If necessary, click **Workspaces** ![Workspaces icon](images/vbs-workspaces-icon.png)and **HR Visual Application** in the Workspaces table to open your workspace.
 2.  Click **Menu** ![Options menu icon](images/options-header-menu.png) in the header and select **Share**.
 
-    ![](images/share.png " ")
+    ![](images/share.png "This image shows the Menu in the header with the Share option selected.")
 
 3.  In the Share Visual Application dialog box, you'll see the URL that the hrwebapp will be shared to. (If you want, you can click the Copy icon to copy this URL, but we'll see how to get the URL after the application is shared.) Select **Use development data (my workspace)** to copy Department, Location, and Employee data from your workspace to your development environment's VB instance. Click **Share**.
 
-    ![](images/share-application.png " ")
+    ![](images/share-application.png "This image shows the Share Visual Application dialog, with the URL where the web application will be shared. Under Data, the Use development data-my workspace  option is selected. The Share button is selected.")
 
     A brief confirmation appears, and the application is deployed to your VB instance.
 
@@ -46,16 +46,16 @@ Now that you've shared your application, you need to get its URL so you can pass
 
 1.  Click **Menu** ![Options menu icon](images/options-header-menu.png) and select **Open Shared Applications**. If the option does not appear or is not active, it means your application is not yet fully deployed. Wait a while and try again.
 
-    ![](images/open-shared-application.png " ")
+    ![](images/open-shared-application.png "This image shows the Menu in the header with the Open Shared Application option selected.")
 
     The shared application opens in a new browser tab. It includes all the changes you've made in your workspace, even those that were not pushed to the remote branch; it also displays data from your workspace.
 
-    ![](images/open-shared-application-result.png " ")
+    ![](images/open-shared-application-result.png "This image shows your shared web application in a new browser tab, with the data imported from your workspace.")
 
 2.  Make a note of the application's URL to share with your team, then close the browser tab.
 3.  To view the same shared application now deployed to your development environment, click **Go to Project page** ![Go to Project Page icon](images/go-to-project-home-icon.png) in the header, then click **Environments** ![Environments icon](images/vbs-environments-icon.png) and **Deployments**. Expand **tutorial-hr-project** to view the shared application in your list of deployments.
 
-    ![](images/shared-deployment.png " ")
+    ![](images/shared-deployment.png "This image shows a list of deployments in the Development environment. The tutorial-hr-project is shown with the Shared status and other identifying details.")
 
     If you click **hrwebapp**, the application opens in a new browser tab, similar to the shared application view from within the Designer. When you've finished using the application, close the browser tab.
 
@@ -64,5 +64,5 @@ Now that you've shared your application, you need to get its URL so you can pass
     You may **proceed to the next lab**.
 
 ## Acknowledgements
-* **Created By/Date** - Sheryl Manoharan, VB Studio User Assistance, November 2021
-<!--* **Last Updated By** - October 2021 --!>
+* **Author** - Sheryl Manoharan, VB Studio User Assistance, November 2021
+* **Last Updated By/Date** - Sheryl Manoharan, May 2022

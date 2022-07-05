@@ -1,4 +1,4 @@
-# Creating the Movie Details Page
+# Create the Movie Details Page
 
 ## Introduction
 In this lab, you will set up a new REST data source called Movie Details, that retrieves the details of a single movie. After the data source has been set up, you will create a new page that displays those movie details when a user clicks on a movie from the Movie Search page.
@@ -12,7 +12,10 @@ In this lab, you will:
 - Use the Movie Details REST source to display data on the Movie Details page.  
 - Connect the Movie Details page to the Movie Search page.
 
-## Task 1: Creating the Movie Details REST Data Source
+### Prerequisites
+- Completion of workshop through Lab 3
+
+## Task 1: Create the Movie Details REST Data Source
 While the process for setting up the Movie Details REST source is similar to the Popular and Search Movies sources, it is a little more involved, because you have to define the response structure as well as specify variables to be able to query for any movie.
 
 1. Just like you did for Popular Movies and Search Movies, click on **Shared Components**. 
@@ -85,9 +88,9 @@ While the process for setting up the Movie Details REST source is similar to the
 
     * **BACKDROP\_URL**:  CONCAT('https://image.tmdb.org/t/p/w500', BACKDROP\_PATH)
 
-6. Follow the instructions in <a href="?lab=creating-rest-sources#Task2:EditingTheRESTSourceDataProfile" target="_blank">Lab 2, Task 2</a> to add the BACKDROP\_URL and POSTER\_URL columns.
+6. Follow the instructions in <a href="?lab=creating-rest-sources#Task2:EditTheRESTSourceDataProfile" target="_blank">Lab 2, Task 2</a> to add the BACKDROP\_URL and POSTER\_URL columns.
 
-## Task 2: Creating the Movie Details Page
+## Task 2: Create the Movie Details Page
 Just like you did for the Movie Search page, you will create a new page and set a couple page properties before connecting the Movie Details REST source to the page.
 
 1. Go to your Movies Watchlist Application home.
@@ -124,7 +127,7 @@ Just like you did for the Movie Search page, you will create a new page and set 
 
     ![](images/2-details-template-options-edit.png " ")
 
-## Task 3: Connecting the Movie Details REST Source to Page
+## Task 3: Connect the Movie Details REST Source to Page
 When you set up the Movie Details API, you created the movie_id parameter. You can link that parameter to a page item that contains the movie id, which will allow you to call the details for whatever movie you select from the Movie Search page.
 
 1. In the Movie Details page, right click on the Content Body region and select **Create Region**.
@@ -161,7 +164,7 @@ When you set up the Movie Details API, you created the movie_id parameter. You c
 
     ![](images/4-3-5-movie-id.png " ")
 
-## Task 4: Connecting the Movie Details Page to Movie Search Page
+## Task 4: Connect the Movie Details Page to Movie Search Page
 You want to be able to view the details of any movie you click on in your Movie Search page. You can link the Movie Details page to the Movie Search page like you did when setting up the Movie Search page and Add a Movie button. However, in order to get the details for the specific movie you clicked on, you have to pass the movie id from the search page to the details page.
 
 1. Navigate to page **2: Movie Search** by entering 2 in the Page Finder in the Page Designer toolbar and clicking Go.
@@ -219,6 +222,8 @@ You want to be able to view the details of any movie you click on in your Movie 
 
     ![](images/4-4-8-movie-details.png " ")
 
+You may now **proceed to the next lab**.
+
 ## Resources 
 
 - **REST Source Row Selector:** Using a single period **.** for the Row Selector when setting up a REST data source instructs APEX to use the root of the JSON object that gets returned from TMDB Movie Details API. If you were to leave the field empty, APEX would automatically look for an array within the return object to use as the results, which is what happens for the Popular Movies and Search Movies sources. However, the Movie Details source comes back in a different format, so you have to include instructions for APEX to discover the correct data.
@@ -239,9 +244,8 @@ Stuck on a step or struggling with the lab? You can download a copy of the Movie
 - You can import Lab 4 to your APEX workspace by clicking **Import** in the App Builder home page and following the wizard steps.
 
 - You will be prompted to provide credentials for the Movie Details REST data source set up in this lab. You can see in the screenshot below that Credentials for Movie Details does not already exist in your workspace.  
-*Note: If you did not complete or import Labs 2 or 3, the Already Existed value for Credentials for Search Movies would also be No.*
 
-    ![](images/details-blank-edit.png " ")  
+    ![](images/4-import-details-blank.png " ")  
 
 - Within the Credentials for Movie Details row:
 
@@ -251,6 +255,12 @@ Stuck on a step or struggling with the lab? You can download a copy of the Movie
 
     - In the Verify Client Secret/Password column, past your API key again.
 
-        ![](images/details-creds-edit.png " ")
+        ![](images/4-stuck-details-edited.png " ")
 
-- Follow the instructions in the <a href="?lab=creating-rest-sources#Stuck?DownloadtheApplicationHere" target="_blank">Stuck?</a> section of Lab 2 to update the Popular and Search Movies API keys.
+- Follow the instructions in the <a href="?lab=creating-movie-search-page#Stuck?DownloadtheApplicationHere" target="_blank">Stuck?</a> section of Lab 3 to update the Popular and Search Movies API keys.
+
+## Acknowledgments
+
+- **Author** - Paige Hanssen
+- **Additional Contributors** - Kay Jasanya, Shakeeb Rahman, Steve Muench, Monica Godoy, Eli Feuerstein, Carlos Maciel, Dalia Vazquez
+- **Last Updated By/Date** - Paige Hanssen, March 2022

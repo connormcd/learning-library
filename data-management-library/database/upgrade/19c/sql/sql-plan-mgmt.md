@@ -8,14 +8,14 @@ The SQL Performance Analyzer reports overall showed good results for the run in 
 
 You could now try to fix a specific plan which has been changed or just write down all the plans from the SQL Tuning Set into the SQL Plan Baseline in Oracle 19c. Let us see if the results are good or if it is a better option to allow the optimizer to find newer paths.
 
-*Estimated Lab Time:* 20 minutes
+Estimated Time: 20 minutes
 
 ![](./images/performance_prescription_05.png " ")
 
 In this lab we use scripts written by Carlos Sierra.
 
 Watch the video below for a quick walk through of the lab.
-[](youtube:2_b-gRm09cU)
+[Watch the video](youtube:2_b-gRm09cU)
 
 ### About SQL Plan Management
 
@@ -44,14 +44,16 @@ In this lab, you will:
 * Fix All Statements
 
 ### Prerequisites
+
 This lab assumes you have:
-- A Free Tier, Paid or LiveLabs Oracle Cloud account
+
+- An Oracle Cloud account
 - You have completed:
-    - Lab: Prepare Setup (*Free-tier* and *Paid Tenants* only)
+    - Lab: Prepare Setup 
     - Lab: Environment Setup
     - Lab: Initialize Environment
 
-## Task 1: Fix A Single Statement
+## Task 1: Fix a single statement
 
 1. Run the statements below.
       ```
@@ -61,7 +63,7 @@ This lab assumes you have:
       sqlplus / as sysdba
       </copy>
       ```
-      ![](./images/fix_a_1.png " ")
+      ![Run the statements](./images/fix_a_1.png " ")
 
 2. Here we will use one of Carlos Sierra’s scripts: spb_create.sql:
 
@@ -70,12 +72,12 @@ This lab assumes you have:
       @spb_create.sql
       </copy>
       ```
-      ![](./images/fix_a_2.png " ")
+      ![use one of Carlos Sierra’s scripts](./images/fix_a_2.png " ")
 
 3. *Please be aware that the following example often will show only one plan, and hence the script may not work as intended*
    The script asks you for the SQL_ID first.  Type in: **7m5h0wf6stq0q**.  Then it should display the potential plans:
-      ![](./images/fix_a_3.png " ")
-      ![](./images/fix_a_4.png " ")
+      ![type the SQL_ID](./images/fix_a_3.png " ")
+      ![view the potential plans](./images/fix_a_4.png " ")
 
     ```
       PLANS PERFORMANCE
@@ -101,7 +103,7 @@ This lab assumes you have:
       SELECT sql_handle, plan_name, enabled, accepted FROM dba_sql_plan_baselines;
       </copy>
       ```
-      ![](./images/fix_a_6.png " ")
+      ![Verify if the plans have been accepted](./images/fix_a_6.png " ")
 
       ```
       SQL_HANDLE                     PLAN_NAME                      ENA ACC
@@ -123,7 +125,7 @@ Now we pin down all possible statements collected in the SQL Tuning Set STS_Capt
       @spm_load_all.sql
       </copy>
       ```
-      ![](./images/fix_a_7.png " ")
+      ![Use spm load all script](./images/fix_a_7.png " ")
 
 2. Observe the changes that have taken place
 
@@ -132,7 +134,7 @@ Now we pin down all possible statements collected in the SQL Tuning Set STS_Capt
       SELECT sql_handle, plan_name, enabled, accepted FROM dba_sql_plan_baselines;
       </copy>
       ```
-      ![](./images/fix_a_8.png " ")
+      ![Observe the changes](./images/fix_a_8.png " ")
 
 3. You ACCEPTED all previous plans from before the upgrade and added them to the SQL Plan Baseline.  Once you “fixed” the plans, use the SQL Performance Analyzer to verify the plans and the performance.
 
@@ -157,7 +159,7 @@ Now we pin down all possible statements collected in the SQL Tuning Set STS_Capt
     firefox compare_spa_* &
     </copy>
     ```
-    ![](./images/sql_per_5.png " ")
+    ![Compare the two resulting reports](./images/sql_per_5.png " ")
 
     It may happen that "fixing" ALL statements results in worse CPU_TIME compared to 11.2.0.4 – the initial run in 19c may have been better!
     This is one of the reasons why you should test your plans instead of just “fixing them to behave as before”.
@@ -167,20 +169,19 @@ Now we pin down all possible statements collected in the SQL Tuning Set STS_Capt
 
     The idea of testing is that you identify the really bad statements and plans, and fix them. But not all of them.
 
-
     Carlos Sierra: Plan Stability
 
-You may now [proceed to the next lab](#next).
+You may now *proceed to the next lab*.
 
 ## Learn More
 
-MOS Note: 789888.1
+- MOS Note: 789888.1
 [How to Load SQL Plans into SQL Plan Management (SPM) from the Automatic Workload Repository (AWR)](https://support.oracle.com/epmos/faces/DocumentDisplay?id=789888.1)
 
-MOS Note: 456518.1
+- MOS Note: 456518.1
 [How to Use SQL Plan Management (SPM) – Plan Stability Worked Example](https://support.oracle.com/epmos/faces/DocumentDisplay?id=456518.1)
 
-White Paper:
+- White Paper:
 [SQL Plan Management with Oracle Database 12c Release 2](http://www.oracle.com/technetwork/database/bi-datawarehousing/twp-sql-plan-mgmt-12c-1963237.pdf)
 
 ## Acknowledgements

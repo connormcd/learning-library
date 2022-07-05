@@ -17,70 +17,75 @@ Postman is a GUI-based REST API invocation tool that is very popular among devel
 * Postman GUI in your local setup. If you don't have POSTMAN, please download it from [POSTMAN](https://www.postman.com/downloads/)
 
 ## **TASK 1:** Setting Up Postman for OCI REST APIs
-We have provided some scripts and steps below that can be used to allow invoking OCI REST APIs through Postman. Please follow the steps in the order described.
+We have provided steps below that can be used to allow invoking OCI REST APIs through Postman. Please follow the steps in the order described.
 
-### 1. Import the environment into Postman
+### 1. Visit the OCI Postman workspace
 
-Download the [OCI Environment](./files/OCI_Environment.postman_environment.json) and import the environment into Postman using the 'Import' button at the top.
-    ![](./images/importENV.png " ")
+Visit the [OCI Postman workspace](https://www.postman.com/oracledevs/workspace/oracle-cloud-infrastructure-rest-apis/api/79bbefd7-4bba-4370-b741-3724bf3c9325) and login with your credentials.
 
-Make sure to set OCI_Environment as the active environment.
-    ![](./images/setActive.png " ")
+### 2. Fork the Language APIs and OCI Credentials Environment.
 
-### 2. Set the Variables
-Open and edit the newly imported environment (OCI_Environment), and set the variables tenancyId, authUserId, keyFingerprint and private Key. These are same that are found in the .oci file you created in the Lab 3 (Task 3->Step4).
+Fork the Language API collection in your workspace by navigating to Language API collection and clicking the "Fork" option.
+![](./images/forkLangugeApi1.png)
+
+Enter name to indentify forked Language API collection, select the workspace you want to fork the collection to and click "Fork Collection".
+![](./images/forkLangugeApi2.png)
+
+Fork the OCI Credentials Environment in your workspace by navigating to Environments and clicking the "Fork" option.
+![](./images/forkOciCred1.png)
+
+Enter name to indentify forked OCI credentials environment, select the workspace you want to fork the collection to and click "Fork Collection".
+![](./images/forkOciCred2.png)
+
+
+
+### 3. Set the Variables
+Navigate to your workspace and open newly forked environment (OCI Credentials), and set the variables tenancyId, authUserId, keyFingerprint and private Key. These are same that are found in the .oci file you created in the Lab 3 (Task 1 -> Step 4).
 
 Make sure to set both Initial Value and Current Value of the variables(set both as the same value).
 
 Click the Save button to commit your changes to the environment.
-    ![](./images/setVar.png " ")
+    ![](./images/setVariable.png " ")
 
-### 3. Import the Collections
-Download and import [OCI REST INITIALIZATION](./files/OCI_REST_INITIALIZATION.postman_collection.json) and [OCI REST COLLECTION](./files/OCI_REST_COLLECTION.postman_collection.json) into Postman using the 'Import' button at the top.
-
-### 4. Execute OCI REST Initializer
-From the OCI REST INITIALIZATION collection, invoke the Initializer GET for 'jsrsasign-all-min.js' , which imports and initializes a required library jsrsasign for encryption and digital signatures. This is a one-time setup task. 
-    ![](./images/initializeREST.png " ")
-
-<!-- ### 5. Add Request in OCI REST COLLECTION
-
-Add Request in the OCI REST COLLECTION Folder
-![](./images/4.png " ")
-
-Enter Name and click 'Save to OCI REST COLLECTION'
-![](./images/5.png " ")
-
-Just make sure that the OCI REST calls are executed as part of the OCI REST COLLECTION, as that collection contains the necessary javascript code to generate OCI's authentication header -->
 
 ## **TASK 2:** Invoke Language OCI REST APIs
 
-Invoke Language OCI REST APIs by clicking any one of the requests in the OCI REST COLLECTION. Enter the text you want to analyze in the body as shown below:
+Invoke Language OCI REST APIs by clicking any one of the requests in the Language API COLLECTION. Enter the text you want to analyze in the body as shown below:
     ```
     <copy>{
-        "text" : "American football was derived from the European games of rugby and soccer. Unlike the game of soccer, however, American football focuses more on passing and catching the ball with the hands as opposed to kicking the ball with the feet. Standard American football field is 120 yards in length and 160 feet in width. They are hash marks on every yards and every 10 yards. American football is quickly become more popular then baseball and fan bases are increasing rapidly. Jerry Rice, Tom Brady and Lawrence Taylor are few top player of this sports."
-    }<copy>
+  "documents": [
+    {
+      "key": "doc1",
+      "text": "Hola, a mi me ha gustado la interacción con clientes por muchos años"
+    }, 
+ {
+      "key": "doc2",
+      "text": "Red Bull Racing Honda, the four-time Formula-1 World Champion team, has chosen Oracle Cloud Infrastructure (OCI) as their infrastructure partner."
+    }
+  ]
+}<copy>
     ```
     
-Below in the example shown to invoke Detect Language Service.
-    ![](./images/collectionREST.png " ")
+Below is the example shown to invoke Detect Language Service.
+    ![](./images/detectLanguage.png " ")
 
-OCI Language Service EndPoints for all the services:
+OCI Language service endpoints:
 
 ```
 # Language Detection
-https://language.aiservice.us-ashburn-1.oci.oraclecloud.com/20210101/actions/detectDominantLanguage
+https://language.aiservice.us-phoenix-1.oci.oraclecloud.com/20210101/actions/batchDetectDominantLanguage
 
 # Key Phrase Extraction
-https://language.aiservice.us-ashburn-1.oci.oraclecloud.com/20210101/actions/detectLanguageKeyPhrases
+https://language.aiservice.us-ashburn-1.oci.oraclecloud.com/20210101/actions/batchDetectLanguageKeyPhrases
 
 # Named Entity Recognition
-https://language.aiservice.us-ashburn-1.oci.oraclecloud.com/20210101/actions/detectLanguageEntities
+https://language.aiservice.us-ashburn-1.oci.oraclecloud.com/20210101/actions/batchDetectLanguageEntities
 
 # Text Classification
-https://language.aiservice.us-ashburn-1.oci.oraclecloud.com/20210101/actions/detectLanguageTextClassification
+https://language.aiservice.us-ashburn-1.oci.oraclecloud.com/20210101/actions/batchDetectLanguageTextClassification
 
-# Aspect-Based Sentiment Analysis
-https://language.aiservice.us-ashburn-1.oci.oraclecloud.com/20210101/actions/detectLanguageSentiments
+# Sentiment Analysis
+https://language.aiservice.us-ashburn-1.oci.oraclecloud.com/20210101/actions/batchDetectLanguageSentiments
 
 ```
 
@@ -92,4 +97,4 @@ https://language.aiservice.us-ashburn-1.oci.oraclecloud.com/20210101/actions/det
     * Rajat Chawla  - Oracle AI Services
     * Ankit Tyagi -  Oracle AI Services
 * **Last Updated By/Date**
-    * Srijon Sarkar  - Oracle AI Services, September 2021
+    * Rajat Chawla  - Oracle AI Services, February 2021

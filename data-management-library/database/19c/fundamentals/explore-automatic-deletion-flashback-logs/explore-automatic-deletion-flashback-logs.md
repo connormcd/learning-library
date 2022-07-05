@@ -33,6 +33,8 @@ This lab assumes you have:
 
 ## Task 1: Prepare your environment
 
+> **NOTE:** Unless otherwise stated, all passwords will be `Ora4U_1234`. When copying and pasting a command that includes a password, please replace the word `password` with `Ora4U_1234`. This only applies to instances created through OCI Resource Manager with our provided terraform scripts.
+
 To prepare your environment, review important initialization parameters, enable `ARCHIVELOG` mode on CDB1, and open PDB1. It's important that CDB1 and PDB1 are open before you enable `FLASHBACK` mode in Task 2.
 
 1. Open a terminal window on the desktop. Let's call this terminal 1.

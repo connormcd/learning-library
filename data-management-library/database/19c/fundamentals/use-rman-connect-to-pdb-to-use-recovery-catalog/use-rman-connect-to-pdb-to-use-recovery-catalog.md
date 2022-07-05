@@ -38,6 +38,8 @@ This lab assumes you have:
 
 ## Task 1: Prepare your environment
 
+> **NOTE:** Unless otherwise stated, all passwords will be `Ora4U_1234`. When copying and pasting a command that includes a password, please replace the word `password` with `Ora4U_1234`. This only applies to instances created through OCI Resource Manager with our provided terraform scripts.
+
 1. Open a terminal window on your desktop.
 
 2. Run the `enable_ARCHIVELOG.sh` shell script to enable `ARCHIVELOG` mode in CDB1. Enter **CDB1** at the prompt.
@@ -89,13 +91,13 @@ In PDB19, create a recovery catalog owner named `catowner` and grant it privileg
 2. Connect to PDB19 as the `SYSTEM` user.
 
     ```
-    $ <copy>sqlplus system/Ora4U_1234@PDB19</copy>
+    $ <copy>sqlplus system/password@PDB19</copy>
     ```
 
 3. Create a user named `catowner` that will act as the recovery catalog owner.
 
     ```
-    SQL> <copy>CREATE USER catowner IDENTIFIED BY Ora4U_1234;</copy>
+    SQL> <copy>CREATE USER catowner IDENTIFIED BY password;</copy>
 
     User created.
     ```
@@ -127,7 +129,7 @@ Create a virtual private catalog (VPC), also referred to simply as "recovery cat
 2. Connect to the recovery catalog database as the recovery catalog owner.
 
     ```
-    RMAN> <copy>CONNECT CATALOG catowner/Ora4U_1234@PDB19</copy>
+    RMAN> <copy>CONNECT CATALOG catowner/password@PDB19</copy>
 
     connected to recovery catalog database
     ```
@@ -151,7 +153,7 @@ Create a virtual private catalog (VPC), also referred to simply as "recovery cat
 5. Using RMAN, connect to CDB1 (the target) and the recovery catalog database (PDB19) as the recovery catalog owner (`catowner`).
 
     ```
-    $ <copy>rman TARGET / CATALOG catowner/Ora4U_1234@PDB19</copy>
+    $ <copy>rman TARGET / CATALOG catowner/password@PDB19</copy>
 
     connected to target database: CDB1 (DBID=1051548720)
     connected to recovery catalog database
@@ -182,7 +184,7 @@ Oracle Virtual Private Database (VPD) creates security policies to control datab
 1. Connect to the recovery catalog database as the `SYS` user.
 
     ```
-    $ <copy>sqlplus sys/Ora4U_1234@PDB19 AS SYSDBA</copy>
+    $ <copy>sqlplus sys/password@PDB19 AS SYSDBA</copy>
     ```
 
 2. Run the `dbmsrmanvpc.sql` script with the `–vpd` option to enable the VPD model for the recovery catalog owned by the user `catowner`.
@@ -214,7 +216,7 @@ Oracle Virtual Private Database (VPD) creates security policies to control datab
 2. Connect to the recovery catalog database as the recovery catalog owner.
 
     ```
-    RMAN> <copy>CONNECT CATALOG catowner/Ora4U_1234@PDB19</copy>
+    RMAN> <copy>CONNECT CATALOG catowner/password@PDB19</copy>
 
     connected to recovery catalog database
     ```
@@ -252,13 +254,13 @@ Connect to the recovery catalog database as the `SYSTEM` user and create two VPC
 1. Connect to the recovery catalog database as the `SYSTEM` user.
 
     ```
-    $ <copy>sqlplus system/Ora4U_1234@PDB19</copy>
+    $ <copy>sqlplus system/password@PDB19</copy>
     ```
 
 2. Create a `vpc_pdb1` user.
 
     ```
-    SQL> <copy>CREATE USER vpc_pdb1 IDENTIFIED BY Ora4U_1234;</copy>
+    SQL> <copy>CREATE USER vpc_pdb1 IDENTIFIED BY password;</copy>
 
     User created.
     ```
@@ -266,7 +268,7 @@ Connect to the recovery catalog database as the `SYSTEM` user and create two VPC
 3. Create a `vpc_pdb2` user.
 
     ```
-    SQL> <copy>CREATE USER vpc_pdb2 IDENTIFIED BY Ora4U_1234;</copy>
+    SQL> <copy>CREATE USER vpc_pdb2 IDENTIFIED BY password;</copy>
 
     User created.
     ```
@@ -294,7 +296,7 @@ Connect to the recovery catalog database as the `SYSTEM` user and create two VPC
 7. Connect to the recovery catalog database as the recovery catalog owner.
 
     ```
-    RMAN> <copy>CONNECT CATALOG catowner/Ora4U_1234@PDB19</copy>
+    RMAN> <copy>CONNECT CATALOG catowner/password@PDB19</copy>
 
     connected to recovery catalog database
     ```
@@ -334,7 +336,7 @@ In RMAN, connect to PDB1 (the target PDB) and to the recovery catalog database a
 1. Using RMAN, connect to PDB1 (the target) and the recovery catalog database (PDB19) as the `vpd_pdb1` user.
 
     ```
-    $ <copy>rman TARGET sys/Ora4U_1234@PDB1 CATALOG vpc_pdb1/Ora4U_1234@PDB19</copy>
+    $ <copy>rman TARGET sys/password@PDB1 CATALOG vpc_pdb1/password@PDB19</copy>
 
     connected to target database: CDB1:PDB1 (DBID=1388128723)
     connected to recovery catalog database
@@ -376,7 +378,7 @@ In RMAN, connect to PDB1 (the target PDB) and to the recovery catalog database a
 5. Using RMAN, connect to PDB1 (the target) and the recovery catalog database (PDB19) as the `vpc_pdb2` user.
 
     ```
-    $ <copy>rman TARGET sys/Ora4U_1234@PDB1 CATALOG vpc_pdb2/Ora4U_1234@PDB19</copy>
+    $ <copy>rman TARGET sys/password@PDB1 CATALOG vpc_pdb2/password@PDB19</copy>
 
     connected to target database: CDB1:PDB1 (DBID=1388128723)
     connected to recovery catalog database
@@ -430,7 +432,7 @@ Each backup set contains one or more backup pieces. Many copies of the same back
 1. Connect to the recovery catalog database as the catalog owner.
 
     ```
-    $ <copy>sqlplus catowner/Ora4U_1234@PDB19</copy>
+    $ <copy>sqlplus catowner/password@PDB19</copy>
     ```
 
 2. Query the `RC_BACKUP_PIECE` view for the handle that corresponds to your `tag` value. Replace `<insert tag number>` with your `tag` value.
@@ -457,7 +459,7 @@ Revoke recovery catalog privileges from the two VPC users, `vpc_pdb1` and `vpc_p
 1. Connect to the recovery catalog database as the recovery catalog owner.
 
     ```
-    $ <copy>rman CATALOG catowner/Ora4U_1234@PDB19</copy>
+    $ <copy>rman CATALOG catowner/password@PDB19</copy>
 
     connected to recovery catalog database
     ```
@@ -486,10 +488,10 @@ Revoke recovery catalog privileges from the two VPC users, `vpc_pdb1` and `vpc_p
     Recovery Manager complete.
     ```
 
-5. Using RMAN, connect to PDB1 (the target) and the recovery catalog database (PDB19) as the `vpc_pdb1` user.
+5. Using RMAN, connect to PDB1 (the target) and the recovery catalog database (PDB19) as the `vpc_pdb1` user. Please note the use of `password`.
 
     ```
-    $ <copy>rman TARGET sys/Ora4U_1234@PDB1 CATALOG vpc_pdb1/Ora4U_1234@PDB19</copy>
+    $ <copy>rman TARGET sys/password@PDB1 CATALOG vpc_pdb1/password@PDB19</copy>
 
     connected to target database: CDB1:PDB1 (DBID=1388128723)
     connected to recovery catalog database
@@ -523,7 +525,7 @@ Revoke recovery catalog privileges from the two VPC users, `vpc_pdb1` and `vpc_p
 8. Connect to the recovery catalog database as the catalog owner through RMAN.
 
     ```
-    $ <copy>rman CATALOG catowner/Ora4U_1234@PDB19</copy>
+    $ <copy>rman CATALOG catowner/password@PDB19</copy>
 
     connected to recovery catalog database
     ```

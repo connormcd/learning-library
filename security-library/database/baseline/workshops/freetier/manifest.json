@@ -33,7 +33,7 @@
       "filename": "../../../common/init-start-env/init-start-env.md"
     },
     {
-      "title": "Lab 4: Database Assessment Tool (DBSAT)",
+      "title": "Lab 4: Database Security Assessment Tool (DBSAT)",
       "description": "In this lab you can see how to leverage Oracle DB Assessment Tool (DBSAT)",
       "publisheddate": "10/20/2020",
       "filename": "../../dbsat/dbsat.md"
@@ -61,6 +61,12 @@
       "description": "In this lab you can see how to leverage Oracle Transparent Sensitive Data Protection (TSDP)",
       "publisheddate": "04/14/2021",
       "filename": "../../tsdp/tsdp.md"
+    },
+    {
+      "title": "Lab 9: Data Safe for on-premises database",
+      "description": "In this lab you can see how to leverage Oracle Data Safe",
+      "publisheddate": "10/11/2021",
+      "filename": "../../data-safe/data-safe.md"
     },
     {
       "title": "Need Help?",

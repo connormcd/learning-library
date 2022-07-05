@@ -1,0 +1,27 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I show all tables of a specific owner in the Oracle Database?",
+         "description": "",
+         "filename": "sprint-show-tables-specific-owner.md"
+      },
+      {
+         "title": "How do I show tables that are accessible by the current user in the Oracle Database?",
+         "description": "",
+         "filename": "../sprint-show-accessible-tables/sprint-show-accessible-tables.md"
+      },
+      {
+         "title": "How do I show tables owned by the current user in the Oracle Database?",
+         "description": "",
+         "filename": "../sprint-show-owned-tables/sprint-show-owned-tables.md"
+      },
+      {
+         "title": "How do I show all tables in the Oracle Database?",
+         "description": "",
+         "filename": "../sprint-show-all-tables/sprint-show-all-tables.md"
+      }
+   ],
+   "task_type": "Sections"
+}

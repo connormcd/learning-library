@@ -1,37 +1,39 @@
-# Manage database performance with Performance Hub 
+# Manage database performance with Performance Hub
 
 
 ## Introduction
 In this lab we will simulate a production workload using Swingbench tool and monitor performance using the OCI native Performance Hub console.
 
+Estimated Time: 20 minutes
+
 ### Objectives
 
-As an adminstrator,
+As an adminstrator:
 1. Simulate a production workload using Swingbench load generator.
-2. Monitor and Manage your autonomous database performance using Performance Hub.
+2. Monitor and manage your autonomous database performance using Performance Hub.
 
 
 ### Required Artifacts
 
 - An Oracle Cloud Infrastructure account.
-- A pre-provisioned instance of Oracle Developer Client image configured with Swingbench in an application subnet. Refer to [Lab 18](?lab=lab-18-build-always-on-applications).
-- A pre-provisioned Autonomous Transaction Processing instance. Refer to [Lab 7](?lab=lab-7-provisioning-databases).
-- Successful completion of [Lab 8](?lab=lab-8-configuring-development-system) and [Lab 18](?lab=lab-18-build-always-on-applications).
+- A pre-provisioned instance of Oracle Developer Client image configured with Swingbench in an application subnet. Refer to the previous lab, **Build Always On Applications**.
+- A pre-provisioned Autonomous Transaction Processing instance. Refer to the earlier lab, **Provisioning Databases**.
+- Successful completion of the earlier labs, **Configure a Development System** and **Build Always On Applications**.
 
 ## Task 1: Log in to the Oracle Cloud Developer image and start the order entry workload
 
-To complete this lab it is mandatory that you have a developer client image configured with swingbench, an autonomous dedicated database instance with the wallet uploaded to the dev client. Follow instructions in [Lab 8](?lab=lab-8-configuring-development-system) and [Lab 18](?lab=lab-18-build-always-on-applications).
+To complete this lab it is mandatory that you have a developer client image configured with Swingbench, and an autonomous dedicated database instance with the wallet uploaded to the dev client. Follow instructions in the labs, **Configure a Development System** and **Build Always On Applications**.
 
 *The remainder of this lab assumes you are connected to the image through VNC Viewer and are operating from the image itself and not your local machine.*
 
-- SSH into your developer client machine and navigate to folder /home/opc/swingbench/bin
+- SSH into your developer client machine and navigate to the folder /home/opc/swingbench/bin.
 
-- Start order entry workload.
+- Start the order entry workload.
 
-- You can now generate loads on your database by running the charbench utility.  Use the command below. There are 2 parameters you can change to modify the amount of load and users being generated. 
-  
+- You can now generate loads on your database by running the charbench utility.  Use the command below. There are 2 parameters you can change to modify the amount of load and users being generated.
+
   ``The –uc flag specifies the number of users that will be ramped up, in the case below 64. The –rt flag specifies the total running time which is set to 30 seconds by default.``  
-  
+
   You can stop running charbench at any time with *Ctrl C.*
 
     ```
@@ -46,46 +48,56 @@ To complete this lab it is mandatory that you have a developer client image conf
                 -intermax 0 \
                 -min 0 \
                 -max 0 \
-                -uc 64 
+                -uc 64
     </copy>
     ```
 
 - Once swingbench starts running your will see results similar to the screen below. The first column is a time stamp, the second column indicates how many users of the total users requested with the *-uc* parameter are active, and of interest is the 3rd column which indicates transactions per second. If you see any intermittent connect or other error messages, ignore those.
-    ![](./images/swingbenchoutput.jpeg " ")
 
-
+    ![This image shows the result of performing the above step.](./images/swingbenchoutput.jpeg " ")
 
 ## Task 2: Analyzing workloads with Performance Hub
 
-As you continue to run your swingbench workload, you can analyze the transactions that are running on the database with the cloud based Performance Analyzer. From the main ATP console, select *Performance Hub*.
-    ![](./images/scalinginp.jpeg " ")
+- As you continue to run your Swingbench workload, you can analyze the transactions that are running on the database with the cloud based Performance Analyzer. From the main ATP console, select **Performance Hub**.
 
-The main Performance Hub page should display. This page has 3 sections. 
+    ![This image shows the result of performing the above step.](./images/scalinginp.jpeg " ")
+
+The main Performance Hub page should display. This page has 3 sections.
 1. The top section is a timeline of activity from which you can select a specific time period to analyze.
 2. The middle section contains ASH Analytics and SQL Monitoring that allows analysis by different parameters.
-3. The bottom section contains information that can be analyzed by either *SQL ID* or *User Session*.
-    ![](./images/perf1.jpeg " ")
+3. The bottom section contains information that can be analyzed by either **SQL ID** or **User Session**.
 
-- In the picture above we can see a specific time period of activity in the *time range* section, and in the *ASH Analytics* section, the swingbench activity for users connected through the *\_medium* service, as the information is filtered by *Consumer Group*.
+    ![This image shows the result of performing the above step.](./images/perf1.jpeg " ")
 
-- To anaylyze information by a different filter, select the appropriate filter from the drop down list next to the *Average Active Sessions* header in the *ASH Analytics* section as shown below.
-    ![](./images/perf4.jpeg " ")
+- In the picture above, we can see a specific time period of activity in the **time range** section, and in the **ASH Analytics** section, the Swingbench activity for users connected through the **\_medium** service, as the information is filtered by **Consumer Group**.
 
-- On the bottom section of the *Performance Hub* page is displayed active *SQL* and *User Sessions*.
-    ![](./images/perf2.jpeg " ")
+- To anaylyze information by a different filter, select the appropriate filter from the drop down list next to the **Average Active Sessions** header in the **ASH Analytics** section as shown below.
 
-- By clicking on a specific *SQL ID*, the *SQL Detail* page is displayed which contains much  more detailed information about the specific SQL execution, as shown below. Navigate around to discover all the information available.
-    ![](./images/perf3.jpeg " ")
+    ![This image shows the result of performing the above step.](./images/perf4.jpeg " ")
 
-- For example, below we selected *Execution Statistics* for a specific SQL and the execution plan is displayed. 
-    ![](./images/executionplan.jpeg " ")
-    ![](./images/indexcount.jpeg " ")
+- On the bottom section of the **Performance Hub** page is displayed active **SQL** and **User Sessions**.
 
-- *SQL Monitoring* displays the top 100 SQL's by the filters selected, in the case below by *Last Active Time*
-    ![](./images/perf5.jpeg " ")
+    ![This image shows the result of performing the above step.](./images/perf2.jpeg " ")
 
-- *SQL Monitoring* also allows administrators to kill specific sessions if necessary. Highlight the session and a *Kill Session* button appears on top. If pressed the session will be terminated.
-    ![](./images/sqlmonitoring.jpeg " ")
+- By clicking on a specific **SQL ID**, the **SQL Detail** page is displayed which contains much  more detailed information about the specific SQL execution, as shown below. Navigate around to discover all the information available.
+
+    ![This image shows the result of performing the above step.](./images/perf3.jpeg " ")
+
+- For example, below we selected **Execution Statistics** for a specific SQL and the execution plan is displayed.
+
+    ![This image shows the result of performing the above step.](./images/executionplan.jpeg " ")
+
+    ![This image shows the result of performing the above step.](./images/indexcount.jpeg " ")
+
+- **SQL Monitoring** displays the top 100 SQL's by the filters selected, in the case below by **Last Active Time**.
+
+    ![This image shows the result of performing the above step.](./images/perf5.jpeg " ")
+
+- **SQL Monitoring** also allows administrators to kill specific sessions if necessary. Highlight the session and a **Kill Session** button appears on top. If you click this button, the session will be terminated.
+
+    ![This image shows the result of performing the above step.](./images/sqlmonitoring.jpeg " ")
+
+You may now **proceed to the next lab**.
 
 
 ## Acknowledgements
@@ -93,6 +105,7 @@ The main Performance Hub page should display. This page has 3 sections.
 
 - **Author** - Tejus S. & Kris Bhanushali
 - **Adapted by** -  Yaisah Granillo, Cloud Solution Engineer
-- **Last Updated By/Date** - Yaisah Granillo, March 2020
+- **Last Updated By/Date** - Kris Bhanushali, March 2022
 
-
+## See an issue or have feedback?  
+Please submit feedback [here](https://apexapps.oracle.com/pls/apex/f?p=133:1:::::P1_FEEDBACK:1).   Select 'Autonomous DB on Dedicated Exadata' as workshop name, include Lab name and issue / feedback details. Thank you!

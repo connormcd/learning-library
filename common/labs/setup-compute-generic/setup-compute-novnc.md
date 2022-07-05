@@ -3,7 +3,7 @@
 ## Introduction
 This lab will show you how to setup a Resource Manager stack that will generate the Oracle Cloud objects needed to run your workshop.
 
-Estimated Time: 15 minutes
+*Estimated Time:* 15 minutes
 
 
 Watch the video below for a walk through of the Environment Setup lab.
@@ -18,8 +18,9 @@ For more information about Terraform and Resource Manager, please see the append
 
 ### Prerequisites
 This lab assumes you have:
-- An Oracle Free Tier or Paid Cloud account
-- Performed *Lab: Prepare Setup*
+- An Oracle Cloud account
+- You have completed:
+    - Lab: Prepare Setup 
 
 ## Task 1: Create Stack: Choose a Path
 Proceed to deploy your workshop environment using Oracle Resource Manager (ORM) stack

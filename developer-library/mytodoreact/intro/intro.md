@@ -1,10 +1,10 @@
 # Introduction
 
 ## About this Workshop
+Estimated Time: 50 minutes
 
-In this workshop, you will learn how to build and deploy a simple Cloud native application using the most commonly-used frameworks and the Oracle Cloud Infrastructure (OCI) services.
+In this workshop you will explore how to use Helidon to build microservices to create a cloud-native application that manages a list of todo items and stores them in Autonomous Database. The frontend will use React.js where you can add new items, mark them as done (or undo them) and delete them.
 
-Estimated Time: 80 minutes
 
 <if type="odbw">If you would like to watch us do the workshop, click [here](https://youtu.be/JiAbVCGRcN8).</if>
 

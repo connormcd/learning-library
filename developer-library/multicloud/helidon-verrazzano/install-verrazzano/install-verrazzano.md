@@ -1,8 +1,10 @@
-# Install Verrazzano on a Kubernetes Cluster in the Oracle Cloud Infrastructure (OCI)
+# Install Verrazzano
 
 ## Introduction
 
 This lab walks you through the steps to install Verrazzano on a Kubernetes cluster in the Oracle Cloud Infrastructure.
+
+Estimated Time: 20 minutes
 
 ### About Product/Technology
 
@@ -21,7 +23,7 @@ Verrazzano includes the following capabilities:
 
 In this lab, you will:
 
-* Open Cloud Shell and setup `kubectl` to use the Oracle Kubernetes Engine cluster
+* Setup `kubectl` to use the Oracle Kubernetes Engine cluster
 * Install the Verrazzano platform operator.
 * Install the development (`dev`) profile of Verrazzano.
 
@@ -35,9 +37,6 @@ Verrazzano requires the following:
 
 ## Task 1: Configure `kubectl` (Kubernetes Cluster CLI)
 
-Oracle Cloud Infrastructure (OCI) Cloud Shell is a web browser-based terminal, accessible from the Oracle Cloud Console. The Cloud Shell provides access to a Linux shell, with a pre-authenticated Oracle Cloud Infrastructure CLI and other useful tools (*Git, kubectl, helm, OCI CLI*) to complete the Verrazzano tutorials. The Cloud Shell is accessible from the Console. Your Cloud Shell will appear in the Oracle Cloud Console as a persistent frame of the Console, and will stay active as you navigate to different pages of the Console.
-
-You will use the *Cloud Shell* to complete this workshop.
 
 We will use `kubectl` to manage the cluster remotely using the Cloud Shell. It needs a `kubeconfig` file. This will be generated using the OCI CLI which is pre-authenticated, so there’s no setup to do before you can start using it.
 
@@ -45,19 +44,13 @@ We will use `kubectl` to manage the cluster remotely using the Cloud Shell. It n
 
     > If you moved away from that page, then open the navigation menu and under **Developer Services**, select **Kubernetes Clusters (OKE)**. Select your cluster and go the detail page.
 
-    ![Access Cluster](images/1.png)
+    ![Access Cluster](images/AccessCluster.png)
 
     > A dialog is displayed from which you can open the Cloud Shell and contains the customized OCI command that you need to run, to create a Kubernetes configuration file.
 
-2. Accept the default **Cloud Shell Access** and click **Copy** copy the `oci ce...` command to the Cloud Shell.
+2. Accept the default **Cloud Shell Access** and click **Copy** copy the `oci ce...` command and paste it into the Cloud Shell and run the command.
 
-    ![Copy kubectl Config](images/2.png)
-
-3. Click **Launch Cloud Shell** to open the built-in console. Close the configuration dialog before you paste the command into the Cloud Shell.
-
-    ![Launch Cloud Shell](images/3.png)
-
-4. Copy the command from the clipboard and paste it into the Cloud Shell and run the command.
+    ![Copy kubectl Config](images/CopyConfig.png)
 
     For example, the command looks like the following:
 
@@ -65,7 +58,7 @@ We will use `kubectl` to manage the cluster remotely using the Cloud Shell. It n
     oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.phx.aaaaaaaaaezwen..................zjwgm2tqnjvgc2dey3emnsd --file $HOME/.kube/config --region us-phoenix-1 --token-version 2.0.0
     ```
 
-    ![kubectl config](images/4.png)
+    ![kubectl config](images/CreateConfig.png)
 
 5. Verify that the `kubectl` is working by using the `get node` command. <br>
 You may need to run this command several times until you see the output similar to the following.
@@ -77,17 +70,12 @@ You may need to run this command several times until you see the output similar 
     ```bash
     $ kubectl get node
     NAME          STATUS   ROLES   AGE    VERSION
-    10.0.10.112   Ready    node    4m32s   v1.19.7
-    10.0.10.200   Ready    node    4m32s   v1.19.7
-    10.0.10.36    Ready    node    4m28s   v1.19.7
+    10.0.10.112   Ready    node    4m32s   v1.21.5
+    10.0.10.200   Ready    node    4m32s   v1.21.5
+    10.0.10.36    Ready    node    4m28s   v1.21.5
     ```
 
     > If you see the node's information, then the configuration was successful.
-
-6. You can minimize and restore the terminal size at any time using the controls at the top right corner of the Cloud Shell.
-
-
-7. Leave this *Cloud Shell* open; we will use it for further labs.
 
 ## Task 2: Install the Verrazzano Platform Operator
 
@@ -98,10 +86,22 @@ Before installing Verrazzano, we need to install the Verrazzano Platform Operato
 1. Copy the following command and paste it in the *Cloud Shell* to run it.
 
     ```bash
-    <copy>kubectl apply -f https://github.com/verrazzano/verrazzano/releases/download/v1.0.0/operator.yaml</copy>
+    <copy>kubectl apply -f https://github.com/verrazzano/verrazzano/releases/download/v1.2.0/operator.yaml</copy>
     ```
-
-    ![verrazzano operator](images/9.png)
+      The output should be similar to the following:
+    ```bash
+    $ kubectl apply -f https://github.com/verrazzano/verrazzano/releases/download/v1.2.0/operator.yaml
+    customresourcedefinition.apiextensions.k8s.io/verrazzanomanagedclusters.clusters.verrazzano.io created
+    customresourcedefinition.apiextensions.k8s.io/verrazzanos.install.verrazzano.io created
+    namespace/verrazzano-install created
+    serviceaccount/verrazzano-platform-operator created
+    clusterrole.rbac.authorization.k8s.io/verrazzano-managed-cluster created
+    clusterrolebinding.rbac.authorization.k8s.io/verrazzano-platform-operator created
+    service/verrazzano-platform-operator created
+    deployment.apps/verrazzano-platform-operator created
+    validatingwebhookconfiguration.admissionregistration.k8s.io/verrazzano-platform-operator created
+    $
+    ```
 
     > This `operator.yaml` file contains information about the operator and the service accounts and custom resource definitions. By running this *kubectl apply* command, we are specifying whatever is in the `operator.yaml` file.
     > All deployments in Kubernetes happen in a namespace. When we deploy the Verrazzano Platform Operator, it happens in the namespace called "verrazzano-install".
@@ -112,7 +112,13 @@ Before installing Verrazzano, we need to install the Verrazzano Platform Operato
     <copy>kubectl -n verrazzano-install rollout status deployment/verrazzano-platform-operator</copy>
     ```
 
-    ![rollout status](images/10.png)
+    The output should be similar to the following:
+
+    ```bash
+    $ kubectl -n verrazzano-install rollout status deployment/verrazzano-platform-operator
+      deployment "verrazzano-platform-operator" successfully rolled out
+    $
+    ```
 
     > Confirm that the operator pod associated with the Verrazzano Platform Operator is correctly defined and running. A Pod is a unit which runs containers / images and Pods belong to nodes.
 
@@ -122,7 +128,13 @@ Before installing Verrazzano, we need to install the Verrazzano Platform Operato
     <copy>kubectl -n verrazzano-install get pods</copy>
     ```
 
-    ![running pod](images/11.png)
+    The output should be similar to the following:
+    ```bash
+    $ kubectl -n verrazzano-install get pods
+      NAME                                            READY   STATUS    RESTARTS   AGE
+      verrazzano-platform-operator-6d9c9cf89c-knzlt   1/1     Running   0          3m25s
+    $
+    ```
 
 ## Task 3: Install the Verrazzano Development Profile
 
@@ -130,8 +142,8 @@ An installation profile is a well-known configuration of Verrazzano settings tha
 
 Verrazzano supports the following installation profiles: development (`dev`), production (`prod`), and managed cluster (`managed-cluster`).
 
-* The production profile, which is the default, provides a 3-node Elasticsearch and persistent storage for the Verrazzano Monitoring Instance (VMI).
-* The development profile provides a single node Elasticsearch and no persistent storage for the VMI.
+* The production profile, which is the default, provides a 3-node Opensearch and persistent storage for the Verrazzano Monitoring Instance (VMI).
+* The development profile provides a single node Opensearch and no persistent storage for the VMI.
 * The managed-cluster profile installs only managed cluster components of Verrazzano. To take full advantage of multicluster features, the managed cluster should be registered with an admin cluster.
 
 To change profiles in any of the following commands, set the *VZ_PROFILE* environment variable to the name of the profile you want to install.
@@ -143,11 +155,11 @@ In this lab, we are going to install the *development profile of Verrazzano*, wh
 * It has a lightweight installation.
 * It is for evaluation purposes.
 * No persistence.
-* Single-node Elasticsearch cluster topology.
+* Single-node OpenSearch cluster topology.
 
 The following image describes the Verrazzano components that are installed with each profile.
 
-![Verrazzano Profile](images/12.png)
+![Verrazzano Profile](images/Components.png)
 
 According to our DNS choice, we can use nip.io (wildcard DNS) or [Oracle OCI DNS](https://docs.cloud.oracle.com/en-us/iaas/Content/DNS/Concepts/dnszonemanagement.htm). In this lab, we are going to install using nip.io (wildcard DNS).
 
@@ -160,26 +172,70 @@ According to our DNS choice, we can use nip.io (wildcard DNS) or [Oracle OCI DNS
     apiVersion: install.verrazzano.io/v1alpha1
     kind: Verrazzano
     metadata:
-      name: my-verrazzano
+      name: example-verrazzano
     spec:
-      profile: ${VZ_PROFILE:-dev}
+      profile: dev
     EOF
     </copy>
     ```
 
-    ![wait for installation to complete](images/13.png)
-
-    > It takes around 15 to 20 minutes to complete the installation. To view the installation logs, go to the next commands.
-
-2. To find out how the installation process is going, you can copy and paste the following command in the *Cloud Shell* to monitor the console log.
-
+    The output should be similar to the following:
     ```bash
-    <copy>kubectl logs -f $(kubectl get pod -l job-name=verrazzano-install-my-verrazzano -o jsonpath="{.items[0].metadata.name}")</copy>
+    $ kubectl apply -f - <<EOF
+    apiVersion: install.verrazzano.io/v1alpha1
+    kind: Verrazzano
+    metadata:
+      name: example-verrazzano
+    spec:
+      profile: dev
+    EOF
+    verrazzano.install.verrazzano.io/example-verrazzano created
+    $
     ```
 
-    > The console log contains information about all the steps performed by the platform operator for installing Verrazzano, the components being installed, and the URLs we can use for accessing them.
+    > It takes around 10 to 15 minutes to complete the installation. To view the installation logs, go to the next commands.
 
-    ![view logs](images/15.png)
+2. The Verrazzano operator launches a Kubernetes job to install Verrazzano. You can view the installation logs from that job with the following command:
+
+    ````bash
+    <copy>kubectl logs -n verrazzano-install \
+    -f $(kubectl get pod \
+    -n verrazzano-install \
+    -l app=verrazzano-platform-operator \
+    -o jsonpath="{.items[0].metadata.name}") | grep '^{.*}$' \
+    | jq -r '."@timestamp" as $timestamp | "\($timestamp) \(.level) \(.message)"'</copy>
+    ````
+
+    The output should be similar to the following:
+        
+    ````bash
+      $ kubectl logs -n verrazzano-install \
+    >     -f $(kubectl get pod \
+    >     -n verrazzano-install \
+    >     -l app=verrazzano-platform-operator \
+    >     -o jsonpath="{.items[0].metadata.name}") | grep '^{.*}$' \
+    >     | jq -r '."@timestamp" as $timestamp | "\($timestamp) \(.level) \(.message)"'
+          2022-03-15T12:24:11.756Z info Starting Verrazzano Platform Operator
+          2022-03-15T12:24:13.340Z info metrics server is starting to listen
+          2022-03-15T12:24:13.341Z info skip registering a mutating webhook, admission.Defaulter interface is not implemented
+          2022-03-15T12:24:13.341Z info Registering a validating webhook
+          2022-03-15T12:24:13.341Z info registering webhook
+          2022-03-15T12:24:13.341Z info skip registering a mutating webhook, admission.Defaulter interface is not implemented
+          2022-03-15T12:24:13.341Z info Registering a validating webhook
+          2022-03-15T12:24:13.341Z info registering webhook
+          2022-03-15T12:24:13.341Z info Starting controller-runtime manager
+          2022-03-15T12:24:13.342Z info starting metrics server
+          2022-03-15T12:24:13.342Z info starting webhook server
+          2022-03-15T12:24:13.342Z info Starting EventSource
+          2022-03-15T12:24:13.342Z info Starting EventSource
+          2022-03-15T12:24:13.342Z info Updated current TLS certificate
+          2022-03-15T12:24:13.343Z info Starting certificate watcher
+          2022-03-15T12:24:13.343Z info serving webhook server
+          2022-03-15T12:24:13.742Z info Starting Controller
+          2022-03-15T12:24:13.843Z info Starting workers
+        $
+    ````
+    
 
 3. Leave the *Cloud Shell* open and let the installation running. Please continue with the next lab.
 
@@ -187,4 +243,4 @@ According to our DNS choice, we can use nip.io (wildcard DNS) or [Oracle OCI DNS
 
 * **Author** -  Ankit Pandey
 * **Contributors** - Maciej Gruszka, Peter Nagy
-* **Last Updated By/Date** - Peter Nagy, August 2021
+* **Last Updated By/Date** - Ankit Pandey, April 2022

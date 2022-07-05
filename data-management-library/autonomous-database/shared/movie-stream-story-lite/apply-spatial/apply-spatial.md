@@ -31,10 +31,6 @@ In this lab, you will:
 
 - This lab requires completion of Labs 1&ndash;2 in the Contents menu on the left.
 
-
-> **Note:** If you have a **Free Trial** account, when your Free Trial expires your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. **[Click here for the Free Tier FAQ page.](https://www.oracle.com/cloud/free/faq.html)**
-
-
 ## Task 1: Open a SQL Worksheet
 
 In this lab you will run a series of SQL queries as the MOVIESTREAM user. You concluded Lab 2 by running a script in a SQL Worksheet to load data as the MOVIESTREAM user. You may return to that SQL Worksheet to perform this Lab. If that Worksheet was closed then open a new SQL Worksheet.

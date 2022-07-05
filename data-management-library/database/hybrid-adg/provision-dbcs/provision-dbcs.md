@@ -100,7 +100,7 @@ This lab assumes you have already completed the following:
 
        ![](images/image-20201030173528498.png)
 
-    - Turn on the **Display all available versions**, select the Database version: 19.10.0.0, same version as the on premise database
+    - Turn on the **Display all available versions**, select the Database version: 19.x.0.0, same version as the on premise database
 
        ![image-20210423232538531](images/image-20210423232538531.png)
 

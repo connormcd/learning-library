@@ -1,4 +1,4 @@
-# Configure and Use Database Replay at the PDB Level
+# Configure and use Database Replay at the PDB level
 
 ## Introduction
 
@@ -28,7 +28,7 @@ In this lab, you will:
 * Initialize and prepare the replay
 * Replay the captured workload in `PDB19` using the `wrc` clients
 * Verify that the captured workload is executing on `PDB19`
-* Reset your environment
+* Clean your environment
 
 ### Prerequisites
 
@@ -37,47 +37,48 @@ This lab assumes you have:
 
 ## Task 1: Prepare your environment
 
+> **NOTE:** Unless otherwise stated, all passwords will be `Ora4U_1234`. When copying and pasting a command that includes a password, please replace the word `password` with `Ora4U_1234`. This only applies to instances created through OCI Resource Manager with our provided terraform scripts.
+
 In this lab, you require two PDBs. The `workshop-installed` compute instance comes with a container database (CDB1) that has one PDB already created called PDB1. In this task, you will log in to PDB1 and create the logical directories where the replay capture files will be stored.
 
-You will also be working in two seperate terminal windows labelled **Session1** and **Session2**, where you will capture the workload and run the workload respectively.
+You will also be working in two seperate terminal windows labelled **session 1** and **session 2**, where you will capture the workload and run the workload respectively.
 
-1. Open up the terminal window for **Session1**
+1. Open up the terminal window for **session 1**.
 
-2. Execute the `DBReplay.sh` shell script in Session1. The script re- creates `PDB1` and `PDB19`, removing any existing database replay files.
-
-    ```
-    $ <copy>$HOME/labs/19cnf/DBReplay.sh</copy>
-    
-    ...
-    
-    $
-    ```
-3. Set the Oracle environment variables. At the prompt, enter **CDB1**.
+2. Set the Oracle environment variables. At the prompt, enter **CDB1**.
 
     ```
     $ <copy>. oraenv</copy>
     CDB1
     ```
-4. In Session1, log in to `PDB1` and capture the workload data by using Database Replay.
+
+3. Execute the `DBReplay.sh` shell script in session 1. The script re- creates `PDB1` and `PDB19`, removing any existing database replay files.
 
     ```
-    $ <copy>sqlplus system@PDB1</copy>
+    $ <copy>$HOME/labs/19cnf/DBReplay.sh</copy>
+    ```
+
+4. In **session 1**, log in to `PDB19` and capture the workload data by using Database Replay.
+
+    ```
+    $ <copy>sqlplus system@PDB19</copy>
     
     Enter password: password
 
     SQL>
     ```
-5. The Database Replay capture creates files in a directory. Create the logical directory for the capture files.
+5. The Database Replay capture creates files in a directory. Create the directory for the captured files.
 
     ```
     SQL> <copy>HOST mkdir -p /home/oracle/PDB1/replay</copy>
     ```
+
+6. Create the logical directory.
+
     ```
     SQL> <copy>CREATE OR REPLACE DIRECTORY oltp AS '/home/oracle/PDB1/replay';</copy>
 
     Directory created.
-    
-    SQL>
     ```
 
 ## Task 2: Start capturing data `workload.sh` from `PDB1` using the Database Replay Procedure
@@ -91,47 +92,56 @@ You will also be working in two seperate terminal windows labelled **Session1** 
     > >
     PL/SQL> procedure successfully completed.
     ```
-2. Open another terminal window, **Session2**. During the capture, in this session you will execute the workload on `PDB1` by executing the `$HOME/labs/19cnf/workload.sh` shell script.
+
+2. Open another terminal window, **session 2**. 
+
+3. Set the Oracle environment variables. At the prompt, enter **CDB1**.
+
+    ```
+    $ <copy>. oraenv</copy>
+    CDB1
+    ```
+
+4. During the capture, in **session 2** you will execute the workload on `PDB1` by executing the `$HOME/labs/19cnf/workload.sh` shell script.
 
     ```
     $ <copy>$HOME/labs/19cnf/workload.sh</copy>
     ```
-3. When you think the workload is sufficient for replay testing, stop the capture in **Session1**.
+
+5. When you think the workload is sufficient for replay testing, stop the capture in **session 1**.
 
     ```
     SQL> <copy>EXEC DBMS_WORKLOAD_CAPTURE.FINISH_CAPTURE ()</copy>
 
     PL/SQL> procedure successfully completed
     ```
+
+5. Exit SQL*Plus in **session 1**. 
+
     ```
     SQL> <copy>EXIT</copy>
-
-    ...
-    $
     ```
 
 ## Task 3: Process the capture files in `PDB19`
 
 As in the normal process of Database Replay, after capturing the workload into files, you process the capture files. You will replay the capture files in `PDB19`.
 
-1. Process the capture files and replay the workload in **Session1** in `PDB19`.
+1. Log into PDB19 as `system`.
 
     ```
     $ <copy>sqlplus system@PDB19</copy> 
     
     Enter password: password
-
-    SQL>
     ```
-2. Create the logical directory in `PDB19` for processing and initializing the capture files stored in `/home/oracle/PDB1/replay` to be replayed.
+
+2. Create the logical directory in `PDB19` for processing and initializing the capture files stored in `$HOME/labs/19cnf/PDB1/replay` to be replayed.
 
     ```
     SQL> <copy>CREATE OR REPLACE DIRECTORY oltp AS '/home/oracle/PDB1/replay';</copy>
 
     Directory created.
-
-    SQL>
     ```
+
 3. Process the capture files.
 
     ```
@@ -139,9 +149,8 @@ As in the normal process of Database Replay, after capturing the workload into f
         capture_dir => 'OLTP')</copy>
     >
     PL/SQL> procedure completed successfully.
-
-    SQL>
     ```
+
 ## Task 4: Initialize and prepare the replay
 
 1. Initialize the replay.
@@ -150,32 +159,27 @@ As in the normal process of Database Replay, after capturing the workload into f
     SQL> <copy>EXEC DBMS_WORKLOAD_REPLAY.INITIALIZE_REPLAY ( -
         replay_name => 'R', replay_dir => 'OLTP')</copy>
     
-    PL/SQL> procedure successfully completed.
-
-    SQL>
+    PL/SQL procedure successfully completed.
     ```
+
 2. Prepare the replay.
 
     ```
     SQL> <copy>EXEC DBMS_WORKLOAD_REPLAY.PREPARE_REPLAY ()</copy>
 
     PL/SQL> procedure successfully completed.
-
-    SQL>
     ```
+
 ## Task 5: Replay the captured workload in `PDB19` using the `wrc` clients
 
 You are ready to start workload clients to replay the captured workload in `PDB19` with `wrc` clients.
 
-1. In **Session2**, if the workload is still not finished, interrupt the `$HOME/labs/19cnf/workload.sh` shell script using `cntrl z`, quit the SQL*Plus session, and start the `wrc` process into `PDB19`.
+1. In **session 2**, if the workload is still not finished, interrupt the `$HOME/labs/19cnf/workload.sh` shell script using `ctrl + z`, quit the SQL*Plus session, and start the `wrc` process into `PDB19`.
 
-    Note: Replay time stamps may be different then the one's shown below.
+    > **Note:** Replay time stamps may be different then the one's shown below.
 
-    ```
-    $ <copy>. oraenv</copy>
-    CDB1
-    ```
 
+2. Start the `wrc` process.
     ```
     $ <copy>wrc REPLAYDIR=/home/oracle/PDB1/replay USERID=system SERVER=PDB19</copy>
 
@@ -183,9 +187,8 @@ You are ready to start workload clients to replay the captured workload in `PDB1
     password: password
     Wait for the replay to start (11:40:35)
     ```
-    Note: The password required is your respective `SYSTEM` password.
 
-2. The `wrc` client is waiting for Database Replay to start in the `PDB`. In **Session1**, execute the `START_REPLAY` procedure.
+3. The `wrc` client is waiting for Database Replay to start in the `PDB`. In **session 1**, execute the `START_REPLAY` procedure.
 
     ```
     SQL> <copy>exec DBMS_WORKLOAD_REPLAY.START_REPLAY ()</copy>
@@ -194,14 +197,11 @@ You are ready to start workload clients to replay the captured workload in `PDB1
 
     SQL>
     ```
-3. As soon as the Database Replay procedure is started in `PDB19`, the client starts replaying.
+4. As soon as the Database Replay procedure is started in `PDB19`, the client starts replaying.
 
-    ```
-    Replay client 1 started (11:42:05)
-    ```
 ## Task 6: Verify that the captured workload is executing on `PDB19`
 
-1. Meanwhile, in **Session1**, verify that the client is executing on `PDB19`.
+1. Meanwhile, in **session 1**, verify that the client is executing on `PDB19`.
 
     ```
     SQL> <copy>CONNECT system@PDB19</copy>
@@ -210,6 +210,7 @@ You are ready to start workload clients to replay the captured workload in `PDB1
     
     Connected.
     ```
+
     ```
     SQL> <copy>SELECT username, con_id, module
         FROM  v$session
@@ -221,34 +222,28 @@ You are ready to start workload clients to replay the captured workload in `PDB1
     SYSTEM                5  WRC$
     SYSTEM                5  SQL*Plus
     ```
+
     ```
     SQL> <copy>EXIT</copy>
-
     ...
     $
     ```
 ## Task 7: Reset your environment
 
-When the `wrc` client finally completes, `EXIT` out of **session2** and execute both the `$HOME/labs/19cnf/cleanup_PDBs_in_CDB1.sh` and `$HOME/labs/19cnf/DBReplay.sh` shell script in **session1** to drop and reset your `CDB1` as well as remove the Database Replay capture files.
+When the `wrc` client finally completes, `EXIT` out of **session2** and execute both the `$HOME/labs/19cnf/cleanup_PDBs_in_CDB1.sh` and `$HOME/labs/19cnf/DBReplay.sh` shell script in **session 1** to drop and reset your `CDB1` as well as remove the Database Replay capture files.
+1. Reset PDBs in CDB1.
+    ```
+    $ <copy>$HOME/labs/19cnf/cleanup_PDBs_in_CDB1.sh</copy>
+    ```
 
- 
-```
-Replay client 1 finished (11:50:11)
+2. Remove Database Replay capture files.
 
-$
-```
-```
-$ <copy>$HOME/labs/19cnf/cleanup_PDBs_in_CDB1.sh</copy>
+    ```
+    $ <copy>$HOME/labs/19cnf/DBReplay.sh</copy>
+    ```
 
-...
-$
-```
-```
-$ <copy>$HOME/labs/19cnf/DBReplay.sh</copy>
+    You may now **proceed to the next lab**.
 
-...
-$
-```
 
 ## Learn More
 
@@ -258,5 +253,6 @@ $
 ## Acknowledgements
 
 - **Author**- Dominique Jeunot, Consulting User Assistance Developer
-- **Last Updated By/Date** - Ethan Shmargad, Santa Monica Specialists Hub, November 2021
+- **Contributor** - Ethan Shmargad, Santa Monica Specialist Hub
+- **Last Updated By/Date** - Ethan Shmargad, Santa Monica Specialist Hub, November 2021
 

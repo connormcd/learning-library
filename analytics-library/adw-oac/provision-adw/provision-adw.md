@@ -44,16 +44,19 @@ Estimated Lab Time: 15 minutes.
     
 2. To create a new instance, click the blue **Create Autonomous Database** button.
 
-    ![Create ADB](./images/lab100_2.png)
+    ![Create ADB](./images/create-adb.png)
 
     Enter the required information and click the **Create Autonomous Database** button at the bottom of the form. For the purposes of this workshop, use the information below:
 
-    - **Compartment:** Verify that a compartment ( &lt;tenancy_name&gt; ) is selected.
+    - **Compartment:** Verify that a compartment (&lt;tenancy_name&gt;) is selected.
 
     By default, any OCI tenancy has a default ***root*** compartment, named after the tenancy itself. The tenancy administrator (default root compartment administrator) is any user who is a member of the default Administrators group. For the workshop purpose, you can use ***root***.
     By default, any OCI tenancy has a default ***root*** compartment, named after the tenancy itself. The tenancy administrator (default root compartment administrator) is any user who is a member of the default Administrators group. For the workshop purpose, you can use ***root***.
 
     - **Display Name:** Enter the display name for your ADW Instance. For this demo purpose, I have called my database `ADW_OAC`.
+        ```
+        <copy>ADW_OAC</copy>
+        ```
     
     - **Database Name:** Enter any database name you choose that fits the requirements for ADW. The database name must consist of letters and numbers only, starting with a letter. The maximum length is 14 characters. You can leave the name provided. That field is not a mandatory one.
     - **Workload Type:** Autonomous Data Warehouse  
@@ -64,57 +67,57 @@ Estimated Lab Time: 15 minutes.
 
     You can select Always Free configuration to start enjoying your Free Autonomous Database. You will have see the Always Free logo next to the name of your database:
 
-    ![Always Free Logo](./images/always_free_logo.png)
+    ![Always Free Logo](./images/always-free-logo.png)
 
     We have selected 'Always Free Tier On'. 
 
     To learn more about Always Free check the following [link](https://www.oracle.com/uk/cloud/free/#always-free).
 
-    ![ADB Creation Details](./images/lab100_3_2.png)
+    ![ADB Creation Details](./images/adw-creation-details.png)
 
     - **Choose Database version:** 19c
     
     - **CPU Count:** 1
     
-    - **Storage Capacity (TB):** 0.02
-    
+    - **Storage Capacity (TB):** 1
+
     - **CPU Count and Storage Capacity (TB)** are defined by default for the Always Free Tier.
     
-    - **Auto scaling:** Off
+    - **OCPU Auto scaling:** Off
+    
+    - **Storage Auto scaling:** Off
 
-    ![ADB Creation Storage](./images/lab100_4.png)
+    ![ADB Creation Storage](./images/adw-db-version-new.png)
 
 3. Under **Create administration credentials** section:
 
-    - **Administrator Password:** Enter any password you wish to use noting the specific requirements imposed by ADW. A suggested password for this lab is `ADWwelcome-1234`.
+    - **Administrator Password:** Enter any password you wish to use noting the specific requirements imposed by ADW.
     
     - **Reminder:** Note your password in a safe location as this cannot be easily reset.
 
     Under **Choose network access** section:
 
-    - Select **'Allow secure access from everywhere'**: *On*
+    - Select **'Secure access from everywhere'**: *On*
     
-    - Select **Configure access control rules:** *Off*
-
-    ![ADB Creation Password](./images/lab100_5.png)
+    ![ADB Creation Password](./images/adw-db-password-new.png)
 
 4. Under **Choose a license type** section, choose **License Type: Licence Included**.
 
     When you have completed the required fields, scroll down and click on the blue **Create Autonomous Database** button at the bottom of the form:
 
-    ![ADB Creation](./images/lab100_6.png)
+    ![ADB Creation](./images/adw-db-license-type.png)
 
 5. The Autonomous Database **Details** page will show information about your new instance. You should notice the various menu buttons that help you manage your new instance - because the instance is currently being provisioned all the management buttons are greyed out.
 
-    ![ADB Creation Provisioning](./images/lab100_7.png)
+    ![ADB Creation Provisioning](./images/adw-provisioning.png)
 
 6. A summary of your instance status is shown in the large box on the left. In this example, the color is amber and the status is **Provisioning**.
 
-    ![ADB Creation Provisioning Amber](./images/lab100_8.png)
+    ![ADB Creation Provisioning Amber](./images/provisioning.png)
 
 7. After a short while, the status will change to **Available** and the "ADW" box will change color to green:
 
-    ![ADB Creation Provisioning Green](./images/lab100_9.png)
+    ![ADB Creation Provisioning Green](./images/available.png)
 
 8. Once the Lifecycle Status is **Available**, additional summary information about your instance is populated, including workload type and other details.
 
@@ -124,11 +127,11 @@ Estimated Lab Time: 15 minutes.
 
     This page is known as the **Autonomous Database Details Page**. It provides you with status information about your database, and its configuration. Get **familiar** with the buttons and tabs on this page.
 
-    ![ADB Creation Details](./images/lab100_adw_ready.png)
+    ![ADB Creation Details](./images/adw-ready.png)
 
     Remember: You will have visible the Always Free logo next to the name of your database:
 
-    ![Always Free Logo](./images/always_free_logo.png)
+    ![Always Free Logo](./images/always-free-logo.png)
 
 You have just created an Autonomous Database with the latest features of Oracle Databases.
 
@@ -136,7 +139,7 @@ You have just created an Autonomous Database with the latest features of Oracle 
 
 - **Author** - Priscila Iruela - Technology Product Strategy Director, Juan Antonio Martin Pedro - Analytics Business Development
 - **Contributors** - Victor Martin, Melanie Ashworth-March, Andrea Zengin
-- **Last Updated By/Date** - Kamryn Vinson, October 2020
+- **Last Updated By/Date** - Priscila Iruela, June 2022
 
 ## Need Help?
 Please submit feedback or ask for help using our [LiveLabs Support Forum](https://community.oracle.com/tech/developers/categories/livelabsdiscussions). Please click the **Log In** button and login using your Oracle Account. Click the **Ask A Question** button to the left to start a *New Discussion* or *Ask a Question*.  Please include your workshop name and lab name.  You can also include screenshots and attach files.  Engage directly with the author of the workshop.

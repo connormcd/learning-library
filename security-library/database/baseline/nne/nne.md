@@ -5,7 +5,10 @@ This workshop introduces the functionality of Oracle Native Network Encryption (
 
 *Estimated Lab Time:* 15 minutes
 
-*Version tested in this lab:* Oracle DB 19.10
+*Version tested in this lab:* Oracle DB 19.13
+
+### Video Preview
+Watch a preview of "*LiveLabs - Oracle Native Network Encryption (May 2022)*" [](youtube:N6Uz-pVTkaI)
 
 ### Objectives
 - Enable/Disable the Native Network Encryption on your database
@@ -29,7 +32,13 @@ This lab assumes you have:
 
 ## Task 1: Check the current network configuration
 
-1. As OS user *oracle* on your **DBSec-Lab** VM remote desktop session, Double-Click on the *Terminal* icon on the desktop to launch a session
+1. Open a Terminal session on your **DBSec-Lab** VM as OS user *oracle*
+
+    ````
+    <copy>sudo su - oracle</copy>
+    ````
+
+    **Note**: If you are using a remote desktop session, double-click on the *Terminal* icon on the desktop to launch a session
 
 2. Go to the scripts directory
 
@@ -55,10 +64,11 @@ This lab assumes you have:
 
     ![](./images/nne-002.png " ")
 
+    **Note**: You should not see the "Encryption service adapter" row
 
 ## Task 2: Generate and capture SQL traffic
 
-1. Run tcpdump on the traffic to analyze the packets in transit on the network
+1. Run tcpdump on the traffic to analyze the packets in transit on the network (wait for the end of the execution)
 
     ````
     <copy>./nne_tcpdump_traffic.sh</copy>
@@ -70,43 +80,44 @@ This lab assumes you have:
     - The output has been saved to tcpdump.pcap
     - There are a lot of tools available to analyze pcap files
 
-2. Next, we will capture traffic across the wire for the Glassfish application. Open a web browser window to *`http://<YOUR_DBSEC-LAB_VM_PUBLIC_IP>:8080/hr_prod_pdb1`*
+2. Next, we will capture traffic across the wire for the Glassfish application
 
-3. On your terminal session, begin the capture script
+    - Begin the capture script and **don't close it**
 
-    ````
-    <copy>./nne_capt_empsearch_traffic.sh</copy>
-    ````
+        ````
+        <copy>./nne_capt_empsearch_traffic.sh</copy>
+        ````
 
-4. On your Glassfish App, perform the following steps:
+    - In parallel, open a web browser window to *`http://<YOUR_DBSEC-LAB_VM_PUBLIC_IP>:8080/hr_prod_pdb1`* to acces to your Glassfish App
+    
+    - Perform the following steps:
 
-    - Login to the HR Application as *`hradmin`* with the password "*`Oracle123`*"
+        - Login to the HR Application as *`hradmin`* with the password "*`Oracle123`*"
 
-    ````
-    <copy>hradmin</copy>
-    ````
+            ````
+            <copy>hradmin</copy>
+            ````
 
-    ````
-    <copy>Oracle123</copy>
-    ````
+            ````
+            <copy>Oracle123</copy>
+            ````
 
-    ![](./images/nne-009.png " ")
+            ![](./images/nne-009.png " ")
+            ![](./images/nne-010.png " ")
 
-    ![](./images/nne-010.png " ")
+        - Click on **Search Employees**
 
-    - Click on **Search Employees**
+            ![](./images/nne-011.png " ")
 
-    ![](./images/nne-011.png " ")
+        - Click [**Search**]
 
-    - Click [**Search**]
+            ![](./images/nne-012.png " ")
 
-    ![](./images/nne-012.png " ")
+    - Now go back to your terminal session to see traffic content
 
-5. Go back to your terminal session to see traffic content
+        ![](./images/nne-004.png " ")
 
-    ![](./images/nne-004.png " ")
-
-6. When you have seen the un-encrypted data, use "`[Ctrl]+C`" to stop the `nne_capt_empsearch_traffic.sh` script
+3. When you have seen the un-encrypted data, use "*`[Ctrl]+C`* " to stop the `nne_capt_empsearch_traffic.sh` script
 
 ## Task 3: Enable the network encryption
 You will enable SQL*Net encryption with the `REQUESTED` value for `SQLNET.ENCRYPTION_SERVER`
@@ -131,7 +142,7 @@ You will enable SQL*Net encryption with the `REQUESTED` value for `SQLNET.ENCRYP
 
     **Note**: You should notice an additional line that says "**AES256 Encryption service adapter for Linux**"
 
-3. Now, re-run tcpdump on the traffic
+3. Now, re-run tcpdump on the traffic to analyze the packets in transit on the network (wait for the end of the execution)
 
     ````
     <copy>./nne_tcpdump_traffic.sh</copy>
@@ -139,41 +150,41 @@ You will enable SQL*Net encryption with the `REQUESTED` value for `SQLNET.ENCRYP
 
     ![](./images/nne-007.png " ")
 
-    **Note**: The `DEMO_HR_EMPLOYEES` table data is still queryable but when it shows up in tcpdump it shows up as **junk** because the session is encrypted
+    **Note**: The `DEMO_HR_EMPLOYEES` table data is still queryable but when it shows up in the tcpdump, they are now unreadable because **the session is encrypted**!
 
 4. Now, you will test the Glassfish application queries to see the impact of the network encryption
 
-    - On your terminal session capture the traffic generated
+    - On your terminal session capture the traffic generated  and, again, **don't close it**
 
-    ````
-    <copy>./nne_capt_empsearch_traffic.sh</copy>
-    ````
+        ````
+        <copy>./nne_capt_empsearch_traffic.sh</copy>
+        ````
 
-    ![](./images/nne-008.png " ")
+        ![](./images/nne-008.png " ")
 
-    - In your browser, **logout** the Glassfish application and **login** again as *`hradmin`* to see what happens when we sniff this traffic
+    - Go bakc to your web browser, **logout** the Glassfish application and **login** again as *`hradmin`* to see what happens when we sniff this traffic
 
-    ![](./images/nne-009.png " ")
+        ![](./images/nne-009.png " ")
 
-    ![](./images/nne-010.png " ")
+        ![](./images/nne-010.png " ")
 
     - Click on **Search Employees**
 
-    ![](./images/nne-011.png " ")
+        ![](./images/nne-011.png " ")
 
     - Click [**Search**]
 
-    ![](./images/nne-012.png " ")
+        ![](./images/nne-012.png " ")
 
-5. Go back to your terminal session to see traffic content
+    - Now go back to your terminal session to see traffic content
 
-    ![](./images/nne-008.png " ")
+        ![](./images/nne-008.png " ")
 
     **Note**:
     - The data is encrypted between our Glassfish application (JDBC Thin Client) and the database
     - This works immediately (or after a refresh) because our Glassfish application creates a new connection for each query. A real application would probably need to be stopped and restarted to disconnect the existing application connections from the database!
 
-6. When you have seen the encrypted data, use "`[Ctrl]+C`" to stop the `nne_capt_empsearch_traffic.sh` script
+5. When you have seen the encrypted data, use "*`[Ctrl]+C`* " to stop the `nne_capt_empsearch_traffic.sh` script
 
 ## Task 4: (Optional) Disable the network encryption
 
@@ -185,14 +196,14 @@ You will enable SQL*Net encryption with the `REQUESTED` value for `SQLNET.ENCRYP
 
     ![](./images/nne-013.png " ")
 
-You may now [proceed to the next lab](#next)..
+You may now proceed to the next lab!
 
 ## **Appendix**: About the Product
 ### **Overview**
 
 Oracle Database provides native **data network encryption and integrity** to ensure that data in-motion is secure as it travels across the network.
 
-    ![](./images/nne-concept.png " ")
+![](./images/nne-concept.png " ")
 
 The purpose of a secure cryptosystem is to convert plaintext data into unintelligible ciphertext based on a key, in such a way that it is very hard (computationally infeasible) to convert ciphertext back into its corresponding plaintext without knowledge of the correct key.
 
@@ -203,9 +214,10 @@ Oracle SQL*Net traffic can be encrypted by using:
 - TLS certificate-based encryption
 
 ## Want to Learn More?
-Technical Documentation: [Oracle Native Network Encryption 19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/configuring-network-data-encryption-and-integrity.html)
+Technical Documentation:
+- [Oracle Native Network Encryption 19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/configuring-network-data-encryption-and-integrity.html)
 
 ## Acknowledgements
 - **Author** - Hakim Loumi, Database Security PM
-- **Contributors** - Gian Sartor, Rene Fontcha
-- **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, September 2021
+- **Contributors** - Rene Fontcha
+- **Last Updated By/Date** - Hakim Loumi, Database Security PM - May 2022

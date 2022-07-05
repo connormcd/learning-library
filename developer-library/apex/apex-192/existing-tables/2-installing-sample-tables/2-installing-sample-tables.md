@@ -40,5 +40,5 @@ This completes Lab 2. You now know how to install a sample dataset. [Click here 
 
  - **Author** -  David Peake, Consulting Member of Technical Staff
  - **Contributors** - Arabella Yao, Product Manager Intern, Database Management
- - **Last Updated By/Date** - Tom McGinn, Database Cloud Services, Product Management, June 2020
+ - **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

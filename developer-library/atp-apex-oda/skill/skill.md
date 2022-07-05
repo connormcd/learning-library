@@ -32,9 +32,15 @@ In this workshop, we're starting from scratch. So the first thing you'll do is *
 
 2. **Fill** the information and click **Create** button:
 
-    - **Display Name**: my tasks
+    - **Display Name**: 
+    ```
+    <copy>my tasks</copy>
+    ``` 
+    - **Dialog Mode**: Select **YAML**
 
-    ![Create Skill](./images/skill_2_2.png)
+    ![Create Skill](./images/skill_2_2_new.png)
+
+> Note: If you prefer to use a **Visual Dialog Mode**, you can follow this [tutorial content - Create a Dialog Flow with the Oracle Visual Flow Designer](https://docs.oracle.com/en/cloud/paas/digital-assistant/tutorial-visual-flow-designer/). For the workshop purpose we will use **YAML Dialog mode**.
 
 ## Task 2: Import the Custom Component
 
@@ -57,8 +63,14 @@ Import Custom Component is very simple.
 
 4. **Fill** the rest of the information and remember to `Enable Component Logging` with the toggle button:
 
-    - **Name**: tasks
-    - **Description**: Tasks Custom Component
+    - **Name**: 
+        ```
+        <copy>tasks</copy>
+        ``` 
+    - **Description**:
+        ```
+        <copy>Tasks Custom Component</copy>
+        ``` 
     - **Embedded Container**: is selected by default. Leave it like that.
     - **Enable Component Logging**: Enabled
 
@@ -91,12 +103,23 @@ Let's create a **Greeting Intent**.
 
 3. **Modify** default values for:
 
-    - **Conversation Name**: Greeting
-    - **Name**: Greeting
+    - **Conversation Name**: 
+        ```
+        <copy>Greeting</copy>
+        ``` 
+    - **Name**:
+        ```
+        <copy>Greeting</copy>
+        ``` 
     - **Utterances to Add**: In this field is where you have to type the different Greetings that you want to include as part of the Intent. Type on this field `Hi` and click enter. Wait to be added as part of the intents. Type on the same field `Hello` and wait to be added as before: 
-        - **Example 1**: `Hi`
-        - **Example 1**: `Hello`
-
+        - **Example 1**: 
+        ```
+        <copy>Hi</copy>
+        ``` 
+        - **Example 1**:
+        ```
+        <copy>Hello</copy>
+        ``` 
     The two **Intents** that you added a few seconds ago will be visible in the page. Check the following screenshot to confirm.
 
     ![Intent Greeting](./images/intents_3_2.png)
@@ -107,12 +130,27 @@ Let's create a **Greeting Intent**.
 
 5. **Modify** default values for:
 
-    - **Conversation Name**: ListTasks
-    - **Name**: ListTasks
+    - **Conversation Name**:
+        ```
+        <copy>ListTasks</copy>
+        ``` 
+    - **Name**:
+        ```
+        <copy>ListTasks</copy>
+        ``` 
     - **Utterances to Add**: In this field is where you have to type the different list of tasks that you want to include as part of the Intent. Type on this field `list my tasks` and click enter. Wait to be added as part of the intents. Type on the same field `show me my tasks` and wait to be added as before. And finally type on the same field `my tasks` and wait to be added as before:
-        - **Example 1**: `list my tasks`
-        - **Example 2**: `show me my tasks`
-        - **Example 1**: `my tasks`
+        - **Example 1**:
+            ```
+            <copy>list my tasks</copy>
+            ``` 
+        - **Example 2**:
+            ```
+            <copy>show me my tasks</copy>
+            ``` 
+        - **Example 1**:
+            ```
+            <copy>my tasks</copy>
+            ``` 
 
     The three **Intents** that you added a few seconds ago will be visible in the page. Check the following screenshot to confirm.
 
@@ -159,8 +197,14 @@ Time to **integrate** your **Custom Component** with the Intent `ListTasks` crea
     For example: say `Hi` and wait for the bot answer. In this case the answer is `Greetings, hooman!`. Type the next Intent `show me my list` and wait for the bot answer. Now the answer is `Get concert tickets` and `Buy bread`.
 
     Example of execution:
-        - **Step 1 example**: `Hi` 
-        - **Step 2 example**: `show me my list`
+        - **Step 1 example**:
+            ```
+            <copy>Hi</copy>
+            ``` 
+        - **Step 2 example**:
+            ```
+            <copy>show me my list</copy>
+            ``` 
 
     ![Test](./images/oda_test_1_3.gif)
 
@@ -189,7 +233,11 @@ To see how we **request** against the **database**, we can **add** a new item.
 
     ![Object Browser Data](./images/apex_object_data_inser_new.png)
 
-3. **Add** a new **Text** like `New item!` and **click** **Create**:
+3. **Add** a new **Text** like 
+    ```
+    <copy>New item!</copy>
+    ``` 
+    and **click** **Create**:
 
     ![Object Browser Data](./images/apex_object_data_insert_item.png)
 
@@ -202,8 +250,14 @@ To see how we **request** against the **database**, we can **add** a new item.
     For example: reset the conversation by clicking on **Reset** then say `hi` and wait for the bot answer. Type the next Intent `show me my tasks` and wait for the bot answer. Now the answer is `Get concert tickets`, `Buy bread`, and `New Item!`.
     
     Example of execution:
-        - **Step 1 example**: `hi` 
-        - **Step 2 example**: `show me my tasks`
+        - **Step 1 example**: 
+            ```
+            <copy>hi</copy>
+            ``` 
+        - **Step 2 example**:
+             ```
+            <copy>show me my tasks</copy>
+            ``` 
 
     ![Test](./images/oda_test_2_3.gif)
 
@@ -215,4 +269,4 @@ Continue to Next Steps for more information!
 
 - **Author** - Victor Martin - Technology Product Strategy Manager, Priscila Iruela - Technology Product Strategy Director
 - **Contributors** - Melanie Ashworth-March
-- **Last Updated By/Date** - Kamryn Vinson, October 2020
+- **Last Updated By/Date** - Priscila Iruela, June 2022

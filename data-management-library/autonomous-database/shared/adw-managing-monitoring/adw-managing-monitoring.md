@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab, you will explore the monitoring capabilities available for your Autonomous Data Warehouse (ADW) or Autonomous Transaction Processing (ATP) database.
+In this lab, you will explore the monitoring capabilities available for your Autonomous Database (ADB).
 
 Oracle provides several facilities for monitoring the performance and activity of your autonomous database. Among them are:
 -   **Database Service Console** (targeted towards database administrators, developers, data scientists)
@@ -10,12 +10,12 @@ Oracle provides several facilities for monitoring the performance and activity o
 -   **Performance Hub**
 -   **Autonomous Database Metrics**
 
-This lab covers using the Database Service Console, OCI Monitoring Console, and the Performance Hub to monitor an ADW database. The same steps apply to an ATP database.
+This lab covers using the Database Service Console, OCI Monitoring Console, and the Performance Hub to monitor an ADB.
 
-The ADW or ATP Service Console provides dashboards to monitor the real-time and historical CPU and storage utilization, as well as database activity, like the number of running or queued statements. It also provides Real-Time SQL Monitoring to look at current and past long-running SQL statements in your instance and allows you to cancel long-running queries or set thresholds for ADW or ATP to automatically cancel them for you.
+The ADB Service Console provides dashboards to monitor the real-time and historical CPU and storage utilization, as well as database activity, like the number of running or queued statements. It also provides Real-Time SQL Monitoring to look at current and past long-running SQL statements in your instance and allows you to cancel long-running queries or set thresholds for ADW or ATP to automatically cancel them for you.
 
 ### Video Preview
-Watch a video demonstration of monitoring an autonomous database in the Autonomous Data Warehouse cloud service.
+Watch a video demonstration of monitoring ADB cloud service.
 
 [](youtube:Imxl2JiYicQ)
 
@@ -23,7 +23,7 @@ Watch a video demonstration of monitoring an autonomous database in the Autonomo
 
 The first facility that we will look at for monitoring your autonomous database is the Database Service Console.
 
-1. If you are not logged in to Oracle Cloud Console, log in and select Autonomous Data Warehouse from the hamburger menu and navigate into your ADW Finance Mart instance.
+1. If you are not logged in to Oracle Cloud Console, log in and select Autonomous Database from the hamburger menu and navigate into your ADB Finance Mart instance.
 
     ![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/database-adw.png " ")
 

@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Can I run the Oracle LiveLabs workshops on my own Oracle Cloud account?",
+         "description": "",
+         "filename": "./run-workshop-in-my-account.md"
+      },
+      {
+         "title": "How can I launch an Oracle LiveLabs workshop?",
+         "description": "",
+         "filename": "../launch-workshop/launch-workshop.md"
+      }
+   ],
+   "task_type": "Sections"
+}

@@ -13,10 +13,6 @@ In this lab you will create a series of scenarios in OCI where Oracle REST Data 
 - Consume a CSV file from Object Store with a REST enabled table in an Autonomous Database using Functions and Events
 - Send Log Data to an Autonomous Database using OCI Logging and the Service Connector Hub and Functions
 
-### Prerequisites
-This lab assumes you have:
-* Completed the [Getting Started](https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md) lab
-
 ## Learn More
 
 ### About Oracle REST Data Services

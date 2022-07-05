@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "What are Oracle LiveLabs Sprints?",
+         "description": "",
+         "filename": "./what-are-sprints.md"
+      },
+      {
+         "title": "How can I filter Oracle LiveLabs Sprints?",
+         "description": "",
+         "filename": "../filter-sprints/filter-sprints.md"
+      }
+   ],
+   "task_type": "Sections"
+}

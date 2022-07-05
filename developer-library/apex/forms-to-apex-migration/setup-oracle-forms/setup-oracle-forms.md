@@ -32,15 +32,15 @@ We start with deploying a pre-configured client machine instance from the OCI ma
 1. Log into your cloud account using your tenant name, username and password.
 2. Click the **Navigation Menu** in the upper left and select **Marketplace**.
 
-	![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/marketplace.png " ")	
+	![Navigation menu selecting marketplace.](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/marketplace.png " ")	
 
 3. Search for Oracle Forms Service.
-      ![](./images/oracle_forms.png " ")
+      ![Oracle forms service.](./images/oracle-forms.png " ")
 
 4. Choose Oracle Forms Service image from Oracle Image section.
 
 5. Choose the compartment before launching the instance.
-    ![](./images/choose_compartment.png " ")
+    ![Select compartment before launching.](./images/choose-compartment.png " ")
 
 6. Choose VCN and subnet you have created in the previous step. This would likely be the public subnet created in previous labs.
 
@@ -52,12 +52,12 @@ We start with deploying a pre-configured client machine instance from the OCI ma
 8. Add SSH key, you can choose to import ssh public key or paste ssh public key.
 
 9. Click on create
-    ![](./images/create_stack.png " ")
+    ![Click on create.](./images/create-stack.png " ")
 
 10. Within a few mins your development instance will be available and a public IP address assigned (if it is provisioned in a public subnet).
 
 11. Once provisioned, you can click on the instance name to see details.
-    ![](./images/computeready.png " ")
+    ![Click on instance name to see details.](./images/computeready.png " ")
 
 
 ## Task 2: Connect from your local laptop into your development system to complete the forms installation
@@ -235,7 +235,7 @@ First we ssh into the dev client and invoke the VNC server that comes pre-instal
 
 
 7. Start VNC Viewer on your laptop and configure a client connection using the settings as shown.
-    ![](./images/VNCViewer.png " ")
+    ![Start VCN viewer.](./images/VNCViewer.png " ")
 
   Note how the connect string for VNC Server is simply localhost:1
 
@@ -245,7 +245,7 @@ First we ssh into the dev client and invoke the VNC server that comes pre-instal
 
 ## Task 3: Copy the SQL Scripts, Shell Scripts and Sample Forms files to your development system
 
-1. We have sample forms and sample database scripts that can be downloaded from [here](https://objectstorage.us-ashburn-1.oraclecloud.com/p/fbFOefHYChqsfjw3M1TLkdrks_S7i5-Ufq2dXxCtiZhyvLDHnEICwAYM4v3mXstQ/n/c4u04/b/developer-library/o/setup-oracle-forms.zip)
+1. We have sample forms and sample database scripts that can be downloaded from [here](https://objectstorage.us-ashburn-1.oraclecloud.com/p/LNAcA6wNFvhkvHGPcWIbKlyGkicSOVCIgWLIu6t7W2BQfwq2NSLCsXpTL9wVzjuP/n/c4u04/b/livelabsfiles/o/developer-library/setup-oracle-forms.zip)
 
 2. Unzip the files and Copy the files over to your development system from your local Desktop
 
@@ -262,7 +262,7 @@ First we ssh into the dev client and invoke the VNC server that comes pre-instal
 ## Task 4: Connect to your DB in Development system using SQL Developer
 
 1. In your VNC session, invoke SQL Developer from the top left Applications menu as shown below.
-    ![](./images/sql-developer-vnc.png " ")
+    ![Open SQL developer from applications menu.](./images/sql-developer-vnc.png " ")
 
 
     *Note: In the event you have issues launching SQL Developer and it prompts with a java classpath error, simply add the following line to ~/.sqldeveloper/19.1.0/product.conf and retry.*
@@ -316,5 +316,4 @@ You may now *proceed to the next lab*.
 
 - **Author** -  Vanitha Subramanyam, Senior Solution Architect
 - **Contributors** - Abhinav Jain, Staff Cloud Engineer, Sakthikumar Periyasamy Senior Cloud Engineer, Nayan Karumuri Staff Cloud Engineer
-- **Last Updated By/Date** - Vanitha Subramanyam, Senior Solution Architect, February 2021
-
+- **Last Updated By/Date** - Andres Quintana, March 2022

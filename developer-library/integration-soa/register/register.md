@@ -5,7 +5,7 @@ In the previous section, the validatePayment process composite have been complet
 
 Service Bus will protect consumers of the validatePayment composite from routine changes such as deployment location and implementation updates. Service Bus will help scale the service to handle higher volume of requests and provide resiliency for the service if it needs to be taken down for routine maintenance.
 
-![](./images/servc-bus-0.png " ")
+![Register Validate Payment on the Service Bus architecture](./images/servc-bus-0.png " ")
 
 *Estimated Lab Time*: 60 minutes
 
@@ -30,7 +30,7 @@ This lab assumes you have:
 2. From the Categories tree, click on **General** > **Applications**
 3. Select **Service Bus Application with Service Bus Project** from the Items field.
 
-    ![](./images/ServiceBus-JDeveloper.png " ")
+    ![Service Bus Application with Service Bus Project](./images/ServiceBus-JDeveloper.png " ")
 
 4. Click **OK**.
 5. In the subsequent Create Service Bus Application With Service Bus Project dialog, set the following fields, leaving the others with their default values:
@@ -38,23 +38,23 @@ This lab assumes you have:
     - Application Name: e2e-1201-servicebus
     - Directory of your choice
 
-    ![](./images/servc-bus-1.png " ")
+    ![Create Service Bus Application With Service Bus Project dialog](./images/servc-bus-1.png " ")
 
 6. Click **Next**.
 7. When you create a new application, you are prompted to create a new project. Set the following fields on Step 2 of 2:
     - Project Name: *ValidatePayment*
     - Directory of your choice
 
-    ![](./images/servc-bus-2.png " ")
+    ![Create Service Bus Application With Service Bus Project dialog](./images/servc-bus-2.png " ")
 
 8. Click **Finish**.
 9. Double-click the ValidatePayment icon in the Application Navigator on the left-hand side, the Services Bus Overview editor will open on the right.
 
-    ![](./images/servc-bus-3.png " ")
+    ![ValidatePayment icon in the Application Navigator](./images/servc-bus-3.png " ")
 
 The Overview Editor below is a new view for Service Bus in SOA Suite 12c, and modeled from the SOA Composite Editor.
 
-  ![](./images/servc-bus-4.png " ")
+  ![Overview Editor](./images/servc-bus-4.png " ")
 
 10. This view allows you to construct Service Bus projects using a top-down, drag and drop approach. You can create Proxy, Pipeline, and Business Services by dragging icons from the Component Palette on the right, to the lanes of the canvas.
 
@@ -65,7 +65,7 @@ The Overview Editor below is a new view for Service Bus in SOA Suite 12c, and mo
 
 12. Click **Create Application**
 
-![](./images/continue-to-create-application-wizard.png " ")
+![Create Application](./images/continue-to-create-application-wizard.png " ")
 
 ## Task 2: Create Folders and Import Artifacts, WSDL and XSD Resource Click **Create App**.
 
@@ -77,36 +77,36 @@ For this project, we will keep the structure simple since there are only a few a
 
 1. From the ValidatePayment project icon, select **New**> **From Gallery**.
 
-    ![](./images/sb1.png " ")
+    ![Select New](./images/sb1.png " ")
 
 2. Select **Folder**
 
-    ![](./images/sb2.png " ")
+    ![Select Folder dialog](./images/sb2.png " ")
 
 3. Click **Ok**.
 4. When prompted fill in the following properties:
     - Folder Name: Schemas
     - Directory: Leave as default
 
-    ![](./images/sb3.png " ")
+    ![Create Folder dialog box](./images/sb3.png " ")
 
 5. Click **Ok**.
 6. Create WSDLs folder in the same way. When complete your Application Navigator should resemble the following:
 
-    ![](./images/sb4.png " ")
+    ![Application Navigator](./images/sb4.png " ")
 
 7. Select the WSDLs folder that you just created in the left-hand navigation pane. We will now import artifacts to build our services.
 
-    ![](./images/sb5.png " ")
+    ![Select WSDLs Folder](./images/sb5.png " ")
 
 There are many ways to share artifacts between Service Bus and Composite applications, e.g. source control, MDS backed by source control, etc. For today’s work, you will import the artifacts from the file system.
 
 8. Select **File** `-->` **Import** ...
-    ![](./images/sb6.png " ")
+    ![Import File](./images/sb6.png " ")
 
 9. From the Import dialog, choose **Service Bus Resources**.
 
-    ![](./images/sb7.png " ")
+    ![Import File dialog](./images/sb7.png " ")
 
 10. Click **Ok**
 
@@ -114,31 +114,31 @@ A wizard takes you through the steps of importing resources into your project. T
 
 11. Import Service Bus Resources - Step 1 of 3, select **Resources** from URL.
 
-    ![](./images/sb8.png " ")
+    ![Import Service Bus Resources](./images/sb8.png " ")
 
 12. Click **Next**
 13. Import Service Bus Resources - Step 2 of 3, next to Source URL, click the browse button
 
-    ![](./images/sb9.png " ")
+    ![Browse button](./images/sb9.png " ")
 
 14. Be sure you selected the WSDLs folder in your project, then from the WSDL chooser, navigate to `~/e2e-1201-orderprocessing/resources/wsdl` folder on your disk and select V`alidatePayment- concrete.wsdl`
 
-    ![](./images/ImportWSDL.png " ")
+    ![WSDL chooser](./images/ImportWSDL.png " ")
 
 *NOTE*: This WSDL assumes that you have unzipped the resources as instructed in prior module (ValidatePayment SOA composite), and the Schemas folder is at the same level as the wsdl folder containing the `CanonicalOrder.xsd`. You will need this directory structure to successfully import the WSDL.
 
 15. Click **Ok**.
 
-    ![](./images/sb10.png " ")
+    ![Import Service Bus Resources](./images/sb10.png " ")
 
 16. Click **Next**
 17. Import Service Bus resources - Step 3 of 3, accept the defaults
 
-    ![](./images/sb11.png " ")
+    ![Import Service Bus Resources](./images/sb11.png " ")
 
 18. Click **Finish**. Your left-hand navigation tree should resemble the following:
 
-    ![](./images/sb12.png " ")
+    ![Left-hand navigation tree](./images/sb12.png " ")
 
 ## Task 3: Configure a Business Service for the ValidatePayment Composite and Review Properties.
 
@@ -151,7 +151,7 @@ We will use the drag and drop Component Palette to build our first Service Bus p
 
 1. Drag and drop the http icon from the right Component Palette on to the External References Lane.
 
-    ![](./images/CreateBizSvc1.png " ")
+    ![Drag and drop the http icon from the right Component Palette](./images/CreateBizSvc1.png " ")
 
 A wizard will walk you through the steps of configuring the Business Service. The title bar of the wizard dialog shows the step number.
 
@@ -159,30 +159,30 @@ A wizard will walk you through the steps of configuring the Business Service. Th
     - Service Name: ValidateBS
     - Location : Leave as default
 
-    ![](./images/createbizsvc2.png " ")
+    ![Create Business Service 1 of 3](./images/createbizsvc2.png " ")
 
 3. Click **Next**.
 
 4. Create Business Service 2 of 3
     - Select Service Type: WSDL
 
-    ![](./images/createbizsvc3.png " ")
+    ![Create Business Service 2 of 3](./images/createbizsvc3.png " ")
 
 5. Select the Plus icon on the right of the WSDL choice.
 6. When the WSDL chooser appears, first, confirm that Application icon on the top is selected and expand Application node `Application -> ValidatePayment -> WSDLs`.
 7. Select ValidatePayment-concrete.wsdl
 
-    ![](./images/createbizsvc4.png " ")
+    ![Select ValidatePayment-concrete.wsdl](./images/createbizsvc4.png " ")
 
 8. Click **Ok**.
 
-    ![](./images/CreateBusinessService.png " ")
+    ![Create Business Service 2 of 3](./images/WSDLs.png " ")
 
 9. Confirm that ValidationPaymentPort is selected in the Port field when you return back to the wizard.
 10. Click **Next**
 11. Create Business Service 3 of 3
 
-    ![](./images/createbizsvc5.png " ")
+    ![Create Business Service 3 of 3](./images/createbizsvc5.png " ")
 
 12. Confirm http is selected in the transport field
 13. Confirm Endpoint URI* is pointed to the ValidatePayment composite app. It should look similar to:
@@ -191,19 +191,19 @@ A wizard will walk you through the steps of configuring the Business Service. Th
 
 14. Click **Finish**. The canvas would now resemble like:
 
-    ![](./images/createbizsvc6.png " ")
+    ![canvas](./images/createbizsvc6.png " ")
 
-To find the composite deployment URI from the instance graphical desktop session, launch the included FireFox browser, then go to the [EM console](http://localhost:7101/em) and navigate to your composite.
+To find the composite deployment URI from the instance graphical desktop session, launch the Chrome browser, then go to the [EM console](http://localhost:7101/em) with **Username : weblogic** ,**Password : welcome1** and navigate to your composite. 
 
 16. Click the **Test** icon on the top right of screen. This will bring up a Web Service test page that lists your deployed endpoint.
 
-    ![](./images/createbizsvc7.png " ")
+    ![Web Service test page](./images/createbizsvc7.png " ")
 
 17. Should you need to update your endpoint URI, you can do this as you review the Business Service properties below in the Transport tab.
 
 18. Double-click on your new Business Service in the overview and review the settings for your new business service. There are settings for General Properties, Performance (Result Caching), Transport details, Policies for Security.
 
-    ![](./images/createbizsvc8.png " ")
+    ![settings for your new business service](./images/createbizsvc8.png " ")
 
 ## Task 4: Configure Proxy and Pipeline and Wire to the Business Service.
 
@@ -213,41 +213,41 @@ Let's create the Proxy and Pipeline to invoke the ValidateBS Business Service. T
 
 1. Locate the Pipeline icon under Resources on the Component palette. Drag and drop the Pipeline icon from the right onto the middle of the canvas, labeled the “Pipelines/Split Joins” lane.
 
-   ![](./images/ConfigureProxy-and-Pipeline.png " ")
+   ![Drag and drop the Pipeline icon to canvas](./images/ConfigureProxy-and-Pipeline.png " ")
 
 The Pipeline wizard will walk you through the next steps. The title will show you what step you are on.
 
 2. Create Pipeline Service - 1 of 2
     - Service Name: ValidatePP
 
-    ![](./images/configproxy1.png " ")
+    ![Create Pipeline Service - 1 of 2](./images/configproxy1.png " ")
 
 3. Click **Next**
 4. Create Pipeline Service 2 of 2
     - Service Type: Choose WSDL
 
-    ![](./images/configproxy2.png " ")
+    ![Create Pipeline Service - 2 of 2](./images/configproxy2.png " ")
 
 5. Click on the WSDL chooser icon plus sign on the right. `NavigatetoApplication->ValidatePayment-> WSDLs` directory and then select ValidatePayment-concrete.wsdl.
 
-    ![](./images/configproxy3.png " ")
+    ![WSDL chooser icon plus sign on the right.](./images/configproxy3.png " ")
 
 6. Click **Ok**.
 7. Once back on Create Pipeline Service in 2 of 2:
     - Ensure the Expose as Proxy Service checkbox is selected. This is the default.
     - Proxy Name: ValidatePS
 
-    ![](./images/configproxy4.png " ")
+    ![Create Pipeline Service in 2 of 2](./images/configproxy4.png " ")
 
 8. Click **Finish**
 9. The canvas should now look like the following:
 
-    ![](./images/configproxy5.png " ")
+    ![new canvas look](./images/configproxy5.png " ")
 
 10. Next, simply wire the Pipeline to invoke the Business Service.
 11. Select **ValidatePP** and drag arrow to ValidateBS.
 
-    ![](./images/configproxy6.png " ")
+    ![Select ValidatePP](./images/configproxy6.png " ")
 
 The Routing action is automatically configured for you in the Pipeline.
 
@@ -261,19 +261,19 @@ You could add some actions to the Pipeline to validate, transform the payload or
 
 1. Bring Overview Editor back into focus. You can do this by double-click your project icon, in the Application Navigator or by selecting the ValidatePayment tab on top center.
 
-    ![](./images/configproxy7.png " ")
+    ![Overview Editor back into focus](./images/configproxy7.png " ")
 
 This will bring up your overview and refresh the canvas.
 
 2. Right-click on the ValidatePS in the Exposed Services Lane. Select **Run**.
 
-    ![](./images/Deploy-and-Test.png " ")
+    ![Run ValidatePS ](./images/Deploy-and-Test.png " ")
 
 ## Task 6:   Test Console
 
 1. The Test Console will activate as one of your windows in JDeveloper on Windows. On Linux, this may start a new browser window outside of JDeveloper. Make this window active by clicking on the title bar.
 
-    ![](./images/deploytest1.png " ")
+    ![Test console](./images/deploytest1.png " ")
 
 By default, a sample payload will be generated for you; however, we will test with a specific file.
 
@@ -282,7 +282,7 @@ By default, a sample payload will be generated for you; however, we will test wi
 4. Click **Open**.
 5. On the Test console, Click on **Execute** button
 
-    ![](./images/testing1.png " ")
+    ![Execute button](./images/testing1.png " ")
 
 6. You could also run diagnostic in the Service Application leveraging the Debugger as was done previous module 2.
 
@@ -304,5 +304,5 @@ To find more detail about Service Bus, Enterprise Service Bus - please go to thi
 
 ## Acknowledgements
 * **Author** - Daniel Tarudji
-* **Contributors** - Meghana Banka, Rene Fontcha, Kamryn Vinson
-* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, November 2020
+* **Contributors** - Meghana Banka, Rene Fontcha, Kamryn Vinson, Sahaana Manavalan
+* **Last Updated By/Date** - Sahaana Manavalan, LiveLabs Developer, NA Technology, February 2022 

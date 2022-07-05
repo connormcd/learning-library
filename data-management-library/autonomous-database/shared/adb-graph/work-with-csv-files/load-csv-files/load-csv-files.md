@@ -35,10 +35,10 @@ Learn how to
 
 1. Open the service detail page for your Autonomous Database instance in the Oracle Cloud Console.  
 
-   ![ALT text is not available for this image](images/../../query-graph/images/adb-details-page.png " ")  
+   ![ALT text is not available for this image](images/open-database-actions.png " ")  
 
-2. Click the **Tools** tab and then the **Open Database Actions** link to open it.
-   ![ALT text is not available for this image](images/adb-details-page-yyz.png " ")
+2. Click  **Database Actions**  to open it.
+ 
 
 ## Task 2: Login as the graph-enabled user
 
@@ -58,7 +58,7 @@ Learn how to
 
     ```
     <copy>
-    https://objectstorage.us-ashburn-1.oraclecloud.com/p/EmjceN7dh4exJAwe8llQzAOMi4Y4pe9deZbpOXDpcjmoXYQ98Xu7XVFinPudEQwM/n/c4u04/b/data-management-library-files/o/random-acct-txn-data.zip
+    https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/random-acct-txn-data.zip
     </copy>
     ```
 
@@ -67,7 +67,7 @@ Learn how to
 
     ```
     <copy>
-    curl -G -o acct-txn-data.zip https://objectstorage.us-ashburn-1.oraclecloud.com/p/EmjceN7dh4exJAwe8llQzAOMi4Y4pe9deZbpOXDpcjmoXYQ98Xu7XVFinPudEQwM/n/c4u04/b/data-management-library-files/o/random-acct-txn-data.zip
+    curl -G -o acct-txn-data.zip https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/random-acct-txn-data.zip
     </copy>
     ```
 
@@ -155,4 +155,4 @@ Please **proceed to the next lab** to create a graph from these tables.
 ## Acknowledgements
 * **Author** - Jayant Sharma, Product Management
 * **Contributors** -  Jayant Sharma, Product Management
-* **Last Updated By/Date** - Arabella Yao, Database Product Manager, October 2021
+* **Last Updated By/Date** - Jayant Sharma, Product Management, February 2022

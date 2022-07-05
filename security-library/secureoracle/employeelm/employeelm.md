@@ -6,7 +6,7 @@ In this lab we will exercise several use cases associated with employee on-board
 
 My HR Application is a sample application developed in Oracle APEX and hosted in the Oracle database. Its main function is to manage and store employee data in tables within the database HR schema. The Oracle Identity Manager **DBAT Connector** is used to interface with the database tables facilitating the on-boarding and management of employees records into Oracle Identity Manager.
 
-![](./images/img-myhr-app-menu.png " ")
+![My HR Application](./images/img-myhr-app-menu.png " ")
 
 Figure 1. My HR Application
 
@@ -25,16 +25,14 @@ The following use cases are available:
 ### Prerequisites
 This lab assumes you have:
 - A Free Tier, Paid or LiveLabs Oracle Cloud account
-- SSH Private Key to access the host via SSH
 - You have completed:
-    - Lab: Generate SSH Keys (*Free-tier* and *Paid Tenants* only)
     - Lab: Prepare Setup (*Free-tier* and *Paid Tenants* only)
     - Lab: Environment Setup
     - Lab: Initialize Environment
 
 ## Task 1: Validate Access to required components and applications
 
-1. Validate Access to required components and applications. These are also bookmarked on Firefox running on your remote desktop. Refer to *Lab: Initialize Environment* for more
+1. Validate Access to required components and applications. Refer to *Lab 1: Initialize Environment* for more
 
     Oracle Identity Manager Admin Console:
 
@@ -87,7 +85,7 @@ This lab assumes you have:
     ```
 
 ## Task 2: Employee On-Boarding and Notifications
-1. Proceed to import new employees into My HR Application. To do so login into the APEX Workspace **HRSPACE**.
+1. Open the APEX Workspace **HRSPACE** in a browser and Proceed to import new employees into My HR Application.
 
     E.g. Use the following link and credentials:
 
@@ -117,9 +115,9 @@ This lab assumes you have:
 
 5. Click on **Load Data** button to start the import process. Upon successful import of new rows, proceed to close the Load Data page.
 
-6. Logout from APEX Workspace by clicking in the **HRADMIN** avatar in the top right corner and select **Sign out**.
+6. Sign out from APEX Workspace by clicking in the **HRADMIN** avatar in the top right corner and select **Sign out**.
 
-7. Login as user **hradmin** with password **Oracle123** to My HR Application.
+7. Open another tab and Login as user **hradmin** with password **Oracle123** to My HR Application.
 
     E.g. use the following link and credentials:
 
@@ -154,15 +152,17 @@ This lab assumes you have:
     **Note:** before adding a new employee, you must first create an email account so the new employee receives a notification after being on-boarded into OIM. Access the **Email Server Admin Console** as admin user to create new email accounts.
 
 ## Task 3:  On-board New Employees
-1. Login as user **xelsysadm** with password **Oracle123** to the OIM Admin Console. Click on the **Scheduler** option and under System Management tab enter **HRData\*** in the search box.
+1. Login as user **xelsysadm** with password **Oracle123** to the [OIM Admin Console](http://secureoracle.oracledemo.com:14000/sysadmin). Click on the **Scheduler** option and go to System Management tab and enter **HRData** in the search box or click on the arrow icon to fetch data.
 
-2. From the results list, select job **HRData DBAT Trusted Resource User Reconciliation**
+2. From the results list, double click on job **HRData DBAT Trusted Resource User Reconciliation**
+    ![OIM Admin Console Scheduler Search Result](./images/hrdata.png " ")
 
 3. In the Job Details tab, click on **Run Now** and monitor the progress by clicking on **Refresh** and looking at the bottom under Job History.
 
-4. Once the job is completed with Job Status **Stopped::Success**, click on the Event Management tab at the top and click the **Arrow** icon to search for reconciliation events.
-
-5. A list of events with Profile Name **HRData** should be listed as recent events indicating that records were processed. Click on one of the event IDs to see the details. If the current status shows **Creation Succeeded** for all the events, the import was successful. Sign out from the Admin Console.
+4. Once the job is completed with Job Status **Stopped::Success**,
+    ![HRData DBAT Trusted Resource User Reconciliation Service Details](./images/stopped.png " ")
+5. Click on the Event Management tab at the top and click the **Arrow** icon to search for reconciliation events. A list of events with Profile Name **HRData** should be listed as recent events indicating that records were processed. Click on one of the event IDs to see the details. If the current status shows **Creation Succeeded** for all the events, the import was successful. Sign out from the Admin Console.
+    ![Event Management tab](./images/creation.png " ")
 
     **Notes**: The reconciliation job import new employees that do not exist in OIM. Optionally, you can perform a filtered reconciliation by entering a filter expression in the **Filter** field under the **Parameters** section in the Job Details page.
 
@@ -179,7 +179,9 @@ This lab assumes you have:
     ```
 
 ## Task 4:  Checking On-boarded Employees
-1. Login as user **xelsysadm** with password **Oracle123** to the OIM Self Service Console. Click on **`Manage -> Users`**, review if the on-boarded employees are listed as users in the Users page.
+1. Login to the [OIM Self Service Console](http://secureoracle.oracledemo.com:14000/identity) as user: **xelsysadm** with password: **Oracle123** . Click on **`Manage -> Users`**, review if the on-boarded employees are listed as users in the Users page.
+
+    ![OIM Self Service Console](./images/oim_users.png " ")
 
 2. Notice if user login **RMAINOR** is listed in the Users page, then click on the user login to open the User Details page, select the **Attributes** tab and check the **End Date** attribute for this user. His end date had passed the current date, meaning this user will be disabled and deleted in the next **`Disable/Delete User After End Date`** job execution. Do not close the User Details page to proceed with the next step.
 
@@ -224,7 +226,7 @@ This lab assumes you have:
 
 2. Click on **Employees** tile to open the employees page, select one employee e.g. **DCOBY** and click on the **Pencil** icon to edit the employee details.
 
-    ![](./images/img-myhr-app.png " ")
+    ![My HR Application](./images/img-myhr-app.png " ")
 
     Figure 2. Edit Employee Details
 
@@ -303,7 +305,7 @@ This lab assumes you have:
 
 3. Open the email and verify if the requester is **Ray Lauria** and proceed to click on the **Approve** link.
 
-    ![](./images/uc03-action-notification.png " ")
+    ![Roundcube notification mail for approval](./images/uc03-action-notification.png " ")
 
     Figure 3. Actionable Notification - Approvals
 
@@ -323,7 +325,7 @@ This lab assumes you have:
 
 4. Proceed to sign out from the Self Service Console.
 
-    ![](./images/uc03-account-provisioned.png " ")
+    ![OIM Self service](./images/uc03-account-provisioned.png " ")
 
     Figure 4. Provisioned Account - Access Request
 
@@ -415,4 +417,4 @@ Use these links to get more information about Oracle Identity and Access Managem
 ## Acknowledgements
 - **Author** - Ricardo Gutierrez, Solution Engineering - Security and Management
 - **Contributors** - Rene Fontcha
-- **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, December 2020
+- **Last Updated By/Date** - Sahaana Manavalan, LiveLabs Developer, NA Technology, March 2022

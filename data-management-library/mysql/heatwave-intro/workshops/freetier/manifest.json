@@ -37,6 +37,11 @@
               "title": "Lab 5: (Bonus) Run MySQL Autopilot",
               "filename": "../../run-autopilot/run-autopilot.md"
           },
+          
+          {
+            "title": "Lab 6: Use MySQL HeatWave For Development",
+            "filename": "../../develop/develop.md"
+          }, 
   
           {
               "title": "Need Help?",

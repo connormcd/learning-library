@@ -1,6 +1,6 @@
 /*
 Author: Ashwin Agarwal
-Contributors: Tom McGinn, Suresh Mohan
+Contributors: Suresh Mohan
 Last updated: 28-May-2020
 Version: 20.1.1
 */

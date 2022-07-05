@@ -4,12 +4,12 @@
 
 In this Lab, you will use the SQL Performance Analyzer (SPA) which is a part of the Real Application Testing (RAT). You will compare statements collected before the upgrade to a simulation of these statements after upgrade. You will use the SQL Tuning Sets collected earlier in the workshop.
 
-*Estimated Lab Time*: 30 minutes
+Estimated Time: 30 minutes
 
-![](./images/performance_prescription_03.png " ")
+![performance prescription](./images/performance_prescription_03.png " ")
 
 Watch the video below for a quick walk through of the lab.
-[](youtube:9_f9IqFYc_A)
+[Watch the video](youtube:9_f9IqFYc_A)
 
 You have collected SQL statements from the first load of HammerDB earlier in this workshop into two SQL Tuning Sets:
 
@@ -18,9 +18,9 @@ You have collected SQL statements from the first load of HammerDB earlier in thi
 
 You will simulate the statements with "test executes" of one of the SQL Tuning Sets (you can do both if time allows), and generate a comparison report.
 
-### SQL Performance Analyzer
-You can run SQL Performance Analyzer on a production system or a test system that closely resembles the production system. It's highly recommended to execute the SQL Performance Analyzer runs on a test system rather than directly on the production system.
+### About SQL Performance Analyzer
 
+You can run SQL Performance Analyzer on a production system or a test system that closely resembles the production system. It's highly recommended to execute the SQL Performance Analyzer runs on a test system rather than directly on the production system.
 
 ### Objectives
 
@@ -28,15 +28,16 @@ In this lab, you will:
 * Check Statements
 
 ### Prerequisites
+
 This lab assumes you have:
-- A Free Tier, Paid or LiveLabs Oracle Cloud account
+
+- An Oracle Cloud account
 - You have completed:
-    - Lab: Prepare Setup (*Free-tier* and *Paid Tenants* only)
+    - Lab: Prepare Setup 
     - Lab: Environment Setup
     - Lab: Initialize Environment
 
-## Task 1: Check Statements
-
+## Task 1: Check statements
 
 1. Check the number of statements you collected in the SQL Tuning Sets
 
@@ -47,7 +48,7 @@ This lab assumes you have:
     sqlplus / as sysdba
     </copy>
     ```
-    ![](./images/sql_per_1.png " ")
+    ![Check the number of statements](./images/sql_per_1.png " ")
 
 2. Run the query given below:
 
@@ -56,7 +57,7 @@ This lab assumes you have:
     select count(*), sqlset_name from dba_sqlset_statements group by sqlset_name order by 2;
     </copy>
     ```
-    ![](./images/sql_per_2.png " ")
+    ![Run the select query](./images/sql_per_2.png " ")
 
 3. Then start a completely scripted SQL Performance Analyzer run.
    It will:
@@ -72,7 +73,7 @@ This lab assumes you have:
     @spa_cpu.sql
     </copy>
     ```
-    ![](./images/sql_per_3.png " ")
+    ![execute two simulations](./images/sql_per_3.png " ")
 
 5. Generate the HTML Report containing the results below.
 
@@ -88,7 +89,7 @@ This lab assumes you have:
     @spa_elapsed.sql
     </copy>
     ```
-    ![](./images/sql_per_4.png " ")
+    ![repeat for ELAPSED TIME](./images/sql_per_4.png " ")
 
 7. Finally, generate the HTML Report containing the results below
 
@@ -107,15 +108,15 @@ This lab assumes you have:
     firefox compare_spa_* &
     </copy>
     ```
-    ![](./images/sql_per_5.png " ")
+    ![Notice that there will be two html files in scripts folder](./images/sql_per_5.png " ")
 
 9.  Firstly, observe the different comparison metrics in the report’s header.
 
     *This screenshot is just an example – you may see a very different report*
-    ![](./images/sql_per_6.png " ")
+    ![observe the different comparison metrics in the report’s header](./images/sql_per_6.png " ")
 
 10.  You may recognize regressed statements and statements with plan changes (rightmost column).  But you may also recognize that the statements NOT marked in GREEN have improved drastically as well.  Why are they not marked GREEN, too? The reason is the THRESHOLD of 2% that has been set.
-    ![](./images/sql_per_9.png " ")
+    ![recognize regressed statements and statements with plan change](./images/sql_per_9.png " ")
 
 11.  If you want to play, you can change the threshold values in this script - but this is not part of the lab exercise.
     ```
@@ -138,7 +139,7 @@ This lab assumes you have:
     @spa_elapsed.sql
     </copy>
     ```
-    ![](./images/sql_per_7.png " ")
+    ![Repeat the ELAPSED run but set](./images/sql_per_7.png " ")
 
 14.  Then regenerate the HTML Report containing the results below.
 
@@ -157,19 +158,20 @@ This lab assumes you have:
     firefox compare_spa_* &
     </copy>
     ```
-    ![](./images/sql_per_8.png " ")
+    ![Open it with Firefox](./images/sql_per_8.png " ")
 
 16.  Now there is no plane change, but there is still an improvement as 19c seems to do something different internally. We basically “lost” the improvement partially by using an old optimizer parametrization.
 
 The idea of such SPA runs is to accept the better plans and identify and cure the ones which are misbehaving.
 
-You may now [proceed to the next lab](#next).
+You may now *proceed to the next lab*.
 
 ## Learn More
 
 * [SQL Performance Analyzer](https://docs.oracle.com/en/database/oracle/oracle-database/19/ratug/introduction-to-sql-performance-analyzer.html#GUID-860FC707-B281-4D81-8B43-1E3857194A72)
 
 ## Acknowledgements
+
 * **Author** - Mike Dietrich, Database Product Management
 * **Contributors** -  Roy Swonger, Sanjay Rupprel, Cristian Speranta, Kay Malcolm
 * **Last Updated By/Date** - Mike Dietrich, July 2021

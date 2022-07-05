@@ -86,5 +86,5 @@ This completes this lab. At this point, you know how to create a new Autonomous 
 ## Acknowledgements
 - **Author** - David Peake, Senior Principal Product Manager, Oracle Application Express
 - **Contributors** - Jaden McElvey, Technical Lead - Oracle LiveLabs Intern
-- **Last Updated By/Date** - Tom McGinn, Learning Architect, Database User Assistance, March 2020
+- **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

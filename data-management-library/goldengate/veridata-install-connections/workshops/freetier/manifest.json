@@ -61,58 +61,6 @@
       "filename": "./../../ggv-reports/ggv-reports.md"
     },
     {
-<<<<<<< HEAD
-=======
-          "title": "Lab: Initialize Environment",
-          "description": "How to initialize and start all the workshop components",
-          "publisheddate": "10/14/2020",
-          "filename": "../../initialize-environment/initialize-environment.md"
-        }
-        ,
-        {
-        "title": "Lab: Create Datasource Connections",
-        "description": "This lab walks you through the steps to create datasource connections.",
-        "filename": "./../../ggv-create-connections/ggv-create-connections.md"
-        }
-        ,
-        {
-          "title": "Lab: Create Groups and Compare Pairs ",
-          "description": "This lab walks you through the steps to create groups and compare pairs.",
-          "filename": "./../../ggv-create-groups-compare-pairs/ggv-create-groups-compare-pairs.md"
-        }
-        ,
-        {
-        "title": "Lab: Create and Execute Jobs ",
-        "description": "This lab walks you through the steps to create Jobs and execute them.",
-        "filename": "./../../ggv-create-execute-jobs/ggv-create-execute-jobs.md"
-        }
-        ,
-          {
-              "title": "Lab: Repair Jobs and Generate SQL Files ",
-              "description": "This lab walks you through the steps to repair jobs and data.",
-              "filename": "./../../ggv-repair-data/ggv-repair-data.md"
-            }
-            ,
-            {
-                "title": "Lab: View Reports ",
-                "description": "This lab walks you through the steps to view comparision Reports.",
-                "filename": "./../../ggv-reports/ggv-reports.md"
-              }
-              ,
-              {
-                  "title": "Lab: Use the Oracle GoldenGate Veridata Command-line Utilities ",
-                  "description": "This lab walks you through the steps to view comparision Reports.",
-                  "filename": "./../../ggv-import-export-vgpp/ggv-import-export-vgpp.md"
-              }
-              ,
-              {
-                    "title": "Lab: Install and Configure Oracle GoldenGate Veridata (Optional)",
-                    "description": "This lab describes how to accomplish the following tasks using Oracle GoldenGate Veridata command-line utilities.",
-                    "filename": "./../../ggv-install-veridata/ggv-install-veridata.md"
-              }
-              ,
-              {
->>>>>>> 8cef45b997c6a9061d6ef9595edd0b041e70af59
       "title": "Need Help?",
       "description": "Solutions to Common Problems and Directions for Receiving Live Help",
       "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-freetier.md"

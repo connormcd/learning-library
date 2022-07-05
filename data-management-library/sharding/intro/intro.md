@@ -31,7 +31,7 @@ We will use Docker containers and demonstrate multiple use cases with a Node.js 
 
 *Note: If you have a **Free Trial** account, when your Free Trial expires your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. **[Click here for the Free Tier FAQ page.](https://www.oracle.com/cloud/free/faq.html)***
 
-You may now [proceed to the next lab](#next).
+You may now proceed to the next lab.
 
 ## Learn More
 - [Oracle Sharding 19c: New Features (PDF)](https://www.oracle.com/a/tech/docs/sharding-19c-new-features.pdf)

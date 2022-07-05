@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I grant users access to a Data Catalog instance?",
+         "type": "freetier",
+         "description": " ",
+         "filename": "./../sprint-control-data-catalog-access/sprint-control-data-catalog-access.md"
+      }
+   ],
+   "task_type": "Sections"
+}

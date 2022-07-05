@@ -8,10 +8,97 @@ This lab will show you how to create an OCI marketplace compute based artifact f
 - Create Marketplace Listing
 
 ### Prerequisites
-This lab assumes you have completed:
-- Lab: 7-labs-create-custom-image-for-marketplace
+This lab assumes:
+- You're part of LiveLabs Team
+- You have access to the approved LiveLabs tenant (*C4U02*) configured for OCI Marketplace
+- The custom image to be used was created as prescribed in [Creating Compute Images for Marketplace](https://oracle.github.io/learning-library/sample-livelabs-templates/create-labs/labs/workshops/compute)
 
-## Task 1: Create Marketplace Artifacts   
+## Task 1: Create and (or) Test Custom Image 
+For custom images received from authors via imports from Object Storage pre-authenticated URLs, proceed as indicated below. If you created the image and have already validated  using a test instance, then skip to next task.
+
+1. Login to the dedicated tenancy for marketplace images (*C4U02*) and navigate to */Compute/Custom Images*
+
+    ![](./images/import-image-1.png " ")
+
+2. Set the compartment to "*root/LiveLabs-Images/stage*" and click on *Import Image*
+
+    ![](./images/import-image-2.png " ")
+
+3. Fill in the following details
+
+    - **Create in compartment**: Keep or set to "*Stage*"
+    - **Name**: Type in a name in the following format - *[short-name]-livelabs-[version]-src*.
+    ```
+    e.g.
+    <copy>emcc-livelabs-01-src</copy>
+    ```
+    - **Operating system**: Keep the default (*Linux*)
+    - **Select** *Import from an Object Storage URL*
+    - **Object Storage URL**: Enter the Object Storage pre-authenticated URL
+    - **Image type**: Select "*OCI*"
+
+5. Once the import is done, Edit image details and select or verify that all shapes are selected with the exception of *BM.Standard.A1.160* and *VM.Standard.A1.Flex*
+
+    ![](./../7-labs-create-custom-image-for-marketplace/images/create-image-3.png " ")
+
+6. Download the sample ORM stack zip archive
+
+    - [ll-orm-mkplc-freetier.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/Ma3anAntwyF54E289zRxemySTIA2RZcOcq1jPZ_ZRiV3lhedYJSw3qCRnnU9K__M/n/natdsecurity/b/stack/o/ll-orm-mkplc-freetier.zip)
+
+7. Unzip it locally on your computer to *ll-orm-mkplc-freetier*.
+8. Delete the downloaded file *ll-orm-mkplc-freetier.zip*.
+9. Copy the OCID of the new image
+
+    ![](./../7-labs-create-custom-image-for-marketplace/images/get-image-ocid.png " ")
+
+10. Navigate to *ll-orm-mkplc-freetier* and open the file *variables.tf*
+
+11. Search and replace the string below with the OCID of the newly created custom image copied above
+
+    ```
+    <copy>
+    replace-with-valid-image-OCID
+    </copy>
+    ```
+
+    ![](./../7-labs-create-custom-image-for-marketplace/images/update-image-ocid.png " ")
+
+12. Update the value of the following variables to match the correct URLs for the workshop.
+
+    - **`desktop_guide_url`**: Link to github.io guide ending with "*../workshop/desktop*"
+      ```
+      e.g.
+      https://oracle.github.io/learning-library/enterprise-manageability-library/enterprise-manager/workshops/desktop
+      ```
+    - **`desktop_app1_url`** (Optional): Link to any webapp that should be loaded on the desktop on noVNC boot.
+      ```
+      e.g.
+      https://emcc.livelabs.oraclevcn.com:7803/em
+      ```
+    - **`desktop_app2_url`** (Optional): Same as above a second webapp loaded on the second Google-Chrome browser tab
+
+    ![](./images/update-variables.png " ")
+
+13. Save *variables.tf*
+14. Repackage the entire content of *ll-orm-mkplc-freetier* as  *ll-orm-mkplc-freetier.zip*
+
+    ![](./../7-labs-create-custom-image-for-marketplace/images/zip-orm-stack.png " ")
+
+15. Using the new zip file above, navigate to "*Developer Services > Stacks*" and create a test instance with Oracle Resources Manager (ORM).
+
+    *Notes:* For more details on how to provision with ORM, refer to [setup-compute](https://oracle.github.io/learning-library/sample-livelabs-templates/sample-workshop-novnc/workshops/freetier/?lab=setup-compute-novnc-ssh) lab guide.
+
+16. After successful instance creation, get the remote desktop URL and logon to validate
+
+    ![](./../7-labs-create-custom-image-for-marketplace/images/get-remote-desktop-url.png " ")
+
+17. Launch a browser session and navigate to the copied URL to validate
+
+    ![](./images/remote-desktop-landing.png " ")
+
+    *Notes:* If the setup was successful you should see two Google-chrome browser windows preloaded with the workshop guide on the left and webapps on the right.
+
+## Task 2: Create Marketplace Artifacts   
 At this point, it's assumed that the test instance created in the previous lab has been successfully validated and can be submitted to OCI marketplace. This also assume that you have the required access for OCI Partner Portal. Proceed to OCI console to perform the next steps
 
 1. Launch your browser to OCI Marketplace Partner Portal, then navigate to *"Compute > Instances"*
@@ -54,7 +141,7 @@ At this point, it's assumed that the test instance created in the previous lab h
 
     ![](./images/create-artifact-6.png " ")
 
-## Task 2: Create Marketplace Listing   
+## Task 3: Create Marketplace Listing   
 1. Click on the 2nd icon on the top left to access the Listings section
 
     ![](./images/create-listing-1.png " ")
@@ -150,4 +237,4 @@ At this point, it's assumed that the test instance created in the previous lab h
 ## Acknowledgements
 * **Author** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, February 2021
 * **Contributors** - - -
-* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, March 2021
+* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, April 2022

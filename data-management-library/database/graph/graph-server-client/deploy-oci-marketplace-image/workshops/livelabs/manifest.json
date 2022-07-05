@@ -18,18 +18,18 @@
             "filename":"https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/generate-ssh-key/generate-ssh-keys.md"
         },
         {
-            "title": "Lab 2: Provision Autonomous Database Shared Free Tier Instance",
+            "title": "Lab 2: Create an Autonomous Database",
             "description":"Setup an Always Free autonomous database instance",
             "filename":"../../provision-free-tier-adb/provision-free-tier-adb.md"
         },
         {
-            "title": "Lab 3: Deploy the Graph Server & Client Marketplace Image",
+            "title": "Lab 3: Create a Graph Server",
             "description":"Deploy the Graph Server & Client Marketplace image",
             "filename":"../../deploy-image/deploy-image.md"
         },
         {
-            "title": "Lab 4: Create and Enable a Graph User in SQLDeveloper Web",
-            "description":"Create a user and enable SQLDeveloper Web for that user",
+            "title": "Lab 4: Create and Enable a Graph User",
+            "description":"Create and enable a graph user using Database Actions",
             "filename":"../../create-graph-user/create-graph-user.md"
         },
         {
@@ -38,18 +38,18 @@
             "filename":"../../create-and-populate-tables/create-and-populate-tables.md"
         },
         {
-            "title": "Lab 6: Create the Graph",
-            "description":"Create the Customer 360 graph",
+            "title": "Lab 6: Create a Graph",
+            "description":"Create a graph",
             "filename":"../../create-graph/create-graph.md"
         },
         {
-            "title": "Lab 7: Query and Analyze the Graphs",
-            "description":"Query and Analyze the Graphs",
+            "title": "Lab 7: Query and Analyze the Graph",
+            "description":"Query and Analyze the Graph",
             "filename":"../../query-and-analyze-graphs/query-and-analyze-graphs.md"
         },
         {
-            "title": "Lab 8: Graph Visualization",
-            "description":"Graph Query and Visualization of the Customer 360 data on the Free Tier compute",
+            "title": "Lab 8: Visualize the Graph",
+            "description":"Visualize the Graph",
             "filename":"../../visualize-graphs/visualize-graphs.md"
         },
         {

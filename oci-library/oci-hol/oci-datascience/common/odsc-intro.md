@@ -16,12 +16,12 @@ The Data Science Service:
 * Integrates with the rest of the Oracle Cloud Infrastructure stack, including Functions, Data Flow, Autonomous Data Warehouse, and Object Storage.
 * Helps data scientists concentrate on methodology and domain expertise to deliver more models to production.
 
-Estimated Workshop Time: 2 hours
+Estimated Workshop Time: 90 minutes
 
 ### Objectives
+
 In this lab, you will:
 * Become familiar with concepts and terminology used in the Data Science service.
-
 
 ## Data Science Service Concepts
 
@@ -32,11 +32,8 @@ Review the following concepts and terms to help you get started with the Data Sc
 * **Accelerated Data Science SDK**: The Oracle Accelerated Data Science (ADS) SDK is a Python library that is included as part of the Oracle Cloud Infrastructure Data Science service. ADS has many functions and objects that automate or simplify many of the steps in the Data Science workflow, including connecting to data, exploring and visualizing data, training a model with AutoML, evaluating models, and explaining models. In addition, ADS provides a simple interface to access the Data Science service model catalog and other Oracle Cloud Infrastructure services including Object Storage. To familiarize yourself with ADS, see the [Oracle Accelerated Data Science Library documentation](https://docs.cloud.oracle.com/iaas/tools/ads-sdk/latest/index.html).
 * **Model**: Models define a mathematical representation of your data and business processes. The model catalog is a place to store, track, share, and manage models.
 
-You can *proceed to the next lab*.
-
 ## Acknowledgements
 
 * **Author**: [John Peach](https://www.linkedin.com/in/jpeach/), Principal Data Scientist
 * **Last Updated By/Date**: 
-    * [John Peach](https://www.linkedin.com/in/jpeach/), Principal Data Scientist, September 2020
-
+    * [John Peach](https://www.linkedin.com/in/jpeach/), Principal Data Scientist, February 2022

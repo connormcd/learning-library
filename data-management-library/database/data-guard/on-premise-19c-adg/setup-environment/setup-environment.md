@@ -18,8 +18,8 @@ This lab assumes you have already completed the following:
 
 Click on the link below to download the Resource Manager zip files you need to build your environment.
 
-- [db19c-primary-num.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/eh9lN2b7DkH1nI6AJfIrLK6e9sHdyZnPJ1j8fEE7RjTbQLiXuOxJlcfS7XOuAiPr/n/c4u04/b/data-management-library-files/o/db19c-primary-num.zip) - Packaged terraform primary database instance creation script
-- [db19c-standby-nodb.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/7L_vvCai1gDM4dl56QEUYqjwFX3o3mLXrgOV7hPUITZjzTHmk3jy4lIzQoHtVYDq/n/c4u04/b/data-management-library-files/o/db19c-standby-nodb.zip) - Packaged terraform standby database instance creation script
+- [db19c-primary-num.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/db19c-primary-num.zip) - Packaged terraform primary database instance creation script
+- [db19c-standby-nodb.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/db19c-standby-nodb.zip) - Packaged terraform standby database instance creation script
 
 
 
@@ -209,7 +209,7 @@ You may now **proceed to the next lab**.
 
 ## Acknowledgements
 * **Author** - Minqiao Wang, Oct 2020
-* **Last Updated By/Date** - Minqiao Wang, Oct 2021
+* **Last Updated By/Date** - Minqiao Wang, Apr 2022
 * **Workshop Expiry Date** - Nov 30, 2022
 
 

@@ -81,7 +81,7 @@ Given the URL Endpoint used above, the **Create REST Data Source** operation det
     ![](images/add-operation.png " ")
 
 3. In the REST Source Operation page, enter the following.
-    - **URL Pattern:** enter **:empno**
+    - **URL Pattern:** enter **:empno** (including the leading colon!)
     - **HTTP Method:** select **GET**
     - **Database Operation:** select **Fetch single row**
 
@@ -92,7 +92,7 @@ Given the URL Endpoint used above, the **Create REST Data Source** operation det
 4. On REST EMP Source page, click **Add Operation**.
 
     In the REST Source Operation page, enter the following.
-    - **URL Pattern:** enter **:empno**
+    - **URL Pattern:** enter **:empno** (including the leading colon!)
     - **HTTP Method:** select **PUT**
     - **Database Operation:** select **Update row**
 
@@ -101,7 +101,7 @@ Given the URL Endpoint used above, the **Create REST Data Source** operation det
 5. On REST EMP Source page, click **Add Operation**.
 
     In the REST Source Operation page, enter the following.
-     - **URL Pattern:** enter **:empno**
+     - **URL Pattern:** enter **:empno** (including the leading colon!)
      - **HTTP Method:** select **DELETE**
      - **Database Operation:** select **Delete row**
 
@@ -117,5 +117,5 @@ This completes Lab 3. You now know how to define a REST Data Source within an ap
 
  - **Author/Contributors** -  Salim Hlayel, Principle Product Manager
  - **Contributors** - Oracle LiveLabs Team (Arabella Yao, Product Manager Intern | Jaden McElvey, Technical Lead | Jeffrey Malcolm Jr, Intern)
- - **Last Updated By/Date** - Tom McGinn, Database Innovation Architect, Product Management, July 2020
+ - **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

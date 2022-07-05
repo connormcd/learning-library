@@ -231,5 +231,5 @@ If you want to change a page's name after you create an application, the process
 
  - **Author** -  Salim Hlayel, Principle Product Manager
  - **Contributors** - Arabella Yao, Product Manager Intern, DB Product Management
- - **Last Updated By/Date** - Tom McGinn, Database Innovations Architect, Product Management, July 2020
+ - **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

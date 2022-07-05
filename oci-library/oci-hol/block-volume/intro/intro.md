@@ -25,8 +25,7 @@ There is a recording of the instructor going through this lab here:
 
 ## Acknowledgements
 
-- **Author** - Rajeshwari Rai, Prasenjit Sarkar
-- **Adapted by** -  Tom McGinn, Database Product Management
+- **Author** - Rajeshwari Rai, Prasenjit Sarkar 
 - **Contributors** - Arabella Yao, Product Manager Intern, DB Product Management
 - **Last Updated By/Date** - Rajeshwari Rai, February 2021
 

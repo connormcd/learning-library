@@ -1,0 +1,42 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How can I create triggers for a table in the Oracle database?",
+         "description": "",
+         "filename": "../create-triggers/create-triggers.md"
+      },
+      {
+         "title": "How can I disable triggers for a table in the Oracle database?",
+         "description": "",
+         "filename": "../disable-triggers/disable-triggers.md"
+      },
+      {
+         "title": "How can I index columns in the Oracle database?",
+         "description": "",
+         "filename": "../index-columns/index-columns.md"
+      },
+      {
+         "title": "How can I drop the index in the Oracle database?",
+         "description": "",
+         "filename": "../drop-index/drop-index.md"
+      },
+      {
+         "title": "How can I add columns to a table in the Oracle database?",
+         "description": "",
+         "filename": "../add-columns/add-columns.md"
+      },
+      {
+         "title": "How can I drop a table in the Oracle database?",
+         "description": "",
+         "filename": "../drop-table/drop-table.md"
+      },
+      {
+         "title": "How can I un-drop a table in the Oracle database?",
+         "description": "",
+         "filename": "../undrop-table/undrop-table.md"
+      }
+   ],
+   "task_type": "Sections"
+}

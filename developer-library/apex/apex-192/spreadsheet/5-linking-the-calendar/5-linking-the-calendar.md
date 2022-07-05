@@ -107,7 +107,6 @@ This completes Lab 5. You now know how to create an application by uploading a f
 
 ## **Acknowledgements**
 
- - **Author** -  David Peake, Consulting Member of Technical Staff
- - **Contributors** - Tom McGinn, Database Cloud Services, Product Management
+ - **Author** -  David Peake, Consulting Member of Technical Staff 
  - **Last Updated By/Date** - Arabella Yao, Product Manager Intern, Database Management, July 2020
 

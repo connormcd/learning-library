@@ -14,13 +14,15 @@ This question is so interesting, because if we can understand exactly what facto
 
 This is a great opportunity for you to learn about Analytics and Machine Learning. You'll use these to discover the answer to our main question. No experience required, you will learn everything you need to know along the way!
 
-Estimated Time: 120 minutes
+Estimated Workshop Time: 120 minutes
 
 ### Objectives
 In this workshop, you will:
 - Prepare data to make it ready for analysis
 - Visualize data in many ways
 - Apply machine learning to predict outcomes
+
+_At this point, you are ready to start learning! Please proceed._
 
 ## **Acknowledgements**
 

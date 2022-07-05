@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-oci_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How can I change bucket visibility settings?",
+         "description": "",
+         "filename": "sprint-change-bucket-visibility.md"
+      },
+      {
+         "title": "How do I download files in Object Storage?",
+         "description": "",
+         "filename": "../sprint-download-files-bucket/sprint-download-files-bucket.md"
+      }
+   ],
+   "task_type": "Sections"
+}

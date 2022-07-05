@@ -45,7 +45,7 @@ Estimated Lab Time: 10 minutes
     ```
 
     ```
-    $ <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/mdZ9Fs2vw4X5LtaX657oxA764TPH2KQGRjoDOwMgIzMgaAD55YV3XNVmGLty2pqT/n/c4u04/b/data-management-library-files/o/ssh-key-2021-03-03
+    $ <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/ssh-key-2021-03-03
     ```
 
     ```
@@ -86,6 +86,6 @@ You may now [proceed to the next lab](#next).
 * [Oracle Cloud Infrastructure: Connecting to a DB System](https://docs.cloud.oracle.com/en-us/iaas/Content/Database/Tasks/connectingDB.htm)
 
 ## Acknowledgements
-* **Author** - Tom McGinn, Learning Architect, Database User Assistance
+* **Author** - Kay Malcolm, Database Product Management
 * **Last Updated By/Date** - Kamryn Vinson, January 2021
 

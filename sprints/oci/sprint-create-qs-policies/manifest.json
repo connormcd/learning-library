@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I create the required Query Service policies?",
+         "type": "tenancy",
+         "description": "",
+         "filename": "./../sprint-create-qs-policies/sprint-create-qs-policies.md"
+      }
+   ],
+   "task_type": "Sections"
+}

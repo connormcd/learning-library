@@ -10,8 +10,8 @@
 Most workshops focus on teaching you about a cloud service or performing a series of tasks. This workshop is different. You will learn how to deliver high value solutions using Oracle Cloud data platform services. And, the workshop will do this in the context of a company that we all can relate to and understand.
 
 There are two versions of this workshop:
-* [**Action! MovieStream Analytics Produce the Best Picture with Oracle Cloud**](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=865&clear=180&session=12485882445561) - dives into details of setting up the solution and analyzing data. Will take several hours to complete.
-* **Action! MovieStream Analytics Produce the Best Short Film with Oracle Cloud** - this workshop!  A one hour version that performs much of the setup for you.
+* [**Produce Your Company's Best Picture with Converged Database Analytics (Epic)**](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=865&clear=180&session=12485882445561) - dives into details of setting up the solution and analyzing data. Will take several hours to complete.
+* **Produce Your Company's Best Picture with Converged Database Analytics** - this workshop!  A one hour version that performs much of the setup for you.
 
 <if type="odbw">If you would like to watch us do the workshop, click [here](https://youtu.be/z2Er2yTP2BU).</if>
 

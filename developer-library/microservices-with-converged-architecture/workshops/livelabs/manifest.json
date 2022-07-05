@@ -1,0 +1,48 @@
+{
+  "workshoptitle": "Simplify Microservices with converged Oracle Database",
+  "help": "livelabs-help-db_us@oracle.com",
+	"tutorials": [
+      {
+        "title": "Getting started",
+        "description": "Login to Oracle Cloud",
+        "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login-livelabs2.md"
+      },
+      {
+        "title": "Introduction",
+        "filename": "../../intro/intro.md"
+      },
+      {
+        "title": "Lab 1: Setup",
+        "filename": "../../setup/setup-gb.md"
+      },
+      {
+        "title": "Lab 2: Data-centric microservices walkthrough with Helidon MP",
+        "filename": "../../walkthrough-helidon/walkthrough-helidon.md"
+      },
+      {
+        "title": "Lab 3: Polyglot microservices",
+        "filename": "../../polyglot/polyglot.md"
+      },
+      {
+        "title": "Lab 4: Scaling",
+        "filename": "../../scaling/scaling.md"
+      },
+      {
+        "title": "Lab 5: Observability",
+        "filename": "../../observability/observability.md"
+      },
+      {
+        "title": "Lab 6: Create an APEX app to view and update data",
+        "filename": "../../apex/apex.md"
+      },
+      {
+        "title": "Lab 7: Transactional tests: compare MongoDB, Postgres, and Kafka to Oracle DB with TEQ/AQ",
+        "filename": "../../transactional/transactional.md"
+      },
+      {
+        "title": "Need Help?",
+        "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+        "filename":"https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-livelabs.md"
+      }
+    ]
+}

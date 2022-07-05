@@ -27,37 +27,100 @@ Click on SQL to execute the query to create the table.
 
 ![SQL](./images/SQL_queries.png " ")
 
-You can just simply query the MOVIE GENRE table to view data, or create the following view to see the additional data along with the join to the MOVIE GENRE entity.
+You can just simply query the MOVIE GENRE table to view data, or create a view to see the additional data along with the join to the MOVIE GENRE entity.
 
 ```
 <copy>
-CREATE or REPLACE VIEW MOVIE_VW as
 SELECT
-    ENTERED_TIME,
-    PRICE,
-    CUSTID,LAST_NAME, COUNTRY,
-    GENREID,NAME,
-    MOVIEID,
-    ACTIVITY,
-    RECOMMENDED
+   "genreid",name,country, count("custid")
 FROM
-    ADMIN.MOVIE_GENRE, customer_contact,GENRE
-    where genre_id=genreid and custid=cust_id;
+    ADMIN.MOVIE_GENRE,customer_contact,GENRE
+    where genre_id="genreid" and "custid"=cust_id
+group by "genreid",name, country
+order by country;
 </copy>
 ```
-This view will demonstrate the combination for the customer, country and if they would recommend the movie and can be grouped by genre and other activities.
+This query will demonstrate the combination for the customer, country and if they would recommend the movie and can be grouped by genre and other activities.
 
-A simple select statement can be done to just see the data based on this view and other joins are possible.
-
-```
-<copy>
-SELECT * FROM MOVIE_VW;
-</copy>
-```
 ![SQL](./images/SQL_output.png " ")
 
+## Task 2: View of the Oracle Data Lakehouse
 
-## Task 2: OCI Data Catalog - View of the Data Lake
+We have a database, csv and json files in our data lake but there can be all of the various data platforms and types of data stored in the data lake and even streamed. We don't always have to load data into a database to be able to use our data sets with other data sets and assets. There are simple queries to the object storage that will allow us to join the data together with our data warehouse in our data lakehouse. Here is just one example using the data that we have loaded in this short time.
+
+Navigate back to DBActions. Under Development, click on SQL. We are going to run a few queries here for analysis. At this point you can take the queries and information to analytics and reporting.
+
+Optionally you can also get the results using either external tables or Data Lake Accelerator. Here is an example to use an external table to access the CSV file in the object storage and join to the database tables.
+
+Create an external table to view the data transformation in the object storage files that were created as part of the data integration and data loader tasks. The file_uri_list can be pulled from the object storage, object details - However, you just need to replace the REPLACENAMESPACE with your namespace for your bucket.
+
+```
+<copy>
+BEGIN
+DBMS_CLOUD.CREATE_EXTERNAL_TABLE (
+table_name => 'json_cust_sales_ext',
+file_uri_list => 'https://objectstorage.us-ashburn-1.oraclecloud.com/n/REPLACENAMESPACE/b/dataflow-warehouse/o/customersales.json',
+column_list => 'doc varchar2(32000)',
+field_list => 'doc char(30000)',
+format => json_object('delimiter' value '\n')
+);
+END;
+</copy>
+```
+
+View the data in the external table.
+
+```
+<copy>
+select * from JSON_CUST_SALES_EXT
+</copy>
+```
+
+Join the data to the existing customer data:
+
+```
+<copy>
+select GENRE_ID,MOVIE_ID,CUSTSALES.CUST_ID,AGE,GENDER,STATE_PROVINCE
+from CUSTOMER_CONTACT, CUSTOMER_EXTENSION,
+(select CUST_ID,GENRE_ID,MOVIE_ID
+FROM JSON_MOVIE_DATA_EXT,
+JSON_TABLE("DOC", '$[*]' COLUMNS
+"CUST_ID" number path '$.CUST_ID',
+"GENRE_ID" number path '$.GENRE_ID',
+"MOVIE_ID" number path '$.MOVIE_ID')) CUSTSALES
+where CUSTOMER_EXTENSION.CUST_ID=CUSTSALES.CUST_ID and CUSTOMER_EXTENSION.CUST_ID=CUSTOMER_CONTACT.CUST_ID
+and COUNTRY_CODE='US'   
+</copy>    
+```
+
+If you want to also see the initial csv file in your object storage you can just create an external table on that as well.
+
+```
+<copy>
+BEGIN
+DBMS_CLOUD.CREATE_EXTERNAL_TABLE (
+table_name => 'csv_cust_sales_ext',
+file_uri_list => 'https://objectstorage.us-ashburn-1.oraclecloud.com/n/REPLACENAMESPACE/b/dataflow-warehouse/o/custsales_custsales-2020-01.csv',
+format => json_object('type' value 'csv','skipheaders' value '1'),
+column_list => 'DAY_ID NUMBER,
+GENRE_ID NUMBER,
+MOVIE_ID NUMBER,
+CUST_ID NUMBER,
+APP VARCHAR2(250),
+DEVICE VARCHAR2(250),
+OS VARCHAR2(250),
+PAYMENT_METHOD VARCHAR2(250),
+LIST_PRICE NUMBER,
+DISCOUNT_TYPE VARCHAR2(250),
+DISCOUNT_PERCENT NUMBER,
+ACTUAL_PRICE NUMBER'
+);
+END;
+</copy>    
+```
+
+
+## Task 3: OCI Data Catalog - View of the Data Lake
 
 You have updated data, added new tables and views into the database. Let's take another look at the OCI Data Catalog to see that it captured the changes and the new entities.
 
@@ -77,63 +140,7 @@ Click on Entities just to verify that all of the tables and views are now here.
 
 ![Entities List](./images/final_catalog.png " ")
 
-## Task 3: View of the Oracle Data Lakehouse
 
-We have a database, csv and json files in our data lake but there can be all of the various data platforms and types of data stored in the data lake and even streamed. We don't always have to load data into a database to be able to use our data sets with other data sets and assets. There are simple queries to the object storage that will allow us to join the data together with our data warehouse in our data lakehouse. Here is just one example using the data that we have loaded in this short time.
-
-Navigate back to DBActions. Under Development, click on SQL. We are going to run a few queries here for analysis. At this point you can take the queries and information to analytics and reporting.
-
-Join the data to the existing customer data:
-
-```
-<copy>
-SELECT
-    DAY_ID,
-    GENRE.NAME,
-    CUSTSALES.CUST_ID,
-    AGE,
-    GENDER, 
-    STATE_PROVINCE
-FROM
-    ADMIN.CUSTSALES_CUSTSALES_2020_01 custsales, 
-    ADMIN.CUSTOMER_EXTENSION, 
-    ADMIN.CUSTOMER_CONTACT,
-    ADMIN.GENRE
-    where customer_extension.CUST_ID=custsales.cust_id
-    and customer_extension.CUST_ID=customer_contact.CUST_ID
-    and COUNTRY_CODE='US'
-    and genre.genre_id=custsales.genre_id;    
-</copy>    
-```
-
-Optionally you can also get the results using either external tables or Data Lake Accelerator. Here is an example to use an external table to access the JSON file in the object storage and join to the database tables.
-
-Create the external table or view to get the json file data that is stored in the object storage.
-```
-<copy>
-BEGIN
-DBMS_CLOUD.CREATE_EXTERNAL_TABLE (
-table_name => 'json_movie_data_ext2',
-file_uri_list => 'https://objectstorage.us-ashburn-1.oraclecloud.com/p/ECSyjYVno_ekE_qrWZ-g3LwGvNvxkFkgcDAC3OeTUXvmXNxl1umLqf6NXDa2sL5Q/n/c4u04/b/data_lakehouse/o/export-stream-2020-updated.json',
-column_list => 'doc varchar2(32000)',
-field_list => 'doc char(30000)',
-format => json_object('delimiter' value '\n')
-);
-END;
-/
-</copy>
-```
-Query the data:
-```
-<copy>
-select *
-FROM JSON_MOVIE_DATA_EXT2,
-JSON_TABLE("DOC", '$[*]' COLUMNS
-"custid" number path '$.custid',
-"genreid" number path '$.genreid',
-"movieid" number path '$.movieid')
-</copy>
-```
 
 ***Oracle Data Lakehouse
 

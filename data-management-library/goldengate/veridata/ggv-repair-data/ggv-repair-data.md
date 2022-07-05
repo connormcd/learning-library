@@ -1,20 +1,17 @@
-# Repair Out-of-Sync Jobs and Generate SQL Files
+# Repair Out-of-Sync Jobs and Download Repair SQL Files
 
 ## Introduction
-From the Finished Jobs page, you can select the out-of-sync comparisons for repair. Jobs, groups, and compare pairs can be selected for repair.
 
-The Repair Jobs page displays a summary of all repair jobs. You can use the Filters on this page to display older repair jobs and to filter repair jobs by repair status and job name.
+Oracle GoldenGate Veridata performs comparisons on tables to identify data discrepancies. The **Repair** functionality allows you to eliminate these discrepancies and makes the data identical.
 
-Oracle GoldenGate Veridata provides the Generate SQL functionality which generates SQL files for the source and target tables associated with the out-of-sync jobs. To do that, the Oracle GoldenGate Veridata generates the SQL Statements in the background and executes these SQL statements onto the target database.
-
-You can also look at these SQL Statements before the Oracle GoldenGate Veridata executes them onto the target database, or execute these SQL statements by yourself on any of the other database tools. With the Generate Repair SQL functionality, you can generate the SQL statements for all your out-of-sync-records, and can also execute them at your convenience.
+Oracle GoldenGate Veridata provides the Download Repair SQL functionality which downloads SQL files for the source and target tables associated with the out-of-sync jobs.
 
 *Estimated Lab Time*: 30 minutes
 
 ### Objectives
 In this lab, you will:
-* Repair out-of-sync jobs.
-* Generate SQL files for out-of-sync jobs.
+* Repair out-of-sync jobs
+* Download SQL Files for out-of-sync jobs
 
 ### Prerequisites
 This lab assumes you have:
@@ -27,37 +24,38 @@ This lab assumes you have:
     * Lab: Create Groups and Compare Pairs.
     * Lab: Create and Execute Jobs
 
-## Task 1: Generate SQL Files
+## Task 1: Download Repair SQL Files
 
-You can generate SQL files only for Jobs that have been configured for datasource connections with the Oracle datatype.
+You can download repair SQL files only for Jobs that have been configured for datasource connections with the Oracle datatype.
 
-To generate SQL files:
-  1. From the left navigation pane, click **Finished Jobs** to view the page containing details of all the finished jobs. You can select Jobs, groups, and compare pairs for generating SQL statements.
-  2. From the table under **Finished Jobs**, click the Job name link under **Job Name**:
+Ensure to execute a Job by following the steps in **Lab: Create and Execute Jobs** with the compare pair *Case_Insensitive_Table=CASE_INSENSITIVE_TABLE*
 
-    ![](./images/1-select-out-of-sync-link.png " ")
+To download repair SQL files:
+  1. From the left navigation pane, click **Finished Jobs** and then click the Job name link under **Job Name**:
 
-  3. Click the Group name under the **Group Name**:
+    ![Select out of sync link.](./images/select-out-of-sync-link.png " ")
 
-    ![](./images/2-select-group-name-link.png " ")
+  2. Click the Group name under the **Group Name**:
+
+    ![Select group name.](./images/select-group-name-link.png " ")
 
  4. Click the **Out of Sync** link for the Compare Pair name **Case\_Insensitive_Table\=CASE\_INSENSITIVE\_TABLE**:
 
-    ![](./images/4-Case_Insensitive_Table=CASE_INSENSITIVE_TABLE.png " ")
+    ![Select case insensitive table compare pair.](./images/case-insensitive-table-case-insensitive-table.png " ")
 
-  5. Click **Generate SQL**.
+  5. Click **Download Repair SQL**.
 
-    ![](./images/1-select-out-of-sync-generate-sql.png " ")
+    ![Download Repair SQL](./images/download-repair-sql.png " ")
 
-    The SQL file gets generated.
+    The SQL file gets downloaded.
 
-  6. Open a terminal to view the generated SQL file. Navigate to the generated location:
+  6. Open a terminal to view the SQL file. Navigate to the file location:
 
-    ![](./images/4-unzip-generated-sql.png " ")
+    ![Open terminal](./images/unzip-generated-sql.png " ")
 
   7. Unzip the SQL file to view its contents.
 
-    ![](./images/3-view-generated-sql.png " ")
+    ![Extract the zip file and view the SQL file contents.](./images/view-generated-sql.png " ")
 
 ## Task 2: Repair Out-of-Sync Jobs
 
@@ -65,23 +63,23 @@ To generate SQL files:
   1. From the left navigation pane, click **Finished Jobs** to view the page containing details of all the finished jobs. You can select Jobs, groups, and compare pairs for repairing out-of-sync records.
   2. From the table under **Finished Jobs**, click the Job name link under **Job Name**:
 
-    ![](./images/1-select-out-of-sync-link.png " ")
+    ![Select out of sync link.](./images/select-out-of-sync-link.png " ")
 
   3. Click the Group name under the **Group Name**:
 
-    ![](./images/2-select-group-name-link.png " ")
+    ![Select group name.](./images/select-group-name-link.png " ")
 
  4. Click the **Out Of Sync** link for the Compare Pair name **Case\_Insensitive_Table\=CASE\_INSENSITIVE\_TABLE**:
 
-    ![](./images/4-Case_Insensitive_Table=CASE_INSENSITIVE_TABLE.png " ")
+    ![Select case insensitive table compare pair.](./images/case-insensitive-table-case-insensitive-table.png " ")
 
   5. Click **Run Repair**.
 
-    ![](./images/2-click-run-repair1.png " ")
+    ![Click Run Repair.](./images/click-run-repair.png " ")
 
-    ![](./images/5-repaired-data.png " ")
+    ![Repaired data.](./images/repaired-data.png " ")
 
-    ![](./images/3-click-run-repair3-repaired-records.png " ")
+    ![Repaired Records](./images/click-run-repair-repaired-records.png " ")
 
 The out-of-sync records for the selected job are repaired.
 

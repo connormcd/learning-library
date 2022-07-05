@@ -31,5 +31,5 @@ If you still have an active reservation, you can also rate by going to **My Rese
 ## Acknowledgements
 
 * **Author** - Didi Han, Database Product Management
-* **Contributors** - Tom McGinn, Kay Malcolm
-* **Last Updated By/Date** - Kay Malcolm, March 2021
+* **Contributors** - Kay Malcolm
+* **Last Updated By/Date** - Madhusudhan Rao, Apr 2022

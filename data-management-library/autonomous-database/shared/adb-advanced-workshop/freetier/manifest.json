@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Analyzing your data with Autonomous Database",
+    "workshoptitle": "Manage and Monitor Autonomous Database",
     "help": "livelabs-help-db_us@oracle.com",
 	"tutorials": [
         {
@@ -33,54 +33,34 @@
             "filename": "./../../adb-query/adb-query.md"
         },
         {
-            "title": "Lab 5: Visualize Your Data",
-            "description": "Create Rich Data Visualizations",
-            "filename": "./../../adw-visualizations-using-oad6pt3/adw-visualizations.md"
-        },
-        {
-            "title": "Lab 6: Use Wallets for Secure Connections",
-            "description": "Connecting Securely with a Connection Wallet",
-            "filename": "./../../adw-connection-wallet/adw-connection-wallet.md"
-        },
-        {
-            "title": "Lab 7: Monitor and Manage",
+            "title": "Lab 5: Monitor and Manage",
             "description": "Managing and Monitoring Your Autonomous Database Instance using the Cloud Console",
             "filename": "./../../adw-managing-monitoring/adw-managing-monitoring.md"
         },
         {
-            "title": "Lab 8: Scale for Performance",
+            "title": "Lab 6: Scale for Performance",
             "description": "Scaling and Performance in Your Autonomous Database",
             "filename": "./../../adw-scaling-performance/adw-scaling-performance.md"
         },
 	{
-            "title": "Lab 9: Apply Auto Scaling",
+            "title": "Lab 7: Apply Auto Scaling",
             "description": "Auto Scaling an Autonomous Database",
             "filename": "./../../adb-auto-scaling/adb-auto-scaling.md"
         },
         {
-            "title": "Lab 10: Enable Disaster Recovery",
+            "title": "Lab 8: Enable Disaster Recovery",
             "description": "Enable Autonomous Data Guard",
             "filename": "./../../adb-autonomous-data-guard/adb-autonomous-data-guard.md"
         },
         {
-            "title": "Lab 11: Create Refreshable Clones",
+            "title": "Lab 9: Create Refreshable Clones",
             "description": "Creating Refreshable Clones",
             "filename": "./../../adb-refreshable-clones/adb-refreshable-clones.md"
         },
         {
-            "title": "Lab 12: Set Event and Alarm Notifications",
+            "title": "Lab 10: Set Event and Alarm Notifications",
             "description": "Setting Event and Alarm Notifications for an Autonomous Database",
             "filename": "./../../adb-event-alarm/adb-event-alarm.md"
-        },
-        {
-            "title": "Lab 13: Use Machine Learning Notebooks",
-            "description": "Using Oracle Machine Learning Notebooks",
-            "filename": "./../../adw-oml-notebooks/adw-oml-notebooks.md"
-        },
-        {
-            "title": "Lab 14: Build a Simple Machine Learning Algorithm",
-            "description": "Simple Introduction to Machine Learning Algorithms (DBMS_PREDICTIVE_ANALYTICS)",
-            "filename": "./../../adw-machine-learning/adw-machine-learning.md"
         },
         {
             "title": "Need Help?",

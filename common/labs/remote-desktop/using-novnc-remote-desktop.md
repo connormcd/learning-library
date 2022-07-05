@@ -1,9 +1,9 @@
-# Using noVNC Remote Desktop
+# Use noVNC remote desktop
 
 ## Introduction
 This lab will show you how to get started with your workshop with a remote desktop session.
 
-*Estimated Lab Time*: 10 minutes
+Estimated Time: 10 minutes
 
 ### Objectives
 In this lab, you will:
@@ -21,44 +21,44 @@ For seamless desktop integration and to make the best use of your display, perfo
 
 1. Click on the small gray tab on the middle-left side of your screen to open the control bar.
 
-    ![](./images/novnc-fullscreen-1.png " ")
+    ![Open control bar](./images/novnc-fullscreen-1.png " ")
 
 2. Select *Fullscreen* to render the session on your entire screen.
 
-    ![](./images/novnc-fullscreen-2.png " ")
-    ![](./images/novnc-fullscreen-3.png " ")
+    ![Select Fullscreen](./images/novnc-fullscreen-2.png " ")
+    ![Fullscreen displayed](./images/novnc-fullscreen-3.png " ")
 
 ## Task 2: Enable Copy/Paste from Local to Remote Desktop
 During the execution of your labs you may need to copy text from your local PC/Mac to the remote desktop, such as commands from the lab guide. While such direct copy/paste isn't supported as you will realize, you may proceed as indicated below to enable an alternative local-to-remote clipboard with Input Text Field.
 
 1. Continuing from the last task above, Select the *clipboard* icon
 
-    ![](./images/novnc-clipboard-1.png " ")
+    ![Select clipboard](./images/novnc-clipboard-1.png " ")
 
 2. Copy some text from your local computer as illustrated below and paste into the clipboard widget, then finally open up the desired application (e.g. Terminal) and paste accordingly using *mouse controls*
 
-    ![](./images/novnc-clipboard-2.png " ")
+    ![Copy and paste](./images/novnc-clipboard-2.png " ")
 
-    *Note:* Please make sure you initialize your clipboard with step [1] shown in the screenshot above before opening the target application in which you intend to paste the text. Otherwise will find the *paste* function in the context menu grayed out when attempting to paste for the first time.
+    >**Note:** Please make sure you initialize your clipboard with step [1] shown in the screenshot above before opening the target application in which you intend to paste the text. Otherwise will find the *paste* function in the context menu grayed out when attempting to paste for the first time.
 
 ## Task 3: Open Your Workshop Guide
 
 1. If the *Web* browser window(s) is(are) not already open side-by-side, double-click on the *Get Started with your Workshop* icon from the remote desktop. This will launch one or two windows depending on the workshop.
 
-    ![](./images/novnc-launch-get-started-1.png " ")
+    ![Double click Get Started with your Workshop icon](./images/novnc-launch-get-started-1.png " ")
 
 2. On the left windows is your workshop guide and depending on your workshop, you may also one or two browser tabs loaded with webapps. e.g. Weblogic console, Enterprise Manager Cloud Console, or a relevant application to your workshop such as SQL Developer, JDeveloper, etc.
 
-    ![](./images/novnc-launch-get-started-2.png " ")
-    ![](./images/novnc-launch-get-started-3.png " ")
+    ![Guide and web browser opened](./images/novnc-launch-get-started-2.png " ")
+    ![Guide and Oracle SQL Developer opened](./images/novnc-launch-get-started-3.png " ")
 
-You may now [proceed to the next lab](#next).
+You may now **proceed to the next lab**.
 
-## Appendix: Connecting remotely using SSH.
+## Appendix: Connect remotely using SSH.
 
 While your workshop can be executed end-to-end from the remote desktop, follow the steps provided below if you need to access the instance remotely using an SSH client such as Putty, Unix/Linux/MacOS Terminal, OCI cloudshell, and other terminal emulators available on Windows.
 
-*Notes:* In this section you are enabling SSH access to the OS user running the remote desktop. This could be oracle, opc, or any other OS user for which the noVNC remote desktop has been configured.
+>**Note:** In this section you are enabling SSH access to the OS user running the remote desktop. This could be oracle, opc, or any other OS user for which the noVNC remote desktop has been configured.
 
 This assumes that you already have an RSA type SSH key-pair available on the local system where you will be connecting from. If you don't and for more info on creating and using SSH keys for your specific platform and client, please refer to the guide [Generate SSH Keys](https://oracle.github.io/learning-library/common/labs/generate-ssh-key)
 
@@ -73,19 +73,19 @@ This assumes that you already have an RSA type SSH key-pair available on the loc
     </copy>
     ```
 
-    ![](./images/novnc-copy-pub-key-4.png " ")
+    ![Update authorized_keys](./images/novnc-copy-pub-key-4.png " ")
 
 3. From the local system (e.g. your laptop) and with the exception of *Putty* users, locate the SSH public key from the key-pair, open it, and copy the entire content to the clipboard.
 
-    ![](./images/novnc-copy-pub-key-1.png " ")
+    ![Copy SSH keys](./images/novnc-copy-pub-key-1.png " ")
 
     If using Putty you must load the private key (*.ppk*) into *Puttygen* utility to see the relevant public key block to copy. Do not copy the content of the public key file directly as it will not work.
 
-    ![](./images/novnc-copy-pub-key-2.png " ")
+    ![Copy SSH keys using PuTTY](./images/novnc-copy-pub-key-2.png " ")
 
 4. Paste the copied public key onto the remote clipboard first, then onto the terminal where you opened *authorized_keys* for edit
 
-    ![](./images/novnc-copy-pub-key-3.png " ")
+    ![Paste SSH key](./images/novnc-copy-pub-key-3.png " ")
 
 5. Save and exit *Vi* editor
 
@@ -108,9 +108,9 @@ This assumes that you already have an RSA type SSH key-pair available on the loc
     </copy>
     ```
 
-    For Putty, please refer to the guide [Generate SSH Keys](https://oracle.github.io/learning-library/common/labs/generate-ssh-key) on how to establish the connection using the *.ppk* private key 
+    For Putty, please refer to the guide [Generate SSH Keys](https://oracle.github.io/learning-library/common/labs/generate-ssh-key) on how to establish the connection using the *.ppk* private key.
 
 ## Acknowledgements
 * **Author** - Rene Fontcha, LiveLabs Platform Lead, NA Technology
-* **Contributors** -
-* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, October 2021
+* **Contributors** - Arabella Yao, Database Product Management
+* **Last Updated By/Date** - Arabella Yao, May 2022

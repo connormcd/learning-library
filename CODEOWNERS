@@ -1,16 +1,17 @@
 #  The last matching pattern has the most precedence.
-*                        @kaymalcolm @kamryn-v @anooshapilli @davidastart @klazarz @malcherm @william-masdon-oracle @kaylien
-/common/               @kaymalcolm @davidastart @klazarz @malcherm
-/ai-ml-library/       @kaymalcolm @kamryn-v @troyanthony06 @anooshapilli @davidastart @klazarz @malcherm @william-masdon-oracle @kaylien
-/analytics-library/       @kaymalcolm @troyanthony06 @kamryn-v @rfontcha @anooshapilli @davidastart @klazarz @malcherm @william-masdon-oracle @kaylien
-/data-management-library/ @kaymalcolm @troyanthony06 @kamryn-v @anooshapilli @davidastart @klazarz @malcherm @william-masdon-oracle @kaylien
-/developer-library/       @kaymalcolm @troyanthony06 @kamryn-v @rfontcha @anooshapilli @davidastart @oegentil  @klazarz @malcherm @william-masdon-oracle @kaylien
-/enterprise-manageability-library/       @kaymalcolm @rfontcha @kamryn-v @anooshapilli @davidastart @klazarz @malcherm @william-masdon-oracle @kaylien
-/oci-library/              @oegentil @kaymalcolm @davidastart @anooshapilli @kamryn-v @klazarz @malcherm @william-masdon-oracle @kaylien
-/ospa-library/            @jjking2019 @dankingsley001 @AlejandroCasas-oracle
-/solutions-library/       @kaymalcolm @troyanthony06 @kamryn-v @rfontcha @anooshapilli @davidastart @oegentil  @klazarz @malcherm @william-masdon-oracle @kaylien
-/security-library/       @kaymalcolm @troyanthony06 @rfontcha @anooshapilli @kamryn-v @davidastart  @oegentil @klazarz @malcherm @william-masdon-oracle @kaylien
-/workshops/               @kaymalcolm @troyanthony06 @davidastart @klazarz @malcherm @william-masdon-oracle
+*                        @kaymalcolm @kamryn-v @anooshapilli @davidastart @klazarz @malcherm @william-masdon-oracle @kaylien @madhusudhanrao-ppm
+/common/               @kaymalcolm @davidastart @klazarz @malcherm @madhusudhanrao-ppm
+/ai-ml-library/       @kaymalcolm @kamryn-v @troyanthony06 @anooshapilli @davidastart @klazarz @malcherm @william-masdon-oracle @kaylien @madhusudhanrao-ppm
+/analytics-library/       @kaymalcolm @troyanthony06 @kamryn-v @rfontcha @anooshapilli @davidastart @klazarz @malcherm @william-masdon-oracle @kaylien @madhusudhanrao-ppm
+/data-management-library/ @kaymalcolm @troyanthony06 @kamryn-v @anooshapilli @davidastart @klazarz @malcherm @william-masdon-oracle @kaylien @madhusudhanrao-ppm
+/developer-library/       @kaymalcolm @troyanthony06 @kamryn-v @rfontcha @anooshapilli @davidastart @oegentil  @klazarz @malcherm @william-masdon-oracle @kaylien @madhusudhanrao-ppm
+/enterprise-manageability-library/       @kaymalcolm @rfontcha @kamryn-v @anooshapilli @davidastart @klazarz @malcherm @william-masdon-oracle @kaylien @madhusudhanrao-ppm
+/oci-library/              @oegentil @kaymalcolm @davidastart @anooshapilli @kamryn-v @klazarz @malcherm @william-masdon-oracle @kaylien @madhusudhanrao-ppm
+/ospa-library/            @jjking2019 @dankingsley001 @AlejandroCasas-oracle @madhusudhanrao-ppm
+/solutions-library/       @kaymalcolm @troyanthony06 @kamryn-v @rfontcha @anooshapilli @davidastart @oegentil  @klazarz @malcherm @william-masdon-oracle @kaylien @madhusudhanrao-ppm
+/security-library/       @kaymalcolm @troyanthony06 @rfontcha @anooshapilli @kamryn-v @davidastart  @oegentil @klazarz @malcherm @william-masdon-oracle @kaylien @madhusudhanrao-ppm
+/workshops/               @kaymalcolm @troyanthony06 @davidastart @klazarz @malcherm @william-masdon-oracle @madhusudhanrao-ppm
+/sprints/               @kaymalcolm @troyanthony06 @kamryn-v @rfontcha @anooshapilli @davidastart @oegentil  @klazarz @malcherm @william-masdon-oracle @kaylien @madhusudhanrao-ppm
 
 #  Use this list if the environment needs to be placed in freeze
 # *                          @kaymalcolm @klazarz @malcherm

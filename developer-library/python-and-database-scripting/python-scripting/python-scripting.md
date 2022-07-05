@@ -94,7 +94,7 @@ Python comes preinstalled on most Linux distributions, and it is available as a 
     <copy>
     mkdir -p python
     cd python
-    wget  https://objectstorage.us-ashburn-1.oraclecloud.com/p/0mc1pGojNWLuXj0RXKtmj8-qWyRmEkNipReSOXudpIvOmM642cYOSDoxmWTT-ibY/n/c4u04/b/labfiles/o/python_setup.zip
+    wget  https://objectstorage.us-ashburn-1.oraclecloud.com/p/LNAcA6wNFvhkvHGPcWIbKlyGkicSOVCIgWLIu6t7W2BQfwq2NSLCsXpTL9wVzjuP/n/c4u04/b/livelabsfiles/o/developer-library/python_setup.zip
     unzip python_setup.zip
     </copy>
     ````

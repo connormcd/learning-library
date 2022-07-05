@@ -1,0 +1,58 @@
+{
+  "workshoptitle": "Building Microservices with Converged Oracle Database",
+  "help": "livelabs-help-db_us@oracle.com",
+	"tutorials": [
+      {
+        "title": "Introduction",
+        "filename": "../../intro/intro.md"
+      },
+      {
+        "title": "Getting started",
+        "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/event-register-free-tier-account.md"
+      },
+      {
+        "title": "Lab 1: Setup",
+        "filename": "../../setup/setup.md"
+      },
+      {
+        "title": "Lab 2: Data-centric microservices walkthrough with Helidon MP",
+        "filename": "../../walkthrough-helidon/walkthrough-helidon.md",
+        "type": "event-freetier"
+      },
+      {
+        "title": "Lab 3: Polyglot microservices",
+        "filename": "../../polyglot/polyglot.md",
+        "type": "event-freetier"
+      },
+      {
+        "title": "Lab 4: Scaling",
+        "filename": "../../scaling/scaling.md",
+        "type": "event-freetier"
+      },
+      {
+        "title": "Lab 5: Observability",
+        "filename": "../../observability/observability.md",
+        "type": "event-freetier"
+      },
+      {
+        "title": "Lab 6: Create an APEX app to view and update data",
+        "filename": "../../apex/apex.md",
+        "type": "event-freetier"
+      },
+      {
+        "title": "Lab 7: Transactional tests: compare MongoDB, Postgres, and Kafka to Oracle DB with TEQ/AQ",
+        "filename": "../../transactional/transactional.md",
+        "type": "event-freetier"
+      },
+      {
+        "title": "Lab 8: Tear down",
+        "filename": "../../teardown/teardown.md",
+        "type": "event-freetier"
+      },
+      {
+        "title": "Need Help?",
+        "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+        "filename":"https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-freetier.md"
+      }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "workshoptitle": "Become an Autonomous Database Specialist",
+    "help": "livelabs-help-db_us@oracle.com",
+	"tutorials": [
+        {
+            "title": "Introduction",
+            "description": "Introduction",
+            "filename": "./../../intro/intro-ziplab.md"
+        },
+        {
+            "title": "Get Started",
+            "description": "Get a Free Trial",
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
+        },
+        {
+            "title": "Lab 1: Identity and Access Management (IAM) Service",
+            "description": "Oracle Cloud Free Tier Account",
+            "filename": "./../../adb-iam/adb-iam.md"
+        },
+        {
+            "title": "Lab 2: Autonomous Database on Shared Infrastructure",
+            "description": "Autonomous Database on Shared Infrastructure",
+            "filename": "./../../adb-cert/adb-cert.md"
+        },
+        {
+            "title": "Lab 3",
+            "description": "put description here",
+            "filename": "./../../adb-iam/adb-iam.md"
+        },
+        {
+            "title": "Lab 4: Using Autonomous Database Tools",
+            "description": "Using Autonomous Database Tools",
+            "filename": "./../../adb-tools/adb-tools.md"
+        },
+        {
+            "title": "Lab 5: Developing on Autonomous Database",
+            "description": "Learn to utilize JSON in Autonomous Database",
+            "filename": "./../../developing-on-adb/developing-on-adb.md"
+        },
+        {
+            "title": "Need Help?",
+            "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+            "filename":"https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-freetier.md"
+        }
+    ]
+}

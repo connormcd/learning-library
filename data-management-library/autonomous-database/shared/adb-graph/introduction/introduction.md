@@ -2,6 +2,8 @@
 
 ## About This Workshop
 
+## Note: *Update in progress. Will have errors.*
+
 This workshop introduces key graph data modeling and analysis concepts and the interactive Graph Studio for working with graphs in an Autonomous Database.
 
 Estimated Workshop Time: 60 minutes
@@ -34,6 +36,6 @@ In this workshop you will:
 ## Acknowledgements
 * **Author** - Jayant Sharma, Product Management 
 * **Contributors** -  Korbi Schmidt, Product Development
-* **Last Updated By/Date** - Jayant Sharma, Sept 2021
+* **Last Updated By/Date** - Jayant Sharma, April 2022
 
 

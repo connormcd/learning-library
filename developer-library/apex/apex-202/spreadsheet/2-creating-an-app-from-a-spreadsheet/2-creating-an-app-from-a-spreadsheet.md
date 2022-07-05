@@ -89,7 +89,6 @@ You now know how to create an application from a spreadsheet by either dragging 
 
 ## **Acknowledgements**
 
- - **Author** -  Salim Hlayel, Principal Product Manager
- - **Contributors** - Tom McGinn, Database Cloud Services, Product Management
- - **Last Updated By/Date** - Salim Hlayel, Principal Product Manager, November 2020
+ - **Author** -  Salim Hlayel, Principal Product Manager 
+ - **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

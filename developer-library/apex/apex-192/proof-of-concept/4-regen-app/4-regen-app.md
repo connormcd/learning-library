@@ -99,5 +99,5 @@ This completes Module 4. You now know how to utilize the blueprint to load a pre
 ## **Acknowledgements**
 
  - **Author/Contributors** -  David Peake, Consulting Member of Technical Staff
- - **Last Updated By/Date** - Tom McGinn, Database Cloud Services, Product Management, June 2020
+ - **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

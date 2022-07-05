@@ -43,7 +43,7 @@ Enter any one of the Language Pre-Deployed CLI commands you want to execute.
     ![](./images/cloudShellCommand.png " ")
 
 
-### 2: View Result
+### 3: View Result
 
 The Language service displays the results as shown below:
     ![](./images/clousShellResult.png " ")
@@ -61,33 +61,79 @@ For a complete list of flags and options available for CLI commands, see the [Co
 ## **TASK 2:** Try issuing some of the OCI Language commands
 
 ### 1. Language Detection
-Run this command : oci ai language detect-language --text, -? | -h | --help
+Run this command : oci ai language batch-detect-language --documents, -? | -h | --help
     ```
-    <copy>oci ai language detect-language --text "The European sovereign debt crisis was a period when several European countries experienced the collapse of financial institutions, high government debt, and rapidly rising bond yield spreads in government securities."</copy>
+    <copy>oci ai language batch-detect-language --documents '[
+    {                
+      "key": "doc1",
+      "text": "The Indy Autonomous Challenge is the worlds first head-to-head, high speed autonomous race taking place at the Indianapolis Motor Speedway"
+    },
+    {
+      "key": "doc2",
+      "text": "Using high-performance GPU systems in the Oracle Cloud, OCI will be the cloud engine for the artificial intelligence models that drive the MIT Driverless cars competing in the Indy Autonomous Challenge."
+    }
+]'</copy>
     ```
 
 ### 2. Named Entity Recognition
-Run this command : oci ai language detect-entities --text, -? | -h | --help, --is-pii
+Run this command : oci ai language batch-detect-entities --documents, -? | -h | --help, --is-pii
     ```
-    <copy>oci ai language detect-entities --text "The European sovereign debt crisis was a period when several European countries experienced the collapse of financial institutions, high government debt, and rapidly rising bond yield spreads in government securities."</copy>
+    <copy>oci ai language batch-detect-entities --documents '[
+    {                
+      "key": "doc1",
+      "text": "The Indy Autonomous Challenge is the worlds first head-to-head, high speed autonomous race taking place at the Indianapolis Motor Speedway"
+    },
+    {
+      "key": "doc2",
+      "text": "Using high-performance GPU systems in the Oracle Cloud, OCI will be the cloud engine for the artificial intelligence models that drive the MIT Driverless cars competing in the Indy Autonomous Challenge."
+    }
+]'
+</copy>
     ```
 
 ### 3. Key Phrase Extraction
-Run this command : oci ai language detect-key-phrases --text, -? | -h | --help
+Run this command : oci ai language batch-detect-key-phrases --documents, -? | -h | --help
     ```
-    <copy>oci ai language detect-key-phrases --text "The European sovereign debt crisis was a period when several European countries experienced the collapse of financial institutions, high government debt, and rapidly rising bond yield spreads in government securities."</copy>
+    <copy>oci ai language batch-detect-key-phrases --documents '[
+    {                
+      "key": "doc1",
+      "text": "The Indy Autonomous Challenge is the worlds first head-to-head, high speed autonomous race taking place at the Indianapolis Motor Speedway"
+    },
+    {
+      "key": "doc2",
+      "text": "Using high-performance GPU systems in the Oracle Cloud, OCI will be the cloud engine for the artificial intelligence models that drive the MIT Driverless cars competing in the Indy Autonomous Challenge."
+    }
+]'</copy>
     ```
 
-### 4. Aspect-Based Sentiment Analysis
-Run this command : oci ai language detect-sentiments --text, -? | -h | --help
+### 4. Sentiment Analysis
+Run this command : oci ai language batch-detect-sentiments --documents, -? | -h | --help
     ```
-    <copy>oci ai language detect-sentiments --text "The European sovereign debt crisis was a period when several European countries experienced the collapse of financial institutions, high government debt, and rapidly rising bond yield spreads in government securities."</copy>
+    <copy>oci ai language batch-detect-sentiments --documents '[
+    {                
+      "key": "doc1",
+      "text": "The Indy Autonomous Challenge is the worlds first head-to-head, high speed autonomous race taking place at the Indianapolis Motor Speedway"
+    },
+    {
+      "key": "doc2",
+      "text": "Using high-performance GPU systems in the Oracle Cloud, OCI will be the cloud engine for the artificial intelligence models that drive the MIT Driverless cars competing in the Indy Autonomous Challenge."
+    }
+]'</copy>
     ```
 
 ### 5. Text Classification
-Run this command : oci ai language detect-text-classification --text, -? | -h | --help
+Run this command : oci ai language batch-detect-text-classification --text, -? | -h | --help
     ```
-    <copy>oci ai language detect-text-classification --text "The European sovereign debt crisis was a period when several European countries experienced the collapse of financial institutions, high government debt, and rapidly rising bond yield spreads in government securities."</copy>
+    <copy>oci ai language batch-detect-text-classification --documents '[
+    {                
+      "key": "doc1",
+      "text": "The Indy Autonomous Challenge is the worlds first head-to-head, high speed autonomous race taking place at the Indianapolis Motor Speedway"
+    },
+    {
+      "key": "doc2",
+      "text": "Using high-performance GPU systems in the Oracle Cloud, OCI will be the cloud engine for the artificial intelligence models that drive the MIT Driverless cars competing in the Indy Autonomous Challenge."
+    }
+]'</copy>
     ```
 
 
@@ -102,4 +148,4 @@ Congratulations on completing this lab!
     * Rajat Chawla  - Oracle AI Services
     * Ankit Tyagi -  Oracle AI Services
 * **Last Updated By/Date**
-    * Srijon Sarkar  - Oracle AI Services, September 2021
+    * Rajat Chawla  - Oracle AI Services, February 2021

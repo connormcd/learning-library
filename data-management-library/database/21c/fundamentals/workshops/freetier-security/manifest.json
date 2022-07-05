@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Database 21c - Security",
+    "workshoptitle": "Get Started with Oracle Database 21c Security",
     "help": "livelabs-help-db_us@oracle.com",
 	"tutorials": [
         {
@@ -7,27 +7,45 @@
             "filename": "../../introduction/intro-security.md"
         },
         {
-            "title": "Lab 1: Manage Blockchain Tables & Rows",
+            "title": "Get Started",
+            "description": "This is the prerequisites for customers using Free Trial and Paid tenancies, and Always Free accounts (if applicable). The title of the lab and the Contents Menu title (the title above) match for Prerequisite lab. This lab is always first.",
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login-livelabs.md"
+        },
+        {
+            "title": "Lab 1: Create SSH Keys",
+            "description": "Labs that follow the introduction are numbered, starting with Lab 1",
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/generate-ssh-key/generate-ssh-keys.md"
+        },
+        {
+            "title": "Lab 2: Create a DBCS VM Database",
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/data-management-library/database/oci-vm-database/create-oci-vm-db/create-oci-vm-db/create-oci-vm-db-vcn.md"
+        },
+        {
+            "title": "Lab 3: 21C Setup",
+            "filename": "../../setup/setup.md"
+        },
+        {
+            "title": "Lab 4: Manage Blockchain Tables & Rows",
             "filename": "../../blockchain-table/blockchain-table.md"
         },
         {
-            "title": "Lab 2: Set Tablespace Encryption Algorithm",
+            "title": "Lab 5: Set Tablespace Encryption Algorithm",
             "filename": "../../tbsp-encryption/tbsp-encryption.md"
         },
         {
-            "title": "Lab 3: Use Realms to Prevent Local Users from Blocking Common Operations",
+            "title": "Lab 6: Use Realms to Prevent Local Users from Blocking Common Operations",
             "filename": "../../realms/realms.md"
         },
         {
-            "title": "Lab 4: Authentication and Administration",
+            "title": "Lab 7: Authentication and Administration",
             "filename": "../../introduction/intro-admin.md"
         },
         {
-            "title": "Lab 5: Force Upgraded Password File Case Sensitivity",
+            "title": "Lab 8: Force Upgraded Password File Case Sensitivity",
             "filename": "../../upgraded-pwd/upgraded-pwd.md"
         },
         {
-            "title": "Lab 6: Enforce Password Length Enforcement",
+            "title": "Lab 9: Enforce Password Length Enforcement",
             "filename": "../../enforce-min-pwd/enforce-min-pwd.md"
         },
         {

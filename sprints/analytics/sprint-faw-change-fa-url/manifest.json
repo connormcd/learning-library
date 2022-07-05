@@ -1,0 +1,12 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-analytics_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How can I change my Fusion Application connection in Fusion Analytics Warehouse (FAW)?",
+         "description": "Learn how to change your Fusion Application connection in Fusion Analytics Warehouse (FAW).",
+         "filename": "sprint-faw-update-fa-connection.md"
+      }
+   ],
+   "task_type": "Sections"
+}

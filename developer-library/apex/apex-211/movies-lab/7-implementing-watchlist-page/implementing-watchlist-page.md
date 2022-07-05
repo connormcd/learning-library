@@ -1,4 +1,4 @@
-# Implementing the Watchlist Page
+# Implement the Watchlist Page
 
 ## Introduction
 Now that you have implemented functionality to find movies and add them to a list, you can use page 1 to view that list, search it, and modify it. In this lab, you will be setting up the My Watchlist page to display each movie in the watchlist table and filter the list, which is the final piece of base functionality you will need to complete this app.
@@ -12,7 +12,10 @@ In this lab, you will:
 - Add search facets to filter through movies.  
 - Add a search bar to directly search for movies.
 
-## Task 1: Creating the Watchlist Cards
+### Prerequisites
+- Completion of workshop through Lab 6
+
+## Task 1: Create the Watchlist Cards
 So far, you have only added a button in the Breadcrumb Bar region of page 1. You will start to flesh out the page by first adding a Cards region on the main page so that users can view their personal list of movies. It will be similar to the Cards regions on the Movie Search page, but these cards will be formatted a little differently and the source will not be a REST data source.
 
 1. Navigate to page 1 of your Movies Watchlist application.
@@ -90,7 +93,7 @@ So far, you have only added a button in the Breadcrumb Bar region of page 1. You
 
     ![](images/1-watchlist-attributes-bottom-edit.png " ")
 
-## Task 2: Connecting the Watchlist to the Movie Details Page
+## Task 2: Connect the Watchlist to the Movie Details Page
 In this step, you are going to connect the My Watchlist page to the Movie Details page to allow a user to view details for any movie on the list, as well as remove a movie from their list or mark a movie as "Watched" without having to go through the Movie Search.
 
 1. In the rendering pane, right click on the Actions section underneath the Watchlist region and select **Create Action**.
@@ -126,7 +129,7 @@ In this step, you are going to connect the My Watchlist page to the Movie Detail
 
     ![](images/app-example.png " ")
 
-## Task 3: Adding the Faceted Search
+## Task 3: Add the Faceted Search
 The next step is allowing a user to filter through movies in their watchlist to make it easier for users to explore their movie list and find movies they could watch based on specific criteria. You'll do this by using a Faceted Search to create facets for columns we can filter the movie list with.
 
 1. In the Page Designer tab in your browser, right click on the Content Body region and select **Create Region**.
@@ -289,7 +292,7 @@ The next step is allowing a user to filter through movies in their watchlist to 
 
     * Source → Data Type: **Number**
 
-## Task 4: Adding a Sort By Item
+## Task 4: Add a Sort By Item
 In addition to the Faceted Search, it would be helpful for there to be a "Sort By" feature that allows users to reorder their list of movies a few different ways.
 
 1. Right click on the Watchlist region in the rendering pane and select **Create Page Item**.
@@ -366,6 +369,8 @@ In addition to the Faceted Search, it would be helpful for there to be a "Sort B
 
     ![](images/4-watchlist-app-view.png " ")
 
+You now know how to filter data using a Faceted Search and sort data with a select list. You may now **proceed to the next lab**.
+
 ## Resources
 
 - [Intro to Faceted Search](https://www.youtube.com/watch?v=xsA9SCFHDDI)  
@@ -385,4 +390,10 @@ Stuck on a step or struggling with the lab? You can download a copy of the Movie
 
 - If you have not previously imported Lab 4 or higher, follow the instructions in the <a href="?lab=creating-movie-details-page#Stuck?DownloadtheApplicationHere" target="_blank">Stuck?</a> section of Lab 4 to provide credentials for the Movie Details REST source.
 
-- Follow the instructions in the <a href="?lab=creating-rest-sources#Stuck?DownloadtheApplicationHere" target="_blank">Stuck?</a> section of Lab 2 to update the Popular and Search Movies API keys.
+- Follow the instructions in the <a href="?lab=creating-movie-search-page#Stuck?DownloadtheApplicationHere" target="_blank">Stuck?</a> section of Lab 3 to update the Popular and Search Movies API keys.
+
+## Acknowledgments
+
+- **Author** - Paige Hanssen
+- **Additional Contributors** - Kay Jasanya, Shakeeb Rahman, Steve Muench, Monica Godoy, Eli Feuerstein, Carlos Maciel, Dalia Vazquez
+- **Last Updated By/Date** - Paige Hanssen, March 2022

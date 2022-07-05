@@ -213,7 +213,7 @@ Click **Run Application**.
 
 You now know how to create an application with a number of different page types based on existing database objects. You may now **proceed to the next lab**. 
 
-## **Acknowledgments**
+## Acknowledgments
 
 - **Author** - Mónica Godoy, Principal Product Manager
 - **Last Updated By/Date** - Arabella Yao, Database Product Manager, October 2021

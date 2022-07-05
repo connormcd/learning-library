@@ -89,7 +89,7 @@ This lab walks you through the steps to create an instance of an Oracle 20c Prev
 * [Oracle Cloud Infrastructure: Connecting to a DB System](https://docs.cloud.oracle.com/en-us/iaas/Content/Database/Tasks/connectingDB.htm)
 
 ## Acknowledgements
-* **Author** - Tom McGinn, Learning Architect, Database User Assistance
+* **Author** - Kay Malcolm, Database Product Management
 * **Contributors** - Kamryn Vinson, Database Product Management
-* **Last Updated By/Date** - Kamryn Vinson, November 2020
+* **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

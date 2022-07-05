@@ -1,0 +1,12 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "  How can I configure ORDS for an On-Premise Oracle Database?",
+         "description": "",
+         "filename": "sprint-setup-ords.md"
+      }
+   ],
+   "task_type": "Sections"
+}

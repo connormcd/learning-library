@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this workshop, we will migrate a PostgreSQL database to an Autonomous Database in Oracle Cloud Infrastructure. Purpose of this workshop we will use Oracle Goldengate for the migration and designated resources in Oracle Cloud Infrastructure. This workshop consists of 5 labs. 
+In this workshop, we will migrate a PostgreSQL database to an Autonomous Database in Oracle Cloud Infrastructure. Purpose of this workshop we will use Oracle GoldenGate for the migration and designated resources in Oracle Cloud Infrastructure. This workshop consists of 5 labs. 
 
 *Estimated total Workshop Time*: 1.5 hours
 
@@ -33,10 +33,10 @@ In this workshop you will :
 - Virtual Cloud Network: we will create a VCN with a public sub-network and internet access to avoid complexity.
 - Source PostgreSQL database: we will create a PostgreSQL database in a Virtual Machine, which acts as our source on-premise database.
 - Target Autonomous database: we will provision Oracle Autonomous Database to act as our target database.
-- Goldengate for non-Oracle deployment: we will create a Goldengate classic for PostgreSQL to extract data from the source and ships trail files to the cloud.
-- Goldengate Microservices deployment: we will create a Microservices environment for an Autonomous Database that applies trails from source to target autonomous database.
+- GoldenGate for non-Oracle deployment: we will create a GoldenGate classic for PostgreSQL to extract data from the source and ships trail files to the cloud.
+- GoldenGate Microservices deployment: we will create a Microservices environment for an Autonomous Database that applies trails from source to target autonomous database.
 
-	![](/images/architecture.png)
+	![Architecture diagram of Goldengate deployment.](/images/architecture.png)
 
 All of the above resources are going to be deployed in Oracle Cloud Infrastructure using Terraform. It is not necessary to have prior knowledge of Terraform scripting. All you need to do is follow every step exactly as described.
 
@@ -48,16 +48,16 @@ All of the above resources are going to be deployed in Oracle Cloud Infrastructu
 
 *Note: If you have a **Free Trial** account, when your Free Trial expires your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. **[Click here for the Free Tier FAQ page.](https://www.oracle.com/cloud/free/faq.html)***
 
-**This concludes the introduction. You may now [proceed to next step](#next).**
+**This concludes the introduction. You may now proceed to the next step.**
 
 ## Learn More
 
 * [Terraform OCI](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/terraform.htm)
-* [Oracle Goldengate](https://docs.oracle.com/en/middleware/goldengate/core/19.1/oggmp/using-oracle-goldengate-microservices-oracle-cloud-marketplace.html)
+* [Oracle GoldenGate](https://docs.oracle.com/en/middleware/GoldenGate/core/19.1/oggmp/using-oracle-GoldenGate-microservices-oracle-cloud-marketplace.html)
 * [Oracle Autonomous Database](https://docs.oracle.com/solutions/?q=autonomous&cType=reference-architectures&sort=date-desc&lang=en)
 
 ## Acknowledgements
 
 * **Author** - Bilegt Bat-Ochir - Senior Solution Engineer
 * **Contributors** - John Craig - Technology Strategy Program Manager, Patrick Agreiter - Senior Cloud Engineer
-* **Last Updated By/Date** - Bilegt Bat-Ochir 4/15/2021
+* **Last Updated By/Date** - Bilegt Bat-Ochir 04/04/2022

@@ -1,67 +1,75 @@
-# Configuring a development system for use with your dedicated autonomous database
+# Configure a development system for use with your dedicated autonomous database
 
 ## Introduction
-The Oracle Cloud Infrastructure marketplace provides a pre-built image with necessary client tools and drivers to build applications on autonomous databases. As an application developer you can now provision a developer image within minutes and connect it to your dedicated or serverless database deployment. 
+The Oracle Linux Cloud Developer image provides the latest development tools, languages, and Oracle Cloud Infrastructure Software Development Kits (SDKs) to rapidly deploy a comprehensive development environment. You can use the command line and GUI tools to write, debug, and run code in various languages, and develop modern applications on Oracle Cloud Infrastructure. As an application developer you can now provision a developer image within minutes and connect it to your dedicated or serverless database deployment.
 
-The image is pre-configured with tools and language drivers so that you can configure a secure connection using Oracle SQL Developer, SQLCL and SQL*Plus.
-For a complete list of features, login to your OCI account, select 'Marketplace' from the top left menu and browse details on the 'Oracle Developer Cloud Image'
-    ![](./images/marketplace.png " ")
+The image is pre-configured with tools and language drivers so that you can configure a secure connection using SQLCL and SQL*Plus.
+For a complete list of features, and preinstalled components click [this documentation](https://docs.oracle.com/en-us/iaa.s/oracle-linux/developer/index.htm).
+
+***NOTE: The Oracle Linux Cloud Developer Image is supported on all Compute shapes, except the GPU shapes. A minimum of 8 GB of memory is required for this image for all standard and flexible shapes. The one exception is the VM.Standard.E2.1.Micro shape, which only has 1 GB of memory allocated to it. Because of the small memory size in the VM.Standard.E2.1.Micro shape, some graphical intensive programs are not installed in the image. For more information, see x86_64 Notices.***
+
+Estimated Time: 30 minutes
 
 ### Objectives
 
 As a database user, DBA or application developer,
-1. Configure a development system from a pre-built marketplace image
+1. Create a development system from a pre-built Platform images
 2. Create an ssh tunnel from your local laptop into your development system
-3. Invoke SQL Developer on your development system over a VNC connection from your local laptop.
-4. Configure a secure connection from your development system to your dedicated autonomous database using Oracle SQL Developer, SQLCL and SQL*Plus.
+3. Configure a secure connection from your development system to your dedicated autonomous database using Oracle SQL Developer, SQLCL and SQL*Plus.
 
 ### Required Artifacts
 
 - An Oracle Cloud Infrastructure account with IAM privileges to provision compute instances
-- A pre-provisioned dedicated autonomous database instance. Refer [Lab 7](?lab=lab-7-provisioning-databases) on how provision an ATP database.
+- A pre-provisioned dedicated autonomous database instance. Refer to the lab **Provisioning Databases** in the **Autonomous Database Dedicated for Developers and Database Users** workshop on how to provision an ATP database.
 - VNC Viewer or other suitable VNC client on your local laptop
 
 
-## Task 1: Provision an OCI Marketplace Developer Client image instance
+## Task 1: Provision Oracle Linux Cloud Developer Client image instance
 
-We start with deploying a pre-configured client machine instance from the OCI marketplace.
+Deploying a pre-configured client machine instance.
 
-- Log into your cloud account using your tenant name, username and password.
-- Click the **Navigation Menu** in the upper left, navigate to **Compute**, and select **Instances**.
-	![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/compute-instances.png " ")
+- Log in to your cloud account using your tenant name, username and password.
+- Click **Compute --> Instances** in the left side menu under services.
+    ![This image shows the result of performing the above step.](./images/createcompute.png " ")
 
-- Click create Instance.
-    ![](./images/createcomputebutton.png " ")
+- Click **Create Instance**.
+    ![This image shows the result of performing the above step.](./images/createcomputebutton.png " ")
 
-- Specify a name for compute instance.
-    ![](./images/computename.png " ")
+- Specify a name for the compute instance and choose the right Compartment.
 
-- Choose Oracle Cloud Developer image from Oracle Image section.
-    ![](./images/computeimage.png " ")
+- Click on *Change image* under *Image and shape* select **Oracle Linux Cloud Developer Image** from Oracle Image section.
+    ![This image shows the result of performing the above step.](./images/computeimage.png " ")
 
-- Choose instance type for Virtual Machine.
-    ![](./images/computeinstancetype.png " ")
+- Select *Oracle Linux Cloud Developer* image under *Platfor images* and click *Select image*.
 
-- Choose VCN and subnet where you would like your client machine deployed. This would likely be the application subnet created in previous labs. 
+    ![This image shows the result of performing the above step.](./images/computeimage1.png " ")
+
+- Click *Change shape* to change the VM shape.
+
+    ![This image shows the result of performing the above step.](./images/computeimage2.png " ")
+
+- Choose *Virtual Machine* as the instance type, *Specialty and previous generation* as Shape series, *VM.Standard2.2*.
+    ![This image shows the result of performing the above step.](./images/computeinstancetype.png " ")
+    ![This image shows the result of performing the above step.](./images/computeinstancetype-1.png " ")
+
+- Choose the VCN and subnet where you would like your client machine deployed. This would likely be the application subnet created in previous labs.
 
     *Note:
     Please ensure you have picked the right compartments where network resources exist.*
     - A network administrator needs to pre-provision a client network and setup access path to your autonomous database network. Please contact your cloud account / network / fleet administrator for application subnet information.
 
-    ![](./images/computenetwork.png " ")
+    ![This image shows the result of performing the above step.](./images/computenetwork.png " ")
 
 
     Ensure the public IP address button is selected. You would need to ssh into this instance over public internet.
-        ![](./images/public_ip.png " ")
+    ![This image shows the result of performing the above step.](./images/public_ip.png " ")
 
 - Add SSH key, you can choose to import ssh public key or paste ssh public key.
-    ![](./images/computekey.png " ")
+    ![This image shows the result of performing the above step.](./images/computekey.png " ")
 
-- Within a few mins your developement instance will be available and a public IP address assigned (if it is provisioned in a public subnet).
-    ![](./images/computewait.png " ")
 
 - Once provisioned, you can click on the instance name to see details.
-    ![](./images/computeready.png " ")
+    ![This image shows the result of performing the above step.](./images/computeready.png " ")
 
 
 ## Task 2: Download and transfer DB wallet to client machine
@@ -72,13 +80,13 @@ Let's first download the DB wallet to your local machine (laptop) and then scp /
 
 - From your local browser, navigate to OCI console.
 
-- On the ATP console, select the dedicated ATP instance provisioned in [Lab 7](?lab=lab-7-provisioning-databases).
-    ![](./images/doneprovision.png " ")
+- On the ATP console, select the dedicated ATP instance provisioned in the lab **Provisioning Databases** in the **Autonomous Database Dedicated for Developers and Database Users** workshop on how to provision an ATP database.
+    ![This image shows the result of performing the above step.](./images/doneprovision.png " ")
 
-- Click on  *DB Connection* to open up Database Connection pop-up window.
-    ![](./images/dbconnection.png " ")
+- Click **DB Connection** to open the Database Connection pop-up window.
+    ![This image shows the result of performing the above step.](./images/dbconnection.png " ")
 
-- Click on *Download* to supply a password for the wallet and download your client credentials.
+- Click **Download** to supply a password for the wallet and download your client credentials.
     Please use below Keystore password to download the client credentials.
 
     ```
@@ -87,16 +95,16 @@ Let's first download the DB wallet to your local machine (laptop) and then scp /
     </copy>
     ```
 
-    ![](./images/Picture200-3.png " ")
+    ![This image shows the result of performing the above step.](./images/picture200-3.png " ")
+    ![This image shows the result of performing the above step.](./images/picture200-3-1.png " ")
 
-- The credentials zip file contains the encryption wallet, Java keystore and other relevant files to make a secure TLS 1.2 connection to your database from client applications. 
-
+- The credentials zip file contains the encryption wallet, Java keystore and other relevant files to make a secure TLS 1.2 connection to your database from client applications.
 
 - Next we upload the wallet to the dev client.
 
     *Mac users can scp the file using command below. Windows 10 users can use the same command from powershell. Older versions of windows may need to install an SFTP client on their local machine to upload the wallet*
 
-- Secure copy the file using scp, sftp or a windows ftp client.
+- Secure copy the file using scp, sftp or a Windows ftp client.
 
     ```
     <copy>
@@ -126,25 +134,26 @@ First we shh into the dev client and invoke the VNC server that comes pre-instal
     ```
 
 - Change the password on the VNC server.
-    
+
     ```
     <copy>
     $ vncpasswd
     </copy>
     ```
-- Once you update the password, start your VNC server with the following command,
-  
+- Once you update the password, start your VNC server with the following command:
+
     ```
     <copy>
-    $ vncserver -geometry 1280x1024
+    $ sudo systemctl daemon-reload
+    $ sudo systemctl enable --now vncserver@:1.service
     </copy>
     ```
 - Your development system may now be ready for accepting VNC connections.
 
 **Mac Users**
 
-  - Open a terminal window and create an ssh tunnel using the following command,
-    
+  - Open a new terminal window and create an ssh tunnel using the following command:
+
     ```
     <copy>
     $ ssh -N -L 5901:127.0.0.1:5901 -i \<priv-key-file\> opc@<publicIP-of-your-devClient>
@@ -156,71 +165,58 @@ First we shh into the dev client and invoke the VNC server that comes pre-instal
 
   - Alternatively, you may create and ssh tunnel using putty. Detailed instructions on using putty for ssh tunnels are provided in the [Appendix](?lab=appendix).
 
-  You now have a secure ssh tunnel from your local laptop to your developement system in OCI on VNC port 5901.
+  You now have a secure ssh tunnel from your local laptop to your development system in OCI on VNC port 5901.
 
   *Note: As mentioned earlier, you need a VNC client installed on your laptop. This lab uses VNC Viewer.*
 
   Start VNC Viewer on your laptop and configure a client connection using the settings as shown.
-      ![](./images/vncViewer.png " ")
+      ![This image shows the result of performing the above step.](./images/vncviewer.png " ")
 
-  - Note how the connect string for VNC Server is simply localhost:1  That is because the default port 5901 on your local machine is forwarded to 5901 on your OCI dev client over an ssh tunnel.
+  - Note how the connect string for VNC Server is simply **localhost:1**.  That is because the default port 5901 on your local machine is forwarded to 5901 on your OCI dev client over an ssh tunnel.
 
   - Connect to your VNC desktop and provide the password you changed on the host earlier.
 
   - If all goes well, you should now see a linux desktop in your VNC window.
 
-## Task 4: Connect to your autonomous DB using SQL Developer, SQLCL and SQL Plus
+## Task 4: Connect to your autonomous DB using SQL Worksheets from Database Actions, SQLCL and SQL Plus
 
-1. In your VNC session, invoke SQL Developer from the top left Applications menu as shown below.
-    ![](./images/sql-developer-vnc.png " ")
+- On successful conection to VNC desktop, click on *Activities* from your VNC Viewer and click on *Firefox* browser. 
+    ![This image shows the result of performing the above step.](./images/sql-developer-vnc.png " ")
 
+- Login to your OCI console and navigate to your Autonomous Database.
+    ![This image shows the result of performing the above step.](./images/sql-developer-vnc-1.png " ")
 
-    *Note: In the event you have issues launching SQL Developer and it prompts with a java classpath error, simply add the following line to ~/.sqldeveloper/19.1.0/product.conf and retry.*
+- Click on *Database Actions* from Autonomous Database page and copy the URL. 
+    ![This image shows the result of performing the above step.](./images/sql-developer-vnc-2.png " ")
+    ![This image shows the result of performing the above step.](./images/sql-developer-vnc-3.png " ")
 
-    ````
-    <copy>
-    SetJavaHome /usr/java/jdk1.8.0_231-amd64
-    </copy>
-    ````
+- Paste the URL in new tab and enter **admin** as *Username* and the password for your Autonomous database. 
 
-2. Create an new connection in sql*developer and provide the following information,
+    ![This image shows the result of performing the above step.](./images/sql-developer-vnc-4.png " ")
 
-    **Connection Name**: Name for your connection
+- You are now connected to *Database actions* *SQL worksheet*. 
+    ![This image shows the result of performing the above step.](./images/sql-developer-vnc-5.png " ")
 
-    **Username**: admin
+- *Let's also test connectivity through some command line client tools such as SQLCL and SQL-Plus.*
 
-    **Password**: <password>
+- Connect to ATP instance using Oracle SQLCL.
 
-    **Connection Type**: Cloud Wallet
-
-    **Role**: Default
-
-    **Configuration File**: Click on Browse and select the wallet file you downloaded
-
-    **Service**: 'databasename\_high' Database name followed by suffix low, medium or high. These suffixes determine degree of parallelism used and are relevant for a DSS workload. For OLTP workloads it's safe to select any of them. Example: **atpd\_high**
-
-      - Test your connection and save. The *Status* bar will show *Success* if it is a successful connection!
-
-      - *Let's also test connectivity through some command line client tools such as SQLCL and SQL-Plus.*
-
-3. Connect to ATP instance using Oracle SQLCL
-
-    Assuming you are still connected to your OCI development system over VNC, simply open a terminal window and start command line sql as follows,
+    Assuming you are still connected to your OCI development system over VNC, simply open a terminal window and start command line sql as follows:
 
     ```
     <copy>
     $ sql /nolog
     </copy>
     ```
-    Point to your database wallet folder,
+    Point to your database wallet folder:
 
     ```
     <copy>
     SQL> set cloudconfig /home/opc/Wallet_ATPD.zip
     </copy>
     ```
-    Connect to your database,
-        ![](./images/sqlclconfigure.png " ")
+    Connect to your database:
+        ![This image shows the result of performing the above step.](./images/sqlclconfigure.png " ")
 
     ```
     <copy>
@@ -228,10 +224,10 @@ First we shh into the dev client and invoke the VNC server that comes pre-instal
     </copy>
     ```
     Provide your admin password and you are in!
-        ![](./images/sqlclsuccess.png " ")
+        ![This image shows the result of performing the above step.](./images/sqlclsuccess.png " ")
 
 
-4. Connect to ATP instance using Oracle SQL Plus.
+- Connect to ATP instance using Oracle SQL Plus.
 
     For SQL*Plus, you will need to unzip the wallet in your local folder and edit sqlnet.ora as follows:
 
@@ -254,7 +250,7 @@ First we shh into the dev client and invoke the VNC server that comes pre-instal
     </copy>
     ```
 
-    Set the TNS_ADMIN env variable to point to wallet folder
+    Set the TNS_ADMIN env variable to point to wallet folder:
 
             $export TNS_ADMIN=/home/opc/wallet
 
@@ -268,6 +264,7 @@ First we shh into the dev client and invoke the VNC server that comes pre-instal
 
     Provide your admin password when prompted and you should be in!
 
+You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
@@ -275,5 +272,7 @@ First we shh into the dev client and invoke the VNC server that comes pre-instal
 
 - **Author** - Tejus S. & Kris Bhanushali
 - **Adapted by** -  Yaisah Granillo, Cloud Solution Engineer
-- **Last Updated By/Date** - Yaisah Granillo, March 2020
+- **Last Updated By/Date** - Kris Bhanushali, Autonomous Database Product Management, April 2022
 
+## See an issue or have feedback?  
+Please submit feedback [here](https://apexapps.oracle.com/pls/apex/f?p=133:1:::::P1_FEEDBACK:1).   Select 'Autonomous DB on Dedicated Exadata' as workshop name, include Lab name and issue / feedback details. Thank you!

@@ -1,0 +1,51 @@
+{
+    "workshoptitle": "Oracle Database API for MongoDB",
+    "help": "livelabs-help-db_us@oracle.com",
+	"tutorials": [
+        {
+            "title": "Introduction",
+            "description": "Introduction",
+            "filename": "./../../intro/intro.md"
+        },
+        {
+            "title": "Get Started",
+            "description": "Get a Free Trial",
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
+        },
+        {
+            "title": "Lab 1: Create an Autonomous JSON Database find the MongoDB connection URL",
+            "description": "Oracle Cloud Free Tier Account",
+            "filename": "./../../create-json/create-json.md"
+        },
+        {
+            "title": "Lab 2: Run mongosh and use it to load and query some data in Autonomous Database",
+            "description": "Autonomous Database on Shared Infrastructure",
+            "filename": "./../../run-mongosh/run-mongosh.md"
+        },
+        {
+            "title": "Lab 3: Use Database Actions: JSON to work with MongoDB collections",
+            "description": "Oracle Cloud Free Tier Account",
+            "filename": "./../../db-actions-json/db-actions-json.md"
+        },
+        {
+            "title": "Lab 4: Use Database Actions: SQL to work with MongoDB collections",
+            "description": "Autonomous Database on Shared Infrastructure",
+            "filename": "./../../db-actions-sql/db-actions-sql.md"
+        },
+        {
+            "title": "Lab 5: Converting relational data to MongoDB collections",
+            "description": "Oracle Cloud Free Tier Account",
+            "filename": "./../../relational-data/relational-data.md"
+        },
+        {
+            "title": "Lab 6: Create reports and graphs over JSON data",
+            "description": "Autonomous Database on Shared Infrastructure",
+            "filename": "./../../reports-graphs/reports-graphs.md"
+        },
+        {
+            "title": "Need Help?",
+            "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+            "filename":"https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-livelabs.md"
+        }
+    ]
+}

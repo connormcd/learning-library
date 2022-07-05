@@ -14,45 +14,11 @@ This lab explains how to connect to an active DB system with SSH, enable EM Expr
 
 Estimated Lab Time: 45 minutes
 
-## Task 1: Database Node SSH Connection
+## Task 1: Enterprise Manager Express 
 
-1. After provisioning the DB System, Database State will be Backup In Progress... for a few minutes. Click **Nodes** on the left menu, and copy Public IP Address in your notes.
+    >**Note** : After provisioning the DB System, Database State will be Backup In Progress... for a few minutes. This task doesn't affect database availability.
 
-    >**Note** : You can copy the private key file from your computer to the **WS-VM** Compute instance, and connect to the Database node using the private IP address.
-
-2. Connect to the Database node using SSH. Change `id_rsa` with the private key file you saved on your computer. (Linux only)
-
-    ````
-    <copy>
-    ssh -C -i id_rsa opc@<DB Node Public IP Address>
-    </copy>
-    ````
-
-3. Connect to Database node Public IP Address port 22. (Windows only)
-
-    ![](./images/putty1.png "")
-
-4. Use the `.ppk` private key. (Windows only)
-
-    ![](./images/putty2.png "")
-
-5. All Oracle software components are installed with **oracle** OS user. Use the substitute user command to start a session as **oracle** user.
-
-    ````
-    <copy>
-    sudo su - oracle
-    </copy>
-    ````
-
-6. You can verify the services provided by the Oracle Listener.
-
-    ````
-    <copy>
-    lsnrctl status
-    </copy>
-    ````
-
-7. You can connect to the database instance specified by environment variables.
+1. Connect to the database instance specified by environment variables.
 
     ````
     <copy>
@@ -60,70 +26,7 @@ Estimated Lab Time: 45 minutes
     </copy>
     ````
 
-8. List all pluggable databases.
-
-    ````
-    <copy>
-    show pdbs
-    </copy>
-    ````
-
-9. Type **exit** command tree times followed by Enter to close all sessions (SQL*Plus, oracle user, and SSH).
-
-    ````
-    <copy>
-    exit
-    </copy>
-
-    exit
-
-    exit
-    ````
-
-## Task 2: Enterprise Manager Express 
-
-1. Connect to the Database node Public IP Address using SSH, this time adding an SSH tunneling or SSH port forwarding option for port 5500. Change `id_rsa` with the private key file you saved on your computer. (Linux only)
-
-    ````
-    <copy>
-    ssh -C -i id_rsa -L 5500:localhost:5500 opc@<DB Node Public IP Address>
-    </copy>
-    ````
-
-9. Connect to Database node Public IP Address port 22. (Windows only)
-
-    ![](./images/putty1.png "")
-
-10. Use the `.ppk` private key. (Windows only)
-
-    ![](./images/putty2.png "")
-
-11. Create a SSH tunnel from Source port 5500 to Destination localhost:5500. Click **Add**. (Windows only)
-
-    ![](./images/putty4.png "")
-
-12. Go back to Session, give it a name, and save it. When asked if you trust this host, click **Yes**. (Windows only)
-
-    ![](./images/putty3.png "")
-
-
-2. Use the substitute user command to start a session as **oracle** user.
-
-    ````
-    <copy>
-    sudo su - oracle
-    </copy>
-    ````
-
-3. Connect to the database instance specified by environment variables.
-
-    ````
-    <copy>
-    sqlplus / as sysdba
-    </copy>
-    ````
-
-4. Unlock **xdb** database user account.
+2. Unlock **xdb** database user account.
 
     ````
     <copy>
@@ -131,7 +34,7 @@ Estimated Lab Time: 45 minutes
     </copy>
     ````
 
-5. Enable Oracle Enterprise Manager Database Express (EM Express) clients to use a single port (called a global port), for the session rather than using a port dedicated to the PDB.
+3. Enable Oracle Enterprise Manager Database Express (EM Express) clients to use a single port (called a global port), for the session rather than using a port dedicated to the PDB.
 
     ````
     <copy>
@@ -139,44 +42,30 @@ Estimated Lab Time: 45 minutes
     </copy>
     ````
 
-6. Open the web browser on your computer, and navigate to **https://localhost:5500/em**.
+4. Open the web browser on your computer, and navigate to **https://localhost:5500/em**.
 
-7. Use the following credentials:
+    >**Note** : You will receive an alert message in your browser about the security certificate not being valid. For Firefox, click **Advanced** and **Accept the Risk and Continue**. For Chrome, navigate to chrome://flags/#allow-insecure-localhost, and enable **Allow invalid certificates for resources loaded from localhost**.
+
+5. Use the following credentials:
 
     - Username: system
-    - Password: DBlabsPTS#22_
+    - Password: DatabaseCloud#22_
     - Container Name: CDB$ROOT for the Container Database, or PDB011 for the Pluggable Database. Try both.
 
-8. Explore Enterprise Manager Express console, and see what this tool has to offer.
+6. Explore Enterprise Manager Express console, and see what this tool has to offer.
 
-## Task 3: Create a Pluggable Database
 
-1. Connect to the Compute node using SSH, if not connected already. Change `id_rsa` with the private key file you saved on your computer.
+## Task 2: Create a Pluggable Database
 
-    ````
-    <copy>
-    ssh -C -i id_rsa opc@<Compute Public IP Address>
-    </copy>
-    ````
-
-2. Use the substitute user command to start a session as **oracle** user.
+1. Connect to your DB System database using SQL*Plus, if not connected already.
 
     ````
     <copy>
-    sudo su - oracle
+    sqlplus / as sysdba
     </copy>
     ````
 
-3. Connect to your DB System database using SQL*Plus.
-
-    ````
-    <copy>
-    export LD_LIBRARY_PATH=/usr/lib/oracle/21/client64/lib
-    sqlplus sys/DBlabsPTS#22_@<DB Node Private IP Address>:1521/<Database Unique Name>.<Host Domain Name> as sysdba
-    </copy>
-    ````
-
-4. List pluggable databases.
+2. List pluggable databases.
 
     ````
     <copy>
@@ -184,31 +73,18 @@ Estimated Lab Time: 45 minutes
     </copy>
     ````
 
-5. Create a new pluggable database called **PDB012**.
+3. Create a new pluggable database called **PDB012**. Click on main menu ≡, then **Bare Metal, VM, and Exadata** under Oracle Database. Click **WS-DB** DB System.
 
-    ````
-    <copy>
-    CREATE PLUGGABLE DATABASE pdb012 ADMIN USER Admin IDENTIFIED BY DBlabsPTS#22_;
-    </copy>
-    ````
+4. Click the database name link **WSDB** in the bottom table called Databases. Click Pluggable Databases in the left menu at the bottom o the page. Click Create Pluggable Database.
 
-6. List pluggable databases and confirm the new pluggable database is there.
+    - Enter PDB Name: PDB012
+    - Unlock my PDB Admin account
+    - PDB Admin password: DatabaseCloud#22_
+    - TDE wallet password of database: DatabaseCloud#22_
 
-    ````
-    <copy>
-    show pdbs
-    </copy>
-    ````
+5. Wait until Create Pluggable Database operation is Complete (refresh page). Click on Database Details in the breadcrumb links at the top of the page. Click Pluggable Databases in the left menu at the bottom o the page. PDB012 is Available.
 
-7. Change the state of the new pluggable database PDB012 to **OPEN**.
-
-    ````
-    <copy>
-    ALTER PLUGGABLE DATABASE pdb012 OPEN;
-    </copy>
-    ````
-
-8. List pluggable databases and confirm it is **OPEN**.
+6. List again pluggable databases in SQL*Plus to confirm the new pluggable database is there.
 
     ````
     <copy>
@@ -216,15 +92,15 @@ Estimated Lab Time: 45 minutes
     </copy>
     ````
 
-9. Connect to the new pluggable database.
+7. Connect to the new pluggable database.
 
     ````
     <copy>
-    conn sys/DBlabsPTS#22_@<DB Node Private IP Address>:1521/pdb012.<Host Domain Name> as sysdba
+    conn sys/DatabaseCloud#22_@db-host:1521/pdb012.<Host Domain Name> as sysdba
     </copy>
     ````
 
-10. Display the current container name.
+8. Display the current container name.
 
     ````
     <copy>
@@ -232,7 +108,7 @@ Estimated Lab Time: 45 minutes
     </copy>
     ````
 
-11. List all users in PDB012.
+9. List all users in PDB012.
 
     ````
     <copy>
@@ -240,25 +116,12 @@ Estimated Lab Time: 45 minutes
     </copy>
     ````
 
-12. This pluggable database doesn't have Oracle Sample Schemas either. Exit SQL*Plus.
+10. This pluggable database doesn't have Oracle Sample Schemas either.
 
-    ````
-    <copy>
-    exit
-    </copy>
-    ````
 
-## Task 4: Install HR Sample Schema
+## Task 3: Install HR Sample Schema
 
-1. Use the same Compute node SSH connection. Connect to the new pluggable database PDB012.
-
-    ````
-    <copy>
-    sqlplus sys/DBlabsPTS#22_@<DB Node Private IP Address>:1521/pdb012.<Host Domain Name> as sysdba
-    </copy>
-    ````
-
-2. List all tablespaces.
+1. List all tablespaces in PDB012.
 
     ````
     <copy>
@@ -266,7 +129,7 @@ Estimated Lab Time: 45 minutes
     </copy>
     ````
 
-3. List all datafiles.
+2. List all datafiles.
 
     ````
     <copy>
@@ -274,36 +137,17 @@ Estimated Lab Time: 45 minutes
     </copy>
     ````
 
-4. For the Oracle Sample Schemas, we need a tablespace called **USERS**. Try to create it.
+3. Createa a new tablespace for applications.
 
     ````
     <copy>
-    CREATE TABLESPACE users;
+    CREATE TABLESPACE apps;
     </copy>
-    ORA-28361: master key not yet set
+
+    Tablespace created.
     ````
 
-5. We get an error about a Master Key. To use Oracle Transparent Data Encryption (TDE) in a pluggable database (PDB), you must create and activate a master encryption key for the PDB.
-
-6. In a multitenant environment, each PDB has its own master encryption key which is stored in a single keystore used by all containers.
-
-7. Create and activate a master encryption key in the PDB by executing the following command:
-
-    ````
-    <copy>
-    ADMINISTER KEY MANAGEMENT SET KEY FORCE KEYSTORE IDENTIFIED BY DBlabsPTS#22_ WITH BACKUP;
-    </copy>
-    ````
-
-8. Now we can create tablespace **USERS**.
-
-    ````
-    <copy>
-    CREATE TABLESPACE users;
-    </copy>
-    ````
-
-9. List all tablespaces to confirm the new tablespace was created.
+4. List all tablespaces to confirm the new tablespace was created.
 
     ````
     <copy>
@@ -311,7 +155,7 @@ Estimated Lab Time: 45 minutes
     </copy>
     ````
 
-10. List all datafiles and see the corresponding files.
+5. List all datafiles and see the corresponding files.
 
     ````
     <copy>
@@ -319,7 +163,7 @@ Estimated Lab Time: 45 minutes
     </copy>
     ````
 
-11. Exit SQL*Plus.
+6. Exit SQL*Plus.
 
     ````
     <copy>
@@ -327,7 +171,7 @@ Estimated Lab Time: 45 minutes
     </copy>
     ````
 
-12. Download Oracle Sample Schemas installation package from GitHub.
+7. Download Oracle Sample Schemas installation package from GitHub.
 
     ````
     <copy>
@@ -335,7 +179,7 @@ Estimated Lab Time: 45 minutes
     </copy>
     ````
 
-13. Unzip the archive.
+8. Unzip the archive.
 
     ````
     <copy>
@@ -343,7 +187,7 @@ Estimated Lab Time: 45 minutes
     </copy>
     ````
 
-14. Open the unzipped folder.
+9. Open the unzipped folder.
 
     ````
     <copy>
@@ -351,7 +195,7 @@ Estimated Lab Time: 45 minutes
     </copy>
     ````
 
-15. Run this Perl command to replace `__SUB__CWD__` tag in all scripts with your current working directory, so all embedded paths to match your working directory path.
+10. Run this Perl command to replace `__SUB__CWD__` tag in all scripts with your current working directory, so all embedded paths to match your working directory path.
 
     ````
     <copy>
@@ -359,7 +203,7 @@ Estimated Lab Time: 45 minutes
     </copy>
     ````
 
-16. Go back to the parent folder (this should be /home/opc).
+11. Go back to the parent folder (this should be /home/opc).
 
     ````
     <copy>
@@ -367,7 +211,7 @@ Estimated Lab Time: 45 minutes
     </copy>
     ````
 
-17. Create a new folder for logs.
+12. Create a new folder for logs.
 
     ````
     <copy>
@@ -375,23 +219,23 @@ Estimated Lab Time: 45 minutes
     </copy>
     ````
 
-18. Connect to the **PDB012** pluggable database.
+13. Connect to the **PDB012** pluggable database.
 
     ````
     <copy>
-    sqlplus sys/DBlabsPTS#22_@<DB Node Private IP Address>:1521/pdb012.<Host Domain Name> as sysdba
+    sqlplus sys/DatabaseCloud#22_@db-host:1521/pdb012.$(domainname -d) as sysdba
     </copy>
     ````
 
-19. Run the HR schema installation script. For more information about [Oracle Database Sample Schemas](https://github.com/oracle/db-sample-schemas) installation process, please follow the link. Make sure to replace **DB Node Private IP Address** and **Host Domain Name** with the actual values.
+14. Run the HR schema installation script. For more information about [Oracle Database Sample Schemas](https://github.com/oracle/db-sample-schemas) installation process, please follow the link. Make sure to replace **Host Domain Name** with the actual value.
 
     ````
     <copy>
-    @db-sample-schemas-19c/human_resources/hr_main.sql DBlabsPTS#22_ USERS TEMP DBlabsPTS#22_ /home/oracle/logs/ <DB Node Private IP Address>:1521/pdb012.<Host Domain Name>
+    @db-sample-schemas-19c/human_resources/hr_main.sql DatabaseCloud#22_ USERS TEMP DatabaseCloud#22_ /home/oracle/logs/ db-host:1521/pdb012.<Host Domain Name>
     </copy>
     ````
 
-## Task 5: Verify HR Sample Schema
+## Task 4: Verify HR Sample Schema
 
 1. Display current user. If all steps were followed, the current user should be **HR**.
 
@@ -405,6 +249,8 @@ Estimated Lab Time: 45 minutes
 
     ````
     <copy>
+    set linesize 130
+    col TABLE_NAME for a25
     select TABLE_NAME, NUM_ROWS from USER_TABLES;
     </copy>
     ````
@@ -413,7 +259,12 @@ Estimated Lab Time: 45 minutes
 
     ````
     <copy>
-    set linesize 130
+    col EMPLOYEE_ID heading ID
+    col FIRST_NAME for a10
+    col LAST_NAME for a10
+    col EMAIL for a8
+    col PHONE_NUMBER for a16
+    col COMMISSION_PCT heading PCT
     </copy>
     ````
 
@@ -433,21 +284,21 @@ Estimated Lab Time: 45 minutes
     </copy>
     ````
 
-## Task 6: Install SH Sample Schema
+## Task 5: Install SH Sample Schema
 
 1. Connect to the **PDB012** pluggable database.
 
     ````
     <copy>
-    sqlplus sys/DBlabsPTS#22_@<DB Node Private IP Address>:1521/pdb012.<Host Domain Name> as sysdba
+    sqlplus sys/DatabaseCloud#22_@db-host:1521/pdb012.$(domainname -d) as sysdba
     </copy>
     ````
 
-2. Run the SH schema installation script. Make sure to replace **DB Node Private IP Address** and **Host Domain Name** with the actual values.
+2. Run the SH schema installation script. Make sure to replace **Host Domain Name** with the actual value.
 
     ````
     <copy>
-    @db-sample-schemas-19c/sales_history/sh_main.sql DBlabsPTS#22_ USERS TEMP DBlabsPTS#22_ /home/oracle/db-sample-schemas-19c/sales_history/ /home/oracle/logs/ v3 <DB Node Private IP Address>:1521/pdb012.<Host Domain Name>
+    @db-sample-schemas-19c/sales_history/sh_main.sql DatabaseCloud#22_ USERS TEMP DatabaseCloud#22_ /home/oracle/db-sample-schemas-19c/sales_history/ /home/oracle/logs/ v3 db-host:1521/pdb012.<Host Domain Name>
     </copy>
     ````
 
@@ -463,6 +314,8 @@ Estimated Lab Time: 45 minutes
 
     ````
     <copy>
+    set linesize 130
+    col TABLE_NAME for a28
     select TABLE_NAME, NUM_ROWS from USER_TABLES;
     </copy>
     ````

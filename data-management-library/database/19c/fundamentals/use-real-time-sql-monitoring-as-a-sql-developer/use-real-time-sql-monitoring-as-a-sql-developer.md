@@ -2,6 +2,11 @@
 
 ## Introduction
 
+The real-time SQL monitoring is a 11g new feature that enables DBAs to monitor the performance of SQL statements while they are executing,Please refer following note for details.
+
+Because a primary job duty of database developers is to write and tune SQL statements,
+starting in Oracle Database 19c, Oracle allow database users to view their own Real Time SQL Monitoring reports without requiring DBA privileges or `SELECT_CATALOG_ROLE`.
+
 In this practice, you act in PDB1 as a SQL developer without any super-user privileges or roles. The SQL developer will use real-time SQL monitoring to analyze the performance of his or her SQL statements.
 
 Estimated Time: 15 minutes
@@ -9,10 +14,9 @@ Estimated Time: 15 minutes
 ### Objectives
 
 In this lab, you will:
-* Prepare your environment in Session 1
-* Setup developer environment
-* Prepare your environment in Session 2
-* Generate SQL Monitoring Report
+- Prepare your environment in Session 1
+- Prepare your environment in Session 2
+- Generate SQL Monitoring Report
 
 ### Prerequisites
 
@@ -20,110 +24,130 @@ This lab assumes you have:
 * Obtained and signed in to your `workshop-installed` compute instance.
 
 
-### Task 1: Prepare Your Environment in Session 1
+## Task 1: Prepare your environment in session 1
 
-Open up terminal window for **Session 1**.
+> **NOTE:** Unless otherwise stated, all passwords will be `Ora4U_1234`. When copying and pasting a command that includes a password, please replace the word `password` with `Ora4U_1234`. This only applies to instances created through OCI Resource Manager with our provided terraform scripts.
 
-1.	Execute the /home/oracle/labs/PERF/RTMonitor.sh SQL script in Session1. The script completes the following operations:
-  * Creates the MONI user and MONI_TEST table, and loads the table with thousands of rows
-  * Creates a developer user.
-  * Grants the developer user CREATE SESSION and SELECT on the MONI.MONI_TEST table.
-
-  ```
-  $ <copy>/home/oracle/19cnf/RTMonitor.sh</copy>
-  …
-  $
-  ```
+1. Open a terminal window for **session 1**.
 
 2. Set the Oracle environment variables. At the prompt, enter **CDB1**.
 
-  ```
-  $ <copy>. oraenv</copy>
-  CDB1
-  ```
+    ```
+    $ <copy>. oraenv</copy>
+    CDB1
+    ```
 
-3.	Check the privileges and roles granted to the SQLDEV user.
-  ```
-  $ <copy>sqlplus sys@PDB1 AS SYSDBA</copy>
-  Enter password : password
+3.	Execute the $HOME/labs/19cnf/RTMonitor.sh SQL script in **session 1**. The script completes the following operations:
 
-  SQL> <copy>SELECT * FROM dba_sys_privs WHERE grantee = 'SQLDEV';</copy>
+     * Creates the MONI user and MONI_TEST table, and loads the table with thousands of rows
+     * Creates a developer user.
+     * Grants the developer user CREATE SESSION and SELECT on the MONI.MONI_TEST table.
 
-  GRANTEE PRIVILEGE      ADM COM INH
-  ------- -------------- --- --- ---
-  SQLDEV  CREATE SESSION NO  NO  NO
+    ```
+    $ <copy>$HOME/labs/19cnf/RTMonitor.sh</copy>
+    …
+    $
+    ```
 
-  SQL> <copy>SELECT owner, table_name, privilege
-       FROM   dba_tab_privs WHERE grantee = 'SQLDEV';</copy>
-    2
-  OWNER   TABLE_NAME PRIVILEGE
-  ------- ---------- ---------
-  MONI    MONI_TEST  SELECT
+4. Log in to PDB1 as `SYS`.
 
-  SQL> <copy>SELECT * FROM dba_role_privs WHERE grantee = 'SQLDEV';</copy>
+    ```
+    $ <copy>sqlplus sys@PDB1 AS SYSDBA</copy>
+    ```
 
-  no rows selected
+5.	Check the privileges and roles granted to the SQLDEV user.
 
-  SQL>
+    ```
+    SQL> <copy>SELECT * FROM dba_sys_privs WHERE grantee = 'SQLDEV';</copy>
 
-  ```
+    GRANTEE PRIVILEGE      ADM COM INH
+    ------- -------------- --- --- ---
+    SQLDEV  CREATE SESSION NO  NO  NO
 
-  Q1/ Is SQLDEV granted super-user privileges and roles such as those required in Oracle Database 18c to be able to use real-time SQL monitor?
-  **<p>A1/ No. He is no t granted the SELECT CATALOG ROLE role.</p>**
+    SQL> <copy>SELECT owner, table_name, privilege
+        FROM   dba_tab_privs WHERE grantee = 'SQLDEV';</copy>
+      2
+    OWNER   TABLE_NAME PRIVILEGE
+    ------- ---------- ---------
+    MONI    MONI_TEST  SELECT
 
-### Task 2: Prepare Your Environment in Session 2
+    SQL> <copy>SELECT * FROM dba_role_privs WHERE grantee = 'SQLDEV';</copy>
 
-Open up new terminal window for **Session 2**.
+    no rows selected
+    ```
 
-1.	In Session2, connect as the SQLDEV developer in PDB1 and execute a long-running query
-```
-  $ <copy>sqlplus sqldev@PDB1</copy>
-  Enter password: password
+    As you can see, SQLDEV has not been granted the SELECT CATALOG ROLE role. 
 
-  SQL> <copy>SELECT count(*) FROM moni.moni_test t1, moni.moni_test t2
-       WHERE  t1.c = t2.c AND t1.c = 1;</copy>
-  …
-```
+## Task 2: Prepare your environment in session 2
 
-### Task 3: Generate SQL Monitoring Report
+1. Open up new terminal window for **session 2**.
 
-1.	In Session1, connect as the SQLDEV developer to PDB1.
-  ```
-  SQL> <copy>CONNECT sqldev@PDB1</copy>
-  Enter password: password
-  Connected.
-  SQL>
-  ```
+2.  Set the Oracle environment variables. At the prompt, enter **CDB1**.
+
+    ```
+    $ <copy>. oraenv</copy>
+    CDB1
+    ```
+
+3.	In **session 2**, connect as the SQLDEV developer.
+
+    ```
+    $ <copy>sqlplus sqldev@PDB1</copy>
+    Enter password: password
+    ```
+
+4. Execute a long-running query.
+
+    ```
+    SQL> <copy>SELECT count(*) FROM moni.moni_test t1, moni.moni_test t2
+        WHERE  t1.c = t2.c AND t1.c = 1;</copy>
+    …
+    ```
+
+## Task 3: Generate SQL Monitoring Report
+
+1.	In **session 1**, connect as the SQLDEV developer to PDB1.
+
+    ```
+    SQL> <copy>CONNECT sqldev@PDB1</copy>
+    Enter password: password
+    Connected.
+    SQL>
+    ```
 
 2. Get an overview of the long running queries.
-```
+
+    ```
     SQL> <copy>SELECT sql_id, status, sql_text FROM v$sql_monitor;</copy>
-  SELECT sql_id, status, sql_text FROM v$sql_monitor
-                                       *
-  ERROR at line 1:
-  ORA-00942: table or view does not exist
+    SELECT sql_id, status, sql_text FROM v$sql_monitor
+                                           *
+    ERROR at line 1:
+    ORA-00942: table or view does not exist
+    ```
 
-  SQL>
-```
+    Traditionally, real-time SQL monitor is mainly used by DBAs because they are responsible for monitoring and tuning database performance. Real-time SQL monitor tracks and collects SQL and execution plan statistics in fixed views which are only accessible by users who have been granted the SELECT CATALOG ROLE role. A regular user, such as an application developer or a low-privileged user without the SELECT CATALOG ROLE role and SELECT privilege on the real-time SQL monitor fixed views, can write a SQL statement, execute it, see the SQL result set and its SQL plan using the explain plan command, but not its execution plan because it is stored in V$SQL_PLAN.
 
-  Q1/ Traditionally, real-time SQL monitor is mainly used by DBAs because they are responsible for monitoring and tuning database performance. Real-time SQL monitor tracks and collects SQL and execution plan statistics in fixed views which are only accessible by users who have been granted the SELECT CATALOG ROLE role. A regular user, such as an application developer or a low-privileged user without the SELECT CATALOG ROLE role and SELECT privilege on the real-time SQL monitor fixed views, can write a SQL statement, execute it, see the SQL result set and its SQL plan using the explain plan command, but not its execution plan because it is stored in V$SQL_PLAN.
+    Note that the SQLDEV user is not granted the SELECT\_CATALOG\_ROLE role nor the SELECT privilege on the V$SQL_MONITOR view.**
 
-  Is the SQLDEV user granted the SELECT_CATALOG_ROLE role? Is the SQLDEV user granted the SELECT privilege on V$SQL_PLAN? Can the SQLDEV user use real-time SQL monitor to view the execution plan for his SQL statement execution?
+3. Generate the SQL monitor report from the command line, run the `REPORT_SQL_MONITOR` function in the `DBMS_SQLTUNE` package.
 
-  **A1/ No. The SQLDEV user is not granted the SELECT_CATALOG_ROLE role nor the SELECT privilege on the V$SQL_MONITOR view.**
-
-3. Generate the SQL monitor report from the command line, run the REPORT_SQL_MONITOR function in the DBMS_SQLTUNE package.
-
-```
-        SQL> <copy>VARIABLE my_rept CLOB</copy>
+    ```
+    SQL> <copy>VARIABLE my_rept CLOB</copy>
     SQL> <copy>BEGIN
             :my_rept :=DBMS_SQLTUNE.REPORT_SQL_MONITOR();
-    END;</copy>
-    /  2    3    4
+    END;
+    /
+    </copy>
+      2    3    4
 
     PL/SQL procedure successfully completed.
+    ```
 
-    SQL> <copy>SET LINESIZE 78</copy>
+4. Print the report.
+
+    ```
+    SQL> <copy>SET LONG 10000</copy>
+    SQL> <copy>SET LINESIZE 10000</copy>
     SQL> <copy>PRINT :my_rept</copy>
 
     MY_REPT
@@ -185,32 +209,27 @@ Open up new terminal window for **Session 2**.
     4 |     +9 |     1 |    48640 |      |       |    . |          |
      |
     ================================================================================
+    $
+    ```
 
-    SQL>
+5.	In **session 2**, interrupt the long-running query. Press CTRL + C.
 
+6. Exit SQL*Plus.
+
+    ```
     SQL> <copy>EXIT</copy>
     $
+    ```
 
-```
+    You may now **proceed to the next lab**.
 
-4.	In Session2, interrupt the long-running query.
-  ```
-  CTRL C
 
-  SQL> SELECT count(*) FROM moni.moni_test t1, moni.moni_test t2
-                            *
-  ERROR at line 1:
-  ORA-01013: user requested cancel of current operation
+## Learn More
 
-  SQL> <copy>EXIT</copy>
-  $
-```
-
-  ## Learn More
-
-- [19c New Feature:Real-time SQL Monitoring for Developers](https://support.oracle.com/knowledge/Oracle%20Database%20Products/2480461_1.html#SCOPE)
+* [Real-time SQL Monitoring for Developers in Oracle Database 19c](https://support.oracle.com/knowledge/Oracle%20Database%20Products/2480461_1.html#SCOPE)
 
 ## Acknowledgements
 
 - **Author**- Dominique Jeunot, Consulting User Assistance Developer
-- **Last Updated By/Date** - Subbu Iyer, Austin Specialists Hub, December 2021
+- **Contributor** - Subbu Iyer, Austin Specialist Hub
+- **Last Updated By/Date** - Subbu Iyer, Austin Specialist Hub, December 2021

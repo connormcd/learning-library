@@ -22,7 +22,7 @@ This lab assumes you have already completed the following:
 
 Click on the link below to download the Resource Manager zip files you need to build your enviornment.
 
-- [shardstack-nodomain-qs.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/66WhdraCtnNngZ7qkghulTFnOAr_uNF9Cc8mqneE8gdk2fej-w_eOEolLGUOmE4D/n/c4u04/b/data-management-library-files/o/OracleShardingQuickStart/shardstack-nodomain-qs.zip) - Packaged terraform primary database instances creation script.
+- [shardstack-marketplace-103-nodomain.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/DK02ZYKxgVDjrB-nP6TUTKdcopOFPKS0BQzI2jzCn9I_vDIgwhkI1SRrDmLqfUXK/n/c4u04/b/livelabsfiles/o/labfiles/shardstack-marketplace-103-nodomain.zip) - Packaged terraform primary database instances creation script.
 
 
 

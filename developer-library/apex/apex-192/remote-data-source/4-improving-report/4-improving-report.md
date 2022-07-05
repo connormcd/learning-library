@@ -172,5 +172,5 @@ This completes Lab 4. In this lab you learnt how to utilize a SQL query as the b
 
  - **Author** -  David Peake, Consulting Member of Technical Staff
  - **Contributors** - Jaden McElvey, Technical Lead - Oracle LiveLabs Intern
- - **Last Updated By/Date** - Tom McGinn, Database Cloud Services, Product Management, June 2020
+ - **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

@@ -1,4 +1,4 @@
-# Creating the Application
+# Create the Application
 
 ## Introduction
 
@@ -15,7 +15,10 @@ In this lab, you will:
 - Run your application.  
 - Sign up for a TMDB API key.
 
-## Task 1: Creating the App
+### Prerequisites
+- An Oracle APEX workspace
+
+## Task 1: Create the App
 
 1. If you have not already logged into your Oracle APEX workspace, sign in using the workspace name, email, and password you signed up with.
 
@@ -33,7 +36,7 @@ In this lab, you will:
 
     ![](images/new-application-edit.png " ")
 
-## Task 2: Naming and Enhancing the Appearance of the App
+## Task 2: Name and Enhance the Appearance of the App
 
 1. In the Create Application wizard, set the Name to **Movies Watchlist**.
 
@@ -73,7 +76,7 @@ In this lab, you will:
 
     ![](images/create-application-edit.png " ")
 
-## Task 3: Running the App
+## Task 3: Run the App
 
 1. On your application home page, click **Run Application**.
 
@@ -85,7 +88,7 @@ In this lab, you will:
 
     ![](images/app-sign-in-edit.png " ")
 
-## Task 4: Updating the Theme of the App
+## Task 4: Update the Theme of the App
 
 1. In the tab that your app is running in, you will see a grey toolbar at the bottom of the page. This is your development toolbar that allows you to edit regions in your application user interface (UI) directly in the tab it's running in.  
 *Note: If you do not see the grey developer toolbar, mouse over the bottom of your browser window to make it display. End users who log directly into the app will not see this toolbar.*
@@ -120,7 +123,7 @@ In this lab, you will:
 
 5. You have now updated the color scheme of your app.
 
-## Task 5: Signing up for a TMDB API Key
+## Task 5: Sign up for a TMDB API Key
 
 1. Go to [The Movie Database (TMDB)](https://www.themoviedb.org/signup) to sign up for a free account.
 
@@ -151,6 +154,8 @@ In this lab, you will:
 
 5. You can also go back to the **Definition** tab (next to Try it out) and scroll to the **Responses** section at bottom of the page to further explore the type of data that gets returned. Under Responses, Schema will show you the object fields and data types, while Example will give you example data without having to make a request like you did above.
 
+You now know how to create, run, and update the theme of an application. You may now **proceed to the next lab**.
+
 ## Resources
 
 - [App Builder Concepts](https://docs.oracle.com/en/database/oracle/application-express/21.1/htmdb/application-builder-concepts.html#GUID-6D22E307-6D48-49BC-9FDC-A7D8B037E46A)
@@ -167,3 +172,9 @@ Stuck on a step or struggling with the lab? You can download a copy of the Movie
 - [Click here](./files/lab1.sql) to download a copy of the app at the end of Lab 1.
 
 - You can import Lab 1 to your APEX workspace by clicking **Import** in the App Builder home page and following the wizard steps.
+
+## Acknowledgments
+
+- **Author** - Paige Hanssen
+- **Additional Contributors** - Kay Jasanya, Shakeeb Rahman, Steve Muench, Monica Godoy, Eli Feuerstein, Carlos Maciel, Dalia Vazquez
+- **Last Updated By/Date** - Paige Hanssen, March 2022

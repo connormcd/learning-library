@@ -15,7 +15,7 @@ In this lab, you will:
 - Familiarize with the suite of built-in database tools of the Oracle Autonomous Data Warehouse
 - Load data
 - Learn how to use the Data Transforms tool to correct data errors
-- Create a business model
+- Create an analytic view
 - Generate data insights
 - Use the Catalog tool
 
@@ -45,7 +45,7 @@ In this section of the workshop, you are going to work through some common data 
 
 1. Load and inspect data to see if there are any obvious errors
 2. Transform data to correct errors in the original data set
-3. Create a business model (also known as a semantic model) over your data set
+3. Create an analytic view (also known as a semantic model) over your data set
 4. Run the Data Insights tool to identify anomalies and outliers in your data set
 5. Use the built-in Catalog to understand the origins of the data within your data warehouse (this is called  ***Data Lineage***)
 6. Use the built-in Catalog to understand the impact of making changes to your data model (this is called  ***Impact Analysis***)
@@ -352,124 +352,127 @@ As an alternative to using the Data Transforms Tool, you can perform the necessa
 2. Select the entire text in the Worksheet and press the **green** button to run these two statements. You should see that both statements have executed successfully. Having completed this step you now have a table MOVIE\_SALES\_2020Q2, with data for just April, May, and June. The days have all been changed to title case. Refresh to see the new table created.
 ![ALT text is not available for this image](images/data-transforms.png)
 
-## Task 4: Create a Business Model
+## Task 4: Analyze Data
 
-### MovieStream Critics Corner: Business Model
+### MovieStream Critics Corner: Analytic View
 
-*You know that frustrating feeling of joining your friends and family who are half way through watching a movie? Having missed out on the introduction, much of what you see makes no sense to you. Often that’s what it’s like looking at a bunch of data that does not have a good semantic model. That’s where Autonomous Database’s Business Model tool comes in. Hierarchies, dimensions, and measures are automatically detected to give you a head start. The business model is built in to the database itself, so that it is accessible to all users of the database, regardless of which tool they use to access the data.*
+*You know that frustrating feeling of joining your friends and family who are half way through watching a movie? Having missed out on the introduction, much of what you see makes no sense to you. Often that’s what it’s like looking at a bunch of data that does not have a good semantic model. That’s where Autonomous Database’s Data Analysis tool comes in. Hierarchies, dimensions, and measures are automatically detected to give you a head start. The analytic view is built into the database itself, so that it is accessible to all users of the database, regardless of which tool they use to access the data. An analytic view allows users to model business dimensions, hierarchies and measures on top of database tables.*
 
 ### Overview
 
-You can only go so far looking at raw data. Before long you want a semantic model on top of it. That's where our Business Model tool comes in. We've made it simple to build sophisticated models on your data, by identifying dimensions, hierarchies, and measures - with a nice clean way of saying how to aggregate - sum, average, or whatever. But wait, there's more. We make it fast, too! Simple SQL written against the business model is re-written to ensure optimal data access, and because we know about the hierarchical structure of the data, we can pre-aggregate the totals and sub-totals you want, before you've even told us you want them! 
+You can only go so far looking at raw data. Before long you want a semantic model on top of it. That's where our Data Analysis tool comes in. We've made it simple to build sophisticated models on your data, by identifying dimensions, hierarchies, and measures - with a nice clean way of saying how to aggregate - sum, average, or whatever. But wait, there's more. We make it fast, too! Simple SQL written against the analytic view is re-written to ensure optimal data access, and because we know about the hierarchical structure of the data, we can pre-aggregate the totals and sub-totals you want, before you've even told us you want them! In addition, we provide tools to easily Analyze data using visual tools like pivot tables and charts.
 
-#### Video Preview
+In this section of the workshop, you'll create an analytic view over the table MOVIE\_SALES\_2020Q2.
 
-Watch a video demonstration of the Business Model tool of Autonomous Database:
+1. Start by clicking the **Data Analysis** card in the ADB **Database Actions** page. The page on which you'll land has some text explaining the Data Analysis utility in some detail, but let's dive straight in.
 
-[] (youtube:i2na8dmE_Xc)
-> **Note:** Interfaces in this video may look different from the interfaces you will see.
+2. Click the drop down button on the **Select Schema** selection and choose the **QTEAM** schema.
 
-In this section of the workshop, you'll create a Business Model over table MOVIE\_SALES\_2020Q2.
+    > **Hint:** you can search for the schema by typing QTEAM in the search area.
 
-1. Start by clicking the **Business Models** card in the ADB **Database Actions** page. The page on which you'll land has some text explaining the Business Model utility in some detail, but let's dive straight in.
-2. Press one of the **Create Model** buttons. If **MOVIE\_SALES\_2020Q2** is not already identified as the *Fact Table*, select it from the pick list. (Be sure to select table MOVIE\_SALES\_2020**Q2**, which has just the data for April, May, June, and not table MOVIE\_SALES\_2020, which has data for the full year!)
-  ![ALT text is not available for this image](images/business-model.png)
+  ![ALT text is not available for this image](images/select-qteam-schema.png)
 
-### Generate A New Business Model
+3. This launches the Create Analytic View dialog. If **MOVIE\_SALES\_2020Q2** is not already identified as the *Fact Table*, select it from the pick list. (Be sure to select table MOVIE\_SALES\_2020**Q2**, which has just the data for April, May, June, and not table MOVIE\_SALES\_2020, which has data for the full year!)
+  ![ALT text is not available for this image](images/create-analytic-view.png)
 
-3. Now, press **Next** to start the Auto-Business Model utility. This will take several seconds to complete, after which you'll see a dialog such as this.
-  ![ALT text is not available for this image](images/2879071220.png)
+### Create a New Analytic View
+
+4. Now, press **Generate Hierarchies and Measures** to start the *Auto AV* utility. This will take several seconds to complete, after which you'll see a dialog such as this.
+  ![ALT text is not available for this image](images/dialog-from-starting-auto-av-utility.png)
 
 ### Expand Data Sources
 
-4. Press **Close** and select **Data Sources** from the panel at the left of the screen. You'll see that a star schema has been identified, based on the tables that you loaded in previous steps of this lab. All columns of the Fact Table, MOVIE\_SALES\_2020Q2, are  already shown.
+5. Press **Close** and select **Data Sources** from the panel at the left of the screen. You'll see that a star schema has been identified, based on the tables that you loaded in previous steps of this lab. All columns of the Fact Table, MOVIE\_SALES\_2020Q2, are already shown.
 
-5. Press the **three dots** to the right of table DAYS and select **Expand**. Repeat this for the other three dimension tables. You should see the star schema laid out as follows:
-  ![ALT text is not available for this image](images/2879071210.png)
+6. Press the **three dots** to the right of the table **DAYS** and select **Expand**. Repeat this for the other three dimension tables. Also, the tool has identified hierarchies and measures out of the box which can then be modified as per your needs. You should see the star schema laid out as follows:
+  ![ALT text is not available for this image](images/expand-data-sources.png)
 
 ### Refine Your Hierarchies
 
-6. Select **Hierarchies** from the list on the left of the screen and click the three dots to the right of the row for hierarchy **CONTINENT**. Click **Edit**.
-  ![ALT text is not available for this image](images/hierarchy-continent.png)
+7. Select the **COUNTRIES** hierarchy from the list of hierarchies on the left of the screen. Notice that the data analysis tool has detected a hierarchy of Countries within Continents, based on the structure and contents of the tables in the Autonomous Data Warehouse. Notice also that this hierarchy is created from the COUNTRIES table which is related to the fact table we selected viz. MOVIE\_SALES\_2020Q2. 
+  ![ALT text is not available for this image](images/refine-your-hierarchies.png)
 
-7. Notice that the business model tool has detected a hierarchy of Countries within Continents, based on the structure and contents of the tables in the Autonomous Data Warehouse. 
-  ![ALT text is not available for this image](images/continent-country.png)
-
-8. This is a great head start, but a better term to use for this hierarchy would be geography. Override the default *Hierarchy Name* with **GEOGRAPHY**. Override *Caption* and *Description* with **Geography** as shown below. Then click **Save**. 
+8. This is a great head start, but a better term to use for this hierarchy would be geography. Override the default *Hierarchy Name* with **GEOGRAPHY**.
   ![ALT text is not available for this image](images/geography.png)
 
-9. Clean up hierarchy DAYS:
+9. Clean up the hierarchy **DAYS**:
 
-    - Click the three dots to the right of that hierarchy and select **Edit**. 
+    - Select the **Days** hierarchy on the left hand navigation bar under **Hierarchies**. 
     - Change *Hierarchy Name* to **DAY**.
-    - Change *Caption* and *Description* to **Day**.
+
   ![ALT text is not available for this image](images/day-hierarchy.png)
 
-10. This is simply a day-of-week hierarchy, but now you'll see the value of the table that the sales analyst had set up in a previous analysis. Sorting days alphabetically is not particularly helpful. What's preferable is to sort by the day number of week. Conventions for day numbers vary across the world and the DAYS table supports both the European and the North American conventions. You'll use the North American convention for this exercise. Change the *Sort By* to **DAY\_NUM\_USA**. Then click **Save**. 
+10. This is simply a day-of-week hierarchy, but now you'll see the value of the table that the sales analyst had set up in a previous analysis. Sorting days alphabetically is not particularly helpful. What's preferable is to sort by the day number of week. Conventions for day numbers vary across the world and the **DAYS** table supports both the European and the North American conventions. You'll use the North American convention for this exercise. 
+
+11. Expand the **DAY** hierarchy on the left hand navigation pane and select the **DAY** level. Change the *Sort By* to **DAY\_NUM\_USA**. Then click **Save**. 
   ![ALT text is not available for this image](images/sort-day.png)
 
-11. Similarly, change the MONTHS dimension as follows:
+12. Similarly, change the MONTHS dimension as follows:
   ![ALT text is not available for this image](images/month.png)
 
 ### Work With Measures
 
-12. Now select **Measures**, the last item on the list on the left of the screen. Notice that Auto-Business Model has identified SALES and PURCHASES as candidate Measures from the Fact Table (because these are numeric columns).
+13. Now expand **Measures**, from the list on the left of the screen. Notice that Auto-AV tool has identified SALES and PURCHASES as candidate Measures from the Fact Table (because these are numeric columns).
 
     a. Measure SALES is a dollar amount.
 
     b. Measure PURCHASES is a tally of the number of purchases made.
 
-13. The default aggregation expression for the measures is SUM. Other expressions could be selected, but for the purposes of this workshop, SUM is the appropriate value to select in both cases.
+14. The default aggregation expression for the measures is **SUM**. Other expressions could be selected, but for the purposes of this workshop, SUM is the appropriate value to select in both cases.
+
+15. You can change the aggregate expression by selecting the measure **SALES** and change the *Expression* on the right.
   ![ALT text is not available for this image](images/sum.png)
 
-14. Press **Create** and then **Yes** in the confirmation dialog. After a few seconds, the Business Model is successfully created, and represented by a card at the bottom of the screen.
+16. Press **Create** and then **Yes** in the confirmation dialog. After a few seconds, the Analytic View is successfully created. The Analytic View is now selected in the Data Analysis tool and hierarchies are visible on the left.
 
-15. Press the three dots on the top right of the card and select **Show DDL** from the list that appears. 
-  ![ALT text is not available for this image](images/show-ddl.png)
+17. It's nice to know that you didn't have to type any of that DDL to create the Analytic View! Notice, a validation is also performed on the Analytic View to indicate if there are any errors on each of the hierarchies created. This is indicated in the **Data Quality** tab of the Analysis tool.
+  ![ALT text is not available for this image](images/data-quality-tab.png)
 
-16. Experienced users of Oracle Database will note that the Business Model is implemented in the database as an Analytic View. Experienced or not, it's nice to know that you didn't have to type any of that DDL! Click **Close** to return to the Business Model screen, click the **three dots** on the Business Model's card again and this time select **Analyze** from the list that appears.
+18. Select the **Analyze** tab. You should see a data summary similar to one shown below. Note: wait a few seconds for the **Related Insights** on the right of the screen.
 
-17. You should see a data summary similar to this.
-    ![ALT text is not available for this image](images/data-summary.png)
+  ![ALT text is not available for this image](images/analyze-related-insights.png)
 
-    Then click **Layout**.
+19. You can change the visualization by clicking the bar-chart icon.
+  ![ALT text is not available for this image](images/change-visualization-bar-chart.png)
 
-18. Notice that there are two tabs across the top of the Layout screen.
+20. You can also view the related insights to the **SALES** measure on the right. You can double click any visualization to get more details. Double click the first insight graph.
+  ![ALT text is not available for this image](images/get-more-visualization-insights.png)
 
-    In the Hierarchies tab:
+21. Click the **Data Analysis** breadcrumb on the top of this insight view to go back to he Data Analysis tool.
 
-    a. Change the layout of hierarchy *GEOGRAPHY* to **All** by selecting that value from the pick list.
+22. Select the pivot table view.
+  ![ALT text is not available for this image](images/select-pivot-table-view.png)
 
-    b. Change the layout of hierarchy *CUSTOMER_SEGMENT* to **Column**.
+23. Notice the section in the middle that allows users to choose where levels of the hierarchy are shown (**Columns or Rows**). Measures can be included in the **Values** section. Perform the following:
 
-    c. Change the layout of hierarchy *DEVICES* to **Row**.
+  - Drag the *CUSTOMER_SEGMENT* to **Columns**.
+  - Expand *DEVICES* hierarchy on the left and drag the *FORM_FACTOR* level to the **Rows**.
+  - Click the “X” icon next to *SALES* in the **Values** section.
+  - Expand *Measures* on the left and drag the *PURCHASES* to the **Value section**.
+  - Click **Save** to choose default formatting for this measure.
+  > **Hint**: You can collapse the left navigate pane to get a better view of the pivot table report.
 
-    ![ALT text is not available for this image](images/hierarchies-tab.png)
+24. You should see a data summary like this:
+  ![ALT text is not available for this image](images/data-summary.png)
 
-19. In the Measures tab:
+25. You can add filters. Perform the following:
 
-    a. Deselect measure **SALES**.
+    - Expand the *MONTHS* hierarchy and drag the *MONTH* level to the **Filters** section.
+    - Select *April* by clicking it.
+    - Click the “X” icon on the filter pop-up menu.
 
-    b. Select measure **PURCHASES**.
+  ![ALT text is not available for this image](images/add-filters-to-data-summary.png)
 
-    Click **Close**.
+    Notice that now, data is shown only for the month of April.
 
-20. You should see a data summary similar to this.
-  ![ALT text is not available for this image](images/data-summary-good.png)
+26. Having completed this step, you now have an analytic view over the table **MOVIE\_SALES\_2020Q2**. This features hierarchies, measures (including aggregation expressions), and provides a preview pane in which to view the data and do some analysis. Now, let's explore some of the various navigation techniques available throughout the tool suite.
 
-21. Having completed this step, you now have a Business Model over table MOVIE\_SALES\_2020Q2. This features hierarchies, measures (including aggregation expressions), and provides a preview pane in which to view the data and do some rudimentary analysis. Press **Close** to return to the Business Model page. Shortly you'll return to the Autonomous Database Home Page, but first let's explore some of the various navigation techniques available throughout the tool suite. 
+27. There are 2 options to navigate to **Data Insights** and **Catalog**.
 
+  - Option 1: From the **hamburger menu** on the top left of the screen, you can navigate directly to any of the Built-In tools.
+  - Option 2: Alternatively, from the **hamburger menu**, you can return to the **Database Actions** menu, also known as the home page of the **Built-In Tool Suite**.
 
-22. There are 3 options to navigate to Data Insights and Catalog.
-
-    Option 1: From the three-dot menu of the Business Model card, there are options to navigate directly to Insights and Catalog for this Business Model. (You'll use these tools in subsequent sections of this workshop.)
-
-    Option 2: From the **hamburger menu** on the top left of the screen, you can navigate directly to any of the Built-In tools.
-
-    Option 3: Alternatively, from the hamburger menu, you can return to the **Database Actions** menu, also known as the home page of the Built-In Tool Suite.
-      ![ALT text is not available for this image](images/navigate-insights.png)
-
-    Here you'll take Option 3: Select **Database Actions**. 
+  ![ALT text is not available for this image](images/navigate-back-to-database-actions.png)
 
 ## Task 5: Generate Data Insights 
 
@@ -497,7 +500,7 @@ Watch a video demonstration of the Data Insights tool of Autonomous Database:
 
 3. In this exercise, you're going to follow a procedure exactly as laid out in these tool tips, thus:
 
-    a. Under *Analytic View/Table*, select Analytic View **MOVIE\_SALES\_2020Q2\_MODEL\_AV** (which is the basis for the Business Model you created in Task 4). 
+    a. Under *Analytic View/Table*, select Analytic View **MOVIE\_SALES\_2020Q2\_MODEL\_AV** (which is the basis for the Analytic View you created in Task 4). 
 
     b. Under *Column*, select **PURCHASES**.
 
@@ -564,19 +567,26 @@ Data is capital and the built-in Catalog tool allows you to maximize its value. 
 
 ### Search The Catalog
 
-5. The catalog has a browser-like search capability. In the search bar across the top, enter **movie sales** and click **Enter**.
+5. The catalog has a browser-like search capability. Click the search bar across the top, choose Entity type as "Table", and enter **movie sales** and click **Enter**.
+
+> **Hint:** To get a list of all Entity types, click the "..." option as shown below:
+
+  ![ALT text is not available for this image](images/click-three-dots-list-entity-types.png)
+
+  ![ALT text is not available for this image](images/choose-entity-type-table.png)
+
 6. Only entities matching these criteria will be displayed.
   ![ALT text is not available for this image](images/movie-sales.png)
 
 ### Change the Filter
 
-7. On the upper left of the screen, just above the cards, is the **filter** icon. If it is not highlighted, click it.
-8. Under Entity Type, click **More...** and check the boxes for Analytic View and Business Model. Then click **Apply**.
+7. On the search bar, clear the “movie sales” text and click the search bar.
+8. Choose the option under the search bar “type: TABLE OR”, then click “...” under Entity Type and select **Analytic View**. Next type “movie sales”. The text on the search bar should be as shown below:
   ![ALT text is not available for this image](images/filter.png)
-9. You now see that the Entity Type list at the top has been expanded correspondingly, and that four cards are displayed. Besides the two tables you saw initially, there are now cards for the Business Model and the Analytic View on which it's based. 
+9. Notice three cards are displayed. Besides the two tables you saw initially, there is now a card for the Analytic View created in task 3.  
   ![ALT text is not available for this image](images/three-entities.png)
-10. Clear the search by clicking **x** on the right end of the search bar. Now you see eight cards: six tables, a business model, and an analytic view.
-  ![ALT text is not available for this image](images/2879071198.png)
+10. Clear the text “movie sales” and click the Enter key. Now you see seven cards: six tables and an analytic view.
+  ![ALT text is not available for this image](images/seven-cards-including-analytic-view.png)
 
 ### Understand Data Lineage
 
@@ -615,5 +625,5 @@ See the documentation on [Database Actions](https://docs.oracle.com/en/database
 ## Acknowledgements
 
 - Created By/Date - Patrick Wheeler, Product Management, Autonomous Database, March 2021
-- Contributors - Keith Laker, Rick Green, Nilay Panchal, Hermann Baer
-- Last Updated By - Arabella Yao, August 2021
+- Contributors - Keith Laker, Ashish Jain, Rick Green, Nilay Panchal, Hermann Baer
+- Last Updated By - Ashish Jain, Rick Green, February 2022

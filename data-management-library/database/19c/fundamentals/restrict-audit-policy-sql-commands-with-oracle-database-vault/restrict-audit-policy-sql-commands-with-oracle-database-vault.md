@@ -4,6 +4,8 @@
 
 You can now use command rules to enable and disable individual unified audit policies. This enhancement provides fine-grain control over how each policy is managed, instead of having to manage all the unified audit policies in the same way through a single command rule. For example, an HR auditor can have control over his or her HR unified audit policy, but not the CRM unified audit policy. This new feature extends the AUDIT and NOAUDIT use for command rules, but when you specify unified audit policy for the command rule, you must specify AUDIT POLICY or NOAUDIT POLICY.
 
+Estimated Time: 20 minutes
+
 ### Objectives
 In this lab, you will:
 - Prepare your environment
@@ -21,6 +23,9 @@ This lab assumes you have:
 - Obtained and signed in to your workshop-installed compute instance.
 
 ## Task 1: Prepare your environment
+
+> **NOTE:** Unless otherwise stated, all passwords will be `Ora4U_1234`. When copying and pasting a command that includes a password, please replace the word `password` with `Ora4U_1234`. This only applies to instances created through OCI Resource Manager with our provided terraform scripts.
+
 1. Open a terminal window on the desktop.
 
 2. Set the Oracle environment variables. At the prompt, enter **CDB1**.
@@ -52,7 +57,7 @@ This lab assumes you have:
 1. Log into CDB1
 
     ```
-    $ <copy>sqlplus system/Ora4U_1234@PDB1</copy>
+    $ <copy>sqlplus system/password@PDB1</copy>
     ```
 
 2. Create the required audit policies.
@@ -71,11 +76,11 @@ This lab assumes you have:
     Audit succeeded.
     ```
 
-## Task 2: Create command rule
+## Task 3: Create command rule
 1. Log into PDB1 as `c##sec_admin`, this user was created during the configuration of Oracle Database Vault.
 
     ```
-    SQL> <copy>CONNECT c##sec_admin/Ora4U_1234@PDB1</copy>
+    SQL> <copy>CONNECT c##sec_admin/password@PDB1</copy>
 
     Connected.
     ```
@@ -124,12 +129,12 @@ This lab assumes you have:
     PL/SQL procedure successfully completed.
     ```
 
-## Task 3: Drop the audit policy as the `SYSTEM` user
+## Task 4: Drop the audit policy as the `SYSTEM` user
 
 1. Log in to PDB1 as `SYSTEM`.
 
     ```
-    SQL> <copy>CONNECT system/Ora4U_1234@pdb1</copy>
+    SQL> <copy>CONNECT system/password@pdb1</copy>
 
     Connected.
     ```
@@ -152,12 +157,12 @@ This lab assumes you have:
 
    This works because we specified that only `SYS` and `SYSTEM` users should be allowed to modify the `pol1` audit policy.
 
-## Task 4: Create a new user with `DBA` privileges
+## Task 5: Create a new user with `DBA` privileges
 
 1. Log into PDB1 as `c##accts_admin`, this account was created when you setup Oracle Database Vault.
 
     ```
-    SQL> <copy>CONNECT c##accts_admin/Ora4U_1234@PDB1;</copy>
+    SQL> <copy>CONNECT c##accts_admin/password@PDB1;</copy>
 
     Connected.
     ```
@@ -165,7 +170,7 @@ This lab assumes you have:
 2. Create a DBA junior and grant the user the `DBA` role in PDB1.
 
     ```
-    SQL> <copy>CREATE USER dba_junior IDENTIFIED BY Ora4U_1234;</copy>
+    SQL> <copy>CREATE USER dba_junior IDENTIFIED BY password;</copy>
 
     User created.
     ```
@@ -173,7 +178,7 @@ This lab assumes you have:
 3. Connect as the `SYS` user.
 
     ```
-    SQL> <copy>CONNECT sys/Ora4U_1234@PDB1 as sysdba;</copy>
+    SQL> <copy>CONNECT sys/password@PDB1 as sysdba;</copy>
 
     Connected.
     ```
@@ -185,11 +190,11 @@ This lab assumes you have:
     Grant succeeded.
     ```
 
-## Task 5: Create and attempt to modify a new audit policy
+## Task 6: Create and attempt to modify a new audit policy
 1. Connect to PDB1 as `dba_junior` and create an audit policy.
 
     ```
-    SQL> <copy>CONNECT dba_junior/Ora4U_1234@PDB1</copy>
+    SQL> <copy>CONNECT dba_junior/password@PDB1</copy>
 
     Connected.
     ```
@@ -210,11 +215,11 @@ This lab assumes you have:
     ```
    This fails because of the previously defined command rule.
    
-## Task 6: Attempt to alter the audit policy as the Database Vault owner.
+## Task 7: Attempt to alter the audit policy as the Database Vault owner.
 1. Attempt to execute `NOAUDIT` on `pol1` as `c##sec_admin`. First, connect to PDB1 as `c##sec_admin`.
 
     ```
-    SQL> <copy>CONNECT c##sec_admin/Ora4U_1234@PDB1</copy>
+    SQL> <copy>CONNECT c##sec_admin/password@PDB1</copy>
 
     Connected.
     ```
@@ -231,12 +236,12 @@ This lab assumes you have:
 
    Although `c##sec_admin` is the Database Vault owner, it cannot disable the `AUDIT POLICY` because of the command rule we established earlier.
 
-## Task 7: Alter the audit policy as the `SYSTEM` user
+## Task 8: Alter the audit policy as the `SYSTEM` user
 
 1. Drop the audit policy as the `SYSTEM` user. Log into PDB1 as the `SYSTEM` user.
 
     ```
-    SQL> <copy>CONNECT system/Ora4U_1234@PDB1;</copy>
+    SQL> <copy>CONNECT system/password@PDB1;</copy>
 
     Connected.
     ```
@@ -262,12 +267,14 @@ This lab assumes you have:
     ```
     SQL> <copy>EXIT</copy>
     ```
-## Task 8: Reset your environment
+## Task 9: Reset your environment
 1. Reset your environment.
 
     ```
     $ <copy>$HOME/labs/19cnf/disable_DV_CDB1.sh</copy>
     ```
+
+    You may now **proceed to the next lab**.
    
 ## Learn More
 

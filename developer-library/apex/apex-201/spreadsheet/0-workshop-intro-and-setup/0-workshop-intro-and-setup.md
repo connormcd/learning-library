@@ -45,7 +45,6 @@ If the menu is not displayed, you can open by clicking the menu button (![Menu i
 
 ## **Acknowledgements**
 
- - **Author** -  Salim Hlayel, Principle Product Manager, June 2020
- - **Contributors** - Tom McGinn, Arabella Yao
+ - **Author** -  Salim Hlayel, Principle Product Manager, June 2020 
  - **Last Updated By/Date** - Kay Malcolm, DB Product Management, August 2020
 

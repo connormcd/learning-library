@@ -50,15 +50,13 @@ For this workshop we need to create one new user.
 
     ![Click Database Actions](images/launchdbactions.png " ")
 
-2. Enter ADMIN for the username and click **Next**. On the next form, enter the ADMIN password - which is the one you entered when creating your Autonomous Data Warehouse. Click **Sign in**.
+You will automatically log in as the ADMIN user.
 
-    ![Log in dialog for Database Actions](images/2878884336.png " ")
-
-3. On the Database Actions home page, click the **Database Users** card.
+2. On the Database Actions home page, click the **Database Users** card.
 
     ![Database Users card of the Database Actions home page](images/2878884369.png " ")
 
-4.  You can see that your ADMIN user appears as the current user.  On the right-hand side, click the **+ Create User** button.
+3.  You can see that your ADMIN user appears as the current user.  On the right-hand side, click the **+ Create User** button.
 
     ![Create User button highlighted on the Database Users page](images/2878884398.png " ")
 
@@ -67,7 +65,7 @@ For this workshop we need to create one new user.
  - username: **MOVIESTREAM**
  - password: create a suitably strong password, and make note of it, as you will need to provide it in an upcoming step.
 
-    >**Note:** Rules for User Passwords: Autonomous Data Warehouse requires strong passwords. User passwords user must meet the following default password complexity rules:
+    >**Note:** Rules for User Passwords: Autonomous Database requires strong passwords. User passwords user must meet the following default password complexity rules:
 
     - Password must be between 12 and 30 characters long
 
@@ -79,7 +77,7 @@ For this workshop we need to create one new user.
 
     - Cannot be one of the last four passwords used for the same username
 
-    - Cannot contain the double quote (") character
+    - Cannot contain the double quote (") or exclamation (!) characters
 
     There is more information available in the documentation about password rules and how to create your own password rules; see here: [Create Users on Autonomous Database](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/manage-users-create.html#GUID-B5846072-995B-4B81-BDCB-AF530BC42847)
 
@@ -87,8 +85,6 @@ For this workshop we need to create one new user.
 - Toggle the **Web Access** button to **On**.
 - Toggle the **OML** button to **On**.
 - In the upper right section of the Create User dialog, select **UNLIMITED** from the drop down menu for Quota on tablespace DATA.
-
-    >**Note:** If you are using an Always Free autonomous database instance, the **UNLIMITED** option will not be available. In this case, simply select **20GB** in the list. This will be sufficient for the whole workshop.
 
 - Leave the **Password Expired** toggle button as off (Note: this controls whether the user is prompted to change their password when they next log in).
 - Leave the **Account is Locked** toggle button as off. 
@@ -121,6 +117,7 @@ You learned how to use the Create User dialog to create a new user. You can also
     ```
     <copy>
     grant execute on dbms_cloud to moviestream;
+    grant execute on dbms_cloud_repo to moviestream;
     grant create table to moviestream;
     grant create view to moviestream;
     grant all on directory data_pump_dir to moviestream;
@@ -149,28 +146,29 @@ Now you need to switch from the ADMIN user to the MOVIESTREAM user, before start
 
 4. This will launch the Database Actions home page.
 
-    ![The Database Actions home page](images/2878885105.png " ")
+    ![The Database Actions home page](images/dbactions-home.png " ")
 
 
-## Task 4: Configure the Object Storage connections
+## Task 4: Load data from files in Object Storage using Data Tools
 
-In this step, you will set up access to the two buckets on Oracle Cloud Infrastructure Object Storage that contain data that we want to load - the landing area, and the 'gold' area.
+In this step we will perform some simple data loading tasks, to load in CSV files from object storage into tables in our autonomous database.
 
-1. On the Database Actions home page, under **Data Tools**, click **DATA LOAD**.
+1. Under **What do you want to do with your data?** select **LOAD DATA**, and under **Where is your data?** select **CLOUD STORAGE**, then click **Next**
 
-    ![Click DATA LOAD](images/dataload.png)
+    ![Select Load Data, then Cloud Storage](images/loadfromstorage.png)
 
-2. In the **Explore and Connect** section, click **CLOUD LOCATIONS** to set up the connection from your autonomous database to object storage.
+2. You will need to set up a cloud storage location. A cloud storage location is an object storage bucket that contains your source data. Click **Done** to set up a location.
 
-    ![Click CLOUD LOCATIONS](images/cloudlocations.png)
+    ![Add Cloud Storage location](images/goto_addcloudstorage.png)
 
-3. To add access to the Moviestream gold area which contains curated files for us to load, click **+Add Cloud Storage** in the top right of your screen.
+3. Fill in the cloud location details:
 
     - In the **Name** field, enter 'MovieStreamGold'.
 
-    **Note:** Take care not to use spaces in the name.
+        **Note:** Take care not to use spaces in the name.
 
-    - Leave Cloud Store selected as **Oracle**.
+    - Select **No Credential** as this is a public bucket.
+
     - Copy and paste the following URI into the URI + Bucket field:
 
     ```
@@ -179,24 +177,9 @@ In this step, you will set up access to the two buckets on Oracle Cloud Infrastr
     </copy>
     ```
 
-    - Select **No Credential** as this is a public bucket.
-    - Click on the **Test** button to test the connection. Then click **Create**.
-
-4. The page now shows the newly created Cloud Location.
-
-    ![Click CLOUD LOCATIONS](images/cloudlocations2.png)
-
-## Task 5: Load data from files in Object Storage using Data Tools
-
-In this step we will perform some simple data loading tasks, to load in CSV files from object storage into tables in our autonomous database.
-
-1. To load or link data from our newly configured cloud storage, click on the **Data Load** link in the top left of your screen.
-
-    ![Click on Data Load](images/backtodataload.png)
-
-2. Under **What do you want to do with your data?** select **LOAD DATA**, and under **Where is your data?** select **CLOUD STORAGE**, then click **Next**
-
-    ![Select Load Data, then Cloud Storage](images/loadfromstorage.png)
+    ![Add Cloud Storage location](images/addcloudstorage-details.png)
+    
+    - Then click **Create**. This will return you to the **Load Cloud Object** page.
 
 3. From the MOVIESTREAMGOLD location, drag the **customer_contact** folder over to the right hand pane. Note that a dialog box appears asking if we want to load all the files in this folder to a single target table. In this case, we only have a single file, but we do want to load this into a single table. Click **OK**.
 
@@ -221,7 +204,7 @@ In this step we will perform some simple data loading tasks, to load in CSV file
     ![Check the job is completed](images/loadcompleted.png)
 
 
-## Task 6: Load and link more data using SQL scripting
+## Task 5: Load and link more data using SQL scripting
 
 We have now learned how easy it is to load data using the Data Load tool. However, we can also load data using SQL scripts which exercise the same database APIs in the DBMS\_CLOUD package.
 
@@ -235,91 +218,44 @@ In this step, we will use some additional features of the DBMS\_CLOUD APIs to lo
 
     ![Click on Development - SQL](images/gotosql.png)
 
-2. Copy and paste the following script into the Worksheet. This script will load the rest of the data required by the workshop.
+2. Copy and paste the following script into the Worksheet. This script will create PL/SQL procedures based on the lab_setup.sql file found in github.
 
 ```
 <copy>
--- Run the following in order to add all the data sets required for the workshop
--- Click F5 to run all the scripts at once
-
--- drop this table with the lab listings
-
-drop table moviestream_labs; -- ignore error if table did not exist
-drop table moviestream_log;  -- ignore error if table did not exist
-
--- Add the log table
-create table moviestream_log
-   (	execution_time timestamp (6),
-	    message varchar2(32000 byte)
-   );
-
--- Create the MOVIESTREAM_LABS table that allows you to query all of the labs and their associated scripts
-begin
-    dbms_cloud.create_external_table(table_name => 'moviestream_labs',
-                file_uri_list => 'https://objectstorage.us-ashburn-1.oraclecloud.com/p/R-csuXKL9-Vn-fpstvXalGJftkjzCB1Te2iI1bA0dq7afsSdVHRd5H7dd2O5HLtp/n/c4u04/b/moviestream_lite_scripts/o/moviestream-lite-labs.json',
-                format => json_object('skipheaders' value '0', 'delimiter' value '\n','ignoreblanklines' value 'true'),
-                column_list => 'doc varchar2(30000)'
-            );
-end;
-/
-
--- Define the scripts found in the labs table.
+-- Install the setup file from github 
 declare
-    b_plsql_script blob;            -- binary object
-    c_plsql_script clob;    -- converted to clob
-    uri_scripts varchar2(2000) := 'https://objectstorage.us-ashburn-1.oraclecloud.com/p/R-csuXKL9-Vn-fpstvXalGJftkjzCB1Te2iI1bA0dq7afsSdVHRd5H7dd2O5HLtp/n/c4u04/b/moviestream_lite_scripts/o'; -- location of the scripts
-    uri varchar2(2000);
-begin
-
-    -- Add privilege to run dbms_cloud
-    -- Run a query to get each lab and then create the procedures that generate the output
-    for lab_rec in (
-        select  json_value (doc, '$.lab_num' returning number) as lab_num,
-                json_value (doc, '$.title' returning varchar2(500)) as title,
-                json_value (doc, '$.script' returning varchar2(100)) as proc        
-        from moviestream_labs ml
-        where json_value (doc, '$.script' returning varchar2(100))  is not null
-        order by 1 asc
-        )
-    loop
-        -- The plsql procedure DDL is contained in a file in object store
-        -- Create the procedure
-        dbms_output.put_line(lab_rec.title);
-        dbms_output.put_line('....downloading plsql procedure ' || lab_rec.proc);
-
-        -- download the script into this binary variable        
-        uri := uri_scripts || '/' || lab_rec.proc || '.sql';
-
-        dbms_output.put_line('....the full uri is ' || uri);        
-        b_plsql_script := dbms_cloud.get_object(object_uri => uri);
-
-        dbms_output.put_line('....creating plsql procedure ' || lab_rec.proc);
-        -- convert the blob to a varchar2 and then create the procedure
-        c_plsql_script :=  to_clob( b_plsql_script );
-
-        -- generate the procedure
-        execute immediate c_plsql_script;
-
-    end loop lab_rec;  
-
-    execute immediate 'grant execute on moviestream_write to public';
-
-    exception
-        when others then
-            dbms_output.put_line('Unable to add the data sets.');
-            dbms_output.put_line('');
-            dbms_output.put_line(sqlerrm);
- end;
- /
-
-begin
-    add_datasets();
-end;
+    l_owner     varchar2(100) := 'oracle';
+    l_repo_name varchar2(100) := 'learning-library';
+    l_file_path varchar2(200) := 'data-management-library/autonomous-database/shared/movie-stream-story-lite/add-data-scripts/lab_setup.sql';
+BEGIN
+    dbms_cloud_repo.install_file(
+        repo => dbms_cloud_repo.init_github_repo(                 
+                 repo_name       => l_repo_name,
+                 owner           => l_owner
+                ),
+        file_path     =>     l_file_path,
+        stop_on_error => false
+  );
+END;
 /
 </copy>
 ```
 
-9.  Click the **Run Script** button to run the script.
+Click the **Run Script** button to run the script.
+
+
+3. A PL/SQL procedure called add_datasets was installed by the previous step.  Run that procedure to load the rest of the data.
+```
+<copy>
+-- Run the PLSQL procedure that loads the rest of the dataset
+BEGIN
+    add_datasets;
+END;
+/
+</copy>
+```  
+
+Click the **Run Script** button to run the script.
 
 > **Note** The script should take around 4-5 minutes to run as it uses a number of scripts to load and links a number of data files, and to generate additional views and tables used in later analysis steps.
 
@@ -339,4 +275,4 @@ Please *proceed to the next lab*.
 
 * **Author** - Mike Matthews, Autonomous Database Product Management
 * **Contributors** -  Rick Green, Principal Developer, Database User Assistance, Marty Gubar, Autonomous Database Product Management
-* **Last Updated By/Date** - Rick Green, November 2021
+* **Last Updated By/Date** - Marty Gubar, March 2022

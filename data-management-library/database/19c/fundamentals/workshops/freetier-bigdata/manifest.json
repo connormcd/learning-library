@@ -22,13 +22,8 @@
       {
           "title": "Initialize Your Environment",
           "description": "Steps to verify the workshop-installed compute instance and download the lab files.",
-          "filename": "./../../initialize-environment/initialize-environment.md",
+          "filename": "./../../initialize-environment/initialize-environment-bigdata.md",
           "type": "freetier"
-      },
-      {
-          "title": "Analyze the Automatic Index Report",
-          "description": "TBA",
-          "filename": "./../../analyze-automatic-index-report/analyze-automatic-index-report.md"
       },
       {
           "title": "Manage Partitions in Hybrid Partitioned Tables",

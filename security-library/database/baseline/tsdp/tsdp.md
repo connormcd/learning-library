@@ -5,10 +5,10 @@ This workshop introduces the functionality of Oracle Transparent Sensitive Data 
 
 *Estimated Lab Time:* 15 minutes
 
-*Version tested in this lab:* Oracle DB 19.10
+*Version tested in this lab:* Oracle DB 19.13
+
 ### Video Preview
 No video for the moment
-
 
 ### Objectives
 - Create a TSDP policy on sensitive data
@@ -31,7 +31,13 @@ This lab assumes you have:
 
 ## Task 1: Prepare the TSDP Environment for the Labs
 
-1. As OS user *oracle* on your **DBSec-Lab** VM remote desktop session, Double-Click on the *Terminal* icon on the desktop to launch a session
+1. Open a Terminal session on your **DBSec-Lab** VM as OS user *oracle*
+
+    ````
+    <copy>sudo su - oracle</copy>
+    ````
+
+    **Note**: If you are using a remote desktop session, double-click on the *Terminal* icon on the desktop to launch a session
 
 2. Go to the scripts directory
 
@@ -133,7 +139,7 @@ This lab assumes you have:
 
     ![](./images/tsdp-009.png " ")
 
-You may now [proceed to the next lab](#next)..
+You may now proceed to the next lab!
 
 ## **Appendix**: About the Product
 ### **Overview**
@@ -155,9 +161,9 @@ The benefits of TSDP policies are enormous: You easily can create and apply TSDP
 
 ## Want to Learn More?
 Technical Documentation:
-- [Oracle Transparent Sensitive Data Protection 19c](https://https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/using-transparent-sensitive-data-protection.html#GUID-2C55E6BF-8FD9-4537-B649-88AB788002A5)
+- [Oracle Transparent Sensitive Data Protection 19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/using-transparent-sensitive-data-protection.html)
 
 ## Acknowledgements
 - **Author** - Hakim Loumi, Database Security PM
 - **Contributors** - Rene Fontcha
-- **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, September 2021
+- **Last Updated By/Date** - Hakim Loumi, Database Security PM - December 2021

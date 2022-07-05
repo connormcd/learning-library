@@ -28,6 +28,8 @@ This lab assumes you have:
 
 ## Task 1: Prepare your environment
 
+> **NOTE:** Unless otherwise stated, all passwords will be `Ora4U_1234`. When copying and pasting a command that includes a password, please replace the word `password` with `Ora4U_1234`. This only applies to instances created through OCI Resource Manager with our provided terraform scripts.
+
 To prepare your environment, enable `ARCHIVELOG` mode on CDB1 and CDB2, verify that the default listener is started, and verify that PDB1 has sample data.
 
 1. Open a terminal window on the desktop.
@@ -136,10 +138,10 @@ To prepare your environment, enable `ARCHIVELOG` mode on CDB1 and CDB2, verify t
           107
     ```
 
-11. (Optional) If in the previous step you find that you do not have an `HR.EMPLOYEES` table, run the `hr_main.sql` script to create the HR user and `EMPLOYEES` table in `PDB1`. After running the script, connect to CDB1 as the `SYS` user.
+11. (Optional) If in the previous step you find that you do not have an `HR.EMPLOYEES` table, run the `hr_main.sql` script to create the HR user and `EMPLOYEES` table in `PDB1`. After running the script, connect to CDB1 as the `SYS` user. Please note the use of `password`.
 
     ```
-    SQL> <copy>@/home/oracle/labs/19cnf/hr_main.sql Ora4U_1234 USERS TEMP $ORACLE_HOME/demo/schema/log/</copy>
+    SQL> <copy>@/home/oracle/labs/19cnf/hr_main.sql password USERS TEMP $ORACLE_HOME/demo/schema/log/</copy>
     ```
 
 
@@ -150,7 +152,7 @@ A common user is a database user that has the same identity in the `root` contai
 1. Connect to CDB1 as the `SYS` user.
 
     ```
-    SQL> <copy>CONNECT sys/Ora4U_1234@CDB1 as sysdba</copy>
+    SQL> <copy>CONNECT sys/password@CDB1 as sysdba</copy>
     Connected.
     ```
 
@@ -158,7 +160,7 @@ A common user is a database user that has the same identity in the `root` contai
 2. Create a common user named `c##remote_user` in CDB1.
 
     ```
-    SQL> <copy>CREATE USER c##remote_user IDENTIFIED BY Ora4U_1234 CONTAINER=ALL;</copy>
+    SQL> <copy>CREATE USER c##remote_user IDENTIFIED BY password CONTAINER=ALL;</copy>
 
     User created.
     ```
@@ -181,7 +183,7 @@ A common user is a database user that has the same identity in the `root` contai
 
 In this task, you use DBCA in silent mode to clone PDB1 on CDB2 as PDB2.
 
-1. Run the `-createPluggableDatabase` command in DBCA in silent mode to clone PDB1 on CDB2 as PDB2.
+1. Run the `-createPluggableDatabase` command in DBCA in silent mode to clone PDB1 on CDB2 as PDB2. Please note the use of `password`.
 
     *This is the new feature!*
 
@@ -194,9 +196,9 @@ In this task, you use DBCA in silent mode to clone PDB1 on CDB2 as PDB2.
     -remotePDBName PDB1 \
     -remoteDBConnString CDB1 \
     -remoteDBSYSDBAUserName SYS \
-    -remoteDBSYSDBAUserPassword Ora4U_1234 \
+    -remoteDBSYSDBAUserPassword password \
     -dbLinkUsername c##remote_user \
-    -dbLinkUserPassword Ora4U_1234</copy>
+    -dbLinkUserPassword password</copy>
 
     Create pluggable database using remote clone operation
     100% complete
@@ -336,5 +338,5 @@ In this task, you use DBCA in silent mode to clone PDB1 on CDB2 as PDB2.
 ## Acknowledgements
 
 - **Author** - Dominique Jeunot, Consulting User Assistance Developer
-- **Contributor** - Jody Glover, Principal User Assistance Developer
+- **Contributor** - Jody Glover, Consulting User Assistance Developer, Database Development
 - **Last Updated By/Date** - Kherington Barley, Austin Specialist Hub, September 21 2021

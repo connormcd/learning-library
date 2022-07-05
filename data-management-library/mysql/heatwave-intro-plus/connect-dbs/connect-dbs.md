@@ -110,11 +110,11 @@ You will need a compute Instance to connect to your brand new MySQL database.
 
 8. On Placement, keep the selected Availability Domain
 
-9. On Image and Shape, keep the selected Image, Oracle Linux 7.9 
+9. On Image and Shape, keep the selected Image, Oracle Linux 8 
 
       ![CONNECT](./images/05compute03.png " ")  
 
-10. Select Instance Shape: VM.Standard2.2
+10. Select Instance Shape: VM.Standard.E2.2
 
       ![CONNECT](./images/05compute-shape.png " ")  
 
@@ -135,9 +135,7 @@ You will need a compute Instance to connect to your brand new MySQL database.
 
 15.	The state 'Running' indicates that the Virtual Machine is ready to use. 
 
-    On the **MDS-Client** Instance page under 'Instance Access', **Copy and save the Public IP Address** 
-    ![CONNECT](./images/05compute08.png " ")
-
+![CONNECT](./images/05compute08-a.png " ")
 ## Task 3: Connect to MySQL Database System
 
 1. Copy the public IP address of the active Compute Instance to your notepad
@@ -148,7 +146,8 @@ You will need a compute Instance to connect to your brand new MySQL database.
     ![CONNECT](./images/db-list.png " ")
 
     - Click the `MDS-Client` Compute Instance link
-    ![CONNECT](./images/db-active.png)
+
+    ![CONNECT](./images/05compute08-b.png " ")
     
     - Copy `MDS-Client` plus  the `Public IP Address` to the notepad
 
@@ -202,7 +201,7 @@ You will need a compute Instance to connect to your brand new MySQL database.
 
     ![CONNECT](./images/06connect03.png " ")
 
-7.  Use the following command to connect to MySQL using the MySQL Shell client tool. Be sure to add the MDS-HW private IP address at the end of the command. Also enter the admin user password
+7.  Use the following command to connect to MySQL using the MySQL Shell client tool. Be sure to add the MDS-HW private IP address at the end of the command. Also enter the admin user and the db password created on Lab 1
 
     (Example  **mysqlsh -uadmin -p -h10.0.1..   --sql**)
 

@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Where can I access the workshop instructions?",
+         "description": "",
+         "filename": "./access-workshop-instructions.md"
+      },
+      {
+         "title": "Will I be able to do the workshop later?",
+         "description": "",
+         "filename": "../can-do-workshop-later/can-do-workshop-later.md"
+      }
+   ],
+   "task_type": "Sections"
+}

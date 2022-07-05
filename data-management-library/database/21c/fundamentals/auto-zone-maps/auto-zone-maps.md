@@ -567,4 +567,4 @@ You may now [proceed to the next lab](#next).
 ## Acknowledgements
 * **Author** - Donna Keesling, Database UA Team
 * **Contributors** -  David Start, Kay Malcolm, Database Product Management
-* **Last Updated By/Date** -  Tom McGinn, July 2020
+* **Last Updated By/Date** -  Madhusudhan Rao, Apr 2022

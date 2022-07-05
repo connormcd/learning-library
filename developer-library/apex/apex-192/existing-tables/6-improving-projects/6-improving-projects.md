@@ -228,7 +228,6 @@ This completes Lab 6. You now know how to add additional pages to your applicati
 
 ## **Acknowledgements**
 
- - **Author** -  David Peake, Consulting Member of Technical Staff
- - **Contributors** - Tom McGinn, Database Cloud Services, Product Management
- - **Last Updated By/Date** - Arabella Yao, Product Manager Intern, Database Management, July 2020
+ - **Author** -  David Peake, Consulting Member of Technical Staff 
+ - **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

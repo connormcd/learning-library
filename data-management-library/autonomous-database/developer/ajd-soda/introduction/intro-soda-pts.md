@@ -54,7 +54,7 @@ Watch the video below to see how to prepare your development environment for Pyt
 1. Click on main menu ≡, then Compute > **Instances**. Click **Create Instance**.
 
     - Name: ClientVM
-    - Image or operating system: Change Image > Image source: Oracle Images > **Oracle Cloud Developer Image** (this image may be on the second page, you need to move the blue lifebuoy/donut icon up to click next)
+    - Image or operating system: Change Image > Image source: Platform Images > **Oracle Autonomous Linux**, OS version: **7.9** (type 'linux' in the search box)
     - Shape: Change Shape > Intel: VM.Standard2.1
     - Virtual cloud network: existing VCN (default)
     - Subnet: Public Subnet (default)
@@ -113,6 +113,15 @@ For some of the labs we need graphical user interface, and this can be achieved 
     ````
     <copy>
     #!/bin/bash
+    
+    yum -y install oracle-release-el7
+    yum-config-manager --enable ol7_developer_EPEL
+    
+    yum -y install oracle-instantclient19.13-basic.x86_64 oracle-instantclient19.13-devel.x86_64 oracle-instantclient19.13-jdbc.x86_64 oracle-instantclient19.13-odbc.x86_64 oracle-instantclient19.13-sqlplus.x86_64 oracle-instantclient19.13-tools.x86_64
+    
+    adduser oracle
+    groupadd oinstall
+    usermod -g oinstall -G oracle oracle
 
     yum -y groupinstall "Server with GUI"
 
@@ -138,9 +147,7 @@ For some of the labs we need graphical user interface, and this can be achieved 
 
     echo -e "DBlearnPTS#21_\nDBlearnPTS#21_" | passwd oracle
 
-    sed -i -e 's/^/#/' /etc/profile.d/oracle-instantclient*
-
-    printf "\nORACLE_HOME=/opt/oracle/product/19c/dbhome_1\nLD_LIBRARY_PATH=\$ORACLE_HOME/lib\nPATH=\$PATH:\$ORACLE_HOME/bin\nexport ORACLE_HOME LD_LIBRARY_PATH PATH\n" >> /etc/profile
+    printf "\nORACLE_HOME=/usr/lib/oracle/19.13/client64\nLD_LIBRARY_PATH=/usr/lib/oracle/19.13/client64/lib\nPATH=\$PATH:/usr/lib/oracle/19.13/client64/bin\nexport ORACLE_HOME LD_LIBRARY_PATH PATH\n" >> /etc/profile
     </copy>
     ````
 
@@ -303,7 +310,7 @@ One of the objectives of this workshop is to show the integration of Oracle Auto
 ## Acknowledgements
 * **Author** - Valentin Leonard Tabacaru, PTS
 * **Contributors** -  Kay Malcolm, Database Product Management
-* **Last Updated By/Date** -  Valentin Leonard Tabacaru, December 2020
+* **Last Updated By/Date** -  Valentin Leonard Tabacaru, February 2022
 
 ## Need Help?
 Please submit feedback or ask for help using our [LiveLabs Support Forum](https://community.oracle.com/tech/developers/categories/livelabsdiscussions). Please click the **Log In** button and login using your Oracle Account. Click the **Ask A Question** button to the left to start a *New Discussion* or *Ask a Question*.  Please include your workshop name and lab name.  You can also include screenshots and attach files.  Engage directly with the author of the workshop.

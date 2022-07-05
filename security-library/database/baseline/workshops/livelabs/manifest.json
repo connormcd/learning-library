@@ -11,7 +11,7 @@
     {
       "title": "Lab 1: Environment Setup",
       "description": "Verify Setup of compute instance",
-      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/verify-compute/verify-compute-novnc.md"
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/verify-compute/verify-compute-ssh-and-novnc.md"
     },
     {
       "title": "Lab 2: Initialize Environment",
@@ -20,7 +20,7 @@
       "filename": "../../../common/init-start-env/init-start-env.md"
     },
     {
-      "title": "Lab 3: Database Assessment Tool (DBSAT)",
+      "title": "Lab 3: Database Security Assessment Tool (DBSAT)",
       "description": "In this lab you can see how to leverage Oracle DB Assessment Tool (DBSAT)",
       "publisheddate": "10/20/2020",
       "filename": "../../dbsat/dbsat.md"
@@ -48,6 +48,12 @@
       "description": "In this lab you can see how to leverage Oracle Transparent Sensitive Data Protection (TSDP)",
       "publisheddate": "04/14/2021",
       "filename": "../../tsdp/tsdp.md"
+    },
+    {
+      "title": "Lab 8: Data Safe for on-premises database",
+      "description": "In this lab you can see how to leverage Oracle Data Safe",
+      "publisheddate": "10/11/2021",
+      "filename": "../../data-safe/data-safe.md"
     },
     {
       "title": "Need Help?",

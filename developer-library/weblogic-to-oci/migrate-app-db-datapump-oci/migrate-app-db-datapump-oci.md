@@ -123,9 +123,7 @@ First, we'll need to edit the `datapump_import.sh` script to target the OCI data
 
 2. Enter the `BASTION_IP`.
 
-     If you provisioned in a *Private Subnet* the `BASTION_IP` is the **public IP** of the Bastion instance.
-
-     If you provisioned in a *Public Subnet* the `BASTION_IP` is the **public IP** of the WebLogic Admin Server that can be found in the output of the job that deployed the WebLogic stack, as part of the WebLogic Admin Server console URL.
+     The `BASTION_IP` is the **public IP** of the Bastion instance.
 
      Find it in **Resource Manager -> Stack -> stack details -> job details -> Outputs**.
 
@@ -142,6 +140,8 @@ First, we'll need to edit the `datapump_import.sh` script to target the OCI data
       If you followed the name convention defaults, it should be `nonjrfdbsubnet.nonjrfvcn.oraclevcn.com`.
 
       ![](./images/provision-db-27-connection2.png " ")
+
+5. Enter your DB SYS password for `TARGET_DB_PWD`.
 
 ## Task 4: Import the Data into the Target Database
 

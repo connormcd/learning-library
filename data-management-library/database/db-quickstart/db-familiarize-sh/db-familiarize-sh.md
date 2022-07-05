@@ -1,8 +1,4 @@
-<!-- Updated March 24, 2020 -->
-
-
 # Familiarize with the Sales History Sample Schema
-
 
 ## Introduction
 
@@ -15,7 +11,6 @@ Estimated lab time: 10 minutes
 -   Familiarize with the tables and their relationships within the SH sample schema
 
 -   Use the DESCRIBE command to examine the details of an SH table
-
 
 ### Prerequisites
 
@@ -48,9 +43,11 @@ The `DESCRIBE` command provides a description of a specified table or view. The 
 
 Syntax: DESC[RIBE] schema\_name.table\_name
 
-1. Using the SQL Worksheet that you opened in the previous lab, type the following command to view the description of the COUNTRIES table:
+1. Using the SQL Worksheet that you opened in the previous lab, copy the following command to view the description of the COUNTRIES table:
 
-    `DESCRIBE SH.COUNTRIES;`
+    ````
+    <copy>DESCRIBE SH.COUNTRIES;</copy>
+    ````
 
     Click the **Run Script** button to run it.
 
@@ -67,4 +64,4 @@ For more information on the SH schema, see the documentation on [Sample Schemas]
 ## Acknowledgements
 
 - **Author** - Richard Green, Principal Developer, Database User Assistance
-- **Last Updated By/Date** - Richard Green, April 2021
+- **Last Updated By/Date** - Kamryn Vinson, April 2022

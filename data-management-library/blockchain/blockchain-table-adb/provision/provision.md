@@ -22,11 +22,11 @@ In this lab, you will:
 
 This workshop assumes you have:
 
-- An Oracle Free Tier, Always Free, Paid, or LiveLabs Cloud Account
+- LiveLabs Cloud Account
 
 ## Task 1: Provision an ATP Instance
 
-1. If you are using a Free Trial or Always Free account, and you want to use Always Free Resources, you need to be in a region where Always Free Resources are available. You can see your current default **Region** in the top, right hand corner of the page.
+1. If you are using a Free account, and you want to use Always Free Resources, you need to be in a region where Always Free Resources are available. You can see your current default **Region** in the top, right hand corner of the page.
 
     ![Select region on the far upper-right corner of the page.](./images/task3-1.png " ")
 
@@ -163,4 +163,4 @@ Congratulations!! Now you are connected to the ATP instance as DEMOUSER.
 
 * **Author** - Anoosha Pilli, Database Product Manager
 * **Contributors** - Anoosha Pilli, Brianna Ambler, Product Manager, Oracle Database
-* **Last Updated By/Date** - Anoosha Pilli, September 2021
+* **Last Updated By/Date** - Marion Smith, April 2022

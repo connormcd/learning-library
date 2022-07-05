@@ -1,11 +1,10 @@
-
-## Setting up Oracle Cloud Infrastructure Data Flow
+# Setting up Oracle Cloud Infrastructure Data Flow
 
 This tutorial introduces you how to setup Oracle Cloud Infrastructure Data Flow.
 
-*Estimated Lab Time*: 20 minutes
+Estimated Time: 20 minutes
 
-### Objectives
+## Objectives
 
 In this lab you will learn about Oracle Cloud Infrastructure Data Flow, what it is, what you need to do before you begin using it, including setting up policies and storage, loading data, and how to import and bundle Spark applications. Before you can create, manage and execute applications in Data Flow, the tenant administrator (or any user with elevated privileges to create buckets and modify IAM) must create specific storage buckets and associated policies in IAM. These set up steps are required in Object Store and IAM for Data Flow to function. This lab will set the foundation for future labs to follow.
 
@@ -13,7 +12,7 @@ In this lab you will learn about Oracle Cloud Infrastructure Data Flow, what it 
 
 ### Prerequisites
 
-Before you Begin with Data Flow lab, you must have:
+Before you Begin with the Data Flow lab, you must have:
 
 * An Oracle Cloud Infrastructure account. Trial accounts can be used to demo Data Flow.
 * A Service Administrator role for your Oracle Cloud services. When the service is activated, Oracle sends the credentials and URL to the designated Account Administrator. The Account Administrator creates an account for each user who needs access to the service.
@@ -23,17 +22,11 @@ Before you Begin with Data Flow lab, you must have:
   * Google Chrome 42+
 * Familiarity with Object Storage Service.
 
-<<<<<<< HEAD
-## **STEP 1**: Object Store: Setting Up Storage
-=======
-
-
 ## Task 1: Object Store: Setting Up Storage
->>>>>>> add5099ef24fc7a2663529a9b81f929ab673592b
 
 1. Before running application in Data Flow service, create two storage buckets that are required in object storage. If you are
 
-     * A bucket to store the logs (both standard out and standard err) for every application run.Create a standard storage tier bucket called `dataflow-logs` in the Object Store service. The location of the bucket must follow the pattern:
+     * A bucket to store the logs (both standard out and standard err) for every application run. Create a standard storage tier bucket called `dataflow-logs` in the Object Store service. The location of the bucket must follow the pattern:
 
        ```
        <copy>oci://dataflow-logs@<Object_Store_Namespace>/</copy>
@@ -88,7 +81,7 @@ Before you Begin with Data Flow lab, you must have:
       ALLOW GROUP dataflow-users TO MANAGE dataflow-family IN TENANCY WHERE ANY {request.user.id = target.user.id, request.permission = 'DATAFLOW_APPLICATION_CREATE', request.permission = 'DATAFLOW_RUN_CREATE'}
       </copy>
       ```
-      *Note: Replace <tenancy> with the name of your tenancy*
+      > **Note:** Replace <tenancy> with the name of your tenancy
 
 2. **Service Policies** : The Data Flow service needs permission to perform actions on behalf of the user or group on objects within the tenancy.To set it up, create a policy called `dataflow-service` and add the following statement:
 
@@ -98,14 +91,10 @@ Before you Begin with Data Flow lab, you must have:
       </copy>
       ```
 
+You may now **proceed to the next lab**.
+
 ## Acknowledgements
 
 - **Author** - Anand Chandak
-- **Adapted by** -  
-- **Contributors** -
-- **Last Updated By/Date** -
+- **Last Updated By/Date** - Kamryn Vinson, March 2022
 
-## Need Help?
-Please submit feedback or ask for help using our [LiveLabs Support Forum](https://community.oracle.com/tech/developers/categories/DataFlow). Please click the **Log In** button and login using your Oracle Account. Click the **Ask A Question** button to the left to start a *New Discussion* or *Ask a Question*.  Please include your workshop name and lab name.  You can also include screenshots and attach files.  Engage directly with the author of the workshop.
-
-If you do not have an Oracle Account, click [here](https://profile.oracle.com/myprofile/account/create-account.jspx) to create one.

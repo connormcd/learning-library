@@ -86,7 +86,7 @@ In the SecureOracle environment, My IGA Application contains a custom UI to main
 
     **Note**: You are welcome to add additional reviewers and users. OIM will generate a certification task for each **Map Name**. For more details in rules and definitions please consult the official documentation under [Custom Reviewer for User Certifications](https://docs.oracle.com/en/middleware/idm/identity-governance/12.2.1.4/omusg/managing-identity-certification.html#GUID-941F44D2-1B30-4B0A-AF25-3BE0430C7F8A).
 
-    ![](./images/img-custom-reviewer.png " ")
+    ![My IGA Application Custom Reviewers](./images/img-custom-reviewer.png " ")
 
     Figure 1. Custom Reviewers
 
@@ -192,13 +192,13 @@ In the SecureOracle environment, My IGA Application contains a custom UI to main
 	Server      secureoracle.oracledemo.com
     ```
 
-    ![](./images/img-cert-email.png " ")
+    ![Roundcube review email notification](./images/img-cert-email.png " ")
 
     Figure 2. Certification Email
 
 11. Proceed to Login to OIM Self Service as user **MGRAFF**. Go to **`Self Service -> Certifications`**. In the **Pending Certifications** page the new certification will be listed, proceed to click in the link name **`2019 Q4 Review [Molly Graff]`** to review and certify the users.
 
-    ![](./images/user-certifications.png " ")
+    ![OIM Self Service Pending Certifications window](./images/user-certifications.png " ")
 
     Figure 3. User Certification
 
@@ -232,4 +232,4 @@ Use these links to get more information about Oracle Identity and Access Managem
 ## Acknowledgements
 - **Author** - Ricardo Gutierrez, Solution Engineering - Security and Management
 - **Contributors** - Rene Fontcha
-- **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, December 2020
+- **Last Updated By/Date** - Sahaana Manavalan, LiveLabs Developer, NA Technology, March 2022

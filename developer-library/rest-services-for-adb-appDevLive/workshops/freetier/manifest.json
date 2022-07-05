@@ -8,19 +8,14 @@
             "filename": "../../intro/intro.md"
         },
         {
-            "title": "Getting Started",
+            "title": "Lab 1: Getting Started",
             "description": "Get a Free Trial",
             "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
         },
         {
-            "title": "Lab 1: Provision an Autonomous Database",
+            "title": "Lab 2: Provision an Autonomous Database",
             "description": "Provision an Autonomous Database - ATP or ADW",
             "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/data-management-library/autonomous-database/shared/adb-provision/adb-provision.md"
-        },
-        {
-            "title": "Lab 2: Connect to an Autonomous Database",
-            "description": "Connect to an Autonomous Database with SQL Developer Web",
-            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/sqldevweb-login/sqldevweb-login.md"
         },
         {
             "title": "Lab 3: Connect to your Autonomous Database using Database Actions/SQL Developer Web",

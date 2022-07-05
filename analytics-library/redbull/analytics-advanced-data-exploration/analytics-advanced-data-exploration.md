@@ -10,7 +10,7 @@ However, we're not yet done. In practice, the data that holds predictive value i
 
 It is up to us to _uncover_ the patterns that are important to be able to make a prediction. After all, the success of our machine learning model will depend on the data that we present to it, and we have to make the most of the data that we have.
 
-Estimated Time: 20 minutes
+Estimated Lab Time: 20 minutes
 
 ### Objectives
 - Learn how to use visualization techniques to uncover additional data points that may be of value in predicting the score of a race.
@@ -88,7 +88,7 @@ The position chart we've been using so far may seem quite rudimentary; although 
 
 This leaves one thinking that we might still be missing some essential insights. So how can we include the element of time to visualize a race?
 
-For this we have to introduce the concept of the "ghost car". The ghost car is a virtual car that drives at the exact average speed of the pack. This time has already been calculated for you and is available as
+For this we have to introduce the concept of the "ghost car". The ghost car is a virtual car that drives at the exact average speed of the pack. This time has already been calculated for you and is available as `MEDIAN_MILLISECONDS_CUMULATIVE`.
 
 To visualize how well each car is doing, we'll calculate the time-delta between each car and the ghost driver at each lap.
 
@@ -157,5 +157,4 @@ In this lab, we've gone a step further by uncovering useful pieces of data that 
 Congratulations on completing the lab! In the next lab we'll see how we can actually extract these new pieces of information from the data sets (Features Generation). We'll also train a model and review the model's performance.
 
 ## **Acknowledgements**
-
 - **Author** - Jeroen Kloosterman, Technology Product Strategy Director

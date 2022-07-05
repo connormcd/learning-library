@@ -12,72 +12,46 @@ Oracle SOA Suite provides easy-to-use, reusable, and unified application develop
 
 SOA Suite functional architecture
 
-  ![](./images/soa-architecture.png " ")
+  ![SOA Suite functional architecture](./images/soa-architecture.png " ")
 
 Critical business services, such as customer, financial, ordering information, and others that were previously accessible only in packaged application user interfaces can now be rapidly repurposed for digital-enabled channel such as: smart phone and tablets.
 
 *Estimated Lab Time*: 15 minutes
 
 ### Objectives
-- This lab shows JDeveloper12c as a development platform to construct integration service orchestration. It also show how to access JDeveloper 12c on the Linux OCI.
+- This lab shows JDeveloper12c as a development platform to construct integration service orchestration.
 
 ### Prerequisites
 This lab assumes you have:
 - A Free Tier, Paid or LiveLabs Oracle Cloud account
-- SSH Private Key to access the host via SSH
 - You have completed:
-    - Lab: Generate SSH Keys
-    - Lab: Prepare Setup
+    - Lab: Prepare Setup (*Free-tier* and *Paid Tenants* only)
     - Lab: Environment Setup
 
-## Task 1: Running your Lab
+
+<!-- ## Task 1: Running your Lab
 ### Access the graphical desktop
 For ease of execution of this workshop, JDeveloper 12c (12.2.1.4) has been pre-installed on your VM instance and can be accessed using any modern browser on your laptop or workstation and the details below
+  -->
 
-1. Launch your browser to the following URL
 
-```
-URL: <copy>http://[your instance public-ip address]:8080/guacamole</copy>
-```
+## Task 1: Start Weblogic Server from JDeveloper 12c for SOA Suite Development
 
-  ![](./images/guacamole-login.png " ")
+Now with access to your remote desktop session, Follow these steps to initialize your environment for SOA development using JDeveloper 12c. Oracle JDeveloper offers complete end-to-end development for Oracle's platform and Oracle's applications.
 
-2. Provide login credentials
 
-```
-Username: <copy>oracle</copy>
-```
-```
-Password: <copy>Guac.LiveLabs_</copy>
-```
 
-*Note*: There is an underscore `_` character at the end of the password.
+1. JDeveloper 12c has been prelaunched to window on the right.
 
-  ![](./images/guacamole-landing.png " ")
+  ![Remote Desktop landing page](./images/jdev-start.png " ")
 
-## Task 2: Start JDeveloper 12c for SOA Suite Development
+2. From the application server tab, click on the `+` sign to list App Servers, the Right-Click on *IntegratedWebLogicServer* and select *Start Server Instance*.
 
-Follow these steps to initialize your environment for SOA development using JDeveloper 12c. Oracle JDeveloper offers complete end-to-end development for Oracle's platform and Oracle's applications.
+  ![Start Weblogic Server Instance](./images/jdev-start-server.png " ")
 
-1. Double click on the Oracle JDeveloper 12c icon on the Linux desktop.
+3. Once the Weblogic App Server start completed, the following would appear:
 
-  ![](./images/jdev-on-desktop.png " ")
-
-2. For the role, choose Studio Developer (All Features)
-
-  ![](./images/jdev-role-selection.png " ")
-
-3. Uncheck the "*Always prompt for role selection on startup*" and click *OK*. JDeveloper 12c now opens on your desktop
-
-  ![](./images/jdev-ide-open.png " ")
-
-4. From the application server tab, click on the `+` sign to list App Servers, the Right-Click on *IntegratedWebLogicServer* and select *Start Server Instance*.
-
-  ![](./images/start-jdev-weblogic.png " ")
-
-5. Once the Weblogic App Server start completed, the following would appear:
-
-  ![](./images/jdev-weblogic-started.png " ")
+  ![Output Weblogic Running](./images/jdev-server-running.png " ")
 
 You may now proceed to the next lab.
 
@@ -119,5 +93,5 @@ At this point, you're ready to start building amazing enterprise-grade orchestra
 
 ## Acknowledgements
 * **Author** - Daniel Tarudji
-* **Contributors** - Meghana Banka, Tom McGinn, Kamryn Vinson, Rene Fontcha
-* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, November 2020
+* **Contributors** - Meghana Banka, Kamryn Vinson, Rene Fontcha, Sahaana Manavalan
+* **Last Updated By/Date** - Sahaana Manavalan, LiveLabs Developer, NA Technology, February 2022

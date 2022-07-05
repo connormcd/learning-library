@@ -1,4 +1,4 @@
-# Creating Users and Watchlist Tables
+# Create Users and Watchlist Tables
 
 ## Introduction
 Up to this point, most of the work has revolved around implementing REST data sources and creating pages to use that data on. In this lab, you will create and start to use local tables to store user and movie data. You will also add an application item and process, which will capture and store a user email and ID, as well as some of the movie details. This is what allows multiple users to have their own watchlist.
@@ -10,7 +10,10 @@ In this lab, you will:
 - Set up the movie_users and watchlist tables using Quick SQL.  
 - Create an application process and item for storing user information.
 
-## Task 1: Creating the Movie Users Table
+### Prerequisites
+- Completion of workshop through Lab 4
+
+## Task 1: Create the Movie Users Table
 The first table you need to create is the movie\_users table. It is very simple, but it needs to be created before the watchlist table so that you can access the user ID. The watchlist table has a foreign key, user\_id, that will link it to the movie\_users table and allow different users to have their own unique lists.
 
 1. In the Page Designer tab in your browser, click the dropdown next to SQL Workshop in the top navigation bar, hover over Utilities, and select **Quick SQL**. 
@@ -58,7 +61,7 @@ The first table you need to create is the movie\_users table. It is very simple,
 
 10. Now you will add an Application ID and Application Process, which will capture a user's email when they log in and assign them an ID so that you can keep track of their unique watchlist.
 
-## Task 2: Creating the Application Item and Process
+## Task 2: Create the Application Item and Process
 To store data within the movie\_users database, you will use an application process. The process grabs the user email when they log in and if they are a new user, it adds them to a local table, assigning them an ID. The ID of the current user is also stored in the application item, which will be needed when a user adds, removes, or updates items in their watchlist.
 
 1. Click on **App Builder** in the top APEX toolbar.
@@ -141,7 +144,7 @@ To store data within the movie\_users database, you will use an application proc
 
 12. Next, you'll set up a new table using Quick SQL to store all of a user's movies that they add to their list.
 
-## Task 3: Creating the Watchlist Table
+## Task 3: Create the Watchlist Table
 Finally, you will need a table to store some basic movie information in addition to the user information. This is what will display and be the source for the My Watchlist page.
 
 1. In the toolbar at the top of your APEX workspace, click the dropdown next to SQL Workshop, hover over Utilities, and select **Quick SQL**.
@@ -196,6 +199,8 @@ Finally, you will need a table to store some basic movie information in addition
 
 11. Now you will set up your Back, Add, Remove, and Mark Watched buttons.
 
+You now know how to use Quick SQL to define new tables, and create application items and processes to store information and at specific points in your app. You may now **proceed to the next lab**.
+
 ## Resources
 
 - [Tour of SQL Workshop](https://www.youtube.com/watch?v=bdglHoq-Hbs)  
@@ -205,10 +210,16 @@ Finally, you will need a table to store some basic movie information in addition
 ## Stuck? Download the Application Here
 Stuck on a step or struggling with the lab? You can download a copy of the Movies Watchlist application through Lab 5 and follow the instructions below to import it into your Oracle APEX workspace.
 
-- [Click here](./files/lab5-3.sql) to download a copy of the app at the end of Lab 5.
+- [Click here](./files/lab5.sql) to download a copy of the app at the end of Lab 5.
 
 - You can import Lab 5 to your APEX workspace by clicking **Import** in the App Builder home page and following the wizard steps.
 
-- If you have not previously imported Lab 4, follow the instructions in the <a href="?lab=creating-movie-details-page#Stuck?DownloadtheApplicationHere" target="_blank">Stuck?</a> section of Lab 4 to provide credentials for the Movie Details REST source.
+- When the install wizard prompts you for Credentials, follow the instructions in the <a href="?lab=creating-movie-details-page#Stuck?DownloadtheApplicationHere" target="_blank">Stuck?</a> section of Lab 4 to update the API key for the Movie Details REST source.
 
-- Follow the instructions in the <a href="?lab=creating-rest-sources#Stuck?DownloadtheApplicationHere" target="_blank">Stuck?</a> section of Lab 2 to update the Popular and Search Movies API keys.
+- Follow the instructions in the <a href="?lab=creating-movie-search-page#Stuck?DownloadtheApplicationHere" target="_blank">Stuck?</a> section of Lab 3 to update the Popular and Search Movies API keys.
+
+## Acknowledgments
+
+- **Author** - Paige Hanssen
+- **Additional Contributors** - Kay Jasanya, Shakeeb Rahman, Steve Muench, Monica Godoy, Eli Feuerstein, Carlos Maciel, Dalia Vazquez
+- **Last Updated By/Date** - Paige Hanssen, March 2022

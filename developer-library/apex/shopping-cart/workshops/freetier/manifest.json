@@ -1,13 +1,13 @@
 {
-  "workshoptitle": "Build a Starter Online Shopping App in 60 mins with Oracle APEX!",
+  "workshoptitle": "Build a Starter Online Shopping App with Oracle APEX!",
   "help": "livelabs-help-db_us@oracle.com",
     "tutorials": [
       {
         "title": "Introduction",
         "filename": "../../intro/intro.md"
-      },      
+      },
       {
-        "title": "Getting Started",
+        "title": "Get Started",
         "filename": "../../../common/1-sign-up-apex/1-sign-up-apex.md"
       },
       {

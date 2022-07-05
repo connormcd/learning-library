@@ -1,11 +1,13 @@
 # Detect Data Tampering with the CHECKSUM Function
 
 ## Introduction
+
 This lab shows how to use the `CHECKSUM` aggregate function to detect changes in a table. The function can be applied on a column, a constant, a bind variable, or an expression involving them. All datatypes except ADT and JSON are supported. The order of the rows in the table does not affect the result.
 
 Estimated Lab Time: 15 minutes
 
 ### Objectives
+
 In this lab, you will:
 <if type="dbcs">
   * Setup the environment
@@ -18,27 +20,27 @@ In this lab, you will:
   * Examine data after tampering
 </if>
 
-
 ### Prerequisites
+
 <if type="dbcs">
-* An Oracle Free Tier, Paid or LiveLabs Cloud Account
-* Lab: SSH Keys
-* Lab: Create a DBCS VM Database
-* Lab: 21c Setup
+* An Oracle Free Tier, Paid or Cloud Account
+* SSH Keys
+* Create a DBCS VM Database
+* 21c Setup
 </if>
 <if type="atp">
 * An Oracle Always Free/Free Tier, Paid or LiveLabs Cloud Account
-* Lab: Provision Oracle Autonomous Database
-* Lab: Setup
+* Provision Oracle Autonomous Database
+* Setup
 </if>
 
 <if type="dbcs">
+
 ## Task 1: Set up the environment
 
 1. Execute the `/home/oracle/labs/M104784GC10/setup_SH_tables.sh` shell script to create and load `SH.SALES` and `SH.TIMES` tables.
 
     ```
-
     $ <copy>cd /home/oracle/labs/M104784GC10</copy>
     $ <copy>/home/oracle/labs/M104784GC10/setup_SH_tables.sh</copy>
     ...
@@ -124,11 +126,13 @@ In this lab, you will:
     PL/SQL procedure successfully completed.
 
     SQL>
-
     ```
+
 </if>
 <if type="atp">
+
 ## Task 1: Login to SQL Developer Web on Oracle Autonomous Database
+
 There are multiple ways to access your Autonomous Database.  You can access it via sqlplus or by using SQL Developer Web.  To access it via sqlplus, skip to [Step 1B](#STEP1B:LogintoADBusingSQLPlus).
 
 1.  If you aren't still logged in, login to your Oracle Autonomous Database screen by clicking on the navigation menu and selecting the Autonomous Database flavor you selected (Oracle Autonomous Transaction Processing, Oracle Autonomous Data Warehouse, or Oracle Autonomous JSON Database). Otherwise skip to the next step.
@@ -142,16 +146,21 @@ There are multiple ways to access your Autonomous Database.  You can access it v
 4.  Click on the **Tools** tab, select **Database Actions**, a new browser will open up.
       ![](../set-operators/images/tools.png " ")
 
-5.  Login with the *admin* user, click **Next**.  Enter the password *WElcome123##* 
+5.  Login with the *admin* user, click **Next**.  Enter the password *WElcome123##*
+
 6.  Enter the username *admin* and password *WElcome123##*
+
 7.  Click on the **SQL** button.
 
 ## Task 1B: Login to Oracle Autonomous Database using SQL Plus
+
 1.  Open up Cloud Shell below if it isn't already open
+
 2.  Connect to the OE user using sqlplus by entering the commands below.
     ```
-	conn admin/WElcome123##@adb1_high
-	```
+  	conn admin/WElcome123##@adb1_high
+  	```
+
 </if>
 
 ## Task 2: Examine data before tampering
@@ -159,12 +168,13 @@ There are multiple ways to access your Autonomous Database.  You can access it v
 1. At the end of each month and fiscal period, for legislative reasons, there is an audit table that stores what was sold. Verify the amount sold at the end of fiscal year 1998.
 
 <if type="dbcs">
-    ```
 
+    ```
     $ <copy>sqlplus system@PDB21</copy>
 
     Enter password: <b><i>WElcome123##</i></b>
     ```
+
     ```  
     SQL> <copy>SET PAGES 100</copy>
 
@@ -191,6 +201,7 @@ There are multiple ways to access your Autonomous Database.  You can access it v
     12400 rows selected.
     SQL>
     ```
+
 </if>
 <if type="atp">
 
@@ -199,12 +210,12 @@ There are multiple ways to access your Autonomous Database.  You can access it v
       JOIN sh.times t ON (s.time_id = t.time_id)
       WHERE fiscal_month_number = 12 AND fiscal_year = 1998;</copy>
     ```
+
 </if>
 
 2. Before storing the data for auditing, note the `CHECKSUM` value. This will help you ensure that no one is tampering with old sales.
 
     ```
-
       SQL> <copy>
       SELECT CHECKSUM(amount_sold) FROM sh.sales s
       JOIN sh.times t ON (s.time_id = t.time_id)
@@ -215,13 +226,15 @@ There are multiple ways to access your Autonomous Database.  You can access it v
                     793409
 
       SQL>
-
     ```
+
 <if type="atp">
       ![](./images/checksum.png " ")
 
 3. If you aren't logged into the cloud, log back in
-4. Open up Cloud Shell 
+
+4. Open up Cloud Shell
+
 5. Connect to the ADMIN user using sqlplus by entering the commands below.
 
     ```
@@ -231,12 +244,12 @@ There are multiple ways to access your Autonomous Database.  You can access it v
     UPDATE sh.sales SET amount_sold = amount_sold*2 WHERE time_id='30-NOV-98';
 
 	  ```
+
 </if>
 
 3.  Meanwhile in another terminal session, called SH session, someone executes a batch that updates the amount sold.
 
     ```
-
     $ <copy>/home/oracle/labs/M104784GC10/app_SH_tables.sh</copy>				  
     Copyright (c) 1982, 2020, Oracle.  All rights reserved.
     Last Successful login time: Wed Mar 25 2020 03:20:17 +00:00
@@ -246,23 +259,19 @@ There are multiple ways to access your Autonomous Database.  You can access it v
     Commit complete.
 
     $
-
     ```
 
 ## Task 3: Examine data after tampering
 
 1. In the initial terminal session, check that no one tampered with old sales.
 
-
     ```
-
     $ <copy>sqlplus system@PDB21</copy>
 
     Enter password: <b><i>WElcome123##</i></b>
     ```
 
     ```
-
     SQL> <copy>SELECT CHECKSUM(amount_sold) FROM sh.sales s
             JOIN sh.times t ON (s.time_id = t.time_id)
             WHERE fiscal_month_number = 12 AND fiscal_year = 1998;</copy>
@@ -272,16 +281,13 @@ There are multiple ways to access your Autonomous Database.  You can access it v
                   835564
 
     SQL>
-
     ```
 
   Since the checksum value is different from the value retrieved in step 4, someone tampered the data.
 
 2. What happens if someone attempted to tamper with old sales? In the SH session, update some old sales but then rolls the transaction back.
 
-
     ```
-
     $ <copy>sqlplus sh@PDB21</copy>
 
     Copyright (c) 1982, 2020, Oracle.  All rights reserved.
@@ -289,6 +295,7 @@ There are multiple ways to access your Autonomous Database.  You can access it v
     Last Successful login time: Wed Mar 25 2020 03:28:37 +00:00
     Connected to:
     ```
+
     ```
 
     SQL> <copy>UPDATE sh.sales SET amount_sold = amount_sold*2 WHERE time_id='30-NOV-98';</copy>
@@ -298,14 +305,11 @@ There are multiple ways to access your Autonomous Database.  You can access it v
     Rollback complete.
 
     SQL>
-
     ```
 
 3. In the initial terminal session, check that no one tampered with old sales.
 
-
     ```
-
     SQL> <copy>SELECT CHECKSUM(amount_sold) FROM sh.sales s
         JOIN sh.times t ON (s.time_id = t.time_id)
         WHERE fiscal_month_number = 12 AND fiscal_year = 1998;</copy>
@@ -315,16 +319,13 @@ There are multiple ways to access your Autonomous Database.  You can access it v
                   835564
 
     SQL>
-
     ```
 
   The checksum value for the column is still the same as it was before the rolled back update.
 
 4. Verify also the quantity sold at the end of fiscal year 1998 and the checksum value.
 
-
     ```
-
     SQL> <copy>SELECT DISTINCT quantity_sold FROM sh.sales s
         JOIN sh.times t ON (s.time_id = t.time_id)
         WHERE fiscal_month_number = 12 AND fiscal_year = 1998;</copy>
@@ -334,11 +335,9 @@ There are multiple ways to access your Autonomous Database.  You can access it v
                 1
 
     SQL>
-
     ```
 
   As you can see, the quantity sold for any sales is one.
-
 
     ```
 
@@ -356,9 +355,7 @@ There are multiple ways to access your Autonomous Database.  You can access it v
 
   The checksum value is 0 which is not a distinguishable value from another quantity value.
 
-
   What if you use the `DISTINCT` (or `UNIQUE`- `UNIQUE` is an Oracle specific keyword and not an ANSI standard)?
-
 
     ```
 
@@ -371,14 +368,11 @@ There are multiple ways to access your Autonomous Database.  You can access it v
                             863352
 
     SQL>
-
     ```
 
 5. In the SH session, double the quantity for all sales.
 
-
     ```
-
     SQL> <copy>UPDATE sh.sales SET quantity_sold = 2;</copy>
 
     918843 rows updated.
@@ -388,11 +382,9 @@ There are multiple ways to access your Autonomous Database.  You can access it v
     Commit complete.
 
     SQL>
-
     ```
 
 6. In the initial terminal session, check that no one tampered with old sales.
-
 
     ```
 
@@ -405,11 +397,9 @@ There are multiple ways to access your Autonomous Database.  You can access it v
                         0
 
     SQL>
-
     ```
 
     The checksum value for the column is still the same as it was before the committed update.
-
 
     ```
 
@@ -505,10 +495,8 @@ There are multiple ways to access your Autonomous Database.  You can access it v
     ```
     *Be aware that NULL values in `CHECKSUM` column are ignored in external tables.*
 
-You may now [proceed to the next lab](#next).
-
-
 ## Acknowledgements
+
 * **Author** - Donna Keesling, Database UA Team
 * **Contributors** -  David Start, Kay Malcolm, Database Product Management
 * **Last Updated By/Date** - Arabella Yao, Product Manager, Database Product Management, December 2021

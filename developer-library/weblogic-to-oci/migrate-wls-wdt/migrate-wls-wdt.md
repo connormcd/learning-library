@@ -394,14 +394,21 @@ appDeployments:
 
 1. Delete all lines except for the `JDBC.JDBCConnection.PasswordEncrypted=` line, as these pertain to the `domainInfo` and `topology` sections we deleted from the `source.yaml`.
 
-2. Enter the JDBC Connection password for the `RIDERS` user pdb: `Nge29v2rv#1YtSIS#`.
+2. Enter the JDBC Connection password for the `RIDERS` user pdb.
 
-  Although the name is `PasswordEncrypted`, enter the plaintext password and WebLogic will encrypt it when updating the domain.
+    This can be found with
+    ```bash
+    <copy>
+    cat /u01/app/oracle/gen_env.sh | grep DS_
+    </copy>
+    ```
 
-  The resulting file should look like:
+   Although the name is `PasswordEncrypted`, enter the plaintext password and WebLogic will encrypt it when updating the domain.
+
+   The resulting file should look like:
 
     ```yaml
-    JDBC.JDBCConnection.PasswordEncrypted=Nge29v2rv#1YtSIS#
+    JDBC.JDBCConnection.PasswordEncrypted=<PDB_PASSWORD>
     ```
 
 3. Save the file with `CTRL+x` and `y`.
@@ -431,10 +438,9 @@ The `update_domain_as_oracle_user.sh` script runs the **WebLogic Deploy Tooling*
     ```
 2. Provide the `TARGET_WLS_ADMIN`.
 
-    This is the **WebLogic Admin Server public IP** gather previously if you deployed in a **Public Subnet**
-    or the **Admin Server Private IP** if you deployed in a **Private subnet**
+    This is the **Admin Server Private IP**
 
-3. If you deployed in a **Private Subnet**, you also need to provide a `BASTION_IP` which is the **public IP** of the Bastion Instance.
+3. You also need to provide a `BASTION_IP` which is the **public IP** of the Bastion Instance.
 
     Furthermore, you'll need to add a **NAT gateway** to the admin server subnet so it is possible to download the required software.
 

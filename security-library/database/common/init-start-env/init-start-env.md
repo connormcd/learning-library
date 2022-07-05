@@ -11,9 +11,9 @@ In this lab we will review and startup all components required to successfully r
 
 ### Prerequisites
 This lab assumes you have:
-- A Free Tier, Paid or LiveLabs Oracle Cloud account
+- An Oracle Cloud account
 - You have completed:
-    - Lab: Prepare Setup (*Free-tier* and *Paid Tenants* only)
+    - Lab: Prepare Setup 
     - Lab: Environment Setup
 
 ## Task 1: Validate That Required Processes are Up and Running.
@@ -105,7 +105,7 @@ This lab assumes you have:
         </copy>
         ```
 
-You may now [proceed to the next lab](#next).
+You may now **proceed to the next lab**.
 
 ## Appendix 1: Managing Startup Services
 
@@ -196,4 +196,4 @@ If for any reason you want to login from a location that is external to your rem
 ## Acknowledgements
 - **Author** - Rene Fontcha, LiveLabs Platform Lead, NA Technology
 - **Contributors** - Hakim Loumi
-- **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, September 2021
+- **Last Updated By/Date** - Marion Smith, Technical Program Manager, April 2022

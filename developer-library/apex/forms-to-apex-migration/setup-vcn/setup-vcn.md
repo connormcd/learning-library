@@ -55,7 +55,7 @@ To create a VCN on Oracle Cloud Infrastructure:
     ![Review Configuration](images/setupVCN4.png)
 
 
-6. Press the **Create** button to create the VCN. I will take a moment to create the VCN and a progress screen will keep you apprised of the workflow.
+6. Press the **Create** button to create the VCN. It will take a moment to create the VCN and a progress screen will keep you apprised of the workflow.
 
     ![Workflow](images/workflow.png)
 
@@ -72,5 +72,5 @@ This VCN will contain all of the other assets that you will create during this s
 
 - **Author** -  Vanitha Subramanyam, Senior Solution Architect
 - **Contributors** - Abhinav Jain, Staff Cloud Engineer, Sakthikumar Periyasamy Senior Cloud Engineer, Nayan Karumuri Staff Cloud Engineer
-- **Last Updated By/Date** - Vanitha Subramanyam, Senior Solution Architect, December 2020
+- **Last Updated By/Date** - Andres Quintana, March 2022
 

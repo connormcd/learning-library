@@ -1,0 +1,27 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I create one table from another table including data?",
+         "description": "",
+         "filename": "sprint-create-tablefromother.md"
+      },
+      {
+         "title": "How do I create user and grant access to database actions?",
+         "description": "",
+         "filename": "../sprint-adb-dbactions/sprint-adb-dbactions.md"
+      },
+      {
+         "title": "How can I grant common privileges to individual database users?",
+         "description": "",
+         "filename": "../sprint-grant-privileges/sprint-grant-privileges.md"
+      },
+      {
+         "title": "How can I grant another user access to view tables?",
+         "description": "",
+         "filename": "../sprint-adb-tableaccess/sprint-adb-tableaccess.md"
+      }
+   ],
+   "task_type": "Sections"
+}

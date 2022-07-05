@@ -6,7 +6,7 @@ If you're a technical professional and you would like to broaden your skillset w
 
 Without a doubt you've heard about the potential of this new field. There are many proven applications throughout industries and business functions, and many new cases are still waiting to be discovered. For the professional this means that there's an enormous opportunity to ride this wave of innovation.
 
-In this workshop we will start with the necessary theory on Data Science and Machine Learning. Therefore, no previous knowledge is required. After the theory we'll move to a product overview and you will get the chance to practice with various products in Oracle Cloud, for example OCI Data Science, Oracle Machine Learning (in-database), Oracle Analytics Cloud and Graph.
+In this workshop we will start with the necessary theory on Data Science and Machine Learning. Therefore, no previous knowledge is required. After the theory we'll move to a product overview and you will get the chance to practice with various products in Oracle Cloud, for example OCI Data Science, Oracle Machine Learning (in-database), Oracle Analytics Cloud and the AI Services.
 
 The target audience are people without previous Data Science experience that would like to get started with this new field, for example:
 - Application developers that would like to add ML to their applications or business flows.
@@ -25,7 +25,7 @@ In this workshop you will:
 * Learn to use OCI Data Science
 * Learn to use Oracle Machine Learning (in-database)
 * Learn to use Oracle Analytics Cloud (specifically ML features)
-* Learn how Graph database is related to ML
+* Learn how to use ready-made AI Services
 * Learn how to integrate ML into an application (operationalize your results)
 
 ### Prerequisites
@@ -37,17 +37,20 @@ In this workshop you will:
 
 In this video you  will learn the theory behind Data Science and Machine Learning that you'll need to do the labs. It covers important concepts, the Data Science process and Machine Learning principles.
 
-[](youtube:aN9jYva3B3M)
+[](youtube:zcOZ-tqZgWw)
 
 ## Product Overview
 
 You will be introduced to Oracle Cloud and gain a high level overview of the products involved in Data Science and Machine Learning. You will learn at a high level about OCI Data Science, Oracle Machine Learning, "Bring Your Own" images on OCI and Oracle Analytics Cloud.
 
-[](youtube:lnsqix1UdpQ)
+[](youtube:UDB9EDuc55o)
+
+## Full workshop recording
+
+The following is a full recording of the workshop (includes the videos above).
+[](youtube:iAA6NlVDEBM)
 
 [Proceed to the next section](#next).
 
 ## Acknowledgements
-* **Authors** - Jeroen Kloosterman - Product Strategy Manager - Oracle Digital, Lyudmil Pelov - Consulting Solution Architect - A-Team Cloud Solution Architects, Fredrick Bergstrand - Sales Engineer Analytics - Oracle Digital, Hans Viehmann - Group Manager - Spatial and Graph Product Management
-* **Last Updated By/Date** - Jeroen Kloosterman, Oracle Digital, Jan 2021
-
+* **Authors** - Jeroen Kloosterman - Product Strategy Director, Lyudmil Pelov - Senior Principal Product Manager

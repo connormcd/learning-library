@@ -88,7 +88,7 @@ This lab covers the use of database languages and features to work with JSON dat
 
 3.  Test access to the external web service – in this case countryInfo web service from GeoNames. Copy and run the following script in your SQL Developer Web worksheet. The URL_HTTP package in Autonomous Database supports only HTTPS requests with an SSL wallet for added security.
 
-    Note: Remember to replace ***&YourGeoNameUsername*** with the username of your account on GeoNames, or fill in your username in the popup dialog.
+    Note: Remember to replace **[YourGeoNameUsername]** with the username of your account on GeoNames, or fill in your username in the popup dialog.
 
     ````
     <copy>
@@ -101,7 +101,7 @@ This lab covers the use of database languages and features to work with JSON dat
     begin  
          UTL_HTTP.SET_WALLET('');
 
-    t_http_req:= utl_http.begin_request('https://secure.geonames.org/countryInfoJSON?formatted=true&' || 'lang=en&' || 'country=ES&' || 'username=&YourGeoNameUsername&' || 'style=full','GET','HTTP/1.1');
+    t_http_req:= utl_http.begin_request('https://secure.geonames.org/countryInfoJSON?formatted=true&' || 'lang=en&' || 'country=ES&' || 'username=[YourGeoNameUsername]&' || 'style=full','GET','HTTP/1.1');
     UTL_HTTP.SET_HEADER(t_http_req, 'User-Agent', 'Mozilla/4.0');
     t_http_resp:= utl_http.get_response(t_http_req);
     UTL_HTTP.read_text(t_http_resp, t_response_text);
@@ -198,7 +198,7 @@ The return value for a dot-notation query is always a string (data type VARCHAR2
 The objective for our lab is to retrieve information about castles in Europe, and use them as JSON documents in different scenarios. Imagine you are starting the development of a new mobile application that provides recommendations for tourists.  For convenience and comfort, we can encapsulate the communication with a web service into a function. This way, we don’t have to write all the code required for a simple request, which in most of the cases is even more complicated than our simple example here, because they require a more complex authentication.
 
 
-1.  Run this script to create a function to get country information from the GeoNames web service  *Note: Remember to replace ***&YourGeoNameUsername*** with the username of your account on GeoNames, or fill in your username in the popup dialog.*
+1.  Run this script to create a function to get country information from the GeoNames web service  *Note: Remember to replace **[YourGeoNameUsername]** with the username of your account on GeoNames, or fill in your username in the popup dialog.*
 
     ````
     <copy>
@@ -278,7 +278,7 @@ The objective for our lab is to retrieve information about castles in Europe, an
 
     ![](./images/p_jsonDoc_5.png " ")
 
-7.  In both cases, we can see that Spain geonameId is 2510769. This value will be used in the following steps.  A new function is required to retrieve JSON documents with country regions information from GeoNames web service. This function requires the  **geonameId** of the country, and a style value used internally by GeoNames web service to specify the level of details. *Note: Remember to replace ***&YourGeoNameUsername*** with the username of your account on GeoNames, or fill in your username in the popup dialog.*
+7.  In both cases, we can see that Spain geonameId is 2510769. This value will be used in the following steps.  A new function is required to retrieve JSON documents with country regions information from GeoNames web service. This function requires the  **geonameId** of the country, and a style value used internally by GeoNames web service to specify the level of details. *Note: Remember to replace **[YourGeoNameUsername]** with the username of your account on GeoNames, or fill in your username in the popup dialog.*
 
     ````
     <copy>

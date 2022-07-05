@@ -1,0 +1,54 @@
+{
+    "workshoptitle": "MySQL Enterprise Edition - Implementation Essentials Bootcamp",
+    "include": {"starter-file.sql":"../../data-load/files/starter-file.sql",
+                "sample.json":"../../data-load/files/sample.json",
+                "step2.md":"../../data-load/files/step2.md"},
+    "help": "livelabs-help-**enterarea**_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "Introduction",
+            "description": "The Introduction is always first. The title and contents menu title match for the Introduction.",
+            "filename": "../../introduction/introduction.md"
+        },
+        {
+            "title": "Lab 1: Setup",
+            "description": "Setup",
+            "filename": "../../setup/setup.md"
+        },
+        {
+            "title": "Lab 2: Install - MySQL Enterprise Edition",
+            "description": "Install - MySQL Enterprise Edition",
+            "filename": "../../install-ee/install-ee.md"
+        },
+        {
+            "title": "Lab 3: Install - Veirify MySQL Enterprise Edition ",
+            "description": "Install - Veirify MySQL Enterprise Edition",
+            "filename": "../../install-verify-ee/install-verify-ee.md"
+        },
+        {
+            "title": "Lab 4: Security - MySQL Users",
+            "description": "Security - MySQL Users",
+            "filename": "../../security-user/security-user.md"
+        },
+        {
+            "title": "Lab 5: Security - MySQL Enterprise Audit",
+            "description": "Security - MySQL Enterprise Audit",
+            "filename": "../../security-audit/security-audit.md"
+        },
+        {
+            "title": "Lab 6: Security - MySQL Enterprise Transparent Data Encryption (TDE)",
+            "description": "Security - MySQL Enterprise Transparent Data Encryption (TDE)",
+            "filename": "../../security-tde/security-tde.md"
+        },
+        {
+            "title": "Lab 7: Addemdum",
+            "description": "Addemdum",
+            "filename": "../../addendum/addendum.md"
+        },
+        {
+            "title": "Need Help?",
+            "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+            "filename":"https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-freetier.md"
+        }
+    ]
+}

@@ -2,7 +2,7 @@
 
 This tutorial introduces you to Oracle Cloud Infrastructure Data Flow, a service that lets you run any Apache Spark Application  at any scale with no infrastructure to deploy or manage. If you've used Spark before, you'll get more out of this tutorial, but no prior Spark knowledge is required. All Spark applications and data have been provided for you. This tutorial shows how Data Flow makes running Spark ETL (Extract Transform and Load) application easy, repeatable, secure, and simple to share across the enterprise.
 
-Estimated time: 15 minutes
+Estimated time: 2.5 hours
 
 ## Oracle Cloud infrastructure Data Flow
 
@@ -48,10 +48,4 @@ Here’s why Data Flow is better than running your own Spark clusters, or other 
 ## Acknowledgements
 
 - **Author** - Anand Chandak
-- **Adapted by** -  
 - **Last Updated By/Date** - Anand Chandak, Feb 2021
-
-## Need Help?
-Please submit feedback or ask for help using our [LiveLabs Support Forum](https://community.oracle.com/tech/developers/categories/oracle-cloud-infrastructure-fundamentals). Please click the **Log In** button and login using your Oracle Account. Click the **Ask A Question** button to the left to start a *New Discussion* or *Ask a Question*.  Please include your workshop name and lab name.  You can also include screenshots and attach files.  Engage directly with the author of the workshop.
-
-If you do not have an Oracle Account, click [here](https://profile.oracle.com/myprofile/account/create-account.jspx) to create one.

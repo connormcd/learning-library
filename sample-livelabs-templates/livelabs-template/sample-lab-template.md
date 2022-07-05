@@ -58,7 +58,7 @@ This lab assumes you have:
 
 5. Example with bold **text**.
 
-   If you add another paragraph, add 3 spaces before the line.
+  If you add another paragraph, add 3 spaces before the line.
 
 ## Task 2: <what is the action in this step>
 

@@ -3,7 +3,7 @@
 ## Introduction
 This lab will show you how to login to your pre-created compute instance running on Oracle Cloud.
 
-*Estimated Lab Time*: 10 minutes
+*Estimated Time*: 10 minutes
 
 ### Objectives
 In this lab, you will:
@@ -93,7 +93,7 @@ Your options are:
 
 If you are unable to ssh in, check out the troubleshooting tips below.
 
-You may now [proceed to the next lab](#next).
+You may now proceed to the next lab.
 
 ## Task 2B: Connect via MAC or Windows CYGWIN Emulator
 Depending on your workshop, you may need to connect to the instance via a secure shell client (SSH). If you're instructed in the next lab(s) to execute tasks via an SSH terminal, review the options below and select the one that best meet your needs.
@@ -107,7 +107,7 @@ Depending on your workshop, you may need to connect to the instance via a secure
     ```
     ![](./images/em-mac-linux-ssh-login.png " ")
 
-You may now [proceed to the next lab](#next).
+You may now proceed to the next lab.
 
 ## Task 2C: Connect via Windows using Putty
 On Windows, you can use PuTTY as an SSH client. PuTTY enables Windows users to connect to remote systems over the internet using SSH and Telnet. SSH is supported in PuTTY, provides for a secure shell, and encrypts information before it's transferred.
@@ -143,7 +143,7 @@ On Windows, you can use PuTTY as an SSH client. PuTTY enables Windows users to c
 1.  In the category section, **Click** session.
 2.  In the saved sessions section, name your session, for example ( EM13C-ABC ) and **Click** Save.
 
-You may now [proceed to the next lab](#next).
+You may now proceed to the next lab.
 
 ## Appendix: Troubleshooting Tips
 
@@ -179,5 +179,5 @@ To use PuTTYgen to convert a key into .ppk format, complete the following steps:
 
 ## Acknowledgements
 * **Author** - Rene Fontcha, LiveLabs Platform Lead, NA Technology
-* **Contributors** - LiveLabs Team, Tom McGinn
+* **Contributors** - LiveLabs Team 
 * **Last Updated By/Date** - LiveLabs Team, May 2021

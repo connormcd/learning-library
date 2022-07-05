@@ -48,6 +48,7 @@ This workshop requires a certain number of ports to be available, a requirement 
 | Port           |Description                            |
 | :------------- | :------------------------------------ |
 | 22             | SSH                                   |
+| 80             | NGINX proxy for NoVNC                 |
 | 1521           | Database Listener                     |
 | 3000           | Node JS Application                   |
 | 3001           | Node JS Application                   |

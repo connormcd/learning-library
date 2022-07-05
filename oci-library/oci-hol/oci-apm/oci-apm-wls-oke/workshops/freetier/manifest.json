@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Use OpenTracing for WebLogic on Kubernetes utilizing Oracle Application Performance Monitoring",
+  "workshoptitle": "Monitor Traces for Oracle WebLogic Server on Kubernetes Using Oracle Application Performance Monitoring",
 	"help": "livelabs-help-em_us@oracle.com",
     "tutorials": [
         {
@@ -33,7 +33,7 @@
             "filename": "../../04-configure-apm-agent/configure-apm-agent.md"
         },
         {
-            "title": "Lab 5: Change the display name of the spans",
+            "title": "Lab 5: Change the display name format of the spans",
             "description": "Change the display name of the spans",
             "filename": "../../05-change-displayname/change-displayname.md"
         },

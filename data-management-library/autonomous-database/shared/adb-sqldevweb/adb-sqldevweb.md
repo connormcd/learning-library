@@ -30,7 +30,7 @@ You will run a basic query on the `SSB` data set which is a 1 terabyte data set 
 
 Although you can connect to your Oracle Autonomous Database using local PC desktop tools like Oracle SQL Developer, you can conveniently access the browser-based SQL Worksheet directly from your ADW or ATP console.
 
-1.  If you are not logged in to Oracle Cloud Console, log in and select **Autonomous Data Warehouse** from the navigation menu and navigate into your ADW Finance Mart instance.
+1.  If you are not logged in to Oracle Cloud Console, log in and select **Autonomous Data Warehouse** from the navigation menu, make sure you are in the right compartment where you ADW is provisioned and navigate into your ADW Finance Mart instance.
 
     ![Oracle Home page left navigation menu.](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/database-adw.png " ")
 

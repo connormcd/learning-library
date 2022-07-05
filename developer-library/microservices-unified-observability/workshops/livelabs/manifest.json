@@ -13,7 +13,7 @@
       },
       {
         "title": "Lab 1: Setup",
-        "filename": "../../setup/setup-gb.md"
+        "filename": "../../../microservices-with-converged-db/setup/setup-gb.md"
       },
       {
         "title": "Lab 2: Deploy and Test Data-centric Microservices Application",
@@ -21,32 +21,27 @@
         "type": "livelabs"
       },
       {
-        "title": "Lab 3: Enable Observability with Database Metrics, Logs Exporters",
-        "filename": "../../../microservices-with-converged-db/observability/observability.md",
+        "title": "Lab 3: Unified Observability",
+        "filename": "../../observability/observability.md",
         "type": "livelabs"
       },
       {
-        "title": "Lab 4: Configure Alert Channel",
+        "title": "Lab 4: (Optional) Configure Alert Channel",
         "filename": "../../configure-alert-channel/configure-alert-channel.md",
         "type": "livelabs"
       },
       {
-        "title": "Lab 5: Diagnosability and Debugging Use Case",
-        "filename": "../../diagnosability-usecase/diagnosability-usecase.md",
-        "type": "livelabs"
-      },
-      {
-        "title": "Lab 6: Performance Analysis Use Case",
+        "title": "Lab 5: Performance Analysis Use Case",
         "filename": "../../performance-usecase/performance-usecase.md",
         "type": "livelabs"
       },
       {
-        "title": "Lab 7: Better Understand and Modify Metrics, Logging, and Tracing",
+        "title": "Lab 6: Better Understand and Modify Metrics, Logging, and Tracing",
         "filename": "../../extended-usage/extended-usage.md",
         "type": "livelabs"
       },
       {
-        "title": "Lab 8: Tear down",
+        "title": "Lab 7: Tear down",
         "filename": "../../../microservices-with-converged-db/teardown/teardown.md",
         "type": "livelabs"
       },

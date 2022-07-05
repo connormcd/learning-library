@@ -1,4 +1,4 @@
-# Setup Compute Instance
+# Set up compute instance
 
 ## Introduction
 
@@ -6,11 +6,11 @@ This lab will show you how to setup a compute instance running a pre-configured 
 
 Estimated Time:  25 minutes
 
-Quick walk through on how to set up your compute instance.
+Quick walk-through on how to set up your compute instance.
 
-[](youtube:O79UmNZwrWE)
+[Quick walk-through on how to set up compute instance](youtube:O79UmNZwrWE)
 
-*Note: The OCI Cloud Service Console navigation may look different then what you see in the video as it is subject to change.*
+>**Note:** The OCI Cloud Service Console navigation may look different then what you see in the video as it is subject to change.
 
 ### About Terraform and Oracle Cloud Resource Manager
 For more information about Terraform and Resource Manager, please see the appendix below.
@@ -27,91 +27,106 @@ This lab assumes you have:
 - An Oracle Free Tier or Paid Cloud account
 - SSH Keys
 
-## Task 1: Setup Stack
+## Task 1: Set up Stack
 If you already have a VCN created, skip this step and proceed to *STEP 3*.
 
-1.  Click on the link below to download the Resource Manager zip file you need to build your environment.  
-    - [livelabs-db19ccompute-0812.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/iO4PFcWBTMu5tTmocKSYw2zFv-ruHik0VGQSRTdr80A1So8UTWGf7Ggl02f4UKuN/n/c4u04/b/labfiles/o/livelabs-db19ccompute-0812.zip) - Packaged terraform instance creation script for creating instance running the 19c Oracle Database
+1.  Click on the link below to download the Resource Manager zip file you need to build your environment.
+    - [livelabs-db19ccompute-0812.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/jyHA4nclWcTaekNIdpKPq3u2gsLb00v_1mmRKDIuOEsp--D6GJWS_tMrqGmb85R2/n/c4u04/b/livelabsfiles/o/labfiles/livelabs-db19ccompute-0812.zip) - Packaged terraform instance creation script for creating instance running the 19c Oracle Database
 2.  Save in your downloads folder.
 3.  Login to your Oracle Cloud account.
 4.  Click the **Navigation Menu** in the upper left, navigate to **Developer Services**, and select **Stacks**.
 
-	![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/developer-resmgr-stacks.png " ")
+	![Stacks](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/developer-resmgr-stacks.png " ")
 
 5. Click **Create Stack**.
-    ![](./images/create-stack.png " ")
+    ![Create Stack](./images/create-stack.png " ")
 
-6.  Select **My Configuration**, choose the **.ZIP FILE** button, click the **Browse** link and select the zip file (livelabs-db19ccompute-0812.zip) that you downloaded. Click **Select**.
+6.  Select **My Configuration**, choose the **.zip file** button, click the **Browse** link and select the zip file (livelabs-db19ccompute-0812.zip) that you downloaded. Click **Select**.
 
-   ![](./images/zip-file.png " ")
+   ![Select Zip File](./images/zip-file.png " ")
 
 7. Enter the name of your choice.  We suggest livelabs19c.  Click **Next**.
-   ![Create a stack](images/workshop-001.png " ")
+   ![Enter name of stack](images/stack-name.png " ")
 8. Accept the region and select your compartment.  Select an **availability domain** from the drop down.
-   ![Create a stack](images/workshop-002.png " ")
+   ![Select availability domain](images/availability-domain.png " ")
 9. Paste the SSH key you created in the previous lab.
-   ![Create a stack](images/workshop-003.png " ")
-10. Scroll down and select the **VMStandard.E2.4**.  *Note: Make sure you select the 2.4 version.  It has enough memory to run the database 19c binaries*
-    ![Create a stack](images/workshop-004.png " ")
+   ![Paste SSH key](images/paste-ssh-key.png " ")
+10. Scroll down and select the **VMStandard.E2.4**.
+    >**Note:** Make sure you select the 2.4 version.  It has enough memory to run the database 19c binaries*
+    ![Select VMStandard.E2.4](images/select-vm.png " ")
 11. Accept the network and click **Next**.
-    ![Create a stack](images/workshop-005.png " ")
+    ![Click Next](images/next.png " ")
 12. Review the details and click **Create**.
-    ![Create a stack](images/workshop-006.png " ")
+    ![Create stack](images/create.png " ")
 
 ## Task 2: Run Stack Apply Job
 
 1. Select **Apply**
-    ![Create a stack](images/workshop-007.png " ")
+    ![Select Apply](images/apply.png " ")
 2. Select **Apply**
-    ![Create a stack](images/workshop-008.png " ")
+    ![Apply job](images/apply-job.png " ")
 3. Resource Manager will begin creating the components needed for this workshop.
-    ![Create a stack](images/workshop-009.png " ")
+    ![Wait for Resource Manager](images/apply-job-in-progress.png " ")
 4. Inspect the log, you will notice that 8 resources were created including the compute instance.
-   ![Create a stack](images/workshop-010.png " ")
-   ![Create a stack](images/workshop-11.png " ")
+   ![Apply Job Succeeded](images/apply-job-succeeded.png " ")
+   ![Inspect log](images/logs.png " ")
 
-*Note:  If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix. 
+>**Note:** If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix.
 
-## Task 3: Gather compute instance details
+## Task 3: Gather Compute Instance Details
 1. Click the **Navigation Menu** in the upper left, navigate to **Compute**, and select **Instances**.
 
-	![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/compute-instances.png " ")
+	![Compute Instances](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/compute-instances.png " ")
 
 2. Look for the instance you just created and jot down the public IP address.
-    
-    ![Create a stack](images/workshop-012.png " ")
 
-## Task 4: Connect to your instance
+    <if type="freetier">
+    If you are running the workshop on your own tenancy, the instance you just created is *Workshop*.
+    ![Instance Public IP](images/instance-public-ip.png " ")
+
+    Otherwise, you will see the screen as below:
+    </if>
+
+    ![Instance Public IP](images/livelabs-instance-public-ip.png " ")
+
+## Task 4: Connect to Your Instance
 
 There are multiple ways to connect to your cloud instance.  Choose the way to connect to your cloud instance that matches the SSH Key you generated.  *(i.e If you created your SSH Keys in cloud shell, choose cloud shell)*
 
 - Oracle Cloud Shell
 - MAC or Windows CYCGWIN Emulator
 - Windows Using Putty
-  
+
 ### Oracle Cloud Shell
 
-1. To re-start the Oracle Cloud shell, go to your Cloud console and click the cloud shell icon to the right of the region.  *Note: Make sure you are in the region you were assigned*
+1. Go to **Compute** -> **Instances** and select the instance you created (make sure you choose the correct compartment).
+	![Instances](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/compute-instances.png " ")
 
-    ![](./images/cloudshell.png " ")
+2. On the instance homepage, find the Public IP address for your instance.
 
-2.  Go to **Compute** -> **Instances** and select the instance you created (make sure you choose the correct compartment)
-3.  On the instance homepage, find the Public IP address for your instance.
+    ![Instance Public IP](images/livelabs-instance-public-ip.png " ")
 
-    ![](./images/db19c-freetier-step5-1.png " ")
-4.  Enter the command below to login to your instance.    
+3. To re-start the Oracle Cloud shell, go to your Cloud console and click the cloud shell icon to the right of the region.
+
+	![Cloud Shell](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/cloud-shell.png " ")
+
+    >**Note:** Make sure you are in the region you were assigned.
+
+    ![Cloud Shell](./images/cloudshell.png " ")
+
+4.  Enter the command below to login to your instance.
     ````
     ssh -i ~/.ssh/<sshkeyname> opc@<Your Compute Instance Public IP Address>
     ````
 
-    *Note: The angle brackets <> should not appear in your code.*
+    >**Note:** The angle brackets <> should not appear in your code.
 5.  When prompted, answer **yes** to continue connecting.
 
-    ![Create a stack](images/workshop-013.png " ")      
+    ![SSH to instance](images/ssh.png " ")
 
-6.  Continue to the *next Step* on the left hand menu.
+6.  Continue to the **next Task** on the left hand menu.
 
-*Note:  If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix. 
+>**Note:**  If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix.
 
 ### MAC or Windows CYGWIN Emulator
 1.  Go to **Compute** -> **Instances** and select the instance you created (make sure you choose the correct compartment)
@@ -122,59 +137,52 @@ There are multiple ways to connect to your cloud instance.  Choose the way to co
     ````
     ssh -i ~/.ssh/<sshkeyname> opc@<Your Compute Instance Public IP Address>
     ````
-    ![](./images/cloudshellssh.png " ")
 
-    ![](./images/cloudshelllogin.png " ")
+    ![SSH into instance](./images/ssh-first-time.png " ")
 
-    *Note: The angle brackets <> should not appear in your code.*
+    >**Note:** The angle brackets <> should not appear in your code.
 
-4.  After successfully logging in, proceed to the *next Step* on the left hand menu.
+4.  After successfully logging in, proceed to the **next Task** on the left hand menu.
 
-*Note:  If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix. 
+>**Note:** If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix.
 
-### Windows using Putty
+### Windows using PuTTY
 
-1.  Open up putty and create a new connection.
-
-    ````
-    ssh -i ~/.ssh/<sshkeyname> opc@<Your Compute Instance Public IP Address>
-    ````
-    ![](./images/ssh-first-time.png " ")
-
-    *Note: The angle brackets <> should not appear in your code.*
+1.  Open the PuTTY utility from the Windows start menu and create a new connection. In the dialog box, enter the IP address of your OCI Compute Instance. This can be obtained from the **OCI Console > Compute > Instances > Instance Details** screen.
 
 2.  Enter a name for the session and click **Save**.
 
-    ![](./images/putty-setup.png " ")
+    ![Session name](./images/putty-setup.png " ")
 
-3. Click **Connection** > **Data** in the left navigation pane and set the Auto-login username to root.
+3. Click **Connection** > **Data** in the left navigation pane and set the **Auto-login username** to **root**.
 
-4. Click **Connection** > **SSH** > **Auth** in the left navigation pane and configure the SSH private key to use by clicking Browse under Private key file for authentication.
+4. Click **Connection** > **SSH** > **Auth** in the left navigation pane and configure the SSH private key to use by clicking **Browse** under *Private key file for authentication*.
 
-5. Navigate to the location where you saved your SSH private key file, select the file, and click Open.  NOTE:  You cannot connect while on VPN or in the Oracle office on clear-corporate (choose clear-internet).
+5. Navigate to the location where you saved your SSH private key file, select the file, and click Open.
+    >**Note:**  You cannot connect while on VPN or in the Oracle office on clear-corporate (choose clear-internet).
 
-    ![](./images/putty-auth.png " ")
+    ![Open private SSH key](./images/putty-auth.png " ")
 
-6. The file path for the SSH private key file now displays in the Private key file for authentication field.
+6. The file path for the SSH private key file now displays in the *Private key file for authentication* field.
 
-7. Click Session in the left navigation pane, then click Save in the Load, save or delete a stored session STEP.
+7. Click **Session** in the left navigation pane, then click Save in the Load, save or delete a stored session STEP.
 
-8. Click Open to begin your session with the instance.
+8. Click **Open** to begin your session with the instance.
 
-*Note:  If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix. 
+>**Note:** If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix.
 
-## Task 5: Verify the ORCL database is up
+## Task 5: Verify the ORCL Database is up
 
 Once you deploy your compute instance, tail the log to determine when the database has been configured and is available for use.
-1.  From your connected session of choice **tail** the last 10 lines of the **dbsingle.log** file.  This file configures the database.  
+1.  From your connected session of choice **tail** the last 10 lines of the **dbsingle.log** file.  This file configures the database.
     ````
     <copy>
     tail -10 /u01/ocidb/buildsingle1.log
     </copy>
     ````
-    ![](./images/workshop-014.png " ")
+    ![Result of Tail 10](./images/tail.png " ")
 
-*Note:  If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix. 
+    >**Note:** If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix.
 
 2. Run the following command to verify the database with the SID **ORCL** is up and running
 
@@ -183,7 +191,7 @@ Once you deploy your compute instance, tail the log to determine when the databa
     ps -ef | grep ORCL
     </copy>
     ````
-    ![](./images/pseforcl.png " ")
+    ![Verify database ORCL is up and running](./images/pseforcl.png " ")
 
 3. Verify the listener is running
     ````
@@ -192,7 +200,7 @@ Once you deploy your compute instance, tail the log to determine when the databa
     </copy>
     ````
 
-    ![](./images/pseftns.png " ")
+    ![Verify listener](./images/pseftns.png " ")
 
 4. Switch to the oracle user.
       ````
@@ -201,7 +209,7 @@ Once you deploy your compute instance, tail the log to determine when the databa
     </copy>
     ````
 
-    ![](./images/sudo-oracle.png " ")
+    ![Switch to oracle user](./images/sudo-oracle.png " ")
 
 5.  Set the environment variables to point to the Oracle binaries.  When prompted for the SID (Oracle Database System Identifier), enter **ORCL**.
     ````
@@ -210,42 +218,42 @@ Once you deploy your compute instance, tail the log to determine when the databa
     </copy>
     ORCL
     ````
-    ![](./images/oraenv.png " ")
+    ![Set environment](./images/oraenv.png " ")
 
-6.  Login using SQL*Plus as the **oracle** user.  
+6.  Login using SQL*Plus as the **oracle** user.
 
     ````
     <copy>
     sqlplus system/Ora_DB4U@localhost:1521/orclpdb
     </copy>
     ````
-    ![](./images/sqlplus.png " ")
-*Note:  If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix. 
+    ![Login using SQL*Plus](./images/sqlplus.png " ")
+    >**Note:** If you encounter any errors with this step, please see the Troubleshooting Tips in the appendix.
 
 7.  Exit the sqlplus session and switch back to the opc user.  Verify that you are now the opc user.
 
-    ```` 
+    ````
     SQL> <copy>exit
     </copy>
     ````
 
-    ```` 
-    [oracle@server ~]$ <copy>exit
+    ````
+    [oracle@workshop ~]$ <copy>exit
     whoami
     </copy>
     ````
-    ![](./images/whoami.png " ")
-    
-Congratulations!  You now have a fully functional Oracle Database 19c instance (ORCL) running on Oracle Cloud Compute.  
+    ![who am i](./images/whoami.png " ")
 
-You may now [proceed to the next lab](#next).
+Congratulations!  You now have a fully functional Oracle Database 19c instance (ORCL) running on Oracle Cloud Compute.
+
+You may now **proceed to the next lab**.
 
 ## Appendix:  Teraform and Resource Manager
 Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently.  Configuration files describe to Terraform the components needed to run a single application or your entire datacenter.  In this lab a configuration file has been created for you to build network and compute components.  The compute component you will build creates an image out of Oracle's Cloud Marketplace.  This image is running Oracle Linux 7.
 
 Resource Manager is an Oracle Cloud Infrastructure service that allows you to automate the process of provisioning your Oracle Cloud Infrastructure resources. Using Terraform, Resource Manager helps you install, configure, and manage resources through the "infrastructure-as-code" model. To learn more about OCI Resource Manager, take a watch the video below.
 
-[](youtube:udJdVCz5HYs)
+[OCI Resource Manager](youtube:udJdVCz5HYs)
 
 ### Oracle Cloud Marketplace
 The Oracle Cloud Marketplace is a catalog of solutions that extends Oracle Cloud services.  It offers multiple consumption modes and deployment modes.  In this lab we will be deploying the free Oracle Enterprise Manager 13c Workshop marketplace image.
@@ -276,7 +284,7 @@ There may be several reasons why you can't login to the instance.  Here are some
 
 
 ### Issue 2: Invalid public key
-![](images/invalid-ssh-key.png  " ")
+![Invalid SSH key](images/invalid-ssh-key.png  " ")
 
 #### Issue #2 Description
 When creating your SSH Key, if the key is invalid the compute instance stack creation will throw an error.
@@ -292,10 +300,10 @@ When creating your SSH Key, if the key is invalid the compute instance stack cre
 5.  Click **Terraform Actions** -> **Apply**
 
 ### Issue 3: Limits Exceeded
-![](images/no-quota.png  " ")
+![Limit Exceeded](images/no-quota.png  " ")
 
 #### Issue #3 Description
-When creating a stack your ability to create an instance is based on the capacity you have available for your tenancy. 
+When creating a stack your ability to create an instance is based on the capacity you have available for your tenancy.
 
 #### Fix for Issue #3
 If you have other compute instances you are not using, you can go to those instances and delete them.  If you are using them, follow the instructions to check your available usage and adjust your variables.
@@ -320,21 +328,19 @@ If you have other compute instances you are not using, you can go to those insta
 When tailing the log, the database creation seems stuck.
 
 #### Issue #4 Description
-Database creation requires at least 30GB of memory.  
+Database creation requires at least 30GB of memory.
 
 #### Fix for Issue #4
 1.  Click on Compute -> Instance and verify that your instance created was VMStandard.E2.4 and higher.  If you chose 2.2 or a smaller shape, the instance creation will fail, you will need to rerun your stack and recreate your instance.  The instance has run out of memory and won't be able to create
 2.  A known issue has been identified that the create script may take longer, if it has been over 2 hours, please submit an issue.
-  
+
 ### Issue 5: Apply job is stuck in provisioning state
-When the apply job is running certain browsers may not reflect the correct state
+When the apply job is running certain browsers may not reflect the correct state.
 
 #### Fix for Issue #5
 Reload your browser
 
-
 ## Acknowledgements
-- **Author** - LiveLabs Team, Senior Director, DB Product Management
-- **Contributors** - Sanjay Narvekar, Troy Anthony, Anoosha Pilli, Arabella Yao, Jeffrey Malcolm Jr.
-- **Last Updated By/Date** - Kamryn Vinson, June 2021
-
+- **Author** - LiveLabs Team
+- **Contributors** - Sanjay Narvekar, Troy Anthony, Anoosha Pilli, Arabella Yao, Kamryn Vinson, Jeffrey Malcolm Jr.
+- **Last Updated By/Date** - Arabella Yao, May 2022

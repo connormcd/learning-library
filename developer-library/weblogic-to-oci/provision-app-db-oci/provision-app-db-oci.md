@@ -161,7 +161,7 @@ In this section we will create a security list for the WebLogic subnet to be abl
 
     ```
     <copy>
-    YpdCNR6nua4nahj8__
+    <Your password with 9 to 30 characters: 2 upper, 2 lower, 2 numbers, 2 special characters (#_-)>
     </copy>
     ```
 

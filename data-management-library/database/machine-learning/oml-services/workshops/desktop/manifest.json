@@ -1,0 +1,51 @@
+{
+  "workshoptitle": "Oracle Machine Learning REST Services Workshop",
+  "help": "livelabs-help-db_us@oracle.com",
+  "tutorials": [
+    {
+      "title": "Introduction",
+      "description": "Introduction",
+      "filename": "./../../introduction/introduction.md"
+    },
+    {
+    "title": "Lab 1: Understand Use Case",
+    "description": "Understand the Customer Insurance dataset used in the lab excercises.",
+    "filename": "./../../../use-case/use-case.md"
+    },
+    {
+    "title": "Lab 2: Get Started with noVNC Remote Desktop",
+    "description": "Using noVNC Remote Desktop",
+    "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/remote-desktop/using-novnc-remote-desktop.md"
+    },
+    {
+    "title": "Lab 3: Load and Prepare Data",
+    "description": "Load and Prepare Data",
+    "filename": "./../../preparation/preparation.md"
+    },
+    {
+      "title": "Lab 4: Create models using OML Notebook and AutoML UI",
+      "description": "Create models using OML Notebook and AutoML UI",
+      "filename": "./../../oml-notebook-and-automl-ui/oml-notebook-and-automl-ui.md"
+    },
+    {
+      "title": "Lab 5: Score Data using OML Services",
+      "description": "Score Data using OML Services",
+      "filename": "./../../scoring-oml-using-rest-services/scoring-oml-using-rest-services.md"
+    },
+    {
+      "title": "Lab 6: Store an OML model and score it using OML Services",
+      "description": "Storing an OML model and score it using OML Services REST API",
+      "filename": "./../../loading-oml-model-and-using-rest-srvices/loading-oml-model-and-using-rest-srvices.md"
+    },
+    {
+      "title": "Lab 7: Store an ONNX model and score it using OML Services",
+      "description": "Store an ONNX model and score it using OML Services REST API",
+      "filename": "./../../loading-onnx-model-and-using-with-rest-services/loading-onnx-model-and-using-with-rest-services.md"
+    },
+	  {
+      "title": "Need Help?",
+      "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-freetier.md"
+    }
+  ]
+}

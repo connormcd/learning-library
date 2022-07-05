@@ -22,7 +22,6 @@ To successfully complete this lab, you must have:
 * The URL and log in credentials for the Oracle GoldenGate Service Manager
 * The log in credentials for the OCI GoldenGate Deployment Console
 
-
 ## Task 1A: Using Chrome to Download the Root Certificate
 
 > **Note:** *Mac users should follow Task 1B and use FireFox to download the root certificate.*

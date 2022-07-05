@@ -1,0 +1,39 @@
+{
+  "workshoptitle": "Simplify Microservices with converged Oracle Architecture",
+  "help": "livelabs-help-db_us@oracle.com",
+	"tutorials": [
+      {
+        "title": "Introduction",
+        "filename": "../../intro/intro.md"
+      },
+      {
+        "title": "Getting started",
+        "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
+      },
+      {
+        "title": "Lab 1: Setup",
+        "filename": "../../setup/setup.md"
+      },
+      {
+        "title": "Lab 2: Deploy the Grabdish Application",
+        "filename": "../../deploy-grabdish/deploy-grabdish.md"
+      },
+      {
+        "title": "Lab 3: Walkthrough the Grabdish Functionality Implemented in PL/SQL",
+        "filename": "../../walkthrough-plsql/walkthrough-plsql.md"
+      },
+      {
+        "title": "Lab 4: Switch to the MLE JavaScript Microservice Implementation",
+        "filename": "../../walkthrough-js/walkthrough-js.md"
+      },
+      {
+        "title": "Lab 5: Tear down",
+        "filename": "../../teardown/teardown.md"
+      },
+      {
+        "title": "Need Help?",
+        "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+        "filename":"https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-freetier.md"
+      }
+    ]
+}

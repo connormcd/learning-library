@@ -62,8 +62,14 @@ In this lab, you will:
 
 2. Fill Display and Database name details:
 
-    - **Display name**: atpworkshop
-    - **Database name**: atpworkshop
+    - **Display name**: 
+        ```
+        <copy>atpworkshop</copy>
+        ```
+    - **Database name**: 
+        ```
+        <copy>atpworkshop</copy>
+        ```
 
 3. Make sure you select **Transaction Processing** and **Shared Infrastructure**.
 
@@ -89,7 +95,7 @@ In this lab, you will:
 
     ![ATP Creation](./images/atp_creation_3.png)
 
-6. After few seconds you will have your new Autonomous Database up and running.
+6. After few seconds you will have your new Autonomous Database up and **running**.
 
     Look around the details and get familiar with the buttons and tabs on this page.
 
@@ -105,4 +111,4 @@ You may now [proceed to the next lab](#next).
 
 - **Author** - Victor Martin - Technology Product Strategy Manager, Priscila Iruela - Technology Product Strategy Director
 - **Contributors** - Melanie Ashworth-March
-- **Last Updated By/Date** - Kamryn Vinson, October 2020
+- **Last Updated By/Date** - KPriscila Iruela, June 2022

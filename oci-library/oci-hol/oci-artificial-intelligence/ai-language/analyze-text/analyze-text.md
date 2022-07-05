@@ -3,7 +3,7 @@
 ## Introduction
 In this session, we will help users to get familiar with our OCI Language and teach them to use our services via the cloud console.
 You can use one or more of these text analysis tools to analyze your text with the Language service:
-- Aspect-Based Sentiment Analysis
+- Sentiment Analysis
 - Named Entity Recognition
 - Key Phrase Extraction
 - Language Detection
@@ -74,12 +74,7 @@ Below are some of the examples for the text:
     <copy>In 2020 people worldwide moved to working remotely because of the COVID-19 pandemic. As a result, collaborative tools like video conferencing, email and chat have become critical, as they allow employees to perform their jobs from home. </copy>
     ```
 
-### 3: Select the text analysis tools
-
-Select one or more of the text analysis tools to analyze your text with the Language service:
-    ![](./images/lang-services.png " ")
-
-### 4: Click Analyze
+### 3: Click Analyze
 
 You can analyze text by clicking Analyze button.
     ![](./images/analyze-button.png " ")
@@ -95,17 +90,17 @@ After you analyze your text, the Language service displays the results by catego
 
 ### 1: Sentiment Analysis
 
-Renders the results in horizontal bar graphs as a percentage.
+Renders the document level, aspect based and sentence level sentiment with score.
     ![](./images/sentiment-result.png " ")
 
 ### 2: Named Entity Recognition
 
-Identifies the named entities that were found and their categories are indicated in square brackets.
+Identifies the named entities that were found and their categories are indicated.
     ![](./images/ner-result.png " ")
 
 ### 3: Key Phrase Extraction
 
-Lists the key phrases in a double-quotes delimited list.
+Lists the key phrases detected from the text.
     ![](./images/kpe-result.png " ")
 
 ### 4: Language Detection
@@ -137,4 +132,4 @@ Congratulations on completing this lab!
     * Rajat Chawla  - Oracle AI Services
     * Ankit Tyagi -  Oracle AI Services
 * **Last Updated By/Date**
-    * Srijon Sarkar  - Oracle AI Services, September 2021
+    * Rajat Chawla  - Oracle AI Services, February 2021

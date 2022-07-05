@@ -1,0 +1,1 @@
+This is the screenshot of the network access settings. It has the setting "Allow Secure access from everywhere" selected. 

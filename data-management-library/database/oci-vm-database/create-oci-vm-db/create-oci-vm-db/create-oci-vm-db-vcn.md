@@ -15,7 +15,7 @@ Estimated Lab Time: 35 minutes
 
 ### Prerequisites
 
-* An Oracle Free Tier, Always Free, Paid or LiveLabs Cloud Account
+* An Oracle Account
 * SSH Keys
   
 ## Task 1: Create a Virtual Cloud Network instance
@@ -98,7 +98,7 @@ Fortunately, Oracle Cloud Infrastructure provides a wizard that simplifies the c
 
 4. On the resources tab, click **Nodes** to gather your IP address. Note your Public IP Address
 
-  ![](images/vm-db-ip.png " ")
+  ![](images/vm-db.png " ")
 
 5. In Cloud Shell or your terminal window, navigate to the folder where you created the SSH keys and enter this command, using your IP address:
 
@@ -149,5 +149,5 @@ Error:  Renderable Exception From Internal-API.You have reached your service lim
 * [Oracle Cloud Infrastructure: Connecting to a DB System](https://docs.cloud.oracle.com/en-us/iaas/Content/Database/Tasks/connectingDB.htm)
 
 ## Acknowledgements
-* **Author** - Tom McGinn, Learning Architect, Database User Assistance
-* **Last Updated By/Date** - Arabella Yao, Product Manager, Database Product Management, December 2021
+* **Author** - Kay Malcolm, Database Product Management
+* **Last Updated By/Date** - Madhusudhan Rao, Apr 2022

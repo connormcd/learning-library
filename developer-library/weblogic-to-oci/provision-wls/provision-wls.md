@@ -116,21 +116,8 @@ Prepared OCI tenancy with:
 
   If you were to migrate from an on-premises domain connected via VPN or FastConnect, you would want to make sure the CIDR block does not conflict with the local network.
 
-17. *In this workshop, we are offering 2 options:*
+17. We'll provision WebLogic in a Private Subnet: admin and managed servers will not be accessible directly from the internet. The admin server will be accessible through a bastion host, and the managed servers will only be accessible through a Public Load Balancer (this is the most likely production scenario, but involves extra complexity in setting up tunnels and resources. + 15 minutes).
 
-    - Provision Weblogic in a Public Subnet: admin and managed server will be accessible directly from the internet (simpler, recommended if you are on Windows as there is no need for tunneling to the instances).
-
-    - Provision WebLogic in a Private Subnet: admin and managed servers will not be accessible directly from the internet. The admin server will be accessible through a bastion host, and the managed servers will only be accessible through a Public Load Balancer (this is the most likely production scenario, but involves extra complexity in setting up tunnels and resources. + 15 minutes).
-
-    *To provision in a Public subnet*, **Keep the defaults for subnets** as-is:
-
-    The stack will create the subnets for us.
-
-    ![](./images/provision-19-subnets.png " ")
-
-    *To provision in a Private subnet*:
-
-    - Select **Use Private Subnet**.
     - Select a **Bastion Host Shape**.
 
     ![](./images/private-subnet.png " ")
@@ -140,7 +127,7 @@ Prepared OCI tenancy with:
 
   ![](./images/provision-20-lb2.png " ")
 
-  Note: If you chose to provision in a **Private Subnet** you will get an option to use a **Private Load Balancer**. Keep it **Unchecked**.
+  Keep the option for **Private Load Balancer** **Unchecked**.
 
 20. Keep IDCS **unchecked**.
 
@@ -176,18 +163,7 @@ Once the stack is provisioned, you can find the information regarding the URL an
 
 1. Go to **Outputs** (or you can find the same information at the bottom of the logs).
 
-- *If you provisioned in a **Public Subnet***, you should see something like the following:
-
-  ![](./images/provision-27.png " ")
-
-
-    - Make a note of the **WebLogic Admin Server Public IP address** from the **WebLogic Admin Server Console URL** for later use.
-
-    - Make a note of the **Load Balancer IP** for later use.
-
-  You can copy/paste the **WebLogic Admin Console URL** in your browser and explore the provisioned WebLogic domain. You should find that there are no applications in **deployments** and no data sources in the **service->datasources** menu.
-
-- *If you provisioned in a **Private Subnet***, you should see something like the following:
+- *As you provisioned in a **Private Subnet***, you should see something like the following:
 
   ![](./images/provision-28.png " ")
 

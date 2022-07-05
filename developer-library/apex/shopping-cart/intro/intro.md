@@ -38,8 +38,8 @@ In this lab, you will:
 | 6 | [Create the Shopping Cart Page](?lab=6-creating-shopping-cart) | 20 min |
 | 7 | [Create the Add to Cart Page](?lab=7-creating-add-to-cart-page) | 20 min |
 | 8 | [Improve the Products Page](?lab=8-improving-products) | 20 min |
-| 9 | [Improve the Application](?lab=9-improving-app) | 10 min |
-| 10 | [Terminate Oracle Autonomous Database Instance](?lab=terminate-adb) | 5 min |
+| 9 | [Improve the Application](?lab=9-improving-app) | 10 min |<if type="odbw">
+| 10 | [Terminate Oracle Autonomous Database Instance](?lab=terminate-adb) | 5 min |</if>
 
 ### **Let's Get Started!**
 
@@ -47,8 +47,8 @@ In this lab, you will:
 
 ### Downloads
 
-- [Download the application](https://objectstorage.us-ashburn-1.oraclecloud.com/p/fMM4HD8nK2lIO5AW0Cms3Ycaew-FYd4xxvZzKMJobKK1qpk3Ybc1_SS-wIHa_3A_/n/c4u04/b/developer-library/o/shopping-cart-app.sql). To run the app, please run the steps described in Lab 1, 2, and 3.
-- [Download images for your application](https://objectstorage.us-ashburn-1.oraclecloud.com/p/yzrA6TXcjR6Py4wSmKbvtz3ar8lmjAP7XSwNhTDCgN1XbvX8RXdaa4yNCHyGdn89/n/c4u04/b/developer-library/o/products-images.zip). 
+- [Download the application](https://objectstorage.us-ashburn-1.oraclecloud.com/p/LNAcA6wNFvhkvHGPcWIbKlyGkicSOVCIgWLIu6t7W2BQfwq2NSLCsXpTL9wVzjuP/n/c4u04/b/livelabsfiles/o/developer-library/shopping-cart-app.sql). To run the app, please run the steps described in Lab 1, 2, and 3.
+- [Download images for your application](https://objectstorage.us-ashburn-1.oraclecloud.com/p/LNAcA6wNFvhkvHGPcWIbKlyGkicSOVCIgWLIu6t7W2BQfwq2NSLCsXpTL9wVzjuP/n/c4u04/b/livelabsfiles/o/developer-library/products-images.zip). 
 
 ## Learn More - *Useful Links*
 

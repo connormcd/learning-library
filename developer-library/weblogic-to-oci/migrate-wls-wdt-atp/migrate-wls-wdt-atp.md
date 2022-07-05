@@ -398,16 +398,21 @@ appDeployments:
 
 1. Delete all lines except for the `JDBC.JDBCConnection.PasswordEncrypted=` line, as these pertain to the `domainInfo` and `topology` sections we deleted from the `source.yaml`.
 
-2. Enter the JDBC Connection password for the `RIDERS` user: `Nge29v2rv#1YtSIS#`.
+2. Enter the JDBC Connection password for the `RIDERS` user pdb.
 
-  Although the name is `PasswordEncrypted`, enter the plaintext password and WebLogic will encrypt it when updating the domain.
+    The password for the RIDERS user from the source DB can be found with
+    ```bash
+    <copy>
+    cat /u01/app/oracle/gen_env.sh | grep DS_
+    </copy>
+    ```
 
-  The resulting file should look like the follwoing (with the default wallet password):
+   Although the name is `PasswordEncrypted`, enter the plaintext password and WebLogic will encrypt it when updating the domain.
+
+   The resulting file should look like:
 
     ```yaml
-    <copy>
-    JDBC.JDBCConnection.PasswordEncrypted=Nge29v2rv#1YtSIS#
-    </copy>
+    JDBC.JDBCConnection.PasswordEncrypted=<PDB_PASSWORD>
     ```
 
 4. Save the file with `CTRL+x` and `y`.

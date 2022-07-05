@@ -80,5 +80,5 @@ This completes Lab 3. You now know how to utilize **apex\_data\_parser** and **a
 
 * **Author** \- Salim Hlayel\, Principle Product Manager
 * **Contributors** \- Jaden McElvey\, Technical Lead \- Oracle LiveLabs Intern
-* **Last Updated By/Date** \- Tom McGinn\, Database Innovations Architect\, Product Management\, July 2020
+* **Last Updated By/Date** \- Madhusudhan Rao, Apr 20220
 

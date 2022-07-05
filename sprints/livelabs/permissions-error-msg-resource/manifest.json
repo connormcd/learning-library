@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "I get an error message that I don\u2019t have permission to view the resource in the LiveLabs reservation?",
+         "description": "",
+         "filename": "./permissions-error-msg-resource.md"
+      },
+      {
+         "title": "I get an unauthorized message while accessing Cloud Shell; what do I do?",
+         "description": "",
+         "filename": "../cloud-shell-unauthorized-error/cloud-shell-unauthorized-error.md"
+      }
+   ],
+   "task_type": "Sections"
+}

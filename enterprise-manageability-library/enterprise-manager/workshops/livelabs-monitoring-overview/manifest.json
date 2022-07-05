@@ -8,9 +8,9 @@
       "filename": "./../../intro/intro-monitoring-overview.md"
     },
     {
-      "title": "Lab 1: Environment Setup",
+      "title": "Lab 1: Verify Compute Instance Setup",
       "description": "Verify Setup of compute instance",
-      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/verify-compute/verify-compute-novnc.md"
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/verify-compute/verify-compute-ssh-and-novnc.md"
     },
     {
       "title": "Lab 2: Initialize Environment",

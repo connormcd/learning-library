@@ -1,9 +1,14 @@
-# Wordpress
+# Install WordPress
 
-## WordPress Installation
+## Introduction
 
-## Install WordPress in your Oracle Linux instance
+This lab will guide you hot to install Wordpress
 
+## Objectives
+
+* Install WordPress in your Oracle Linux instance
+
+## Task 1: Install WordPress and setup
 
 1. From your SSH enabled terminal, SSH to the Oracle Linux instance where wordpress will be installed.
 
@@ -29,13 +34,13 @@ curl -O https://wordpress.org/latest.tar.gz
 sudo tar zxf latest.tar.gz -C /var/www/html/ --strip 1
 ```
 
-4. Adjust ownership
+4. Adjust directories and files ownership
 
 ```
 sudo chown apache. -R /var/www/html/
 ```
 
-5. Create upload directory, adjust ownership. 
+5. Create upload directory and adjust its ownership.
 
 ```
 sudo mkdir /var/www/html/wp-content/uploads
@@ -45,7 +50,7 @@ sudo chown apache:apache /var/www/html/wp-content/uploads
 6. Adjust SE Linux
 
 ```
-chcon -t httpd_sys_rw_content_t /var/www/html -R
+sudo chcon -t httpd_sys_rw_content_t /var/www/html -R
 ```
 
 6. Allow Apache to connect to an external database.
@@ -75,25 +80,27 @@ GRANT ALL PRIVILEGES ON wordpress.* To wordpress;
 
 11. Fill the following information:
 
-|Field | Name |
-| --- | --- |
-| Database Name database you created for WordPress
-| Username Your database username
-| Password Your database password
-| Database HostMDS IP address
-| Table Prefixleave as is. only need to change if multiple WordPress running on the same database
+* Database Name database you created for WordPress: *wordpress* (replace with a different value if you changed)
+* Username Your database username : *wordpress* (replace with a different value if you changed)
+* Password Your database password: *ComplexPass0rd!* (replace with a different value if you changed)
+* Database Host MDS IP address: *<MDS end point IP>*
+* Table Prefixleave as is. It is only need to change if multiple WordPress running on the same database
 
 12. Click **Run the installation**
 
-13. Fill the following information in the welcvome screen
+13. Fill the following information in the welcome screen
 
-|||
-|---|---|
-| Site Title WordPress site title
-| Username WordPresss admin
-| Password *WordPresss admin password*
-| Your Email your email
+* Site Title: *WordPress site title*
+* Username: *WordPresss admin*
+* Password *WordPresss admin password*
+* Your Email: *your email*
 
 14. Click **Install WordPress**
  	
 15. From a browser access http://*instance public IP*/wp-login.php and star managing your new WP installation
+
+## Acknowledgements
+
+* **Author** - Perside Foster, MySQL Solution Engineering, Orlando Gentil, Principal Training Lead and Evangelist
+* **Contributors** - Frédéric Descamps, MySQL Community Manager
+* **Last Updated By/Date** - Perside Foster, MySQL Solution Engineering, March 2022

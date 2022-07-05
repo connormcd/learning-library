@@ -195,5 +195,5 @@ This completes Lab 7 and the workshop. You now know how to create a Shared Compo
 
  - **Author** -  Salim Hlayel, Principle Product Manager
  - **Contributors** - Arabella Yao, Product Manager Intern, DB Product Management
- - **Last Updated By/Date** - Tom McGinn, Database Innovations Architect, Product Management, July 2020
+ - **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

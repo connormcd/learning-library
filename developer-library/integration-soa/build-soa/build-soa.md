@@ -12,7 +12,7 @@ The business has indicated a new credit card fraud detection system must be put 
 
 The validate payment solution will look as the following from an architectural perspective:
 
-  ![](./images/Paymentvalidation.png " ")
+  ![Validate payment solution Architecture](./images/Paymentvalidation.png " ")
 
 *Estimated Lab Time*: 90 minutes
 
@@ -55,20 +55,20 @@ To make sure of the templates, please follow the steps below:
 2. As the templates used for the labs have been unpacked into the `/home/opc/e2e-1201-orderprocessing/templates/`, we will add this directory to the list of folders that are scanned for templates.
 3. In the main JDeveloper menu, please go to `Tools --> Preferences`.
 
-    ![](./images/jdev-preferences.png " ")
+    ![JDeveloper Preferences](./images/jdev-preferences.png " ")
 
 4. In the Preferences window, go to `SOA --> Templates`. (If you do not see ‘SOA’ in the preferences, then you could create a new application, or open an existing one. This will load up SOA libraries, SOA preference will show up).
 
-    ![](./images/jdev-preferences2.png " ")
+    ![Import SOA templates](./images/jdev-preferences2.png " ")
 
 5. Click the `+` button, to add folder.
 6. Navigate to `/home/opc/e2e-1201-orderprocessing/templates/`.
 
-    ![](./images/soa-preferences1.png " ")
+    ![e2e-1201-orderprocessing templates](./images/soa-preferences1.png " ")
 
 7. Click Select to accept your choice.
 
-   ![](./images/soa-preferences2.png " ")
+   ![Click OK](./images/soa-preferences2.png " ")
 
 8. Click OK to close the Preferences window.
 
@@ -78,13 +78,13 @@ Create a new SOA application and project. There are various ways and shortcuts t
 1. From the Categories tree, click on `General > Applications`.
 2. Select SOA Application from the Items field.
 
-   ![](./images/soa-app1.png " ")
+   ![Create New SOA Application](./images/soa-app1.png " ")
 
 3. Click OK.
 4. In the subsequent dialog for Create SOA Application, set the following fields, leaving the others with their default values:
       - Application Name: `e2e-1201-composites`
       - Directory of your choice, as shown below
-   ![](./images/validatepymnt11.png " ")
+   ![Create SOA Application window](./images/validatepymnt11.png " ")
 
 5. Click Next.
 
@@ -93,18 +93,18 @@ Create a new SOA application and project. There are various ways and shortcuts t
       - Keep the default Directory
       - Project Features: SOA Suite
 
-   ![](./images/validatepymnt12.png " ")
+   ![Create SOA Application window](./images/validatepymnt12.png " ")
 
 7. Click Next.
 8. The next step is to pick a ‘Standard Composite’, or a ‘SOA Template’. Choose ‘SOA Template’.
 
-   ![](./images/validatepymnt13.png " ")
+   ![Select Validatepayment template](./images/validatepymnt13.png " ")
 
 9. Select “ValidatePaymentTemplate”. Click Finish.
 
 A new project “ValidatePayment” is created with some predefined components as derived from the template. A canvas displaying three swim lanes: services, components, and references; shown below
 
-   ![](./images/validatepymnt14.png " ")
+   ![JDev Canvas displaying three swim lanes](./images/validatepymnt14.png " ")
 
 On the left hand side, you will see the Application Navigator, which shows all resources included in a SOA project. This Navigator has been reorganized in SOA Suite 12c to make it easier to find all files related to SOA, and also to provide the option to customize the folder structure.
 
@@ -116,7 +116,7 @@ The composite.xml, which defines the structure of the composite, is located dire
 
 In SOA Suite 12c, the project name is displayed in the navigator and in the composite tab label. It is displayed as ValidatePayment here.
 
-![](./images/validatepymnt15.png " ")
+![Project Navigator](./images/validatepymnt15.png " ")
 
 1. The SOA folder has a number of subfolders with default names, which hold common SOA artifacts viz. BPEL, XML schemas, WSDL files, transformation-related files and events.
 
@@ -124,7 +124,7 @@ You will see new subfolders created when creating new components. The structure 
 
 2. The composite diagram is shown here:
 
-![](./images/validate-payment-composite.png " ")
+![composite diagram](./images/validate-payment-composite.png " ")
 
 The External References swim lane contains the getpaymentInformation database adapter.
 
@@ -142,42 +142,43 @@ The Java DB is an embedded database inside JDeveloper 12c. The embedded weblogic
 
 The database adapter getpaymentInformation will connect to the SOA database. In order to do that, it needs a connection which contains all the details needed to connect to the database. The template does not carry the connection information – it leverages the connection(s) configured for the application.
 
-  ![](./images/validatepymnt16.png " ")
+  ![Create new database connection](./images/validatepymnt16.png " ")
 
 1. In the Create Database Connection dialog, enter the following details:
       - Create Connection In: Application Resources
       - Connection Name: SOA
-      - Connection Type: Java DB (Derby)
+      - Connection Type: Java DB / Apache Derby
 
-   ![](./images/validatepymnt17.png " ")
+   ![Create Database Connection dialog](./images/java-derby.png " ")
 
-2. Input Server Name (localhost), Port (1527) and Database (soainfra) for the preconfigured Java DB are filled in automatically. Click the Test Connection button and verify that your connection works.
+2. Input Server Name (localhost), Port (1527) and Database (soainfra) for the preconfigured Java DB / Apache Derby are filled in automatically. Click the Test Connection button and verify that your connection works.
 You should see “Success!” like in the screenshot below
 
-   ![](./images/validatepymnt18.png " ")
+   ![Create Database Connection dialog](./images/java-jerby-connection.png " ")
 
 3. Click OK.
 4. Ensure to save all changes by clicking the Save All icon at the top of JDeveloper.
 
-   ![](./images/validatepymnt19.png " ")
+   ![Save changes](./images/validatepymnt19.png " ")
 
 Now build your project:
 
 5. Click on Build in the main menu
 6. Select Make ValidatePayment.jpr
 
-   ![](./images/validatepymnt20.png " ")
+   ![Build ValidatePayment.jpr](./images/validatepymnt20.png " ")
 
 You will see the build result in the Messages – Log window (at the bottom of JDeveloper)
 
 If your log looks like this, everything is fine:
 
-   ![](./images/validatepymnt21.png " ")
+   ![Build log](./images/validatepymnt21.png " ")
 
-**Let's review the validate payment BPEL process.**
+**Let's review the validate payment BPEL process.**.
+
 7.  Double-click the BPEL process to open the BPEL designer shown here:
 
-   ![](./images/composite-details.png " ")
+   ![BPEL designer](./images/composite-details.png " ")
 
    - The *getPaymentInformation* partnerlink is already in the Partner Links swim lane. It is also connected via the Invoke activity.
    - The input and output variables for the adapter call are also defined. They are leveraged when the DB adapter is invoked. Invoke activity is used when communicating with services, like adapters and web services.
@@ -193,13 +194,14 @@ If your log looks like this, everything is fine:
 12. The name of the variable is a concatenation of the partner link name, the operation and *InputVariable*.
 Similarly inspect the Output Variable by changing to the Output tab.
 
-   ![](./images/validatepymnt22.png " ")
+   ![properties](./images/validatepymnt22.png " ")
+
 
 13. In the BPEL process, just above the invoke activity, is the Assign activity `setCreditCardNumber`. Use an Assign activity to assign data to a variable. In this case, the credit card number is assigned that was passed into the BPEL process to the `getPaymentInformation` service.
 
 14. Double-click on the assign activity, to launch the Assign Editor:
 
-   ![](./images/validatepymnt23.png " ")
+   ![Launch Assign Editor](./images/validatepymnt23.png " ")
 
 15.  On the left hand side (source), expand *`Variables > Process > Variables > inputVariable > paymentInfo > ns3:PaymentInfo > ns3:CardNum`*
 16. On the right hand side (target), expand *`Variables > Process > Variables > getPaymentInformation_getPaymentInformationSelect_InputVariable > getPaymentInformationSelect_inputParameters > ns4:ccnb`*
@@ -227,19 +229,19 @@ To use the customer BPEL activity template, the directory should be included in 
 2. If you don’t see the template, close and reopen the BPEL process.
 3. You should see the `CalculatePaymentStatusScope` template in the list.
 
-   ![](./images/custom-template.png " ")
+   ![CalculatePaymentStatusScope template](./images/custom-template.png " ")
 
 4. Drag and drop the `CalculatePaymentStatusScope` template under the `getPaymentInformation` invoke activity in the `validatePaymentProcess` BPEL process.
 
-   ![](./images/custom-template2.png " ")
+   ![Drag and drop](./images/custom-template2.png " ")
 
 5. The template dialog shows you the Name and the Description of the template and all artifacts that are included. You will also see a list of conflicts: The template includes the `CanonicalOrder.xsd`, `getPaymentInformation_table.xsd`, and `getPaymentInformation.wsdl` which are already present in the composite:
 
-   ![](./images/custom-template3.png " ")
+   ![Create custom activity template dialog](./images/custom-template3.png " ")
 
 6. You have the option to skip all conflict files, meaning you keep the ones in the composite, or overwrite all with those in the template. You can also make this decision individually. In this case we know that the files are identical and will skip all:
 
-   ![](./images/custom-template4.png " ")
+   ![Create custom activity template skip all dialog](./images/custom-template4.png " ")
 
 7. Select “Skip All” and click OK. Adding the custom activity template creates a new scope, which includes an XSLT transformation calculatePaymentStatus.xsl.
 
@@ -249,16 +251,16 @@ You will see that the transformation expects two input variables: The output var
 
 The output is the status field in the process output message, which will either be set to “Denied” or “Authorized”.
 
-   ![](./images/custom-template5.png " ")
+   ![Output status](./images/custom-template5.png " ")
 
 9. If you want to see the definition of the XSLT file, click the edit button at the bottom:
 
-   ![](./images/custom-template6.png " ")
+   ![Edit mapping](./images/custom-template6.png " ")
 
    This opens the mapper file.
 10. Click Expand All Child Nodes on Source and Target and click on the little plus sign next to the function in the middle.
 
-   ![](./images/custom-template7.png " ")
+   ![Expand All Child Nodes](./images/custom-template7.png " ")
 
  The XSLT map checks whether
       - expireDate in order input and DB are the same AND
@@ -266,7 +268,7 @@ The output is the status field in the process output message, which will either 
 
 11.  Save All and close the XSLT Map.
 
-   ![](./images/custom-template8.png " ")
+   ![Save XSLT Map](./images/custom-template8.png " ")
 
 One more step to get the map to work -- (remember previously an error message?)
 
@@ -276,63 +278,66 @@ As the BPEL process already includes variables that can be used in this transfor
 
 12. Select the transform activity in the BPEL process and in the property inspector, select the first source variable and click the pencil icon to edit:
 
-   ![](./images/custom-template9.png " ")
+   ![BPEL transform activity](./images/custom-template9.png " ")
 
 13. Select the browse button next to the Source Variable field.
 
-   ![](./images/custom-templ10.png " ")
+   ![Browse variables](./images/custom-templ10.png " ")
 
 14. Select the global variable *`getPaymentInformation_getPaymentInformationSelect_OutputVariable`* in the Variable Chooser.
 
-   ![](./images/custom-templ11.png " ")
+   ![Variable chooser](./images/custom-templ11.png " ")
 
 15. Click OK.
 16. The Source Part for the variable will be automatically selected.
 
-   ![](./images/custom-templ12.png " ")
+   ![Source variable](./images/custom-templ12.png " ")
 
 17. Click OK.
 18. Repeat the same for the second source variable by replacing it with the process `inputVariable`.
 19. To edit the target variable, click the browse button next to the Target Variable field.
 
-   ![](./images/template1.png " ")
+   ![Edit target variable](./images/template1.png " ")
 
 20. The Variable Chooser dialog will be displayed. Select the scope variable outputVariable. This variable will include the payment validation status.
-   ![](./images/template2.png " ")
+   ![Variable Chooser dialog](./images/template2.png " ")
+
+   After modifying the variables :
+   ![Modified variables](./images/change-variables.png " ")
 
 21. Click Ok. Now you can delete the scope variables.
 
 22. Next, open the Variables window by clicking the Property Structure icon on top of the BPEL process and choosing Variables.
 
-   ![](./images/template3.png " ")
+   ![Select Variables](./images/template3.png " ")
 
 23. Delete the three scope variables by choosing the variables one by one and clicking the red “X” icon:
 
-   ![](./images/template4.png " ")
+   ![Delete 3 scope variables](./images/template4.png " ")
 
 24. Confirm the delete action by clicking ‘Yes’ in the Delete Variables window.
 
-   ![](./images/template5.png " ")
+   ![Confirm delete action](./images/template5.png " ")
 
 25. Repeat for all three scope variables.
 
-   ![](./images/template6.png " ")
+   ![Repeat process](./images/template6.png " ")
 
 26. Close the variables window.
 
 27. Save all changes by clicking the Save All icon on top of JDeveloper.
 
-   ![](./images/jdev-saveall.png " ")
+   ![Save changes](./images/jdev-saveall.png " ")
 
 28. Build your project by choosing Build – Makes `ValidatePayment.jpr` in the JDeveloper main menu.
 
-   ![](./images/template7.png " ")
+   ![Build project](./images/template7.png " ")
 
 29. Should errors appear in the Messages - Log window at the bottom, indicating that a variable doesn’t exist, **make sure the transformation uses the three global variables instead of the scope variables you deleted.**
 
 The expected output is “Successful compilation: 0 errors, 0 warnings”
 
-   ![](./images/template8.png " ")
+   ![Build Output](./images/template8.png " ")
 
 ## Task 6:  Deploy and Test the Composite and its Project.
 The first design iteration is complete and you are now ready to deploy the composite. This deployment will take place on the embedded Weblogic service in JDeveloper.
@@ -341,34 +346,34 @@ The first design iteration is complete and you are now ready to deploy the compo
 
 1. To start the integrated Weblogic server in JDeveloper -** choose Run – Start Server Instance (IntegratedWebLogicServer) in the main menu. Refer to *Lab: Initialize Environment* for more.
 
-   ![](./images/start-weblogic.png " ")
+   ![Start the integrated Weblogic server in JDeveloper](./images/start-weblogic.png " ")
 
    You will see a new tab at the bottom Running: IntegratedWebLogicServer – Log, which shows the server log file
 
-   ![](./images/start-wl-log.png " ")
+   ![server log file](./images/start-wl-log.png " ")
 
 2. Right-click on the project name in the project menu - select Deploy and your project name. Make sure you have the project menu and not the application menu in order to see this option.
 
-   ![](./images/deployment.png " ")
+   ![Deploy validatepayment](./images/deployment.png " ")
 
 3. To Stop the integrated Weblogic server in JDeveloper: Click on the red Terminate icon on top of your JDeveloper window and choose `IntegratedWebLogicServer`
 
-   ![](./images/stop-weblogic.png " ")
+   ![Stop integrated weblogic server](./images/stop-weblogic.png " ")
 
 The server is stopped when you see [`IntegratedWebLogicServer` terminated]
 
-   ![](./images/terminated-wl.png " ")
+   ![server log file](./images/terminated-wl.png " ")
 
 ## Task 7: Optional - Use the Diagnostic Tool within JDeveloper
 In SOA Suite 12c, there is facility to set breakpoints in the composite editor, BPEL process. You’re able to stop at breakpoints, look at the data, step into, step out and so on. In a BPEL process, you’re also able to change the value of a variable while debugging.
 
 1. Set breakpoints in the composite by right clicking on an interface and create a Request or Reply Breakpoint or both. For one-directional interfaces, you only get one option.
 
-   ![](./images/breakpoint1.png " ")
+   ![Create breakpoints pair](./images/breakpoint1.png " ")
 
 The breakpoints are little red icons with an arrow pointing in the direction of the flow.
 
-   ![](./images/breakpoint2.png " ")
+   ![breakpoints are little red icons with an arrow pointing in the direction of the flow.](./images/breakpoint2.png " ")
 
 2. Watch on how to use diagnostic tool in JDeveloper
 
@@ -376,7 +381,7 @@ The breakpoints are little red icons with an arrow pointing in the direction of 
 
 ## Task 8: Optional: Add a Composite Sensor PaymentStatus Application
 
-   ![](./images/sensor.png " ")
+   ![Add a Composite Sensor PaymentStatus Application](./images/sensor.png " ")
 
 For more details of how to, please refer to Chapter 2, from **page 37 to 42** in the [SOAsuite 12c tutorial.pdf](https://oradocs-prodapp.cec.ocp.oraclecloud.com/documents/fileview/D62E7C999F2BB9C78C4D8085F6EE42C20DD5FE8D98D7/_SOASuite12c_Tutorial.pdf)
 
@@ -390,5 +395,5 @@ To find more detail about BPEL, Process manager - please go to this [SOA 12c lin
 
 ## Acknowledgements
 * **Author** - Daniel Tarudji
-* **Contributors** - Rene Fontcha, Meghana Banka, Kamryn Vinson
-* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, November 2020
+* **Contributors** - Rene Fontcha, Meghana Banka, Kamryn Vinson, Sahaana Manavalan, Chethan BR
+* **Last Updated By/Date** - Sahaana Manavalan, LiveLabs Developer, NA Technology, February 2022

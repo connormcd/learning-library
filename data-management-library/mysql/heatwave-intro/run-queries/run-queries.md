@@ -243,4 +243,4 @@ GROUP BY firstname , lastname;</copy>
 
 * **Author** - Perside Foster, MySQL Solution Engineering
 * **Contributors** - Mandy Pang, MySQL Principal Product Manager,  Priscila Galvao, MySQL Solution Engineering, Nick Mader, MySQL Global Channel Enablement & Strategy Manager
-* **Last Updated By/Date** - Perside Foster, MySQL Solution Engineering, September 2021
+* **Last Updated By/Date** - Perside Foster, MySQL Solution Engineering, February 2022

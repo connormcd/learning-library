@@ -1,0 +1,22 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I Create a Directory in Autonomous Database",
+         "description": "",
+         "filename": "sprint-create-dir-adb.md"
+      },
+      {
+         "title": "How do I List Contents of Directory in Autonomous Database",
+         "description": "",
+         "filename": "../sprint-list-dir-contents-adb/sprint-list-dir-contents-adb.md"
+      },
+      {
+         "title": "How do I Drop a Directory in Autonomous Database",
+         "description": "",
+         "filename": "../sprint-drop-dir-adb/sprint-drop-dir-adb.md"
+      }
+   ],
+   "task_type": "Sections"
+}

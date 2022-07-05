@@ -26,6 +26,8 @@ This lab assumes you have:
 
 ## Task 1: Prepare your environment
 
+> **NOTE:** Unless otherwise stated, all passwords will be `Ora4U_1234`. When copying and pasting a command that includes a password, please replace the word `password` with `Ora4U_1234`. This only applies to instances created through OCI Resource Manager with our provided terraform scripts.
+
 To prepare your environment, enable `ARCHIVELOG` mode on CDB1, verify that the default listener is started, and verify that PDB1 has sample data.
 
 1. Open a terminal window on the desktop.
@@ -130,7 +132,7 @@ To prepare your environment, enable `ARCHIVELOG` mode on CDB1, verify that the d
 10. (Optional) If in the previous step you find that you do not have an `HR.EMPLOYEES` table or you have a different result, run the `hr_main.sql` script to create the HR user and `EMPLOYEES` table in `PDB1`.
 
     ```
-    SQL> <copy>@/home/oracle/labs/19cnf/hr_main.sql Ora4U_1234 USERS TEMP $ORACLE_HOME/demo/schema/log/</copy>
+    SQL> <copy>@/home/oracle/labs/19cnf/hr_main.sql password USERS TEMP $ORACLE_HOME/demo/schema/log/</copy>
     ```
 
 11. Exit SQL*Plus.
@@ -143,7 +145,7 @@ To prepare your environment, enable `ARCHIVELOG` mode on CDB1, verify that the d
 
 In this task, you use the ``-createDuplicateDB`` command in DBCA to duplicate CDB1 as DUPCDB1. The database configuration type is set to `SINGLE`, which instructs DBCA to create a single individual database. The storage type is set to file system (FS). Because a listener is not specified in the DBCA command, DBCA automatically configures the default listener, LISTENER, for both DUPCDB1 and PDB1. After the DBCA command is finished running, verify that DUPCDB1 exists and contains PDB1, that PDB1 contains sample data, and that both DUPCDB1 and PDB1 use the default listener.
 
-1. Run the `-createDuplicateDB` command. This step takes a few minutes to complete.
+1. Run the `-createDuplicateDB` command. This step takes a few minutes to complete. Please note the use of `password`.
 
     *This is the new feature!*
 
@@ -151,7 +153,7 @@ In this task, you use the ``-createDuplicateDB`` command in DBCA to duplicate CD
     $ <copy>dbca -silent \
     -createDuplicateDB \
     -primaryDBConnectionString workshop-installed.livelabs.oraclevcn.com:1521/CDB1.livelabs.oraclevcn.com \
-    -sysPassword Ora4U_1234 \
+    -sysPassword password \
     -gdbName DUPCDB1.livelabs.oraclevnc.com \
     -sid DUPCDB1 \
     -datafileDestination /u01/app/oracle/oradata \
@@ -222,7 +224,7 @@ In this task, you use the ``-createDuplicateDB`` command in DBCA to duplicate CD
 6. Connect to PDB1 as the `HR` user.
 
     ```
-    SQL> <copy>connect HR/Ora4U_1234@PDB1</copy>
+    SQL> <copy>connect HR/password@PDB1</copy>
     Connected.
     ```
 
@@ -298,13 +300,13 @@ In this task, you use the ``-createDuplicateDB`` command in DBCA to duplicate CD
 Execute the `-createDuplicateDB` command again to duplicate CDB1 as a single individual database called OMFCDB1. This time, enable Oracle Managed Files and create a dynamic listener called LISTENER_OMFCDB1 that listens on port 1565.
 
 
-1. Launch DBCA in silent mode to duplicate CDB1 as OMFCDB1. This step takes a few minutes to complete.
+1. Launch DBCA in silent mode to duplicate CDB1 as OMFCDB1. This step takes a few minutes to complete. Please note the use of `password`.
 
     ```
     $ <copy>dbca -silent \
     -createDuplicateDB \
     -primaryDBConnectionString workshop-installed.livelabs.oraclevcn.com:1521/CDB1.livelabs.oraclevcn.com \
-    -sysPassword Ora4U_1234 \
+    -sysPassword password \
     -gdbName OMFCDB1.livelabs.oraclevnc.com \
     -sid OMFCDB1 \
     -datafileDestination /u01/app/oracle/oradata \
@@ -449,10 +451,10 @@ Execute the `-createDuplicateDB` command again to duplicate CDB1 as a single ind
 
 To restore your environment, delete DUPCDB1 and OMFCDB1 and disable `ARCHIVELOG` mode on CDB1.
 
-1. Use DBCA to delete DUPCDB1.
+1. Use DBCA to delete DUPCDB1. Please note the use of `password`.
 
     ```
-    $ <copy>$ORACLE_HOME/bin/dbca -silent -deleteDatabase -sourceDB DUPCDB1.livelabs.oraclevcn.com -sid DUPCDB1 -sysPassword Ora4U_1234</copy>
+    $ <copy>$ORACLE_HOME/bin/dbca -silent -deleteDatabase -sourceDB DUPCDB1.livelabs.oraclevcn.com -sid DUPCDB1 -sysPassword password</copy>
 
     [WARNING] [DBT-19202] The Database Configuration Assistant will delete the Oracle instances and datafiles for your database. All information in the database will be destroyed.
     Prepare for db operation
@@ -474,10 +476,10 @@ To restore your environment, delete DUPCDB1 and OMFCDB1 and disable `ARCHIVELOG`
     Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/DUPCDB1/DUPCDB10.log" for further details.
     ```
 
-2. Use DBCA to delete OMFCDB1.
+2. Use DBCA to delete OMFCDB1. Please note the use of `password`.
 
     ```
-    $ <copy>$ORACLE_HOME/bin/dbca -silent -deleteDatabase -sourceDB OMFCDB1.livelabs.oraclevcn.com -sid OMFCDB1 -sysPassword Ora4U_1234</copy>
+    $ <copy>$ORACLE_HOME/bin/dbca -silent -deleteDatabase -sourceDB OMFCDB1.livelabs.oraclevcn.com -sid OMFCDB1 -sysPassword password</copy>
 
     [WARNING] [DBT-19202] The Database Configuration Assistant will delete the Oracle instances and datafiles for your database. All information in the database will be destroyed.
     Prepare for db operation
@@ -540,5 +542,5 @@ To restore your environment, delete DUPCDB1 and OMFCDB1 and disable `ARCHIVELOG`
 
 ## Acknowledgements
 - **Primary Author** - Dominique Jeunot's, Consulting User Assistance Developer
-- **Contributor** - Jody Glover, Principal User Assistance Developer
+- **Contributor** - Jody Glover, Consulting User Assistance Developer, Database Development
 - **Last Updated By** - Blake Hendricks, Solutions Engineer, September 21 2021

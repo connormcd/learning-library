@@ -154,5 +154,5 @@ This completes Lab 7 and the workshop. You now know how to change a URL value to
 ## **Acknowledgements**
 
  - **Author/Contributors** -  David Peake, Consulting Member of Technical Staff
- - **Last Updated By/Date** - Tom McGinn, Database Cloud Services, Product Management, June 2020
+ - **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

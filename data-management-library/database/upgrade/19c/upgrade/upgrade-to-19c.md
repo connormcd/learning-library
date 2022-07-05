@@ -1,34 +1,39 @@
 # AutoUpgrade
 
 ## Introduction
+
 In this part of the Lab you will upgrade the UPGR database from Oracle 11.2.0.4 to Oracle 19c. You can find detailed steps including the output for an upgrade and migration to Multitenant with AutoUpgrade [here](https://mikedietrichde.com/2020/05/20/autoupgrade-and-plug-in-to-a-cdb-with-a-single-command/). This is for your information in case you cannot complete the lab here.
 
 You will use the AutoUpgrade and upgrade your UPGR database unattended. The Oracle AutoUpgrade tool is the only recommended way to upgrade Oracle databases, fully unattended. You can call it the Hands-Free Upgrade. It will run all prechecks against multiple databases, fix potential issues, set a restore point in case something goes wrong – and then upgrade your databases. And of course, do the postupgrade, recompilation and time zone adjustment.
 
 The only thing you need to provide is a config file in text format.
 
-*Estimated Lab Time*: 45 minutes
+Estimated Time: 45 minutes
 
 Watch the video below for a quick walk through of the lab.
-[](youtube:BRR3YjQL7Kc)
-
+[Watch the video](youtube:BRR3YjQL7Kc)
 
 ### About AutoUpgrade
+
 The AutoUpgrade utility identifies issues before upgrades, performs pre- and postupgrade actions, deploys upgrades, performs postupgrade actions, and starts the upgraded Oracle database.
 
 The AutoUpgrade utility is designed to automate the upgrade process, both before starting upgrades, during upgrade deployments, and during postupgrade checks and configuration migration. You use AutoUpgrade after you have downloaded binaries for the new Oracle Database release, and set up new release Oracle homes. When you use AutoUpgrade, you can upgrade multiple Oracle database deployments at the same time, using a single configuration file, customized as needed for each database deployment.
 
 ### Objectives
+
 In this lab, you will:
+
 * Prepare your environment
 * Analyze
 * Deploy
 
 ### Prerequisites
+
 This lab assumes you have:
-- A Free Tier, Paid or LiveLabs Oracle Cloud account
+
+- An Oracle Cloud account
 - You have completed:
-    - Lab: Prepare Setup (*Free-tier* and *Paid Tenants* only)
+    - Lab: Prepare Setup 
     - Lab: Environment Setup
     - Lab: Initialize Environment
 
@@ -45,7 +50,7 @@ This lab assumes you have:
     </copy>
     ```
 3. This tells you that the sample file has been created at:
-   ![](./images/upgrade_19c_18.png " ")
+   ![view that sample file has been created](./images/upgrade_19c_18.png " ")
 
 4. The created sample configuration file `/home/oracle/scripts/sample_config.cfg`
    You will need to edit it – and then pass it to the AutoUpgrade utility.
@@ -64,7 +69,7 @@ This lab assumes you have:
     kwrite /home/oracle/scripts/sample_config.cfg &
     </copy>
     ```
-    ![](./images/sample_config.png " ")
+    ![Open the file sample config file](./images/sample_config.png " ")
 
 6. Make the following adjustments - only 6 lines (without comments) are needed - please remove the obsolete lines from the sample config file:
 
@@ -87,7 +92,7 @@ This lab assumes you have:
     upg1.restoration=no
     </copy>
     ```    
-    ![](./images/config_file.png " ")
+    ![Make adjustments](./images/config_file.png " ")
 
 
 7. Save the file and name it as UPGR.cfg in /home/oracle/scripts.  If you saved it under its original name, `sample_config.cfg`, rename it as shown below:
@@ -97,9 +102,9 @@ This lab assumes you have:
     mv /home/oracle/scripts/sample_config.cfg /home/oracle/scripts/UPGR.cfg
     </copy>
     ```
-    ![](./images/upgrade_19c_21.png " ")
+    ![Save the file and name it as UPGR.cfg](./images/upgrade_19c_21.png " ")
 
-## Task 2: Analyze Phase
+## Task 2: Analyze phase
 
 1. It is best practice to run AutoUpgrade in analyze mode at first. Once the analyze phase is passed without issues, the database can be upgraded automatically (the below command is a one-line command!).
 
@@ -109,7 +114,7 @@ This lab assumes you have:
     java -jar $OH19/rdbms/admin/autoupgrade.jar -config /home/oracle/scripts/UPGR.cfg -mode analyze
     </copy>
     ```
-    ![](./images/upgrade_19c_22.png " ")
+    ![run AutoUpgrade in analyze mode](./images/upgrade_19c_22.png " ")
 
     <!--- This is an HTML comment in Markdown -->
 
@@ -131,10 +136,10 @@ This lab assumes you have:
     ```
 
     Click on the "Precheck Report" link and browse through all the checks.
-    ![](./images/analyze_report_01.png " ")
+    ![Click on the Precheck Report link](./images/analyze_report_01.png " ")
 
     You may see an ERROR - but please note that there is a FIXUP AVAILABLE which means that AutoUpgrade will fix this for you as otherwise the ERROR would prevent an upgrade.
-    ![](./images/analyze_report_02.png " ")
+    ![You may see an ERROR](./images/analyze_report_02.png " ")
 
     Browse through the other checks as well.
 
@@ -150,7 +155,7 @@ This lab assumes you have:
     </copy>
     ```
     You will see the output below
-    ![](./images/upgrade_19c_23.png " ")
+    ![initiate the upgrade with -mode deploy](./images/upgrade_19c_23.png " ")
 
 
 2. At this point you can monitor the upgrade now – enlarge the xterm‘s width a bit to see no line wraps.  Type 'help' on the upg> job console to see an overview of available commands.
@@ -190,7 +195,7 @@ This lab assumes you have:
     lsj – this lists the job number and overview information about each active job.
     Please note that the job number has now changed for the -mode deploy run.
 
-    ![](./images/upgrade_19c_27.png " ")
+    ![most important commands](./images/upgrade_19c_27.png " ")
 
     ```
     <copy>
@@ -211,8 +216,9 @@ This lab assumes you have:
     ```
 
 4. And 'status -job jobnr' which tells you more details. It also displays where the log files are located.
-    ![](./images/upgrade_19c_24.png " ")
-    ![](./images/upgrade_19c_25.png " ")
+
+    ![status -job jobnr](./images/upgrade_19c_24.png " ")
+    ![status -job jobnr details](./images/upgrade_19c_25.png " ")
 
     ```
     <copy>
@@ -261,7 +267,7 @@ This lab assumes you have:
     ```
 
 5. Then 'logs' – displays the logs folder
-   ![](./images/upgrade_19c_26.png " ")
+   ![display the logs folder](./images/upgrade_19c_26.png " ")
 
     ```
     <copy>
@@ -301,12 +307,12 @@ This lab assumes you have:
     firefox /home/oracle/logs/cfgtoollogs/upgrade/auto/state.html &
     </copy>
     ```
-    ![](./images/monitor_upgrade.png " ")
+    ![monitor the entire upgrade](./images/monitor_upgrade.png " ")
 
 11. Wait until the upgrade completed. Depending on the hardware, the upgrade will take about 25-35 minutes.
 *If you don't want to watch the screen this long, you could meanwhile approach Lab 13: Transportable Export Import as it uses another database, and then return to this lab stage here again - don't close the xterm, don't exit AutoUpgrade.*
 
-    ![](./images/upgrade_19c_28.png " ")
+    ![Wait until the upgrade is completed](./images/upgrade_19c_28.png " ")
 
     ```
     <copy>
@@ -317,7 +323,7 @@ This lab assumes you have:
 
     Congratulations – you upgraded the UPGR database successfully from Oracle 11.2.0.4 to Oracle 19c.
 
-You may now [proceed to the next lab](#next).
+You may now *proceed to the next lab*.
 
 ## Learn More
 

@@ -65,12 +65,15 @@ This lab assumes you have:
 
     ```
     <copy>
-    cd ~
-    wget -O labs-novnc.zip https://objectstorage.us-ashburn-1.oraclecloud.com/p/DI8FDu8opoqAK7MoplCLgwUiVsf8uyNNbcLkaytAdJyGSMmgn0Jw14OMtG3vNLI-/n/c4u04/b/labfiles/o/labs-novnc.zip
-    unzip -qo labs-novnc.zip
-    rm -f labs-novnc.zip
-    cd labs/multitenant
+    clear
+    cd ~oracle/labs
+    rm -rf ~oracle/labs/*
+    wget -O novnc-multitenant.zip https://objectstorage.us-ashburn-1.oraclecloud.com/p/OsVZaMBsS-TArKa1EQNkZSB0SGptkNZwSd21lloGfE27nsRinQNvRm0G9ekds4zB/n/c4u04/b/livelabsfiles/o/labfiles/novnc-multitenant.zip
+    unzip -qo novnc-multitenant.zip
+    rm -f novnc-multitenant.zip
+    cd multitenant
     chmod +x *.sh
+    ls -ltrh
     </copy>
     ```
 
@@ -149,4 +152,4 @@ You may now [proceed to the next lab](#next).
 ## Acknowledgements
 * **Author** - Andy Rivenes, Sr. Principal Product Manager, Oracle Database In-Memory
 * **Contributors** - Kay Malcolm, Didi Han, Rene Fontcha
-* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, October 2021
+* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, March 2022

@@ -96,9 +96,10 @@ At any point, you can go **Back** to the previous window or **Cancel** the insta
 
 	![Root Scripts](images/db21c-desk-005-rootscript.png)
 
-6. The database installer performs prerequisite checks to verify the installation and configuration requirements on the target environment.  
-	If the verification result shows failure to meet a requirement, click **Fix & Check Again**.  
-	If the issues are minor in nature, you may **Ignore All** and proceed with the installation.
+6. The database installer performs prerequisite checks to verify the installation and configuration requirements on the target environment. The installer generates a script to fix the issues automatically.
+
+	 - If the verification result shows failure to meet a requirement, then click **Fix & Check Again**.   
+	 - If the issues are minor in nature, then you may **Ignore All** and proceed with the installation.
 
 	![Prerequisite Checks](images/db21c-desk-006a-prereqcheck.png)
 
@@ -106,22 +107,23 @@ At any point, you can go **Back** to the previous window or **Cancel** the insta
 
 	![Summary](images/db21c-srv-016-summary.png)
 
-8.	The Install Product window displays the status of Oracle Database installation process.	Run the scripts displayed in the Execute Configuration Scripts window as the root user. Do not close this window.
+	The Install Product window displays the progress of the Oracle Database installation.
 
-   ![Execute Scripts](../common/images/db21c-common-002-rootscript.png)
+8.	The installer pops-up a window and displays the configuration scripts that you need to run.
 
-9. Open a new terminal window and log in as root.
+	**Note:** Do not close this window.
+
+    ![Execute Scripts](../common/images/db21c-common-002-rootscript.png)
+
+	You had opted to run the scripts manually in a previous step. 
+
+9. Open a new terminal window and run the script *`orainstRoot.sh`* located in the `oraInventory` folder.
 
 	```
-	$ <copy>sudo su -</copy>
-	(Requires no password)
+	$ <copy>sudo /u01/app/oraInventory/orainstRoot.sh</copy>
 	```
 
-10. Run the script `orainstRoot.sh` located in the `oraInventory` folder.
-
-	```
-	$ <copy>/u01/app/oraInventory/orainstRoot.sh</copy>
-	```
+	**Note:** You can run this script as `root` if you have the privileges. For this lab, use the `sudo` command. 
 
 	It returns the following output.
 
@@ -134,11 +136,13 @@ At any point, you can go **Back** to the previous window or **Cancel** the insta
 	The execution of the script is complete.
 	```
 
-11. Run the script `root.sh` from Oracle home.
+10. In the same terminal window, run another script *`root.sh`* located in the Oracle home.
 
 	```
-	$ <copy>/u01/app/oracle/product/21.0.0/dbhome_1/root.sh</copy>
+	$ <copy>sudo /u01/app/oracle/product/21.0.0/dbhome_1/root.sh</copy>
 	```
+
+	**Note:** You can run this script as `root` if you have the privileges. For this lab, use the `sudo` command. 
 
 	It returns the following output.
 
@@ -161,13 +165,13 @@ At any point, you can go **Back** to the previous window or **Cancel** the insta
 
 	Close the terminal window.  
 
-	This step is applicable for Linux and UNIX operating systems only. If you have installed Oracle Database earlier, the next time you run the database installer, it displays only one script `root.sh`.
+	This step is applicable for Linux and UNIX operating systems only. If you have installed Oracle Database earlier, then the next time you run the database installer, it displays only one script `root.sh`.
 
 	<!--B. If you provided the privileged user credentials in step 13, click **Yes** in the dialog box to run the configuration script automatically.
 
    ![Image alt text](images/db21c_common_016b_autoscript.png)-->
 
-12. Return to the Execute Configuration Scripts window and click **OK** to continue. The installer proceeds with creating Oracle Database as per your configuration.
+11. Return to the Execute Configuration Scripts window and click **OK** to continue. The installer proceeds with creating Oracle Database as per your configuration.
 
 	![Finish Installation](images/db21c-desk-008-installsuccess.png)
 
@@ -307,9 +311,10 @@ At any point, you can go **Back** to the previous window or **Cancel** the insta
 
 	![Root Scripts](images/db21c-srv-014-rootscript.png)
 
-15. The database installer performs prerequisite checks to verify the installation and configuration requirements on the target environment.  
-	If the verification result shows failure to meet a requirement, click **Fix & Check Again**.  
-	If the issues are minor in nature, you may **Ignore All** and proceed with the installation.
+15. The database installer performs prerequisite checks to verify the installation and configuration requirements on the target environment. The installer generates a script to fix the issues automatically.
+
+	 - If the verification result shows failure to meet a requirement, then click **Fix & Check Again**.   
+	 - If the issues are minor in nature, then you may **Ignore All** and proceed with the installation.
 
 	![Prerequisite Checks](images/db21c-srv-015-prereq-check.png)
 
@@ -317,22 +322,23 @@ At any point, you can go **Back** to the previous window or **Cancel** the insta
 
 	![Summary](images/db21c-srv-016-summary.png)
 
-17.	The Install Product window displays the status of Oracle Database installation process.	Run the scripts displayed in the Execute Configuration Scripts window as the root user. Do not close this window.
+	The Install Product window displays the progress of the Oracle Database installation.
 
-   ![Execute Scripts](../common/images/db21c-common-002-rootscript.png)
+17.	The installer pops-up a window and displays the configuration scripts that you need to run.
 
-18. Open a new terminal window and log in as root.
+	**Note:** Do not close this window.
+
+    ![Execute Scripts](../common/images/db21c-common-002-rootscript.png)
+
+	You had opted to run the scripts manually in a previous step. 
+
+18. Open a new terminal window and run the script *`orainstRoot.sh`* located in the `oraInventory` folder.
 
 	```
-	$ <copy>sudo su -</copy>
-	(Requires no password)
+	$ <copy>sudo /u01/app/oraInventory/orainstRoot.sh</copy>
 	```
 
-19. Run the script `orainstRoot.sh` located in the `oraInventory` folder.
-
-	```
-	$ <copy>/u01/app/oraInventory/orainstRoot.sh</copy>
-	```
+	**Note:** You can run this script as `root` if you have the privileges. For this lab, use the `sudo` command. 
 
 	It returns the following output.
 
@@ -345,11 +351,13 @@ At any point, you can go **Back** to the previous window or **Cancel** the insta
 	The execution of the script is complete.
 	```
 
-20. Run the script `root.sh` from Oracle home.
+19. In the same terminal window, run another script *`root.sh`* located in the Oracle home.
 
 	```
-	$ <copy>/u01/app/oracle/product/21.0.0/dbhome_1/root.sh</copy>
+	$ <copy>sudo /u01/app/oracle/product/21.0.0/dbhome_1/root.sh</copy>
 	```
+
+	**Note:** You can run this script as `root` if you have the privileges. For this lab, use the `sudo` command. 
 
 	It returns the following output.
 
@@ -372,13 +380,13 @@ At any point, you can go **Back** to the previous window or **Cancel** the insta
 
 	Close the terminal window.  
 
-	This step is applicable for Linux and UNIX operating systems only. If you have installed Oracle Database earlier, the next time you run the database installer, it displays only one script `root.sh`.
+	This step is applicable for Linux and UNIX operating systems only. If you have installed Oracle Database earlier, then the next time you run the database installer, it displays only one script `root.sh`.
 
 	<!--B. If you provided the privileged user credentials in step 13, click **Yes** in the dialog box to run the configuration script automatically.
 
    ![Image alt text](images/db21c_common_016b_autoscript.png)-->
 
-21. Return to the Execute Configuration Scripts window and click **OK** to continue. The installer proceeds with creating Oracle Database as per your configuration.
+20. Return to the Execute Configuration Scripts window and click **OK** to continue. The installer proceeds with creating Oracle Database as per your configuration.
 
 	![Finish Installation](images/db21c-srv-018-install-success.png)
 
@@ -394,4 +402,4 @@ You may now **proceed to the next lab**.
 
 - **Contributors**: Suresh Rajan, Prakash Jashnani, Subhash Chandra, Subrahmanyam Kodavaluru, Dharma Sirnapalli, Malai Stalin
 
-- **Last Updated By/Date**: Manish Garodia, September 2021
+- **Last Updated By/Date**: Manish Garodia, June 2022

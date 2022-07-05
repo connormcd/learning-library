@@ -3,20 +3,20 @@
     "help": "livelabs-help-oci_us@oracle.com",
 	"tutorials": [
         {
-            "title": "Getting Started",
-            "description": "Login to Oracle Cloud",
-            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login-livelabs2.md"
-        },
-        {
             "title": "Introduction",
             "filename": "./../../intro/intro.md"
+        },
+        {
+            "title": "Get Started",
+            "description": "Login to Oracle Cloud",
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login-livelabs2.md"
         },
         {
             "title": "Lab 1: Generate SSH Keys",
             "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/generate-ssh-key-cloud-shell/generate-ssh-keys-cloud-shell.md"
         },
         {
-            "title": "Lab 2: Virtual Cloud Networks",
+            "title": "Lab 2: Create Virtual Cloud Networks",
             "type": "livelabs",
             "filename": "../../../virtual-cloud-networks/vcn/virtual-cloud-networks.md"
         },
@@ -26,14 +26,14 @@
             "filename": "../../../compute-service/cs/compute-service.md"
         },
         {
-            "title": "Lab 4: Block Volume",
+            "title": "Lab 4: Create and Attach a Block Volume",
             "type": "livelabs",
             "filename": "../../../block-volume/bv/block-volume.md"
         },
         {
-            "title": "Lab 5: Object Storage",
+            "title": "Lab 5: Create an Object Storage",
             "type": "livelabs",
-            "filename": "../../../object-storage/os/object-storage.md"
+            "filename": "../../../object-storage/object-storage/object-storage.md"
         },
         {
             "title": "Need Help?",

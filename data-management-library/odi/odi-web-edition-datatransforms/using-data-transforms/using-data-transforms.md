@@ -1,5 +1,5 @@
 ﻿
-# Using Data Transforms
+# Use Data Transforms
 
 ## Introduction
 

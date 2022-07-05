@@ -41,11 +41,13 @@
         },
         {
             "title": "Lab 7: Measure Asymmetry in Data",
-            "filename": "../../skewness/skewness.md"
+            "filename": "../../skewness/skewness.md",
+            "type": "dbcs"
         },
         {
             "title": "Lab 8: Measure Tailedness of Data",
-            "filename": "../../kurtosis/kurtosis.md"
+            "filename": "../../kurtosis/kurtosis.md",
+            "type": "dbcs"
         },
         {
             "title": "Need Help?",

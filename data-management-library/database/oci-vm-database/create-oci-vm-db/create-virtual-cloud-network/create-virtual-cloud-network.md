@@ -39,5 +39,5 @@ You may now [proceed to the next lab](#next).
 * [Oracle Cloud Infrastructure: Network Setup for DB Systems](https://docs.cloud.oracle.com/en-us/iaas/Content/Database/Tasks/network.htm)
 
 ## Acknowledgements
-* **Author** -Tom McGinn, Learning Architect, Database User Assistance
+* **Author** - Kay Malcolm, Database Product Management
 * **Last Updated By/Date** - Kay Malcolm, November 2020

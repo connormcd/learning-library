@@ -15,8 +15,12 @@
             "filename": "./../../prerequisites/iam.md"
         },
         {
-            "title": "Lab 1: Identity and Access Management",
+            "title": "Lab 1: IAM without Identity Domains",
             "filename": "./../../iam/identity-access-management.md"
+        },
+        {
+            "title": "Lab 2: IAM with Identity Domains",
+            "filename": "./../../iam/identity-access-management-identy-domain.md"
         },
         {
             "title": "Need Help?",

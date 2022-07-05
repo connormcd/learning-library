@@ -47,7 +47,7 @@ This lab assumes you have:
 
     If successful, the page above is displayed and as a result your environment is now ready.  
 
-    You may now [proceed to the next lab](#next).
+    You may now proceed to the next lab.
 
 4. If you are still unable to login or the login page is not functioning after reloading from the *Workshop Links* bookmark folder, open a terminal session and proceed as indicated below to validate the services.
 
@@ -60,7 +60,7 @@ This lab assumes you have:
         ```
         ![](images/sharding-docker.png " ")
 
-    - if container are stopped and not in running state then try to restart the container by using below docker command.
+    - If a container is stopped and not in running state then try to restart it by using below docker command.
 
         ```
         <copy>
@@ -70,8 +70,18 @@ This lab assumes you have:
         sudo docker start <container ID/NAME>
         </copy>
         ```
+    - For multiple containers, run the following to restart all at once:
 
-You may now [proceed to the next lab](#next).
+        ```
+        <copy>
+        sudo docker container stop $(docker container list -qa)
+        </copy>
+        <copy>
+        sudo docker container start $(docker container list -qa)
+        </copy>
+        ```
+
+You may now proceed to the next lab.
 
 ## Acknowledgements
 * **Authors** - Shailesh Dwivedi, Database Sharding PM , Vice President

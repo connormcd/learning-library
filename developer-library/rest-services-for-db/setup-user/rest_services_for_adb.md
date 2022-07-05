@@ -119,7 +119,7 @@ We need to load some data into the database so that we can create some REST serv
 
     **(right-click and download the file with the following link)**
 
-    [May 2018 Earthquakes](https://objectstorage.us-ashburn-1.oraclecloud.com/p/CxG8xSfFrN_s9w71cw1cX-T9IMtlZtujwTNYwp9nWSjPBMR5TIZgPN-S3M4ubCLN/n/c4u04/b/developer-library/o/may2018.csv)
+    [May 2018 Earthquakes](https://objectstorage.us-ashburn-1.oraclecloud.com/p/LNAcA6wNFvhkvHGPcWIbKlyGkicSOVCIgWLIu6t7W2BQfwq2NSLCsXpTL9wVzjuP/n/c4u04/b/livelabsfiles/o/developer-library/may2018.csv)
 
 6. Once on your desktop, drag the file into the Upload Data into New Table model. You can also click the Select Files button and find where you downloaded it via your operating system's file browser.
 

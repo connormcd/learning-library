@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I create a dynamic group policy?",
+         "type": "freetier",
+         "description": "This lab walks you through how to create a new OCI compartment.",
+         "filename": "./../sprint-create-dynamic-group/sprint-create-dynamic-group.md"
+      }
+   ],
+   "task_type": "Sections"
+}

@@ -50,5 +50,5 @@ If the menu is not displayed, you can open by clicking the menu button (![Menu i
 
  - **Author** -  Salim Hlayel, Principle Product Manager
  - **Contributors** - LiveLabs QA Team (Arabella Yao, Product Manager Intern | Dylan McLeod, QA Intern)
- - **Last Updated By/Date** - Tom McGinn, Database Innovations Architect, Product Management, July 2020
+ - **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

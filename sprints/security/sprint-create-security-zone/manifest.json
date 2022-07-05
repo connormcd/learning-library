@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I create a security zone?",
+         "description": "",
+         "filename": "sprint-create-security-zone.md"
+      },
+      {
+         "title": "How do I view policies in a security zone?",
+         "description": "",
+         "filename": "../sprint-security-zone-policies/sprint-security-zone-policies.md"
+      }
+   ],
+   "task_type": "Sections"
+}

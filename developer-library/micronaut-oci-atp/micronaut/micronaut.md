@@ -461,7 +461,7 @@ If you wish to monitor the SQL queries that Micronaut Data performs you can open
 
 The application will already have been setup with a single test that tests the application can startup successfully (and hence will test the logic of the `init` method defined in the previous section).
 
-To execute your tests if you are using Gradle use the `test` task to execute your tests:
+To execute your tests, if you are using Gradle use the `test` task to execute your tests:
 
 ```bash
 <copy>
@@ -469,7 +469,7 @@ To execute your tests if you are using Gradle use the `test` task to execute you
 </copy>
 ```
 
-Alternatively if you chose Maven use the `test` goal:
+If you're using Maven use the `test` goal:
 
 ```bash
 <copy>

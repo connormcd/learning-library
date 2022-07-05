@@ -1,5 +1,5 @@
 {
-  "workshoptitle": "Oracle Converged Database for Developers",
+  "workshoptitle": "Get Started with Oracle Converged Database for Developers",
   "help": "livelabs-help-license_us@oracle.com",
   "tutorials": [
     {
@@ -23,7 +23,7 @@
       "title": "Lab 2: Environment Setup",
       "description": "How to provision the workshop environment and connect to it",
       "publisheddate": "06/30/2020",
-      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/setup-compute-generic/setup-compute-novnc.md"
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/setup-compute-generic/setup-compute-novnc-ssh.md"
     },
     {
       "title": "Lab 3: Initialize Environment",

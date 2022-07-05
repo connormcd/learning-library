@@ -12,11 +12,11 @@ Estimated time: 5 minutes
 
 Watch a video demonstration of provisioning an autonomous database in Autonomous Transaction Processing (same steps apply to provisioning an autonomous database in Autonomous Data Warehouse):
 
-[](youtube:Q6hxMaAPghI)
+[youtube](youtube:Q6hxMaAPghI)
 
 ### Objectives
 
--   Learn how to provision a new free tier Autonomous Transaction Processing instance
+- Learn how to provision a new free tier Autonomous Transaction Processing instance
 
 ### Prerequisites
 
@@ -34,7 +34,7 @@ Watch a video demonstration of provisioning an autonomous database in Autonomous
 
 3. The following steps apply similarly to either Autonomous Data Warehouse or Autonomous Transaction Processing. This lab shows provisioning of an Autonomous Transaction Processing (ATP) database. Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, and select **Autonomous Transaction Processing**.
 
-	![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/database-atp.png " ")
+	![database-atp](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/database-atp.png)
 
 4. Make sure your Workload Type is **Transaction Processing** or **All** to see your Autonomous Transaction Processing instances. You can use the **List Scope** drop-down menu to select a Compartment. Select your **root compartment**, or **another compartment of your choice** where you will create your new ATP instance. If you want to create a new compartment or learn more about them, click [here](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#three).
 
@@ -42,11 +42,11 @@ Watch a video demonstration of provisioning an autonomous database in Autonomous
 
 5. This console shows that no databases yet exist. If there were a long list of databases, you could filter the list by the **State** of the databases (Available, Stopped, Terminated, and so on). You can also sort by **Workload Type**. Here, the **Transaction Processing** workload type is selected.
 
-    ![](images/Compartment.png)
+    ![compartment](images/compartment.png)
 
 6. You can see your current default **region** in the top, right hand corner of the page. You can select a different region. If you want to create an Always Free ADB, go ahead and select a region where Always Free Resources are available.
 
-    ![](images/Region.png)
+    ![region](images/region.png)
 
 ## Task 2: Creating the ADB instance
 
@@ -67,14 +67,14 @@ Watch a video demonstration of provisioning an autonomous database in Autonomous
     - **Transaction Processing** - For this lab, choose **Transaction Processing** as the workload type.
     - **Data Warehouse** - Alternately, you could have chosen Data Warehouse as the workload type.
 
-    ![](images/basic_info_workload_type.jpg)
+    ![workload-type](images/workload-type.jpg)
 
 5. Choose a deployment type. Select the deployment type for your database from the choices:
 
     - **Shared Infrastructure** - For this lab, choose **Shared Infrastructure** as the deployment type.
     - **Dedicated Infrastructure** - Alternately, you could have chosen Dedicated Infrastructure as the workload type.
 
-    ![](images/Picture100-26_deployment_type.png)
+    ![deployment-type](images/deployment-type.png)
 
 6. Configure the database, select the **Always Free** option:
 
@@ -85,7 +85,7 @@ Watch a video demonstration of provisioning an autonomous database in Autonomous
     - **Storage (TB)** - Storage capacity in terabytes.
     - **New Database Preview** - If a checkbox is available to preview a new database version, do **not** select it.
 
-    ![](images/atp-choose-cpu-storage.jpg)
+    ![atp-choose-cpu-storage](images/atp-choose-cpu-storage.jpg)
 
 7. Create administrator credentials:
 
@@ -104,7 +104,7 @@ Watch a video demonstration of provisioning an autonomous database in Autonomous
     - If you want a private endpoint, to allow traffic only from the VCN you specify - where access to the database from all public IPs or VCNs is blocked, then select "Virtual cloud network" in the Choose network access area.
     - You can control and restrict access to your Autonomous Database by setting network access control lists (ACLs). You can select from 4 IP notation types: IP Address, CIDR Block, Virtual Cloud Network, Virtual Cloud Network OCID.
 
-    ![](images/network-access.jpg)
+    ![network-access](images/network-access.jpg)
 
 9. Choose a license type. For this lab, choose **License Included**. The two license types are:
 
@@ -129,5 +129,4 @@ Click [here](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-clo
 
 - **Author** - Nilay Panchal, ADB Product Management
 - **Adapted for Cloud by** - Richard Green, Principal Developer, Database User Assistance
-- **Last Updated By/Date** - Ryota Yamanaka, Product Manager, August 2021
-
+- **Last Updated By/Date** - Ryota Yamanaka, April 2022

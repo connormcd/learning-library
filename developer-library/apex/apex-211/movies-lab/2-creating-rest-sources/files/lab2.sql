@@ -101,7 +101,7 @@ wwv_flow_api.create_flow(
 ,p_logo_type=>'T'
 ,p_logo_text=>'Movies Watchlist'
 ,p_app_builder_icon_name=>'app-icon.svg'
-,p_proxy_server=>nvl(wwv_flow_application_install.get_proxy,'appoci-proxy01-vip.oraclevcn.com:80')
+,p_proxy_server=>nvl(wwv_flow_application_install.get_proxy,'')
 ,p_no_proxy_domains=>nvl(wwv_flow_application_install.get_no_proxy_domains,'')
 ,p_flow_version=>'Release 1.0'
 ,p_flow_status=>'AVAILABLE_W_EDIT_LINK'
@@ -490,7 +490,7 @@ wwv_flow_api.create_web_source_param(
 ,p_name=>'api_key'
 ,p_param_type=>'QUERY_STRING'
 ,p_is_required=>false
-,p_value=>'2d0f5737b3ed7179809f5bef37127439'
+,p_value=>''
 );
 wwv_flow_api.create_web_source_param(
  p_id=>wwv_flow_api.id(14321735187165922407)
@@ -537,7 +537,7 @@ wwv_flow_api.create_web_source_param(
 ,p_name=>'api_key'
 ,p_param_type=>'QUERY_STRING'
 ,p_is_required=>false
-,p_value=>'2d0f5737b3ed7179809f5bef37127439'
+,p_value=>''
 );
 wwv_flow_api.create_web_source_param(
  p_id=>wwv_flow_api.id(14321906061755940244)

@@ -119,7 +119,7 @@ First, we are going to create an ADW Instance.
 
 1.  Click the link below to download the install file.
 
-    [claims.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/ajch-LlyUA2dXoLDXmKm-7W8ix9HGnJ9kjUiXG2o6mAlAddKew_TLYm3KpEMCq5m/n/c4u04/b/data-management-library-files/o/claims.zip)
+    [claims.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/claims.zip)
 
 2.  Save `claims.zip` to a download directory and then unzip the file.
 

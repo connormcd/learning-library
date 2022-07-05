@@ -5,6 +5,7 @@
 This lab shows how to use the `SKEWNESS_POP` and `SKEWNESS_SAMP` aggregate functions to measure asymmetry in data. For a given set of values, the result of population skewness (`SKEWNESS_POP`) and sample skewness (`SKEWNESS_SAMP`) are always deterministic.
 
 ### About Data Skewness
+
 When you approach the distribution of data for the first time, it’s often helpful to pull out summary statistics to understand the domain of the data.
 
 Mean and variance are certainly helpful for understanding the scope of a dataset, but to understand the shape of the data we often turn to generating the histogram and manually evaluating the curve of the distribution.
@@ -26,16 +27,17 @@ In this lab, you will:
 * Examine skewed data after data evolution
 
 ### Prerequisites
+
 <if type="dbcs">
-* An Oracle Free Tier, Paid or LiveLabs Cloud Account
-* Lab: SSH Keys
-* Lab: Create a DBCS VM Database
-* Lab: 21c Setup
+* An Oracle Free Tier, Paid or Cloud Account
+* SSH Keys
+* Create a DBCS VM Database
+* 21c Setup
 </if>
 <if type="atp">
-* An Oracle Always Free/Free Tier, Paid or LiveLabs Cloud Account
-* Lab: Provision Oracle Autonomous Database
-* Lab: Setup
+* An Oracle Always Free/Free Tier, Paid or Cloud Account
+* Provision Oracle Autonomous Database
+* Setup
 </if>
 
 <if type="dbcs">

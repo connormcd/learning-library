@@ -5,18 +5,19 @@ This workshop introduces the functionality of Oracle Unified Auditing. It gives 
 
 *Estimated Lab Time:* 35 minutes
 
-*Version tested in this lab:* Oracle DB 19.10
-### Video Preview
-Watch a preview of "*Understanding Unified Auditing (February 2019)*" [](youtube:8spLhyj3iC0)
+*Version tested in this lab:* Oracle DB 19.13
 
-**Note**:
-- Mixed mode auditing is the default auditing in a newly installed database. Mixed mode auditing enables both traditional (that is, the audit facility from releases earlier than release 12c) and the new audit facilities (unified auditing).
-- Mixed mode is intended to introduce unified auditing, so that you can have a feel of how it works and what its nuances and benefits are. Mixed mode enables you to migrate your existing applications and scripts to use unified auditing. Once you have decided to use pure unified auditing, you can relink the oracle binary with the unified audit option turned on and thereby enable it as the one and only audit facility the Oracle database runs. If you decide to revert back to mixed mode, you can.
-- In this environment, we have already migrated this Oracle Database to pure unified auditing mode.
+### Video Preview
+Watch a preview of "*LiveLabs - Oracle Unified Auditing (May 2022)*" [](youtube:bK26Y0TZANY)
 
 ### Objectives
 - Enable/Disable Unified Auditing on your database
 - See different auditing use cases
+
+    **Note**:
+    - Mixed mode auditing is the default auditing in a newly installed database. Mixed mode auditing enables both traditional (that is, the audit facility from releases earlier than release 12c) and the new audit facilities (unified auditing).
+    - Mixed mode is intended to introduce unified auditing, so that you can have a feel of how it works and what its nuances and benefits are. Mixed mode enables you to migrate your existing applications and scripts to use unified auditing. Once you have decided to use pure unified auditing, you can relink the oracle binary with the unified audit option turned on and thereby enable it as the one and only audit facility the Oracle database runs. If you decide to revert back to mixed mode, you can.
+    - In this environment, we have already migrated this Oracle Database to pure unified auditing mode.
 
 ### Prerequisites
 This lab assumes you have:
@@ -33,11 +34,16 @@ This lab assumes you have:
 | 2 | Audit Non App Usage | 10 minutes |
 | 3 | Audit Database Role Usage | <10 minutes |
 | 4 | Audit Data Pump Usage | <10 minutes |
-| 5 | Cleanup the Unified Auditing configuration | <5 minutes |
 
 ## Task 1: Display the current audit settings
 
-1. As OS user *oracle* on your **DBSec-Lab** VM remote desktop session, Double-Click on the *Terminal* icon on the desktop to launch a session
+1. Open a Terminal session on your **DBSec-Lab** VM as OS user *oracle*
+
+    ````
+    <copy>sudo su - oracle</copy>
+    ````
+
+    **Note**: If you are using a remote desktop session, double-click on the *Terminal* icon on the desktop to launch a session
 
 2. Go to the scripts directory
 
@@ -53,31 +59,31 @@ This lab assumes you have:
 
     - We have already set the environment for you in pure Unified Auditing mode, hence you should see that Unified Audit is set to **TRUE**
 
-    ![](./images/ua-001.png " ")
+        ![](./images/ua-001.png " ")
 
-    **Note**: This means our database is in "pure" unified auditing mode and you are no longer utilize the traditional auditing capabilities
+        **Note**: This means our database is in "pure" unified auditing mode and you are no longer utilize the traditional auditing capabilities
 
     - The 2nd query shows you how many Unified Audit Policies exist and how many audit-related attributes are associated with each policy
 
-    ![](./images/ua-002.png " ")
+        ![](./images/ua-002.png " ")
 
     - The 3rd query of this script shows you which Unified Audit policies are **enabled**
 
-    ![](./images/ua-003.png " ")
+        ![](./images/ua-003.png " ")
 
-    **Note**:
-    - Just because the policy exists in the previous query does not mean it's enabled
-    - It is a two-step process to using a Unified Audit policy:
-        - create the policy: create audit policy <policy_name> ...
-        - enable the policy: audit policy <policy_name>
+        **Note**:
+        - Just because the policy exists in the previous query does not mean it's enabled
+        - It is a two-step process to using a Unified Audit policy:
+            - create the policy: create audit policy <policy_name> ...
+            - enable the policy: audit policy <policy_name>
 
     - The 4th query shows you auditing based on context
 
-    ![](./images/ua-004.png " ")
+        ![](./images/ua-004.png " ")
 
-    **Note**:
-    - We have one policy called `TICKETINFO` that captures an attribute named `TICKET_ID`
-    - This information will be viewable in the `APPLICATION_CONTEXTS` column of the `UNIFIED_AUDIT_TRAIL` view
+        **Note**:
+        - We have one policy called `TICKETINFO` that captures an attribute named `TICKET_ID`
+        - This information will be viewable in the `APPLICATION_CONTEXTS` column of the `UNIFIED_AUDIT_TRAIL` view
 
 4. Display who has the `AUDIT_ADMIN` and `AUDIT_VIEWER` roles
 
@@ -121,30 +127,31 @@ In this lab, you will audit who is using the `EMPLOYEESEARCH_PROD` objects outsi
 
     **Note**: When prompted, **DO NOT press [return]** before executing a research in Glassfish as mentioned below!
 
-2. On your Glassfish App, perform the the following steps:
+2. In parallel, use your Glassfish App to generated activity on your database:
 
     - Open a web browser window to *`http://<YOUR_DBSEC-LAB_VM_PUBLIC_IP>:8080/hr_prod_pdb1`*
+    
     - Login to the HR Application as *`hradmin`* with the password "*`Oracle123`*"
 
-    ````
-    <copy>hradmin</copy>
-    ````
+        ````
+        <copy>hradmin</copy>
+        ````
 
-    ````
-    <copy>Oracle123</copy>
-    ````
+        ````
+        <copy>Oracle123</copy>
+        ````
 
-    ![](./images/ua-008.png " ")
+        ![](./images/ua-008.png " ")
 
-    ![](./images/ua-009.png " ")
+        ![](./images/ua-009.png " ")
 
     - Click on **Search Employees**
 
-    ![](./images/ua-010.png " ")
+        ![](./images/ua-010.png " ")
 
     - Click [**Search**]
 
-    ![](./images/ua-011.png " ")
+        ![](./images/ua-011.png " ")
 
     - Change some of the criteria and Search again
     - **Repeat 2-3 times** to ensure you have enough traffic
@@ -169,7 +176,15 @@ In this lab, you will audit who is using the `EMPLOYEESEARCH_PROD` objects outsi
 
     ![](./images/ua-014.png " ")
 
-    **Note**: The Unified Audit Policy will capture your machine-related details to create the  **WHEN** clause
+    **Note**:
+    - The Unified Audit Policy will capture your machine-related details to create the  **WHEN** clause
+    - Here we created the Audit Policy `AUDIT_EMPLOYEESEARCH_USAGE` based on the `SYS_CONTEXT` variables as criteria:
+        - `SESSION_USER = "EMPLOYEESEARCH_PROD"`
+        - **AND** `OS_USER != "oracle"`
+        - **OR** `MODULE != "JDBC Thin Client"`
+        - **OR** `HOST != "dbsec-lab.dbsecvcn.oraclevcn.com"`
+    - This Audit Policy will audit all sessions that attempt to access to `EMPLOYEESEARCH_PROD.DEMO_HR_USERS` and `EMPLOYEESEARCH_PROD.DEMO_HR_EMPLOYEES` tables from an insecure path (ie a path other than the official web application for example)
+
 
 6. After creating the Unified Audit Policy you must enable it!
 
@@ -183,44 +198,80 @@ In this lab, you will audit who is using the `EMPLOYEESEARCH_PROD` objects outsi
 
     - Execute
 
-    ````
-    <copy>./ua_query_employeesearch_usage.sh</copy>
-    ````
+        ````
+        <copy>./ua_query_employeesearch_usage.sh</copy>
+        ````
 
-    ![](./images/ua-007.png " ")
+        ![](./images/ua-007.png " ")
 
-    **Note**: When prompted, **DO NOT press [return]** before executing a research in Glassfish as mentioned below!
+        **Note**: When prompted, **DO NOT press [return]** before executing a research in Glassfish as mentioned below!
 
-    - Open our Glassfish App and perform again a random research as previously
+    - Open a new web browser window to *`http://<YOUR_DBSEC-LAB_VM_PUBLIC_IP>:8080/hr_prod_pdb1`*
+    
+    - Login to the HR Application as *`hradmin`* with the password "*`Oracle123`*"
+
+        ````
+        <copy>hradmin</copy>
+        ````
+
+        ````
+        <copy>Oracle123</copy>
+        ````
+
+        ![](./images/ua-008.png " ")
+
+        ![](./images/ua-009.png " ")
+
+    - Click on **Search Employees**
+
+        ![](./images/ua-010.png " ")
+
+    - Click [**Search**]
+
+        ![](./images/ua-011.png " ")
+
+    - Change some of the criteria and Search again
+    - **Repeat 2-3 times** to ensure you have enough traffic
 
     - Then, go back to your terminal session an press **[return]**
 
-    ![](./images/ua-016.png " ")
+        ![](./images/ua-016.png " ")
 
-    **Note**: They should not be generated based on this Unified Audit Policy because we are **excluding** application audit data
+    - View the results of the audit output for the Audit Policy `AUDIT_EMPLOYEESEARCH_USAGE`
 
-8. Query the `EMPLOYEESEARCH_PROD.DEMO_HR_EMPLOYEES` table again using SQL*Plus to generate audit data
+        ````
+        <copy>./ua_query_audit_records.sh</copy>
+        ````
 
-    ````
-    <copy>./ua_query_employeesearch.sh</copy>
-    ````
+        ![](./images/ua-016b.png " ")
 
-    ![](./images/ua-013.png " ")
 
-9. View the results of the audit output
+        **Note**: They should not be generated based on this Unified Audit Policy because we are **excluding** application audit data
 
-    ````
-    <copy>./ua_query_audit_records.sh</copy>
-    ````
+8. Now, query the `EMPLOYEESEARCH_PROD.DEMO_HR_EMPLOYEES` table again by using an "insecure" access path to generate audit data
 
-    ![](./images/ua-017.png " ")
+    - Execute this SQL*Plus query
 
-    **Note**:
-    - You can see we have an entry that corresponds with our use of SQL*Plus while not capturing queries from the Glassfish application
-    - We trust the application to execute queries as `EMPLOYEESEARCH_PROD` but we do not trust anyone else
-    - We want to audit everyone else
+        ````
+        <copy>./ua_query_employeesearch.sh</copy>
+        ````
 
-10. When you have completed this lab, you can remove the Unified Audit Policy
+        ![](./images/ua-013.png " ")
+
+    - Now, view the results of the audit output for the Audit Policy `AUDIT_EMPLOYEESEARCH_USAGE`
+
+        ````
+        <copy>./ua_query_audit_records.sh</copy>
+        ````
+
+        ![](./images/ua-017.png " ")
+
+        **Note**:
+        - You can see we have an entry that corresponds with our use of SQL*Plus while not capturing queries from the Glassfish application
+        - We trust the application to execute queries as `EMPLOYEESEARCH_PROD` but we do not trust anyone else
+        - We want to audit everyone else
+
+10. When you have completed this lab, you can remove the Unified Audit policy
 
     ````
     <copy>./ua_delete_audit_policy.sh</copy>
@@ -241,7 +292,7 @@ When such a policy is enabled, Oracle Database audits all system privileges that
 
     ![](./images/ua-018.png " ")
 
-2. Create the audit policy to audit the use of the role `MGR_ROLE`
+2. Create the Audit Policy `AUD_ROLE_POL` to audit the use of the role `MGR_ROLE`
 
     ````
     <copy>./ua_create_role_audit_policy.sh</copy>
@@ -298,11 +349,19 @@ When such a policy is enabled, Oracle Database audits all system privileges that
     ![](./images/ua-025.png " ")
 
 
+9. When you have completed this lab, you can remove the role usage Unified Audit policies
+
+    ````
+    <copy>./ua_delete_role_audit_policy.sh</copy>
+    ````
+
+    ![](./images/ua-025b.png " ")
+
 ## Task 4: Audit Data Pump Usage
 
 In this lab you will configure the Unified Audit Trail and review an audit of Oracle Data Pump export. This is a feature of Unified Audit that is not available in traditional auditing.
 
-1. Create a Unified Audit policy to audit Data Pump activities
+1. Create the Unified Audit Policy "`DP_POL`" to audit Data Pump activities
 
     ````
     <copy>./ua_audit_datapump_export.sh</copy>
@@ -310,19 +369,19 @@ In this lab you will configure the Unified Audit Trail and review an audit of Or
 
     ![](./images/ua-028.png " ")
 
-2. Perform 2 Data Pump exports of the table `EMPLOYEESEARCH_PROD.DEMO_HR_EMPLOYEES`...
+2. Perform two Data Pump exports of the table `EMPLOYEESEARCH_PROD.DEMO_HR_EMPLOYEES`...
 
     ````
     <copy>./ua_datapump_export_hr_table.sh</copy>
     ````
 
-    ...as a user authorized (`SYSTEM`): **Successfully!**
+    - ...as a user authorized (`SYSTEM`): **Successfully** ... and the export file `$DBSEC_LABS/unified-auditing/HR_table.dmp` has been created!
 
-    ![](./images/ua-029a.png " ")
+        ![](./images/ua-029a.png " ")
 
-    ...and as a user who is not authorized (`DBSAT_ADMIN`): **In Failure!**
+    - ...and as a user who is not authorized (`DBSAT_ADMIN`): **In Failure!**
 
-    ![](./images/ua-029b.png " ")
+        ![](./images/ua-029b.png " ")
 
     **Note**: Only the successfull export is available!
 
@@ -334,17 +393,15 @@ In this lab you will configure the Unified Audit Trail and review an audit of Or
 
     ![](./images/ua-030.png " ")
 
-## Task 5: Cleanup the Unified Auditing Configuration
-
-1. When you have completed the lab, you can run the cleanup script
+4. When you have completed the lab, you can remove the Data Pump Unified Audit policy
 
     ````
-    <copy>./ua_cleanup.sh</copy>
+    <copy>./ua_delete_dp_audit_policy.sh</copy>
     ````
 
     ![](./images/ua-031.png " ")
 
-You may now [proceed to the next lab](#next)..
+You may now proceed to the next lab!
 
 ## **Appendix**: About the Product
 ### **Overview**
@@ -379,7 +436,10 @@ Technical Documentation:
 - [Introduction to Auditing](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/introduction-to-auditing.html)  
 - [Monitoring Database Activity with Auditing](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/part_6.html)
 
+Video:
+- *Understanding Unified Auditing (February 2019)*[](youtube:8spLhyj3iC0)
+
 ## Acknowledgements
 - **Author** - Hakim Loumi, Database Security PM
-- **Contributors** - Angeline Dhanarani, Gian Sartor, Rene Fontcha
-- **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, September 2021
+- **Contributors** - Angeline Dhanarani, Rene Fontcha
+- **Last Updated By/Date** - Hakim Loumi, Database Security PM - May 2022

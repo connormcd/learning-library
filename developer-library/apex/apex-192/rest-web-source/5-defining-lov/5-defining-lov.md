@@ -203,5 +203,5 @@ This completes Lab 5 and the workshop. You now know how to define List of Values
 
  - **Author/Contributors** -  David Peake, Consulting Member of Technical Staff
  - **Contributors** - Oracle LiveLabs Team (Arabella Yao, Product Manager Intern | Jaden McElvey, Technical Lead | Jeffrey Malcolm Jr, Intern)
- - **Last Updated By/Date** - Tom McGinn, Database Cloud Services, Product Management, June 2020
+ - **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

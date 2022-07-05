@@ -207,4 +207,4 @@ To use PuTTYgen to convert a key into .ppk format, complete the following steps:
 
 * **Author** - Rene Fontcha, Master Principal Platform Specialist, NA Technology
 * **Contributors** - Kay Malcolm, Product Manager, Database Product Management
-* **Last Updated By/Date** - Tom McGinn, May 2021
+* **Last Updated By/Date** - Madhusudhan Rao, Apr 2022

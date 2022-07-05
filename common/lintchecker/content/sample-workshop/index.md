@@ -87,7 +87,7 @@ In real-world situations, you would create multiple VCNs based on their need for
 ## Acknowledgements
 
 - **Authors** - Flavio Pereira, Larry Beausoleil
-- **Contributors** - Oracle LiveLabs QA Team (Kamryn Vinson, QA Intern, Arabella Yao, Product Manager Intern, DB Product Management), Tom McGinn (Database Product Management)
+- **Contributors** - Oracle LiveLabs QA Team (Kamryn Vinson, QA Intern, Arabella Yao, Product Manager Intern, DB Product Management) 
 
 ## Learn More
 

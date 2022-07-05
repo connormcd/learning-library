@@ -1,139 +1,528 @@
-# Introduction
+# Manage Partitions in Hybrid Partitioned Tables
 
-## About this Workshop
+## Introduction
+Oracle Database 12c allows partitions of a partitioned table to be created either as internal partitions in the database in Oracle data files or in external sources as external partitions.
 
-This introduction covers the complete "parent" workshop. The objectives are written to cover all of the labs included in the workshop.
+Oracle Database 19c allows a partitioned table to hold both internal partitions and external partitions. These partitioned tables are called hybrid partitioned tables.
 
-Estimated Lab Time: &lt;n&gt; minutes -- this estimate is for the entire workshop - it is the sum of the estimates provided for each of the labs included in the workshop.
+In this lab, you create a hybrid partitioned table with both internal and external partitions and manage the internal and external partitions.
 
-### About Product/Technology
-Enter background information here....
-
-*You may add an option video, using this format: [](youtube:&lt;YouTube video id&gt;)*
-
-  [](youtube:zNKxJjkq0Pw)
+Estimated Time: 15 minutes
 
 ### Objectives
 
-*List objectives for the lab - if this is the intro lab, list objectives for the workshop, for example:*
-
 In this lab, you will:
-* Provision
-* Setup
-* Data Load
-* Query
-* Analyze
-* Visualize
+
+- Create the tablespaces for the internal partitions
+- Create the logical directories for the external partitions
+- Create the hybrid partitioned table
+- Insert data into the partitions
+- List the partitions of the hybrid partitioned table
+- Add and remove external partitions
+- Clean up the environment
 
 ### Prerequisites
 
-*Use this section to describe any prerequisites, including Oracle Cloud accounts, set up requirements, etc.*
+This lab assumes you have:
+- Obtained and signed in to your `workshop-installed` compute instance.
 
-* An Oracle Free Tier, Always Free, Paid or LiveLabs Cloud Account
-* Item no 2 with url - [URL Text](https://www.oracle.com).
+## Task 1: Create the tablespaces for the internal partitions
 
-*This is the "fold" - below items are collapsed by default*
+> **NOTE:** Unless otherwise stated, all passwords will be `Ora4U_1234`. When copying and pasting a command that includes a password, please replace the word `password` with `Ora4U_1234`. This only applies to instances created through OCI Resource Manager with our provided terraform scripts.
 
-## Task 1: **TEST**: Create Your Free Trial Account - Pass in a marketing code appended to the free trial link
+In this section, you create two tablespaces to store data of the internal partitions, one of the two tablespaces to be the default tablespace for internal partitions.
 
-This test demonstrates that the appended marketing code is passed to other labs.
+1. Open a terminal session.
 
-In this section, you will fill out the registration form at [oracle.com/cloud/free](https://myservices.us.oraclecloud.com/mycloud/signup) to receive your Oracle Free Trial with $300 in credits.
-
-1.  Click on the "Start for free" button and enter the appropriate information to create your account.
-    * Enter the same **email address** you used to register for Oracle Open World / Oracle Code One. A popup should appear recognizing your email. If not, the registration form will ask for additional information later.
-    * Select your **country/territory**.
-    * Click **Next**.
-
-    ![](images/signup-for-freetier.png " ")
-
-2.  Enter a few details for your new Oracle Cloud account.
-    * You can choose almost anything for your Cloud Account Name. Remember what you wrote. You'll need this name later to sign in.
-    * Click **Enter Password**.
-
-3.  If your email wasn't recognized or you're using a different email address, you will need to provide additional information.
-    * Provide a mobile number and click **Next: Verify Mobile Number**. In a few seconds, you should receive a verification code through SMS-text. Enter this code in the appropriate field and click **Verify**.
-    * Click **Add Credit Card Details**. You will NOT be charged unless you elect to upgrade the account later. Enter the billing information, card details, and click **Finish**.
-
-4. Validate your address.
-
-5. Enter a password. Remember this password so you can sign in to the Cloud later.
-
-6. Click **Review Terms and Conditions**. Read and agree to the Terms & Conditions by checking the box and click **Complete Sign-Up**.
-
-7. Your account is provisioning and should be available in a few seconds! When it's ready, you're automatically taken to a sign in page. You'll also receive a confirmation email containing sign in information.
-## Task 1: title
-
-Step 1 opening paragraph.
-
-1. Sub step 1
-
-  To create a link to local file you want the reader to download, use this format:
-
-  Download the [starter file](files/starter-file.sql) SQL code.
-
-  *Note: do not include zip files, CSV, PDF, PSD, JAR, WAR, EAR, bin or exe files - you must have those objects stored somewhere else. We highly recommend using Oracle Cloud Object Store and creating a PAR URL instead. See [Using Pre-Authenticated Requests](https://docs.cloud.oracle.com/en-us/iaas/Content/Object/Tasks/usingpreauthenticatedrequests.htm)*
-
-2. Sub step 2 with image and link to the text description below. The `sample1.txt` file must be added to the `files` folder.
-
-    ![Image alt text](images/sample1.png "Image title")
-
-3. Ordered list item 3 with the same image but no link to the text description below.
-
-    ![Image alt text](images/sample1.png " ")
-
-4. Example with inline navigation icon ![Image alt text](images/sample2.png) click **Navigation**.
-
-5. One example with bold **text**.
-
-   If you add another paragraph, add 3 spaces before the line.
-
-## Task 2: title
-
-1. Sub step 1
-
-  Use tables sparingly:
-
-  | Column 1 | Column 2 | Column 3 |
-  | --- | --- | --- |
-  | 1 | Some text or a link | More text  |
-  | 2 |Some text or a link | More text |
-  | 3 | Some text or a link | More text |
-
-2. You can also include bulleted lists - make sure to indent 4 spaces:
-
-    - List item 1
-    - List item 2
-
-3. Code examples
+2. Set the Oracle environment variables. When prompted, enter CDB1.
 
     ```
-    Adding code examples
-  	Indentation is important for the code example to appear inside the step
-    Multiple lines of code
-  	<copy>Enclose the text you want to copy in &lt;copy&gt;&lt;/copy&gt;.</copy>
+    $ <copy>. oraenv</copy>
+    CDB1
     ```
 
-4. Code examples that include variables
+3. If not open, pleae open PDB1.
 
-  To include `<` and `>` in your code fragments, use ``&lt;`` and ``&gt;`` to escape the characters in the code block:
+    ```
+    $ <copy>sqlplus / as sysdba</copy>
+    Connected.
+    ```
 
-	```
-  <copy>ssh -i &lt;ssh-key-file&gt;</copy>
-  ```
+4. Open PDB1.
 
-*At the conclusion of the lab add this statement:*
-You may proceed to the next lab.
+    ```
+    SQL> <copy>ALTER PLUGGABLE DATABASE pdb1 OPEN;</copy>
+    ```
+
+5. Exit SQL*Plus.
+
+    ```
+    SQL> <copy>EXIT;</copy>
+    ```
+
+6. Log in to PDB1 as the `SYS` user.
+
+    ```
+    $ <copy>sqlplus sys/password@PDB1 as sysdba</copy>
+    Connected.
+    ```
+
+7. Create the tablespaces TS1 and TS2 to store internal partitions of the hybrid partitioned table
+
+    ```
+    SQL> <copy>CREATE TABLESPACE ts1 DATAFILE '/home/oracle/labs/19cnf/ts1.dbf' SIZE 100M;</copy>
+    ```
+    ```
+    SQL> <copy>CREATE TABLESPACE ts2 DATAFILE '/home/oracle/labs/19cnf/ts2.dbf' SIZE 100M;</copy>
+    ```
+
+## Task 2: Create the logical directories for the external partitions
+
+In this task, you create the logical directories to store the source data files for external partitions.
+
+1. Create the logical directory CENT18 to store the source data file cent18.dat for the CENT18 external partition.
+
+    ```
+    SQL> <copy>CREATE DIRECTORY cent18 AS '/home/oracle/labs/19cnf/CENT18';</copy>
+    ```
+
+2. Create the logical directory CENT19 to store the source data file cent19.dat for the CENT19 external partition.
+
+    ```
+    SQL> <copy>CREATE DIRECTORY cent19 AS '/home/oracle/labs/19cnf/CENT19';</copy>
+    ```
+
+3. Create the logical directory CENT20 to store the source data file cent20.dat for the CENT20 external partition.
+
+    ```
+    SQL> <copy>CREATE DIRECTORY cent20 AS '/home/oracle/labs/19cnf/CENT20';</copy>
+    ```
+
+## Task 3: Create the hybrid partitioned table
+
+1. Create the user that owns the hybrid partitioned table.
+
+    ```
+    SQL> <copy>CREATE USER hypt IDENTIFIED BY password;</copy>
+    ```
+
+2. Grant the read and write privileges on the directories that store the source data files to the table owner.
+
+    ```
+    SQL> <copy>GRANT read, write ON DIRECTORY cent18 TO hypt;</copy>
+    ```
+
+    ```
+    SQL> <copy>GRANT read, write ON DIRECTORY cent19 TO hypt;</copy>
+    ```
+
+    ```
+    SQL> <copy>GRANT read, write ON DIRECTORY cent20 TO hypt;</copy>
+    ```
+
+3. Grant the CREATE SESSION, CREATE TABLE and UNLIMITED TABLESPACE privileges to the table owner.
+
+    ```
+    SQL> <copy>GRANT create session, create table, unlimited tablespace TO hypt;</copy>
+    ```
+
+4. Execute the `create_hybrid_table.sql` script to create the HYPT_TAB hybrid partitioned table with the following attributes:
+    - The table is partitioned by range on the TIME_ID column.
+    - The default tablespace for internal partitions is TS1.
+    - The default tablespace for external partitions is CENT20.
+    - The fields in the records of the external files are separated by ','.
+    - The table is partitioned into five parts:
+      - Three external partitions:
+        - CENT18 is empty for the moment;
+        - CENT19 has the `cent19.dat` file stored in another directory than the default, CENT19;
+        - CENT20 has the `cent20.dat` file stored in the default directory.
+      - Two internal partitions: Y2000 is stored in tablespace TS2 and PMAX is stored in the default tablespace TS1.
+      
+    ```
+    SQL> <copy>@/home/oracle/labs/19cnf/create_hybrid_table.sql</copy>
+    ```
+
+## Task 4: Insert data into the partitions
+
+1. Insert rows into the internal partitions of the table. Execute the `insert_bd.sql` script.
+
+    ```
+    SQL> <copy>@/home/oracle/labs/19cnf/insert_bd.sql</copy>
+    ```
+
+2. Insert a row for the date of 12 August 1997.
+
+    ```
+    SQL> <copy>INSERT INTO hypt.hypt_tab VALUES (41, to_date('12.08.1997', 'dd.mm.yyyy'));</copy>
+    INSERT INTO hypt.hypt_tab
+                 *
+    ERROR at line 1:
+    ORA-14466: Data in a read-only partition or subpartition cannot be modified.
+    ```
+
+The data can be inserted into the external partition only via the external source data file.
+
+3. Insert the data for the date of 12 August 1997 into the appropriate external source data file.
+
+    ```
+    SQL> <copy>host echo "41,12-Aug-1997" >> /home/oracle/labs/19cnf/CENT20/cent20.dat</copy>
+    ```
+
+4. Verify that the row is readable from the appropriate external partition CENT20. The results should match the output shown below.
+
+    ```
+    SQL> <copy>SELECT history_event, TO_CHAR(time_id, 'dd-MON-yyyy')
+    FROM hypt.hypt_tab PARTITION (cent20) ORDER BY 1;</copy>
+   
+    HISTORY_EVENT TO_CHAR(TIME_ID,'DD-
+    ------------- --------------------
+                1 01-JAN-1976
+                2 01-JAN-1915
+                3 01-JAN-1928
+                4 01-JAN-1937
+                5 01-JAN-1949
+                6 01-FEB-1959
+                7 01-FEB-1996
+                8 01-FEB-1997
+                9 01-FEB-1998
+               10 01-FEB-1998
+               41 12-AUG-1997
+
+    11 rows selected.
+    ```
+
+5. Append another record into the external source data file CENT19. The results should match the output shown below.
+
+    ```
+    SQL> <copy>host echo "42,12-Aug-1997" >> /home/oracle/labs/19cnf/CENT19/cent19.dat</copy>
+    ```
+    ```
+    SQL> <copy>SELECT history_event, TO_CHAR(time_id, 'dd-MON-yyyy') FROM hypt.hypt_tab PARTITION (cent19) ORDER BY 1;</copy>
+
+    HISTORY_EVENT TO_CHAR(TIME_ID,'DD-
+    ------------- --------------------
+               11 01-JAN-1876
+               12 01-JAN-1815
+               13 01-JAN-1828
+               14 01-JAN-1837
+               15 01-JAN-1849
+               16 01-FEB-1859
+               17 01-FEB-1896
+               18 01-FEB-1897
+               19 01-FEB-1898
+               20 01-FEB-1898
+               42 12-AUG-1997
+
+    11 rows selected.
+    ```
+    Observe that the row is readable from the external partition CENT19, although the row should be stored in another partition. There is no control on the TIME_ID of the records inserted as rows into the external partitions, as it is the case for rows inserted into internal partitions.
+
+6. Use an text editor to delete the last record inserted by the previous command.
+    ```
+    SQL> <copy>exit</copy>
+    ```
+    ```
+    $ <copy>vi /home/oracle/labs/19cnf/CENT19/cent19.dat</copy>
+    ```
+    Once in the vi editor, press "i" and delete line containing '42 12-AUG-1997'. Press "Esc" then ":wq" and "Enter".
+    Return to SQL*Plus to continue the lab.
+    ```
+    $ <copy>sqlplus sys/password@PDB1 as sysdba</copy>
+    Connected.
+    ```
+
+7. Query the rows of the five partitions. Check that each result matches the output below for each query.
+
+    ```
+    <copy>SELECT history_event, TO_CHAR(time_id, 'dd-MON-yyyy') FROM hypt.hypt_tab PARTITION (cent18) ORDER BY 1;</copy>
+
+    no rows selected.
+    ```
+    ```
+    <copy>SELECT history_event, TO_CHAR(time_id, 'dd-MON-yyyy') FROM hypt.hypt_tab PARTITION (cent19) ORDER BY 1;</copy>
+
+    HISTORY_EVENT TO_CHAR(TIME_ID,'DD-
+    ------------- --------------------
+               11 01-JAN-1876
+               12 01-JAN-1815
+               13 01-JAN-1828
+               14 01-JAN-1837
+               15 01-JAN-1849
+               16 01-FEB-1859
+               17 01-FEB-1896
+               18 01-FEB-1897
+               19 01-FEB-1898
+               20 01-FEB-1898
+
+    10 rows selected.
+    ```
+    ```
+    <copy>SELECT history_event, TO_CHAR(time_id, 'dd-MON-yyyy') FROM hypt.hypt_tab PARTITION (cent20) ORDER BY 1;</copy>
+
+    HISTORY_EVENT TO_CHAR(TIME_ID,'DD-
+    ------------- --------------------
+                1 01-JAN-1976
+                2 01-JAN-1915
+                3 01-JAN-1928
+                4 01-JAN-1937
+                5 01-JAN-1949
+                6 01-FEB-1959
+                7 01-FEB-1996
+                8 01-FEB-1997
+                9 01-FEB-1998
+               10 01-FEB-1998
+               41 12-AUG-1997
+
+    11 rows selected.
+    ```
+    ```
+    <copy>SELECT history_event, TO_CHAR(time_id, 'dd-MON-yyyy') FROM hypt.hypt_tab PARTITION (y2000) ORDER BY 1;</copy>
+
+    HISTORY_EVENT TO_CHAR(TIME_ID,'DD-
+    ------------- --------------------
+               21 31-DEC-2000
+               22 31-OCT-2000
+               23 01-FEB-2000
+               24 27-MAR-2000
+               25 31-MAR-2000
+               26 15-APR-2000
+               27 02-SEP-2000
+               28 12-AUG-2000
+
+    8 rows selected.
+    ```
+    ```
+    <copy>SELECT history_event, TO_CHAR(time_id, 'dd-MON-yyyy') FROM hypt.hypt_tab PARTITION (pmax) ORDER BY 1;</copy>
+
+    HISTORY_EVENT TO_CHAR(TIME_ID,'DD-
+    ------------- --------------------
+                29 12-AUG-2018
+                30 15-SEP-2017
+    ```
+
+## Task 5: List the partitions of the hybrid partitioned table
+
+1. Distinguish the partitioned tables from the hybrid partitioned tables. Verify the existence of the hybrid partitioned table in the `DBA_EXTERNAL_TABLES` view and its associated partitions from the `DBA_TAB_PARTITIONS` view. The results should match the output shown below.
+
+    ```
+    SQL> <copy>SELECT * FROM dba_external_tables WHERE owner = 'HYPT';</copy>
+
+    OWNER   TABLE_NAME TYP
+    ------- ---------- ---
+    TYPE_NAME
+    ----------------------------------------------------------------
+    DEF
+    ---
+    DEFAULT_DIRECTORY_NAME
+    ----------------------------------------------------------------
+    REJECT_LIMIT                             ACCESS_
+    ---------------------------------------- -------
+    ACCESS_PARAMETERS
+    ----------------------------------------------------------------
+    PROPERTY   INMEMORY INMEMORY_COMPRESS
+    ---------- -------- -----------------
+    HYPT    HYPT_TAB   SYS
+    ORACLE_LOADER
+    SYS
+    CENT20
+    UNLIMITED                                CLOB
+    FIELDS TERMINATED BY ','
+              (history_event , time_id DATE 'dd-MON-yyyy')
+    ALL        DISABLED
+    ```
+    Query the rows of the next partition. The results should match the output shown below.
+    ```
+    SQL> <copy>SELECT partition_name, high_value FROM dba_tab_partitions WHERE table_name = 'HYPT_TAB' ORDER BY 1;</copy>
+
+    PARTITION_NAME HIGH_VALUE
+    -------------- --------------------
+    CENT18         TO_DATE(' 1800-01-01
+                    00:00:00', 'SYYYY-M
+                   M-DD HH24:MI:SS', 'N
+                   LS_CALENDAR=GREGORIA
+
+    CENT19         TO_DATE(' 1900-01-01
+                    00:00:00', 'SYYYY-M
+                   M-DD HH24:MI:SS', 'N
+                   LS_CALENDAR=GREGORIA
+
+    CENT20         TO_DATE(' 2000-01-01
+                    00:00:00', 'SYYYY-M
+                   M-DD HH24:MI:SS', 'N
+                   LS_CALENDAR=GREGORIA
+
+    PMAX           MAXVALUE
+    Y2000          TO_DATE(' 2001-01-01
+                    00:00:00', 'SYYYY-M
+                   M-DD HH24:MI:SS', 'N
+                   LS_CALENDAR=GREGORIA
+    ```
+
+## Task 6: Add and remove external partitions
+
+ In this section, you add an external partition to the internal partitioned table `HYPT.PART_TAB` for the 17th century. The external file `cent17.dat` source data file storing historic events of the 17th century is stored in the directory /home/oracle/labs/19cnf/CENT17.
+
+ 1. Drop the hybrid partitioned table.
+
+    ```
+    SQL> <copy>DROP TABLE hypt.hypt_tab;</copy>
+    ```
+
+2. Create another partitioned table with internal partitions only.
+
+    ```
+    SQL> <copy>CREATE TABLE hypt.part_tab (history_event NUMBER , time_id DATE) TABLESPACE ts1
+                  PARTITION BY RANGE (time_id)
+                  (PARTITION cent18 VALUES LESS THAN (TO_DATE('01-Jan-1800','dd-MON-yyyy')) ,
+                  PARTITION cent19 VALUES LESS THAN (TO_DATE('01-Jan-1900','dd-MON-yyyy')) ,
+                  PARTITION cent20 VALUES LESS THAN (TO_DATE('01-Jan-2000','dd-MON-yyyy')) ,
+                  PARTITION y2000 VALUES LESS THAN  (TO_DATE('01-Jan-2001','dd-MON-yyyy'))
+                            TABLESPACE ts2,
+                  PARTITION pmax VALUES LESS THAN (MAXVALUE));</copy>
+    ```
+
+3. Execute the `insert2.sql` SQL script to insert rows into the internal partitions of the `PART_TAB` table.
+
+    ```
+    SQL> <copy>@$HOME/labs/19cnf/insert2_bd.sql</copy>
+    ```
+
+4. Display the rows in the table. The results should match the output below.
+
+    ```
+    SQL> <copy>SELECT * FROM hypt.part_tab ORDER BY 1;</copy>
+
+    HISTORY_EVENT TO_CHAR(TIME_ID,'DD-
+    ------------- --------------------
+               21 31-DEC-2000
+               22 31-OCT-2000
+               23 01-FEB-2000
+               24 27-MAR-2000
+               25 31-MAR-2000
+               26 15-APR-2000
+               27 02-SEP-2000
+               28 12-AUG-2000
+               29 12-AUG-2018
+               30 15-SEP-2017
+
+    10 rows selected.
+    ```
+
+5. Create the logical directory for the /home/oracle/labs/19ncf/CENT17 directory.
+
+    ```
+    SQL> <copy>CREATE DIRECTORY cent17 AS '/home/oracle/labs/19cnf/CENT17';</copy>
+    ```
+
+6. Grant the read and write privileges on the directory to HYPT.
+
+    ```
+    SQL> <copy>GRANT read, write ON DIRECTORY cent17 TO hypt;</copy>
+    ```
+
+7. Define the external parameters for all external partitions that might be added to the `HYPT.PART_TAB` table.
+
+    ```
+    SQL> <copy>ALTER TABLE hypt.part_tab
+                   ADD EXTERNAL PARTITION ATTRIBUTES
+                      (TYPE ORACLE_LOADER
+                       DEFAULT DIRECTORY cent17
+                       ACCESS PARAMETERS
+                        (FIELDS TERMINATED BY ','
+                          (history_event , time_id DATE 'dd-MON-yyyy'))
+                         REJECT LIMIT UNLIMITED
+                        );</copy>
+    ```
+
+8. Split the first partition to a partition limit that will be the high limit of the partition added.
+
+    ```
+    SQL> <copy>ALTER TABLE hypt.part_tab
+                      SPLIT PARTITION cent18 AT (TO_DATE('01-Jan-1700','dd-MON-yyyy'))
+                      INTO (PARTITION cent17 EXTERNAL LOCATION ('cent17.dat'),
+                            PARTITION cent18);</copy>
+    ```
+
+9. Read the rows of the external partition. The results should match output shown below.
+
+    ```
+    SQL> <copy>SELECT history_event, TO_CHAR(time_id, 'dd-MON-yyyy') FROM hypt.part_tab PARTITION (cent17) ORDER BY 1;</copy>
+
+    HISTORY_EVENT TO_CHAR(TIME_ID,'DD-
+    ------------- --------------------
+              101 01-JAN-1676
+              102 01-JAN-1615
+              103 01-JAN-1628
+              104 01-JAN-1637
+              105 01-JAN-1649
+              106 01-FEB-1659
+              107 01-FEB-1696
+              108 01-FEB-1697
+              109 01-FEB-1698
+              200 01-FEB-1698
+
+    10 rows selected.
+    ```
+
+10. The partition storing 17th century historic events is no longer required. Remove the external parameters for the hybrid partitioned that was added to the `HYPT.PART_TAB` table.
+
+    ```
+    SQL> <copy>ALTER TABLE hypt.part_tab DROP EXTERNAL PARTITION ATTRIBUTES();</copy>
+
+    ALTER TABLE hypt.part_tab DROP EXTERNAL PARTITION ATTRIBUTES()
+    *
+    ERROR at line 1:
+    ORA-14354: operation not supported for a hybrid-partitioned table
+    ```
+
+This command should return an error. External partitions must be dropped first before you can remove external attributes at the table level.
+
+11. Drop the external partition from the `HYPT.PART_TAB` table. Because there is one external partition left, the attributes for the external partitions cannot be removed from the hybrid partitioned table.
+
+    ```
+    SQL> <copy>ALTER TABLE hypt.part_tab DROP PARTITION cent17;</copy>
+    ```
+
+12. Remove the external parameters for the hybrid partitioned `HYPT.PART_TAB` table.
+
+    ```
+    SQL> <copy>ALTER TABLE hypt.part_tab DROP EXTERNAL PARTITION ATTRIBUTES();</copy>
+    ```
+
+## Task 7: Clean up the environment
+
+1. Drop the hybrid partitioned HYPT.PART_TAB table.
+
+    ```
+    SQL> <copy>DROP TABLE hypt.part_tab PURGE;</copy>
+    ```
+
+2. Exit SQL*Plus.
+
+    ```
+    SQL> <copy>EXIT;</copy>
+    ```
+3. Recreate PDB1.
+
+    ```
+    $ <copy>$HOME/labs/19cnf/cleanup_PDBs_in_CDB1.sh</copy>
+    ```
+
+4. Quit the session.
+   
+    ```
+    SQL> <copy>exit</copy>
+    ```
+
+    You may now **proceed to the next lab**.
+
 
 ## Learn More
 
-*(optional - include links to docs, white papers, blogs, etc)*
-
-* [URL text 1](http://docs.oracle.com)
-* [URL text 2](http://docs.oracle.com)
+* [Managing Hybrid Partitioned Tables](https://docs.oracle.com/en/database/oracle/oracle-database/19/vldbg/manage_hypt.html)
 
 ## Acknowledgements
-* **Author** - <Name, Title, Group>
-* **Adapted for Cloud by** -  <Name, Group> -- optional
-* **Last Updated By/Date** - <Name, Group, Month Year>
-* **Workshop (or Lab) Expiry Date** - <Month Year> -- optional, use this when you are using a Pre-Authorized Request (PAR) URL to an object in Oracle Object Store.
+* **Author** - Dominique Jeunot, Consulting User Assistance Developer
+* **Contributors** - Kherington Barley, Austin Specialist Hub
+* **Last Updated By/Date** - Kherington Barley, Austin Specialist Hub, May 2022
+

@@ -1,0 +1,65 @@
+{
+    "workshoptitle": "Oracle Verrazzano Fundamentals",
+    "help": "livelabs-help-weblogic_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "Introduction",
+            "type": "freetier",
+            "filename": "../../intro/intro.md"
+        },
+        {
+            "title": "Getting Started",
+            "description": "Prerequisites",
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
+        },
+        {
+            "title": "Lab 1: Set up an Oracle Kubernetes Engine instance on the Oracle Cloud Infrastructure",
+            "type": "freetier",
+            "filename": "../../setup-oke-ocishell/setup-oke-ocishell.md"
+        },
+        {
+            "title": "Lab 2: Install Verrazzano",
+            "type": "freetier",
+            "filename": "../../install-verrazzano/install-verrazzano.md"
+        },
+        {
+            "title": "Lab 3: Deploy Bobby's Books sample application",
+            "type": "freetier",
+            "filename": "../../deploy-bobsbook/deploy-bobsbook.md"
+        },
+        {
+            "title": "Lab 4: Access the Bobby's Books sample application Explore Verrazzano, Grafana and Kiali Console",
+            "type": "freetier",
+            "filename": "../../access-application/access-application.md"
+        },
+		{
+            "title": "Lab 5: Modify the Bobby's Book Application and Create a New Application Component Image",
+            "type": "freetier",
+            "filename": "../../modify-helidonstock/modify-helidonstock.md"
+        },
+		{
+            "title": "Lab 6: Push the Docker Image for bobbys-helidon-stock-application to the Oracle Cloud Container Registry",
+            "type": "freetier",
+            "filename": "../../pushing-new-image/pushing-new-image.md"
+        },
+		{
+            "title": "Lab 7: Modify the Bobby's Books Configuration YAML File",
+            "type": "freetier",
+            "filename": "../../modify-yaml-config/modify-yaml-config.md"
+        },
+	    {
+            "title": "Lab 5-7: ALTERNATE VERSION with simplified solution",
+            "filename": "../../alternate-version/alternate-version.md"
+        },
+		{
+            "title": "Lab 8: Verifying the changes through application access and Curated stack",
+            "type": "freetier",
+            "filename": "../../verify-changes/verify-changes.md"
+        },
+      {
+        "title": "Need Help?",
+        "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+        "filename":"https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-freetier.md"
+      }
+   ]
+}

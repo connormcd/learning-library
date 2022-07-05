@@ -67,11 +67,11 @@ If you've signed out of the Oracle Cloud, use these steps to sign back in.
 
   ![](images/pt_BR-oci-console-home-page.png " ")
 
-You may now [proceed to the next lab](#next).
+You may now proceed to the next lab.
 
 ## Agradecimentos
 
-- **Created By/Date** - Tom McGinn, Sr. Mgr, UA DB Development, March 2020
+- **Created By/Date** - Kay Malcolm, Database Product Management, March 2020
 - **Contributors** - LiveLabs Team, John Peach
 - **pt_BR Translated by** - André Ambrósio, April 2021
 - **Last Updated By** - André Ambrósio, May 2021

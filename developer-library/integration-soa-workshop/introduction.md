@@ -54,7 +54,7 @@ When you're ready to proceed, please click the Contents menu on the right-hand.
 
 ## Acknowledgements
 * **Author for LiveLabs** - Daniel Tarudji
-* **Contributors** - Tom McGinn, Kamryn Vinson
+* **Contributors** - Kamryn Vinson
 * **Last reviewed By/Date** - Kamryn Vinson, October 2020
 
 ## Need Help?

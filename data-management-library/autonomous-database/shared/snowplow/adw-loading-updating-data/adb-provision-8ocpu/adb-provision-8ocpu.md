@@ -17,9 +17,8 @@ In this lab, you will:
 
 This lab assumes you have:
 
-- Obtained an <a href="https://www.oracle.com/cloud/free/" target="\_blank">Oracle Cloud account</a>. You may use your own cloud account, a cloud account that you obtained through a 30-day free trial, or a training account whose details were given to you by an Oracle instructor.
-- **Note:** The timings and screenshots in this workshop are based on using 8 OCPUs. If you obtain a 30-day trial license and opt to configure fewer OCPUs or opt for an “Always Free” instance with 1 OCPU, the response times and query times will be longer.
-- Completed the steps in the **Getting Started** section seen in the Contents menu on the left.
+- **Note:** The timings and screenshots in this workshop are based on using 8 OCPUs. If you opt to configure fewer OCPUs the response times and query times will be longer.
+- Completed the steps in the **Get Started** section seen in the Contents menu on the left.
 
 ## Task 1: Choose ADW from the Services Menu
 
@@ -34,7 +33,7 @@ This lab assumes you have:
 
     ![Click Autonomous Data Warehouse.](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/database-adw.png " ")
 
-4. Make sure your workload type is __Data Warehouse__ or __All__ to see your Autonomous Data Warehouse instances. Use the __List Scope__ drop-down menu to select a compartment. If you are using a LiveLabs environment, be sure to select the compartment provided by the environment.
+4. Make sure your workload type is __Data Warehouse__ or __All__ to see your Autonomous Data Warehouse instances. Use the __List Scope__ drop-down menu to select a compartment. If you are using a LiveLabs environment, be sure to select the compartment provided by the environment from the List Scope drop-down menu.
 
     ![Check the workload type on the left.](images/livelabs-compartment.png " ")
 
@@ -44,7 +43,7 @@ This lab assumes you have:
 
     ![Autonomous Databases console.](./images/Compartment.png " ")
 
-6. If you are using a Free Trial or Always Free account, and you want to use Always Free Resources, you need to be in a region where Always Free Resources are available. You can see your current default **region** in the top, right hand corner of the page.
+6. You can see your current default **region** in the top, right hand corner of the page.
 
     ![Select region on the far upper-right corner of the page.](./images/Region.png " ")
 
@@ -58,7 +57,7 @@ This lab assumes you have:
 3. Provide basic information for the autonomous database:
 
     - __Choose a compartment__ - Select a compartment for the database from the drop-down list.
-    - __Display Name__ - Enter a memorable name for the database for display purposes. For this lab, use __My Quick Start ADW__.
+    - __Display Name__ - Enter a memorable name for the database for display purposes. For this lab, use __MyQuickStartADW__.
     - __Database Name__ - Use letters and numbers only, starting with a letter. Maximum length is 14 characters. (Underscores not initially supported.) For this lab, use __MYQUICKSTART__.
 
     ![Enter the required details.](./images/Picture100-26.png " ")
@@ -79,9 +78,8 @@ This lab assumes you have:
 
 6. Configure the database:
 
-    - __Always Free__ - **Note:** The timings and screenshots in this workshop are based on using 8 OCPUs. If you obtain a 30-day trial license and opt to configure fewer OCPUs or opt for an “Always Free” instance with one OCPU, the response times and query times will be longer.
     - __Choose database version__ - Select a database version from the available versions.
-    - __OCPU count__ - Number of CPUs for your service. For this workshop, our example uses a database instance with __8 OCPUs__. If you obtain a 30-day trial license and opt to configure fewer OCPUs or opt for an “Always Free” instance with one OCPU, your response times and query times will be longer.
+    - __OCPU count__ - Number of CPUs for your service<if type="livelabs">, choose __2 OCPUs__ when you are running your workshop in LiveLabs sandbox environment</if>. Our example screenshot uses a database instance with __8 OCPUs__. If you opt to configure fewer OCPUs your response times and query times will be longer<if type="livelabs"> and similarly if you opt to configure more OCPUs your response times and query times will be lesser</if>.
     - __Storage (TB)__ - Select your storage capacity in terabytes. For this lab, specify __1 TB__ of storage.
     - __Auto Scaling__ - For this lab, keep auto scaling enabled, to allow the system to automatically use up to three times more CPU and IO resources to meet workload demand.
     - __New Database Preview__ - If a checkbox is available to preview a new database version, do NOT select it.
@@ -100,7 +98,7 @@ This lab assumes you have:
 
     ![Enter password and confirm password.](./images/Picture100-26d.png " ")
 8. Choose network access:
-    - For this lab, accept the default, "Allow secure access from everywhere".
+    - For this lab, accept the default, **"Allow secure access from everywhere"**.
     - If you want a private endpoint, to allow traffic only from the VCN you specify - where access to the database from all public IPs or VCNs is blocked, then select "Virtual cloud network" in the Choose network access area.
     - You can control and restrict access to your Autonomous Database by setting network access control lists (ACLs). You can select from 4 IP notation types: IP Address, CIDR Block, Virtual Cloud Network, Virtual Cloud Network OCID).
 
@@ -122,11 +120,11 @@ Please *proceed to the next lab*.
 
 ## Learn More
 
-Click [here](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/user/autonomous-workflow.html#GUID-5780368D-6D40-475C-8DEB-DBA14BA675C3) for documentation on the typical workflow for using Autonomous Data Warehouse.
+- Click [here](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/user/autonomous-workflow.html#GUID-5780368D-6D40-475C-8DEB-DBA14BA675C3) for documentation on the typical workflow for using Autonomous Data Warehouse.
 
 ## Acknowledgements
 
 - **Author** - Nilay Panchal, ADB Product Management
 - **Adapted for Cloud by** - Richard Green, Principal Developer, Database User Assistance
 - **Contributors** - Oracle LiveLabs QA Team (Jeffrey Malcolm Jr, Intern | Arabella Yao, Product Manager Intern)
-- **Last Updated By/Date** - Brianna Ambler, July 2021
+- **Last Updated By/Date** - Anoosha Pilli, April 2022

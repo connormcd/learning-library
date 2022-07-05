@@ -9,7 +9,7 @@ Estimated Time: 15 minutes
 ### Objectives
 
 In this lab, you will:
-* Create users and policies to be administering and using the OCI Data Catalog, OCI Data Flow and ADW 
+* Create users and policies to be administering and using the OCI Data Catalog, OCI Data Flow and ADW
 * Create ADW for use as one of the data assets in the data lake
 * Configure the OCI Object Storage Connections
 * Load from OCI Object Storage a data set into ADW as part of the data lake
@@ -28,9 +28,9 @@ In this lab, we will learn more about the Autonomous Database's built-in Data Lo
 
 ## Task 1: Configure Groups, Users and Polices for the Lakehouse
 
-It is important to create separate groups and policies to keep the data lake and catalog secure. As data assets are discovered and use, the proper authorizations can be granted to users based on these groups. Having access to the data lake is critical for business processes and you will see how to grant this access and use this as a security plan for a data lake. In this step, you will set up users and policies for using the OCI Data Catalog, OCI Data Lake and ADW.
+It is important to create separate groups and policies to keep the data lake and catalog secure. As data assets are discovered and used, the proper authorizations can be granted to users based on these groups. Having access to the data lake is critical for business processes and you will see how to grant this access and use this as a security plan for a data lake. In this step, you will set up users and policies for using the OCI Data Catalog, OCI Data Lake and ADW.
 
-First we are going to create an compartment. This allows for separation as well as grouping all of the items together in this area. If you are working in one of your tenancies, you may have been already assigned a compartment to use but it is a quick step and throughout the lab you will want to make sure that you are always in this compartment.
+First, we are going to create a compartment. This allows for separation as well as grouping all of the items together in this area. If you are working in one of your tenancies, you may have already been assigned a compartment to use but it is a quick step and throughout the lab you will want to make sure that you are always in this compartment.
 
 1. Once you are logged in, you are at the cloud services dashboard. Click the navigation menu in the upper left to show top level navigation choices.
 
@@ -74,14 +74,14 @@ First we are going to create an compartment. This allows for separation as well 
 
 
     Select Policies on the side menu and click on the button Create Policy.
-    
+
     ![Create Policies](./images/create_policy.png " ")
 
-    Name each policy for to match the group so they are easy to recognize what they are used for. 
-    - Name this first on DataFlowUsers (Notice no spaces, underscores or dashes are allowed here). 
+    Name each policy for to match the group so they are easy to recognize what they are used for.
+    - Name this first on DataFlowUsers (Notice no spaces, underscores or dashes are allowed here).
     - Add the description.
-    - Select under Policy use cases Data Flow. This will bring up common policy templates for this area in OCI. 
-    - Select Let Data Flow users manage their own Applications and Runs. 
+    - Select under Policy use cases Data Flow. This will bring up common policy templates for this area in OCI.
+    - Select Let Data Flow users manage their own Applications and Runs.
     - Add the group dataflow-users and the location is the compartment lakehouse1
 
     ![Create Policies](./images/create_policy1.png " ")
@@ -110,7 +110,7 @@ allow group data-lakehouse-admin to use object-family in compartment lakehouse1
 
 ## Task 2: Create Object Storage buckets
 
-Creating Object Storage Buckets allows for various types of data to be stored. For this lab, we are using a couple of buckets. Two are created for our data flow process which includes a place for the data and another one for the logs. Also we will create a moviestream bucket for placing the JSON file in that we will read later.
+Creating Object Storage Buckets allows for various types of data to be stored. For this lab, we are using a couple of buckets. Two are created for our data flow process which includes a place for the data and another one for the logs. Also we will create a moviestream bucket for placing the JSON file in which we will read later.
 
 From the Home Menu click on Storage and then click on Buckets.
 
@@ -121,11 +121,10 @@ From the Home Menu click on Storage and then click on Buckets.
    ![Create Storage Bucket](./images/create_bucket.png " ")
 
    Next bucket, click on Create Bucket, Bucket Name, dataflow-logs and use the rest of the defaults and click Create.
-    And one more Create Bucket, Bucket Name, moviestream-bucket and again use the defaults and click Create.
-
+    
    ![Create Storage Bucket](./images/create_bucket2.png " ")
 
-The dataflow buckets are for the processing of the data and logs and the moviestream-bucket data will allow you keep copies of the data for loading and processing.
+The dataflow buckets are for the processing of the data and logs and the moviestream-bucket will allow you to keep copies of the data for loading and processing.
 
 
 ## Task 3: Create ADW
@@ -138,7 +137,7 @@ In this step, you will create an Oracle Autonomous Data Warehouse.
 
     ![Oracle home page.](./images/Picture100-36.png " ")
 
-2. The following steps apply similarly to either Autonomous Data Warehouse or Autonomous Transaction Processing. This lab shows provisioning of an Autonomous Data Warehouse database use with data assets for the data lake, so click **Autonomous Data Warehouse**. The console probably shows that no database exists yet. Click on **Create Autonomous Database** to start the instance creation process.
+2. The following steps apply similarly to either Autonomous Data Warehouse or Autonomous Transaction Processing. This lab shows provisioning of an Autonomous Data Warehouse database with data assets for the data lake, so click **Autonomous Data Warehouse**. The console probably shows that no database exists yet. Click on **Create Autonomous Database** to start the instance creation process.
 
 3. Provide basic information for the autonomous database:
 
@@ -177,7 +176,7 @@ In this step, you will create an Oracle Autonomous Data Warehouse.
 6. Choose network access:
 
     - For this lab, accept the default, "Allow secure access from everywhere".
- 
+
 7. Choose a license type. For this lab, choose __License Included__. The two license types are:
 
     - __Bring Your Own License (BYOL)__ - Select this type when your organization has existing database licenses.
@@ -193,7 +192,7 @@ In this step, you will create an Oracle Autonomous Data Warehouse.
 
     > **Note:** Take care not to use spaces in the name.
 
-This completes the creation of the groups, polices, database. We will now load the database with a full set of structured tables loaded into the Autonomous Database from the MovieStream Data Lake, with suitable constraints set up on the tables to avoid errors in attempting to load duplicate rows or invalid data. We will be working with these tables in later labs.
+This completes the creation of the groups, polices, and database. We will now load the database with a full set of structured tables loaded into the Autonomous Database from the MovieStream Data Lake, with suitable constraints set up on the tables to avoid errors in attempting to load duplicate rows or invalid data. We will be working with these tables in later labs.
 
 You may now proceed to the next lab.
 
@@ -201,4 +200,4 @@ You may now proceed to the next lab.
 
 * **Author** - Michelle Malcher, Database Product Management
 * **Contributors** -  Massimo Castelli, Niay Panchal, Mike Matthew and Marty Gubar, Autonomous Database Product Management
-* **Last Updated By/Date** - Michelle Malcher, Database Product Management, September 2021
+* **Last Updated By/Date** - Michelle Malcher, Database Product Management, September 2021, Nagwang Gyamtso, Solution Engineering, February 2022

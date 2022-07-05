@@ -19,7 +19,6 @@ Database Management supports Oracle Database versions 11.2.0.4 and later. Using 
 * Group your most important or production Oracle Databases together, or group together databases that reside across compartments into a Database Group, and monitor them.
 * Create SQL jobs to perform administrative operations on a single Oracle Database or a Database Group.
 
-
 ### Objectives
 
 In this workshop, you will:
@@ -36,9 +35,10 @@ In this workshop, you will:
 * An Oracle Cloud Account
 * Please view this workshop's LiveLabs landing page to see which environments are supported.
 
-*Note*: If you have a **Free Trial** account, when your Free Trial expires your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. **[Click here for the Free Tier FAQ page.](https://www.oracle.com/cloud/free/faq.html)**
+**Note**: If you have a **Free Trial** account, when your Free Trial expires your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. **[Click here for the Free Tier FAQ page.](https://www.oracle.com/cloud/free/faq.html)**
 
 ## Learn More
+
 - [Oracle Cloud Infrastructure Database Management]( https://www.oracle.com/manageability/database-management/)
 - [Oracle Database 19c](https://www.oracle.com/database/)
 

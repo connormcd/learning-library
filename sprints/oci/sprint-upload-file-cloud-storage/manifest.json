@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-oci_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I upload a file I've loaded to Oracle Cloud Storage?",
+         "description": "",
+         "filename": "sprint-upload-file-cloud-storage.md"
+      },
+      {
+         "title": "How do I share a file I've loaded to Oracle Cloud Storage?",
+         "description": "",
+         "filename": "../sprint-share-file-cloud-storage/sprint-share-file-cloud-storage.md"
+      }
+   ],
+   "task_type": "Sections"
+}

@@ -104,13 +104,14 @@ This lab assumes that you have:
 1. Click on the `intro_to_clustering.ipynb` notebook tab. This will activate the notebook file.
 
 1. Read through the notebook. When you encounter a chunk of code, click in the cell and press *shift + enter* to execute it. When the cell is running a ``[*]`` will appear in the top left corner of the cell. When it is finished, a number will appear in ``[ ]``, for example ``[1]``.
-    ![](./../speed-up-ds-with-the-ads-sdk/images/running-cell.png)
-    ![](./../speed-up-ds-with-the-ads-sdk/images/finished-cell.png)
+    ![](./../common/images/jlab-running-cell.png)
+    ![](./../common/images/jlab-executed-cell.png)
 
 
 1. Execute the cells in order. If you run into problems and want to start over again, click the **restart** button then click **Restart**.
-    ![](./../speed-up-ds-with-the-ads-sdk/images/restart-kernel.png)
-    ![](./../speed-up-ds-with-the-ads-sdk/images/restart.png)
+    ![](./../common/images/restart-kernel-button.png)
+    
+    ![](./../common/images/restart-kernel-confirmation.png)
 
 1. Throughout the notebook, useful instructions and additional links are provided. Feel free to execute one cell at a time or all of them at once. We also included a table of content at the top of the notebook to help you navigate through the notebook. cuML is a powerful library with an API that is very similar to `scikit-learn`.
 
@@ -127,5 +128,5 @@ You may now *proceed to the next lab*.
 
 * **Author**: [Jean-Rene Gauthier](https://www.linkedin.com/in/jr-gauthier/), Sr. Principal Product Data Scientist
 * **Last Updated By/Date**:
-    * [Jean-Rene Gauthier](https://www.linkedin.com/in/jr-gauthier/), Sr. Principal Product Data Scientist, January 2021
+    * [John Peach](https://www.linkedin.com/in/jpeach/), Principal Data Scientist, April 2022
 

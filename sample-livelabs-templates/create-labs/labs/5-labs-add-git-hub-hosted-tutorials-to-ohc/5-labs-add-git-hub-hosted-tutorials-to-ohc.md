@@ -25,7 +25,7 @@ You must have OLL administrator privileges to view and edit content entries in O
 6. Enter the **Content Entry Details**. A few entries are highlighted here:
     * **Link**: Enter the complete URL for the lab on GitHub, for example, https://oracle.github.io/learning-library/workshops/adwc4dev/?version=Self-Guided&page=L100.md.
 
-    ![](./images/content-entry-link.png " ")
+    ![Enter the content entry](./images/content-entry-link.png " ")
     * **Type**: Select **OBE**. (Older labs were called Oracle By Example or tutorials.)
 
 ## Task 2: Create the Target URL for a Lab
@@ -55,8 +55,6 @@ To add a link to a lab from an OHC Tutorials page:
 
 This concludes this lab. You may now proceed to the next lab.
 
-## Want to Learn More?
-
 
 ## Acknowledgements
 
@@ -64,6 +62,4 @@ This concludes this lab. You may now proceed to the next lab.
     * Anuradha Chepuri, Principal User Assistance Developer, Oracle GoldenGate
 * **Contributors:**
     * Aslam Khan, Senior User Assistance Manager, ODI, OGG, EDQ
-    * Tom McGinn, Database and Database Cloud Service Senior Principal Product Manager, DB Development - Documentation
-
-* **Last Updated By/Date:** Lauran Serhal & Anuradha Chepuri, November 2021
+* **Last Updated By/Date:** Andres Quintana, March 2022

@@ -9,14 +9,10 @@ You can deploy controls to block privileged account access to application data a
 
 *Estimated Time:* 35 minutes
 
-Watch the video below for a quick walk through of the lab.
-
-[](youtube:O_Hi2-vZ-zU)
-
 *Version tested in this lab:* Oracle Autonomous Database 19c
 
 ### Video Preview
-Watch a preview of "*Oracle Database Vault Introduction (May 2021)*" [](youtube:vSVr7avZ4Hg)
+Watch a preview of "*LiveLabs - Prevent unauthorized data access in Autonomous Databases with Database Vault (May 2022)*" [](youtube:xKq0a_dwM1Y)
 
 ### Objectives
 Oracle Database vault comes pre-installed with your Autonomous database.
@@ -683,7 +679,7 @@ We will use simulation mode to find the factors to use for our "trusted path" co
 
 5. Now, Database Vault is correctly disabled!
 
-You may now proceed to the next lab.
+You may now proceed to the next lab!
 
 ## **Appendix**: About the Product
 ### **Overview**
@@ -753,8 +749,10 @@ Video:
   - *Understanding Oracle Database Vault (March 2019)* [](youtube:oVidZw7yWIQ)
   - *Oracle Database Vault - Use Cases (Part1) (October 2019)* [](youtube:aW9YQT5IRmA)
   - *Oracle Database Vault - Use Cases (Part2) (November 2019)* [](youtube:hh-cX-ubCkY)
+  - *Oracle Database Vault Introduction (May 2021)* [](youtube:vSVr7avZ4Hg)
+  - *Oracle Database Vault on ADB - Quick walk through of the Livelabs* [](youtube:O_Hi2-vZ-zU)
 
 ## Acknowledgements
 - **Author** - Hakim Loumi, Database Security PM
 - **Contributors** - Alan Williams, Rene Fontcha
-- **Last Updated By/Date** - Hakim Loumi, Database Security PM - September 2021
+- **Last Updated By/Date** - Hakim Loumi, Database Security PM - May 2022

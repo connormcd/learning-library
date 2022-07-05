@@ -19,9 +19,6 @@ Any software client you use to connect to Oracle Cloud Infrastructure must be co
 *  An Oracle Free Tier, Always Free, Paid or LiveLabs Cloud Account
 * [Git Bash Shell](https://gitforwindows.org/) (Windows)
 * Download an Oracle NoSQL Database SDK
-* Connect to the Oracle NoSQL Database Cloud Service
-* Create a table with provisioned reads/sec, writes/sec, and GB storage
-* Write data to the table and read data from the table
 
 ## Task 1: Record your tenancy and user OCID
 
@@ -32,8 +29,8 @@ Any software client you use to connect to Oracle Cloud Infrastructure must be co
     - API Key Fingerprint
     - API Key Passphrase
 
-2. Click the **Navigation Menu** in the upper left, navigate to **Governance & Administration**, and select **Tenancy Details**. 
-	
+2. Click the **Navigation Menu** in the upper left, navigate to **Governance & Administration**, and select **Tenancy Details**.
+
 	![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/admin-details.png " ")
 
 3. The Tenancy Details page shows information about your cloud account. Copy the Tenancy OCID by clicking on the **Copy** link next to it. Save the value in your note file.
@@ -114,7 +111,7 @@ To create a user API key, you will use `openssl` on your local system. If you ar
 
   ![](images/upload-public-key.png)
 
-10. Note the fingerprint value, you will use the fingerprint later.
+10. Save the fingerprint value to your note file, as you will use the fingerprint later.
 
   ![](images/copy-fingerprint.png)
 
@@ -128,4 +125,3 @@ You may proceed to the next lab.
 * **Author** - Dave Rubin, Senior Director, NoSQL and Embedded Database Development and Michael Brey, Director, NoSQL Product Development
 * **Contributors** - Jaden McElvey, Technical Lead - Oracle LiveLabs Intern
 * **Last Updated By/Date** - Anoosha Pilli, Database Product Management, September 2020
-

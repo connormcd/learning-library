@@ -21,8 +21,7 @@
     {
       "title": "Lab 2: Environment Setup",
       "description": "How to provision the workshop environment and connect to it",
-      "publisheddate": "06/30/2020",
-      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/setup-compute-generic/setup-compute-novnc.md"
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/setup-compute-generic/setup-compute-novnc-ssh.md"
     },
     {
       "title": "Lab 3: Initialize Environment",
@@ -30,12 +29,12 @@
       "filename": "../../initialize-environment/initialize-environment.md"
     },
     {
-      "title": "Lab 4: Building Applications with Oracle Sharding",
+      "title": "Lab 4: Build Applications with Oracle Sharding",
       "description": "About Eshop",
       "filename": "../../eshop/eshop.md"
     },
     {
-      "title": "Lab 5: Exploring Sharding Topology",
+      "title": "Lab 5: Explore Sharding Topology",
       "description": "Exploring Sharding Topology",
       "filename": "../../topology/topology.md"
     },

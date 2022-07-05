@@ -2,7 +2,7 @@
 
 ## About this Workshop
 ### Overview
-*Estimated Time to complete the workshop*: 190 minutes
+*Estimated Time to complete the workshop*: 310 minutes
 
 This workshop is the FIRST PART of the Hands-On Labs dedicated to the Oracle Database Security features and functionalities - for the second workshop, please refer to the *DB Security Advanced*.
 
@@ -10,10 +10,12 @@ Based on an OCI architecture, deployed in a few minutes with a simple internet c
 
 Now, you no longer need important resources on your PC (storage, CPU or memory), nor complex tools to master, making you completely autonomous to discover at your rhythm all new DB Security features.
 
-### Components
-The complete architecture of the DB Security Hands-On Labs is as following:
+Watch a preview of "*Livelabs - Database Security Basics (May 2022)*" [](youtube:tyyZmW4YyPk)
 
-  ![](./images/dbseclab-archi-v3.png "")
+### Components
+The complete architecture of the **DB Security Hands-On Labs (v4)** is as following:
+
+  ![](./images/dbseclab-archi-v4.png "")
 
 It's composed of 4 VMs:
   - **DBSec-Lab VM** (mandatory for all workshops: Baseline and Advanced workshops)
@@ -36,12 +38,14 @@ In this first part, you will see the Oracle Database Security baseline products 
   - **Oracle Native Network Encryption** (NNE)
   - **Oracle Privilege Analysis**
   - **Oracle Unified Auditing**
+  - **Oracle Transparent Sensitive Data Protection (TSDP)**
+  - **Oracle Data Safe for on-premises database**
 
 The entire DB Security PMs Team wishes you an excellent workshop!
 
-You may now [proceed to the next lab](#next).
+You may now [proceed to the next lab](#next)
 
 ## Acknowledgements
 - **Author** - Hakim Loumi, Database Security PM
 - **Contributors** - Rene Fontcha
-- **Last Updated By/Date** - Hakim Loumi, Database Security PM - May 2021
+- **Last Updated By/Date** - Hakim Loumi, Database Security PM - May 2022

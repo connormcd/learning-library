@@ -92,5 +92,5 @@ You may now *proceed to the next lab*.
 
  - **Author/Contributors** -  Salim Hlayel, Principle Product Manager
  - **Contributor** - Oracle LiveLabs Team (Arabella Yao, Product Manager Intern | Jaden McElvey, Technical Lead)
- - **Last Updated By/Date** - Tom McGinn, Database Cloud Services, Product Management, June 2020
+ - **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

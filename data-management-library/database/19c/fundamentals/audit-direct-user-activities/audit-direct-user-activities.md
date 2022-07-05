@@ -23,6 +23,8 @@ Estimated Time: 15 minutes
 
 ## Task 1: Prepare your environment
 
+> **NOTE:** Unless otherwise stated, all passwords will be `Ora4U_1234`. When copying and pasting a command that includes a password, please replace the word `password` with `Ora4U_1234`. This only applies to instances created through OCI Resource Manager with our provided terraform scripts.
+
 1. Open a terminal window on the desktop.
 
 2. Set the Oracle environment variables. At the prompt, enter CDB1.
@@ -37,7 +39,7 @@ Estimated Time: 15 minutes
 1. Log in to PDB1 as `SYS`.
    
     ```
-    $ <copy>sqlplus sys/Ora4U_1234@PDB1 as sysdba</copy>
+    $ <copy>sqlplus sys/password@PDB1 as sysdba</copy>
 
     Connected.
     ```
@@ -61,7 +63,7 @@ Estimated Time: 15 minutes
 1. Create the security officer. The security officer is the one responsible for managing audit policies.
 
     ```
-    SQL> <copy>CREATE USER auditor_admin IDENTIFIED BY Ora4U_1234;</copy>
+    SQL> <copy>CREATE USER auditor_admin IDENTIFIED BY password;</copy>
 
     User created.
     ```
@@ -77,7 +79,7 @@ Estimated Time: 15 minutes
 3. Connect to PDB1 as auditor_admin.
 
     ```
-    SQL> <copy>CONNECT auditor_admin/Ora4U_1234@PDB1</copy>
+    SQL> <copy>CONNECT auditor_admin/password@PDB1</copy>
 
     Connected.
     ```
@@ -111,7 +113,7 @@ Estimated Time: 15 minutes
 2. In this session, which will be labelled `session2`, log into PDB1 as `HR`.
 
     ```
-    $ <copy>sqlplus hr/Ora4U_1234@PDB1</copy>
+    $ <copy>sqlplus hr/password@PDB1</copy>
     ```
 
 2. Increase the salary for employee ID 106 through the `RAISE_SALARY` procedure.
@@ -193,7 +195,7 @@ Estimated Time: 15 minutes
 3. In `session2`, connect as HR to PDB1.
 
     ```
-    SQL> <copy>CONNECT hr/Ora4U_1234@PDB1</copy>
+    SQL> <copy>CONNECT hr/password@PDB1</copy>
 
     Connected.
     ```
@@ -259,7 +261,7 @@ Observe that only the direct UPDATE statement is audited as this is the purpose 
 3. Connect as `SYSTEM` to PDB1.
 
     ```
-    SQL> <copy>CONNECT system/Ora4U_1234@PDB1</copy>
+    SQL> <copy>CONNECT system/password@PDB1</copy>
 
     Connected.
     ```
@@ -276,6 +278,8 @@ Observe that only the direct UPDATE statement is audited as this is the purpose 
     ```
     SQL> <copy>EXIT</copy>
     ```
+
+    You may now **proceed to the next lab**.
 
 ## Acknowledgements
 - **Author**- Dominique Jeunot, Consulting User Assistance Developer

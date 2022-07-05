@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "Can I try out other things on my workshop reservation?",
+         "description": "",
+         "filename": "./try-other-things-in-reservation.md"
+      },
+      {
+         "title": "Can I download my objects from my workshop reservation?",
+         "description": "",
+         "filename": "../download-objects-in-reservation/download-objects-in-reservation.md"
+      }
+   ],
+   "task_type": "Sections"
+}

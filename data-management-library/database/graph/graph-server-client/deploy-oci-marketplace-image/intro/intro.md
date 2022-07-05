@@ -12,7 +12,7 @@ Oracle Database property graph supports and consists of graph storage, indexing,
 
 Watch a short video that explains key features in Oracle Graph:
 
-[](youtube:-DYVgYJPbQA)
+[youtube](youtube:-DYVgYJPbQA)
 
 ### Objectives
 
@@ -22,7 +22,7 @@ In this workshop you will:
 - Create and populate tables in the ADB instance.
 - Query, analyze, and visualize that data as graphs.
 
-This workshop is tested for the Graph Server version **20.4** or **21.3**.
+This workshop is tested for the Graph Server version **21.4**.
 
 ### Prerequisites
 

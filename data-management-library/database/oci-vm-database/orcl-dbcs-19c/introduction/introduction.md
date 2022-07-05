@@ -8,12 +8,23 @@ This Getting Started guide will get you ready for the Oracle Database Cloud Serv
 
 * Access to Oracle Cloud Infrastructure
     * Provided by the instructor for instructor-led workshops
-* Access to a laptop or a desktop
-    * Requires Microsoft Remote Desktop software
-* Putty or OpenSSH and web browser
-* SSH Keys
+* Access to a laptop or a desktop with
+    * Microsoft Remote Desktop software
+    * Putty or OpenSSH, PuttyGen, and web browser
 
-## SSH Keys
+
+## Agenda
+
+- **Lab 1 : Oracle Cloud Infrastructure (OCI)**
+- **Lab 2 : Application Data Management and Administration**
+- **Lab 3 : Performance, Scalability and Elasticity**
+- **Lab 4 : Database Cloud Service Backup and Recovery**
+- **Lab 5 : Data Guard Physical Standby Database**
+- **Lab 6 : Database Cloud Service Patching**
+- **Lab 7 : Oracle Database Command Line Interface (DBCLI)**
+
+
+## SSH Keys (optional)
 
 1. Keys are part of the key pairs used to securely connect to the Oracle Database Cloud.  By default Oracle Cloud uses the secure key infrastructure for connectivity from a client.
     - id_rsa – private key on Linux client
@@ -89,15 +100,6 @@ This Getting Started guide will get you ready for the Oracle Database Cloud Serv
 
     Now you are ready to upload the public key to the Oracle Database Cloud Server when creating the instance.
 
-## Agenda
-
-- **Lab 1 : Oracle Cloud Infrastructure (OCI)**
-- **Lab 2 : Application Data Management and Administration**
-- **Lab 3 : Performance, Scalability and Elasticity**
-- **Lab 4 : Database Cloud Service Backup and Recovery**
-- **Lab 5 : Data Guard Physical Standby Database**
-- **Lab 6 : Database Cloud Service Patching**
-- **Lab 7 : Oracle Database Command Line Interface (DBCLI)**
 
 ## Acknowledgements
 

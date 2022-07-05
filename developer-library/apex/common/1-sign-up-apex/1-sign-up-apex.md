@@ -39,7 +39,7 @@ Below are steps on how to sign up for either an *APEX Application Development* S
 
 Click one of the options below to proceed.
 
-## **Option 1**: Oracle APEX Application Development Service
+## **Option 1**: APEX Service in Oracle Cloud
 
 In this part, you will create an Oracle APEX Application Development Service trial account. Once you have signed up for the service, you will create an *APEX Service*. The final step in the process is to provision Oracle APEX.
 
@@ -133,7 +133,7 @@ In this part, you will create an Oracle APEX Application Development Service tri
     ![](images/log-in-to-workspace.png " ")
 
 
-## **Option 2**: Oracle Autonomous Database
+## **Option 2**: Autonomous Database in Oracle Cloud
 
 In this part, you will create an Oracle Cloud trial account. Once you have signed up for the service, you will create an *Autonomous Transaction Processing* database. The final step in the process is to provision Oracle APEX.
 
@@ -220,7 +220,7 @@ In this part, you will create an Oracle Cloud trial account. Once you have signe
 
     ![](images/log-in-to-workspace.png " ")
 
-## **Option 3**: apex.oracle.com
+## **Option 3**: Workspace on apex.oracle.com
 Signing up for apex.oracle.com is simply a matter of providing details on the workspace you wish to create and then waiting for the approval email.
 
 1. Go to [https://apex.oracle.com](https://apex.oracle.com.).

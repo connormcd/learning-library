@@ -1,4 +1,4 @@
-# Setting up Database Management for Oracle Autonomous Databases
+#  Setting up Database Management for Oracle Autonomous Databases
 
 ## Introduction
 
@@ -22,17 +22,17 @@ This lab assumes you have completed the following labs:
 
 1.  From the Oracle Cloud console navigation menu located in the upper left, click **Identity & Security**. Under **Identity**, click **Policies**.
 
-    ![Management Agents](./images/policy.png " ") 
+    ![Management Agents](./images/policy.png " ")
 
 2. Click the existing policy **Policy-for-dbmgmt-group**. On the **Policy Detail** page click **Edit Policy Statements**.
 
-    ![Management Agents](./images/policy2.png " ") 
+    ![Management Agents](./images/policy2.png " ")
 
-    ![Management Agents](./images/policy3.png " ") 
+    ![Management Agents](./images/policy3.png " ")
 
 3. On the **Edit Policy Statements** page, click **+Another Statement**
 
-    ![Management Agents](./images/policy4.png " ") 
+    ![Management Agents](./images/policy4.png " ")
 
     Enter the statement
 
@@ -83,7 +83,7 @@ This lab assumes you have completed the following labs:
     ![Management Agents](./images/dbmgmt3.png " ")
 
     ![Management Agents](./images/dbmgmt4.png " ")
-    
+
     For ASH Analytics & SQL Monitoring, click **Performance Hub** on the **Managed Database Details** page.
 
 ## Acknowledgements

@@ -16,12 +16,11 @@ Performance Diagnostics
 Database Administration
 -   Enable SQL jobs to automate a scheduled database maintenance task across all databases in the fleet.
 
-
 Estimated Time: 30 minutes
 
 ### Objectives
 
--   Use Oracle Cloud Infrastructure Database Management to manage fleet of Oracle Databases. 
+-   Use Oracle Cloud Infrastructure Database Management to manage fleet of Oracle Databases.
 
 ### Prerequisites
 
@@ -31,7 +30,7 @@ This lab assumes you have already completed the following:
 
 ## Task 1: Getting Started with Database Management
 
-1.  Login to the Oracle Cloud Console, click the **Navigation Menu** in the upper left, navigate to **Observability & Management**, and select **Database Management**. 
+1.  Login to the Oracle Cloud Console, click the **Navigation Menu** in the upper left, navigate to **Observability & Management**, and select **Database Management**.
 
      ![](../external-database/images/dbmgmt1.png " ")
 
@@ -53,7 +52,6 @@ This lab assumes you have already completed the following:
     -  Members: Displays a thumbnail view of your Oracle Databases with their name, status, and type. This view is useful if you have a smaller number of databases in your fleet. The **List** view is displayed by default on the Members tab, however, you can select the **Table** option to view the same information in a tabular format.
 
 3.  On **Fleet Summary** page under **Members** tab, by default, you will see only PDBs and non-CDBs in the database fleet.
-
 
 4.  On **Fleet Summary** page under **Members** tab, select the **Show CDBs Only** check box to view the CDBs in the database fleet.
 
@@ -97,7 +95,6 @@ This lab assumes you have already completed the following:
 
      ![](./images/createjob.png " ")
 
-
 2.  You can create a SQL job to perform administrative operations on a single Managed Database or a Database Group.
 In the Create Job dialog:
 
@@ -124,13 +121,11 @@ In the Create Job dialog:
      ![](./images/createjob1.png " ")
      ![](./images/createjob2.png " ")
 
-
 3.  Our job is now created and displayed in the Jobs section of the Database Group. The status of the job is Active as it is being executed; we can also see Inactive jobs, which were already executed in the past. Click on the job name to go to **Job Details** page.
 
      ![](./images/jobruns.png " ")
 
 4.  Click on job runs to get to the **Job Execution Details** page and view the query results.
-
 
 ## Task 5: Monitoring and Managing Individual Databases
 
@@ -142,17 +137,16 @@ In the Create Job dialog:
 
      ![](./images/summary.png " ")
 
-
 3.  We can monitor database performance attributes in the **Summary** section, for the time period selected in the **Time Period** menu on the top of this page. Last 60 min is the default time period, and the visual representations or charts provide a quick insight into the health of the database during the selected time period.
-     
+
      **Activity Class (Avg. Active Sessions):** Displays the average active sessions in the selected time period, broken down by CPU, User I/O, and Wait. The total CPU count is denoted by a red line and enables you to monitor average active sessions compared to the CPU count.
-     
+
      **DB Time (Avg. Active Sessions):** Displays a summary of the average active sessions data broken down by CPU, User I/O, and Wait. The total CPU count is denoted by a red line.
-     
+
      **I/O:** Displays the I/O Throughput in MBPS and I/O Rate in IOPS broken down by Read and Write operations.
-     
+
      **Memory:** Displays memory usage in GB, broken down by the memory usage in various components.
-     
+
      **Storage Usage:** Displays system storage and user data storage in TB. System storage is broken down by usage in system tablespaces and user data, and User Data storage is broken down by usage in the top five user tablespaces. The total storage allocation for the database is denoted by a red line and enables you to monitor storage usage compared to the total allocation.
 
 4.  You can click one of the other options on the left pane under Resources to perform the following tasks:
@@ -181,7 +175,7 @@ In the Create Job dialog:
      ![](./images/sqlmonitoring.png " ")
 
      With Real-Time SQL Monitoring, you can perform complex run-time application SQL analysis, identity, and guide optimization of application calls in the data tier.
-     
+
      Real-Time SQL Monitoring gives you the following capabilities:
 
      - Observe and analyze important SQL executions in progress (parallel and long-running queries)
@@ -208,9 +202,6 @@ In the Create Job dialog:
      ![](./images/blockingsessions.png " ")
 
      The **Blocking Sessions** tab displays the current blocking and waiting sessions in a hierarchical display. You can view detailed information about each blocking session and view the sessions blocked by each blocking session. You can also use the tab to inspect or perform deeper analysis of the SQL involved to determine the cause of the blocking. You can perform several operations in the tab, including stopping one or more of the listed sessions to resolve a waiting session problem.
-
-
-You may now proceed to the next lab.
 
 ## Acknowledgements
 

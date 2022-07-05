@@ -1,14 +1,14 @@
 {
-    "workshoptitle": "Create SSH Keys and Login to Oracle Cloud",
+    "workshoptitle": "Create SSH Keys and log in to Oracle Cloud",
     "help": "livelabs-help-db_us@oracle.com",
 	"tutorials": [
         {
-            "title": "Lab: Create SSH Key",
+            "title": "Lab 1: Create SSH key",
             "description": "Generate SSH Key",
             "filename": "generate-ssh-keys.md"
         },
         {
-            "title": "Lab: Login to Oracle Cloud",
+            "title": "Lab 2: Log in to Oracle Cloud",
             "description": "Login to Oracle Cloud",
             "filename": "../cloud-login/cloud-login.md"
         },

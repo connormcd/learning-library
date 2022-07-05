@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-oci_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I install Oracle Cloud Command Line Interface (OCI CLI)",
+         "description": "",
+         "filename": "sprint-install-ocicl.md"
+      },
+      {
+         "title": "How can I add autocomplete for OCI CLI?",
+         "description": "",
+         "filename": "../sprint-autocomplete-for-ocicl/sprint-autocomplete-for-ocicl.md"
+      }
+   ],
+   "task_type": "Sections"
+}

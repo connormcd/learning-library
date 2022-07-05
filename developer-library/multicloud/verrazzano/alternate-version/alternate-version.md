@@ -1,4 +1,4 @@
-# Lab5-Lab7 Alternate version based on using public image with the solution and using ready yaml file with needed changes
+# ALTERNATE VERSION with simplified solution
 
 ## Introduction
 
@@ -26,7 +26,7 @@ In this lab, you will:
     <copy>curl -LSs https://raw.githubusercontent.com/oracle/learning-library/master/developer-library/multicloud/verrazzano/alternate-version/bobs-books-comp-mod.yaml >~/bobs-books-comp-mod.yaml</copy>
     ```
 
-    ![Apply changes](images/1.png " ")
+    ![Download file](images/downloadfile.png " ")
 
 ## Task 2: Apply the Changes using kubectl
 
@@ -36,7 +36,7 @@ In this lab, you will:
     <copy>kubectl apply -f ~/bobs-books-comp-mod.yaml</copy>
     ```
 
-    ![Apply changes 1](images/2.png " ")
+    ![Apply changes](images/applychanges.png " ")
 
     You can observe in the output; only *component.core.oam.dev/bobby-helidon* is configured and other components are unchanged.
 
@@ -80,4 +80,4 @@ Leave the *Cloud Shell* open as we also need it for our last lab.
 
 * **Author** -  Ankit Pandey
 * **Contributors** - Maciej Gruszka, Peter Nagy
-* **Last Updated By/Date** - Kamryn Vinson, July 2021
+* **Last Updated By/Date** - Ankit Pandey, April 2022

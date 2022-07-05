@@ -52,5 +52,5 @@ You may now [proceed to the next lab](#next).
 
 ## Acknowledgements
 * **Author** - Donna Keesling, Database UA Team
-* **Contributors** - Kay Malcolm, David Start, Kamryn Vinson, Anoosha Pilli, Tom McGinn, Database Product Management
+* **Contributors** - Kay Malcolm, David Start, Kamryn Vinson, Anoosha Pilli 
 * **Last Updated By/Date** - Kay Malcolm, March 2020

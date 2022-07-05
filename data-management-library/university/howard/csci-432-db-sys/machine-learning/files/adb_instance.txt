@@ -1,0 +1,1 @@
+This is the screenshot of the Autonomous Databases in the root compartment. It shows the list of ADBs that are created. 

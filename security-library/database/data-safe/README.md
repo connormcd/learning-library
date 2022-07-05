@@ -1,6 +1,6 @@
 # Welcome to the Data Safe Fundamentals Workshop
 
-This workshop lets you practice the main features in Oracle Data Safe, including Activity Auditing, User Assessment, Security Assessment, Data Discovery, and Data Masking.
+This workshop lets you practice the main features in Oracle Data Safe, including Activity Auditing, Alerts, User Assessment, Security Assessment, Data Discovery, and Data Masking.
 
 ## Access the Workshop Using Our Web Interface
 
@@ -14,11 +14,10 @@ Alternatively, you can follow these labs in this Oracle Learning Library reposit
 - [Getting Started](../../../common/labs/cloud-login/pre-register-free-tier-account.md)
 - [Prepare Your Environment](./prepare-environment/prepare-environment.md)
 - [Register an Autonomous Database with Oracle Data Safe](./register-autonomous-database/register-autonomous-database.md)
-- [Provision Audit and Alert Policies](./provision-audit-alert-policies/provision-audit-alert-policies.md)
+- [Audit Database Activity](./audit-database-activity/audit-database-activity.md)
+- [Generate Alerts](./generate-alerts/generate-alerts.md)
 - [Assess Database Configurations and Users](./assess-database-configurations-users/assess-database-configurations-users.md)
-- [Analyze Alerts and Audit Reports](./analyze-alerts-audit-reports/analyze-alerts-audit-reports.md)
 - [Discover and Mask Sensitive Data](./discover-mask-sensitive-data/discover-mask-sensitive-data.md)
-
 
 
 ## Self-Paced Labs

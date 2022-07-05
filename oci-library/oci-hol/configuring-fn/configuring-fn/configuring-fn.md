@@ -599,5 +599,5 @@ Congratulations! You have successfully completed the lab.
 - **Contributors**
     - Kallol Chaudhuri, Principal Technology Solutions Architect
     - Oracle LiveLabs QA Team (Jaden McElvey, Technical Lead | Arabella Yao, Product Manager Intern, DB Product Management)
-- **Last Updated By/Date** - Tom McGinn, October 2020
+- **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

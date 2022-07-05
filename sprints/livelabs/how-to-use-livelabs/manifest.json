@@ -1,0 +1,22 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How can I use Oracle LiveLabs?",
+         "description": "",
+         "filename": "./how-to-use-livelabs.md"
+      },
+      {
+         "title": "How can I extend my Oracle LiveLabs reservation?",
+         "description": "",
+         "filename": "../extend-reservation/extend-reservation.md"
+      },
+      {
+         "title": "What are Oracle LiveLabs Sprints?",
+         "description": "",
+         "filename": "../what-are-sprints/what-are-sprints.md"
+      }
+   ],
+   "task_type": "Sections"
+}

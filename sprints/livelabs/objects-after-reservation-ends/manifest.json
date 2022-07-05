@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "What happens to my objects when my reservation expires?",
+         "description": "",
+         "filename": "./objects-after-reservation-ends.md"
+      },
+      {
+         "title": "Can I download my objects from my workshop reservation?",
+         "description": "",
+         "filename": "../download-objects-in-reservation/download-objects-in-reservation.md"
+      }
+   ],
+   "task_type": "Sections"
+}

@@ -1,5 +1,4 @@
-﻿
-# Update the Sales Data
+﻿# Update the Sales Data
 
 ## Introduction
 
@@ -56,7 +55,7 @@ In this task, we will merge in all the country-specific adjustment files into ou
 
 2. As in the lab where you loaded the data, select **LOAD DATA** and **CLOUD STORAGE**, then click **Next**.
 
-3. From the **MOVIEDATA** bucket, drag the **adjustments** folder into the right-hand pane and click **OK** to load all 47 objects into a single target table.
+3. From the **MOVIEDATA** bucket, drag the **adjustments** folder into the right-hand pane and click **Yes** to load all 47 objects into a single target table.
 
 4. Click the pencil icon to edit the settings for the load task:
 
@@ -127,10 +126,10 @@ Oracle Autonomous Database automatically manages the data storage process for yo
 
 ## Want to Learn More?
 
-[Click here](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/load-data.html#GUID-1351807C-E3F7-4C6D-AF83-2AEEADE2F83E) for more information about how to load data into Autonomous Database. 
+- [Click here](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/load-data.html#GUID-1351807C-E3F7-4C6D-AF83-2AEEADE2F83E) for more information about how to load data into Autonomous Database. 
 
 ## **Acknowledgements**
 
 * **Authors** - Keith Laker and Mike Matthews, ADB Product Management
 * **Adapted for Cloud by** - Richard Green, Principal Developer, Database User Assistance
-* **Last Updated By/Date** - Mike Matthews, November 2021
+* **Last Updated By/Date** - Anoosha Pilli, April 2022

@@ -42,7 +42,7 @@ Creating an Oracle account can be summarized in the following two simple steps.
 
   ![](images/open-workshop.png " ")
 
-You may now [proceed to the next lab](#next).
+You may now proceed to the next lab.
 
 ## **Rate this Workshop**
 
@@ -62,7 +62,7 @@ If you still have an active reservation, you can also rate by going to My Reserv
 
 ## Acknowledgements
 
-- **Created By/Date** - Tom McGinn, Database Innovations Architect, Database Product Management, March 2020
+- **Created By/Date** - Kay Malcolm, Database Product Management, March 2020
 - **Contributors** - Rene Fontcha, Kamryn Vinson, Anoosha Pilli
 - **Last Updated By/Date** - Anoosha Pilli, April 2021
 

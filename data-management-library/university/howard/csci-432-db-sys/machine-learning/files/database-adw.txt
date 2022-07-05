@@ -1,0 +1,1 @@
+This is the screenshot of the Oracle Database page in Oracle Cloud interface. It highlights Autonomous Data Warehouse. 

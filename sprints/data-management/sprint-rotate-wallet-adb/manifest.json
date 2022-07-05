@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How can I rotate a wallet in ADB?",
+         "description": "",
+         "filename": "sprint-rotate-wallet-adb.md"
+      },
+      {
+         "title": "How do I restore an ADB instance?",
+         "description": "",
+         "filename": "../sprint-restore-adb/sprint-restore-adb.md"
+      }
+   ],
+   "task_type": "Sections"
+}

@@ -1,4 +1,4 @@
-# Creating REST Data Sources
+# Create REST Data Sources
 
 ## Introduction
 This lab will walk you through how to set up REST Data Sources that will be used to get movie data from TMDB API. You will use these REST sources in later labs to build out the movie search functionality.  Make sure you have easy access to your API key that you signed up for in the Introduction steps, as you will need it to build out the REST sources.
@@ -10,7 +10,11 @@ In this lab, you will:
 - Create a REST data source for The Movie Database Popular Movies.  
 - Create a REST data source for The Movie Database Search Movies.
 
-## Task 1: Creating a Popular Movies REST Data Source
+### Prerequisites
+- Completion of workshop through Lab 1
+- A TMDB API key
+
+## Task 1: Create a Popular Movies REST Data Source
 
 The first REST source you will create is the Popular Movies source because it is the simplest to implement and a good way to introduce the process of creating REST data sources. From there, you will implement a couple more REST sources, with each being a little more complicated than the last. You are creating the Popular Movies data source because you will need to display these when a user has not yet searched for a movie.
 
@@ -58,7 +62,7 @@ The first REST source you will create is the Popular Movies source because it is
 
 11. Click **Create REST Data Source**.
 
-## Task 2: Editing The REST Source Data Profile 
+## Task 2: Edit The REST Source Data Profile 
 You have now created your new data source, but you are going to update it to improve the data you get from Popular Movies. One of the columns you get back from the TMDB Popular Movies API is POSTER\_PATH. It includes the unique poster identifier needed to grab the poster image for a movie. However, it does not contain the full URL, which means that if you want to use POSTER\_PATH, you have to manually add the first part of the URL when using it on the front end. Instead of having to add that each time you want to use the poster path, you can edit the Data Profile for Popular Movies and add a column derived from POSTER\_PATH that contains the entire URL so that later you can access it directly.
 
 1. In the REST Source Name column of the REST Data Sources page, click on your **Popular Movies** source.
@@ -91,7 +95,7 @@ You have now created your new data source, but you are going to update it to imp
 
 5. Click **Apply Changes** at the top of the REST Data Source page.
 
-## Task 3: Creating a Search Movies REST Data Source
+## Task 3: Create a Search Movies REST Data Source
 The process to create the Search Movies source is similar to the process for the Popular Movies source, but you will use a plug-in to assist with setting it up. Plug-ins are ready-to-use components created by other APEX developers that enable you to extend your APEX applications with custom functionality. A plug-in can be useful for creating REST data sources that return multiple pages of results. For example, when you make a request to TMDB search movies API, you must also include the page number within that request, and you can only get one page at a time with individual API calls. There is a REST data sources plug-in to work around this problem, which allows you to make one API request and get all results from all the pages.
 
 1. [Click here](./files/web_source_type_fixedpagesize.sql) to download the plug-in.  
@@ -165,7 +169,9 @@ The process to create the Search Movies source is similar to the process for the
 
     ![](images/3-search-discover.png " ")
 
-7. Return to [Task 2](#Task2:EditingTheRESTSourceDataProfile) and follow the same steps for the Search Movies source to edit the data profile and create a POSTER_URL column.
+7. Return to [Task 2](#Task2:EditTheRESTSourceDataProfile) and follow the same steps for the Search Movies source to edit the data profile and create a POSTER_URL column.
+
+You now know how to create and edit REST data sources in Oracle APEX and will be able to get data from The Movie Database to use for your application. You may now **proceed to the next lab**.
 
 ## Resources
 
@@ -184,7 +190,7 @@ Stuck on a step or struggling with the lab? You can download a copy of the Movie
 
 - Once the application is installed, you will need to update the API key for both the Popular Movies and Search Movies REST data sources.
 
-- Click on **Edit Application** in the Application Installed success page to go to the app home.
+- Go to the App Home by clicking on **Edit Application** from the Application Installed success page.
 
 - Click on **Shared Components**.
 
@@ -196,14 +202,20 @@ Stuck on a step or struggling with the lab? You can download a copy of the Movie
 
     ![](images/rest-source-tabs-edit.png " ")
 
-- Click the **Edit** icon next to the api_key parameter.
+- Click the **Edit** icon next to the **api_key** parameter.
 
     ![](images/parameters-tab-edit.png " ")
 
-    - Within the Edit REST Data Source Parameter dialog, replace **Value** with your unique API key that you got from The Movie Database.
+    - Within the Edit REST Data Source Parameter dialog, past your unique TMDB API key in the Value text box.
 
     - Click **Apply Changes** to save and close the dialog.
 
         ![](images/edit-parameter-edit.png " ")
 
-- Follow the same process with the Search Movies REST source.
+- Follow the same process for the Search Movies REST source.
+
+## Acknowledgments
+
+- **Author** - Paige Hanssen
+- **Additional Contributors** - Kay Jasanya, Shakeeb Rahman, Steve Muench, Monica Godoy, Eli Feuerstein, Carlos Maciel, Dalia Vazquez
+- **Last Updated By/Date** - Paige Hanssen, March 2022

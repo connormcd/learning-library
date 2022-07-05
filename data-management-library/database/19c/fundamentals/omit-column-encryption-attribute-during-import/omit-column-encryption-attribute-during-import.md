@@ -23,6 +23,8 @@ This lab assumes you have:
 
 ## Task 1: Import a table with the `ENCRYPT` attribute
 
+> **NOTE:** Unless otherwise stated, all passwords will be `Ora4U_1234`. When copying and pasting a command that includes a password, please replace the word `password` with `Ora4U_1234`. This only applies to instances created through OCI Resource Manager with our provided terraform scripts.
+
 1. Open a terminal window on the desktop.
 
 2. Switch to the `$HOME/labs/19cnf` directory.
@@ -50,7 +52,7 @@ This lab assumes you have:
 5. Connect to PDB1 as the `SYSTEM` user.
 
     ```
-    $ <copy>sqlplus system/Ora4U_1234@PDB1</copy>
+    $ <copy>sqlplus system/password@PDB1</copy>
     ```
 
 6. Create a directory called `dp` that points to the location of the dump file. Later, this directory is also used for storing generated log and SQL files.
@@ -67,10 +69,10 @@ This lab assumes you have:
     SQL> <copy>EXIT</copy>
     ```
 
-8. Generate a SQL file from the Oracle Data Pump Export `tab.dmp` dump file by simulating an import into PDB1. By using the `SQLFILE` parameter, `impdp` simply generates the SQL DDL that the utility would otherwise execute without it.
+8. Generate a SQL file from the Oracle Data Pump Export `tab.dmp` dump file by simulating an import into PDB1. By using the `SQLFILE` parameter, `impdp` simply generates the SQL DDL that the utility would otherwise execute without it. Please note the use of `password`.
 
     ```
-    $ <copy>impdp SYSTEM/Ora4U_1234@PDB1 DIRECTORY=dp DUMPFILE=tab.dmp SQLFILE=tabenc1 LOGFILE=enc.log</copy>
+    $ <copy>impdp SYSTEM/password@PDB1 DIRECTORY=dp DUMPFILE=tab.dmp SQLFILE=tabenc1 LOGFILE=enc.log</copy>
 
     Import: Release 19.0.0.0.0 - Production on Thu Aug 26 16:08:45 2021
     Version 19.12.0.0.0
@@ -115,10 +117,10 @@ This lab assumes you have:
 
 ## Task 2: Import the table without the `ENCRYPT` attribute
 
-1. Generate the SQL file from the Oracle Data Pump Export `tab.dmp` dump file by simulating an import into PDB1. The following command removes the `ENCRYPT` clause by using `TRANSFORM=OMIT_ENCRYPTION_CLAUSE:Y`. You can also remap an unencrypted tablespace to an encrypted tablespace. In this step, we remap `system` to `test`.
+1. Generate the SQL file from the Oracle Data Pump Export `tab.dmp` dump file by simulating an import into PDB1. The following command removes the `ENCRYPT` clause by using `TRANSFORM=OMIT_ENCRYPTION_CLAUSE:Y`. You can also remap an unencrypted tablespace to an encrypted tablespace. In this step, we remap `system` to `test`. Please note the use of `password`.
 
     ```
-    $ <copy>impdp SYSTEM/Ora4U_1234@PDB1 DIRECTORY=dp DUMPFILE=tab.dmp SQLFILE=tabenc2 TRANSFORM=OMIT_ENCRYPTION_CLAUSE:Y REMAP_TABLESPACE=system:test LOGFILE=enc2.log</copy>
+    $ <copy>impdp SYSTEM/password@PDB1 DIRECTORY=dp DUMPFILE=tab.dmp SQLFILE=tabenc2 TRANSFORM=OMIT_ENCRYPTION_CLAUSE:Y REMAP_TABLESPACE=system:test LOGFILE=enc2.log</copy>
 
     Import: Release 19.0.0.0.0 - Production on Thu Aug 26 16:16:10 2021
     Version 19.12.0.0.0

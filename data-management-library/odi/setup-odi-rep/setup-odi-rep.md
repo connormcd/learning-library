@@ -96,9 +96,9 @@ Open the VNC viewer and enter the Public IP Address for your compute Instance
   ````
   <copy>
   cd /home/oracle/Downloads
-  wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/InvWQ9bUBrf4PPnRhrFBdW9k9SB_FekDLh00JqqmJzHSgxQ3YELC_sEHW8UAsz4f/n/c4u04/b/labfiles/o/ODI12c_training_master_repo.zip
-  wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/cd-MoWCWYOgrbpuQ3U7aPIbxOFyoL2wpF48m3MzcOj-Tb7SY6OpoLse8gNSCL2g8/n/c4u04/b/labfiles/o/ODI12c_training_work_repo.zip
-  wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/dUlENjeAXknfd_HEzR7dTyG9f5W-yglD0JyZwlqmPO-Qjio6Lq2yRJ2IaDA5zeAp/n/c4u04/b/labfiles/o/ODI12c_Sales_data.zip
+  wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/jyHA4nclWcTaekNIdpKPq3u2gsLb00v_1mmRKDIuOEsp--D6GJWS_tMrqGmb85R2/n/c4u04/b/livelabsfiles/o/labfiles//ODI12c_training_master_repo.zip
+  wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/jyHA4nclWcTaekNIdpKPq3u2gsLb00v_1mmRKDIuOEsp--D6GJWS_tMrqGmb85R2/n/c4u04/b/livelabsfiles/o/labfiles/ODI12c_training_work_repo.zip
+  wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/jyHA4nclWcTaekNIdpKPq3u2gsLb00v_1mmRKDIuOEsp--D6GJWS_tMrqGmb85R2/n/c4u04/b/livelabsfiles/o/labfiles/ODI12c_Sales_data.zip
 
   unzip ODI12c_Sales_data.zip
 

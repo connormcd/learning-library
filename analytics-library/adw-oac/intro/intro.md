@@ -3,7 +3,7 @@
 
 ## Introduction to Oracle Cloud, Oracle Autonomous Database and Oracle Analytics Cloud
 
-![Oracle Autonomous Database](./images/adb_oac_banner2.png)
+![Oracle Autonomous Database](./images/adb-oac-banner2.png)
 
 In this hands-on workshop, you will get first-hand experience of using Oracle Cloud, **Oracle Autonomous Database (ADB)** and **Oracle Analytics Cloud (OAC)**.
 
@@ -41,5 +41,4 @@ Estimated Workshop Time: 120 minutes.
 
 - **Author** - Priscila Iruela, Technology Product Strategy Director, Juan Antonio Martin Pedro, Analytics Business Development
 - **Contributors** - Victor Martin, Melanie Ashworth-March, Andrea Zengin
-- **Last Updated By/Date** - Kamryn Vinson, October 2020
-
+- **Last Updated By/Date** - Priscila Iruela, June 2022

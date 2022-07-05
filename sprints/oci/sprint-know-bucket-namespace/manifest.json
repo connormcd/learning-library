@@ -1,0 +1,17 @@
+{
+    "workshoptitle": "LiveLabs Sprints",
+    "help": "livelabs-help-oci_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "How do I know the namespace of my bucket in Object Storage?",
+            "description": "",
+            "filename": "sprint-know-bucket-namespace.md"
+        },
+        {
+            "title": "How do I get the URI for a bucket in Object Storage?",
+            "description": "",
+            "filename": "../sprint-get-bucket-uri/sprint-get-bucket-uri.md"
+        }
+    ],
+    "task_type": "Sections"
+}

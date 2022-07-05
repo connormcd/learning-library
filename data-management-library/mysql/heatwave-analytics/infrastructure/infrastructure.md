@@ -37,7 +37,7 @@ In this lab, you will:
     
   ![VCN Dashboard](./images/Lab1-task1.3.png)
 
-4. Select _**VCN with Internet Connectivity**_ and click _**Start VCN Wizard**_.
+4. Create _**VCN with Internet Connectivity**_ and click _**Start VCN Wizard**_.
 
   ![VCN Creation](./images/Lab1-task1.4.png)
 
@@ -162,22 +162,10 @@ In this lab, you will:
 
   Now that you have connected to the instance you can proceed to the next Task.
 
-4. From the established ssh connection, install MySQL Shell and MySQL client executing the following commands and the expected outputput should be as following:
-    
+4. From the established ssh connection, install MySQL Shell executing the following command, and the expected output should be as following:
+   
 	```
-	<copy>wget https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm</copy>
-	```
-
-	![MySQL shell install](./images/Lab1-task3.4.png)
-
-	```
-	<copy>sudo yum localinstall -y mysql80-community-release-el7-3.noarch.rpm</copy>
-	```
-
-	![MySQL shell install](./images/Lab1-task3.4-1.png)
-
-	```
-	<copy>sudo yum install -y mysql-shell mysql-community-client</copy>  
+	<copy>sudo yum install -y mysql-shell</copy>  
 	```
 	![MySQL shell install](./images/Lab1-task3.4-2.png)
 
@@ -211,7 +199,7 @@ In this task we will create an Oracle Analytics Cloud instance before we proceed
     oracleidentitycloudservice/<your username>
 	```
 
-   Then you are **connected** as a **Single Sign On** user.
+	Then you are **connected** as a **Single Sign On** user.
 
   	![Federated User](./images/Lab1-task4.1.png)
 
@@ -221,17 +209,17 @@ In this task we will create an Oracle Analytics Cloud instance before we proceed
     <your username>
 	```
 
-   Then you are **signed in** as an **Oracle Cloud Infrastructure** user and you may proceed to the **Task 4.2** .
+	Then you are **signed in** as an **Oracle Cloud Infrastructure** user and you may proceed to the **Task 4.2**.
 
-  If your user does not contain the identity provider (**oracleidentitycloudprovider**), please logout and select to authenticate using **Single Sign On**.
+  	If your user does not contain the identity provider (**oracleidentitycloudprovider**), please logout and select to authenticate using **Single Sign On**.
 
-  ![Federated User](./images/Lab1-task4.1-1.png)
+  	![Federated User](./images/Lab1-task4.1-1.png)
 
-   To be capable of using **Oracle Analytics Cloud** we need to be Sign-On as a **Single Sign-On** (SSO) user.
+   	To be capable of using **Oracle Analytics Cloud** we need to be Sign-On as a **Single Sign-On** (SSO) user.
 
-   For more information about federated users, see **[User Provisioning for Federated Users.](https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/usingscim.htm)**
+   	For more information about federated users, see **[User Provisioning for Federated Users.](https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/usingscim.htm)**
 
-2. Now going back to main page click the _**hamburger menu**_ in the upper left corner and click on _**Analytics & AI -> Analytics Cloud**_.
+2. Go to main page click the _**hamburger menu**_ in the upper left corner and click on _**Analytics & AI -> Analytics Cloud**_.
 
   ![OCI Console](./images/Lab1-task4.2.png)
 

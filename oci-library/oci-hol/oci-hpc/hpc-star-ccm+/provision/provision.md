@@ -76,10 +76,3 @@ All Done! This completes the demo for provisioning an HPC Cluster from Oracle Ma
 * **Author** - High Performance Compute Team
 * **Contributors** -  Chris Iwicki, Harrison Dvoor, Gloria Lee, Selene Song, Bre Mendonca
 * **Last Updated By/Date** - Harrison Dvoor, October 2020
-
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> upstream/master

@@ -1,4 +1,4 @@
-# Lab 1: Understand Data And Download Samples
+#  Understand Data And Download Samples
 
 ## Introduction
 
@@ -6,7 +6,7 @@ Due to the nature of time-series anomaly detection, the data required for traini
 
 In this session, we will discuss the data requirements and formats, and provide some sample datasets as examples. We will also show you how to upload to Oracle object storage for later to create data assets and train the model.
 
-***Estimated Lab Time***: 25 minutes
+***Estimated Time***: 25 minutes
 
 ### Objectives
 
@@ -16,6 +16,7 @@ In this lab, you will:
 - Upload the downloaded dataset into OCI (Oracle Cloud Infrastructure) object storage
 
 ### Prerequisites
+
 - A Free tier or paid tenancy account in OCI
 - Familiar with OCI object storage to upload data
 
@@ -26,17 +27,19 @@ The core algorithm of our Anomaly Detection service is a multivariate anomaly de
 * The training data should be anomaly-free (without outliers), containing observations that have normal conditions ONLY.
 * The training data should cover all the normal scenarios which contain the full value ranges on all attributes.
 
-Additionally, the algorithm also has some requirements on data type, minimum number of  attributes and observations on the training data as follows:
+Additionally, the algorithm also has some requirements on data type, minimum number of attributes and observations on the training data as follows:
 
 * The data should have a 2-D matrix shape for CSV format, which have:
     - columns containing one timestamp, and other numeric attributes/signals/sensors
     - rows representing observations of those attributes/signals/sensors at the given timestamps in the first column.
     - rows that are strictly ordered by timestamp, without duplicated timestamps.
-* The training data should have at least 3 highly correlated attributes.
+* The training data can have 1 or more attributes, up to 300 attributes in the current release as of Jan 2022.
 * At least one attribute does not have a missing value.
-* The number of observations/timestamps in training data should be at least eight times of attributes or 40, whichever is greater.
+* The number of observations/timestamps in training data should be at least eight times the number of attributes or 80, whichever is greater.
 
-The testing/detecting data is also required to only contain columns like timestamp and other numeric attributes that match with the training data; observations are strictly ordered by unique timestamps. No further requirements on testing data.
+The testing/detecting data is also required to only contain columns like timestamp and other numeric attributes that match with the training data set; observations are strictly ordered by unique timestamps. No further requirements on testing data.
+
+For more details, please refer to the [Training and Testing Data Requirements](https://docs.oracle.com/en-us/iaas/Content/anomaly/using/data-require.htm) section within OCI Anomaly Detection documentation.
 
 ### Data format requirement
 
@@ -49,7 +52,7 @@ For Oracle Object Storage data source type, the service accepts two data formats
 #### CSV format
 CSV-formatted data should have comma-separated lines, with first line as the header, and other lines as data. Note the first column is the timestamp column.
 
-**Note:**
+> **Note:**
 * Missing value is permitted(with empty), data is sorted by timestamp, and boolean flag values should be converted to numeric (0/1).
 * Do not have a new line as the last line. The last line should still be an observation with other attributes/signals.
 
@@ -62,9 +65,10 @@ timestamp,sensor1,sensor2,sensor3,sensor4,sensor5
 ```
 
 #### JSON format
+
 Similarly, JSON-formatted data should also contain timestamps and numeric attributes only, with the following keys:
 
-**Note:**
+> **Note:**
 * Missing value is coded as null without quote.
 
 ```json
@@ -90,7 +94,6 @@ Here are two prepared sample datasets to help you to easily understand how the t
     - 10 signals with timestamp column, with 10,000 observations
 * <a href="../files/demo-testing-data.json" target="_blank" download>testing json data for detection</a>
     - same 10 signals with timestamp column, 100 observations
-
 
 ## Task 3: Upload Data to Object Storage
 
@@ -126,17 +129,15 @@ Bucket detail window should be visible. Click Upload
 Click on Upload and then browse to file which you desire to upload.
 ![](../images/upload-sample-file.png " ")
 
-
 More details on Object storage can be found on this page. [Object Storage Upload Page](https://oracle.github.io/learning-library/oci-library/oci-hol/object-storage/workshops/freetier/index.html?lab=object-storage) to see how to upload.
-
 
 Congratulations on completing this lab!
 
-[Proceed to the next section](#next).
-
 ## Acknowledgements
+
 * **Authors**
     * Jason Ding - Principal Data Scientist - Oracle AI Services
     * Haad Khan - Senior Data Scientist - Oracle AI Services
 * **Last Updated By/Date**
-    * Jason Ding - Principal Data Scientist, July 2021
+    * Ganesh Radhakrishnan - Product Manager, May 2022
+    * Jason Ding - Principal Data Scientist, Jan 2022

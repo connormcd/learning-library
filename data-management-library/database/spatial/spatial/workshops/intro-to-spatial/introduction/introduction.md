@@ -25,11 +25,9 @@ In this workshop you will create and configure spatial data and perform some bas
 - No previous experience with Oracle Spatial is required.
 - An Oracle Cloud Account - Please view this workshop's LiveLabs landing page to see which environments are supported
 
-*Note: If you have a **Free Trial** account, when your Free Trial expires your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. **[Click here for the Free Tier FAQ page.](https://www.oracle.com/cloud/free/faq.html)***
-
 ## Acknowledgements
 
 * **Author** - David Lapp, Database Product Management, Oracle
-* **Last Updated By/Date** - Kamryn Vinson, November 2020
+* **Last Updated By/Date** - Marion Smith, April 2022
 
 

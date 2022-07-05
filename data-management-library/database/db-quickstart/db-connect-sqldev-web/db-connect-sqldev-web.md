@@ -1,8 +1,4 @@
-<!-- Updated April 16, 2021 -->
-
-
 # Connect to the Database Using SQL Worksheet
-
 
 ## Introduction
 
@@ -16,7 +12,7 @@ Estimated lab time: 5 minutes
 
 ### Prerequisites
 
--   This lab requires completion of the prior labs in this workshop: **Prerequisites** and **Provision an Autonomous Database**, in the Contents menu on the left.
+-   This lab requires completion of the prior labs in this workshop: **Get Started** and **Provision an Autonomous Database**, in the Contents menu on the left.
 
 ## Task: Connect with SQL Worksheet
 
@@ -36,7 +32,7 @@ Although you can connect to your autonomous database from local PC desktop tools
 
 4. The Database Actions page opens. In the **Development** box, click **SQL**.
 
-    ![Click on SQL.](./images/Picture100-16-click-sql.png " ")
+    ![Click on SQL.](./images/click-sql.png " ")
 
 5. The first time you open SQL Worksheet, a series of pop-up informational boxes introduce you to the main features. Click **Next** to take a tour through the informational boxes.
 
@@ -51,4 +47,4 @@ Click [here](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-clo
 ## Acknowledgements
 
 - **Author** - Richard Green, Principal Developer, Database User Assistance
-- **Last Updated By/Date** - Richard Green, April 2021
+- **Last Updated By/Date** - Kamryn Vinson, April 2022

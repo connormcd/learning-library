@@ -1,62 +1,77 @@
 
-# Provisioning Autonomous Exadata Infrastructure for Autonomous Database in OCI
+# Provisioning a Cloud Exadata Infrastructure for Autonomous Database in OCI
 
 ## Introduction
-An Autonomous Exadata Infrastructure (AEI) resource allocates an available Oracle Exadata Database Machine to you. Its primary purpose is to act as a bridge between the hardware and software components of your dedicated infrastructure. You must create at least one Autonomous Exadata Infrastructure resource before you can create any of the other kinds of dedicated infrastructure resources such as Autonomous Container Databases or simply an Autonomous Database instance.
+A Cloud Exadata Infrastructure resource is the top-level (parent) resource for Autonomous Database on Dedicated Infrastructure. At the infrastructure level, you control the number of database and storage servers. You also control Exadata system maintenance scheduling at the Exadata infrastructure level. You must create at least one Exadata Infrastructure resource before you can create any of the other kinds of dedicated infrastructure resources such as Autonomous Container Databases or simply an Autonomous Database instance.
 
+
+Estimated Time: 20 minutes
 
 ### Objectives
 
-As a fleet administrator, 
-1. Deploy an Autonomous Exadata Infrastructure in a pre-provisioned private network in your OCI account
-2. Understand AEI maintenance scheduling
-3. Understand database licensing options
+As a fleet administrator:
+1. Deploy Cloud Exadata Infrastructure in your OCI account.
+2. Understand Cloud Exadata Infrastructure maintenance scheduling.
 
 ### Required Artifacts
-- An Oracle Cloud Infrastructure account with service limits to deploy at least one 1/4 rack of Exadata Infrastructure in any one region or Availability Domain.
-- You also need privileges to create Autonomous Exadata Infrastructure and a container database in a pre-provisioned compartment and network.
+- An Oracle Cloud Infrastructure account with service limits to deploy at least one 1/4 rack of Exadata Infrastructure (or 2 database servers and 3 storage servers limits) in any region's Availability Domain.
+- You also need privileges to create Exadata Infrastructure and Autonomous Container database in a pre-provisioned compartment and network.
 
-Watch the video below for an overview of creating an Autonomous Container Database
+Watch the video below for an overview of creating a Cloud Exadata Infrastructure.
 
-[](youtube:0iL-zyMziOM)
+[](youtube:IAGXC8WzJn0)
 
-## Task 1: Deploy your Autonomous Exadata Infrastructure (AEI)
+## Task 1: Check / Add Service Limits in your tenancy to create Cloud Exadata Infrastructure.
 
-*Login to your OCI account as a fleet administrator*
+Your tenancy has limits on the maximum number of resources you're allowed to use. You can use quotas to allocate resources to compartments. If you're an administrator in an eligible account, you can request a service limit increase.
 
-Navigate to the 'Autonomous Transaction Processing' option in the top left hamburger menu from your OCI home screen.
-    ![create_aei1](./images/create_aei1.png " ")
+*Log in to your OCI account as an Administrator.*
 
+- Navigate to **Governance & Administration** --> **Limits, Quotas and Usage**
 
+    ![This image shows the result of performing the above step.](./images/limit1.png " ")
 
-Select 'Autonomous Exadata Infrastructure' and ensure you pick the fleet compartment as shown above. Click the blue 'Create Autonomous Exadata Infrastructure' button.
-    ![create_aei3](./images/create_aei3.png " ")
+- Under **Limits, Quotas and Usage**, select Service as **Database**, Scope **Availability Domain** you want to deploy your Cloud Exadata infrastructure. The list should show all the available resources, Exadata X8M Database Server Count and Exadata X8M Storage Server Count available or used in selected Availability Domain. 
 
+    ![This image shows the result of performing the above step.](./images/limit2.png " ")
+    ![This image shows the result of performing the above step.](./images/limit3.png " ")
 
-In the network section, select, 
+- To increase the Service in your teanancy, click on **request a service limit increase** and fill in the detals in **Request Service Limit Updates**.
 
-1. The compartment that hosts the VCN; typically the fleetCompartment
-2. Name of the VCN
-3. The compartment that hosts the subnet, also fleetCompartment
-4. The subnet to hold the exadata infrastucture
-
-
-Your network or fleet administrator needs to setup the network before you can deploy an AEI. Please contact your network / account admin if a suitable network is not visible in the drop down options.
+    ![This image shows the result of performing the above step.](./images/limit4.png " ")
+    ![This image shows the result of performing the above step.](./images/limit5.png " ")
 
 
+## Task 2: Deploy your Cloud Exadata Infrastructure
 
-You can also modify the exadata and database maintenance schedules at this time. Click the 'Modify Schedule' button and specify the quarter, week, day and time you would like to schedule automatic maintenance for your exadata hardware and container databases.
-    ![select_schedule](./images/select_schedule.png " ")
+*Log in to your OCI account as a fleet administrator.*
 
-You also have two options for selecting the license type for the database containers (ACDs) you deploy on your autonomous exadata infrastructure. You can either bring your spare corporate database licenses to OCI or you can buy a license subscription in the cloud. Pick the best option for you and hit the Create button. Your AEI will soon be ready to deploy autonomous container databases.
-    ![license_type](./images/license_type.png " ")
+- Navigate to the **Autonomous Dedicated Infrastructure** option in the top left hamburger menu from your OCI home screen.
 
+    ![This image shows the result of performing the above step.](./images/create-cei1.png " ")
 
-## Acknowledgements
+- Select **Exadata Infrastructure** and ensure you pick the fleet compartment as shown above. Click the blue **Create Exadata Infrastructure** button.
+
+    ![This image shows the result of performing the above step.](./images/create-cei2.png " ")
+
+- Enter a name for the Exadata Infrastructure and select the Availability Domain in which you want the CEI to be created. Based on the Exadata System model that you select, you will have options to select different Exadata shapes.  
+
+- You can also modify the exadata maintenance schedules at this time. Click the **Modify Maintenance** button and specify the quarter, week, day and time you would like to schedule automatic maintenance for your exadata hardware.
+
+    ![This image shows the result of performing the above step.](./images/create-cei3.png " ")
+
+- After you add the contact emails for operational notifications and announcements, click **Create Exadata Infrastructure**. Your CEI will soon be ready to deploy autonomous container databases.
 
 *All Done! You have successfully deployed your Autonomous Exadata Infrastructure and it should be available shortly.*
 
-- **Author** - Tejus S. & Kris Bhanushali
-- **Adapted by** -  Yaisah Granillo, Cloud Solution Engineer
-- **Last Updated By/Date** - Yaisah Granillo, March 2020
+You may now **proceed to the next lab**.
 
+## Acknowledgements
+
+- **Author** - Ranganath S R & Kris Bhanushali
+- **Adapted by** -  Yaisah Granillo, Cloud Solution Engineer
+- **Updated By/Date** - Ranganath S R, Feb 2022
+- **Last Updated By/Date** - Kris Bhanushali, March 2022
+
+## See an issue or have feedback?  
+Please submit feedback [here](https://apexapps.oracle.com/pls/apex/f?p=133:1:::::P1_FEEDBACK:1).   Select 'Autonomous DB on Dedicated Exadata' as workshop name, include Lab name and issue / feedback details. Thank you!

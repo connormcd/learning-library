@@ -102,7 +102,7 @@ Launch your browser and open a connection to [https://localhost:7803/em](https:/
 
 You may see an error on the browser while accessing the Web Console - “*Your connection is not secure*”. Ignore and add the exception to proceed. Access this URL and ensure that you are able to access Enterprise Manager Web Console.
 
-Now you are ready to run the workshop. You may now [proceed to the next lab](#next).
+Now you are ready to run the workshop. You may now proceed to the next lab.
 
 ## Acknowledgements
 - **Author** - Rene Fontcha, Master Principal Solutions Architect, NA Technology

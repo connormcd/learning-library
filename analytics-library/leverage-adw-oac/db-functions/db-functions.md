@@ -1,4 +1,4 @@
-# Leveraging Database functions with OAC
+# Leverage Database functions with OAC
 
 ## Introduction
 
@@ -13,7 +13,7 @@ An non exhaustive list is:
 
 For this lab we are going to cover **EVALUATE** and **EVALUATE\_AGGR** database functions.
 
-_Estimated Lab Time_: 30 minutes
+_Estimated Time_: 30 minutes
 
 ![Evaluate](../db-functions/images/db-functions.png)
 
@@ -23,16 +23,8 @@ _Estimated Lab Time_: 30 minutes
 
 ### Prerequisites
 
-* An Oracle Cloud Free Tier or Paid account
-* You should have completed  
-    * Lab 1: Provisioning your Autonomous Database instance
-    * Lab 2: Provisioning your Oracle Analytics Cloud instance
-    * Lab 3: Connecting OAC to ADW and adjusting Data Set properties
-    * Lab 5: Gaining Insights with Visual Data Dialog
-    * Lab 6: Monitoring and Ad-hoc scaling up ADW activity for optimal OAC experience
-    * Lab 7: Building simple Interactive Analysis
-    * Lab 8: Mashing up additional Data Sets, Contextual Data Preparation
-    * Lab 10: Geo Maps and Custom Binning
+* An [_Oracle Cloud Free Tier Account_](https://www.oracle.com/cloud/free/) or a Paid account
+* All previous labs successfully completed
 
 ## Task 1: Enable Evaluate Support Level
 
@@ -68,7 +60,7 @@ Click **Navigator** and select **Home**
 
     ![Home](../db-functions/images/home.png)
 
-6.  You make sure that **Data Access** is set to **Live** for the Data Sets that will be referenced by the Evaluate function.  
+6.  You make sure that **Data Access** is set to **Live** for the Datasets that will be referenced by the Evaluate function.  
 By setting it to Live, you are ensuring that OAC Server always sends the query to the underlying database and does not retrieve results from cache.  
 You have already configured **DCA\_SALES\_DATA** to **Live**.
 ## Task 2: Leverage EVALUATE function
@@ -94,8 +86,8 @@ Select **#Customers** from Data Panel, Right-Click and Select **Create Best Visu
     ![Create Best Visualization](../db-functions/images/customerscreateviz1.png)
 
 
-5.  Lets see the Query Log.
-    Hint: use another browser page or second browser to avoid to close (save) and then open agin your project. Switch beetwen pages for Query Log and Project. 
+5.  Lets see the Query Log from **Performance Tools**.
+    
 
     Go to **Console**, click on **Session and Query Cache**  
     The query log shows that **Count Distinct** is being used against the column in the query
@@ -170,8 +162,7 @@ The calculation returns an approximate distinct count of Customer ID
 Open a new **Home** page > Click **Navigator** > Select **Console** > Click **Sessions and Query Cache** under _Configuration and Administration_ section, Pick-up the most recent entry and Click **View Log**.  
 The query logs shows that the function approx\_count\_distinct is function shipped to database query 
 
-     ![](../db-functions/images/approxcountlog.png)  
-     ![](../db-functions/images/approxcountlog2.png)
+     ![](../db-functions/images/approxcountlog.png)
 
 18.  Calculations performed using EVALUATE\_AGGR can be sliced and diced with attributes, but calculations with EVALUATE cannot be broken down by dimensions/attributes in the Data Set.
 
@@ -180,11 +171,7 @@ Double-Click on **CATEGORY** attribute from the Data Pane.
 
      ![Add Category](../db-functions/images/approxcountvizcategsmall.png)
 
-20.  Check the visualization.  
-
-     ![](../db-functions/images/approxcountvizcateg1.png)
-
-21.  **Save** and **Close** the Project.  
+20.  **Save** and **Close** the Project.  
 Click the **Save** icon from top right.  
 
      ![Save](../db-functions/images/save.png)
@@ -238,5 +225,5 @@ Congrats, you have just finished this workshop.
 
 - **Author** - Lucian Dinescu (Oracle Analytics Product Strategy)
 - **Contributors** - 
-- **Reviewed by** - Shiva Oleti (Oracle Analytics Product Strategy), Sebastien Demanche (Oracle Cloud Center of Excellence)
-- **Last Updated By/Date** - Lucian Dinescu (Oracle Analytics Product Strategy), October 2021
+- **Reviewed by** - Shiva Oleti (Oracle Analytics Product Strategy), Sebastien Demanche, Andor Imre (Oracle Cloud Center of Excellence)
+- **Last Updated By/Date** - Lucian Dinescu (Oracle Analytics Product Strategy), February 2022

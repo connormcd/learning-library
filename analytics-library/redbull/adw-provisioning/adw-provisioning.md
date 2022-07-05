@@ -6,7 +6,7 @@
 
 In this lab, you will provision a new Autonomous Data Warehouse (ADW) instance. This database will hold the data that you will analyze.
 
-Estimated Time: 5 minutes
+Estimated Lab Time: 5 minutes
 
 ### Objectives
 
@@ -54,8 +54,8 @@ To complete this lab, you need to have the following:
 
    ![ADW Form 3](images/adw_form_3.png)
 
-      - Password: `Oracle_12345`
-      - Confirm password: `Oracle_12345`
+      - Password: Create a secure password
+      - Confirm password: Confirm the secure password
       - Access Type: `Secure access from everywhere`
       - Choose a license type: `License Included`
 
@@ -72,6 +72,8 @@ To complete this lab, you need to have the following:
    ![AWD Active](images/adw_active_state.png)
 
 7. Your Autonomous Data Warehouse is ready to use.
+
+Please *proceed to the next lab*.
 
 ## **Acknowledgements**
 

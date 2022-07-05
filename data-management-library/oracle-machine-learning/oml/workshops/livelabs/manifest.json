@@ -1,9 +1,6 @@
 {
     "workshoptitle": "Oracle Machine Learning Notebooks",
-    "include": {"starter-file.sql":"../../data-load/files/starter-file.sql",
-                "sample.json":"../../data-load/files/sample.json",
-                "step2.md":"../../data-load/files/step2.md"},
-    "help": "livelabs-help-**enterarea**_us@oracle.com",
+    "help": "livelabs-help-db_us@oracle.com",
     "tutorials": [
         {
             "title": "Introduction to Oracle Machine Learning (OML) Notebooks",

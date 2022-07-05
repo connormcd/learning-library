@@ -15,7 +15,7 @@ Estimated time: 20 minutes
 ### Prerequisites
 
 * This lab requires completion of lab 1 and lab 2 of this workshop
-* This Lab also assumes you have completed the tutorials 1, 2 and 3 in the [React+Java+ADB = Native Cloud App](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=814&p210_type=1&session=10648029398196).
+* This Lab also assumes you have completed the tutorials 1, 2 and 3 in the [React+Java+ADB = Native Cloud App](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=814).
 
 ## Task 1: Launch Cloud Shell
 1. Launch the Oracle Cloud Shell from the Oracle Cloud Console by selecting the **>..** icon.  <br/><br/>
@@ -28,7 +28,7 @@ Estimated time: 20 minutes
 
 	``` bash
 	<copy>
-	cd ~/mtdrworkshop/backend
+	cd ~/reacttodo/oci-react-samples/mtdrworkshop/backend
 	</copy>
 	```
 2.	Open the file with an editor tool (e.g., vi editor)
@@ -77,7 +77,7 @@ Estimated time: 20 minutes
 
 	``` bash
 	<copy>
-	vi ~/mtdrworkshop/backend/target/classes/application.yaml
+	vi ~/reacttodo/oci-react-samples/mtdrworkshop/backend/target/classes/application.yaml
 	</copy>
 	```
 	Add the following properties to the file. Replace ***&lt;data upload endpoint&gt;*** and ***&lt;private data key&gt;*** with the values collected from the Oracle Cloud console in the earlier steps.
@@ -119,7 +119,7 @@ Estimated time: 20 minutes
 4.	Copy the edited yaml file to ***/backend/src/main/resources/*** directory.
 	``` bash
 	<copy>
-	cp ~/mtdrworkshop/backend/target/classes/application.yaml ~/mtdrworkshop/backend/src/main/resources/application.yaml
+	cp ~/reacttodo/oci-react-samples/mtdrworkshop/backend/target/classes/application.yaml ~/reacttodo/oci-react-samples/mtdrworkshop/backend/src/main/resources/application.yaml
 	</copy>
 	```
 
@@ -130,7 +130,7 @@ Estimated time: 20 minutes
 1.	Open ***Main.java*** with any editor.
 	``` bash
   <copy>
-  vi ~/mtdrworkshop/backend/src/main/java/com/oracle/todoapp/Main.java
+  vi ~/reacttodo/oci-react-samples/mtdrworkshop/backend/src/main/java/com/oracle/todoapp/Main.java
   </copy>
   ```
 
@@ -178,7 +178,7 @@ In this lab, we are adding custom spans to the first two, ***List All*** and ***
 
 	 ``` bash
 	 <copy>
-	 vi ~/mtdrworkshop/backend/src/main/java/com/oracle/todoapp/TodoListAppService.java
+	 vi ~/reacttodo/oci-react-samples/mtdrworkshop/backend/src/main/java/com/oracle/todoapp/TodoListAppService.java
 	 </copy>
 	 ```
    	>NOTE: For how to use the vi editor, refer to the Task2, step 2 in this Lab.
@@ -254,7 +254,7 @@ Refer to the screenshots of the ***TodoListAppService.java*** where the changes 
 
 	``` bash
 	<copy>
-	vi ~/mtdrworkshop/backend/src/main/java/com/oracle/todoapp/TodoItemStorage.java
+	vi ~/reacttodo/oci-react-samples/mtdrworkshop/backend/src/main/java/com/oracle/todoapp/TodoItemStorage.java
 	</copy>
 	```
 
@@ -344,7 +344,7 @@ Refer to the screenshots of the ***TodoListAppService.java*** where the changes 
 	``` bash
 	<copy>
 	private void addConnectionInfo(Span span, String sql) {
-  	span.setTag("DbStatment", sql);
+  	span.setTag("DbStatement", sql);
 		span.setTag("DbConnUrl", pool.getURL());
 		span.setTag("DbType", "sql");
 		span.setTag("DbUser", pool.getUser());
@@ -370,14 +370,17 @@ Refer to the below screenshots of the ***TodoItemStorage.java*** where the chang
 
 ## Task 6: Rebuild application with the APM Tracer configuration
 
-1. Ensure the Java version in the path is 11.0.7.
+1. if you completed the [React+Java+ADB = Native Cloud App](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=814) Workshop in a different Cloud Shell session, you will need to do the followings :
+
+  * Ensure the Java version in the path is 11.0.7.
+
 	``` bash
 	<copy>
 	java -version
 	</copy>
 	```
 
-	if you completed the [React+Java+ADB = Native Cloud App](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=814&p210_type=1&session=10648029398196) Workshop in a different Cloud Shell session, you will need to reset the JAVA_HOME environment variable, by running run the followings.
+  Reset the JAVA_HOME environment variable, by running run the followings.
 
 	``` bash
 	<copy>
@@ -386,17 +389,38 @@ Refer to the below screenshots of the ***TodoItemStorage.java*** where the chang
 	</copy>
 	```
 
+* Go to the navigation menu (three bar icon) located at the top left corner in the Oracle Cloud console, select **Developer Services**, then **Kubernetes Clusters (OKE)**.
+
+  ![OCI OKE](images/6-0-0-oke.png " ")
+
+	 Select your compartment, then select the cluster.
+
+  ![OCI OKE](images/6-0-1-oke.png " ")
+
+   Click **Access Cluster**.
+
+	![OCI OKE](images/6-0-2-oke.png " ")
+
+	Ensure **Cloud Shell Access** and **Launch Cloud Shell** are selected. Click **Copy** from the text box.
+
+	![OCI OKE](images/6-0-4-oke.png " ")
+
+	Open Cloud Shell, paste the text copied from the cluster page.
+
+	![OCI OKE](images/6-0-5-oke.png " ")
+
+
 2. From the backend directory, run ***undeploy.sh*** script to delete the service and the pods.
 
 	``` bash
 	<copy>
-	cd ~/mtdrworkshop/backend; ./undeploy.sh
+	cd ~/reacttodo/oci-react-samples/mtdrworkshop/backend; ./undeploy.sh
 	</copy>
 	```
 3.	Run ***build.sh*** script to build and push the microservices images into the repository.
 	``` bash
 	<copy>
-	cd  ~/mtdrworkshop/backend; ./build.sh
+	cd  ~/reacttodo/oci-react-samples/mtdrworkshop/backend; ./build.sh
 	</copy>
 	```
 
@@ -405,12 +429,9 @@ Refer to the below screenshots of the ***TodoItemStorage.java*** where the chang
 ## Task 7: Verify container registry from the root compartment
 
 1.	In the Oracle Cloud console, click the menu from the top-left corner and open **Developer Services** > **Container Registry**.
-2.	Select **(root)** from the **Compartment** pulldown menu
-
-	![OCI Container Registry](images/7-0-1-registry.png " ")
-
+2.	Ensure the correct **Compartment** is selected.
 3.  From the tree view, select the repository you created in the Native Cloud App Workshop.
-4.	Ensure the access is Public.
+4.	Ensure the **Access** is Public.
 	![OCI Container Registry](images/7-0-2-registry.png " ")
 5. If the access is Private, change it to “Public” by **Actions** > **Change** to Public
 
@@ -422,26 +443,27 @@ Refer to the below screenshots of the ***TodoItemStorage.java*** where the chang
 
 	``` bash
 	<copy>
-	cd  ~/mtdrworkshop/backend; ./deploy.sh
+	cd  ~/reacttodo/oci-react-samples/mtdrworkshop/backend; ./deploy.sh
 	</copy>
 	```
+	![kubectl](images/8-1-kubectl.png " ")
 
 2.	Run kubectl command to check the status of the Kubernetes services. This command returns the service of the application with a load balancer exposed through an external API.
 	``` bash
 	<copy>
-	kubectl get services
+	kubectl get services -n mtdrworkshop
 	</copy>
 	```
 
 	Copy the load balancer’s external IP from the output and save it to a text file. You will use this value later in the steps to start the application.
 
-	![kubectl](images/8-1-kubectl.png " ")
+	![kubectl](images/8-1-2-kubectl.png " ")
 
 
 3.	Run the kubectl get pods command to verify the status of the pods.
 	``` bash
 	<copy>
-	kubectl get pods
+	kubectl get pods -n mtdrworkshop
 	</copy>
 	```
 	Make sure the pods are in the Running state.
@@ -469,4 +491,4 @@ You may now [proceed to the next lab](#next).
 - **Contributors** - Steven Lemme, Senior Principal Product Manager,<br>
 David Le Roy, Director, Product Management,<br>
 Avi Huber, Senior Director, Product Management
-- **Last Updated By/Date** - Yutaka Takatsu, December 2021
+- **Last Updated By/Date** - Yutaka Takatsu, February 2022

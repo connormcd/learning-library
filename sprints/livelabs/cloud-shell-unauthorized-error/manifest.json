@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "I get an unauthorized message while accessing Cloud Shell; what do I do?",
+         "description": "",
+         "filename": "./cloud-shell-unauthorized-error.md"
+      },
+      {
+         "title": "I can't see the resource in the compartment assigned in the LiveLabs reservation?",
+         "description": "",
+         "filename": "../cant-see-resource-in-compartment/cant-see-resource-in-compartment.md"
+      }
+   ],
+   "task_type": "Sections"
+}

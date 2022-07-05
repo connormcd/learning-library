@@ -11,7 +11,7 @@
         {
             "title": "Get Started",
             "description": "Prerequisites for this workshop.",
-            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/event-register-free-tier-account.md"
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login.md"
         },
         {
             "title": "Lab 1: Provision an ADB Instance",

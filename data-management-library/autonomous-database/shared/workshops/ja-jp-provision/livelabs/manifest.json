@@ -3,9 +3,9 @@
     "help": "livelabs-help-jp_us@oracle.com",
 	"tutorials": [
       {
-           "title": "Login to Oracle Cloud",
+           "title": "Get Started",
            "description": "Get a Free Trial",
-           "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/ja-jp-pre-register-free-tier-account.md"
+           "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login-livelabs2.md"
        },
         {
             "title": "Introduction",

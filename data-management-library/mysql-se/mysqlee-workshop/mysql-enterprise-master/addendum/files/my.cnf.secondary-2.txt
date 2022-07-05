@@ -1,0 +1,48 @@
+Content of file my.cnf.secondary-2
+
+[mysqld]
+# General configurations
+port=3308
+mysqlx_port=33080
+server_id=30
+socket=/mysql02/temp/mysql.sock
+mysqlx_socket=/mysql02/temp/mysqlx.sock
+
+user=mysqluser
+
+# File locations
+basedir=/mysql02/mysql-latest
+plugin-dir=/mysql02/mysql-latest/lib/plugin
+datadir=/mysql02/data
+tmpdir=/mysql02/temp
+log-error=/mysql02/log/err_log.log
+general_log_file=/mysql02/log/gl_log.log
+slow_query_log_file=/mysql02/log/sq_log.log
+
+# Maximum limits
+max-connections=200
+open-files-limit=5000
+
+# Security setting for file load
+secure-file-priv=/mysql02/data
+
+# InnoDB settings
+innodb_flush_log_at_trx_commit=1
+innodb_buffer_pool_size=512M
+
+# MyISAM settings
+key_buffer_size=124M
+
+# Enable binary logs
+log-bin=/mysql02/binlog/binlog
+binlog-format=row
+sync_binlog = 1
+master-info-repository=TABLE
+relay-log-info-repository=TABLE
+gtid-mode=on
+enforce-gtid-consistency=true
+
+# Performance Monitor
+performance_schema_consumer_events_statements_history_long = ON
+# Plugin load example (MySQL Enterprise Thread Pool)
+plugin-load=thread_pool.so;audit_log.so

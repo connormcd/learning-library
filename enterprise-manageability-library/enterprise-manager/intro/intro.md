@@ -6,7 +6,7 @@ The EM Workshop is a fully functional Oracle Enterprise Manager environment conf
 - Easy and quick to deploy - Everything starts automatically in under 20 minutes
 - The EM Workshop comes with step-by-step instructions that walks the user through multiple use cases for the areas summarized below and further detailed for each lab listed on the right:
 
-*Estimated Time:* 420 minutes
+*Estimated Time:* 480 minutes
 
 [](youtube:894JHZi3Ol4)
 
@@ -87,8 +87,12 @@ In this workshop you will learn about:
 - View the hierarchy of an existing Administrator Group
 - Review out-of-the-box incident rules shipped with Enterprise Manager
 
-### Prerequisites
+#### 9. Deploy and Manage Oracle Databases with Ansible and Enterprise Manager
+- Install and configure Ansible to work with Oracle Enterprise Manager 13c
+- Review Oracle Enterprise Manager DBaaS setup for Pluggable Databases
+- Provision, resize, shutdown, start and delete a Pluggable Database using Ansible playbooks and EM's DBaaS capabilities
 
+### Prerequisites
 * A Free Tier, Paid or LiveLabs Oracle Cloud account
 * SSH Private Key to access the host via SSH
 
@@ -112,4 +116,4 @@ Drive Your Autonomous Future with Oracle Enterprise Manager
 ## Acknowledgements
 - **Author** - Rene Fontcha, Master Principal Solutions Architect, NA Technology
 - **Contributors** - Dave Le Roy, Pankaj Chandiramani, Shefali Bhargava - Enterprise Manager Product Management
-- **Last Updated By/Date** - Shefali Bhargava - Enterprise Manager Product Management, June 2021
+- **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, February 2022

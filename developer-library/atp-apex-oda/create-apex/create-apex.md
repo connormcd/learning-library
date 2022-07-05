@@ -51,9 +51,15 @@ In this lab, you will:
 
     Use the following information to fill out the form:
 
-    - **Database User**: ATP&#95;ODA
+    - **Database User**:
+        ```
+        <copy>ATP&#95;ODA</copy>
+        ```
     - **Password**: Any password that meets the Oracle Cloud requirements.
-    - **Workspace Name**: ATP&#95;ODA
+    - **Workspace Name**:
+        ```
+        <copy>ATP&#95;ODA</copy>
+        ```
 
 4. Select **Create Workspace**.
 
@@ -67,10 +73,15 @@ In this lab, you will:
 
 6. Fill the following details: **Name of the workspace**, **User name**, **Password** and click **Sign in**.
 
-    - **Name of the workspace**: ATP&#95;ODA
-    - **User Name**: ATP&#95;ODA
+    - **Name of the workspace**: 
+        ```
+        <copy>ATP&#95;ODA</copy>
+        ```
+    - **User Name**:
+        ```
+        <copy>ATP&#95;ODA</copy>
+        ```
     - **Password**: Any password that meets the Oracle Cloud requirements.
-    
 
     ![User Login Dashboard](./images/apex_workspace7.png)
 
@@ -117,7 +128,10 @@ Use Cases:
 
 5. Set the name of the script and confirm **Save Script**.
 
-    - Script name: `tasks`
+    - Script name: 
+        ```
+        <copy>tasks</copy>
+        ```
 
     ![Save SQL Script Confirm](./images/apex_save_sql_script_confirm.png)
 
@@ -161,7 +175,7 @@ We are going to mock some data to use it later with your Custom Component.
 
     ![Object Browser Data](./images/apex_object_insert_row_1.png)
 
-4. Do the same with the second task entry.
+4. Do the same with the **second task entry**.
 
     To follow the same example we have created:
 
@@ -187,7 +201,10 @@ In the main menu, select **SQL Workshop**, click **RESTful Services**.
 
 2. Set the **Schema Alias** name and click **Save Schema Attributes** to confirm:
 
-    - **Schema Alias**: `tasks`
+    - **Schema Alias**: 
+        ```
+        <copy>tasks</copy>
+        ```
 
     ![REST Enable Save](./images/apex_rest_enable_save2.png)
 
@@ -203,8 +220,14 @@ In the main menu, select **SQL Workshop**, click **RESTful Services**.
 
 5. Fill **Module Name** and **Base Path** fields with the following data and click **Create Module**:
 
-    - **Module Name**: `com.example.oda`
-    - **Base Path**: `/oda/`
+    - **Module Name**: 
+        ```
+        <copy>com.example.oda</copy>
+        ```
+    - **Base Path**:
+        ```
+        <copy>/oda/</copy>
+        ```
 
     ![Details Module](./images/apex_rest_module_create.png)
 
@@ -218,7 +241,10 @@ In the main menu, select **SQL Workshop**, click **RESTful Services**.
 
 8. Fill **URL Template** and click **Create Template**.
 
-    - **URL Template**: `tasks/`
+    - **URL Template**:
+        ```
+        <copy>/tasks/</copy>
+        ```
     
     ![URL Template Info](./images/apex_rest_template_create.png)
 
@@ -278,5 +304,4 @@ You may now [proceed to the next lab](#next).
 
 - **Author** - Victor Martin - Technology Product Strategy Manager, Priscila Iruela - Technology Product Strategy Director
 - **Contributors** - Melanie Ashworth-March
-- **Last Updated By/Date** - Anoosha Pilli, March 2021
-
+- **Last Updated By/Date** - Priscila Iruela, June 2022

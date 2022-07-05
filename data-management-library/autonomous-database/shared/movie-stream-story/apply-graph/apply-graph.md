@@ -136,28 +136,36 @@ This is the Graph Studio interface for modeling a graph. You will create a graph
 
     ![Click Start Modeling](images/m2.png " ")
 
-2. Expand **MOVIESTREAM** to see the list of tables available for creating a graph.
-    ![Expand the tables under the MOVIESTREAM schema](images/m3.png " ")
+2. Change **Graph Type** from the default **PG View** to **PG Objects**.  This is because the algorithm we will use, **WhomToFollow**, is one of the algorithms that requires a **PG Objects** type of graph.   For most other algorithms you can use a **PG View** graph, which is the preferred Graph Type.
 
-    ![Scroll down to see all the tables available](images/m4.png " ")
+    ![Default Graph Type is PG View](images/m2-1.png " ")
 
-3. Select the tables **CUSTOMER\_PROMOTIONS**, **CUSTSALES\_PROMOTIONS**, **MOVIE** to create a graph. For each table, highlight the table, and click the right arrow.
+    ![Expand the drop down menu for Graph Type](images/m2-2.png " ")
 
-    ![Select the table CUSTOMER\_PROMOTIONS and click the arrow to move it to the right](images/m5.png " ")
+    ![Select PG Objects](images/m2-3.png " ")
 
-    ![Select the table CUSTSALES\_PROMOTIONS and click the arrow to move it to the right](images/m6.png " ")
+3. Expand **MOVIESTREAM** to see the list of tables available for creating a graph.
+    ![Expand the tables under the MOVIESTREAM schema](images/m3-1.png " ")
 
-    ![Select the table MOVIE and click the arrow to move it to the right](images/m7.png " ")
+    ![Scroll down to see all the tables available](images/m3-2.png " ")
 
- Then expand the **MOVIESTREAM** on the right to confirm your selections and click **Next**.
+4. Select the tables **CUSTOMER\_PROMOTIONS**, **CUSTSALES\_PROMOTIONS**, **MOVIE** to create a graph. For each table, highlight the table, and click the right arrow.
 
-    ![Expand MOVIESTREAM on the right to confirm your selections](images/m8.png " ")
+    ![Select the table CUSTOMER\_PROMOTIONS and click the arrow to move it to the right](images/m4-1.png " ")
 
-4. After you click **Next** the modeler examines the tables, the primary keys, and the foreign key constraints, and proposes the vertex tables and edge tables for the graph, as you can see in the highlighted section below.
+    ![Select the table CUSTSALES\_PROMOTIONS and click the arrow to move it to the right](images/m4-2.png " ")
+
+    ![Select the table MOVIE and click the arrow to move it to the right](images/m4-3.png " ")
+
+ Then expand the **MOVIESTREAM** on the right to confirm your table selections, and also confirm that you have selected **PG Objects** as the **Graph Type**, and click **Next**.
+
+    ![Expand MOVIESTREAM on the right to confirm your selections](images/m4-4.png " ")
+
+5. After you click **Next** the modeler examines the tables, the primary keys, and the foreign key constraints, and proposes the vertex tables and edge tables for the graph, as you can see in the highlighted section below.
 
     ![Vertex tables and edge tables identified by the modeler for the graph](images/m9.png " ")
 
-5. Click **Source** to view the CREATE PROPERTY GRAPH statement. It is good practice to always confirm that the graph created is the one you want. Note the following features:
+6. Click **Source** to view the CREATE PROPERTY GRAPH statement. It is good practice to always confirm that the graph created is the one you want. Note the following features:
 
     Primary key column of vertex tables become the KEY in the CREATE PROPERTY GRAPH statement.
 
@@ -169,7 +177,7 @@ This is the Graph Studio interface for modeling a graph. You will create a graph
 
     ![Note the direction of the edge in the edge table section](images/m11.png " ")
 
-6. Click **Designer**. Click the edge table CUSTSALES_PROMOTIONS to make two changes to the graph model.
+7. Click **Designer**. Click the edge table CUSTSALES_PROMOTIONS to make two changes to the graph model.
 
     ![Click Designer](images/m12.png " ")
 
@@ -181,17 +189,17 @@ This is the Graph Studio interface for modeling a graph. You will create a graph
 
     ![Click once on the two arrows icon to change the direction of the edge](images/m13.png " ")
 
-7. Click on **Source** again to confirm that the edge direction is now *from* **cust\_id** *to* **movie\_id**.   You will also see that the label **RENTED** clause has been added to the CREATE PROPERTY GRAPH statement.   
+8. Click on **Source** again to confirm that the edge direction is now *from* **cust\_id** *to* **movie\_id**.   You will also see that the label **RENTED** clause has been added to the CREATE PROPERTY GRAPH statement.   
 
-8. Then click **Next**.
+9. Then click **Next**.
 
     ![Click Source again to verify your changes](images/m15.png " ")
 
-9. Click **Create Graph**
+10. Click **Create Graph**
 
     ![Click Create Graph](images/m16.png " ")
 
-10. Type in a Graph name, in this lab we will use **MOVIE_RECOMMENDATIONS**.  Ensure that **Load into Memory** radio button is on, and click **Create**.
+11. Type in a Graph name, in this lab we will use **MOVIE_RECOMMENDATIONS**.  Ensure that **Load into Memory** radio button is on, and click **Create**.
 
     This step will take about 3 minutes to create a graph. The graph has approximately 8k vertices and 800k edges.
 

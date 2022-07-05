@@ -259,7 +259,6 @@ The stats command displays the statistics of the data that GoldenGate processed 
 
     ```
     <copy>http://<Your Host Public IP address>:8888</copy>
-    e.g: http://111.222.111.222:8888
     ```
 
     - Credentials: cloudera/cloudera

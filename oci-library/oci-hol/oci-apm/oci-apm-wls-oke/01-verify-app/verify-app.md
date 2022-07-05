@@ -2,33 +2,29 @@
 
 ## Introduction
 
-This workshop uses **WebLogic Operator** Demo app, which is a simple JSP based WebLogic application that runs in a Kubernetes cluster. It is a prerequisite to complete the **[Migrating WebLogic Server to Kubernetes on OCI](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=567&p210_type=2&session=102696148940850)** workshop, up to Lab 4 to setup the app, prior to start the tutorials in this workshop.
-
-In this lab, you will make sure the application is running and ready to configure the APM Java Agent.
-
+This workshop uses the **WebLogic Operator** Demo app-  a simple JSP-based WebLogic application you created in the prerequisite **[Migrating WebLogic Server to Kubernetes on OCI](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=567&p210_type=2&session=102696148940850)** workshop. Verify the WebLogic Operator application is running and ready to configure the APM Java Agent.
 
 Estimated time: 5 minutes
 
 ### Objectives
+
 * Ensure the WebLogic Operator Demo application is running  
 
 ### Prerequisites
 
-* Completion of the **[Migrating WebLogic Server to Kubernetes on OCI](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=567&p210_type=2&session=102696148940850)** workshop, labs 1, 2, 3 and 4.
-
-
+* Completion of the **[Migrating WebLogic Server to Kubernetes on OCI](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=567&p210_type=2&session=102696148940850)** workshop, Tasks 1, 2, 3 and 4.
 
 ## Task 1: Verify the application in a browser
 
-1. Click the three-bar icon at the top left corner in the Oracle Cloud console. From the menu, select **Developer Services** > **Kubernetes Clusters (OKE)**.
+1. Click the navigation icon at the top left corner (three bars) in the Oracle Cloud console, drop down the menu, navigate and choose **Developer Services** > **Kubernetes Clusters (OKE)**.
 
    ![Oracle Cloud console, Navigation Menu](images/1-1-menu.png " ")
 
-2. Select the compartment, which you created the Kubernetes cluster in the **[Migrating WebLogic Server to Kubernetes on OCI](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=567&p210_type=2&session=102696148940850)** workshop. Then click the name of the cluster.
+2. Locate the compartment you created the Kubernetes cluster when you performed the prerequisite **[Migrating WebLogic Server to Kubernetes on OCI](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=567&p210_type=2&session=102696148940850)** workshop. Then click the name of the cluster.
 
    ![Oracle Cloud console, Compartment](images/1-2-compartment.png " ")
 
-3.	Click **Access Cluster**
+3.	On the Cluster Details page, click the **Access Cluster** button.
 
    ![Oracle Cloud console, Cluster](images/1-3-cluster.png " ")
 
@@ -36,11 +32,11 @@ Estimated time: 5 minutes
 
    ![Oracle Cloud console, Cluster](images/1-4-cluster.png " ")
 
-5.	Cloud Shell window opens at the bottom of the Oracle Cloud console screen.
+5.	Look at the bottom of the page, and you will see a Cloud Shell window and command prompt ready for input.
 
    ![Oracle Cloud console, Cluster](images/1-5-cluster.png " ")
 
-6.	Go back to the **Access Your Cluster** page, find a textbox with an OCI command, then click **Copy**.
+6.	In the **Access Your Cluster** page that is still opened at the upper side of console, locate the textbox with the OCI command, and click **Copy**.
 
    ![Oracle Cloud console, Cluster](images/1-6-cluster.png " ")
 
@@ -48,9 +44,7 @@ Estimated time: 5 minutes
 
    ![Oracle Cloud console, Cloud Shell](images/1-7-cloudshell.png " ")
 
-
-   > ***NOTE***:  Save the command to a text file in your laptop, and execute it every time when you start a new Cloud Shell session, while working the labs in this workshop.
-
+   > ***NOTE***:  Save the command to a text file on your laptop, and execute it every time when you start a new Cloud Shell session, while working the labs in this workshop.
 
 8.	In the Cloud Shell, run the following command.
 
@@ -64,13 +58,11 @@ Estimated time: 5 minutes
 
    ![Oracle Cloud console, Cloud Shell](images/1-8-cloudshell.png " ")
 
-
-9.	Within the same command output, find the LoadBalancer service. Note down the External-IP.
+9.	Within the same command output, locate the LoadBalancer service. Note down the External-IP.
 
    ![Oracle Cloud console, Cloud Shell](images/1-9-cloudshell.png " ")
 
-
-10.	On your laptop, start a browser and access the application with the following URL pattern:
+10.	On your computer, open a new browser tab and access the application with the following URL pattern:
 
      ``` bash
      <copy>
@@ -79,20 +71,15 @@ Estimated time: 5 minutes
      ```
      Make sure the WebLogic Operator Demo application launches as in the image below. This is the target web application you will use to configure the APM Java Agent in this workshop.
 
-
      ![WLS Operator Demo application](images/1-10-demoapp.png " ")
 
-
-     If you have not set up the application yet, please visit the **[Migrating WebLogic Server to Kubernetes on OCI](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=567&p210_type=2&session=102696148940850)** workshop, and complete the tutorials from the Lab 1 to Lab 4.
-
-
-
-You may now [proceed to the next lab](#next).
+     If you have not set up the application yet, or you cannot start the application, please visit the **[Migrating WebLogic Server to Kubernetes on OCI](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/workshop-attendee-2?p210_workshop_id=567&p210_type=2&session=102696148940850)** workshop, and complete the tutorials from the Task 1 to Task 4.
 
 ## Acknowledgements
 
 * **Author** - Yutaka Takatsu, Product Manager, Enterprise and Cloud Manageability
 - **Contributors** - Steven Lemme, Senior Principal Product Manager,<br>
 David Le Roy, Director, Product Management,<br>
+Mahesh Sharma, Consulting Member of Technical Staff,<br>
 Avi Huber, Senior Director, Product Management
-* **Last Updated By/Date** - Yutaka Takatsu, December 2021
+* **Last Updated By/Date** - Yutaka Takatsu, January 2022

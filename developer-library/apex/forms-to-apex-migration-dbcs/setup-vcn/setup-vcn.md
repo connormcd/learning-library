@@ -27,13 +27,17 @@ To sign in to the Console, you need the following:
 
 To create a VCN on Oracle Cloud Infrastructure:
 
-1. On the Oracle Cloud Infrastructure Console Home page, under the Quick Actions header, click on Set up a network with a wizard.
+1. Click the menu button on the Oracle Cloud Infrastructure console home page. Click **Networking** -> **Virtual Cloud Networks**.
 
-    ![Setup a Network with a Wizard](images/setupVCN1.png)
+	![Select Virtual Cloud Network from Networking in menu.](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/new-console-backup/networking-vcn.png " ")
 
-2. Select **VCN with Internet Connectivity**, and then click **Start Workflow**.
+2. Click **Start VCN Wizard**.
 
-    ![Start Workflow](images/setupVCN2.png)
+    ![Click Start VCN Wizard](images/vcn-wizard.png)
+
+2. Select **Create VCN with Internet Connectivity**, and then click **Start VCN Wizard**.
+
+    ![Start VCN Wizard](images/start-vcn.png)
 
 3. Complete the following fields:
 
@@ -55,13 +59,13 @@ To create a VCN on Oracle Cloud Infrastructure:
     ![Review Configuration](images/setupVCN4.png)
 
 
-6. Press the **Create** button to create the VCN. I will take a moment to create the VCN and a progress screen will keep you apprised of the workflow.
+6. Press the **Create** button to create the VCN. It will take a moment to create the VCN and a progress screen will keep you apprised of the workflow.
 
     ![Workflow](images/workflow.png)
 
 7. Once you see that the creation is complete (see previous screenshot), click on the **View Virtual Cloud Network** button.
 
-You may now *proceed to the next lab*.
+You may now **proceed to the next lab**.
 
 
 ## Summary
@@ -72,4 +76,4 @@ This VCN will contain all of the other assets that you will create during this s
 
  - **Author** -  Vanitha Subramanyam, Senior Solution Architect
  - **Contributors** - Abhinav Jain, Staff Cloud Engineer, Sakthikumar Periyasamy Senior Cloud Engineer, Nayan Karumuri Staff Cloud Engineer
- - **Last Updated By/Date** - Vanitha Subramanyam, Senior Solution Architect, May 2021
+ - **Last Updated By/Date** - Kamryn Vinson, March 2022

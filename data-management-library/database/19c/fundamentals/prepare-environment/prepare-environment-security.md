@@ -25,7 +25,7 @@ In this lab, you will:
 
 This lab assumes you have:
 
-- Obtained a free or paid Oracle Cloud account (Always Free accounts are not supported for this workshop)
+- Obtained an Oracle Cloud account 
 - Signed in to Oracle Cloud Infrastructure
 
 
@@ -85,7 +85,7 @@ To be able to access your compute instance, you need to configure egress and ing
 
 ## Task 2: Create a `workshop-installed` compute instance
 
-1. Download [db19cnf-workshop-installed.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/p3azd6JsGn1R0_YBobDvkH9-gCkzdYwiexUsxAKUySC86DjRvs6c_SfP5S7E35Q4/n/c4u04/b/labfiles/o/db19cnf-workshop-installed.zip) to a directory on your local computer.
+1. Download [db19cnf-workshop-installed.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/jyHA4nclWcTaekNIdpKPq3u2gsLb00v_1mmRKDIuOEsp--D6GJWS_tMrqGmb85R2/n/c4u04/b/livelabsfiles/o/labfiles/db19cnf-workshop-installed.zip) to a directory on your local computer.
 
 2. On the home page in Oracle Cloud Infrastructure, click **Create a stack**.
 
@@ -162,5 +162,5 @@ To be able to access your compute instance, you need to configure egress and ing
 
 ## Acknowledgements
 
-- **Author**- Jody Glover, Principal User Assistance Developer, Database Development
+- **Author**- Matthew McDaniel, Austin Specialists Hub, December 13 2021
 - **Last Updated By/Date** - Matthew McDaniel, Austin Specialists Hub, December 13 2021

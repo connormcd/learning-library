@@ -1,0 +1,22 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-oci_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I download files in Object Storage?",
+         "description": "",
+         "filename": "sprint-download-files-bucket.md"
+      },
+      {
+         "title": "How can I create a Pre-Authenticated Request for an object in the bucket?",
+         "description": "",
+         "filename": "../sprint-create-par-link/sprint-create-par-link.md"
+      },
+      {
+         "title": "How can I create a Pre-Authenticated Request for a bucket?",
+         "description": "",
+         "filename": "../sprint-create-par-link-bucket/sprint-create-par-link-bucket.md"
+      }
+   ],
+   "task_type": "Sections"
+}

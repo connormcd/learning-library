@@ -4,7 +4,7 @@
 
 In this lab we will review and startup all components required to successfully run this workshop.
 
-*Estimated Lab Time:* 10 Minutes.
+*Estimated Time:* 10 Minutes.
 
 Watch the video below for a quick walk through of the lab.
 
@@ -39,7 +39,7 @@ This lab assumes you have:
     - Enterprise Manager - Management server (OMS)
     - Enterprise Manager - Management Agent (emagent)
 
-2. On the browser window on the right preloaded with *Enterprise Manager*, click on the *Username*  and login with the credentials provided below. 
+2. On the browser window on the right preloaded with *Enterprise Manager*, click on the *Username*  and login with the credentials provided below.
 (If the browser shows any certificate authority invalid error code, click on *Advanced* and add the exception to proceed as outlined in Appendix 2)
 
     ```
@@ -51,12 +51,21 @@ This lab assumes you have:
 
     ![](images/em-login.png " ")
 
+    If the login page is not functioning properly (Please note that it takes up to 15 minutes after instance provisioning for all processes to fully start), open a terminal session and restart Enterprise Manager Services (OMS and emagent).
+
+    ```
+    <copy>
+    sudo systemctl restart oracle-emcc
+    </copy>
+    ```
+
 
 3. Confirm successful login. Please note that it takes up to 15 minutes after instance provisioning for all processes to fully start.
 
-    ![](images/em-landing.png " ")
+    ![](images/em-landing-new.png " ")
 
-    If successful, the page above is displayed and as a result your environment is now ready.  
+    If successful, the page above is displayed and as a result your environment is now ready.
+    You should see 5 databases down in the EM Page. If you see more databases down, then follow step 4 to bring them up.
 
 4. If you are still unable to login or the login page is not functioning after reloading from the *Workshop Links* bookmark folder, open a terminal session and proceed as indicated below to validate the services.
 
@@ -150,9 +159,9 @@ This lab assumes you have:
 
 ### **Update the Named Credentials with the new SSH Key**
 
-4. From the EM Console as *SYSMAN*, navigate to "***Setup menu >> Security>> Named Credential***" and Select ROOT credential;
+4. From the EM Console as *SYSMAN*, navigate to "***(1) Setup menu >> (2) Security>> (3) Named Credential***" and Select ***(4) ROOT*** credential. Click ***(5) Edit***
 
-5. Click Edit. Replace the existing entry with the *SSH Private Key* you copied to *"/tmp"*. Keep the General section unchanged and update the *Credential Properties* as followed:
+5. Replace the existing entry with the *SSH Private Key* you copied to *"/tmp"*. Keep the General section unchanged and update the *Credential Properties* as followed:
 
     - Username: *oracle*
     - Delete any content from *SSH Public Key* Textbox
@@ -266,6 +275,8 @@ Navigate to "***Enterprise >> Job >> Library***" and select "SETUP ORACLE CREDEN
     <copy>sudo systemctl restart oracle-emcc</copy>
     ```
 
+You may now proceed to the next lab.
+
 ## Appendix 2: External Web Access
 
 If for any reason you want to login from a location that is external to your remote desktop session such as your workstation/laptop, then refer to the details below.
@@ -279,7 +290,7 @@ If for any reason you want to login from a location that is external to your rem
     Password: <copy>welcome1</copy>
     ```
     ```
-    URL: <copy>http://<Your Instance public_ip>:7803/em</copy>
+    URL: <copy>https://<Your Instance public_ip>:7803/em</copy>
     ```
 
     *Note:* You may see an error on the browser while accessing the Web Console - “*Your connection is not private*” as shown below. Ignore and add the exception to proceed.

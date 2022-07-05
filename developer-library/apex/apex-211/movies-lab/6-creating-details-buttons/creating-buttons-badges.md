@@ -1,4 +1,4 @@
-# Implementing Movie Details Buttons and Movie Search Badges
+# Implement Movie Details Buttons and Movie Search Badges
 
 ## Introduction
 In the previous lab, you did the backend work to set up tables and application items. In this lab, you will be creating Add, Remove, Watched, and Back buttons that will control the flow between the Movie Search and Movie Details page, as well as the data stored in the watchlist table. You will also add a badge to the Cards on the Movie Search page to have a visual cue for movies that a user has already marked as added or watched.
@@ -13,7 +13,10 @@ In this lab, you will:
 - Implement a Back button that takes you back to the Movie Search page.  
 - Use badges on the Movie Search page to display what movies have been marked as added or watched.
 
-## Task 1: Creating the Movie Details Buttons
+### Prerequisites
+- Completion of workshop through Lab 5
+
+## Task 1: Create the Movie Details Buttons
 
 1. Click on **App Builder** in the top APEX toolbar.
 
@@ -87,7 +90,7 @@ In this lab, you will:
 
     ![](images/1-watched-settings-edit.png " ")
 
-## Task 2: Implementing Button Actions
+## Task 2: Implement Button Actions
 Now that you have made the 4 buttons, it's time to connect actions to them. You first will connect each button to a database action so that APEX knows what SQL commands will be used for each. Then, you will need to implement those actions using a process for each button. You will also use a branch to redirect the user back to the previous page once the process is complete.
 
 1. In the rendering pane, click on the **BACK** button and scroll down to the Behavior section.
@@ -230,11 +233,11 @@ Now that you have made the 4 buttons, it's time to connect actions to them. You 
 
     ![](images/2-pop-movies-target-edit.png " ")
 
-18. Follow Step 15 again for the Searched Movies Full Card action.
+16. Follow Step 15 again for the Searched Movies Full Card action.
 
-19. Click **Save**.
+17. Click **Save**.
 
-## Task 3: Adding Server-Side Conditions to Buttons
+## Task 3: Add Server-Side Conditions to Buttons
 At this point, all of the buttons on the Movie Details page display at all times, regardless of whether or not you've already added a movie to your list or marked something as watched. You should really only show the Remove or Watched buttons if a movie exists in the watchlist table, meaning the user has added it. Similarly, you should only display the Added button if a user has not yet added a movie to the the watchlist table.
 
 To accomplish this, you are going to use Server-Side Conditions, like you did for the Popular Movies and Searched Movies regions on page 2. You will also add a condition for the Back button, so that it only displays if the previous page is the Movie Search page.
@@ -312,7 +315,7 @@ To accomplish this, you are going to use Server-Side Conditions, like you did fo
 
 10. Before you test the buttons, you will add badges to the Movie Search page so that you have a visual cue of what has been added and marked as watched.
 
-## Task 4: Adding Badges to Movie Search Cards
+## Task 4: Add Badges to Movie Search Cards
 Before you test the buttons you just implemented, you will add badges to the Movie Search page so that you have a visual cue of what has been added and marked as watched. You can extend the Popular and Search Movies data that gets returned from the REST data source by checking the WATCHLIST table to find movies with a matching ID to the displayed movies on the search page.
 
 1. Navigate to page 2 in your Movies Watchlist application and click on the **Popular Movies** region.
@@ -383,6 +386,8 @@ Before you test the buttons you just implemented, you will add badges to the Mov
     
 4. In the Development Bar at the bottom of the page, click **Application XXXXX** to return to the application builder.
 
+You now know how to use SQL commands in Page Designer regions and processes to get, store, update, and delete data from your tables. You may now **proceed to the next lab**.
+
 ## Resources
 
 - [Buttons Documentation](https://docs.oracle.com/en/database/oracle/application-express/21.1/htmdb/creating-buttons.html#GUID-F6DA76D1-2020-4930-8D26-12D0A3497C8E)
@@ -404,4 +409,10 @@ Stuck on a step or struggling with the lab? You can download a copy of the Movie
 
 - If you have not previously imported Lab 4 or higher, follow the instructions in the <a href="?lab=creating-movie-details-page#Stuck?DownloadtheApplicationHere" target="_blank">Stuck?</a> section of Lab 4 to provide credentials for the Movie Details REST source.
 
-- Follow the instructions in the <a href="?lab=creating-rest-sources#Stuck?DownloadtheApplicationHere" target="_blank">Stuck?</a> section of Lab 2 to update the Popular and Search Movies API keys.
+- Follow the instructions in the <a href="?lab=creating-movie-search-page#Stuck?DownloadtheApplicationHere" target="_blank">Stuck?</a> section of Lab 3 to update the Popular and Search Movies API keys.
+
+## Acknowledgments
+
+- **Author** - Paige Hanssen
+- **Additional Contributors** - Kay Jasanya, Shakeeb Rahman, Steve Muench, Monica Godoy, Eli Feuerstein, Carlos Maciel, Dalia Vazquez
+- **Last Updated By/Date** - Paige Hanssen, March 2022

@@ -371,5 +371,5 @@ Fill out the dialog box:
 
 - **Author** - Flavio Pereira, Larry Beausoleil
 - **Adapted by** -  Yaisah Granillo, Cloud Solution Engineer
-- **Last Updated By/Date** - Tom McGinn, August 2020
+- **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

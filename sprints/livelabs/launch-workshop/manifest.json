@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How can I launch an Oracle LiveLabs workshop?",
+         "description": "",
+         "filename": "./launch-workshop.md"
+      },
+      {
+         "title": "Will I be able to do the workshop later?",
+         "description": "",
+         "filename": "../can-do-workshop-later/can-do-workshop-later.md"
+      }
+   ],
+   "task_type": "Sections"
+}

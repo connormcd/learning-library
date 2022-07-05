@@ -1,0 +1,32 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I disable Data Guard for an ADB instance?",
+         "description": "",
+         "filename": "sprint-disable-dataguard-adb.md"
+      },
+      {
+         "title": "How do I enable Data Guard for an ADB instance?",
+         "description": "",
+         "filename": "../sprint-enable-dataguard-adb/sprint-enable-dataguard-adb.md"
+      },
+      {
+         "title": "How do I add a standby database?",
+         "description": "",
+         "filename": "../sprint-add-standby-adb/sprint-add-standby-adb.md"
+      },
+      {
+         "title": "How can I manually failover to a standby database?",
+         "description": "",
+         "filename": "../sprint-manual-failover-adb/sprint-manual-failover-adb.md"
+      },
+      {
+         "title": "How can I switchover to a standby database?",
+         "description": "",
+         "filename": "../sprint-switchover-adb/sprint-switchover-adb.md"
+      }
+   ],
+   "task_type": "Sections"
+}

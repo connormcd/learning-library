@@ -133,7 +133,7 @@ To verify that Spatial Studio is operating properly, you will load, prepare, and
 
   ![Image alt text](images/verify-1.png "Image title")  
 
-2. Download the data sample file [here](https://objectstorage.us-ashburn-1.oraclecloud.com/p/QXY4Rn0qi_lAJ7HQp8b35nfCf69J8jLHYIWJ-CnPTIF05rA99AxxM3Qb8lpfXR9z/n/c4u04/b/data-management-library-files/o/sf_area_museums.xlsx) and save to convenient location. Then drag and drop the file to the file upload tile.  You can also click on the file upload tile and navigate to the file.
+2. Download the data sample file [here](https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/sf_area_museums.xlsx) and save to convenient location. Then drag and drop the file to the file upload tile.  You can also click on the file upload tile and navigate to the file.
    
   ![Image alt text](images/verify-2.png "Image title")  
 

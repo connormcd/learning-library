@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I check the listener status?",
+         "description": "Check Status of Oracle Database Listener",
+         "filename": "sprint-listener-status.md"
+      },
+      {
+         "title": "How do I restart the listener?",
+         "description": "Restart Oracle Database Listener",
+         "filename": "../sprint-restart-listener/sprint-restart-listener.md"
+      }
+   ],
+   "task_type": "Sections"
+}

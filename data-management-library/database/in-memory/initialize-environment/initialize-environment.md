@@ -74,20 +74,22 @@ This lab assumes you have:
 
     ```
     <copy>
-    cd /tmp/
-    wget -O init-inmemory.zip https://objectstorage.us-ashburn-1.oraclecloud.com/p/_27ATGCscU7T_sIKx4DFJDr6AkMr9rH5EgSpJsSs-kKkNmLRnIP2m0_1LMmHfi-p/n/c4u04/b/labfiles/o/init-inmemory.zip
-    unzip -qo init-inmemory.zip; chmod +x init*.sh
-    ./init-inmemory.sh 2>&1 | tee /tmp/init-inmemory.log
+    clear
+    cd ~oracle/labs
+    rm -rf ~oracle/labs/*
+    wget -O novnc-inmemory.zip https://objectstorage.us-ashburn-1.oraclecloud.com/p/0El4NogWaezVO4e-dOd8WM91u5saPGXsDTYYIxFDVH-3jLH7UiG_hjNAP7_XGHKz/n/c4u04/b/livelabsfiles/o/labfiles/novnc-inmemory.zip
+    unzip -qo novnc-inmemory.zip
+    rm -f novnc-inmemory.zip
+    cd inmemory
+    ls -ltrh
     </copy>
     ```
 
     ![](./images/init-inmemory.png " ")
 
-2. Review the screen output or */tmp/init-inmemory.log* for any errors
-
 ## Task 2: Enable In-Memory
 
-1.  All scripts for this lab are stored in the */home/oracle/labs/inmemory* folder and are run as the oracle user. Let's navigate there now.  We recommend you type the commands to get a feel for working with In-Memory. But we will also allow you to copy the commands via the COPY button.
+1.  All scripts for this lab are stored in the */home/oracle/labs/inmemory* folder and are to be executed as the oracle user. Let's navigate there now.  We recommend you type the commands to get a feel for working with In-Memory. But we will also allow you to copy the commands via the COPY button.
 
     ```
     <copy>

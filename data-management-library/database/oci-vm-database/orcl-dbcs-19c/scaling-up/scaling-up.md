@@ -10,95 +10,56 @@ Oracle Database on virtual machines uses remote block storage, and enables scali
 
 Estimated Lab Time: 25 minutes
 
-## Task 1: Check CPU Resources
 
-1. Connect to the Compute node using SSH, if not connected already.
+## Task 1: Change Shape for More CPUs
 
-    ````
-    <copy>
-    ssh -C -i id_rsa opc@<Compute Public IP Address>
-    </copy>
-    ````
-
-2. Connect to your DB System database as SYSDBA using SQL*Plus.
+1. Connect to your PDB012 pluggable database as SYSDBA using SQL*Plus.
 
     ````
     <copy>
-    sqlplus sys/DBlabsPTS#22_@<DB Node Private IP Address>:1521/pdb012.<Host Domain Name> as sysdba
+    sqlplus sys/DatabaseCloud#22_@db-host:1521/pdb012.$(domainname -d) as sysdba
     </copy>
     ````
 
-3. Display the value of parameter **cpu_count**. Database Service is running currently on 2 CPUs.
+2. Display the value of parameter **cpu_count**. Database Service is running currently on 2 CPUs.
 
     ````
     <copy>
     show parameter cpu_count
     </copy>
 
-    NAME				     TYPE	 VALUE
-    ------------------------------------ ----------- --------------------
-    cpu_count			     integer	 2
+    NAME        TYPE      VALUE
+    ----------- --------- --------------------
+    cpu_count   integer   2
     ````
 
-4. Use SQL Developer on your Compute node to connect to PDB012. Test and save this connection.
-    - Name: SH@PDB012
-    - Username: SH
-    - Password: DBlabsPTS#22_
-    - Save password
-    - Hostname: `<DB Node Private IP Address>`
-    - Port: 1521
-    - Service name: pdb012.`<Host Domain Name>`
+3. On Oracle cloud console, click on hamburger menu ≡, then **Bare Metal, VM, and Exadata** under Oracle Database. Click **WS-DB** DB System (or click DB System Details in the breadcrumb links).
 
-5. Run a test query, and write down the time it takes to complete.
+4. On DB System Details page, click **Change Shape** button. Select VM.Standard2.2 shape. Click **Change Shape** to confirm.
+
+5. Read the warning: *Changing shapes stops a running DB System and restarts it on the selected shape. Are you sure you want to change the shape from VM.Standard2.1 to VM.Standard2.2?* Click again **Change Shape** to confirm.
+
+6. DB System Status will change to Updating... Wait for Status to become Available (refresh page). Re-connect to your DB Node via SSH, and DB System database as SYSDBA using SQL*Plus.
 
     ````
     <copy>
-    select count(*) from (SELECT
-      a.cust_id,
-      a.cust_last_name || ', ' || a.cust_first_name as customer_name,
-      a.cust_city || ', ' || a.cust_state_province || ', ' || a.country_id as city_id,
-      a.cust_city as city_name,
-      a.cust_state_province || ', ' || a.country_id as state_province_id,
-      a.cust_state_province as state_province_name,
-      b.country_id,
-      b.country_name,
-      b.country_subregion as subregion,
-      b.country_region as region
-    FROM sh.customers a, sh.countries b
-    where a.country_id = b.country_id);
+    sqlplus sys/DatabaseCloud#22_@db-host:1521/pdb012.$(domainname -d) as sysdba
     </copy>
     ````
 
-
-## Task 2: Change Shape for More CPUs
-
-1. On Oracle cloud console, click on hamburger menu ≡, then **Bare Metal, VM, and Exadata** under Oracle Database. Click **WS-DB** DB System.
-
-2. On DB System Details page, click **Change Shape** button. Select VM.Standard2.2 shape. Click **Change Shape** to confirm.
-
-3. Read the warning: *Changing shapes stops a running DB System and restarts it on the selected shape. Are you sure you want to change the shape from VM.Standard2.1 to VM.Standard2.2?* Click again **Change Shape** to confirm.
-
-4. DB System Status will change to Updating... Wait for Status to become Available. Connect to your DB System database as SYSDBA using SQL*Plus.
-
-    ````
-    <copy>
-    sqlplus sys/DBlabsPTS#22_@<DB Node Private IP Address>:1521/pdb012.<Host Domain Name> as sysdba
-    </copy>
-    ````
-
-5. Display again the value of parameter **cpu_count**. Database Service is running now on 4 CPUs.
+7. Display again the value of parameter **cpu_count**. Database Service is running now on 4 CPUs.
 
     ````
     <copy>
     show parameter cpu_count
     </copy>
 
-    NAME				     TYPE	 VALUE
-    ------------------------------------ ----------- ------------------------------
-    cpu_count			     integer	 4
+    NAME        TYPE      VALUE
+    ----------- --------- --------------------
+    cpu_count   integer   4
     ````
 
-6. After restarting the DB System on a new shape, your pluggable database is in mounted state. Open pluggable database PDB012.
+8. After restarting the DB System on a new shape, your pluggable database is in mounted state. Open pluggable database PDB012.
 
     ````
     <copy>
@@ -106,56 +67,22 @@ Estimated Lab Time: 25 minutes
     </copy>
     ````
 
-7. Use SQL Developer on your Compute node to connect to PDB012.
-
-8. Run again the test query, and compare the time it takes to complete with the previous run.
-
-    ````
-    <copy>
-    select count(*) from (SELECT
-      a.cust_id,
-      a.cust_last_name || ', ' || a.cust_first_name as customer_name,
-      a.cust_city || ', ' || a.cust_state_province || ', ' || a.country_id as city_id,
-      a.cust_city as city_name,
-      a.cust_state_province || ', ' || a.country_id as state_province_id,
-      a.cust_state_province as state_province_name,
-      b.country_id,
-      b.country_name,
-      b.country_subregion as subregion,
-      b.country_region as region
-    FROM sh.customers a, sh.countries b
-    where a.country_id = b.country_id);
-    </copy>
-    ````
-
-9. Type **exit** command two times followed by Enter to close all sessions (SQL*Plus, and SSH).
+9. Type **exit** command to close SQL*Plus.
 
     ````
     <copy>
     exit
     </copy>
-
-    exit
     ````
 
-## Task 3: Scale Up Storage Volumes
+## Task 2: Scale Up Storage Volumes
 
-1. On Oracle cloud console, click on hamburger menu ≡, then **Bare Metal, VM, and Exadata** under Oracle Database. Click **WS-DB** DB System.
-
-2. Under DB System Information review the allocated storage resources:
+1. On DB System Information page review the allocated storage resources:
 
     - Available Data Storage: 256 GB
     - Total Storage Size: 712 GB
 
-3. From your Compute node, connect to the Database node using SSH.
-
-    ````
-    <copy>
-    ssh -C -i id_rsa opc@<DB Node Private IP Address>
-    </copy>
-    ````
-
-4. Check file system disk space usage on the database node, using the **df** command. Flag **-h** is fo *human-readable* output. It uses unit suffixes: Byte, Kilobyte, Megabyte, and so on. Total Storage Size value on DB System Information is the sum of all these filesystems. Write down in your notes the value of **/dev/mapper/DATA_GRP-DATA** filesystem.
+2. Check file system disk space usage on the database node, using the **df** command. Flag **-h** is fo *human-readable* output. It uses unit suffixes: Byte, Kilobyte, Megabyte, and so on. Total Storage Size value on DB System Information is the sum of all these filesystems. Write down in your notes the value of **/dev/mapper/DATA_GRP-DATA** filesystem.
 
     ````
     <copy>
@@ -178,18 +105,16 @@ Estimated Lab Time: 25 minutes
     tmpfs                                1.5G     0  1.5G   0% /run/user/54322
     ````
 
-5. On Oracle cloud console, click on hamburger menu ≡, then **Bare Metal, VM, and Exadata** under Oracle Database. Click **WS-DB** DB System.
+3. On DB System Details page, click **Scale Storage Up** button. Set Available Data Storage (GB): 512, and click **Update**.
 
-6. On DB System Details page, click **Scale Storage Up** button. Set Available Data Storage (GB): 512, and click **Update**.
+4. DB System Status will change to Updating... Wait for Status to become Available.
 
-7. DB System Status will change to Updating... Wait for Status to become Available.
-
-8. On Oracle cloud console, under DB System Information, review again the allocated storage resources:
+5. On Oracle cloud console, under DB System Information, review again the allocated storage resources:
 
     - Available Data Storage: 512 GB
     - Total Storage Size: 968 GB
 
-9. Check again the file system disk space usage, and compare the value of **/dev/mapper/DATA_GRP-DATA** filesystem with the previous one.
+6. Check again the file system disk space usage, and compare the value of **/dev/mapper/DATA_GRP-DATA** filesystem with the previous one.
 
     ````
     <copy>
@@ -213,6 +138,65 @@ Estimated Lab Time: 25 minutes
     ````
 
     >**Note** : You noticed the button on Oracle cloud console is called **Scale Storage Up**. Because you can always scale up, in other words increase, the database service storage, and never scale down, or decrease.
+
+
+## Task 3: Enable Database Management Services
+
+1. Use SQL*Plus to connect to your DB System database instance specified by environment variables.
+
+    ````
+    <copy>
+    sqlplus / as sysdba
+    </copy>
+    ````
+
+2. Set required privileges for database monitoring user credentials.
+
+    ````
+    <copy>
+    GRANT CREATE PROCEDURE TO dbsnmp;
+    GRANT SELECT ANY DICTIONARY, SELECT_CATALOG_ROLE TO dbsnmp;
+    GRANT ALTER SYSTEM TO dbsnmp;
+    GRANT ADVISOR TO dbsnmp;
+    GRANT EXECUTE ON DBMS_WORKLOAD_REPOSITORY TO dbsnmp;
+    alter user dbsnmp identified by "DatabaseCloud#22_" account unlock;
+    exit
+    </copy>
+    ````
+
+3. Click on main menu ≡, then Observability & Management > Database Management > Administration. Click Private Endpoints in the left side menu. Click Create Private Endpoint.
+
+    - Name: WS_PE
+    - Description: Database Management Private Endpoint
+
+4. Click on main menu ≡, then Identity & Security > Vault. Click Create Vault.
+
+    - Name: WS-Vault
+
+5. When Vault is Active (refresh page), click on it. Under Master Encryption Keys, click Create Key.
+
+    - Protection Mode: Software
+    - Name: WS-Key
+
+6. When Master Encryption Key is Enabled (refresh page), click Secrets on the left menu. Click Create Secret.
+
+    - Name: WS-Secret
+    - Description: Database Management Password
+    - Encryption Key: WS-Key
+    - Secret Contents: DatabaseCloud#22_
+
+7. When Secret is Active (refresh page), click on main menu ≡, then **Bare Metal, VM, and Exadata** under Oracle Database. Click **WS-DB** DB System.
+
+8. Click the database name link **WSDB** in the bottom table called Databases.
+
+9. On Database Information page, under Associated Services, see Database Management status Not Enabled. Click Enable.
+
+    - Database User Name: DBSNMP
+
+10. Leave the rest of the fileds with the default values, and click Enable Database Management.
+
+11. Database Status will change to Updating. Wait for Status to become Available (refresh page). Click Metrics on the left side menu. Now you can see all performance metrics, because Database Management status is Full.
+
 
 ## Acknowledgements
 

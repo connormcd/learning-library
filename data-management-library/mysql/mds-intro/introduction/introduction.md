@@ -3,7 +3,7 @@
 ## About this Workshop
 This lab will introduce you to a powerful union between MySQL Enterprise Edition and Oracle Cloud Infrastructure (OCI). You will learn how to create your first MySQL Database Service System in a secure OCI environment. You will also learn how to connect and use your MySQL Database Service System with the MySQL Shell tool.
 
-Estimated Lab Time: 60 minutes 
+EstimatedTime: 60 minutes 
 
 ### About this Product
 The NEW MySQL Database Service (MDS) is the only database service that is 100% developed, managed, and supported by the MySQL team. 

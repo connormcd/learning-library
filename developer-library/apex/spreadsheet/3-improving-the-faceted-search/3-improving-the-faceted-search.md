@@ -70,5 +70,5 @@ You now know how to enhance a faceted search page and have been introduced to Pa
 ## **Acknowledgements**
 
  - **Author/Contributors** -  Salim Hlayel, Principal Product Manager
- - **Last Updated By/Date** - Tom McGinn, Database Innovations Architect, Product Management, July 2020
+ - **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

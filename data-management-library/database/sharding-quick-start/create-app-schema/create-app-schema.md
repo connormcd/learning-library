@@ -39,7 +39,7 @@ This lab assumes you have already completed the following:
 2. Download the SQL scripts `create-app-schema-qs.sql`.
 
     ```
-    [oracle@sdbsd0 ~]$ <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/eSQ5xkzqiv-yWsQj5FzDm33LKnVbdvPlkIMzHgDP9OmMgaPTQzNfNSOVNcAT2uhK/n/c4u04/b/data-management-library-files/o/OracleShardingQuickStart/create-app-schema-qs.sql</copy>
+    [oracle@sdbsd0 ~]$ <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/create-app-schema-qs.sql</copy>
     ```
 
    

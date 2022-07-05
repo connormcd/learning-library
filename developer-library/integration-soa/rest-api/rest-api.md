@@ -84,5 +84,5 @@ Further details about generating REST Services can be found on [here](https://do
 
 ## Acknowledgements
 * **Author for LiveLabs** - Daniel Tarudji
-* **Contributors** - Kamryn Vinson, Rene Fontcha
-* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, November 2020
+* **Contributors** - Kamryn Vinson, Rene Fontcha, Sahaana Manavalan
+* **Last Updated By/Date** - Sahaana Manavalan, LiveLabs Developer, NA Technology, February 2022 

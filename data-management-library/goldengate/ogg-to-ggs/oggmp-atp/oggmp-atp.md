@@ -99,7 +99,7 @@ In this lab, you will:
 
 13. Enter 'ls' to list the contents in the current directory. You should see two files, ogg-credentials.json and your wallet file.
 
-14. Make a new directory called **wallet_ATP** and then extract the contents to that directory.
+14. Make a new directory called **wallet\_ATP** and then extract the contents to that directory.
 
     ```
 <copy>mkdir wallet_ATP
@@ -108,7 +108,7 @@ unzip <wallet_ATP-filname>.zip -d wallet_ATP</copy>
 
     ![](images/02-14-unzip.png " ")
 
-14. Change directories to wallet_ATP.
+14. Change directories to wallet\_ATP.
 
     ```
     <copy>cd wallet_ATP</copy>

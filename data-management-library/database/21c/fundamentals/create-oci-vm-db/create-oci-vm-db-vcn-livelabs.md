@@ -36,12 +36,16 @@ Estimated Lab Time: 10 minutes
 
 5. In Cloud Shell or your terminal window, navigate to the folder where you created the SSH keys and enter this command, using your IP address:
 
+   ![Open Cloud Shell](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/cloud-shell.png " ")
+
     ```
     $ <copy>ssh -i <<sshkeyname>> opc@</copy>123.123.123.123
     Enter passphrase for key './myOracleCloudKey':
     Last login: Tue Feb  4 15:21:57 2020 from 123.123.123.123
     [opc@tmdb1 ~]$
     ```
+
+    >**Note:** If you see an error *Policy Missing. You are not authorized to access Cloud Shell.* please follow Step 1 and Step 2 to ensure that you are in the compartment assigned to you.
 
 6. Once connected, you can switch to the "oracle" OS user and connect using SQL*Plus:
 
@@ -72,6 +76,6 @@ You may now [proceed to the next lab](#next).
 * [Oracle Cloud Infrastructure: Connecting to a DB System](https://docs.cloud.oracle.com/en-us/iaas/Content/Database/Tasks/connectingDB.htm)
 
 ## Acknowledgements
-* **Author** - Tom McGinn, Learning Architect, Database User Assistance
-* **Last Updated By/Date** - Kamryn Vinson, January 2021
+* **Author** - Kay Malcolm, Database Product Management  
+* **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

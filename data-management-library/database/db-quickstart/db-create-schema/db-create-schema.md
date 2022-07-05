@@ -38,7 +38,11 @@ Creating a user is a way to create a schema. In this section, you execute the `C
 
 1. In this workshop's previous labs, you have been connecting SQL Worksheet to your autonomous database as the database administrator. Connected as administrator, open a SQL Worksheet and create a user named `ONLINE_SHOPPE`.
 
-    `CREATE USER online_shoppe IDENTIFIED BY Lab_practice1;`
+    ````
+    <copy>CREATE USER online_shoppe IDENTIFIED BY Lab_practice1;</copy>
+    ````
+
+  ![Create user](./images/user-created.png " ")
 
 ## Task 2: Assign Privileges
 When multiple users access database objects, you can control the authorization of the objects with privileges. Privileges control whether a user can modify an object that is owned by another user. They are granted or revoked either by:
@@ -76,7 +80,7 @@ Syntax: `GRANT <grant_privilege> TO <user>;`
     GRANT SELECT ANY TABLE to online_shoppe;
     GRANT UPDATE ANY TABLE to online_shoppe;
     GRANT INSERT ANY TABLE to online_shoppe;
-    GRANT DROP ANY TABLE to online_shoppe;`
+    GRANT DROP ANY TABLE to online_shoppe;
     </copy>
     ```
 
@@ -105,30 +109,37 @@ Database users, who are not service administrators, do not have access to the Au
       </copy>
       ```
 
-2.  where:    
+  where:    
     * `schema-name` is the database schema name in all-uppercase. For this lab, use your new user `ONLINE_SHOPPE` as the schema name.
     * `schema-alias` is an alias for the schema name to use in the URL to access SQL Worksheet. For this lab, use `coffee` as the schema alias.
     * `p_auto_rest_auth` specifies the REST /metadata-catalog/ endpoint requires authorization. REST uses the metadata-catalog to get a list of published services on the schema. Set this parameter to `TRUE`.
 
   ![](./images/enable-sqldevweb-access-to-db-users.png " ")
 
-3. Now that you as the **administrator** have enabled user access for the specified schema, provide **users** the URL to access SQL Worksheet, as follows:
+2. Now that you as the **administrator** have enabled user access for the specified schema, provide **users** the URL to access SQL Worksheet, as follows:
     - Select the Autonomous Data Warehouse instance.
     - On the instance details page click **Service Console**.
-    - Click **Development**.
-    - Right-click **SQL Developer Web** and choose **Copy Link Address** or **Copy Link Location**.
+  ![](./images/service-console.png " ")
+    - Click **Development** and then click **Database Actions**
+   ![](./images/database-actions.png " ")  
+    - Sign in using your admin username and password
+    ![](./images/signin.png " ")
+    - Click **SQL**
+    ![](./images/click-sql.png " ")
+    - Copy the URL at the top of the screen.
+    ![](./images/copy-url.png " ")    
 
   The copied URL is the same as the URL the **ADMIN** enters to access SQL Worksheet. For example:
 
   `https://dbname.adb.us-ashburn-1.example.com/ords/admin/_sdw/?nav=worksheet`
 
-4. To provide a user with access to SQL Worksheet you need to edit the copied URL to use the alias for the schema that you specified with the parameter `p_url_mapping_pattern` in step 1.
+3. To provide a user with access to SQL Worksheet you need to edit the copied URL to use the alias for the schema that you specified with the parameter `p_url_mapping_pattern` in task 1.
     - For a user to access SQL Worksheet the part of the copied URL with **"admin"** is replaced with the **"schema-alias"**.
     - For example, if your schema-alias is **coffee**, after editing you would provide something similar to this URL for the user to login:
 
       `https://dbname.adb.us-ashburn-1.example.com/ords/coffee/_sdw/?nav=worksheet`
 
-5. Provide the user with the modified URL. To access SQL Worksheet, the user pastes the URL into their browser and then enters the schema's Username and Password in the Sign-in dialog.
+4. Provide the user with the modified URL. To access SQL Worksheet, the user pastes the URL into their browser and then enters the schema's Username and Password in the Sign-in dialog.
 
 ## Task 4: Log in to SQL Worksheet as the Database User and Create Tables
 
@@ -137,6 +148,8 @@ Database users, who are not service administrators, do not have access to the Au
       `https://dbname.adb.us-ashburn-1.example.com/ords/coffee/_sdw/?nav=worksheet`
 
       At the log in prompt, provide your new user's username and password, such as `online_shoppe` and `Lab_practice1`.
+
+  ![](./images/login.png " ")
 
 2. Before creating tables in the ONLINE_SHOPPE schema, you should understand the concepts of  tables and integrity constraints.
 
@@ -250,8 +263,9 @@ In this section, you use the `COMMIT` and `ROLLBACK` statements to change data p
 
 1. Execute the `COMMIT` statement to save the data manipulation transactions that you performed in the previous section.
 
-    `COMMIT;`
-
+    ```
+    <copy>COMMIT;</copy>
+    ```   
   ![](./images/commit.png " ")
 
 2. Execute the following statements to delete the row whose order ID is R002 and to query the `ORDERS` table to ensure that the record was deleted.
@@ -282,14 +296,18 @@ In this section, you execute the `DROP TABLE` statement to remove a table and it
 
 1. Execute the `DROP TABLE` statement to remove the CUSTOMERS table.
 
-    `DROP TABLE customers;`
+    ```
+    <copy>DROP TABLE customers;</copy>
+    ```
 
   ![](./images/drop-table-error-referential-integrity.png " ")
     An error message is displayed because of the referential integrity constraint on the `CUSTOMER_ID` column.
 
 2. Include the `CASCADE CONSTRAINTS` clause to remove the table and its referential integrity constraints.
 
-    `DROP TABLE customers CASCADE CONSTRAINTS;`
+    ```
+    <copy>DROP TABLE customers CASCADE CONSTRAINTS;</copy>
+    ```
 
   ![](./images/drop-table-cascade-constraints.png " ")
 
@@ -300,11 +318,13 @@ In this section, you execute the `REVOKE` statement to revoke user and role syst
 
 1. You are signed in to SQL Worksheet as the **online\_shoppe** user. Sign out of SQL Worksheet. Sign back in to SQL Worksheet as the **admin** user and open a SQL Worksheet. Revoke the `CONNECT` privilege for the ONLINE\_SHOPPE user.
 
-    `REVOKE CREATE SESSION FROM online_shoppe;`
+    ```
+    <copy>REVOKE CREATE SESSION FROM online_shoppe;</copy>
+    ```
 
   ![](./images/revoke-create-session.png " ")
 
-2. Attempt to sign back in to SQL Worksheet as the **online_shoppe** user, by pasting into your browser the URL containing the alias that you used back in **Step 4: Log in to SQL Worksheet as the Database User and Create Tables**.
+2. Attempt to sign back in to SQL Worksheet as the **online_shoppe** user, by pasting into your browser the URL containing the alias that you used back in **Task 4: Log in to SQL Worksheet as the Database User and Create Tables**.
 
   ![](./images/revoked-unauthorized.png " ")
     You cannot sign in because you no longer have the `CREATE SESSION` privilege.
@@ -318,4 +338,4 @@ Click [here](https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt
 - **Author** - Rick Green, Principal Developer, Database User Assistance
 - **Contributor** - Supriya Ananth
 - **Adapted for Cloud by** - Rick Green
-- **Last Updated By/Date** - Rick Green, April 2021
+- **Last Updated By/Date** - Kamryn Vinson, April 2022

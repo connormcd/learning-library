@@ -80,7 +80,7 @@ You will provision Oracle Analytics Cloud.
 
 1. Download the training dataset
 
-    Download [The training dataset](files//MLTD2-german-credit-applications.csv) with historical credit information.
+    Download [The training dataset](https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/PMonIIFrISXZn7mFLaEet6412OGMshgMVaLGXk5y2QR9ElTyvDin2CSSrIzo9fbL/n/fruktknlrefu/b/workshop-intro-to-ds/o/MLTD2-german-credit-applications.csv) with historical credit information.
 
     The original dataset contains 1000 entries with 20 categorical and numerical attributes prepared by Professor Hofmann and each entry in the dataset represents a PERSON who took a credit and classified as good or bad credit risk.
 
@@ -228,7 +228,7 @@ You will provision Oracle Analytics Cloud.
 
 1. Download new dataset to score
 
-    Download [new applications](files//MLTD2-german-credit-new-applications.csv), these are the additional records that we want to score.
+    Download [new applications](https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/4Y_yM9jqUl-AxITJ-fGSHPRsvC4Chs23jlG0Pgt0hX4G1T7VmFcLb_oDJARocHt2/n/fruktknlrefu/b/workshop-intro-to-ds/o/MLTD2-german-credit-new-applications.csv), these are the additional records that we want to score.
 
 2. Create new dataset
 
@@ -314,4 +314,3 @@ Congratulations on completing this lab!
 ## Acknowledgements
 * **Authors** - Jeroen Kloosterman - Product Strategy Manager - Oracle Digital, Lyudmil Pelov - Senior Principal Product Manager - A-Team Cloud Solution Architects, Fredrick Bergstrand - Sales Engineer Analytics - Oracle Digital, Hans Viehmann - Group Manager - Spatial and Graph Product Management
 * **Last Updated By/Date** - Jeroen Kloosterman, Oracle Digital, Jan 2021
-

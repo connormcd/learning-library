@@ -20,7 +20,7 @@
         "type": "event-freetier"
       },
       {
-        "title": "Lab 3: Polyglot microservices",
+        "title": "Lab 3: Polyglot Microservices",
         "filename": "../../polyglot/polyglot.md",
         "type": "event-freetier"
       },
@@ -35,17 +35,17 @@
         "type": "event-freetier"
       },
       {
-        "title": "Lab 6: Create an APEX app to view and update data",
+        "title": "Lab 6: Create an APEX App to View and Update Data",
         "filename": "../../apex/apex.md",
         "type": "event-freetier"
       },
       {
-        "title": "Lab 7: Transactional tests: compare MongoDB, Postgres, and Kafka to Oracle DB with TEQ/AQ",
+        "title": "Lab 7: Transactional Tests: Compare MongoDB, Postgres, and Kafka to Oracle DB with TEQ/AQ",
         "filename": "../../transactional/transactional.md",
         "type": "event-freetier"
       },
       {
-        "title": "Lab 8: Tear down",
+        "title": "Lab 8: Tear Down",
         "filename": "../../teardown/teardown.md",
         "type": "event-freetier"
       },

@@ -42,7 +42,7 @@ This new user/schema will hold the SailGP data.
 
     ![ADW Menu](images/open-sql.png)
 
-5. **Download** the <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/MuaNwJnIqgGmQqX9CUXlfsDpbAZ0aAe5oS-ZE3Lshyx2CBqieY-kVZSsjuG9Eo00/n/odca/b/workshops-livelabs-do-not-delete/o/sailgp_create_user.sql" target="\_blank">`sailgp_create_user.sql`</a>. Save the file on your local machine. Make sure that the file is saved with extension `.sql`.
+5. **Download** the <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/ijzGhbd3fUi9JT-w47vGh27ORql8IFOOA_IkR_uePH-p4rvGN0uw5_AkVSi_xnZJ/n/fruktknlrefu/b/workshop-sailgp/o/sailgp_create_user.sql" target="\_blank">`sailgp_create_user.sql`</a>. Save the file on your local machine. Make sure that the file is saved with extension `.sql`.
 
 6. Open the `sailgp_create_user.sql` file with a text editor and copy-and-paste all of its contents from the file into the worksheet area.
 
@@ -85,9 +85,9 @@ This new user/schema will hold the SailGP data.
 
 1. **Download** the three files that contain the data that we'll use in our analysis:
 
-    - <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/j4Pqmzja6D-pw_WETx7FEvu8_yV0hYZ9ZENIibNUHoZCARubP-TZBS1cjiINY7uG/n/odca/b/workshops-livelabs-do-not-delete/o/sailgp_sgp_strm_pivot.csv" target="\_blank">File 1</a>
-    - <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/w46A4rssvglPVBQSyK_u4eW4sleNhkKFOzspTkGXyMrl7vxG4EhUyLNp0UOgjSEj/n/odca/b/workshops-livelabs-do-not-delete/o/sailgp_sgp_sail_history.csv" target="\_blank">File 2</a>
-    - <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/INom6cC2HOzHaHGqgoce_V7LaBK1F47Fxzo-6JT7av0ErOWDu_FeBZzGzMQPme0s/n/odca/b/workshops-livelabs-do-not-delete/o/sailgp_sgp_windspeed_and_windangles.csv" target="\_blank">File 3</a>
+    - <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/2-NsFRdqH2-4D2xbOx6d-j_iczCCi8iARabfDPROr_9bKFANlUfIaVu8TXjdJLfO/n/fruktknlrefu/b/workshop-sailgp/o/sailgp_sgp_strm_pivot.csv" target="\_blank">File 1</a>
+    - <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/3SXFHx0G3hdgxhqZbmCZ8fUbKHwQogOidDk-IHBa87rf8bCK4iHEUV-i45pXbvi-/n/fruktknlrefu/b/workshop-sailgp/o/sailgp_sgp_sail_history.csv" target="\_blank">File 2</a>
+    - <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/pFyfBL7qRYh9jY9iqnK34RBLF-SSiyHyBZGaIU04Sw3MT8hYaS4zLMZSnulv19L8/n/fruktknlrefu/b/workshop-sailgp/o/sailgp_sgp_windspeed_and_windangles.csv" target="\_blank">File 3</a>
 
    Save the files on your local machine. Make sure that the files are saved with extension `.csv`.
 

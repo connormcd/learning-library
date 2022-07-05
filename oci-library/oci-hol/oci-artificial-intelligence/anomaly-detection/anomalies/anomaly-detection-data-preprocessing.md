@@ -1,4 +1,4 @@
-# Lab 5: (Advanced Session) How to Preprocess Raw Data for Training and Detection
+# (Advanced Session) How to Preprocess Raw Data for Training and Detection
 
 ## Introduction
 
@@ -9,14 +9,16 @@ In this session, we will discuss several common scenarios in general and show ho
 Here is a case study on using a few preprocessing techniques to prepare raw data from a transportation domain for anomaly detection.
 [Case Study on Data Preprocessing to Use Anomaly Detection Service](youtube:8JNKD2fi_eQ)
 
-***Estimated Lab Time***: 75 minutes
+***Estimated Time***: 75 minutes
 
 ### Objectives
+
 In this lab, you will:
 - learn some basic technical skills to perform data analysis and preprocessing
 - Be able to prepare raw data into the format required for model training
 
 ### Prerequisites
+
 - Be familiar with Python programming
 - Have a Python or Anaconda environment to perform data analysis and preprocessing
     - User can either set it up on their local machine, or signup our Oracle [Data Science Platform](https://www.oracle.com/data-science/)
@@ -33,7 +35,7 @@ The collected data typically is a like 2-D matrix, where the first column stands
 
 However, in reality, the data may come from different data sources, with different formats that not match with our requirements. We first suggest user to understand the meaning of datasets, attributes, observations, and data types. Based on the actual scenario, they use may need to take the following recommendations and check the examples.
 
-***Note***: All the data files needed in this session can be downloaded here:
+> ***Note***: All the data files needed in this session can be downloaded here:
 * [Example data](../files/example.csv) : an example data to show missing values, data status, distributions, monotonic attributes, etc.
 * [Building temperature data](../files/building_temperature.csv): temperature data for 2 buildings for later combination
 * [Building pressure data](../files/building_pressure.csv): pressure data for 2 buildings for later combination
@@ -76,6 +78,7 @@ Results of the data loading:
 
 
 ### Combine different data sources
+
 In case the data are from difference data source, the user needs to combine them properly. The general guideline is to have a single data table where each row represents a timestamp to show how all the different signals/components behave, and each column is just one specific signal/sensor/attribute such that its value shows in a chronological order.
 
 In many real cases (such as data from database Cassandra or InfluxDB), those datasets may have 3 or more columns like the following:
@@ -123,6 +126,7 @@ raw_pressure_df.head(5)
 |4|2019-01-01 10:03:00|building1|pressure_5|106.3547
 
 #### Task A: Put individual sensor into its own column
+
 ```Python
 def convert_df_to_sensor_columns(df):
     # Assume the building name is always same in this df
@@ -145,6 +149,7 @@ new_pressure_df.head()
 |2|2019-01-02 10:05:00|building1|96.6993|88.9946|110.9894|85.0375|105.3207|83.4807
 
 #### Task B: Join two dataframes together
+
 ```Python
 new_combined_df = new_temperature_df.join(new_pressure_df.set_index(['timestamp', 'building_name']), on=['timestamp', 'building_name'], how='outer')
 new_combined_df = new_combined_df.sort_values(by='timestamp', ignore_index=True)
@@ -230,7 +235,7 @@ Other column is representing a signal/sensor or attribute.
 
 Each row represents an observation of the system, with values of those signals/sensors/attributes aligned properly. We also support JSON format, which later will explain what that format looks like.
 
-##  **STEP 2:** Exploring Data
+##  TASK 2: Exploring Data
 
 After the data being loaded, we now can start basic exploration to validate and identify potential issues of the data.
 
@@ -354,7 +359,6 @@ example_df[lambda x: x['sensor10']<-5][:].head()
 |142|2018-05-25T16:00:00|0.4374|-0.6623|0.2805|-0.2146|0.1622|-0.3386|-0.2518|0.8617|-1.0349|-60.0|building1|active
 |191|2018-07-13T16:00:00|-0.3555|-0.3829|-1.3414|-0.6930|-0.9549|-0.0544|-0.4447|0.4689|-0.2439|-60.0|building1|active
 
-
 #### Plot data on time window
 For time-series data, it is necessary to plot each attribute on the timestamp axis to see the data trend, gaps, or any other issues. Since we require the first column to be timestamp, one can run the following example to plot the data.
 
@@ -362,7 +366,6 @@ For time-series data, it is necessary to plot each attribute on the timestamp ax
 example_df.plot(x='timestamp', figsize=(14,3), ylim=[-3, 3]) # Plot all numeric data
 ```
 ![](../images/lab2-time-series-plot.png)
-
 
 **Recommendations:**
 
@@ -479,7 +482,7 @@ For example, if in the actual business case, such anomaly or fault indeed happen
 
 Generally speaking, the user should not remove no more than ~1%-5% outliers/anomalies from the data. If more than this, they need to double-check what conditions being used and be more conservative to remove.
 
-##  **STEP 4:** Final Splitting and Formatting
+##  TASK 4: Final Splitting and Formatting
 
 Typically in general ML model development, data is split into training and testing set, so that ML models are trained from training set, and to be fair, performance are evaluated on the testing set.
 
@@ -503,6 +506,7 @@ print(f"training set size: {train_building1_df.shape}, testing set size: {test_b
 Currently, our anomaly detection service takes 2 types of data format, CSV format, or JSON format.
 
 #### CSV Format
+
 The CSV format is similar to the dataframe preprocessed by above steps. No extra steps is needed.
 * The CSV file need to head the header row, with first column as `timestamp`
 * Each row is one observation of all attributes at the particular timestamp.
@@ -518,6 +522,7 @@ timestamp,signal1,signal2,signal3,signal4,signal5,signal6,signal7,signal8,signal
 ```
 
 #### JSON Format
+
 The JSON format is also straight-forward, it contains a key `signalNames` listing all attribute names, and a key `data` to list all actual values along with timestamp.
 
 ```Json
@@ -560,6 +565,7 @@ def convert_df_to_json(df, outfile_name):
 ```
 
 #### Final Data Samples
+
 After those above steps, you should now be able to transform the raw data provided earlier to be like the following:
 
 * [processed training csv data](../files/demo-training-data.csv)
@@ -569,8 +575,8 @@ After those above steps, you should now be able to transform the raw data provid
 
 Congratulations on completing this lab! You now have finished all the sessions of this lab, please feel free to contact us if any additional questions.
 
-
 ## Acknowledgements
+
 * **Authors**
     * Jason Ding - Principal Data Scientist - Oracle AI Services
     * Haad Khan - Senior Data Scientist - Oracle AI Services

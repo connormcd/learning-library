@@ -56,5 +56,5 @@ You may proceed to the next lab.
 
 - **Author** - David Peake, Database Product Management
 - **Contributors** - Arabella Yao, Dylan McLeod, Jaden McElvey, LiveLabs QA
-- **Last Updated By/Date** - Tom McGinn, Database Innovations Architect, Product Management, July 2020
+- **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

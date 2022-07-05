@@ -1,4 +1,4 @@
-# Provisioning your Autonomous Database instance
+# Provision your Oracle Autonomous Data Warehouse Database (ADW) instance
 
 ![Autonomous Databases](./images/adb_banner2.png)
 
@@ -23,14 +23,20 @@ Automates failure detection, failover, and repair.
 
 - Detect and protect from system failures and user errors automatically and provide failover to standby databases with zero data loss.
 
-Watch our short video that explains Lab 1 - Provisioning your Autonomous Database instance & Lab 2 - Provisioning your Oracle Analytics Cloud instance in detail:
+Watch our short video that explains Lab 1 - Provision your Autonomous Database instance & Lab 2 - Provision your Oracle Analytics Cloud instance in detail:
 
 [](youtube:rpKwrm-7eCk)
 
-_Estimated Lab Time:_ 15 minutes
+_Estimated Time:_ 15 minutes
 
 ### Objectives
 - Create an Autonomous Database with the latest features of Oracle Databases
+
+### Prerequisites
+
+* An [_Oracle Cloud Free Tier Account_](https://www.oracle.com/cloud/free/) or a Paid account.  
+
+  > **Note:** If you have a **Free Trial** account, when your Free Trial expires your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. **[Click here for the Free Tier FAQ page.](https://www.oracle.com/cloud/free/faq.html)**
 
 ## Task 1: Create a new Autonomous Data Warehouse Database
 
@@ -63,21 +69,20 @@ _Estimated Lab Time:_ 15 minutes
     >
     > **Always Free:** Off
     
-      - **Not recommended for this lab**, but you can select Always Free configuration to start enjoying your Free Autonomous Database.  
-       With Free you cannot scale the database so you'll not be able to follow "**_Lab 7: Monitoring and Ad-hoc scaling up ADW activity for optimal OAC experience_**".
+      - **Not recommended for this lab**, but you can select Always Free configuration to start enjoying your Free Autonomous Database.  With Free option you will not be able to scale the database when need it.
       
         [If you select 'Always Free Tier On', please check the following link](https://www.oracle.com/uk/cloud/free/#always-free).
 
       ![ADB Creation Details](./images/lab100_3a.png)
 
-   > **Choose Database version:** 19c
+   > **Choose Database version:** you can leave the default displayed version
    >
    > **CPU Count:** 2
    >
-   > **Storage Capacity (TB):** 2
+   > **Storage Capacity (TB):** 1
    >
-   > **Auto scaling:** Off
-   ![ADB Creation Storage](./images/lab100_4a.png)
+   > **Auto scaling:** On
+   ![ADB Config Database](./images/config-db.png)
 
 3. Under **Create administration credentials** section:
 
@@ -87,15 +92,13 @@ _Estimated Lab Time:_ 15 minutes
 
     Under **Choose network access** section:
 
-    > Select **'Allow secure access from everywhere'**: *On*
-    >
-    > Select **Configure access control rules:** *Off*  
-    ![ADB Creation Password](./images/lab100_5.png)
+    > Select **'Allow secure access from everywhere'** 
+    ![ADB Creation Password](./images/create-admin-pwd.png)
 
 4. Under **Choose a license type** section, choose **License Type: Licence Included**.
 
     When you have completed the required fields, scroll down and click on the blue **Create Autonomous Database** button at the bottom of the form:  
-    ![ADB Creation](./images/lab100_6.png)
+    ![License Type](./images/license-type.png)
 
 5. The Autonomous Database **Details** page will show information about your new instance. You should notice the various menu buttons that help you manage your new instance -- because the instance is currently being provisioned all the management buttons are greyed out.
 
@@ -110,18 +113,18 @@ _Estimated Lab Time:_ 15 minutes
 
     The provisioning process should take **under 5 minutes**.
 
-9. After having the Autonomous Database instance **created** and **available**, you you may be prompted with a Pop Up window asking you to upgrade (from 18c to 19c, if you have selected 18c as a database version during the provisioning - the database version might be different). You may choose to upgrade the database version after the hands-on session, otherwise the upgrade process can take a few minutes, and you may miss a few exercises during the session.
+9. After having the Autonomous Database instance **created** and **available**, you you may be prompted with a Pop Up window asking you to upgrade. You may choose to upgrade the database version after the hands-on session, otherwise the upgrade process can take a few minutes, and you may miss a few exercises during the session.
 
     This page is known as the **Autonomous Database Details Page**. It provides you with status information about your database, and its configuration. Get **familiar** with the buttons and tabs on this page.  
-    ![ADB Creation Details](./images/lab100_adw_readya.png)
+    ![ADB Creation Details](./images/adw-details.png)
 
 You have just created an Autonomous Database with the latest features of Oracle Databases.
 
-You may now [proceed to the next lab](#next)
+You may now **proceed to the next lab**.
 
 ## **Acknowledgements**
 
 - **Author** - Lucian Dinescu, Product Strategy, Analytics
 - **Contributors** - Priscila Iruela, Database Business Development | Juan Antonio Martin Pedro, Analytics Business Development Victor Martin, Melanie Ashworth-March, Andrea Zengin
-- **Reviewed by** - Shiva Oleti, Product Strategy, Analytics
-- **Last Updated By/Date** - Lucian Dinescu, February 2021
+- **Reviewed by** - Shiva Oleti, Product Strategy, Analytics, Sebastien Demanche, Andor Imre (Oracle Cloud Center of Excellence)
+- **Last Updated By/Date** - Lucian Dinescu, March 2022

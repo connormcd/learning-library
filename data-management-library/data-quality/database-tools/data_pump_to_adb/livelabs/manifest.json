@@ -40,25 +40,25 @@
             "title": "Lab 5: Install Sample Schemas",
             "description": "Install Sample Schema",
             "publisheddate": "5/20/2020",
-            "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/database-setup/setup_sample_schema.md"
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/database-setup/setup-sample-schema.md"
         },
         {
             "title": "Lab 6: Install VNC Server",
             "description": "Install VNC Server",
             "publisheddate": "5/20/2020",
-            "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/database-setup/setup_vnc_compute.md"
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/database-setup/setup_vnc_compute.md"
         },
         {
             "title": "Lab 7: Install SQL Developer on a Compute Instance",
             "description": "SQL Developer on a Compute Instance",
             "publisheddate": "5/23/2020",
-            "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/database-setup/setup_vnc_compute.md"
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/database-setup/setup_vnc_compute.md"
         },
         {
             "title": "Lab 8: Connect to Source Database",
             "description": "Use SQL Developer to connect to a local database",
             "publisheddate": "5/23/2020",
-            "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/database-setup/setup_vnc_compute.md"
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/database-setup/setup_vnc_compute.md"
         }
     ]
 }

@@ -314,4 +314,4 @@ Now let’s configure access to oci tenancy via ocicli with our tenancy details.
 ## Acknowledgements
 * **Authors** -  Iván Postigo, Jesus Guerra, Carlos Olivares - Oracle Spain SE Team
 * **Contributors** - Jaden McElvey, Technical Lead - Oracle LiveLabs Intern
-* **Last Updated By/Date** - Tom McGinn, May 2020
+* **Last Updated By/Date** - Madhusudhan Rao, Apr 2022

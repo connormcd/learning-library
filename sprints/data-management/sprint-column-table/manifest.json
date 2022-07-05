@@ -1,0 +1,22 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How can I get all column names from a table?",
+         "description": "",
+         "filename": "column-table.md"
+      },
+      {
+         "title": "How can I index columns in the Oracle Database?",
+         "description": "",
+         "filename": "../sprint-sql/index-columns/index-columns.md"
+      },
+      {
+         "title": "How can I add columns to a table in the Oracle Database?",
+         "description": "",
+         "filename": "../sprint-sql/add-columns/add-columns.md"
+      }
+   ],
+   "task_type": "Sections"
+}

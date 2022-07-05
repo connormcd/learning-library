@@ -1,28 +1,28 @@
-# Query and Analyze the Graphs
+# Query and Analyze the Graph
 
 ## Introduction
 
 This example shows how integrating multiple datasets and using a graph facilitate additional analytics and can lead to new insights. We will use three small datasets for illustrative purposes. The first contains accounts and account  owners. The second is purchases by the people who own those accounts. The third is transactions between these accounts.
 
-The combined dataset is then used to perform the following common graph query and analyses: pattern matching, detection of cycles, finding important nodes, community detection, and recommendation.
+The combined dataset is then used to perform the following common graph query and analyses: pattern matching, detection of cycles, finding important nodes, community detection.
 
 The following ER diagram depicts the relationships between the datasets.
 
-![](images/er-diagram.jpg)
+![er-diagram](images/er-diagram.jpg)
 
 Estimated Lab Time: 10 minutes
 
 ### Objectives
 
-- Learn how to query and analyze the Customer 360 graph with the Graph Server and Client kit.
+- Learn how to query and analyze the graph
 
 ### Prerequisites
 
-- This lab assumes you have successfully completed all the previous Labs (Lab 1 through Lab 6) and have the Python client up and running.
+- The Python client up and running
 
 ## Task 1: Get the Graph on Memory
 
-Assuming that the `customer_360` graph is already loaded onto the memory in the previous Lab, the graph can be attached with this command. If the graph is published, you can also access the graph from the new sessions.
+Assuming that the **customer_360** graph is already loaded onto the memory in the previous Lab, the graph can be attached with this command. If the graph is published, you can also access the graph from the new sessions.
 
 ```
 <copy>
@@ -90,7 +90,7 @@ graph.query_pgql("""
 
 This result will be visualized in the next section:
 
-![](images/detection.jpg)
+![detection](images/detection.jpg)
 
 The second query just adds one more transfer to the pattern (list) and could be expressed as:
 
@@ -118,7 +118,7 @@ graph.query_pgql("""
 
 This result will be visualized in the next section:
 
-![](images/detection2.jpg)
+![detection2](images/detection2.jpg)
 
 ## Task 4: Influential Accounts
 
@@ -193,7 +193,7 @@ Let's find which subsets of accounts form communities. That is, there are more t
     PgxPartition(graph: sub-graph_16, components: 1)
     ```
 
-    The component value is stored in a property named `wcc`.
+    The component value is stored in a property named **wcc**.
 
     ```
     <copy>
@@ -247,7 +247,7 @@ Let's find which subsets of accounts form communities. That is, there are more t
     +----------------------+
     ```
 
-5. List the other accounts in the same connected component as John's account (= `xxx-yyy-201`). The component ID is added as a property named `SCC_KOSARAJU` for use in PGQL queries.
+5. List the other accounts in the same connected component as John's account (= **xxx-yyy-201**). The component ID is added as a property named **SCC_KOSARAJ** for use in PGQL queries.
 
     ```
     <copy>
@@ -271,15 +271,14 @@ Let's find which subsets of accounts form communities. That is, there are more t
     +-------------+
     ```
 
-    ![](images/community.jpg)
+    ![community](images/community.jpg)
 
-    In this case, account `xxx-yyy-201` (John's account), `xxx-yyy-202`, `xxx-yyy-203`, and `xxx-yyy-204` form one partition, account `xxx-zzz-211` is a parition, and account `xxx-zzz-212` is a partition, by the SCC Kosaraju algorithm.
+    In this case, account **xxx-yyy-201** (John's account), **xxx-yyy-202**, **xxx-yyy-203**, and **xxx-yyy-204** form one partition, account **xxx-zzz-211** is a parition, and account **xxx-zzz-212** is a partition, by the SCC Kosaraju algorithm.
 
 You may now proceed to the next Lab.
 
 ## Acknowledgements ##
 
-* **Author** -  Jayant Sharma, Product Manager, Spatial and Graph
-* **Contributors** - Arabella Yao, Product Manager Intern, Database Management, and Jenny Tsai.
-* **Last Updated By/Date** - Ryota Yamanaka, August 2021
-
+* **Author** - Jayant Sharma
+* **Contributors** - Arabella Yao, Jenny Tsai
+* **Last Updated By/Date** - Ryota Yamanaka, April 2022

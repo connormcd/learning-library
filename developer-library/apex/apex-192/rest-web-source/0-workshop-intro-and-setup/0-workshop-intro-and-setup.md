@@ -42,5 +42,5 @@ If the menu is not displayed, you can open by clicking the menu button (![Menu i
 
  - **Author/Contributors** -  David Peake, Consulting Member of Technical Staff
  - **Contributors** - Oracle LiveLabs Team (Arabella Yao, Product Manager Intern | Jaden McElvey, Technical Lead | Jeffrey Malcolm Jr, Intern)
- - **Last Updated By/Date** - Tom McGinn, Database Cloud Services, Product Management, June 2020
+ - **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

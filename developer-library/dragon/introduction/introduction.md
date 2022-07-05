@@ -29,6 +29,6 @@ You may now [proceed to the next lab](#next).
 
 ## Acknowledgements
 * **Author** - Loic Lefevre, Principal Product Manager
-* **Last Updated By/Date** - Tom McGinn, Database Product Management, November 2020
+* **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 
 

@@ -3,9 +3,9 @@
 ## Introduction
 This lab describes how to create and execute Jobs.
 
-You must create and execute the job to run the comparisons. The job configuration determines which compare pair groups are processed.
+You must create and execute a job to run the comparisons. The job configuration determines which compare pair groups are processed.
 
-*Estimated Lab Time*: 30 minutes
+*Estimated Time*: 30 minutes
 
 ### Objectives
 In this lab, you will:
@@ -27,21 +27,21 @@ To create a job:
 
 1. From the left navigation pane, click **Configuration** and **Job configuration** to display the **Job Configuration** page.
 
-    ![](./images/1a-select-job-configuration.png " ")
+    ![Job Configuration](./images/select-job-configuration.png " ")
 
 2. Click **New** to display the **New Job Assistant** page.
 
 3. Enter a **Name** and **Description** for the new job, click **Next**.
 
-    ![](./images/12-new-job-create-job.png " ")
+    ![New Job Name and Description](./images/new-job-create-job.png " ")
 
 4. Enter the **Group Name** that you want to link to this job and click **Apply Filter**.
 
-    ![](./images/13-create-job-select-group-apply-filter.png " ")
+    ![Group Name](./images/create-job-select-group-apply-filter.png " ")
 
 5. Select the Group and click **Finish**.
 
-    ![](./images/14-create-job-select-group-click-Finish.png " ")
+    ![Select Group](./images/create-job-select-group-click-finish.png " ")
 
 A new job is created for the compare pair.
 
@@ -50,27 +50,29 @@ To execute a job:
 
 1. From the left navigation pane, click **Run/Execute Job** to display the **Run configuration** page.
 
-    [](./images/15a-run-job-run-configuration-page.png " ")
+    ![Run Configuration](./images/run-job-run-configuration-page.png " ")
 
 2. Select the job you just created from the **Job** drop-down list.
 
-    ![](./images/15-run-job.png " ")
+    ![Select Job](./images/run-job.png " ")
 
 3. Click **Retrieve Compare Pair List** to display the list of Compare Pairs and then click **Run Job**.
 
-    ![](./images/15b-select-job-retrieve-job.png " ")
+    ![Retrieve Compare Pair List](./images/select-job-retrieve-job.png " ")
 
 4. From the left navigation pane, click **Running Jobs** to display the status of the jobs that are running.
 
-  ![](./images/16-running-jobs-status.png " ")
+  ![Running Jobs](./images/running-jobs-status.png " ")
 
 5. From the left navigation pane, click **Finished Jobs** to display the completed job and the details of the compare pairs.
 
-    ![](./images/17-completed-jobs-compare-pair-status-chart.png " ")
+    ![Finished Jobs](./images/completed-jobs-compare-pair-status-chart.png " ")
 
-You may now [proceed to the next lab](#next).
+You may now **proceed to the next lab**.
 
 ## Learn More
+* [Get Started with Oracle GoldenGate Veridata Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=833&clear=180&session=4555570607052)
+* [Master Oracle GoldenGate Veridata Advanced Features Workshop](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=913&clear=180&session=4555570607052)
 * [Oracle GoldenGate Veridata Documentation](https://docs.oracle.com/en/middleware/goldengate/veridata/12.2.1.4/index.html)
 * [Configuring Groups](https://docs.oracle.com/en/middleware/goldengate/veridata/12.2.1.4/gvdug/configure-workflow-objects.html#GUID-70B42ABB-EA8E-4ADF-8414-7EA1752CA7E6)
 * [Compare Pairs](https://docs.oracle.com/en/middleware/goldengate/veridata/12.2.1.4/gvdug/configure-workflow-objects.html#GUID-055CE119-0307-4826-98C7-A51F53E28763)
@@ -79,5 +81,5 @@ You may now [proceed to the next lab](#next).
 
 ## Acknowledgements
 * **Author** - Anuradha Chepuri, Principal UA Developer, Oracle GoldenGate User Assistance
-* **Contributors** -  Nisharahmed Soneji, Sukin Varghese, Rene Fontcha
-* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, November 2021
+* **Contributors** -  Nisharahmed Soneji, Sukin Varghese, Jonathan Fu
+* **Last Updated By/Date** - Anuradha Chepuri, May 2022

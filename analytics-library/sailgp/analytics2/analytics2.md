@@ -106,7 +106,7 @@ To give you an impression, have a look at this video. You can see how teams are 
 
 ## Task 2: Add Geographical Data of the Race Course
 
-1. **Download** a file that contains all the geographical elements (such as starting line, waypoints and finish line) from <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/F2tS5djZyR2uQ0oWZePiKUULfbAKCk4zticDoeFrGUmGpqCpvAZShQZMyhVsCEAg/n/odca/b/workshops-livelabs-do-not-delete/o/sailgp_bermuda.geojson" target="\_blank">File with Bermuda geo elements</a> to your local machine. Depending on your browser, you may have to use Right Click. Make sure that the file is saved with extension `.geojson`.
+1. **Download** a file that contains all the geographical elements (such as starting line, waypoints and finish line) from <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/-n1PnhbMmtnXnsiHa65cqVxrvF30lUmm8f0MGsUFD7gNASCuUu6r6X209IjydDMh/n/fruktknlrefu/b/workshop-sailgp/o/sailgp_bermuda.geojson" target="\_blank">File with Bermuda geo elements</a> to your local machine. Depending on your browser, you may have to use Right Click. Make sure that the file is saved with extension `.geojson`.
 
 2. From the ribbon on the **Home Page**, go to the Console.
 

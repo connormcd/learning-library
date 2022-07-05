@@ -9,7 +9,7 @@
         },
         {
           "title": "Get started",
-          "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
+          "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login.md"
         },
         {
           "title": "Lab 1: Provision an ADB instance",
@@ -23,8 +23,7 @@
         {
           "title": "Lab 3: Use SQL to analyze movie sales data",
           "filename": "../../analyzing-movie-sales-data/analyzing-movie-sales-data.md"
-          
-        },        
+        },
         {
           "title": "Need Help?",
           "description": "Solutions to Common Problems and Directions for Receiving Live Help",

@@ -1,4 +1,4 @@
-# Track Java Usage in a Container
+# Track Java Usage in a container
 
 ## Introduction
 
@@ -19,11 +19,11 @@ In this lab, you will:
 ### Prerequisites
 
 * An Oracle Free Tier, Always Free, Paid or LiveLabs Cloud Account
-* A compute instance with the resources configured in Lab 1 to Lab 4 (Management Agent, Fleet, Compartments, SSH key pair login). The compute instance should also have **Oracle JDK 8** installed.
+* A compute instance with the resources configured in [Lab 1](?lab=set-up-oci-for-jms) to [Lab 7](?lab=install-management-agent-oca) (Management Agent, Fleet, Compartments, SSH key pair login). The compute instance should also have **Oracle JDK 8** installed.
 
 ## Task 1: Install Docker on your compute instance
 
-The following steps will describe installation of Docker on a compute instance running Oracle Linux 7, which was covered in Lab 2.
+The following steps will describe installation of Docker on a compute instance running Oracle Linux 7, which was covered in [Lab 3](?lab=deploy-a-java-application#Task1:CreateaComputeInstance).
 
 1. Perform an SSH login into your OCI compute instance.
 
@@ -60,7 +60,7 @@ The following steps will describe installation of Docker on a compute instance r
     sudo systemctl start docker
     </copy>
     ```
-5. You can check the version of your Docker installation by running the following
+5. You can check the version of your Docker installation by running the following:
     ```
     <copy>
     sudo docker version
@@ -301,7 +301,7 @@ The same output of odd numbers should appear.
 &nbsp;
 
 
-## Task 4: Configure Java Usage Tracker Location
+## Task 4: Configure Java Usage Tracker location
 
 You should now have a compute instance with Docker installed and a Docker image using Oracle JDK.
 
@@ -322,7 +322,7 @@ You should now have a compute instance with Docker installed and a Docker image 
   Check for the "Mounts" section, which should not be empty.
     ![image of inspect container](/../images/bind-mounts.png)
 
-## Task 5: Verify Configuration
+## Task 5: Verify configuration
 
 1. You may wish to check the log files for your Java application. Start by running this command to display the log file content.
 
@@ -340,11 +340,26 @@ You should now have a compute instance with Docker installed and a Docker image 
 2. You may now check your Fleet in OCI console to see if your Docker container was detected. You should be able to see the OddNumbers.jar under **Applications**.
   ![image of fleet details page showing jar file in container](/../images/fleets-details-docker.png)
 
-## Want to Learn More?
+You may now **proceed to the next lab.**
+
+## Troubleshoot Docker issues
+
+**For Task 1**
+* If you encounter a timeout error similar to the following:
+
+    ```
+    Get "https://registry-1.docker.io/v2/": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+    docker: Get "https://registry-1.docker.io/v2/": context deadline exceeded (Client.Timeout exceeded while awaiting headers).
+    See 'docker run --help'.
+    ```
+    You may be connected to proxies or VPNs. Disconnect any connection or resolve any issues related to your proxy or VPN and try again.
+
+
+## Learn More
 
 * You may also find more Oracle resources for your containers at the Oracle Github repository [here](https://github.com/oracle/docker-images).
 
 ## Acknowledgements
 
 * **Author** - Alvin Lam, Java Management Service
-* **Last Updated By/Date** - Alvin Lam, November 2021
+* **Last Updated By/Date** - Xin Yi Tay, February 2022

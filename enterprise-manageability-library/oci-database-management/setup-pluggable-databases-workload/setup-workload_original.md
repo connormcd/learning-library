@@ -4,7 +4,6 @@
 
 In this lab, you will go through the steps to setup and configure the workload to be used in exploring Database Management use cases.
 
-
 Estimated Time: 20 minutes
 
 ### Objectives
@@ -35,7 +34,7 @@ This lab assumes you have completed the following labs:
     unzip labs.zip
     </copy>
     ```
-    ![](./images/copylabs.png " ") 
+    ![](./images/copylabs.png " ")
 
 ## Task 2: Run the Setup Scripts
 1.  Run this command to setup the fleet of databases and workload schema that you will use for this lab.   This script takes about 10 minutes to complete.   It creates pluggable databases and installs the workload data. Make sure you are still logged in as oracle user.
@@ -47,7 +46,7 @@ This lab assumes you have completed the following labs:
     nohup /home/oracle/labs/pdbcreate.sh &> pdbcreate.out&
     </copy>
     ```
-    ![](./images/pdbcreate.png " ") 
+    ![](./images/pdbcreate.png " ")
 
 2.  Run this command to install the workload data.
 
@@ -58,7 +57,7 @@ This lab assumes you have completed the following labs:
     nohup /home/oracle/labs/pdbsetup.sh &> pdbsetup.out&
     </copy>
     ```
-    ![](./images/pdbsetup.png " ") 
+    ![](./images/pdbsetup.png " ")
 
 
 3.  To check the status of the script above run the command below.   You can also use the unix **jobs** command to see if the script is still running.  
@@ -68,32 +67,29 @@ This lab assumes you have completed the following labs:
     tail /home/oracle/pdbcreate.out
     </copy>
     ```
-    ![](./images/pdbcreatelog.png " ") 
+    ![](./images/pdbcreatelog.png " ")
 
     ```
     <copy>
-    tail /home/oracle/pdbsetup.out 
+    tail /home/oracle/pdbsetup.out
     </copy>
     ```
-    ![](./images/pdbsetuplog.png " ") 
-
+    ![](./images/pdbsetuplog.png " ")
 
 ## Task 3: Start the workload
 
-1.  All scripts for this lab are stored in the labs folder and are run as the oracle user.  Let's navigate there now.  Run this command to start the workload on all the databases that were setup earlier. 
-    
+1.  All scripts for this lab are stored in the labs folder and are run as the oracle user.  Let's navigate there now.  Run this command to start the workload on all the databases that were setup earlier.
+
     ```
     <copy>
     sudo su - oracle
-    cd ~/labs 
-    chmod +x /home/oracle/labs/*.sh 
+    cd ~/labs
+    chmod +x /home/oracle/labs/*.sh
     nohup /home/oracle/labs/workload.sh &> workloadlog.out&
     ps -ef |grep lab
     </copy>
     ```
-    ![](./images/workload.png " ") 
-
-You may now proceed to the next lab.
+    ![](./images/workload.png " ")
 
 ## Acknowledgements
 

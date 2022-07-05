@@ -15,7 +15,7 @@ The benefit of this feature is that administrators no longer have to periodicall
 
 In this lab, you will query the Oracle-supplied schema-only account as well as create your own schema-only account.
 
-Estimated Lab Time: 5 minutes
+Estimated Time: 5 minutes
 
 ### Objectives
 In this lab, you will:
@@ -30,6 +30,8 @@ This lab assumes you have:
 - Obtained and signed in to your `workshop-installed` compute instance.
 
 ## Task 1: Prepare your environment
+
+> **NOTE:** Unless otherwise stated, all passwords will be `Ora4U_1234`. When copying and pasting a command that includes a password, please replace the word `password` with `Ora4U_1234`. This only applies to instances created through OCI Resource Manager with our provided terraform scripts.
 
 1. Open a terminal window on the desktop.
 
@@ -154,6 +156,7 @@ This lab assumes you have:
     ```
     SQL> <copy>EXIT</copy>
     ```
+    You may now **proceed to the next lab**.
 
 ## Learn More
 - [Ability to Grant or Revoke Administrative Privileges to and from Schema-Only Accounts](https://docs.oracle.com/en/database/oracle/oracle-database/19/newft/new-features.html#GUID-5A1DE85F-6485-402E-9D76-34D63186E555)
@@ -161,5 +164,5 @@ This lab assumes you have:
 ## Acknowledgements
 
 - **Author**- Dominique Jeunot, Consulting User Assistance Developer
-- **Contributors** - Matthew McDaniel, Austin Specialists Hub, October 2021
-- **Last Updated By/Date** - Matthew McDaniel, Austin Specialists Hub, December 21 2021
+- **Contributors** - Matthew McDaniel, Austin Specialist Hub, October 2021
+- **Last Updated By/Date** - Matthew McDaniel, Austin Specialist Hub, December 21 2021

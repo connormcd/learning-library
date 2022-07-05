@@ -17,10 +17,10 @@ A **database registration** captures source or target database credential inform
 In this lab, you will:
 
 * Create an OCI GoldenGate deployment
-* Review the OCI GoldenGate deployment details
-* Access the OCI GoldenGate deployment console
 * Register the source and target databases
 * Enable the GGADMIN user and supplemental logging
+* Review the OCI GoldenGate deployment details
+* Access the OCI GoldenGate deployment console
 
 ### Prerequisites
 
@@ -34,70 +34,41 @@ This lab assumes that you completed all preceding labs.
 
     ![](images/database-goldengate.png " ")
 
-    You're brought to the **Deployments** page.
+    You're brought to the **Overview** page.
 
     ![](images/01-01-02a.png " ")
 
-2.  You may need to select a compartment. Under List Scope, from the Comparment dropdown, expand the root compartment, and then select the compartment associated with your username. For example, if your LiveLab username is LL1234-user, expand root, and then select the compartment **LL1234-COMPARTMENT**.
+2.  Click **Create Deployment**.
 
-3.  On the Deployments page, click **Create Deployment**.
+    ![](images/01-02-create-dep.png " ")
 
-    ![](images/01-02-01.png " ")
+3.  In the Create Deployment panel, enter **GGSDeployment** for Name.
 
-4.  In the Create Deployment panel, enter **GGSDeployment** for Name.
+4.  From the Compartment dropdown, select the compartment shown in the Workshop Details for your workshop environment.
 
-5.  From the Compartment dropdown, select a compartment.
+5.  For OCPU Count, enter **1**.
 
-6.  For OCPU Count, enter **2**.
+6.  For Subnet, click **Change Compartment**, select your compartment, and then select the public subnet (pubsubnt) from the dropdown.
 
-7.  For Subnet, select **&lt;user&gt;pubsubnt**.
+7.  For License type, select **Bring You Own License (BYOL)**.
 
-8.  For License type, select **Bring You Own License (BYOL)**.
-
-9.  Click **Show Advanced Options**, and then select **Create Public Endpoint**.
+8.  Click **Show Advanced Options**, and then select **Create Public Endpoint**.
 
     ![](images/01-02-create-deployment-panel.png " ")
 
-10. Click **Next**.
+9. Click **Next**.
 
-11. For GoldenGate Instance Name, enter **ogginstance**.
+10. For GoldenGate Instance Name, enter **ggsinstance**.
 
-12. For Administrator Username, enter **oggadmin**.
+11. For Administrator Username, enter **oggadmin**.
 
-13. For Administrator Password, enter a password. Take note of this password.
+12. For Administrator Password, enter a password. Take note of this password.
 
-14. Click **Create**.
+13. Click **Create**.
 
 You're brought to the Deployment Details page. It takes a few minutes for the deployment to be created. Its status will change from CREATING to ACTIVE when it is ready for you to use.
 
-
-## Task 2: Review the Deployment Details
-
-On the Deployment Details page, you can:
-
-* Review the deployment's status
-* Launch the GoldenGate service deployment console
-* Edit the deployment's name or description
-* Stop and start the deployment
-* Move the deployment to a different compartment
-* Review the deployment resource information
-* Add tags
-
-    ![](images/01-03-gg-deployment-details.png " ")
-
-## Task 3: Launch the GoldenGate Deployment Console
-
-1. When the deployment is active, click **Launch Console**.
-
-    ![](images/04-01-ggs-launchconsole.png " ")
-
-2. To log in to the GoldenGate deployment console, enter **oggadmin** for User Name and the password you provided above, and then click **Sign In**.
-
-    ![](images/04-02-ggs-deploymentconsole-signin.png " ")
-
-After you log in successfully, you're brought to the GoldenGate deployment console home page. Here, you can access the GoldenGate Administration, Performance Metrics, Distribution, and Receiver Servers, as well as add Extracts and Replicats for your data replication tasks.
-
-## Task 4: Register the Source and Target Database
+## Task 2: Register the Source and Target Database
 
 Now, follow the steps below to register the source and target Autonomous Database instances.
 
@@ -129,7 +100,7 @@ Now, follow the steps below to register the source and target Autonomous Databas
 
 The source and target databases appear in the list of Registered Databases. The database becomes Active after a few minutes.
 
-## Task 5: Enable the GGADMIN User and Supplemental Logging
+## Task 3: Unlock the ggadmin user and enable supplemental logging
 
 Although the GGADMIN user is created during the database registration process, it is disabled by default. The following steps guide you through how to enable the GGADMIN user.
 
@@ -141,7 +112,7 @@ Although the GGADMIN user is created during the database registration process, i
 
     ![](images/05-02.png " ")
 
-3.  On the SourceATP Database Details page, click **Tools**, and then click **Open Database Actions**.
+3.  On the SourceATP Database Details page, click **Database Actions**.
 
     ![](images/05-04.png " ")
 
@@ -174,6 +145,32 @@ Although the GGADMIN user is created during the database registration process, i
 
 11. Repeat steps 1 to 7 to enable the ggadmin user for **TargetADW**. Log out of Database Actions when you're done.
 
+## Task 4: Review the Deployment Details
+
+On the Deployment Details page, you can:
+
+* Review the deployment's status
+* Launch the GoldenGate service deployment console
+* Edit the deployment's name or description
+* Stop and start the deployment
+* Move the deployment to a different compartment
+* Review the deployment resource information
+* Add tags
+
+    ![](images/01-03-gg-deployment-details.png " ")
+
+## Task 5: Launch the GoldenGate Deployment Console
+
+1. When the deployment is active, click **Launch Console**.
+
+    ![](images/04-01-ggs-launchconsole.png " ")
+
+2. To log in to the GoldenGate deployment console, enter **oggadmin** for User Name and the password you provided above, and then click **Sign In**.
+
+    ![](images/04-02-ggs-deploymentconsole-signin.png " ")
+
+After you log in successfully, you're brought to the GoldenGate deployment console home page. Here, you can access the GoldenGate Administration, Performance Metrics, Distribution, and Receiver Servers, as well as add Extracts and Replicats for your data replication tasks.
+
 In this lab, you created the OCI GoldenGate deployment and registered the source and target databases. You can now **proceed to the next lab**.
 
 ## Learn More
@@ -184,4 +181,4 @@ In this lab, you created the OCI GoldenGate deployment and registered the source
 ## Acknowledgements
 * **Author** - Jenny Chan, Consulting User Assistance Developer, Database User Assistance
 * **Contributors** -  Julien Testut, Database Product Management
-* **Last Updated By/Date** - Jenny Chan, September 2021
+* **Last Updated By/Date** - Jenny Chan, February 2022

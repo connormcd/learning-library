@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I find the compartment OCID?",
+         "type": "freetier",
+         "description": " ",
+         "filename": "./../sprint-find-compartment-ocid/sprint-find-compartment-ocid.md"
+      }
+   ],
+   "task_type": "Sections"
+}

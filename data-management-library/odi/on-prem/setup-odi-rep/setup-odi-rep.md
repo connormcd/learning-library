@@ -84,6 +84,11 @@ This lab assumes you have:
 
   ![](./images/odi_studio_5c.png " ")   
 
+  Unless specified otherwise, the export key is
+    ```
+    <copy>Welcome1#</copy>
+    ```
+
 8. Click "Next" on the next screen and then click on Finish.
 
   ![](./images/odi_studio_5d.png " ")
@@ -191,4 +196,4 @@ You may now [proceed to the next lab](#next).
 
 - **Author** - Narayanan Ramakrishnan, December 2020
 - **Contributors** - Srivishnu Gullapalli
-- **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, January 2021
+- **Last Updated By/Date** - Arabella Yao, Product Manager, Database Product Management, March 2022

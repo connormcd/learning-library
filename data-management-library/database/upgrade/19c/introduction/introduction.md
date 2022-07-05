@@ -4,19 +4,20 @@
 
 Oracle Database 19c is the *Long Term Support Release* for the Oracle Database 12.2 release family. It is available on all popular on-prem platforms, Oracle Exadata and Oracle Database Appliance, and in the Oracle Cloud. As the latest Long Term Support Release, it offers customers the highest levels of stability and the longest error correction support. And, by upgrading to Oracle Database 19c customers will have Premier Support until end of April 2024, and Extended Support until end of April 2027.  There is a direct upgrade path to Oracle Database 19c from Oracle Database 11.2.0.4, 12.1.0.2, 12.2.0.1 and 18c releases, regardless of the patch bundle applied.
 
-*Estimated Lab Time*: 600 minutes
+Estimated Workshop Time: 600 minutes
 
-![](./images/releases_upgrade19c_LAB.png " ")
+![releases upgrade19c](./images/releases_upgrade19c_LAB.png " ")
 
 Therefore in the interests of maintaining business continuity,  customers still running on prior releases (e.g. 11gR2, 12cR1, 12cR2, 18c) are encouraged to start planning their 19c upgrades before current support windows expire. Always refer to [MOS note #742060.1](https://support.oracle.com/epmos/faces/DocumentDisplay?id=742060.1&displayIndex=1) for the latest status of Oracle Database releases and support coverage.
 
-  [](youtube:lOzL5irmuJo)
+[Watch the video](youtube:lOzL5irmuJo)
 
-<if type="odbw">If you would like to watch us do the workshop, click [here](https://youtu.be/A-hQSWZWmTU).</if>
+<if type="odbw">If you would like to watch us do the workshop, click [here](https://youtu.be/e3DaQ2LKCU4).</if>
 
 ### Objectives
 
 In this workshop, you will:
+
 * Setup your Upgrade Compute Instance in the Cloud
 * Launch a workload on your database
 * Capture the SQL statements
@@ -31,11 +32,10 @@ In this workshop, you will:
 * Migrate another database with Full Transportable Export/import
 
 ### Prerequisites
+
 * An Oracle Cloud Account - Please view this workshop's LiveLabs landing page to see which environments are supported
 
-*Note: If you have a **Free Trial** account, when your Free Trial expires your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. **[Click here for the Free Tier FAQ page.](https://www.oracle.com/cloud/free/faq.html)***
-
-## About the Lab Contents
+  ## About the workshop contents
 
 This workshop is preloaded with 3 different Oracle Homes and 5 databases.
 You can switch between environments with the shortcuts shown in the last column of the below diagram.
@@ -60,7 +60,7 @@ These are the tasks you can complete in the lab.
 
 ![](./images/architecture_upgrade19c_LAB.png " ")
 
-## Upgrade and Data Migration Methods and Processes
+## Upgrade and data migration methods and processes
 
 ### AutoUpgrade
 
@@ -70,7 +70,7 @@ These are the tasks you can complete in the lab.
 
 - Provides export and import capabilities. Oracle Data Pump can perform a full or partial export from your database, followed by a full, or partial import into the new release of Oracle Database. Data Pump allows to migrate directly into PDBs as well, and works independently of the source database version across versions and operating system platforms. In addition, Data Pump in conjunction with Transportable Tablespaces takes away the complexity of rebuilding all the meta objects with just one command as Full Transportable Export Import.
 
-You may now [proceed to the next lab](#next).
+You may now *proceed to the next lab*.
 
 ## Learn More
 

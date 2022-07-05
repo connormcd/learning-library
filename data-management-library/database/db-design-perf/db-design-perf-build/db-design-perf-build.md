@@ -90,7 +90,7 @@ Oracle Cloud Infrastructure Cloud (OCI) Shell is a web browser-based terminal ac
 
     ```nohighlight
     <copy>
-    wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/e_IV9-DqpdZnLLqjIFhlXea6g4qykmwfjsnEwC8zb28ciomA1SRsRF-CfS6YkEpP/n/c4u04/b/data-management-library-files/o/devlivelab.zip
+    wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/devlivelab.zip
     unzip devlivelab.zip
     ls -l
     </copy>

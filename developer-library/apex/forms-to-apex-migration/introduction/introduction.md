@@ -3,7 +3,7 @@
 ## About this Workshop
 
 
-This workshop walks you though setting up Oracle Forms environment from Marketplace and Converting that into Oracle APEX application. Oracle APEX Application enables you to develop responsive web application at a much faster pace and helps you modernize your applications.
+This workshop walks you though setting up Oracle Forms environment from marketplace and converting that into Oracle APEX application. Oracle APEX Application enables you to develop responsive web application at a much faster pace and helps you modernize your applications.
 
 
 Estimated Lab Time: 90 minutes
@@ -20,7 +20,7 @@ Estimated Lab Time: 90 minutes
 * Modernize the Customer Form
 
 *Note: This lab assumes you are using Oracle APEX 20.2.*
-*If you are a Oracle Forms developer and have  experience with Oracle Forms then you can skip **Setup Oracle Forms and convert the sample Forms to XML section.**
+*If you are an Oracle Forms developer and have  experience with Oracle Forms then you can skip **Setup Oracle Forms and convert the sample Forms to XML section.**
 
 ### Prerequisites
 
@@ -42,6 +42,6 @@ Estimated Lab Time: 90 minutes
 
 - **Author** -  Vanitha Subramanyam, Senior Solution Architect
 - **Contributors** - Abhinav Jain, Staff Cloud Engineer, Sakthikumar Periyasamy Senior Cloud Engineer, Nayan Karumuri Staff Cloud Engineer
-- **Last Updated By/Date** - Vanitha Subramanyam, Senior Solution Architect, February 2021
+- **Last Updated By/Date** - Andres Quintana, March 2022
 
 

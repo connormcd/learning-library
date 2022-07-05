@@ -182,4 +182,4 @@ You can proceed to the next lab.
 
 ## Acknowledgements
 * **Authors** -  Iván Postigo, Jesus Guerra, Carlos Olivares - Oracle Spain SE Team
-* **Last Updated By/Date** - Tom McGinn, April 2020
+* **Last Updated By/Date** - Madhusudhan Rao, Apr 2022

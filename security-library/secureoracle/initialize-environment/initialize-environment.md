@@ -12,66 +12,61 @@ In this lab we will review and startup all components required to successfully r
 ### Prerequisites
 This lab assumes you have:
 - A Free Tier, Paid or LiveLabs Oracle Cloud account
-- SSH Private Key to access the host via SSH
 - You have completed:
-    - Lab: Generate SSH Keys (*Free-tier* and *Paid Tenants* only)
     - Lab: Prepare Setup (*Free-tier* and *Paid Tenants* only)
     - Lab: Environment Setup
 
-## Task 0: Running your Lab
-### Access the graphical desktop
-For ease of execution of this workshop, your instance has been pre-configured for remote graphical desktop accessible using any modern browser on your laptop or workstation. Proceed as detailed below to login.
+## Task 1: Validate That Required Processes are Up and Running
 
-1. Launch your browser to the following URL
+1. Now with access to your remote desktop session, proceed as indicated below to validate your environment before you start executing the subsequent labs. The following Processes should be up and running:
 
-    ```
-    URL: <copy>http://[your instance public-ip address]:8080/guacamole</copy>
-    ```
+    - Database Listener
+        - LISTENER (1521)
+    - Database Server Instance
+        - IAMDB
+    - Hedwig Mail Server
 
-2. Provide login credentials
+    ![](./images/landing.png " ")
 
-    ```
-    Username: <copy>oracle</copy>
-    ```
-    ```
-    Password: <copy>Guac.LiveLabs_</copy>
-    ```
-
-    ![](./images/guacamole-login.png " ")
-
-    *Note*: There is an underscore `_` character at the end of the password.
-
-3. To launch *Firefox* browser or a *Terminal* client, click on respective icon on the desktop
-
-    ![](./images/guacamole-landing.png " ")
-
-### Login to Host using SSH Key based authentication
-While all command line tasks included in this workshop can be performed from a terminal session from the remote desktop session as shown above, you can optionally use your preferred SSH client.
-
-Refer to *Lab Environment Setup* for detailed instructions relevant to your SSH client type (e.g. Putty on Windows or Native such as terminal on Mac OS):
-  - Authentication OS User - “*opc*”
-  - Authentication method - *SSH RSA Key*
-  - OS User – “*oracle*”.
-
-1. First login as “*opc*” using your SSH Private Key
-
-2. Then sudo to “*oracle*”. E.g.
+2.  Run the following from the *Terminal* session, to validate that the expected processes are up.
 
     ```
-    <copy>sudo su - oracle</copy>
+    <copy>
+    systemctl status hedwig.service
+    systemctl status oracle-database
+    </copy>
     ```
 
-Follow the steps below to Start/Stop SecureOracle components.
+    ![](./images/hedwig.png " ")
+    ![](./images/sql.png " ")
 
-## Task 1: Start and Stop SecureOracle Components
+    If all expected processes are shown in your output as seen above, then your environment is ready for the next task.
 
-1.  From any of the terminal session started above, proceed as shown below to start all components as “*oracle*” user
+3. If you see questionable output(s), failure or down component(s), restart the service accordingly
+
+    ```
+    <copy>
+    sudo systemctl restart oracle-database
+    </copy>
+    ```
+    To restart the *Hedwig Mail server*:
+
+    ```
+    <copy>
+    export JAVA_HOME=/home/oracle/products/jdk
+    sudo -E /home/oracle/demo/hedwig-0.7/bin/run.sh stop
+    sudo -E /home/oracle/demo/hedwig-0.7/bin/run.sh start
+    </copy>
+    ```
+## Task 2: Start OIG Components
+1. Open a new terminal session *remotely using an SSH client* and proceed as shown below to start all components as “*oracle*” user
 
     ```
     <copy>sc start all</copy>
     ```
 
     **Note:** the time to start the OIG components varies between 15-20 minutes.
+        ![OIG components starting](./images/startall.png " ")
 
     For your reference, the following commands are available to start or stop the different components and applications.
 
@@ -84,31 +79,13 @@ Follow the steps below to Start/Stop SecureOracle components.
     sc <start|stop|status> all          // start, stop or status all OIG and OAM components
     ```
 
-2. From the terminal session opened on your remote desktop via the browser, proceed as shown below to launch the **OIG Design Console**
 
-    ```
-    <copy>
-    cd /home/oracle/products/oim/idm/designconsole
-    ./xlclient.sh
-    </copy>
-    ```
-
-3. The **Hedwig Mail Server** can be re-started if you experience issues when connecting with the Roundcube email client. E.g run the following commands to re-start the Hedwig Mail Server as user *opc*:
-
-    ```
-    <copy>
-    export JAVA_HOME=/home/oracle/products/jdk
-    sudo -E /home/oracle/demo/hedwig-0.7/bin/run.sh stop
-    sudo -E /home/oracle/demo/hedwig-0.7/bin/run.sh start
-    </copy>
-    ```
-
-## Task 2: Running Development Tools
+## Task 3: Running Development Tools
 
 The development tools in SecureOracle are aimed to support use cases like editing SOA composites for OIG workflow approvals but also to help in customizing and configuring the different components as needed.
 
 
-1. From the terminal session opened on your remote desktop via the browser, run the following commands to start **Oracle JDeveloper with SOA extensions** :
+1. From the terminal session opened on your remote desktop, run the following commands to start **Oracle JDeveloper with SOA extensions** :
 
     ```
     <copy>
@@ -136,8 +113,7 @@ The development tools in SecureOracle are aimed to support use cases like editin
 
     ```
     <copy>
-    cd ~
-    ./startJDEVSOA.sh
+    ./startSQLDEV.sh
     </copy>
     ```
 
@@ -147,7 +123,6 @@ The development tools in SecureOracle are aimed to support use cases like editin
 
     ```
     <copy>
-    cd ~
   	./startAStudio.sh
     </copy>
     ```
@@ -164,10 +139,8 @@ The development tools in SecureOracle are aimed to support use cases like editin
     </copy>
     ```
 
-## Task 3: Admin Consoles, Applications and User Credentials
-For your convenience, important URLs listed in this step for Admin consoles and Applications used throughout this workshop have been bookmarked and are available on Firefox within your remote desktop session.
+## Task 4: Admin Consoles, Applications and User Credentials
 
-  ![](./images/guacamole-bookmarks.png " ")
 
 If you prefer accessing these from your local computer then chose one of the following options:
 - Use the URLs provided in this section as shown, after adding the host entry below to **`/etc/hosts`** on your local Mac/Linux host or **`C:\Windows\System32\drivers\etc\hosts`** for Microsoft Windows hosts
@@ -251,6 +224,15 @@ If you prefer accessing these from your local computer then chose one of the fol
     User        admin
     Password    Oracle123
     ```
+    **Note**: The **Hedwig Mail Server** can be re-started if you experience issues when connecting with the Roundcube email client. E.g run the following commands to re-start the Hedwig Mail Server as user *opc*:
+
+    ```
+    <copy>
+    export JAVA_HOME=/home/oracle/products/jdk
+    sudo -E /home/oracle/demo/hedwig-0.7/bin/run.sh stop
+    sudo -E /home/oracle/demo/hedwig-0.7/bin/run.sh start
+    </copy>
+    ```
 
     Email Web Client (Roundcube):
 
@@ -324,7 +306,7 @@ If you prefer accessing these from your local computer then chose one of the fol
     Password        Oracle123
     ```
 
-## Task 4: Branding SecureOracle (optional)
+## Task 5: Branding SecureOracle (optional)
 Use the following instructions to customize the logo in the OIG Self Service interface. For illustrations we will use a sample logo image staged on your instance. Feel free to use your own image if preferred. Should you elect to use your own logo, ensure follow the recommended size of 145 x 38 pixels.
 
 1. Copy the image file to *`/home/oracle/products/oim/idm/server/apps/oim.ear/iam-consoles-faces.war/images`*
@@ -369,7 +351,7 @@ Use the following instructions to customize the logo in the OIG Self Service int
 
 1. SecureOracle includes a sample top OIM organization **Oracle Users** and two child departments **Sales** and **Finance**. For each department an administrator account has been defined to demonstrate delegated administration. In addition, sample users have been added to demonstrate manager approval, escalation and organizational transfers.
 
-    ![](./images/img-orgtree.png " ")
+    ![Sample top OIM organization](./images/img-orgtree.png " ")
 
     Figure 4. Sample OIG Organization
 
@@ -377,7 +359,7 @@ Use the following instructions to customize the logo in the OIG Self Service int
 
     ```
     USERNAME        ORGANIZATION     TITLE                        ADMIN ROLE      SCOPE OF CONTROL
-    FINANCEADM      Finance          Administration Assistant     FinanceAdmin    Finance             
+    FINANCEADM      Finance          Administration Assistant     FinanceAdmin    Finance
     SALESADM        Sales            Administration Assistant     SaleseAdmin     Sales
     MGRAFF          Sales            Sales Manager
     HDANIELS        Sales            Sales Manager
@@ -416,5 +398,5 @@ Use these links to get more information about Oracle Identity and Access Managem
 
 ## Acknowledgements
 - **Author** - Ricardo Gutierrez, Solution Engineering - Security and Management
-- **Contributors** - Rene Fontcha
-- **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, December 2020
+- **Contributors** - Rene Fontcha, Sahaana Manavalan
+- **Last Updated By/Date** - Sahaana Manavalan, LiveLabs Developer, NA Technology, March 2022

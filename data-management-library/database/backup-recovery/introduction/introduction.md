@@ -6,7 +6,7 @@ Oracle Database Backup Service (ODBS) is a backup-as-a-service offering that ena
 
 In this workshop, you will learn how to backup and recover your on-premise database to the OCI.
 
-Estimated Lab Time: 2 hours
+Estimated Time: 2.5 hours
 
 ### Objectives
 
@@ -18,15 +18,18 @@ Estimated Lab Time: 2 hours
 
 ### Prerequisites
 
-- An on-premise database version 11.2.0.4 or later
-- An OCI account with proper privileges to access the object storage in OCI.
+- An on-premise database version 11.2.0.4 or later (if you don't have it, you can create one by following the workshop)
 - OCIDs for tenancy, user and compartment
+- An OCI account with proper privileges to access the object storage in OCI
+    * Please view this workshop's LiveLabs landing page to see which environments are supported
+    
+    >**Note:** If you have a **Free Trial** account, when your Free Trial expires, your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available.
+**[Click here for the Free Tier FAQ page.](https://www.oracle.com/cloud/free/faq.html)**
 
-You may now proceed to the next lab.
+You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
 - **Author** - Minqiao Wang, Database Product Management, PTS China - April 2020
 - **Adapted by** -  Yaisah Granillo, Cloud Solution Engineer
-- **Last Updated By/Date** - Minqiao Wang, Sep 2020
-
+- **Last Updated By/Date** - Arabella Yao, Product Manager, Database Product Management, March 2022

@@ -27,4 +27,4 @@ Click on [Sign Up For a Free Trial](?lab=sign-up-for-free-trial) to get your Ora
 ## Acknowledgements
 * **Authors** -  Iván Postigo, Jesus Guerra, Carlos Olivares - Oracle Spain SE Team
 * **Contributors** - Jaden McElvey, Technical Intern Lead - Oracle LiveLabs 
-* **Last Updated By/Date** - Tom McGinn, May 2020
+* **Last Updated By/Date** - Madhusudhan Rao, Apr 2022

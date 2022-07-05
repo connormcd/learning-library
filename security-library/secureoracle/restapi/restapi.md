@@ -50,7 +50,7 @@ This lab assumes you have:
     <copy>
     http --session=oim --print=HBb -a jsmith:Oracle123 \
     POST secureoracle.oracledemo.com:14000/iam/governance/token/api/v1/tokens \
-    X-Requested-By:dummy Content-Type:application/json    
+    X-Requested-By:dummy Content-Type:application/json
     </copy>
     ```
 
@@ -69,7 +69,7 @@ This lab assumes you have:
 
     **Note**: Since we have already stored the access token we don't need to specify the user credentials and HTTPie is able to successful invoke the API as shown in Figure 1.
 
-	![](./images/oim-rest-direct-reports.png " ")
+	![Get Direct Reports API](./images/oim-rest-direct-reports.png " ")
 
     Figure 1. Get Direct Reports API
 
@@ -326,7 +326,7 @@ This lab assumes you have:
   	            ]
   	        }
   	    ]
-  	}    
+  	}
     ```
 
 ## Task 3: OIM Update User Profile
@@ -407,7 +407,7 @@ This lab assumes you have:
   	            "status": "SUCCESS"
   	        }
   	    ]
-  	}    
+  	}
     ```
 
 3. Now that the request has been submitted you can keep track of the request by invoking another API to show the status of the request.
@@ -544,7 +544,7 @@ This lab assumes you have:
   	        }
   	    ],
   	    "totalResult": -1
-  	}    
+  	}
     ```
 
 3. Before you can approve the request, you should create a file containing the request id and approve action. The file has been created already and you just need to update the request id, do so by editing file **`usr_approve.json`**.
@@ -560,7 +560,7 @@ This lab assumes you have:
                 "action": "approve"
             }
         ]
-    }    
+    }
     ```
 
     **Note**: the **id** value has been updated with the value of the request id returned by the previous HTTPie command.
@@ -610,7 +610,7 @@ This lab assumes you have:
   	            "status": "SUCCESS"
   	        }
   	    ]
-  	}    
+  	}
     ```
 
 5. Finally, we can validate if the changes were effective by checking the properties for user **MGRAFF**.
@@ -667,7 +667,7 @@ This lab assumes you have:
   	            ]
   	        }
   	    ]
-  	}    
+  	}
     ```
 
 ## Task 5: OAM Create OAuth Identity Domain
@@ -684,7 +684,7 @@ This lab assumes you have:
     ```
     <copy>
     http --print=HBb -a oamadmin:Oracle123 \
-    POST http://secureoracle.oracledemo.com:8001/oam/services/rest/ssa/api/v1/oauthpolicyadmin/oauthidentitydomain < oam_oauth_domain.json    
+    POST http://secureoracle.oracledemo.com:8001/oam/services/rest/ssa/api/v1/oauthpolicyadmin/oauthidentitydomain < oam_oauth_domain.json
     </copy>
     ```
 
@@ -718,7 +718,7 @@ This lab assumes you have:
   	            "tokenType": "AUTHZ_CODE"
   	        }
   	    ]
-  	}    
+  	}
     ```
 
 ## Task 6: OAM Create OAuth Resource
@@ -835,7 +835,7 @@ This lab assumes you have:
   	attributes = [{"attrName":"sessionId","attrValue":"$session.id","attrType":DYNAMIC},\
   	{"attrName":"resSrvAttr","attrValue":"RESOURCECONST","attrType":STATIC}], \
   	scopes = [DefaultResource.scope1], defaultScope = DefaultResource.scope1, \
-  	redirectURIs = [{"url":"http://localhost:8080/Sample.jsp","isHttps":true}]    
+  	redirectURIs = [{"url":"http://localhost:8080/Sample.jsp","isHttps":true}]
     ```
 
 ## Task 8: OAM Create OAuth Token
@@ -964,7 +964,7 @@ This lab assumes you have:
 
     Sucessfully deleted entity - OAuthResourceServer, detail - DefaultResource
 
-    Sucessfully deleted entity - OAuthIdentityDomain, detail - DefaultDomain    
+    Sucessfully deleted entity - OAuthIdentityDomain, detail - DefaultDomain
     ```
 
 ## Learn More
@@ -976,4 +976,4 @@ Use these links to get more information about Oracle Identity and Access Managem
 ## Acknowledgements
 - **Author** - Ricardo Gutierrez, Solution Engineering - Security and Management
 - **Contributors** - Rene Fontcha
-- **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, December 2020
+- **Last Updated By/Date** - Sahaana Manavalan, LiveLabs Developer, NA Technology, March 2022

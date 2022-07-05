@@ -10,7 +10,7 @@ We will:
 2. Log out and then login again in the Database Actions, now as the new F1 user.
 3. Load the data into the tables as the F1 user.
 
-Estimated Time: 10 minutes
+Estimated Lab Time: 10 minutes
 
 ### Objectives
 - Learn how to load data into the data warehouse, so you can analyze it later.
@@ -38,13 +38,13 @@ This new user/schema will hold the Grand Prix data.
 
    ![ADW Menu](images/open-database-actions.png)
 
-   If asked, login with user **ADMIN**, password **Oracle_12345** (you specified this upon creation of the Autonomous Data Warehouse earlier).
+   If asked, login with user **ADMIN** and the secure password (you specified this upon creation of the Autonomous Data Warehouse earlier).
 
 4. Click the **SQL** tile under **Development** section.
 
     ![ADW Menu](images/open-sql.png)
 
-5. **Download** <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/jC_T4nG83jOCnR93ELi24nCKmGqPZw7GO6fw3vahKqOrFmmbAZcgRcbdzvPwg4mC/n/odca/b/workshops-livelabs-do-not-delete/o/redbull-create-user.sql" target="\_blank">`redbull-create-user.sql`</a>. Save the file on your local machine. Make sure that the file is saved with extension `.sql`.
+5. **Download** <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/cEbDpmx0Imy3-L8SYZK4BQNnVLGVhkN_iJyQyjGc2So4qNse69_dSB513EzX_Hzu/n/fruktknlrefu/b/workshop-redbull-analytics/o/redbull-create-user.sql" target="\_blank">`redbull-create-user.sql`</a>. Save the file on your local machine. Make sure that the file is saved with extension `.sql`.
 
 6. Open the `redbull-create-user.sql` file with a text editor and copy-and-paste all of its contents into the database actions worksheet area. This file will create a new user "F1" for us.
 
@@ -58,17 +58,17 @@ This new user/schema will hold the Grand Prix data.
 
 1. **Download** the 6 files that contain the data that we'll use in our analysis:
 
-   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/vP6XaNcGjlu1W8TThO75ehALwJuA4OgVG_K_LyLEwJ6HGCUjaNIIMOJyYIh1aKxD/n/odca/b/workshops-livelabs-do-not-delete/o/RACES.csv" target="\_blank">Races data</a>
+   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/dx3YybE7Ax5bQWGnbnO-ke42vjb4s9qnaHPoEFPNmDwp5u-nMf-lDTWWfhUmrkNK/n/fruktknlrefu/b/workshop-redbull-analytics/o/RACES.csv" target="\_blank">Races data</a>
 
-   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/TPFi3tHQVT21Ect8sowpATq0DVNb8szksMSK2NX3Oby3o6QmBuWUaSWggPkaqvRd/n/odca/b/workshops-livelabs-do-not-delete/o/LAP_TIMES.csv" target="\_blank">Lap Times data</a>
+   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/M8g8i7K4yo6DSiv9mXN_jVtLIJZSGB4lmEhYZ0mfX9DuwJKAGMafM8XGzw5kIKXn/n/fruktknlrefu/b/workshop-redbull-analytics/o/LAP_TIMES.csv" target="\_blank">Lap Times data</a>
 
-   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/mXEu65kUFpi4Kg7QPt6f7RM4h2jGYvmnFSVV38pb2pi4oBNsmJ3QI-tm120TbO20/n/odca/b/workshops-livelabs-do-not-delete/o/SAFETY_CAR.csv" target="\_blank">Safety Car data</a>
+   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/PlYaI3Fp8SLzYwA_31L2Zj5_3aam_YbMRoIk4C1FEvhgqruQfa76pFyZwM4l2lyx/n/fruktknlrefu/b/workshop-redbull-analytics/o/SAFETY_CAR.csv" target="\_blank">Safety Car data</a>
 
-   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/oWf_acJmIMFN_XTBlVXKhIR97kO8Ww_TU8nU-aHekxD1Fpy1IK49zx_d3w-GqSvq/n/odca/b/workshops-livelabs-do-not-delete/o/PIT_STOPS.csv" target="\_blank">Pit Stop data</a>
+   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/OIUA5aX1tAkmoWpDty8VzBlKxm_TJDY8Sm12K2BbG1palHy5dnXPkfbNB2m0ZVDU/n/fruktknlrefu/b/workshop-redbull-analytics/o/PIT_STOPS.csv" target="\_blank">Pit Stop data</a>
 
-   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/zSiu-rJu8FvLSAzi12UOtZk8S3f8RmRMP1OErBrbTPfBwjFpSIERhW5755yTaIzl/n/odca/b/workshops-livelabs-do-not-delete/o/RESULTS.csv" target="\_blank">Race Results data</a>
+   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/5ijlW0pUZ2yr4wbs_NICe73AemtiCl_iI2fTKr85-vDkirQZs1MAwhpzYIH_w1dZ/n/fruktknlrefu/b/workshop-redbull-analytics/o/RESULTS.csv" target="\_blank">Race Results data</a>
 
-   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/vj6p4kGjYizRm4S_8dOqeUBqBObmxqBaXRA2C4rm_PdRf6K7Ak5s7p2Y5em5Imz6/n/odca/b/workshops-livelabs-do-not-delete/o/DRIVER_STANDINGS.csv" target="\_blank">Driver Ranking data</a>
+   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/LC9WxthFNE_v46C40Wccor1Z9Qw1toNRagnqb4jPMhh3IVk0PbLSN1si5k5sphUk/n/fruktknlrefu/b/workshop-redbull-analytics/o/DRIVER_STANDINGS.csv" target="\_blank">Driver Ranking data</a>
 
    Save the files on your local machine. **Make sure that the files are saved with extension `.csv`**
 
@@ -81,7 +81,7 @@ This new user/schema will hold the Grand Prix data.
    Now log in to Data Actions again using the following:
 
    - Username: F1
-   - Password: Oracle_12345
+   - Password: Provide the secure password for the F1 user
 
 3. Click to the **Data Load** option, under the **Data Tools** section.
 
@@ -114,6 +114,8 @@ This new user/schema will hold the Grand Prix data.
     ![Load Completed](images/load-completed.png)
 
 Congratulations! You've successfully loaded the data into Autonomous Data Warehouse.
+
+You can now proceed to the next lab.
 
 ## **Acknowledgements**
 

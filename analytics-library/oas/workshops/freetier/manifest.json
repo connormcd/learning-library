@@ -8,9 +8,9 @@
       "filename": "../../intro/intro.md"
     },
     {
-      "title": "Getting Started",
+      "title": "Get Started",
       "description": "Login to Oracle Cloud",
-      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login.md"
     },
     {
       "title": "Lab 1: Prepare Setup",
@@ -22,7 +22,7 @@
       "title": "Lab 2: Environment Setup",
       "description": "How to provision the workshop environment and connect to it",
       "publisheddate": "06/30/2020",
-      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/setup-compute-generic/setup-compute-novnc.md"
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/setup-compute-generic/setup-compute-novnc-ssh.md"
     },
     {
       "title": "Lab 3: Initialize Environment",
@@ -33,14 +33,17 @@
     {
       "title": "Lab 4: Self-Service Data Visualization",
       "description": "Self-Service Data Visualization Lab",
-      "filename": "../../self-service-data-visualization/self-service-data-visualization.md",
-      "type": "external"
+      "filename": "../../self-service-data-visualization/self-service-data-visualization.md"
     },
     {
-      "title": "Lab 5: Augmented Analytics",
+      "title": "Lab 5: Self-Service Data Preparation and Enrichment",
+      "description": "Self-Service Data Preparation and Enrichment Lab",
+      "filename": "../../self-service-data-prep/self-service-data-prep.md"
+    },
+    {
+      "title": "Lab 6: Augmented Analytics",
       "description": "Augmented Analytics",
-      "filename": "../../augmented-analytics/augmented-analytics.md",
-      "type": "external"
+      "filename": "../../augmented-analytics/augmented-analytics.md"
     },
     {
       "title": "Need Help?",

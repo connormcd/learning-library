@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I send mails with DBMS SCHEDULER Jobs?",
+         "description": "",
+         "filename": "sprint-sendmail-jobs.md"
+      },
+      {
+         "title": "How can I send mail from Oracle Apex?",
+         "description": "",
+         "filename": "../sprint-send-apexmail/sprint-apex-sendmail.md"
+      }
+   ],
+   "task_type": "Sections"
+}

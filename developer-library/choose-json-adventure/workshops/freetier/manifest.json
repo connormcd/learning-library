@@ -8,9 +8,9 @@
             "filename": "../../intro/intro.md"
         },
         {
-            "title": "Getting Started",
+            "title": "Get Started",
             "description": "Get a Free Trial",
-            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login.md"
         },
         {
             "title": "Lab 1: Provision an Autonomous Database",
@@ -36,12 +36,12 @@
             "title": "Lab 5: Choose your Own JSON Adventure: Relational or Document Store: JSON Documents and SODA",
             "description": "Choose your Own JSON Adventure: Relational or Document Store: JSON Documents and SODA",
             "filename": "../../data-load-soda/data_load_soda.md"
-        },   
+        },
         {
             "title": "Lab 6: Choose your Own JSON Adventure: Relational or Document Store: Exposing the Data for Applications",
             "description": "Choose your Own JSON Adventure: Relational or Document Store: Exposing the Data for Applications",
             "filename": "../../expose-data/expose_data.md"
-        },                    
+        },
         {
             "title": "Need Help?",
             "description": "Solutions to Common Problems and Directions for Receiving Live Help",

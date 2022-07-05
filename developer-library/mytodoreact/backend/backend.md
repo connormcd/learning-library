@@ -2,9 +2,9 @@
 
 ## Introduction
 
-In this lab, you will deploy the pre-built Helidon Java backend Docker image to OKE, then configure the API Gateway.
+In this lab, you will build and deploy the pre-built Helidon Java backend Docker image to OKE, then configure the API Gateway.
 
-Estimated time: 25 minutes
+Estimated time: 15 minutes
 
 Watch the video below for a quick walk through of the lab.
 
@@ -32,238 +32,169 @@ The backend is implemented using the following Java classes (under ./backend/src
 
 ### Objectives
 
-* Set values for environment variables
 * Build and deploy the Docker image of the application
 * Deploy the image on the Oracle Kubernetes Engine (OKE)
-* Describe the steps for undeploying
+* Describe the steps for Undeploying
 * Configure the API Gateway
 * Test the backend application
 
 ### Prerequisites
 
-* This lab requires the completion of the **Setup Dev Environment** tutorial and the provision of the Orace Cloud Infrastructure (OCI) components.
+* This lab requires the completion of the **Setup Dev Environment** tutorial and the provisioning of the Orace Cloud Infrastructure (OCI) components.
 
-## Task 1: Set values for workshop environment variables
+## **Task 1**: Build and Push the Docker Images to the OCI Registry
 
-1. Set the root directory of the workshop.
+The OCI Container Registry is where your Docker images are managed. A container registry should have been created for you in Lab 1 in your compartment.
 
-    ``` bash
-    <copy>export MTDRWORKSHOP_LOCATION=~/mtdrworkshop</copy>
-    ```
+1. Edit ./backend/src/main/java/com/oracle/todoapp/Main.java
 
-2. Run `source addAndSourcePropertiesInBashrc.sh`.
-The following command will set the values of environment variables in `mtdrworkshop.properties` and source `~/.bashrc`.
+    - Locate the following code fragment
 
-    ``` bash
-    <copy>cd $MTDRWORKSHOP_LOCATION; source addAndSourcePropertiesInBashrc.sh</copy>
-    ```
+    ![](images/cors-main-new.png " ")
+    - Replace `eu-frankfurt-1` in  `"https://objectstorage.eu-frankfurt-1.oraclecloud.com"` with your region
 
-## Task 2: Build and push the Docker images to the OCI Registry
+    - Save the file
 
-1. Ensure that the "DOCKER\_REGISTRY" variable is set.
+This will allow the appropriate object storage bucket to access your application.
 
-    ``` bash
-    <copy>echo $DOCKER_REGISTRY</copy>
-    ```
-
-    It should look like the following example:
-    `<region-key>.ocir.io/<object-storage-namespace>/<firstname.lastname>/<repo-name>`.
-    If the variable is not set or is an empty string, the push will fail (but the docker image will be built).
-
-2. Unzip the wallet.zip under the `~/mtdrworkshop/backend/target/classes/wallet` directory.
-
-    ``` bash
-    <copy>cd ~/mtdrworkshop/backend/target/classes/wallet; unzip ~/mtdrworkshop/setup-dev-environment/wallet.zip</copy>
-    ```
-
-3. Copy the `mtdrdb_tp` alias (see the list of aliases in
-./backend/target/classes/wallet/tnsnames.ora).
-![tnsnames-ora](images/tnsnames-ora.png)
-
-4. Edit \~/mtdrworkshop/backend/target/classes/application.yaml to set the database service and user password.
-![application yaml](images/application-yaml.png)
-
-5. Copy the edited application.yaml to ./backend/src/main/resources/application.yaml.
-
-    ``` bash
-    <copy>cp ~/mtdrworkshop/backend/target/classes/application.yaml ~/mtdrworkshop/backend/src/main/resources/application.yaml</copy>
-    ```
-
-6. Edit \~/mtdrworkshop/backend/src/main/java/com/oracle/todoapp/Main.java.
-
-7. Locate the following code fragment.
-![CORS main](images/CORS-Main.png)
-
-8. Replace `eu-frankfurt-1` in `https://objectstorage.eu-frankfurt-1.oraclecloud.com` with your region.
-
-    \* Hint: your region id is displayed in the cloud shell prompt, between parenthesis, as in: joe@cloudshell:classes (**us-phoenix-1**)$
-
-9. Save the file.
-
-10. Run `build.sh` script to build and push the
-microservices images into the repository.
-
-    ``` bash
-    <copy>cd $MTDRWORKSHOP_LOCATION/backend; ./build.sh</copy>
-    ```
-
-    In a few minutes, you would have successfully built and pushed the images into the OCIR repository.
-
-11. Check your container registry **from the root compartment**.
-Go to the Oracle Cloud Console, click the navigation menu in the top-left corner and open **Developer Services** then **Container Registry**.
-![dev services reg](images/21-dev-services-registry.png)
-![registry root comp](images/Registry-root-compart.png)
-
-12. Mark **Access** as **Public** (if **Private**).
-
-13. From the Actions drop-down list, select **Actions** and **Change to public**.
-![public access](images/Public-access.png)
-
-## Task 3: Deploy on Kubernetes and Check the Status
-
-1. Run the `deploy.sh` script.
+2. Run `build.sh` script to build and push the helidon-se image into the repository
 
     ```
-    <copy>cd $MTDRWORKSHOP_LOCATION/backend; ./deploy.sh</copy>
+    <copy>
+    cd $MTDRWORKSHOP_LOCATION/backend
+    </copy>
+    ./build.sh
     ```
+  In a couple of minutes, you should have successfully built and pushed the images into the OCI repository.
 
-    ![deploy -sh](images/deploy-sh.png)
-2. Check the status using the following command; it returns the Kubernetes service of MyToDo application with a load balancer exposed through an external IP address.
-    
-    **$ kubectl get services**
+3. Check your container registry in your compartment
+    - Go to the Console, click the hamburger menu in the top-left corner and open
+    **Developer Services > Container Registry**.
 
-    Repeat the command until the External IP address is shown.
+    ![](images/container-registry.png)
 
-    ``` bash
-    <copy>kubectl get services</copy>
-    ```
+## **Task 2**: Deploy on Kubernetes and Check the Status
 
-    ![K8 service](images/K8-service-Ext-IP.png)
-3. The following command displays the list of PODs.
-    
-    **$ kubectl get pods**
-
-    ``` bash
-    <copy>kubectl get pods</copy>
-    ```
-    ![k8 pods](images/k8-pods.png)
-
-    If the Docker image cannot be retrieved from the registry, you may see  an `ImagePullBackOff` error; in that case, you need to check that the OCR repository is Public then Undeploy the re-deploy.
-
-4. Use the following command to continuously tail the log of one of the PODs.
-    
-    **$ kubectl logs -f**
-
-    ``` bash
-    <copy>kubectl logs -f <POD-name></copy>
-    ```
-
-    **Example:** kubectl logs -f todolistapp-helidon-se-deployment-7fd6dcb778-c9dbv
-
-    Returns http://130.61.66.27/todolist
-
-5. Test end to end from the OKE cluster to the Autonomous database.
-
-    ``` bash
-    <copy>curl http://155.248.198.248/todolist</copy>
-    ```
+1. Run the `deploy.sh` script
 
     ```
-    You should see the record you have created in Lab 1 after the database creation.
+    <copy>
+    cd $MTDRWORKSHOP_LOCATION/backend
+    ./deploy.sh
+    </copy>
     ```
 
-* In **Cloud Shell**, issue the following command (replace the IP address with the **External IP** of your OKE cluster).
-    
-    **$ kubectl logs -f**
+   If everything runs correctly the script will output something like this.
 
-## Task 4: UnDeploy (Only if you must Re-Deploy)
+    ![](images/deploy-output.png)
 
-If you make changes to the image, then you need to delete the service and the pods by running undeploy.sh, then redo the following tasks: **Build and push the Docker images to the OCI Registry** and **Deploy on Kubernetes and Check the Status**.
 
-1. Run the `undeploy.sh` script.
+2. Check the status using the following commands
 
-    ``` bash
-    <copy>cd $MTDRWORKSHOP_LOCATION/backend; ./undeploy.sh</copy>
+    The following command returns the Kubernetes service of MyToDo application with a load balancer exposed through an external API
+        ```
+        <copy>
+        services
+        </copy>
+        ```
+    This will run `kubectl get services` in the background, but the setup script creates aliases for ease of use
+        ![](images/get-services.png)
+
+3. The following command returns all the pods running in your kubernetes cluster:
+    ```
+    <copy>
+    pods
+    </copy>
+    ```
+This will run `kubectl get pods` in the background, but the setup script creates aliases for ease of use
+
+    ![](images/get-pods.png)
+
+5. You can tail the log of one of the pods by running:
+
+    ```
+    <copy>
+    kubectl -n mtdrworkshop logs -f <pod name>
+    </copy>
     ```
 
-2. Rebuild the image + Deploy + (Re)Configure the API Gateway
+  $ kubectl logs -f <pod name>
+  Example: `kubectl -n mtdrworkshop logs -f todolistapp-helidon-se-deployment-7fd6dcb778-c9dbv`
 
-## Task 5: Configure the API Gateway
+    ![](images/pod-logs.png)
 
-The API Gateway protects any RESTful service running on Container Engine for Kubernetes, Compute, or other endpoints through policy enforcement, metrics, and logging.
+  If the logs return `webserver is up!` then you have done everything correctly.
+## **Task 3**: UnDeploy (optional)
+
+  If you make changes to the image, you need to delete the service and the pods by running undeploy.sh then redo Steps 2 & 3.
+
+  1. Run the `undeploy.sh` script
+    ```
+    <copy>
+    cd $MTDRWORKSHOP_LOCATION/backend
+    ./undeploy.sh
+    </copy>
+    ```
+  2. Rebuild the image + Deploy + (Re)Configure the API Gateway
+
+## **Task 4**: Configure the API Gateway
+
+The API Gateway protects any RESTful service running on Container Engine for Kubernetes, Compute, or other endpoints through policy enforcement, metrics and logging.
 Rather than exposing the Helidon service directly, we will use the API Gateway to define cross-origin resource sharing (CORS).
 
-1. From the navigation menu select **Developer Services** then under API Management, select **Gateways**.
-![gateway](images/gateways.png)
+The setup script already creates an API gateway, but you still need to create the deployments in the API gateway.
 
-2. Specify the `mtdrworkshop` compartment on the left side then click **Create Gateway**.
-![click create gateway](images/click-create-gateway.png)
+1. From the hamburger  menu navigate **Developer Services** > **API Management > Gateways**
+   ![](images/api-gateway-navigate.png)
 
-3. Configure the basic info: name, compartment, VCN, and Subnet.
-    * VCN: pick the virtual circuit networks
-    * Subnet: pick the public subnet starting with `oke-svclbsubnet-quick-mtdrworkshopcluster`
-    
-    Then click **Create Gateway**.
-![create gateway](images/create-gateway.png)
-Observe that the ToDolist gateway has been successfully created.
-![gateway](images/Gateway.png)
+2. Click on the todolist gateway that has been created for you
+   ![](images/select-gateway.png)
+
+3. Create a todolist deployment by clicking create deployment
+   ![](images/create-deployment.png)
+
+4. Fill out the basic information like so:
+    ![](images/basic-information-deployment.png)
+5. Configure Cross-origin resource sharing (CORS) policies.
+  - CORS is a security mechanism that will prevent loading resources from unspecified origins (domain, scheme, or port).
+  - Allowed Origins: is the list of all servers (origins) that are allowed to access the API deployment typically your Kubernetes cluster IP.
+  - Replace the `.us-phoenix-1` portion with whichever region you replaced with in task 1.
+  - Replace the 3rd IP address with the external IP address of your Load Balancer
+  - Allowed methods: GET, PUT, DELETE, POST, OPTIONS are all needed.
+
+  To configure CORS, scroll down and click add next to CORS and fill in this information under allowed origins. These are the origins that can load resources to your application.
+
+  ![](images/cors-information.png)
+6. Configure the Headers
+
+    ![](images/headers-new.png)
+
+7. Configure the routes: we will define two routes:
+    - /todolist for the first two APIs: GET, POST and OPTIONS
+
+        ![](images/route-1-new.png)
+
+    - /todolist/{id} for the remaining three APIs: (GET, PUT and DELETE)
+
+        ![](images/route-2-new.png)
 
 
-4. Copy the OCID of the newly created Gateway.
-![Gatway OCID](images/Gateway-OCID.png)
-In the following command, replace $Gateway\_OCID with the copied OCID and save it to the mtdrworkshopgatewayid.txt file.
+## **Task 5**: Testing the Backend Application Through the API Gateway
 
-    ``` bash
-    <copy>echo $Gateway_OCID > ~/mtdrworkshop/workingdir/mtdrworkshopgatewayid.txt</copy>
-    ```
+1. Navigate to the newly create Gateway Deployment Detail and copy the endpoint
+   ![](images/copy-endpoint.png " ")
 
-5. Click **Deployments**.
-![deployment-menu](images/Deployment-menu.png)
+2. Testing through the API Gateway endpoint
+  postfix the gateway endpoint with "/todolist" as shown in the image below
 
-6. Click **Create Deployment**.
-![deployment](images/deployment.png)
+   ![](images/endpoint-successful.png " ")
 
-7. Create a **ToDolist deployment**.
-![deployment](images/Deplyment.png)
-
-8. Configure the Basic info.
-![Basic info](images/APi-Gateway-basic.png)
-
-9. Configure CORS policies.
-![origins methods](images/Origins-Methods.png)
-    * Allowed methods GET, POST, PUT, DELETE, and OPTIONS are all needed
-    * CORS is a security mechanism that will prevent running application loaded from origin A from using resources from origin B
-    * Allowed Origins is the list of all servers (origins) that are allowed to access the API deployment typically of a Kubernetes cluster IP. Replace **us-sanjose-1** by your region, and **155.248.198.248** by the **External IP** of your Kubernetes cluster
-
-10. Configure the headers.
-![headers](images/Headers.png)
-\* Click **Apply changes** to create the CORS policy.
-
-11. Click **Next** to configure two routes.
-
-    \* /todolist for the first two APIs: GET, POST, OPTIONS.
-    ![route](images/Route-1.png)
-    
-    \* After defining a route for `/todolist`, click **Another Route** to define a route for `/todolist/{id}` for the remaining three APIs: GET, PUT, DELETE.
-    ![route](images/Route-2.png)
-
-\* After defining both routes, click **Next**, then click **Create**.
-
-## Task 6: Test the backend application through the API Gateway
-
-1. Navigate to the newly created Gateway Deployment Detail and copy the endpoint.
-![gateway endpoint](images/Gateway-endpoint.png)
-
-2. Test through the **API Gateway endpoint**.
-Postfix the gateway endpoint with "/todolist" as shown in the following screenshot.
-![backend testing](images/Backend-Testing.png)
-
-It should display the row you have created in **Setup Dev Environment**.
+  It should display the Todo Item(s) in the TodoItem table that was created during the setup.
 
 You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
-* **Author** - Kuassi Mensah, Dir. Product Management, Java Database Access
+* **Author** -  Kuassi Mensah, Dir. Product Management, Java Database Access, Peter Song Developer Advocate JDBC
 * **Contributors** - Jean de Lavarene, Sr. Director of Development, JDBC/UCP
-* **Last Updated By/Date** - Arabella Yao,  Database Product Manager, October 2021
+* **Last Updated By/Date** - Peter Song Developer Advocate  February 2022

@@ -339,5 +339,5 @@ This completes this workshop. At this point you know how to use Quick SQL to gen
 ## Acknowledgements
 * **Author** - Salim Hlayel, Principle Product Manager
 * **Contributors** - Oracle LiveLabs QA Team (Jaden McElvey, Technical Lead, Kamryn Vinson, QA Intern, Arabella Yao, Product Manager Intern, DB Product Management)
-- **Last Updated By/Date** - Tom McGinn, Database Innovations Architect, Product Management, July 2020
+- **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

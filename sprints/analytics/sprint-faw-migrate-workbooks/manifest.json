@@ -1,0 +1,12 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-**enterarea**_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I migrate DV workbooks from my test environment to my production environment in Fusion Analytics Warehouse (FAW)?",
+         "description": "Learn how to migrate DV workbooks from a test to production environment in Fusion Analytics Warehouse (FAW).",
+         "filename": "sprint-faw-migrate-workbooks.md"
+      }
+   ],
+   "task_type": "Sections"
+}

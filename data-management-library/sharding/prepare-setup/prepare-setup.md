@@ -7,7 +7,7 @@ This lab will show you how to download the Oracle Resource Manager (ORM) stack z
 
 Watch the video for a quick walk through of the Prepare Setup lab.
 
-[](youtube:DTIGmlj7Y3I) 
+[](youtube:DTIGmlj7Y3I)
 
 ### Objectives
 -   Download ORM stack
@@ -47,7 +47,7 @@ Using the details from the two steps above, proceed to the lab *Environment Setu
 -  Create Stack:  *Compute + Networking*
 -  Create Stack:  *Compute only* with an existing VCN where security lists have been updated as per *Step 2* above
 
-You may now [proceed to the next lab](#next).
+You may now proceed to the next lab.
 
 ## Rate this Workshop
 When you are finished don't forget to rate this workshop!  We rely on this feedback to help us improve and refine our LiveLabs catalog.  Follow the steps to submit your rating.

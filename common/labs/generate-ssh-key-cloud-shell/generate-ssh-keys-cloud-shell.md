@@ -1,4 +1,4 @@
-# Create SSH Keys Using Oracle Cloud Shell
+# Create SSH keys using Oracle Cloud Shell
 
 ## Introduction
 
@@ -9,27 +9,38 @@ We recommend you use the *Oracle Cloud Shell* to interface with the OCI compute 
 *IMPORTANT:  If the SSH key is not created correctly, you will not be able to connect to your environment and will get errors.  Please ensure you create your key properly.*
 
 Watch the video below for an overview of the lab.
-[](youtube:oq2Hk1Yy9Cg)
+[Lab overview](youtube:oq2Hk1Yy9Cg)
 
+Estimated Time: 5 minutes
 
-## About Oracle Cloud Shell
+### Objectives
+In this lab, you will:
+- Generate SSH keys using Oracle cloud shell
+- List content of the public key
+
+### Prerequisites
+* An Oracle Cloud Account - please view this workshop's LiveLabs landing page to see which environments are supported.
+
+### About Oracle Cloud Shell
 
 The Cloud Shell machine is a small virtual machine running a Bash shell which you access through the OCI Console (Homepage). Cloud Shell comes with a pre-authenticated OCI CLI (Command Line Interface), set to the Console tenancy home page region, as well as up-to-date tools and utilities. To use the Cloud Shell machine, your tenancy administrator must grant the required IAM (Identity and Access Management) policy.
 
+## Task 1: Generate SSH Keys
+
 1.  To start the Oracle Cloud shell, go to your Cloud console and click the cloud shell icon at the top right of the page.
 
-    ![](./images/cloudshellopen.png " ")
+    ![Cloud shell open.](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/cloud-shell.png " ")
 
-    ![](./images/cloudshellsetup.png " ")
+    ![Set up cloud shell](./images/cloudshellsetup.png " ")
 
-    ![](./images/cloudshell.png " ")
+    ![Cloud shell](./images/cloudshell.png " ")
 
 2.  Once the cloud shell has started, enter the following commands. Choose the key name you can remember. This will be the keyname you will use to connect to any compute instances you create. Press Enter twice for no passphrase.
 
     ````
     <copy>mkdir .ssh</copy>
     ````
-    ![](./images/mkdir.png " ")
+    ![mkdir](./images/mkdir.png " ")
 
     ````
     <copy>cd .ssh
@@ -37,8 +48,7 @@ The Cloud Shell machine is a small virtual machine running a Bash shell which yo
     ````
     *We recommend using the name cloudshellkey for your keyname but feel free to use the name of choice.*
 
-    ![](./images/cloudshell-ssh.png " ")
-
+    ![Generate SSH key](./images/cloudshell-ssh.png " ")
 
 3.  Examine the two files that you just created.
 
@@ -46,27 +56,26 @@ The Cloud Shell machine is a small virtual machine running a Bash shell which yo
     <copy>ls</copy>
     ````
 
-    ![](./images/ls.png " ")
+    ![Examine files](./images/ls.png " ")
 
-    Note in the output that there are two files, a *private key:* `cloudshellkey` and a *public key:* `cloudshellkey.pub`. Keep the private key safe and don't share its content with anyone. The public key will be needed for various activities and can be uploaded to certain systems as well as copied and pasted to facilitate secure communications in the cloud.
+    >**Note:** In the output, there are two files, a *private key:* `cloudshellkey` and a *public key:* `cloudshellkey.pub`. Keep the private key safe and don't share its content with anyone. The public key will be needed for various activities and can be uploaded to certain systems as well as copied and pasted to facilitate secure communications in the cloud.
 
 4. To list the contents of the public key, use the cat command:
      ```
     <copy>cat cloudshellkey.pub</copy>
      ```
 
-    *Note: The angle brackets <<>> should not appear in your code.*
+    >**Note:** The angle brackets <<>> should not appear in your code.
 
-    ![](images/cat.png " ")
+    ![Cat in cloud shell](./images/cat.png " ")
 
 5.  Copy the contents of the public key and save it somewhere for later. When pasting the key into the compute instance in future labs, make sure that you remove any hard returns that may have been added when copying. *The .pub key should be one line.*
 
-    ![](images/copy-cat.png " ")
+    ![Copy public key](./images/copy-cat.png " ")
 
-You may now [proceed to the next lab](#next).
+You may now **proceed to the next lab**.
 
 ## Acknowledgements
 * **Author** - Dan Kingsley, Enablement Specialist, OSPA
-* **Contributors** - Jaden McElvey, Kamryn Vinson
-* **Last Updated By/Date** - Tom McGinn, Database Product Management, May 2021
-* **Workshop (or Lab) Expiry Date** - May 2022
+* **Contributors** - Jaden McElvey, Kamryn Vinson, Arabella Yao
+* **Last Updated By/Date** - Arabella Yao, Product Manager, Database Product Management, May 2022

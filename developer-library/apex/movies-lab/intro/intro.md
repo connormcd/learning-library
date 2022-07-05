@@ -26,16 +26,16 @@ In this lab, you will:
 | # | Module | Est. Time |
 | --- | --- | --- |
 | - | [Getting Started](?lab=signing-up) | 5 min |
-| 1 | [Creating the Application](?lab=create-app) | 5 min |
-| 2 | [Creating REST Data Sources](?lab=creating-rest-sources) | 15 min |
-| 3 | [Creating the Movie Search Page](?lab=creating-movie-search-page) | 20 min |
-| 4 | [Creating the Movie Details Page](?lab=creating-movie-details-page) | 10 min |
-| 5 | [Creating Local Tables](?lab=creating-tables) | 10 min |
-| 6 | [Implementing Buttons and Badges](?lab=creating-buttons-badges) | 15 min |
-| 7 | [Implementing the Watchlist Page](?lab=implementing-watchlist-page) | 20 min |
-| 8 | [Improving the Movie Details Page](?lab=improving-details-page) | 10 min |
-| 9 | [Adding Cast List (Optional)](?lab=adding-cast-list) | 10 min |
-| 10 | [Improving the Watchlist Page (Optional)](?lab=improving-watchlist-page) | 5 min |
+| 1 | [Create the Application](?lab=create-app) | 5 min |
+| 2 | [Create REST Data Sources](?lab=creating-rest-sources) | 15 min |
+| 3 | [Create the Movie Search Page](?lab=creating-movie-search-page) | 20 min |
+| 4 | [Create the Movie Details Page](?lab=creating-movie-details-page) | 10 min |
+| 5 | [Create Local Tables](?lab=creating-tables) | 10 min |
+| 6 | [Implement Buttons and Badges](?lab=creating-buttons-badges) | 15 min |
+| 7 | [Implement the Watchlist Page](?lab=implementing-watchlist-page) | 20 min |
+| 8 | [Improve the Movie Details Page](?lab=improving-details-page) | 10 min |
+| 9 | [Add Cast List (Optional)](?lab=adding-cast-list) | 10 min |
+| 10 | [Improve the Watchlist Page (Optional)](?lab=improving-watchlist-page) | 5 min |
 
 ### **Let's Get Started!**
 
@@ -44,7 +44,7 @@ In this lab, you will:
 
 ### Downloads
 
-- [Click here](./files/movies-watchlist-full.sql) to download the completed application.
+- [Click here](./files/movies-watchlist.sql) to download the completed application.
 
 ## Learn More - *Useful Links*
 
@@ -61,4 +61,4 @@ In this lab, you will:
 
 - **Author** - Paige Hanssen
 - **Additional Contributors** - Kay Jasanya, Shakeeb Rahman, Steve Muench, Monica Godoy, Eli Feuerstein, Carlos Maciel, Dalia Vazquez
-- **Last Updated By/Date** - Paige Hanssen, November 2021
+- **Last Updated By/Date** - Paige Hanssen, March 2022

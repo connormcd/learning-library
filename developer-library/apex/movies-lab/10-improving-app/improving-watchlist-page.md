@@ -1,4 +1,4 @@
-# Improving the My Watchlist Page (Optional)
+# Improve the My Watchlist Page (Optional)
 
 ## Introduction
 There are a few more UI additions you can make to your app to really pull it all together and create the best user experience possible. This includes adding a welcome region for users when their Watchlist is empty to help them get started, customizing the Watchlist Cards style, and cleaning up the UI to remove unnecessary items.
@@ -12,7 +12,10 @@ In this lab, you will:
 - Remove the navigation menu.  
 - Add the Oracle APEX footer.
 
-## Task 1: Creating a Get Started Region
+### Prerequisites
+- Completion of workshop through Lab 8
+
+## Task 1: Create a Get Started Region
 When a user logs into the Movies Watchlist app for the first time, they will not have any movies and the My Watchlist page will be blank. It would be helpful if there were a welcome message to assist users in getting started if there are no movies on the page.
 
 1. In the Page Designer tab in your browser, navigate to page 1 of your application.
@@ -73,7 +76,7 @@ When a user logs into the Movies Watchlist app for the first time, they will not
 
     ![](images/10-1-8-runtime-app.png " ")
 
-## Task 2: Styling the Movie Cards
+## Task 2: Style the Movie Cards
 On the My Watchlist page, the cards that display the movies in the watchlist are very tall, and you can only see one full movie at a time without scrolling. It would be much better if you were able to view multiple movies on the same screen without having to scroll. You can add a little custom CSS to make this happen.
 
 1. In the rendering pane, click on **Page 1: My Watchlist**.
@@ -102,7 +105,7 @@ On the My Watchlist page, the cards that display the movies in the watchlist are
 
     ![](images/10-2-4-runtime-app.png " ")
 
-## Task 3: Removing the NavBar and Adding Page Footer
+## Task 3: Remove the NavBar and Add Page Footer
 You can put a couple finishing touches on your app UI by modifying the Application Properties, which are properties that are applied across the entire app, instead of individual pages and regions.
 
 1. In the Page Designer tab, go to your Application home.
@@ -133,7 +136,7 @@ You can put a couple finishing touches on your app UI by modifying the Applicati
 
     ![](images/10-3-7-runtime-app.png " ")
 
-8. You have now completed your Movies Watchlist application and can search for movies and add them to your watchlist. However, there are many ways to continue to add functionality to and customize your application. You can check out the Resources section in this lab to learn about different ways you can enhance your app, including components that you can implement and API requests you can make to get additional data.
+You have now completed your Movies Watchlist application and can search for movies and add them to your watchlist. However, there are many ways to continue to add functionality to and customize your application. You can check out the Resources section in this lab to learn about different ways you can enhance your app, including components that you can implement and API requests you can make to get additional data.
 
 ## Resources
 - [Universal Theme Components](https://apex.oracle.com/pls/apex/apex_pm/r/ut/components)  
@@ -147,6 +150,12 @@ Stuck on a step or struggling with the lab? You can download a copy of the Movie
 
 - You can import Lab 10 to your APEX workspace by clicking **Import** in the App Builder home page and following the wizard steps.
 
-- If you have not previously imported Lab 4 or higher, follow the instructions in the <a href="?lab=creating-movie-details-page#Stuck?DownloadtheApplicationHere" target="_blank">Stuck?</a> section of Lab 4 to provide credentials for the Movie Details REST source and the Movie Cast source (Lab 9).
+- When you are prompted by the install wizard for Credentials, follow the instructions in the <a href="?lab=creating-movie-details-page#Stuck?DownloadtheApplicationHere" target="_blank">Stuck?</a> section of Lab 4 to provide credentials for the Movie Cast REST data source as well as Movie Details.
 
-- Follow the instructions in the <a href="?lab=creating-rest-sources#Stuck?DownloadtheApplicationHere" target="_blank">Stuck?</a> section of Lab 2 to update the Popular and Search Movies API keys.
+- Follow the instructions in the <a href="?lab=creating-movie-search-page#Stuck?DownloadtheApplicationHere" target="_blank">Stuck?</a> section of Lab 3 to update the Popular and Search Movies API keys.
+
+## Acknowledgments
+
+- **Author** - Paige Hanssen
+- **Additional Contributors** - Kay Jasanya, Shakeeb Rahman, Steve Muench, Monica Godoy, Eli Feuerstein, Carlos Maciel, Dalia Vazquez
+- **Last Updated By/Date** - Paige Hanssen, March 2022

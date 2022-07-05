@@ -39,7 +39,7 @@ This lab walks you through the steps to create an instance of an Oracle Virtual 
 * [Oracle Cloud Infrastructure: Network Setup for DB Systems](https://docs.cloud.oracle.com/en-us/iaas/Content/Database/Tasks/network.htm)
 
 ## Acknowledgements
-* **Author** -Tom McGinn, Learning Architect, Database User Assistance
+* **Author** - Kay Malcolm, Database Product Management
 * **Contributors** - Kamryn Vinson, Database Product Management
-* **Last Updated By/Date** - Kamryn Vinson, November 2020
+* **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

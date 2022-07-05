@@ -18,9 +18,9 @@ Estimated Lab Time: 45 minutes
 
 ## Task 1: Enable Data Guard
 
-1. On Oracle cloud console, click on hamburger menu ≡, then **Bare Metal, VM, and Exadata** under Oracle Database. Click **WS-DB** DB System. 
+1. On Oracle cloud console, click on main menu ≡, then **Bare Metal, VM, and Exadata** under Oracle Database. Click **WS-DB** DB System. 
 
-2. Add to your notes the Availability Domain you see on the DB System Information page (e.g. IWcS:EU-FRANKFURT-1-AD-3).
+2. Add to your notes the Availability Domain you see on the DB System Information page (e.g. IWcS:EU-FRANKFURT-1-AD-1).
 
 3. On the DB System Details page, click the database name link **WSDB** in the bottom table called Databases.
 
@@ -28,28 +28,28 @@ Estimated Lab Time: 45 minutes
 
 5. Click **Data Guard Associations** in the lower left menu. Click **Enable Data Guard**. Provide the following details:
 
-    - Display name: WS-DBSb
+    - Display name: WS-DBStb
     - Availability domain: AD2 (different from your DB System AD)
     - Select a shape: VM.Standard2.1
-    - Virtual cloud network: WS-VCN
-    - Client Subnet: Public Subnet
-    - Hostname prefix: WS-hostsb
+    - Virtual cloud network: LLXXXXX-VCN
+    - Client Subnet: LLXXXXX-SUBNET-PUBLIC Public Subnet
+    - Hostname prefix: db-hoststb
     - Protection mode: Maximum Performance
-    - Password: DBlabsPTS#22_
+    - Password: DatabaseCloud#22_
 
 6. Click **Enable Data Guard**.
 
-7. Click ≡, then **Bare Metal, VM, and Exadata** under Oracle Database. Or use the breadcrumbs link **DB Systems**. Click **WS-DBSb** DB System. Status is Provisioning...
+7. Click ≡, then **Bare Metal, VM, and Exadata** under Oracle Database. Or use the breadcrumbs link **DB Systems**. Click **WS-DBStb** DB System. Status is Provisioning...
 
-8. If you want to see more details, click **Work Requests** in the lower left menu. Check Operation Create Data Guard having status In Progress... Wait until your Standby DB System is Available. On **WS-DBSb** DB System details page, click **Nodes** in the lower left menu, and and copy Public IP Address and Private IP Address in your notes.
+8. If you want to see more details, click **Work Requests** in the lower left menu. Check Operation Create Data Guard having status In Progress... Wait until your Standby DB System is Available. On **WS-DBStb** DB System details page, click **Nodes** in the lower left menu, and and copy Public IP Address and Private IP Address in your notes.
 
 ## Task 2: Connect to Standby DB System
 
-1. From your Compute node, connect to the Standby DB System node using SSH.
+1. Connect to the Standby DB System node using SSH (Use Putty on Windows).
 
     ````
     <copy>
-    ssh -C -i id_rsa opc@<Standby Node Private IP Address>
+    ssh -C -i Downloads/ssh-key-XXXX-XX-XX.key opc@<Standby Node Public IP Address>
     </copy>
     ````
 
@@ -86,26 +86,28 @@ Estimated Lab Time: 45 minutes
     <copy>
     CONNECT sysdg;
     </copy>
-    Password: DBlabsPTS#22_
-    Connected to "DBS001_fra2qq"
+    Password: DatabaseCloud#22_
+    Connected to "WSDB_fra2qq"
     Connected as SYSDBA.
     ````
 
 5. The SHOW CONFIGURATION command displays a summary and status of the broker configuration.
 
-6. The summary lists all members included in the broker configuration and other information pertaining to the broker configuration itself, including the fast-start failover status and the transport lag and apply lag of all standby databases. Write down in your notes the names of the two databases, Primary and Physical standby, and their role (e.g. DBS001_fra3hb - Primary, DBS001_fra2qq - Physical standby).
+6. The summary lists all members included in the broker configuration and other information pertaining to the broker configuration itself, including the fast-start failover status and the transport lag and apply lag of all standby databases. Write down in your notes the names of the two databases, Primary and Physical standby, and their role (e.g. `WSDB_fra3hb - Primary`, `WSDB_fra2qq - Physical standby`).
+
+    >**Note** : If you receive an error message `ORA-16525: The Oracle Data Guard broker is not yet available. Configuration details cannot be determined by DGMGRL`, check the status of the WSDB Database on WS-DBStb DB System Details page under Databases list at the bottom. Also make sure Create Data Guard operation has completed on WS-DB DB System Details > Work Requests page. Or wait a couple of miutes, and run again the `SHOW CONFIGURATION` command.
 
     ````
     <copy>
     SHOW CONFIGURATION;
     </copy>
 
-    Configuration - DBS001_fra3hb_DBS001_fra2qq
+    Configuration - WSDB_fra3hb_WSDB_fra2qq
 
       Protection Mode: MaxPerformance
       Members:
-      DBS001_fra3hb - Primary database
-        DBS001_fra2qq - Physical standby database 
+      WSDB_fra3hb - Primary database
+        WSDB_fra2qq - Physical standby database 
 
     Fast-Start Failover:  Disabled
 
@@ -117,18 +119,18 @@ Estimated Lab Time: 45 minutes
 
     ````
     <copy>
-    SHOW DATABASE VERBOSE 'DBS001_fra3hb';
+    SHOW DATABASE VERBOSE 'WSDB_fra3hb';
     </copy>
 
-    Database - DBS001_fra3hb
+    Database - WSDB_fra3hb
 
       Role:               PRIMARY
       Intended State:     TRANSPORT-ON
       Instance(s):
-        DBS001
+        WSDB
 
       Properties:
-        DGConnectIdentifier             = 'DBS001_fra3hb'
+        DGConnectIdentifier             = 'WSDB_fra3hb'
         ObserverConnectIdentifier       = ''
         FastStartFailoverTarget         = ''
         PreferredObserverHosts          = ''
@@ -167,13 +169,13 @@ Estimated Lab Time: 45 minutes
         SendQEntries                    = '(monitor)'
         RecvQEntries                    = '(monitor)'
         HostName                        = 'dbs01h'
-        StaticConnectIdentifier         = '(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=dbs01h)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=DBS001_fra3hb_DGMGRL.sub07141037280.rehevcn.oraclevcn.com)(INSTANCE_NAME=DBS001)(SERVER=DEDICATED)))'
+        StaticConnectIdentifier         = '(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=dbs01h)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=WSDB_fra3hb_DGMGRL.sub07141037280.rehevcn.oraclevcn.com)(INSTANCE_NAME=WSDB)(SERVER=DEDICATED)))'
         TopWaitEvents                   = '(monitor)'
         SidName                         = '(monitor)'
 
       Log file locations:
-        Alert log               : /u01/app/oracle/diag/rdbms/dbs001_fra3hb/DBS001/trace/alert_DBS001.log
-        Data Guard Broker log   : /u01/app/oracle/diag/rdbms/dbs001_fra3hb/DBS001/trace/drcDBS001.log
+        Alert log               : /u01/app/oracle/diag/rdbms/WSDB_fra3hb/WSDB/trace/alert_WSDB.log
+        Data Guard Broker log   : /u01/app/oracle/diag/rdbms/WSDB_fra3hb/WSDB/trace/drcWSDB.log
 
     Database Status:
     SUCCESS
@@ -183,10 +185,10 @@ Estimated Lab Time: 45 minutes
 
     ````
     <copy>
-    SHOW DATABASE 'DBS001_fra2qq';
+    SHOW DATABASE 'WSDB_fra2qq';
     </copy>
 
-    Database - DBS001_fra2qq
+    Database - WSDB_fra2qq
 
       Role:               PHYSICAL STANDBY
       Intended State:     APPLY-ON
@@ -195,7 +197,7 @@ Estimated Lab Time: 45 minutes
       Average Apply Rate: 0 Byte/s
       Real Time Query:    ON
       Instance(s):
-        DBS001
+        WSDB
 
     Database Status:
     SUCCESS
@@ -248,7 +250,7 @@ Estimated Lab Time: 45 minutes
 
 2. On the DB System Details page, click the database name link **WSDB** in the bottom table called Databases.
 
-3. Click **Data Guard Associations** in the lower left menu. Observe Peer DB System and it's details like Peer Role, Shape, Availability Domain. Click right menu **⋮** > **Switchover**. Enter the database admin password: DBlabsPTS#22_.
+3. Click **Data Guard Associations** in the lower left menu. Observe Peer DB System and it's details like Peer Role, Shape, Availability Domain. Click right menu **⋮** > **Switchover**. Enter the database admin password: DatabaseCloud#22_.
 
 4. Status will change to Updating... Click **Work Requests** in the lower left menu, and the Operation name link. Here you can see Log Messages, Error Messages, Associated Resources.
 
@@ -268,8 +270,8 @@ Estimated Lab Time: 45 minutes
     <copy>
     CONNECT sysdg;
     </copy>
-    Password: DBlabsPTS#22_
-    Connected to "DBS001_fra2qq"
+    Password: DatabaseCloud#22_
+    Connected to "WSDB_fra2qq"
     Connected as SYSDBA.
     ````
 
@@ -280,12 +282,12 @@ Estimated Lab Time: 45 minutes
     SHOW CONFIGURATION;
     </copy>
 
-    Configuration - DBS001_fra3hb_DBS001_fra2qq
+    Configuration - WSDB_fra3hb_WSDB_fra2qq
 
       Protection Mode: MaxPerformance
       Members:
-      DBS001_fra2qq - Primary database
-        DBS001_fra3hb - Physical standby database 
+      WSDB_fra2qq - Primary database
+        WSDB_fra3hb - Physical standby database 
 
     Fast-Start Failover:  Disabled
 
@@ -297,15 +299,15 @@ Estimated Lab Time: 45 minutes
 
     ````
     <copy>
-    SHOW DATABASE 'DBS001_fra2qq';
+    SHOW DATABASE 'WSDB_fra2qq';
     </copy>
 
-    Database - DBS001_fra2qq
+    Database - WSDB_fra2qq
 
       Role:               PRIMARY
       Intended State:     TRANSPORT-ON
       Instance(s):
-        DBS001
+        WSDB
 
     Database Status:
     SUCCESS
@@ -339,9 +341,9 @@ Fast-start failover allows the broker to automatically fail over to a previously
       Lag Limit:          30 seconds
 
       Threshold:          30 seconds
-      Active Target:      DBS001_fra3hb
-      Potential Targets:  "DBS001_fra3hb"
-        DBS001_fra3hb valid
+      Active Target:      WSDB_fra3hb
+      Potential Targets:  "WSDB_fra3hb"
+        WSDB_fra3hb valid
       Observer:           (none)
       Shutdown Primary:   TRUE
       Auto-reinstate:     TRUE
@@ -364,18 +366,18 @@ Fast-start failover allows the broker to automatically fail over to a previously
 
     ````
     <copy>
-    SHOW DATABASE 'DBS001_fra2qq' FastStartFailoverTarget;
+    SHOW DATABASE 'WSDB_fra2qq' FastStartFailoverTarget;
     </copy>
-      FastStartFailoverTarget = 'DBS001_fra3hb'
+      FastStartFailoverTarget = 'WSDB_fra3hb'
     ````
 
 4. And vice versa.
 
     ````
     <copy>
-    SHOW DATABASE 'DBS001_fra3hb' FastStartFailoverTarget;
+    SHOW DATABASE 'WSDB_fra3hb' FastStartFailoverTarget;
     </copy>
-      FastStartFailoverTarget = 'DBS001_fra2qq'
+      FastStartFailoverTarget = 'WSDB_fra2qq'
     ````
 
 ## Task 5: Change Protection Mode
@@ -401,7 +403,7 @@ Maximum Availability mode provides the highest level of data protection that is 
 
     ````
     <copy>
-    EDIT DATABASE 'DBS001_fra2qq' SET PROPERTY LogXptMode='SYNC';
+    EDIT DATABASE 'WSDB_fra2qq' SET PROPERTY LogXptMode='SYNC';
     </copy>
     Property "logxptmode" updated
     ````
@@ -410,7 +412,7 @@ Maximum Availability mode provides the highest level of data protection that is 
 
     ````
     <copy>
-    EDIT DATABASE 'DBS001_fra3hb' SET PROPERTY LogXptMode='SYNC';
+    EDIT DATABASE 'WSDB_fra3hb' SET PROPERTY LogXptMode='SYNC';
     </copy>
     Property "logxptmode" updated
     ````
@@ -431,14 +433,14 @@ Maximum Availability mode provides the highest level of data protection that is 
     SHOW CONFIGURATION;
     </copy>
 
-    Configuration - DBS001_fra3hb_DBS001_fra2qq
+    Configuration - WSDB_fra3hb_WSDB_fra2qq
 
       Protection Mode: MaxAvailability
       Members:
-      DBS001_fra2qq - Primary database
+      WSDB_fra2qq - Primary database
         Warning: ORA-16629: database reports a different protection level from the protection mode
 
-        DBS001_fra3hb - Physical standby database 
+        WSDB_fra3hb - Physical standby database 
 
     Fast-Start Failover:  Disabled
 
@@ -453,12 +455,12 @@ Maximum Availability mode provides the highest level of data protection that is 
     SHOW CONFIGURATION;
     </copy>
 
-    Configuration - DBS001_fra3hb_DBS001_fra2qq
+    Configuration - WSDB_fra3hb_WSDB_fra2qq
 
       Protection Mode: MaxAvailability
       Members:
-      DBS001_fra2qq - Primary database
-        DBS001_fra3hb - Physical standby database 
+      WSDB_fra2qq - Primary database
+        WSDB_fra3hb - Physical standby database 
 
     Fast-Start Failover:  Disabled
 
@@ -472,7 +474,7 @@ Maximum Availability mode provides the highest level of data protection that is 
 
     ````
     <copy>
-    EDIT DATABASE 'DBS001_fra3hb' SET STATE='APPLY-OFF';
+    EDIT DATABASE 'WSDB_fra3hb' SET STATE='APPLY-OFF';
     </copy>
     Succeeded.
     ````
@@ -481,10 +483,10 @@ Maximum Availability mode provides the highest level of data protection that is 
 
     ````
     <copy>
-    SHOW DATABASE 'DBS001_fra3hb';
+    SHOW DATABASE 'WSDB_fra3hb';
     </copy>
 
-    Database - DBS001_fra3hb
+    Database - WSDB_fra3hb
 
       Role:               PHYSICAL STANDBY
       Intended State:     APPLY-OFF
@@ -493,7 +495,7 @@ Maximum Availability mode provides the highest level of data protection that is 
       Average Apply Rate: (unknown)
       Real Time Query:    OFF
       Instance(s):
-        DBS001
+        WSDB
 
     Database Status:
     SUCCESS
@@ -502,7 +504,7 @@ Maximum Availability mode provides the highest level of data protection that is 
 
     ````
     <copy>
-    EDIT DATABASE 'DBS001_fra3hb' SET STATE='APPLY-ON';
+    EDIT DATABASE 'WSDB_fra3hb' SET STATE='APPLY-ON';
     </copy>
     Succeeded.
     ````
@@ -511,10 +513,10 @@ Maximum Availability mode provides the highest level of data protection that is 
 
     ````
     <copy>
-    SHOW DATABASE 'DBS001_fra3hb';
+    SHOW DATABASE 'WSDB_fra3hb';
     </copy>
 
-    Database - DBS001_fra3hb
+    Database - WSDB_fra3hb
 
       Role:               PHYSICAL STANDBY
       Intended State:     APPLY-ON
@@ -523,7 +525,7 @@ Maximum Availability mode provides the highest level of data protection that is 
       Average Apply Rate: 8.00 KByte/s
       Real Time Query:    ON
       Instance(s):
-        DBS001
+        WSDB
 
     Database Status:
     SUCCESS
@@ -539,11 +541,11 @@ Maximum Availability mode provides the highest level of data protection that is 
 
 ## Task 7: Test Fast-Start Failover with Maximum Availability 
 
-1. On Oracle cloud console, click ≡, then **Bare Metal, VM, and Exadata** under Oracle Database. Click **WS-DBSb** DB System.
+1. On Oracle cloud console, click ≡, then **Bare Metal, VM, and Exadata** under Oracle Database. Click **WS-DBStb** DB System.
 
 2. On the DB System Details page, click the database name link **WSDB** in the bottom table called Databases.
 
-3. Click **Data Guard Associations** in the lower left menu. Click **⋮** > **Switchover**. Enter the database admin password: DBlabsPTS#22_. Wait for the status to become Available.
+3. Click **Data Guard Associations** in the lower left menu. Click **⋮** > **Switchover**. Enter the database admin password: DatabaseCloud#22_. Wait for the status to become Available.
 
 4. Launch DGMGRL.
 
@@ -559,8 +561,8 @@ Maximum Availability mode provides the highest level of data protection that is 
     <copy>
     CONNECT sysdg;
     </copy>
-    Password: DBlabsPTS#22_
-    Connected to "DBS001_fra2qq"
+    Password: DatabaseCloud#22_
+    Connected to "WSDB_fra2qq"
     Connected as SYSDBA.
     ````
 

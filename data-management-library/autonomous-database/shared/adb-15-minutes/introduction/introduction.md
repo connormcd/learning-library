@@ -28,7 +28,7 @@ The workshop's business scenario is based on Oracle MovieStream - a fictitious m
 
 ## Acknowledgements
 * **Author** - Marty Gubar, Product Manager
-* **Last Updated By/Date** - Marty Gubar, Product Manager, November 2021
+* **Last Updated By/Date** - Richard Green, Principal Developer, Database User Assistance, February 2022
 
 Data about movies in this workshop were sourced from **Wikipedia**.
 

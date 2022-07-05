@@ -18,10 +18,6 @@ In this lab, you will:
 
 
 ## Task 1: Choose Autonomous Database from the Services Menu
-</if>
-<if type="livelabs">
-## Task 1: Choose Autonomous Database from the Services Menu
-</if>
 
 1. Log in to the Oracle Cloud Interface.
 2. Once you log in, you arrive at the cloud services dashboard where you can see all the services available to you. Click the navigation menu in the upper left to show top level navigation choices and then click **Autonomous Database**.
@@ -32,7 +28,7 @@ In this lab, you will:
 
 1. Click **Create Autonomous Database** to start the instance creation process.
 
-    ![Click Create Autonomous Database.](./images/Picture100-23.png " ")
+    ![Click Create Autonomous Database.](./images/create-adb-button.png " ")
 
 2.  This brings up the __Create Autonomous Database__ screen where you will specify the configuration of the instance.
 
@@ -60,26 +56,26 @@ In this lab, you will:
     ![Enter the required details.](./images/livelabs-adwname.png " ")
 </if>
 
-4. Choose __Data Warehouse__ workload type: 
+4. Choose __Data Warehouse__ workload type:
 
-    ![Choose a workload type.](./images/Picture100-26b.png " ")
+    ![Choose a workload type.](./images/adb-workload-type.png " ")
 
 5. Choose __Shared Infrastructure__ deployment type:
 
-    ![Choose a deployment type.](./images/Picture100-26_deployment_type.png " ")
+    ![Choose a deployment type.](./images/adb-deployment-type.png " ")
 
 6. Configure the database:
 
     - __Always Free__ - If your Cloud Account is an Always Free account, you can select this option to create an always free autonomous database. An always free database comes with 1 CPU and 20 GB of storage. For this lab, we recommend you leave Always Free unchecked.
     - __Choose database version__ - Select 19c as the database version.
-    - __OCPU count__ - Number of CPUs for your service. For this lab, specify __2 CPUs__. If you choose an Always Free database, it comes with 1 CPU.
+    - __OCPU count__ - Number of CPUs for your service. For this lab, specify __1 CPUs__. If you choose an Always Free database, it comes with 1 CPU.
     - __Storage (TB)__ - Select your storage capacity in terabytes. For this lab, specify __1 TB__ of storage. Or, if you choose an Always Free database, it comes with 20 GB of storage.
     - __Auto Scaling__ - For this lab, keep auto scaling enabled, to enable the system to automatically use up to three times more CPU and IO resources to meet workload demand.
     - __New Database Preview__ - If a checkbox is available to preview a new database version, do NOT select it.
 
     > **Note:** You cannot scale up/down an Always Free autonomous database.
 
-    ![Choose the remaining parameters.](./images/Picture100-26c.png " ")
+    ![Choose the remaining parameters.](./images/adb-configure.png " ")
 
 7. Create administrator credentials:
 
@@ -91,14 +87,16 @@ In this lab, you will:
     - The password must not be the same password that you set less than 24 hours ago.
     - Re-enter the password to confirm it. Make a note of this password.
 
-    ![Enter password and confirm password.](./images/Picture100-26d.png " ")
+    ![Enter password and confirm password.](./images/admin-credential.png " ")
 
 8. Choose network access:
     - For this lab, accept the default, "Secure access from everywhere."
-    - If you want a private endpoint, to allow traffic only from the VCN you specify - where access to the database from all public IPs or VCNs is blocked, then select "Virtual cloud network" in the Choose network access area.
-    - You can control and restrict access to your Autonomous Database by setting network access control lists (ACLs). You can select from 4 IP notation types: IP Address, CIDR Block, Virtual Cloud Network, Virtual Cloud Network OCID).
+    - If you want to allow traffic only from the IP addresses and VCNs you specify - where access to the database from all public IPs or VCNs is blocked, select "Secure access from allowed IPs and VCNs only" in the Choose network access area.
+    - If you want to restrict access to a private endpoint within an OCI VCN, select "Private endpoint access only" in the Choose network access area.
+    - If the "Require mutual TLS (mTLS) authentication" option is selected, mTLS will be required to authenticate connections to your Autonomous Database. TLS connections allow you to connect to your Autonomous Database without a wallet, if you use a JDBC thin driver with JDK8 or above. See the [documentation for network options](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/support-tls-mtls-authentication.html#GUID-3F3F1FA4-DD7D-4211-A1D3-A74ED35C0AF5) for options to allow TLS, or to require only mutual TLS (mTLS) authentication.
 
-    ![Choose the network access.](./images/allow-secure-everywhere.png " ")
+    ![Choose the network access type.](./images/Picture100-26e.png " ")
+
 
 9. Choose a license type. <if type="freetier">For this lab, choose __License Included__.</if><if type="livelabs">For this lab, choose __Bring Your Own License (BYOL)__.</if> The two license types are:
     - __Bring Your Own License (BYOL)__ - Select this type when your organization has existing database licenses.
@@ -108,14 +106,18 @@ In this lab, you will:
     ![](./images/license.png " ")
 </if>
 <if type="livelabs">
-    ![](images/livelabs-byol.png)
+    ![](./images/livelabs-byol.png)
 </if>
 
-10. Click __Create Autonomous Database__.
+10. For this lab, do not provide a contact email address. The "Contact Email" field allows you to list contacts to receive operational notices and announcements as well as unplanned maintenance notifications.
 
-11.  Your instance will begin provisioning. In a few minutes, the state will turn from Provisioning to Available. At this point, your Autonomous Database is ready to use! Have a look at your instance's details here including its name, database version, OCPU count, and storage size.
+    ![Do not provide a contact email address.](images/contact-email-field.png)
 
-    ![Database instance homepage.](./images/Picture100-32.png " ")
+11. Click __Create Autonomous Database__.
+
+12.  Your instance will begin provisioning. In a few minutes, the state will turn from Provisioning to Available. At this point, your Autonomous Database is ready to use! Have a look at your instance's details here including its name, database version, OCPU count, and storage size.
+
+    ![Database instance homepage.](./images/adb-provisioning.png " ")
     Provisioning an Autonomous Database instance.
 
     ![Database instance homepage.](./images/adb-provisioned.png " ")

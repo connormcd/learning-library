@@ -6,10 +6,6 @@ This workshop introduces you to Oracle Machine Learning for Python (OML4Py) on O
 
 Python is a major programming language used for data science and machine learning. OML4Py is a feature on Oracle Database that provides Python users access to powerful in-database functionality supporting data scientists for both scalability, performance, and ease of solution deployment.  
 
-Watch the quick video on Introduction to Oracle Machine Learning for Python (OML4Py).
-
-[] (youtube:wciO-5CyS2M)
-
 Estimated Time:  2 hours 50 min
 
 ### **About Oracle Machine Learning for Python (OML4Py)**

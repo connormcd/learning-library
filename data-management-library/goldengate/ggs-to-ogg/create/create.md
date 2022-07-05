@@ -17,10 +17,10 @@ A **database registration** captures source or target database credential inform
 In this lab, you will:
 
 * Create an OCI GoldenGate deployment
-* Review the OCI GoldenGate deployment details
-* Access the OCI GoldenGate deployment console
 * Register the source and target databases
 * Enable the GGADMIN user and supplemental logging
+* Review the OCI GoldenGate deployment details
+* Access the OCI GoldenGate deployment console
 
 ### Prerequisites
 
@@ -34,76 +34,47 @@ This lab assumes that you completed all preceding labs.
 
     ![](images/database-goldengate.png " ")
 
-    You're brought to the **Deployments** page.
+    You're brought to the **Overview** page.
 
     ![](images/01-01-02a.png " ")
 
-2.  You may need to select a compartment. Under List Scope, from the Compartment dropdown, expand the root compartment, and then select your compartment.
+2.  Click **Create Deployment**.
 
-3.  On the Deployments page, click **Create Deployment**.
+    ![](images/01-02-create-dep.png " ")
 
-    ![](images/01-02-01.png " ")
+3.  In the Create Deployment panel, enter **GGSDeployment** for Name.
 
-4.  In the Create Deployment panel, enter **GGSDeployment** for Name.
+4.  From the Compartment dropdown, select your compartment.
 
-5.  From the Compartment dropdown, select a compartment.
+5.  For OCPU Count, enter **1**.
 
-6.  For OCPU Count, enter **2**.
+6.  For Subnet, select the public subnet you created in Lab 1. You may need to click **Change Compartment** to locate your subnet.
 
-7.  For Subnet, select the public subnet you created in Lab 1.
+7.  For License type, select **Bring You Own License (BYOL)**.
 
-8.  For License type, select **Bring You Own License (BYOL)**.
-
-9.  Click **Show Advanced Options**, and then select **Create Public Endpoint**.
+8.  Click **Show Advanced Options**, and then select **Create Public Endpoint**.
 
     ![](images/01-02-create-deployment-panel.png " ")
 
-10. Click **Next**.
+9. Click **Next**.
 
-11. For GoldenGate Instance Name, enter **ogginstance**.
+10. For GoldenGate Instance Name, enter **ogginstance**.
 
-12. For Administrator Username, enter **oggadmin**.
+11. For Administrator Username, enter **oggadmin**.
 
-13. For Administrator Password, enter a password. Take note of this password.
+12. For Administrator Password, enter a password. Take note of this password.
 
-14. Click **Create**.
+13. Click **Create**.
 
 You're brought to the Deployment Details page. It takes a few minutes for the deployment to be created. Its status will change from CREATING to ACTIVE when it is ready for you to use.
 
-
-## Task 2: Review the Deployment Details
-
-On the Deployment Details page, you can:
-
-* Review the deployment's status
-* Launch the GoldenGate service deployment console
-* Edit the deployment's name or description
-* Stop and start the deployment
-* Move the deployment to a different compartment
-* Review the deployment resource information
-* Add tags
-
-  ![](images/01-03-gg-deployment-details.png " ")
-
-## Task 3: Launch the GoldenGate Deployment Console
-
-1. When the deployment is active, click **Launch Console**.
-
-    ![](images/04-01-ggs-launchconsole.png " ")
-
-2. To log in to the GoldenGate deployment console, enter **oggadmin** for User Name and the password you created in Task 1 of this lab, and then click **Sign In**.
-
-    ![](images/04-02-ggs-deploymentconsole-signin.png " ")
-
-After you log in successfully, you're brought to the GoldenGate deployment console home page. Here, you can access the GoldenGate Administration, Performance Metrics, Distribution, and Receiver Servers, as well as add Extracts and Replicats for your data replication tasks.
-
-## Task 4: Register the Source and Target Database
+## Task 2: Register the Source and Target Database
 
 Now, follow the steps below to register the source and target Autonomous Database instances.
 
 *For the purposes of this workshop, registering the target Autonomous Database is purely used for its connection string to help you create the credential in the Oracle GoldenGate Marketplace instance.*
 
-1.  In the OCI Console breadcrumb, click **GoldenGate**, and then **Registered Databases**.
+1.  In the Oracle Cloud Console breadcrumb, click **GoldenGate**, and then **Registered Databases**.
 
     ![](images/04-01-breadcrumb.png " ")
 
@@ -113,23 +84,27 @@ Now, follow the steps below to register the source and target Autonomous Databas
 
 3.  In the Register Database panel, enter **SourceATP** for Name and Alias.
 
-4.  Click **Select Database**.
+4.  For Compartment, select your compartment from the dropdown.
 
-5.  For **Database Type**, select **Autonomous Database**.
+5.  Click **Select Database**.
 
-6.  For **Database in &lt;compartment-name&gt;**, select **SourceATP**.
+6.  For **Database Type**, select **Autonomous Database**.
 
-7.  For **Database User Password**, enter a password, and take note of this password for use later in this workshop. You can use the database passwords provided in the Workshop Details.
+7.  For **Database in &lt;compartment-name&gt;**, select **SourceATP**. You may need to click **Change Compartment** to locate your database.
 
-8.  Click **Register**.
+8.  For **Database User Password**, enter a password, and take note of this password for use later in this workshop. If running this workshop from Oracle LiveLabs, you can use the database passwords provided in the Workshop Details.
+
+9.  Click **Register**.
 
     ![](images/reg-sourceATP.png " ")
 
-9.  Repeat these steps for the Target Autonomous Database.
+10. On the Registered Databases page, under List Scope, ensure that you select your compartment from the dropdown to see your registered databases.
+
+11. Repeat these steps for the Target Autonomous Database.
 
 The source and target databases appear in the list of Registered Databases. The database becomes Active after a few minutes.
 
-## Task 5: Enable the GGADMIN User
+## Task 3: Unlock the GGADMIN User and add supplemental logging
 
 Although the GGADMIN user is created during the database registration process, it is disabled by default. The following steps guide you through how to enable the GGADMIN user.
 
@@ -141,7 +116,7 @@ Although the GGADMIN user is created during the database registration process, i
 
     ![](images/05-02.png " ")
 
-3.  On the SourceATP Database Details page, click **Tools**, and then click **Open Database Actions**.
+3.  On the SourceATP Database Details page, click **Database Actions**.
 
     ![](images/05-04.png " ")
 
@@ -163,6 +138,32 @@ Although the GGADMIN user is created during the database registration process, i
 
 9.  Repeat steps 1 to 7 to enable the ggadmin user for **TargetADW**. Log out of Database Actions when you're done.
 
+## Task 4: Review the Deployment Details
+
+On the Deployment Details page, you can:
+
+* Review the deployment's status
+* Launch the GoldenGate service deployment console
+* Edit the deployment's name or description
+* Stop and start the deployment
+* Move the deployment to a different compartment
+* Review the deployment resource information
+* Add tags
+
+  ![](images/01-03-gg-deployment-details.png " ")
+
+## Task 5: Launch the GoldenGate Deployment Console
+
+1. When the deployment is active, click **Launch Console**.
+
+    ![](images/04-01-ggs-launchconsole.png " ")
+
+2. To log in to the GoldenGate deployment console, enter **oggadmin** for User Name and the password you created in Task 1 of this lab, and then click **Sign In**.
+
+    ![](images/04-02-ggs-deploymentconsole-signin.png " ")
+
+After you log in successfully, you're brought to the GoldenGate deployment console home page. Here, you can access the GoldenGate Administration, Performance Metrics, Distribution, and Receiver Servers, as well as add Extracts and Replicats for your data replication tasks.
+
 In this lab, you created the OCI GoldenGate deployment and registered the source and target databases. You may now **proceed to the next lab**.
 
 ## Learn More
@@ -173,4 +174,4 @@ In this lab, you created the OCI GoldenGate deployment and registered the source
 ## Acknowledgements
 * **Author** - Jenny Chan, Consulting User Assistance Developer, Database User Assistance
 * **Contributors** -  Julien Testut, Database Product Management
-* **Last Updated By/Date** - Jenny Chan, November 2021
+* **Last Updated By/Date** - Jenny Chan, February 2022

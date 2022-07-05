@@ -28,6 +28,6 @@ You may now [proceed to the next lab](#next).
 For any technical issues related to the IAM upgrade process itself, please contact Oracle support through the same Proactive SR that was created to initiate this lab. SMEs will monitor the SR and respond to any questions or issues.
 
 ## Acknowledgements
-* **Author** - Anbu Anbarasu, Director, Cloud Platform COE  
+* **Author** - Anbu Anbarasu, Director, Cloud Platform COE
 * **Contributors** -  Eric Pollard - Sustaining Engineering, Ajith Puthan - IAM Support, Rene Fontcha
-* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, April 2021
+* **Last Updated By/Date** - Sahaana Manavalan, LiveLabs Developer, NA Technology, May 2022

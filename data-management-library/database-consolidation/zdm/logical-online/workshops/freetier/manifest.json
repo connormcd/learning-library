@@ -1,54 +1,52 @@
 {
     "workshoptitle": "Zero Downtime Migration: Logical Online Migration to Autonomous Database",
 
-    "help": "livelabs-help-**enterarea**_us@oracle.com",
+    "help": "livelabs-help-db_us@oracle.com",
     "tutorials": [
         {
             "title": "Introduction",
-            "description": "",
             "filename": "../../introduction/introduction.md"
         },
         {
-            "title": "Getting Started",
             "description": "This is the prerequisites for customers using Free Trial and Paid tenancies, and Always Free accounts (if applicable). The title of the lab and the Contents Menu title (the title above) match for Prerequisite lab. This lab is always first.",
+            "title": "Get Started",
             "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
         },
         {
-            "title": "Lab 1: Creating SSH Keys",
-            "description": "Labs that follow the introduction are numbered, starting with Lab 1",
-            "filename": "../../generate-ssh-key/generate-ssh-keys.md"
+            "title": "Lab 1: Create SSH keys",
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/generate-ssh-key-cloud-shell/generate-ssh-keys-cloud-shell.md"
         },
         {
-            "title": "Lab 2: Setup a Compute Instance and Source Database",
-            "filename":"../../setup-compute/setup-19c-freetier.md"
+            "title": "Lab 2: Setup a compute instance and source database",
+            "filename":"https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/setup-compute/setup-19c-freetier.md"
         },
         {
-            "title": "Lab 3: Connecting to Source Database and Creating Migration User",
+            "title": "Lab 3: Connect to source database and creating migration user",
             "filename": "../../database-config/database-config.md"
         },
         {
-            "title": "Lab 4: Provisioning the Target Autonomous Database",
-            "filename": "../../adb-provision-conditional/adb-provision-conditional.md"
+            "title": "Lab 4: Provision the target autonomous database",
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/data-management-library/autonomous-database/shared/adb-provision/adb-provision-conditional.md"
         },
         {
-            "title": "Lab 5: Configuring the GoldenGate Hub",
+            "title": "Lab 5: Configure the GoldenGate hub",
             "filename": "../../goldengate-hub/goldengate-hub.md"
         },
         {
-            "title": "Lab 6: Configuring the ZDM Environment",
+            "title": "Lab 6: Configure the ZDM environment",
             "filename": "../../host-environment/host-environment.md"
         },
         {
-            "title": "Lab 7: Token and Authentication Credential Management",
+            "title": "Lab 7: Configure token authentication, credentials and object storage",
             "filename": "../../credentials/credentials.md"
         },
 
         {
-            "title": "Lab 8: Preparing the Response File",
+            "title": "Lab 8: Configure the response file",
             "filename": "../../response-file/response-file.md"
         },
         {
-            "title": "Lab 9: Migrating your Database",
+            "title": "Lab 9: Migrate your database",
             "filename": "../../migration/migration.md"
         },
         {

@@ -3,8 +3,10 @@
 ## Introduction 
 
 Oracle Cloud Infrastructure provides a number of Software Development Kits (SDKs) to facilitate development of custom solutions. SDKs allow you to build and deploy apps that integrate with Oracle Cloud Infrastructure services. Each SDK also includes tools and artifacts you need to develop an app, such as code samples and documentation. In addition, if you want to contribute to the development of the SDKs, they are all open source and available on GitHub.
+
  
-You can invoke OCI Language capabilities through the OCI SDKs.  In this lab session, we will show several code snippets to access OCI Language through the OCI SDKs. You do not need to execute the snippets, but review them to understand what information and steps are needed to implement your own integration.
+You can invoke OCI Language capabilities through the OCI SDKs. In this lab session, we will show several code snippets to access OCI Language through the OCI SDKs. You do not need to execute the snippets, but review them to understand what information and steps are needed to implement your own integration. In addition, you can find OCI Language samples in different programming languages in this [github repository](https://github.com/oracle/oci-data-science-ai-samples/tree/master/ai_services/language).
+
 
 #### 1. [SDK for Java](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/javasdk.htm#SDK_for_Java)
 #### 2. [SDK for Python](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/pythonsdk.htm#SDK_for_Python)
@@ -61,7 +63,7 @@ Copy the values shown on the console.
 
 Create a config file in the .oci folder and paste the values copied.
 Replace the key_file value with the path of your generated API Key.
-    ![](./images/config2.png " ")
+    ![](./images/conf2.png " ")
 
 
 
@@ -114,39 +116,59 @@ Now Install oci by running:
 ```Python
 <copy>
 import oci
-
-text = "Zoom interface is really simple and easy to use. The learning curve is very short thanks to the interface. It is very easy to share the Zoom link to join the video conference. Screen sharing quality is just ok. Zoom now claims to have 300 million meeting participants per day. It chose Oracle Corporation co-founded by Larry Ellison and headquartered in Redwood Shores , for its cloud infrastructure deployments over the likes of Amazon, Microsoft, Google, and even IBM to build an enterprise grade experience for its product. The security feature is significantly lacking as it allows people to zoom bomb"
-
-#Create Language service client with user config default values. Please follow below link to setup ~/.oci directory and user config
-#https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdkconfig.htm
-#https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/configuration.html
-
-ai_client = oci.ai_language.AIServiceLanguageClient(oci.config.from_file())
-
-
-#Detect Entities
-detect_language_entities_details = oci.ai_language.models.DetectLanguageEntitiesDetails(text=text)
-output = ai_client.detect_language_entities(detect_language_entities_details)
+ 
+ai_client = oci.ai_language.AIServiceLanguageClient(oci.config.from_file(), service_endpoint="https://language.aiservice.us-ashburn-1.oci.oraclecloud.com")
+#Input Text
+text1 = "The Indy Autonomous Challenge is the worlds first head-to-head, high speed autonomous race taking place at the Indianapolis Motor Speedway"
+text2 = "Using high-performance GPU systems in the Oracle Cloud, OCI will be the cloud engine for the artificial intelligence models that drive the MIT Driverless cars competing in the Indy Autonomous Challenge."
+ 
+#language Detection of Input Documents
+doc1 = oci.ai_language.models.DominantLanguageDocument(key="doc1", text=text1)
+doc2 = oci.ai_language.models.DominantLanguageDocument(key="doc2", text=text2)
+documents = [doc1, doc2]
+ 
+batch_detect_dominant_language_details = oci.ai_language.models.BatchDetectDominantLanguageDetails(documents=documents)
+output = ai_client.batch_detect_dominant_language(batch_detect_dominant_language_details)
 print(output.data)
-
-#Detect Language
-detect_dominant_language_details = oci.ai_language.models.DetectDominantLanguageDetails(text=text)
-output = ai_client.detect_dominant_language(detect_dominant_language_details)
+ 
+ 
+#Text Classification of Input Documents
+doc1 = oci.ai_language.models.TextClassificationDocument(key="doc1", text=text1)
+doc2 = oci.ai_language.models.TextClassificationDocument(key="doc2", text=text2)
+documents = [doc1, doc2]
+ 
+batch_detect_language_text_classification_details = oci.ai_language.models.BatchDetectLanguageTextClassificationDetails(documents=documents)
+output = ai_client.batch_detect_language_text_classification(batch_detect_language_text_classification_details)
 print(output.data)
-
-#Detect KeyPhrases
-detect_language_key_phrases_details = oci.ai_language.models.DetectLanguageKeyPhrasesDetails(text=text)
-output = ai_client.detect_language_key_phrases(detect_language_key_phrases_details)
+ 
+ 
+#Named Entity Recoginiton of Input Documents
+doc1 = oci.ai_language.models.EntityDocument(key="doc1", text=text1)
+doc2 = oci.ai_language.models.EntityDocument(key="doc2", text=text2)
+documents = [doc1, doc2]
+ 
+batch_detect_language_entities_details = oci.ai_language.models.BatchDetectLanguageEntitiesDetails(documents=documents)
+output = ai_client.batch_detect_language_entities(batch_detect_language_entities_details)
 print(output.data)
-
-#Detect Sentiment
-detect_language_sentiments_details = oci.ai_language.models.DetectLanguageSentimentsDetails(text=text)
-output = ai_client.detect_language_sentiments(detect_language_sentiments_details)
+ 
+ 
+#Key Phrase Detection of Input Documents
+doc1 = oci.ai_language.models.KeyPhraseDocument(key="doc1", text=text1)
+doc2 = oci.ai_language.models.KeyPhraseDocument(key="doc2", text=text2)
+documents = [doc1, doc2]
+ 
+batch_detect_language_key_phrases_details = oci.ai_language.models.BatchDetectLanguageKeyPhrasesDetails(documents=documents)
+output = ai_client.batch_detect_language_key_phrases(batch_detect_language_key_phrases_details)
 print(output.data)
-
-#Detect Text Classification
-detect_language_text_classification_details = oci.ai_language.models.DetectLanguageTextClassificationDetails(text=text)
-output = ai_client.detect_language_text_classification(detect_language_text_classification_details)
+ 
+ 
+#Aspect based and Sentence level Sentiment Analysis of Input Documents
+doc1 = oci.ai_language.models.SentimentsDocument(key="doc1", text=text1)
+doc2 = oci.ai_language.models.SentimentsDocument(key="doc2", text=text2)
+documents = [doc1, doc2]
+ 
+batch_detect_language_sentiment_details = oci.ai_language.models.BatchDetectLanguageSentimentsDetails(documents=documents)
+output = ai_client.batch_detect_language_sentiments(batch_detect_language_sentiment_details,  level=["ASPECT","SENTENCE"])
 print(output.data)
 </copy>
 ```
@@ -190,4 +212,4 @@ Congratulations on completing this lab!
     * Rajat Chawla  - Oracle AI Services
     * Ankit Tyagi -  Oracle AI Services
 * **Last Updated By/Date**
-    * Srijon Sarkar  - Oracle AI Services, September 2021
+    * Rajat Chawla  - Oracle AI Services, February 2021

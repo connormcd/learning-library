@@ -8,28 +8,24 @@
         "filename": "../../intro/intro.md"
       },
       {
-        "title": "Login to Oracle Cloud",
-        "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login-livelabs.md"
+        "title": "Get Started",
+        "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login-livelabs2.md"
       },
       {
-        "title": "Lab 1: Provision ADB",
-        "filename": "../../connect-provision-adb/connect-provision-adb.md"
-      },
-      {
-        "title": "Lab 2: Create Machine Learning Model",
+        "title": "Lab 1: Build Machine Learning Model",
         "description": "Explore Zeppelin notebooks and create a ML model on customer credit data set.",
-        "filename":  "../../create-ml-model/create-ml-model.md"
+        "filename":  "../../create-ml-model/create-ml-model-ll2.md"
       },
       {
-        "title": "Lab 3: Migrate ML Model to ATP",
+        "title": "Lab 2: Migrate ML Model to ATP",
         "description": "Export the ML model from ADW and import into ATP",
         "type": "livelabs",
-        "filename": "../../move-model-to-db/move-model-to-db.md"
+        "filename": "../../move-model-to-db/move-model-to-db-ll2.md"
       },
       {
-        "title": "Lab 4: Using Prediction in an Application",
+        "title": "Lab 3: Using Prediction in an Application",
         "description": "Set up the ATP environment, import and APEX application and explore how ADB can be embedded into applications.",
-        "filename": "../../integrate-with-app/integrate-with-app.md"
+        "filename": "../../integrate-with-app/integrate-with-app-ll2.md"
       },
       {
         "title": "Need Help?",

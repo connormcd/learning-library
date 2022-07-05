@@ -7,7 +7,7 @@
             "filename":"../../introduction/introduction.md"
         },
         {
-          "title": "Getting Started",
+          "title": "Get Started",
           "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
         },
         {
@@ -19,7 +19,7 @@
              "filename":"../../setup-vcn/setup-vcn.md"
          },
         {
-             "title": "Lab 3: Configuring a development system for Oracle Forms Application from Marketplace in OCI",
+             "title": "Lab 3: Configure a development system for Oracle Forms Application from Marketplace in OCI",
              "filename":"../../setup-oracle-forms/setup-oracle-forms.md"
          },
         {

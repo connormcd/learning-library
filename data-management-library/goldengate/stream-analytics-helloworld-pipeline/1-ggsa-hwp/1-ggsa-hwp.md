@@ -1,5 +1,5 @@
 
-# Your HelloWorld Pipeline in 15 minutes!
+# Create Your HelloWorld Pipeline
 
 ## Introduction
 
@@ -29,30 +29,39 @@ This Lab assumes you have:
 
 Create a CSV file on your local drive with the data below:
 
-```
-<copy>
+    ```
+    <copy>
+    ProductLn,ProductType,Product,OrderMethod,CountrySold,QuantitySold,UnitSalePrice
+    Personal Accessories,Watches,Legend,Special,Brazil,1,240
+    Outdoor Protection,First Aid,Aloe Relief,E-mail,United States,3,5.23
+    Camping Equipment,Lanterns,Flicker Lantern,Telephone,Italy,3,35.09
+    Camping Equipment,Lanterns,Flicker Lantern,Fax,United States,4,35.09
+    Golf Equipment,Irons,Hailstorm Steel Irons,Telephone,Spain,5,461
+    </copy>
 
- ProductLn,ProductType,Product,OrderMethod,CountrySold,QuantitySold,UnitSalePrice
- Personal Accessories,Watches,Legend,Special,Brazil,1,240
- Outdoor Protection,First Aid,Aloe Relief,E-mail,United States,3,5.23
- Camping Equipment,Lanterns,Flicker Lantern,Telephone,Italy,3,35.09
- Camping Equipment,Lanterns,Flicker Lantern,Fax,United States,4,35.09
- Golf Equipment,Irons,Hailstorm Steel Irons,Telephone,Spain,5,461
-</copy>
-
-```
+    ```
 
 ## **Task 2:** Log in to GoldenGate Stream Analytics
 
-To log in to the GGSA instance:
+You should be already logged in after completing the lab *Initialize Environment*. If that's not the case, perform the following:
 
-1. In the Chrome browser, enter the host url **``<host>``: 9080/osa**.
+1. Double click on the *Get Started with Your Workshop* icon on the upper left corner in your remote desktop to launch a fresh browser session.
 
-2. Use the following credentials:
+    ![Get Started with your Workshop](../initialize-environment/images/get-started-icon.png "")
 
-* **User Name:** **osaadmin**
+2. On the web browser window on the right preloaded with *GoldenGate Stream Analytics* login page, provide the credentials below to login:
 
-* **Password:** **welcome1**
+    - Username
+
+    ```
+    <copy>osaadmin</copy>
+    ```
+
+    - Password
+
+    ```
+    <copy>xY3q3svdHt8=</copy>
+    ```
 
 ## **Task 3:** Create a File Stream
 
@@ -62,11 +71,11 @@ To create a File stream:
 
 2. Select **File** from the list, to display the **Create Stream** screen.
 
- ![Creating a File stream](./images/CreateStream.png "")
+    ![Creating a File stream](./images/CreateStream.png "")
 
 3. Select **Create Pipeline with this source (Launch Pipeline Editor)**.
 
- ![Launching Pipeline Editor from the Create Stream screen](./images/CreateStream2.png "")
+    ![Launching Pipeline Editor from the Create Stream screen](./images/CreateStream2.png "")
 
 4. Click **Next**, to update the source details.
 
@@ -76,7 +85,7 @@ To upload the CSV file:
 
 1. On the **Source Details** screen, click **Upload File** to browse and upload the CSV file that you had created in **Task 1**.
 
- ![Uploading a CSV file as the source stream](./images/fileupload.png "")
+    ![Uploading a CSV file as the source stream](./images/fileupload.png "")
 
 2. Click **Next**, to display the **Data Format** screen.
 
@@ -86,7 +95,7 @@ To set the first record as header:
 
 1. On the **Data Format** screen, select **First record as header**.
 
- ![Setting the first record as Header, in a File stream](./images/filerecasfrmt.png "")
+    ![Setting the first record as Header, in a File stream](./images/filerecasfrmt.png "")
 
 2. Click **Next**, to infer shape for the event.
 
@@ -96,7 +105,7 @@ To infer shape from stream:
 
 1. On the **Shape** screen, ensure **Infer Shape** and **From Stream** options are selected, and verify if the shape of the event is successfully inferred as shown in following screenshot.
 
- ![Inferring Shape from a File stream](./images/shape.png "")
+    ![Inferring Shape from a File stream](./images/shape.png "")
 
 2. Click **Save**, to open the **Create Pipeline** screen.
 
@@ -106,7 +115,7 @@ To create a pipeline:
 
 1. On the **Create Pipeline** screen, enter a name for the pipeline, and click **Save** to launch the Pipeline Editor.
 
- ![Creating a Pipeline](./images/createpplne.png "")
+    ![Creating a Pipeline](./images/createpplne.png "")
 
 
 ## **Task 8:** View the Pipeline in the Pipeline Editor
@@ -115,7 +124,7 @@ To create a pipeline:
 
 2. You should eventually see the following screen, with a single node representing the source stream in the left pane, and the **Sources** used in the pipeline, in the right pane.
 
- ![Viewing a pipeline in the pipeline editor](./images/pplneditor.png "")
+    ![Viewing a pipeline in the pipeline editor](./images/pplneditor.png "")
 
 ## **Task 9:** Add a Query Stage
 
@@ -135,7 +144,7 @@ To add a **Filter** to a **Query** stage:
 
 2. Click **Add a Filter**. In this example, the filter is **QuantitySold is greater than 4**, as shown in the following screenshot.
 
- ![Adding a Filter to a Query Stage](./images/addquery.png "")
+    ![Adding a Filter to a Query Stage](./images/addquery.png "")
 
 ## **Task 11:** Publish the Pipeline
 
@@ -143,16 +152,13 @@ To publish the pipeline:
 
 1. Click **Publish** on the top-right corner.
 
- ![Publishing a pipeline](./images/pubpplne.png "")
+    ![Publishing a pipeline](./images/pubpplne.png "")
 
 2. Publish with defaults, for your pipeline to filter data in real-time.
 
 **Note:**
-
 * The pipeline continues to run even after you log out, because the pipeline is now in published state.
-
 * By default, the Pipeline is in *Draft* state, and quitting the pipeline editor without publishing removes the pipeline and releases all cluster resources.
-
 
 ## Learn More
 
@@ -166,5 +172,5 @@ To publish the pipeline:
 
 ## Acknowledgements
 * **Author** - Pratibha Manjunath, Senior User Assistance Developer, GoldenGate Stream Analytics
-* **Contributors** - Prabhu Thukaram, Senior Director, Software Development
-* **Last Updated By/Date** - Pratibha Manjunath, GoldenGate Stream Analytics, December 2021
+* **Contributors** - Prabhu Thukaram, Rene Fontcha
+* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, January 2022

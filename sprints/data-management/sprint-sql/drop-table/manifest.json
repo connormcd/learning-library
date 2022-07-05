@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How can I drop a table in the Oracle database?",
+         "description": "",
+         "filename": "./drop-table.md"
+      },
+      {
+         "title": "How can I un-drop a table in the Oracle database?",
+         "description": "",
+         "filename": "../undrop-table/undrop-table.md"
+      }
+   ],
+   "task_type": "Sections"
+}

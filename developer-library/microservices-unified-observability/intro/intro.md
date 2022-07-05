@@ -8,7 +8,7 @@ Estimated Workshop Time: 50 minutes
 
 ###About Product/Technology
 
-Diagnosability and performance optimization use cases will be demonstrated as will the ability to configure and customize the framework to suite your own use cases. 
+Examples will be demonstrated as will the ability to configure and customize the framework to suite your own use cases. 
 
 ###Objectives
 
@@ -44,12 +44,15 @@ You may now **proceed to the next lab.**.
 
 ## Learn More
 
+* Ask for help and connect with developers on the [Oracle DB Microservices Slack Channel](https://bit.ly/oracle-db-microservices-help-slack)
+
+* [Observability Exporters](https://github.com/oracle/oracle-db-appdev-monitoring)
 * [Multitenant Database–Oracle 19c](https://www.oracle.com/database/technologies/multitenant.html)
 * [Oracle Advanced Queuing](https://docs.oracle.com/en/database/oracle/oracle-database/19/adque/aq-introduction.html)
 * [Microservices Architecture with the Oracle Database](https://www.oracle.com/technetwork/database/availability/trn5515-microserviceswithoracle-5187372.pdf)
 * [https://developer.oracle.com/](https://developer.oracle.com/)
 
 ## Acknowledgements
-* **Author** - Paul Parkinson, Architect and Developer Advocate
-* **Last Updated By/Date** - Paul Parkinson, August 2021
+* **Author** - Paul Parkinson, Architect and Developer Advocate;
+* **Last Updated By/Date** - Paul Parkinson, June 2022
 

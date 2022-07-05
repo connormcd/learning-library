@@ -4,11 +4,15 @@
 
 In this lab we will build a Neural Network to recognize handwritten digits. We will cover the required theory behind Neural Networks first, after which you will go on and put the theory into practice using the OCI Data Science service.
 
-Estimated lab time: 45 minutes (video +/- 15 minutes, exercise +/- 30 minutes)
+Estimated lab time: 45 minutes
 
-This video will cover the theory behind Neural Networks.
+This video covers the theory behind Neural Networks.
 
-[](youtube:jp5QVjbJbOo)
+[](youtube:l5K4mT-lK1s)
+
+This video covers a walkthrough of the lab.
+
+[](youtube:JAxoDXCSoPQ)
 
 ### Objectives
 
@@ -43,7 +47,7 @@ In this lab you will:
 
 ## Task 2: Install additional Python library idx2numpy
 
-   In this lab we will require two Python library that by default are not installed in this Conda environment. We need `keras` to construct our model. And we need `idx2numpy` to convert the source images from IDX format to a native array format for our Neural Network. We need.
+   In this lab we will require two Python library that by default are not installed in this Conda environment. We need `idx2numpy` to convert the source images from IDX format to a native array format for our Neural Network. We need.
 
    1. Open terminal
 
@@ -57,8 +61,7 @@ In this lab you will:
 
    ```bash
    <copy>
-   conda activate /home/datascience/conda/mlcpuv1
-   pip install keras
+   conda activate /home/datascience/conda/tensorflow27_p37_cpu_v1
    pip install idx2numpy
    </copy>
    ```
@@ -69,10 +72,10 @@ In this lab you will:
 
     ```bash
     <copy>
-    wget https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/Ho9fpzRD-oStl0uhuDUlZGPbx0ViU66I7oZ1vnUm2k_IIjO5LTVh6jOooThfCxFY/n/odca/b/datascienceworkshop/o/t10k-images-idx3-ubyte.gz
-    wget https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/3PRsmdGc7G3cRm6wQ2nMuWPQQjakgqulvGy7_arPExK8QDa5zp9_NwYJqSpI3Ymj/n/odca/b/datascienceworkshop/o/t10k-labels-idx1-ubyte.gz
-    wget https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/kGVKLYuKWDoVeUHthfQ3nximY9ZThHKwFzG5B9bEVr11OXlL6u-mq0D0srcnTHWJ/n/odca/b/datascienceworkshop/o/train-images-idx3-ubyte.gz
-    wget https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/RzExCygu_bw-C57Dq6gy-UCL3r1ttYiAqxfy1uiejt35JDYwP7zLB_AYQSB-J6Xa/n/odca/b/datascienceworkshop/o/train-labels-idx1-ubyte.gz
+    wget https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/5t4gtifxrnSyjpYuc70BMBV6fWNhRHj-FUo2b_VEa9Bop34yIk73XVF8OmLVy9Nz/n/fruktknlrefu/b/workshop-intro-to-ds/o/t10k-images-idx3-ubyte.gz
+    wget https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/wgfLMBs7fPcK7klIKXF-vIL_BqEe8v_L78t672AltbZvh8WBR9mDxPsXqI_MZpCB/n/fruktknlrefu/b/workshop-intro-to-ds/o/t10k-labels-idx1-ubyte.gz
+    wget https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/Skr5lcD2TTI2SaRYeIwW0SeO_lsK6aMxE5AZkbtugiztM-9GUE72PpdO4sxPpKzm/n/fruktknlrefu/b/workshop-intro-to-ds/o/train-images-idx3-ubyte.gz
+    wget https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/mSnhaBVg9EA2ebeyDmnw1lDwGLQJ4vMYx9mrAZuAmEvXjIHxwZzc99EA5tb1qvFj/n/fruktknlrefu/b/workshop-intro-to-ds/o/train-labels-idx1-ubyte.gz
     </copy>
     ```
 
@@ -95,9 +98,9 @@ In this lab you will:
 
 1. Start the Python notebook
 
-   It is important to select the Python environment with the Conda environment that we just installed. Look for the notebook that uses Conda **"mlcpuv1"** and open it.
+   It is important to select the Python environment with the Conda environment that we installed earlier. Look for the notebook that uses Conda **"TensorFlow 2.7 for CPU on Python 3.7"** and select "Create Notebook".
 
-   ![Start Python notebook](images/start-python-notebook.png)
+   ![Start Python notebook](images/start-notebook.png)
 
 2. Load the data into memory
 
@@ -300,8 +303,6 @@ In this lab you will:
 
    At this point the initial architecture of our Neural Network is ready. It has random weights to start with. Next, we will train the model to optimize the weights.
 
-   Depending on the shape you are running the notebook on, this can take a few minutes.
-
    Notice that the input for the model training is the training images (`x_train`) and the training labels (`y_train`). We have chosen `10 epochs`. This means the neural network would run through the entire dataset 10 times.
 
    * `loss` specifies the loss or also called the objective function. It calculates how far off the neural network's predictions are. The results are used to adjust the weights to minimize the loss.
@@ -316,6 +317,8 @@ In this lab you will:
     model.fit(x=x_train, y=y_train, epochs=10)
     </copy>
     ```
+
+    Depending on the shape you are running the notebook on, this can take a few minutes.
 
 ## Task 7: Check model accuracy
 
@@ -380,6 +383,4 @@ Congratulations on completing this lab!
 [Proceed to the next section](#next).
 
 ## Acknowledgements
-* **Authors** - Jeroen Kloosterman - Product Strategy Manager - Oracle Digital, Lyudmil Pelov - Senior Principal Product Manager - A-Team Cloud Solution Architects, Fredrick Bergstrand - Sales Engineer Analytics - Oracle Digital, Hans Viehmann - Group Manager - Spatial and Graph Product Management
-* **Last Updated By/Date** - Jeroen Kloosterman, Oracle Digital, Jan 2021
-
+* **Authors** - Jeroen Kloosterman - Product Strategy Director, Lyudmil Pelov - Senior Principal Product Manager

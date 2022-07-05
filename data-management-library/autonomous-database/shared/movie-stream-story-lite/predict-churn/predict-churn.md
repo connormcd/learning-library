@@ -35,8 +35,6 @@ In this lab, you will:
 
 - This lab requires completion of Labs 1–2 in the Contents menu on the left.
 
-> **Note:** If you have a **Free Trial** account, when your Free Trial expires your account will convert to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. See the [**Free Tier FAQ page**.](https://www.oracle.com/cloud/free/faq.html)
-
 ## Task 1: Understand customer churn and access OML AutoML UI
 
 To understand customer behavior, we need to look into their Geo-Demographic information, but also their transactional behavior. For transactional data, we need to summarize number of transactions and aggregate values per month for each type of transaction that we would like to explore. This is because the algorithms need to receive as input a single row per customer, with their attributes provided in database table columns.
@@ -220,7 +218,7 @@ In addition to that, **a customer churning today probably made that decision a w
 
 ## Task 3: Deploy the model and score a table
 
-1. [**CLICK HERE** to download the ""Scoring customers with Churn Model" notebook in JSON format](./files/Scoring_customers_with_Churn_Model.json?download=1) which contains the sequence of SQL commands for scoring customers, and download it to a folder on your local computer.
+1. [**CLICK HERE** to download the "Scoring customers with Churn Model" notebook in JSON format](./files/scoring_customers_with_churn_model.json?download=1) which contains the sequence of SQL commands for scoring customers, and download it to a folder on your local computer.
 
     Go to the main notebooks listing by clicking on the "three lines" button on the upper left of the screen, and then select **Notebooks**.
 

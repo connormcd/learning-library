@@ -246,7 +246,6 @@ Now that GG processes have been created and started on both the source and targe
 
     ```
     <copy>http://<Your Host Public IP address>:8888</copy>
-    e.g: http://111.222.111.222:8888
     ```
 
     - Credentials: cloudera/cloudera

@@ -4,7 +4,7 @@
   "tutorials": [
     {
       "title": "Introduction",
-      "description": "This lab provides an overview of Oracle GoldenGate Veridata.",
+      "description": "This lab provides an introduction of Oracle GoldenGate Veridata.",
       "filename": "../../intro/intro.md"
     },
     {
@@ -14,39 +14,43 @@
     },
     {
       "title": "Lab 1: Initialize Environment",
-      "description": "How to initialize and start all the workshop components",
-      "publisheddate": "10/14/2020",
-      "filename": "./../../initialize-environment/initialize-environment.md"
+      "description": "Initialize Environment",
+      "filename": "../../initialize-environment/initialize-environment.md"
     },
     {
-      "title": "Lab 2: Create Datasource Connections",
+      "title": "Lab 2: Provision an Instance",
+      "description": "Provisioning the Lab Environment",
+      "filename": "../../provision/provision.md"
+    },
+    {
+      "title": "Lab 3: Create Datasource Connections",
       "description": "This lab walks you through the steps to create datasource connections.",
       "filename": "./../../ggv-create-connections/ggv-create-connections.md"
     },
     {
-      "title": "Lab 3: Create Groups and Compare Pairs ",
+      "title": "Lab 4: Create Groups and Compare Pairs ",
       "description": "This lab walks you through the steps to create groups and compare pairs.",
       "filename": "./../../ggv-create-groups-compare-pairs/ggv-create-groups-compare-pairs.md"
     },
     {
-      "title": "Lab 4: Create and Execute Jobs ",
+      "title": "Lab 5: Create and Execute Jobs ",
       "description": "This lab walks you through the steps to create Jobs and execute them.",
       "filename": "./../../ggv-create-execute-jobs/ggv-create-execute-jobs.md"
     },
     {
-      "title": "Lab 5: Repair Jobs and Generate SQL Files ",
+      "title": "Lab 6: Repair Jobs and Generate SQL Files ",
       "description": "This lab walks you through the steps to repair jobs and data.",
       "filename": "./../../ggv-repair-data/ggv-repair-data.md"
     },
     {
-      "title": "Lab 6: View Reports ",
+      "title": "Lab 7: View Reports ",
       "description": "This lab walks you through the steps to view comparision Reports.",
       "filename": "./../../ggv-reports/ggv-reports.md"
     },
     {
       "title": "Need Help?",
       "description": "Solutions to Common Problems and Directions for Receiving Live Help",
-      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-freetier.md"
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-livelabs.md"
     }
   ]
 }

@@ -71,18 +71,21 @@ The setup should have  two container databases running:
    1. Connect to **CDB1**
 
       ```
-      sudo su - oracle
+      <copy>sudo su - oracle
       sqlplus /nolog
       connect sys/oracle@localhost:1523/cdb1 as sysdba
+      </copy>
       ```
 
    2. Create application root container APP\_ROOT
 
       ```
+      <copy>
       show  pdbs;
       create pluggable database APP_ROOT as APPLICATION CONTAINER admin user admin identified by admin ;
       alter pluggable database APP_ROOT open;
       show pdbs;
+      </copy>
       ```
 
       ![](.../images/MT01_createAppRoot.png)
@@ -124,9 +127,10 @@ The setup should have  two container databases running:
    3. Create user Application in APP\_ROOT
 
    ```
+   <copy>
    alter session set container=APP_ROOT;
    alter pluggable database application APP01 begin install '1.0';
-
+   </copy>
    ```
 
    One of the things we can do now is create a new App user and create some objects for this user.
@@ -134,11 +138,13 @@ The setup should have  two container databases running:
    4. Create a new user called APP_TEST, add Table, insert data and commit.
 
    ```
+   <copy>
    create user app_test identified by app_test;
    alter user APP_TEST quota unlimited on SYSTEM;
    create table app_test.mytable (id number);
    insert into app_test.mytable values (1);
    commit;
+   </copy>
    ```
 
    Usually a lot more statements would follow, comparable to an application install script. But for now we simulate that one table and one user is all we need in our application.
@@ -146,7 +152,7 @@ The setup should have  two container databases running:
    5. **End** the installation of Application APP01
 
    ```
-    alter pluggable database application APP01 end install;
+   <copy>alter pluggable database application APP01 end install;</copy>
    ```
 
    The actual statements that were recorded are visible in the view DBA\_APP\_STATEMENTS
@@ -170,10 +176,10 @@ The setup should have  two container databases running:
    create table app_test.mytable (id number)
    insert into app_test.mytable values (1)
    commit
-    alter pluggable database application APP01 end install
+   alter pluggable database application APP01 end install
    ````
 
-    As you can see, each statement that we have executed will be recorded. Any statements that lead to an error (because of a typo or because of another error) are discarded. This way the APPLICATION is basically the install script you would normally run for a new installation at a new customer.
+   As you can see, each statement that we have executed will be recorded. Any statements that lead to an error (because of a typo or because of another error) are discarded. This way the APPLICATION is basically the install script you would normally run for a new installation at a new customer.
 
    The Application can be installed in an Application PDB.
 
@@ -200,6 +206,7 @@ The setup should have  two container databases running:
    8.  Display the available PDBs in this container
 
    ````
+   <copy>show pdbs</copy>
    SQL> show pdbs
        CON_ID CON_NAME                       OPEN MODE  RESTRICTED
    ---------- ------------------------------ ---------- ----------
@@ -343,8 +350,8 @@ The setup should have  two container databases running:
     ---------- --------------------
              1
              2 Two
-````
 
+````
 
 
 ##  Task 7: Upgrade Applications

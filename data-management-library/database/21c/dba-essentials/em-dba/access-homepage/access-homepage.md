@@ -1,4 +1,4 @@
-# Manage Container Database (CDB)
+# Access Container Home Page
 
 ## Introduction
 
@@ -26,24 +26,24 @@ This lab assumes you have -
 
 1.  From the **Targets** menu, select **Databases** to open the Databases page.
 
-    ![Databases Menu](../manage-targets/images/emcc-target-005-dbmenu.png)
+    ![Databases Menu](../manage-targets/images/emcc-target-005-dbmenu.png " ")
 
     The Databases page displays a list of Oracle Databases added to Oracle EMCC as managed targets. The values may differ depending on the system you are using. Note that the **View** type selected is **Search list**.
 
-    ![Target Added](../manage-targets/images/emcc-target-015-dbhomesearch.png)
+    ![Target Added](../manage-targets/images/emcc-target-015-dbhomesearch.png " ")
 
 2.  On the Databases page, select the Database Instance name, for example *orcl.us.oracle.com*, and click **View** > **Expand All Below**. 
 
-    ![Databases Expand All](images/emcc-dbhome-001-expandall.png)
+    ![Databases Expand All](images/emcc-dbhome-001-expandall.png " ")
 
     Alternatively, click on the expand/collapse arrow next to the Oracle Database. The list displays the target Database Instance and the PDBs for each Oracle Database on the host. The values may differ depending on the system you are using.  
 
-    ![Databases List](images/emcc-dbhome-002-dblist.png)
+    ![Databases List](images/emcc-dbhome-002-dblist.png " ")
 
 3.  Click on the container name, for example *orcl.us.oracle.com*, to access the container home page.   
 	The values may differ depending on the system you are using.  
 
-    ![Oracle Database Instance Home page](images/emcc-dbhome-003-instancehome.png)
+    ![Oracle Database Instance Home page](images/emcc-dbhome-003-instancehome.png " ")
 
 	Follow the same steps to open the PDB home page.
 
@@ -52,7 +52,7 @@ This lab assumes you have -
 5.  Click on the PDB name, for example *ORCLPDB*, to access the PDB home page.   
 	The values may differ depending on the system you are using.  
 
-    ![PDB Home page](images/emcc-dbhome-004-pdbhome.png)
+    ![PDB Home page](images/emcc-dbhome-004-pdbhome.png " ")
 
 You can perform various tasks depending on which home page you access. For example, from the Database Instance home page, you can monitor and administer your Oracle Database, such as start up and shut down the Database Instance, open and close PDBs, manage the memory, modify initialization parameters, and so on.
 
@@ -69,41 +69,41 @@ That is, from the Database Instance home page, you can switch to the CDB or the 
 	From the **Targets** menu, select **Databases** to open the Databases page. Click on the container name, for example *orcl.us.oracle.com*, to access the container home page as explained in *Task 1* of this lab.   
 	The values may differ depending on the system you are using.  
 
-    ![Oracle Database Instance Home page](images/emcc-dbhome-003-instancehome.png)
+    ![Oracle Database Instance Home page](images/emcc-dbhome-003-instancehome.png " ")
 
 2.  Click the down arrow next to the container and select **All Containers**.   
 	The values may differ depending on the system you are using.  
 
-    ![All Containers](images/emcc-dbhome-005-allcontainers.png)
+    ![All Containers](images/emcc-dbhome-005-allcontainers.png " ")
 
 3.  In the Switch Container dialog box, select the CDB, *CDB$ROOT*, from the containers list and click **OK**.   
 	The values may differ depending on the system you are using.  
 
-    ![Container List](images/emcc-dbhome-006-containerlistcdb.png)
+    ![Container List](images/emcc-dbhome-006-containerlistcdb.png " ")
 
 	It brings up the CDB homepage. The values may differ depending on the system you are using.  
 
-    ![CDB Home page](images/emcc-dbhome-007-cdbhome.png)
+    ![CDB Home page](images/emcc-dbhome-007-cdbhome.png " ")
 
 	Similarly, follow the same steps to open the PDB home page.
 
 4.  Click the down arrow next to the CDB and select **All Containers**.   
 	The values may differ depending on the system you are using.  
 
-    ![All Containers](images/emcc-dbhome-008-allcontainerscdb.png)
+    ![All Containers](images/emcc-dbhome-008-allcontainerscdb.png " ")
 
 5. 	 In the Switch Container dialog box, select the PDB, for example *ORCLPDB*, from the containers list and click **OK**. The values may differ depending on the system you are using.  
 
-    ![Container List](images/emcc-dbhome-009-containerlistpdb.png)
+    ![Container List](images/emcc-dbhome-009-containerlistpdb.png " ")
 
 	It brings up the PDB homepage. The values may differ depending on the system you are using.  
 
-    ![PDB Home page](images/emcc-dbhome-004-pdbhome.png)
+    ![PDB Home page](images/emcc-dbhome-004-pdbhome.png " ")
 
 	You can quickly jump from one container to another in Oracle EMCC. To open the CDB from the PDB home page, click the down arrow next to the PDB and select the CDB, *CDB$ROOT*.   
 	The values may differ depending on the system you are using.  
 
-    ![Select CDB$ROOT](images/emcc-dbhome-010-selectcdb.png)
+    ![Select CDB$ROOT](images/emcc-dbhome-010-selectcdb.png " ")
 
 	> **Note:** You cannot open the Database Instance home page from the CDB or the PDB home page. To open the Database Instance home page, from the **Targets** menu select **Databases**. On the Databases page, click on the Database Instance name, for example *orcl.us.oracle.com*, as explained in *Task 1* of this lab. 
 
@@ -115,44 +115,44 @@ To view information about a target or to monitor a target, open the target home 
 	From the **Targets** menu, select **Databases** to open the Databases page. Click on the container name, for example *orcl.us.oracle.com*, to open the container home page as explained in *Task 1* of this lab.   
 	The values may differ depending on the system you are using.  
 
-    ![Oracle Database Instance Home page](images/emcc-dbhome-003-instancehome.png)
+    ![Oracle Database Instance Home page](images/emcc-dbhome-003-instancehome.png " ")
 
 2.  From the **Oracle Database** menu, select **Target Information** to view details of the target Database Instance. 
 
-    ![Target Information Container](images/emcc-dbhome-011-targetinfocontainer.png)
+    ![Target Information Container](images/emcc-dbhome-011-targetinfocontainer.png " ")
 
     Alternatively, you can also click on the target information icon (the circle with an 'i' in it) next to the container.   
 	The window displays the details of the Database Instance. The values may differ depending on the system you are using.
 
-    ![Container Information](images/emcc-dbhome-012-containerinfo.png)
+    ![Container Information](images/emcc-dbhome-012-containerinfo.png " ")
 
 3.  Switch the container to PDB and view PDB details. Click the down arrow next to the container and select the PDB, *ORCLPDB*. The values may differ depending on the system you are using.
 
-    ![Select ORCLPDB](images/emcc-dbhome-013-selectpdb.png)
+    ![Select ORCLPDB](images/emcc-dbhome-013-selectpdb.png " ")
 
     It opens the PDB home page.  
 
 4.  From the **Oracle Database** menu, select **Target Information** to view details of the target PDB.  
 
-    ![Target Information PDB](images/emcc-dbhome-014-targetinfopdb.png)
+    ![Target Information PDB](images/emcc-dbhome-014-targetinfopdb.png " ")
 
     Alternatively, you can click on the target information icon (the circle with an 'i' in it) next to the PDB, *ORCLPDB*. The window displays the details of the PDB. The values may differ depending on the system you are using.
 
-    ![PDB Information](images/emcc-dbhome-015-pdbinfo.png)
+    ![PDB Information](images/emcc-dbhome-015-pdbinfo.png " ")
 
 5.  Switch the container to CDB and view CDB details. Click the down arrow next to the PDB and select the CDB, *CDB$ROOT*. The values may differ depending on the system you are using.
 
-    ![Select CDB$ROOT](images/emcc-dbhome-010-selectcdb.png)
+    ![Select CDB$ROOT](images/emcc-dbhome-010-selectcdb.png " ")
 
     It opens the CDB home page.  
 
 6.  From the **Oracle Database** menu, select **Target Information** to view details of the target CDB.  
 
-    ![Target Information CDB](images/emcc-dbhome-016-targetinfocdb.png)
+    ![Target Information CDB](images/emcc-dbhome-016-targetinfocdb.png " ")
 
     Alternatively, you can click on the target information icon (the circle with an 'i' in it) next to the CDB, *CDB$ROOT*. The window displays the details of the CDB. The values may differ depending on the system you are using.  
 
-    ![CDB Information](images/emcc-dbhome-017-cdbinfo.png)
+    ![CDB Information](images/emcc-dbhome-017-cdbinfo.png " ")
 
 ## Task 4: Manage Your Favorites
 
@@ -166,13 +166,13 @@ For this lab, add the CDB home page to favorites and remove it from favorites. E
 
 1.  Add the CDB home page to favorites. Click the **Favorites** menu (star icon) and select **Add Page to Favorites**.
 
-    ![Image alt text](images/emcc-dbhome-018-favoriteadd.png)
+    ![Image alt text](images/emcc-dbhome-018-favoriteadd.png " ")
 
     The window displays a confirmation message indicating that you have added the current page to favorites.   
 
 2.  Remove the CDB home page from favorites. Click the **Favorites** menu (star icon) and select **Remove Page from Favorites**. The values may differ depending on the system you are using.  
 
-    ![Image alt text](images/emcc-dbhome-019-favoriteremove.png)
+    ![Image alt text](images/emcc-dbhome-019-favoriteremove.png " ")
 
     The window displays a confirmation message indicating that you have removed the page from favorites.   
 
@@ -181,18 +181,18 @@ For this lab, add the CDB home page to favorites and remove it from favorites. E
 4.	Click the **Favorites** menu (star icon) and select **Manage Favorites**.   
 	The values may differ depending on the system you are using.  
 
-    ![Image alt text](images/emcc-dbhome-020-managefavoritesmenu.png)
+    ![Image alt text](images/emcc-dbhome-020-managefavoritesmenu.png " ")
 
 5.  In the **Manage Favorites** dialog box, select the page that you want to remove, for example *CDBROOT*, and click **Remove Selected**. The values may differ depending on the system you are using.  
 
-    ![Image alt text](images/emcc-dbhome-021-managefavoritedialog.png)
+    ![Image alt text](images/emcc-dbhome-021-managefavoritedialog.png " ")
 
 	You can select the pages one-by-one and click **Remove Selected**. Finally, click **OK** to remove the selected pages from favorites.
 
     Moreover, you can open a recently visited page from any location in Oracle EMCC using the **History** menu.    
 	The values may differ depending on the system you are using.  
 
-    ![Image alt text](images/emcc-dbhome-022-history.png)
+    ![Image alt text](images/emcc-dbhome-022-history.png " ")
 
 This brings you towards the successful completion of this workshop on *Oracle EM Database Administration (DBA)*.
 

@@ -139,22 +139,26 @@ There are multiple ways to create an Oracle Wallet for ADB.  We will be using Or
 
       ![](./images/oraenv.png " ")
    
-5. Run the wget command to download the load_atp.sh script from object storage.
+5. Run this wget command to download the .sh script that will load your ADB.
 
       ````
       <copy>
       cd $HOME
       pwd
-      wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/xQHESjLHhezsWtbKk4cEoNjyLfvYx52cKGMx2COyL_8siPbv7hCCPyJxfWuPbtfB/n/c4u04/b/developer-library/o/load-atp.sh
+      wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/ew-K0IQrTXaBF3OeT8NT-q8fMsqFZapho_rpbDelTM4dvibgVxOv0bZRyxk3gc5l/n/c4u04/b/livelabsfiles/o/developer-library/load-atp.sh
       </copy>
       ````
 
-6.   Run the load script passing in two arguments, your admin password and the name of your ATP instance.  This script will import all the data into your ATP instance for your application and set up SQL Developer Web for each schema.  This script runs as the opc user.  Your ATP name should be the name of your ATP instance *cvgad01*.  This load script takes approximately 2 minutes to run. 
+6.   Run the load script passing in two arguments, your admin password and the name of your ATP's database's name.
+
+      ![](./images/adb-db-name.png " ")
+
+      This script will import all the data into your ATP instance for your application and set up SQL Developer Web for each schema.  This script runs as the opc user.  Your ATP name should be the name of your ATP's database's instance name like *cvgad01*.  This load script takes approximately 2 minutes to run. 
    
       ``` 
       <copy> 
       chmod +x load-atp.sh
-      ./load-atp.sh WElcome123## cvgad01 2>&1 > load-atp.out</copy>
+      ./load-atp.sh WElcome123## <database name> 2>&1 > load-atp.out</copy>
      
       ```
       ![](./images/load-atp.png " ")
@@ -166,7 +170,7 @@ There are multiple ways to create an Oracle Wallet for ADB.  We will be using Or
       ````
       <copy>
       export TNS_ADMIN=/home/oracle/wallet
-      sqlplus admin/WElcome123##@cvgad01_high
+      sqlplus admin/WElcome123##@<database name>_high
       select count(*) from appnodejs.orders;
       </copy>
       ````
@@ -185,7 +189,7 @@ There are multiple ways to create an Oracle Wallet for ADB.  We will be using Or
 
       ````
       <copy>cd /u01/script
-      wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/9__SPAwP9dcj7afYX4uhbyGf3-7Wv4iD-ypyxcShp0X88EffrT5myM1_S3jvsjtO/n/idcd8c1uxhbm/b/temp-converged-atp-bucket/o/env_script_setup_atp.sh
+      wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/LNAcA6wNFvhkvHGPcWIbKlyGkicSOVCIgWLIu6t7W2BQfwq2NSLCsXpTL9wVzjuP/n/c4u04/b/livelabsfiles/o/developer-library/env_script_setup_atp.sh
       chmod +x env_script_setup_atp.sh
       ./env_script_setup_atp.sh</copy>
       ````

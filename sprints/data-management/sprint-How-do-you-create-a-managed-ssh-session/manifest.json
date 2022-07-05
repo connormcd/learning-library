@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I create a managed SSH session using Bastion?",
+         "description": "",
+         "filename": "connect-to-db-bastion.md"
+      },
+      {
+         "title": "How do you connect to instance via SSH?",
+         "description": "",
+         "filename": "../sprint-connect-to-instance-via-ssh/instance-ssh.md"
+      }
+   ],
+   "task_type": "Sections"
+}

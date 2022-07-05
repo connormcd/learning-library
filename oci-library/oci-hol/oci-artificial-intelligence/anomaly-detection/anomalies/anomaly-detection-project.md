@@ -1,10 +1,10 @@
-# Lab 2: Create Anomaly Detection Project
+#  Create Anomaly Detection Project
 
 ## Introduction
 
 In this session, we will show you how to create the anomaly detection project, upload data into object storage, and create the data assets.
 
-***Estimated Lab Time***: 15 minutes
+***Estimated Time***: 15 minutes
 
 ### Objectives
 
@@ -14,9 +14,9 @@ In this lab, you will:
 - Learn how to create data asset to refer data in Oracle object storage.
 
 ### Prerequisites
+
 - A Free tier or paid tenancy account in OCI (Oracle Cloud Infrastructure)
 - Familiar with OCI object storage to upload data
-
 
 ## Task 1: Create a Project
 
@@ -55,7 +55,6 @@ After a few seconds, the data asset will be shown in the data asset main panel.
 
 For other types of data sources, such as Oracle Autonomous Transaction Processing (ATP) or InfluxDB, please refer [this documentation page](https://docs.oracle.com/en-us/iaas/anomaly/using/add-data-assets.htm#add-data-assets) for how to configure.
 
-
 ### 2: Use the Train Model button to create a new data asset (Optional)
 
 The Create and Train Model will take user to a form with the option to either choose an existing dataset or create a new dataset. Select `Create a new data asset` radio button.
@@ -67,9 +66,8 @@ Create a new dataset navigates the User to a form, where they can specify the co
 
 Congratulations on completing this lab!
 
-[Proceed to the next section](#next).
-
 ## Acknowledgements
+
 * **Authors**
     * Jason Ding - Principal Data Scientist - Oracle AI Services
     * Haad Khan - Senior Data Scientist - Oracle AI Services

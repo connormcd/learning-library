@@ -1,0 +1,12 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I move an ADB instance to a different compartment?",
+         "description": "",
+         "filename": "sprint-move-compartments-adb.md"
+      }
+   ],
+   "task_type": "Sections"
+}

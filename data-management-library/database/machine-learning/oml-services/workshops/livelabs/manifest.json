@@ -1,0 +1,46 @@
+{
+  "workshoptitle": "Oracle Machine Learning REST Services Workshop",
+  "help": "livelabs-help-db_us@oracle.com",
+  "tutorials": [
+    {
+      "title": "Introduction",
+      "description": "Introduction",
+      "filename": "./../../introduction/introduction.md"
+    },
+    {
+    "title": "Lab 1: Understand Use Case",
+    "description": "Understand the Customer Insurance dataset used in the lab excercises.",
+    "filename": "./../../../use-case/use-case.md"
+    },
+    {
+    "title": "Lab 2: Load and Prepare Data",
+    "description": "Load and Prepare Data",
+    "filename": "./../../preparation/preparation.md"
+    },
+    {
+      "title": "Lab 3: Create models using OML Notebooks and OML AutoML UI",
+      "description": "Creating models using OML Notebooks and OML AutoML UI",
+      "filename": "./../../oml-notebook-and-automl-ui/oml-notebook-and-automl-ui.md"
+    },
+    {
+      "title": "Lab 4: Score Data using OML Services",
+      "description": "Section 2: Scoring Data using OML Services REST API",
+      "filename": "./../../scoring-oml-using-rest-services/scoring-oml-using-rest-services.md"
+    },
+    {
+      "title": "Lab 5: Store an OML model and score it using OML Services",
+      "description": "Storing an OML model and score it using OML Services REST API",
+      "filename": "./../../loading-oml-model-and-using-rest-srvices/loading-oml-model-and-using-rest-srvices.md"
+    },
+    {
+      "title": "Lab 6: Store an ONNX model and score it using OML Services",
+      "description": "Storing an ONNX model and score it using OML Services REST API",
+      "filename": "./../../loading-onnx-model-and-using-with-rest-services/loading-onnx-model-and-using-with-rest-services.md"
+    },
+    {
+      "title": "Need Help?",
+      "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-livelabs.md"
+    }
+  ]
+}

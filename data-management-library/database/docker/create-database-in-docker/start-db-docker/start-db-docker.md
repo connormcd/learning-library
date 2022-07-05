@@ -67,7 +67,6 @@ Once the Docker image build is complete, you can start and run the Oracle Databa
 * [Docker run command documentation](https://docs.docker.com/engine/reference/run/)
 
 ## Acknowledgements
-* **Author** - Gerald Venzl, Master Product Manager, Database Development
-* **Adapted for Cloud by** -  Tom McGinn, Sr. Principal Product Manager, Database and Database Cloud Service
+* **Author** - Gerald Venzl, Master Product Manager, Database Development 
 * **Contributor** - Arabella Yao, Product Manager Intern, Database Management, June 2020
-* **Last Updated By/Date** - Tom McGinn, June 2021
+* **Last Updated By/Date** - Madhusudhan Rao, Apr 2022

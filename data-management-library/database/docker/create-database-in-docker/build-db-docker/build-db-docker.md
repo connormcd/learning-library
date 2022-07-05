@@ -75,5 +75,5 @@ Oracle has provided a complete set of Docker build files on an Oracle GitHub rep
 
 ## Acknowledgements
 * **Author** - Gerald Venzl, Master Product Manager, Database Development
-* **Adapted for Cloud by** -  Tom McGinn, Sr. Principal Product Manager, Database and Database Cloud Service
-* **Last Updated By/Date** - Tom McGinn, June 2021
+* **Adapted for Cloud by** -  
+* **Last Updated By/Date** - Madhusudhan Rao, Apr 2022

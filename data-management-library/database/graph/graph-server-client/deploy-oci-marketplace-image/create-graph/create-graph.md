@@ -9,8 +9,7 @@ Estimated time: 5 minutes
 ### Objectives
 
 Learn how to create a graph from relational data sources by:
-- Restarting the graph server
-- Starting a client (Python shell) that connects to the server
+- Starting a client (Python shell) that connects to the Graph Server
 - Using PGQL Data Definition Language (DDL) (e.g. CREATE PROPERTY GRAPH) to instantiate a graph
 
 ### Prerequisites
@@ -19,7 +18,7 @@ Learn how to create a graph from relational data sources by:
 
 ## Task 1: Start the Python client
 
-Connect to the compute instance via SSH as `opc` user, using the private key you created earlier.
+Connect to the compute instance via SSH as **opc** user, using the private key you created earlier.
 
 ```
 <copy>
@@ -28,6 +27,7 @@ ssh -i <private_key> opc@<public_ip_for_compute>
 ```
 
 Example:
+
 ```
 ssh -i key.pem opc@203.0.113.14
 ```
@@ -45,13 +45,13 @@ You should see the following if the client shell starts up successfully.
 ```
 password:
 
-Oracle Graph Client Shell 21.3.0
+Oracle Graph Client Shell 21.4.2
 >>>
 ```
 
-## Task 2: Create the graph
+## Task 2: Create a graph
 
-Set up the create property graph statement, which creates the graph from the existing tables.
+Set up the create property graph statement, which creates a graph from the existing tables.
 
 ```    
 <copy>
@@ -81,12 +81,12 @@ CREATE PROPERTY GRAPH "customer_360"
 </copy>
 ```
 
-For more about DDL syntax, please see [pgql-lang.org](https://pgql-lang.org/spec/1.3/#create-property-graph). Please note that **all columns of the input tables are mapped to the properties of vertices/edges [by default](https://pgql-lang.org/spec/1.3/#properties)**. For `owned_by` edge, only `id` property is given with `PROPERTIES` keyword for edge ID generation purpose, and the other properties are not given, because they are already hold by the account vertices. 
+For more about DDL syntax, please see [pgql-lang.org](https://pgql-lang.org/spec/1.4/#create-property-graph). Please note that *all columns of the input tables are mapped to the properties of vertices/edges [by default](https://pgql-lang.org/spec/1.4/#properties)*. For **owned_by** edge, only **id** property is given with **PROPERTIES** keyword for edge ID generation purpose, and the other properties are not given, because they are already hold by the account vertices. 
 
 Now execute the PGQL DDL to create the graph.
 
 ```
->>> session.prepare_pgql(statement).execute()
+>>> <copy>session.prepare_pgql(statement).execute()</copy>
 False   # This is the expected result
 ```
 
@@ -95,17 +95,20 @@ False   # This is the expected result
 Check that the graph was created. Copy, paste, and run the following statements in the Python shell.
 
 Attach the graph.
+
 ```
->>> graph = session.get_graph("customer_360")
+>>> <copy>graph = session.get_graph("customer_360")</copy>
 ```
 
 Check that the graph was created.
+
 ```
->>> graph
+>>> <copy>graph</copy>
 PgxGraph(name: customer_360, v: 15, e: 24, directed: True, memory(Mb): 0)
 ```
 
 Run some PGQL queries. E.g. the list of the vertex labels:
+
 ```
 <copy>
 graph.query_pgql("""
@@ -193,13 +196,12 @@ graph = session.get_graph("customer_360")
 </copy>
 ```
 
-Please note that you are allowed to publish graphs because `PGX_SESSION_ADD_PUBLISHED_GRAPH` role has been granted when the user is created. Otherwise, it has to be granted by `ADMIN` user and re-connect with the Python shell to pick up the updated permissions.
+Please note that you are allowed to publish graphs because **`PGX_SESSION_ADD_PUBLISHED_GRAPH`** role has been granted when the user is created. Otherwise, it has to be granted by **ADMIN** user and re-connect with the Python shell to pick up the updated permissions.
 
 You may now proceed to the next lab.
 
 ## Acknowledgements
 
-- **Author** - Jayant Sharma, Product Manager, Spatial and Graph
-- **Contributors** - Thanks to Jenny Tsai for helpful, constructive feedback that improved this workshop. Arabella Yao, Product Manager Intern, Database Management
-- **Last Updated By/Date** - Ryota Yamanaka, August 2021
-
+- **Author** - Jayant Sharma
+- **Contributors** - Arabella Yao, Jenny Tsai
+- **Last Updated By/Date** - Ryota Yamanaka, January 2022

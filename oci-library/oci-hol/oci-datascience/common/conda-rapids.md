@@ -27,37 +27,37 @@ You install the NVIDIA RAPIDS 0.16 conda environment in your notebook session to
 
 1. You first see the JupyterLab interface. In the Launcher tab, of JupyterLab **click on the "Environment Explorer" button** in the "Notebook" section of the launcher tab.
 
-   ![](./../accelerate-ds-rapids-gpu/images/environment-explorer-button.png)
+   ![Environment explore button](./../accelerate-ds-rapids-gpu/images/environment-explorer-button.png)
 
 1. Once you click on the Environment Explorer button, you will see a series of tabs ("All Conda Environments", "Data Science Conda Environments", "Installed Conda Environments", "Published Conda Environments").
    By default, the option "All Conda Environments" is activated. After one or two seconds, cards will appear under the tabs. Each card represents a different conda environment that is available to install in your notebook session.
 
-   ![](./../accelerate-ds-rapids-gpu/images/conda-environment-cards.png)
+   ![Conda environment cards](./../accelerate-ds-rapids-gpu/images/conda-environment-cards.png)
 
 1. Click on the "Data Science Conda Environments" red tab.
 
-   ![](./../accelerate-ds-rapids-gpu/images/data-science-conda-environments.png)
+   ![Data Science Conda Environments](./../accelerate-ds-rapids-gpu/images/data-science-conda-environments.png)
 
 1. Scroll down the list of conda environments. Identify the "NVIDIA RAPIDS 0.16" conda environment.
 
-   ![](./../accelerate-ds-rapids-gpu/images/rapids-conda-env-card.png)
+   ![RAPIDS conda environment card](./../accelerate-ds-rapids-gpu/images/rapids-conda-env-card.png)
 
 1. Click on the install button of the "NVIDIA RAPIDS 0.16" conda environment card.
 
-   ![](./../accelerate-ds-rapids-gpu/images/conda-install-button.png)
+   ![Conda environment install button](./../accelerate-ds-rapids-gpu/images/conda-install-button.png)
 
 1. You see a command line and a copy button. **Click on the copy button**. This copy button will copy the command line to your clipboard.
 
-   ![](./../accelerate-ds-rapids-gpu/images/copy-conda-install-command.png)
+   ![Copy the conda install command](./../accelerate-ds-rapids-gpu/images/copy-conda-install-command.png)
 
 
 1. Go back to the JupyterLab Launcher tab and open a terminal window.
 
-   ![](./../accelerate-ds-rapids-gpu/images/terminal-launcher-button.png)
+   ![Terminal launcher button](./../accelerate-ds-rapids-gpu/images/terminal-launcher-button.png)
 
 1. **Paste the command line in the terminal window**. On a Mac, you can use `Command-V`. On Windows machines, use `Ctrl+V`.
 
-   ![](./../accelerate-ds-rapids-gpu/images/conda-install-command-in-terminal.png)
+   ![Conda install command in a terminal window](./../accelerate-ds-rapids-gpu/images/conda-install-command-in-terminal.png)
 
    You should see the following command:
 
@@ -65,18 +65,16 @@ You install the NVIDIA RAPIDS 0.16 conda environment in your notebook session to
 
    **Execute the command by pressing "Enter" on your keyboard**. You should see a short blurb giving you the option to change the local version of that conda environment. **Ignore this for now by pressing Enter again**.
 
-   ![](./../accelerate-ds-rapids-gpu/images/changing-local-conda-version.png)
+   ![Change the local conda version](./../accelerate-ds-rapids-gpu/images/changing-local-conda-version.png)
 
 1. The RAPIDS conda environment is now being downloaded and installed into your notebook session. This generally takes two or three minutes to complete.
    You can follow the progress of the installation in the terminal window:
 
-   ![](./../accelerate-ds-rapids-gpu/images/conda-env-download-and-installation.png)
+   ![Conda environment download and install](./../accelerate-ds-rapids-gpu/images/conda-env-download-and-installation.png)
 
    Once the conda environment has been successfully installed, the terminal prompt will be available again:
 
-   ![](./../accelerate-ds-rapids-gpu/images/conda-installation-complete-terminal.png)
-
-   Congratulations! You have completed Step 1 successfully.
+   ![conda installation complete in a terminal window](./../accelerate-ds-rapids-gpu/images/conda-installation-complete-terminal.png)
 
 
 ## Task 2: Confirm the Successful Installation of the RAPIDS Environment
@@ -85,7 +83,7 @@ You will confirm the successful installation of the RAPIDS environment in your n
 
 1. To verify and confirm that the installation of the conda environment was successful, **go back to the Environment Explorer and click on the "Installed Conda Environments"**. You should see the card of the NVIDIA RAPIDS 0.16 environment.
 
-   ![](./../accelerate-ds-rapids-gpu/images/confirm-conda-installation-explorer.png)
+   ![Confirm conda installation in the environment explorer](./../accelerate-ds-rapids-gpu/images/confirm-conda-installation-explorer.png)
 
    If you do not see the environment card under "Installed Conda Environments", press on the refresh button to the right of the "Published Conda Environments" tab.
 
@@ -93,11 +91,11 @@ You will confirm the successful installation of the RAPIDS environment in your n
 
    If you do not have a Launcher tab available, you can launch a new one by pressing the "+" button right of the folder icon in the top left corner as shown here:
 
-   ![](./../accelerate-ds-rapids-gpu/images/new-launcher-tab.png)
+   ![New launcher tab](./../accelerate-ds-rapids-gpu/images/new-launcher-tab.png)
 
 1. Stay on the launcher tab. Wait a few seconds. **You should see a new Python kernel appearing under "Notebook" and "Console" (``Python [conda env:rapidsgpuv1]``)**.
 
-   ![](./../accelerate-ds-rapids-gpu/images/confirm-conda-installation-kernel.png)
+   ![Confirm that the conda is installed](./../accelerate-ds-rapids-gpu/images/confirm-conda-installation-kernel.png)
 
    Congratulations! You have completed the first lab successfully. You can now install a conda environment in the notebook session. You are ready to move on to the next lab.
 
@@ -105,5 +103,5 @@ You will confirm the successful installation of the RAPIDS environment in your n
 
 * **Author**: [Jean-Rene Gauthier](https://www.linkedin.com/in/jr-gauthier/), Sr. Principal Product Data Scientist
 * **Last Updated By/Date**:
-    * [Jean-Rene Gauthier](https://www.linkedin.com/in/jr-gauthier/), Sr. Principal Product Data Scientist, January 2021
+  * [John Peach](https://www.linkedin.com/in/jpeach/), Principal Data Scientist, April 2022
 

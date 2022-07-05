@@ -1,10 +1,10 @@
-# Building simple Interactive Analysis
+# Build a simple Interactive Workbook
 
 ## Introduction
 
-In this lab, you will start creating your first simple interactive analysis, use filters, canvases and basically further investigate why we are losing customers from mobile phones.
+In this lab, you will start creating your first simple interactive workbook, use filters, canvases and basically further investigate why we are losing customers from mobile phones.
 
-_Estimated Lab Time_: 20 minutes
+_Estimated Time_: 20 minutes
 
 ![Build Analysis](../build-analysis/images/build-analysis.png)
 
@@ -14,20 +14,16 @@ _Estimated Lab Time_: 20 minutes
 
 ### Prerequisites
 
-* An Oracle Cloud Free Tier or Paid account
-* You should have completed  
-    * Lab 1: Provisioning your Autonomous Database instance
-    * Lab 2: Provisioning your Oracle Analytics Cloud instance
-    * Lab 3: Connecting OAC to ADW and adjusting Data Set properties
-    * Lab 5: Gaining Insights with Visual Data Dialog
-    * Lab 6: Monitoring and Ad-hoc scaling up ADW activity for optimal OAC experience
+* An [_Oracle Cloud Free Tier Account_](https://www.oracle.com/cloud/free/) or a Paid account
+* All previous labs successfully completed
 
 ## Task 1: Start your first analysis
 
-Lets Start from the previous project and clean up the report a bit.
+Lets Start from the previous workbook and clean up the report a bit.
 
-1.  Remove **VALUE** from Grammar Pane Value (Y-Axis).  
+1.  Close **Performance Tools** pane and Remove **VALUE** from Grammar Pane Value (Y-Axis).  
 Hover the mouse over the **VALUE** and click the 'x' sign.
+    ![Close Performance Tools](../build-analysis/images/close-perf-tools.png)
 
     ![Remove Value](../build-analysis/images/remove-valuesmall.png)
 
@@ -36,41 +32,42 @@ In the Properties Pane select the **Analytics** **icon** and double-click **Add 
 
     ![Add Trend Line](../build-analysis/images/add-trendlinesmall.png)
 
-3.  **Rename** Canvas.  
-Right-click the canvas tab and select  **Rename**.
-
-    ![Rename Canvas](../build-analysis/images/rename-canvassmall.png)
-
-4.  Rename the canvas as **Overview**.  
-Type in **Overview** and Click on the 'blue' check mark.
+3.  Rename the canvas as **Overview**.  
+Double-click on **Canvas 1**, type in **Overview** and hit Enter.
 
     ![Rename Canvas](../build-analysis/images/canvas-overview.png)
 
-5.  **Duplicate** Canvas.  
+4.  **Duplicate** Canvas.  
 Right-click the canvas tab and select  **Duplicate**.  
 This adds a copy of the selected canvas to the project’s row of canvas tabs.
 
     ![Duplicate Canvas](../build-analysis/images/duplicate-canvassmall.png)
 
-6.  Lets filter on Mobile Phones.   
+5.  Lets filter on Mobile Phones.   
 Right Click **Mobile Phones** Category and select **Keep Selected**.  
 That keeps only the selected members and remove all others from the visualization and its linked visualizations.
 
     ![Keep Selected](../build-analysis/images/keepselected-mobilephone.png)
 
-7.  Move **Channel** to Color.  
+6.  Move **Channel** to Color.  
 Drag **CHANNEL** from Trellis Rows section and Drop it to **Color** section.
 
     ![Channel to Color](../build-analysis/images/channeltocolorsmall.png)
 
-8.  Lets **Remove** the trend line for the sake of simplicity.  
+7.  Lets **Remove** the trend line for the sake of simplicity.  
 Go Analytics Property Pane > Trend and click x.
 
     ![Remove Trend Line](../build-analysis/images/remove-trend.png)
+    ![Remove Trend Line](../build-analysis/images/remove-trend2.png)
 
-9.  Lets **Drill** on Direct Channel to SUB\_CATEGORY.  
-Hover the mouse on Channel Direct
-Right Click > **Drill to Attribute/Hierarchy** and select Data Elements > SUB\_CATEGORY.  
+8.  Filter **CHANNEL** to **Direct Channel** .  
+Right Click on **Channel** > **Create Filter** and Select **Direct**.
+
+    ![Create Filter](../build-analysis/images/channel-create-filter.png)  
+    ![Create Filter](../build-analysis/images/direct-channel.png) 
+
+9.  Lets **Drill** on **Direct Channel** to SUB\_CATEGORY.  
+Right Click > **Drill to Attribute/Hierarchy** and select Data Elements > **SUB\_CATEGORY**.  
 This Drill to [Attribute Name] to directly drill to a specific attribute within a visualization.
 
     ![Drill To](../build-analysis/images/channeldirect-drillto.png)  
@@ -78,13 +75,13 @@ This Drill to [Attribute Name] to directly drill to a specific attribute within 
 
 10.  Lets look at the results for 'Customers by Sales Week and Subcategory'.
 
-     ![Customers by Sales Week and Subcategory](../build-analysis/images/channeldirect-drilltosubcategoryimg.png)
+     ![Customers by Sales Week and Subcategory](../build-analysis/images/createbestviz-customerssubcategory.png)
 
 11.  Lets analyze customers across various sub categories and choose the **Create Best Visualization** option.  
 Go to **Data Panel**,  Select **# Customers**, press CTRL key and Select  **SUB\_CATEGORY**; Right Click and select **Create Best Visualization**  
 A visualization is automatically created on the canvas, and the best visualization type is selected based on the preconfigured logic. The selected data element is also positioned on a specific area of the Grammar Panel.
 
-     ![Create Best Visualization](../build-analysis/images/createbestviz-customerssubcategory.png)
+     ![Create Best Visualization](../build-analysis/images/createbestviz.png)
 
 12.  The system decided that Bar Chart was the best viz type to visualize this information.
 
@@ -137,9 +134,9 @@ Go to the **Filter Menu**, hover over CHANNEL, Click on the small down arrow and
      ![Donut](../build-analysis/images/remove-channelfilter.png)
 
 23.  Rename the canvas as **Phones**.  
-Type in **Phones** and Click on the 'blue' check mark.
+Double Click on Canvas > type in **Phones** and hit Enter.
 
-     ![Rename Canvas](../build-analysis/images/rename-canvasphones.png)![Rename Canvas](../build-analysis/images/rename-canvasphones2.png)
+     ![Rename Canvas](../build-analysis/images/rename-canvasphones.png)
 
 24.  **Duplicate** Canvas.  
 Right-click the canvas tab and select  **Duplicate**.  
@@ -147,35 +144,32 @@ This adds a copy of the selected canvas to the project’s row of canvas tabs.
 
      ![Duplicate Canvas](../build-analysis/images/duplicate-canvassmall.png)
 
-25. Remove Use as Filter.  
-Select the Donut Visualization, Right Click and deselect **Use as Filter**.
-     ![Remove Use as Filter](../build-analysis/images/remove-useasfilter.png)
-
-26. Lets filter out the data to those sub categories where we are losing maximum customers - iPhones and Android phones.  
+25. Lets filter out the data to those sub categories where we are losing maximum customers - iPhones and Android phones.  
 Select **SUB_CATEGORY** from Data Pane and Drag and Drop it to **Filter area** .
      ![Filter Subcategory](../build-analysis/images/filter-subcategory.png)
 
-27. Select Android Phone and iOS Phones.  
+26. Select Android Phone and iOS Phones.  
 Click **Android Phone** and **iOS Phones** (they will be moved to **Selections** tab). Click anywhere in Filter area.
 
      ![Filter Phones](../build-analysis/images/filter-subcategoryandroidios.png)
 
-28. Filter **CHANNEL**.  
+27. Filter **CHANNEL**.  
 Go to Data Pane, select **CHANNEL** and drop it to Filter area.
      ![Filter Channel](../build-analysis/images/filter-channel.png)
 
-29. Select **Direct** Channel.  
+28. Select **Direct** Channel.  
 Click **Direct** (there will be moved to **Selections** tab). Click anywhere in Filter area..
      ![Filter Direct](../build-analysis/images/filter-channeldirect.png)
+     ![Filter Direct](../build-analysis/images/filter-channeldirect2.png)
 
-30. Delete **CHANNEL** Filter.  
+29. Delete **CHANNEL** Filter.  
 Go to the **Filter Menu**, hover over CHANNEL, Click on the small down arrow and Select **Delete**.
-     ![Donut](../build-analysis/images/remove-channelfilter.png)
+     ![Delete Channel Filter](../build-analysis/images/remove-channelfilter.png)
 
 
 You have just finished learning how to create your first analysis, use filters and building new canvases by reusing the previous content.
 
-You may now [proceed to the next lab](#next)
+You may now **proceed to the next lab**.
 
 ## Want to Learn More?
 
@@ -185,5 +179,5 @@ You may now [proceed to the next lab](#next)
 
 - **Author** - Lucian Dinescu, Product Strategy, Analytics
 - **Contributors** -
-- **Reviewed by** - Shiva Oleti, Product Strategy, Analytics
-- **Last Updated By/Date** - Lucian Dinescu, April 2021
+- **Reviewed by** - Shiva Oleti, Product Strategy, Analytics, Sebastien Demanche, Andor Imre (Oracle Cloud Center of Excellence)
+- **Last Updated By/Date** - Lucian Dinescu, March 2022

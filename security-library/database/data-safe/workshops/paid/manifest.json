@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Oracle Data Safe",
+    "workshoptitle": "Get Started with Oracle Data Safe Fundamentals",
     "help": "livelabs-help-db_us@oracle.com",
     "tutorials": [
       {
@@ -27,15 +27,15 @@
         "type": "paid"
       },
       {
-        "title": "Lab 2: Provision Audit and Alert Policies",
-        "description": "This lab shows you how to provision audit and alert policies in Oracle Data Safe.",
-        "filename": "../../provision-audit-alert-policies/provision-audit-alert-policies.md",
+        "title": "Lab 2: Audit Database Activity",
+        "description": "This lab shows you how to provision audit policies in Oracle Data Safe.",
+        "filename": "../../audit-database-activity/audit-database-activity.md",
         "type": "paid"
       },
       {
-        "title": "Lab 3: Analyze Alerts and Audit Reports",
-        "description": "This lab shows you how to analyze alerts and audit reports in Oracle Data Safe.",
-        "filename": "../../analyze-alerts-audit-reports/analyze-alerts-audit-reports.md",
+        "title": "Lab 3: Generate Alerts",
+        "description": "This lab shows you how to provision alert policies in Oracle Data Safe.",
+        "filename": "../../generate-alerts/generate-alerts.md",
         "type": "paid"
       },
       {

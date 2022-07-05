@@ -1,4 +1,4 @@
-# Adding Cast List to Movie Details Page (Optional)
+# Add Cast List to Movie Details Page (Optional)
 
 ## Introduction
 In Lab 8, you enhanced the Movie Details page by redesigning the UI and making the movie details more user friendly. This next lab is optional, but it would be fun and informative if a user were able to see not only the basic details of a movie but also the cast when they open the Movie Details page. The steps are very similar to most of the work you have already done, but Lab 9 will walk you through creating the Cast REST data source and adding Cast Cards to your Movie Details page.
@@ -10,7 +10,10 @@ In this lab, you will:
 - Add a new REST data source.  
 - Use the new data source to add to the Movie Details page.
 
-## Task 1: Adding the Cast REST Data Source
+### Prerequisites
+- Completion of workshop through Lab 8
+
+## Task 1: Add the Cast REST Data Source
 The first thing you will need to do is add a new REST data source that will allow you to pull the cast list for a specific movie from the TMDB API. This will be similar to the Movie Details API in that you will need a variable within your URL endpoint. Make sure you have your REST API key available because you will need it in this step.
 
 1. In the Page Designer tab in your browser, click on the **Shared Components** icon in top right corner to the left of the Save button.
@@ -57,9 +60,9 @@ The first thing you will need to do is add a new REST data source that will allo
 
     ![](images/add-profile-edit.png " ")
 
-5. Follow the steps in <a href="?lab=creating-rest-sources#Task2:EditingTheRESTSourceDataProfile" target="_blank">Lab 2, Task 2</a> to add a column to the Movie Cast data source.
+5. Follow the steps in <a href="?lab=creating-rest-sources#Task2:EditTheRESTSourceDataProfile" target="_blank">Lab 2, Task 2</a> to add a column to the Movie Cast data source.
 
-## Task 2: Adding the Cast Region to Movie Details Page
+## Task 2: Add the Cast Region to Movie Details Page
 You can now use your Movie Cast REST data source on the Movie Details page to bring everything together.
 
 1. Navigate back to the Movie Details page of your Movies Watchlist application.
@@ -126,6 +129,8 @@ You can now use your Movie Cast REST data source on the Movie Details page to br
 
     ![](images/cast-app-view.png " ")
 
+You have now improved the Movie Details page further by displaying a list of cast members along with the movie header and overview. You may now **proceed to the next lab**.
+
 ## Resources
 
 - [REST Data Sources Documentation](https://docs.oracle.com/en/database/oracle/application-express/21.1/htmdb/managing-REST-data-sources.html#GUID-93D7A596-03A9-48AF-9FC9-6538BCC25DED)  
@@ -141,4 +146,10 @@ Stuck on a step or struggling with the lab? You can download a copy of the Movie
 
 - When you are prompted by the Install wizard for Credentials, follow the instructions in the <a href="?lab=creating-movie-details-page#Stuck?DownloadtheApplicationHere" target="_blank">Stuck?</a> section of Lab 4 to provide credentials for the Movie Cast REST data source as well as the Movie Details source.
 
-- Follow the instructions in the <a href="?lab=creating-rest-sources#Stuck?DownloadtheApplicationHere" target="_blank">Stuck?</a> section of Lab 2 to update the Popular and Search Movies API keys.
+- Follow the instructions in the <a href="?lab=creating-movie-search-page#Stuck?DownloadtheApplicationHere" target="_blank">Stuck?</a> section of Lab 3 to update the Popular and Search Movies API keys.
+
+## Acknowledgments
+
+- **Author** - Paige Hanssen
+- **Additional Contributors** - Kay Jasanya, Shakeeb Rahman, Steve Muench, Monica Godoy, Eli Feuerstein, Carlos Maciel, Dalia Vazquez
+- **Last Updated By/Date** - Paige Hanssen, March 2022

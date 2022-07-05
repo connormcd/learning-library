@@ -27,7 +27,7 @@ Approximately 60 minutes
 
 ## Task 1: - GoldenGate for Oracle Capture
 
-1. Open a terminal session
+1. Open a terminal session and enter GGSCI for the Oracle side
 
 ![](./images/terminal3.png " ")
 
@@ -36,6 +36,10 @@ Approximately 60 minutes
 ````
 ````
 <copy>sudo su - oracle</copy>
+````
+````
+<copy>cd $OGG_HOME
+./ggsci</copy>
 ````
 
 2. **Oracle data capture**
@@ -47,6 +51,7 @@ Execute the GGSCI command:
 <copy>edit param etpc</copy>
 ````
 3. Enter the following settings:
+![](./images/ETPCSettings.png " ")
 
 ````
 	       <copy>extract etpc
@@ -79,7 +84,7 @@ To configure the Oracle to MySQL Extract Data Pump:
 
 ````
 <copy>extract pmysql
-rmthost localhost, mgrport 8809
+rmthost localhost, mgrport 7810
 rmttrail ./dirdat/rt
 reportcount every 120 seconds, rate
 table pdbeast.tpc.*;</copy>
@@ -107,7 +112,7 @@ useridalias ggapplywest
 map_parallelism 3
 split_trans_recs 1000
 ddl include mapped
-ddloptions report
+-- ddloptions report
 reportcount every 120 seconds, rate
 map pdbeast.tpc.*, target pdbwest.tpc.*;</copy>
 ````   
@@ -136,8 +141,9 @@ To configure the Coordinated Replicat in the MySQL OGG environment:
 
 ````     
 <copy>replicat rtpc
-targetdb tpc@db-ora19-mysql:3306, useridalias ggapply
-reportcount every 120 seconds, rate     usededicatedcoordinationthread
+targetdb tpc@localhost:3306, useridalias ggapply
+reportcount every 120 seconds, rate
+usededicatedcoordinationthread
 map pdbeast.tpc.categories, target "tpc"."categories", thread (20);
 map pdbeast.tpc.categories_description, target "tpc"."categories_description", thread (20);
 map pdbeast.tpc.customers, target "tpc"."customers", thread (20);
@@ -146,9 +152,13 @@ map pdbeast.tpc.customers_lkup, target "tpc"."customers_lkup", thread (20);
 map pdbeast.tpc.next_cust, target "tpc"."next_cust", thread (20);
 map pdbeast.tpc.next_order, target "tpc"."next_order", thread (20);
 map pdbeast.tpc.orders_total, target "tpc"."orders_total", thread (20);
+map pdbeast.tpc.orders, target "tpc"."orders", thread (1);
+map pdbeast.tpc.orders_products, target "tpc"."orders_products", threadrange (2-4);
+map pdbeast.tpc.orders_status_history, target "tpc"."orders_status_history", threadrange (6-7);
 map pdbeast.tpc.products, target "tpc"."products", thread (20);
 map pdbeast.tpc.products_description, target "tpc"."products_description", thread (20);
-map pdbeast.tpc.products_to_categories, target "tpc"."products_to_categories", thread (20);</copy>
+map pdbeast.tpc.products_to_categories, target "tpc"."products_to_categories", thread (20);
+map pdbeast.tpc.test, target "tpc"."test", thread (20);</copy>
 ````
 
 3. Enter "MAP" statements for the following
@@ -410,7 +420,7 @@ You may now *proceed to the next lab*.
 
 ## Acknowledgements
 * **Author** - Brian Elliott, Data Integration November 2020
-* **Contributors** - Madhu Kumar, Rene Fontcha
-* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, November 2020
+* **Contributors** - Madhu Kumar, Rene Fontcha, Andrew Hong
+* **Last Updated By/Date** -Andrew Hong, Solution Engineer, March 2022
 
 

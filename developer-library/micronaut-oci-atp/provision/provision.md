@@ -1,7 +1,7 @@
 # Provision Oracle Autonomous Database
 
 ## Introduction
-In this lab you are going to provision the Oracle Cloud instances needed to run a Micronaut application with Autonomous Database.
+In this lab you will provision the Oracle Cloud instances needed to run a Micronaut application with Autonomous Database.
 
 Estimated Lab Time: 20 minutes
 
@@ -28,7 +28,7 @@ In this lab you will:
 
 ![Use Shared Infrastructure](images/db3.png)
 
-4. Enter and take note of the Administrator password (must be at least 12 characters and container a number plus an upper case letter) and ensure "Allow secure access from everywhere" is selected.
+4. Enter and take note of the Administrator password (must be at least 12 characters and contain a number and an uppercase letter) and ensure "Allow secure access from everywhere" is selected.
 
 ![Enter Administrator Password](images/db4.png)
 
@@ -38,19 +38,27 @@ In this lab you will:
 
 ## Task 2: Creating an Autonomous Database Schema User
 
-1. On the "Autonomous Database Details" page select the "Tools" tab and then click "Open Database Actions".
+1. On the "Autonomous Database Details" page click the "Service Console" button.
 
-![Opening Database Actions](images/db6.png)
+![Opening Service Console](images/db6.png)
 
 2. Enter "ADMIN" for the username and the password you defined in the previous section.
 
+![Logging into Service Console](images/db6b.png)
+
+3. Click "Development" on the left, then click the "Database Actions" tab on the right.
+
+![Opening Database Actions](images/db6c.png)
+
+4. Enter "ADMIN" for the username and the password you defined in the previous section.
+
 ![Logging into Database Actions](images/db7.png)
 
-3. Under "Development" select the "SQL" button to open up the SQL console.
+5. Under "Development" click the "SQL" button to open the SQL console.
 
 ![Accessing the SQL console](images/db8.png)
 
-4. Within the worksheet paste the following SQL which will create a schema user with a username of "mnocidemo" replacing the text XXXXXXXXX with a password of your choice:
+6. Create a user password (must be at least 12 characters and contain a number and an uppercase letter), then within the worksheet paste the following SQL which will create a schema user with a username of "mnocidemo", replacing the text XXXXXXXXX with the user password:
 
     ```
     <copy>
@@ -60,7 +68,7 @@ GRANT UNLIMITED TABLESPACE TO mnocidemo;
     </copy>
     ```
 
-Once you have pasted the SQL into the worksheet click the "Run script" button to create the schema user.
+Once you have pasted the SQL into the worksheet, click the "Run script" button to create the schema user.
 
 ![Creating the Schema user](images/db9.png)
 
@@ -86,7 +94,7 @@ To connect locally you need to download and configure the ATP Wallet locally.
 
     ![Wallet dialog](images/wallet-dialog.png)
 
-5. Enter (and confirm) the Admin password you used to create the Autonomous Database instance in the previous lab.
+5. Create a wallet password (must be at least 12 characters and contain a number and an uppercase letter), then enter (and confirm) the wallet password.
 
     ![Wallet password](images/wallet-password.png)
 
@@ -136,7 +144,7 @@ To securely store your passwords you need to create a vault and an encryption ke
 
 ![Create Secret](images/vault7.png)
 
-8. Enter "ATP\_ADMIN\_PASSWORD" as the name. Select the encryption key you created, and enter the admin password you created earlier in the "Secret Contents" field, then click "Create Secret":
+8. Enter "ATP\_WALLET\_PASSWORD" as the name. Select the encryption key you created, and enter the wallet password you created earlier in the "Secret Contents" field, then click "Create Secret":
 
 ![Create Secret](images/vault8.png)
 

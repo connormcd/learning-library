@@ -3,7 +3,7 @@
 
 ## About this Workshop
 
-The purpose of this workshop is to introduce you to Oracle Cloud and the unique capabilities of Oracle's Autonomous Data Warehouse. It is designed to be used alongside your own cloud account (paid or Bring-Your-Own-License) or you can register and claim free trial credits which provides up to 3,300 hours of cloud time, and 2 TB of storage which is more than enough time and storage space to run this lab. 
+The purpose of this workshop is to introduce you to Oracle Cloud and the unique capabilities of Oracle's Autonomous Data Warehouse.
 
 **NOTE:** The timings shown in the notes and screenshots for this workshop assume an ADW instance configured with 1TB of storage and 8 OCPUs. You can configure your own ADW instance with fewer OCPUs and still use the scripts below. However, while all the scripts will complete successfully, the timings for some of the steps will be longer.
 
@@ -52,4 +52,4 @@ Oracle MovieStream is a fictitious on-line movie streaming company. Customers lo
 
 * **Contributors** - Nilay Panchal, Rick Green, Patrick Wheeler, Marty Gubar, Bud Endress, Jayant Mahto, Mike Matthews
 
-* **Last Updated By** - Mike Matthews, November 2021
+* **Last Updated By** - Anoosha Pilli, April 2022

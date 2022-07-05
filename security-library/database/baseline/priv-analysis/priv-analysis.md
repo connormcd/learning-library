@@ -1,14 +1,14 @@
-# Oracle Privelege Analysis
+# Oracle Privilege Analysis
 
 ## Introduction
 This workshop introduces the functionality of Oracle Privilege Analysis. It gives the user an opportunity to learn how to use this feature to always know privileges usage accessed by all users during all the database life.
 
 *Estimated Lab Time:* 15 minutes
 
-*Version tested in this lab:* Oracle DB 19.10
-### Video Preview
-Watch a preview of "*Understanding Privilege Analysis (January 2019)*" [](youtube:3oRODVtWwbg)
+*Version tested in this lab:* Oracle DB 19.13
 
+### Video Preview
+Watch a preview of "*LiveLabs - Oracle Privilege Analysis (May 2022)*" [](youtube:OsvxpBIKoOQ)
 
 ### Objectives
 - Capture the workload of a database
@@ -31,7 +31,13 @@ This lab assumes you have:
 
 ## Task 1: Capture the workload to analyze
 
-1. As *oracle* user on your **DBSec-Lab** VM remote desktop session, Double-Click on the *Terminal* icon on the desktop to launch a session
+1. Open a Terminal session on your **DBSec-Lab** VM as OS user *oracle*
+
+    ````
+    <copy>sudo su - oracle</copy>
+    ````
+
+    **Note**: If you are using a remote desktop session, double-click on the *Terminal* icon on the desktop to launch a session
 
 2. Go to the scripts directory
 
@@ -63,13 +69,15 @@ This lab assumes you have:
     <copy>./pa_generate_workload.sh</copy>
     ````
 
+    ![](./images/pa-003.png " ")
+
 6. We can disable the capture when we feel we have enough data
 
     ````
     <copy>./pa_disable_capture.sh</copy>
     ````
 
-    ![](./images/pa-003.png " ")
+    ![](./images/pa-004.png " ")
 
 ## Task 2: Analyze the workload captured
 
@@ -79,7 +87,7 @@ This lab assumes you have:
     <copy>./pa_generate_report.sh</copy>
     ````
 
-    ![](./images/pa-004.png " ")
+    ![](./images/pa-005.png " ")
 
     **Note**:
     - It takes all of the privileges and roles that were identified as used during the capture and compares it to the roles and privileges granted to each user
@@ -91,7 +99,12 @@ This lab assumes you have:
     <copy>./pa_review_report.sh</copy>
     ````
 
-    ![](./images/pa-005.png " ")
+    ![](./images/pa-006.png " ")
+
+    **Note**:
+    - You can see all the privileges (System and Objects) used and unused by all the active users during the capture
+    - This step is essential to better understand what happened on your database during this period in order to determine if your users are using their own privileges correctly or if you need to revoke some non-essential ones to avoid any risk of abuse, especially during an identity theft
+    - Note that you can run this Privilege Analysis task as many times as necessary... in fact, **it is strongly recommended to do it as often as possible** to always stay in control of your users' activity rights and avoid any privilege elevation attempt by potential attackers
 
 ## Task 3: (Optional) Drop the capture
 
@@ -101,9 +114,9 @@ This lab assumes you have:
     <copy>./pa_drop_capture.sh</copy>
     ````
 
-    ![](./images/pa-006.png " ")
+    ![](./images/pa-007.png " ")
 
-You may now [proceed to the next lab](#next)..
+You may now proceed to the next lab!
 
 ## **Appendix**: About the Product
 ### **Overview**
@@ -111,7 +124,7 @@ Privilege analysis increases the security of your applications and database oper
 
 Running inside the Oracle Database kernel, privilege analysis helps reduce the attack surface of user, tooling, and application accounts by identifying used and unused privileges to implement the least-privilege model.
 
-    ![](./images/pa-concept.png " ")
+![](./images/pa-concept.png " ")
 
 Privilege analysis dynamically captures privileges used by database users and applications. The use of privilege analysis can help to quickly and efficiently enforce least privilege guidelines. In the least-privilege model, users are only given the privileges and access they need to do their jobs. Frequently, even though users perform different tasks, users are all granted the same set of powerful privileges. Without privilege analysis, figuring out the privileges that each user must have can be hard work and in many cases, users could end up with some common set of privileges even though they have different tasks. Even in organizations that manage privileges, users tend to accumulate privileges over time and rarely lose any privileges. Separation of duty breaks a single process into separate tasks for different users. Least privileges enforces the separation so users can only do their required tasks. The enforcement of separation of duty is beneficial for internal control, but it also reduces the risk from malicious users who steal privileged credentials.
 
@@ -146,7 +159,10 @@ You can create different types of privilege analysis policies to achieve specifi
 Technical Documentation:
 - [Oracle Privilege Analysis 19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/dbseg/performing-privilege-analysis-find-privilege-use.html#GUID-44CB644B-7B59-4B3B-B375-9F9B96F60186)
 
+Video:
+- *Understanding Privilege Analysis (January 2019)* [](youtube:3oRODVtWwbg)
+
 ## Acknowledgements
 - **Author** - Hakim Loumi, Database Security PM
 - **Contributors** - Rene Fontcha
-- **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, September 2021
+- **Last Updated By/Date** - Hakim Loumi, Database Security PM - May 2022

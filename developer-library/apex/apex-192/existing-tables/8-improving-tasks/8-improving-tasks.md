@@ -192,7 +192,6 @@ This completes Lab 8 and the workshop. You now know how to create a Shared Compo
 
 ## **Acknowledgements**
 
- - **Author** -  David Peake, Consulting Member of Technical Staff
- - **Contributors** - Tom McGinn, Database Cloud Services, Product Management
+ - **Author** -  David Peake, Consulting Member of Technical Staff 
  - **Last Updated By/Date** - Arabella Yao, Product Manager Intern, Database Management, July 2020
 

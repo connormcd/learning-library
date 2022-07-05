@@ -1,4 +1,4 @@
-# Creating the Movie Search Page
+# Create the Movie Search Page
 
 ## Introduction
 You will create and set up the Movie Search page in this lab so that you can view popular movies and search for a movie of your choice. The search functionality must be built out first in order to be able to create a watchlist even though the My Watchlist page is the home page of the application. You will need to first create a button on the home page that links to the Movie Search page. On the Movie Search page you will create regions that display the data from the REST data sources you created in the previous lab, and you will implement a search bar that lets you search for movies.
@@ -13,7 +13,10 @@ In this lab, you will:
 - Link the Search Movies REST data source to the new page.  
 - Set up search functionality to allow a user to search for a movie.
 
-## Task 1: Creating the Add a Movie Button
+### Prerequisites
+- Completion of workshop through Lab 2
+
+## Task 1: Create the Add a Movie Button
 You will need to create a button on the first page of the application before you can create the Movie Search page, so that you have a way to open up the page when you want to search for movies.
 
 1. Return to the Movies Watchlist application home and click on page **1 - My Watchlist**.
@@ -56,7 +59,7 @@ You will need to create a button on the first page of the application before you
 
     ![](images/3-1-5-button-settings.png " ")
 
-## Task 2: Creating the Movie Search Page
+## Task 2: Create the Movie Search Page
 Now that you have a way of opening the Movie Search page, you will actually create the page in this step and do a little page setup before adding data.
 
 1. In the toolbar at the top of the Page Designer, click the **Create** button (3 buttons left of the Save button) and select the **Page** option. 
@@ -144,7 +147,7 @@ Now that you have a way of opening the Movie Search page, you will actually crea
 
     ![](images/3-2-8-page-css.png " ")
 
-## Task 3: Setting up Popular and Searched Movies
+## Task 3: Set up Popular and Searched Movies
 In this step, you will start to add data to your app using the REST data sources you set up in Lab 2. First, you will be using the Popular Movies source to get the list of current popular movies and display them when a user has not searched for any movies.
 
 1. In the rendering pane of the Page Designer, right click on Content Body and select **Create Region**.
@@ -218,7 +221,7 @@ In this step, you will start to add data to your app using the REST data sources
 
     ![](images/3-searched-movies-pagination.png " ")
 
-## Task 4: Adding the Search Bar
+## Task 4: Add the Search Bar
 The final region that needs to be added to the Movie Search page is the search bar, which will allow a user to search for movies. Additionally, both the Popular and Searched movie regions are currently displaying at the same time on the Movie Search page. You want to only show one at a time based on the condition that the Searched Movies region displays only if the search bar page item has a value. If the search bar has no value, the page will only display the Popular Movies region.
 
 1. Right click on Dialog Header in the rendering pane and select **Create Region**.
@@ -296,7 +299,7 @@ The final region that needs to be added to the Movie Search page is the search b
 
     ![](images/3-4-8-query.png " ")
 
-## Task 5: Linking Add Movie to Movie Search
+## Task 5: Link Add Movie to Movie Search
 The last task in this lab is linking your Add a Movie button on the Watchlist page to the Movie Search page. A modal dialog page like Movie Search cannot run on its own, which is why you need the Add a Movie button to access it.
 
 1. Go to page 1 by clicking the down arrow in the page navigation on the toolbar.
@@ -362,6 +365,8 @@ The last task in this lab is linking your Add a Movie button on the Watchlist pa
 
 	![](images/3-5-12-dev-bar.png " ")
 
+You now know how to create a new page in your APEX application and add components to define content in Page Designer. You may now **proceed to the next lab**.
+
 ## Resources
 
 - [Page Designer Documentation](https://docs.oracle.com/en/database/oracle/application-express/21.1/htmdb/about-page-designer.html#GUID-F4A825A2-6BD5-4A11-8D68-B24B2B6ED18B)  
@@ -381,4 +386,26 @@ Stuck on a step or struggling with the lab? You can download a copy of the Movie
 
 - You can import Lab 3 to your APEX workspace by clicking **Import** in the App Builder home page and following the wizard steps.
 
-- Follow the instructions in the <a href="?lab=creating-rest-sources#Stuck?DownloadtheApplicationHere" target="_blank">Stuck?</a> section of Lab 2 to update the Popular and Search Movies API keys.
+- Once the application is installed, you will need to update the API key for both the Popular Movies and Search Movies regions on the Search Movies page.
+
+- Go to the App Home by clicking on **Edit Application** from the Application Installed success page.
+
+- Click on page **2 - Movie Search**.
+
+- Expand the **Parameters** section under Popular Movies.
+
+    - Click on **api_key**.
+
+    - Under Value, change Type to **Static**.
+
+    - Paste your unique TMDB API key in the **Static Value** text area.
+
+- Follow the same process for the Search Movies **api_key** parameter.
+
+- Click **Save**.
+
+## Acknowledgments
+
+- **Author** - Paige Hanssen
+- **Additional Contributors** - Kay Jasanya, Shakeeb Rahman, Steve Muench, Monica Godoy, Eli Feuerstein, Carlos Maciel, Dalia Vazquez
+- **Last Updated By/Date** - Paige Hanssen, March 2022

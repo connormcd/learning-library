@@ -52,7 +52,7 @@ In this lab, you will:
 
 This completes Lab 1. You now know how to install a sample dataset. You may now **proceed to the next lab**. 
 
-## **Acknowledgments**
+## Acknowledgments
 
 - **Author** - Mónica Godoy, Principal Product Manager
 - **Last Updated By/Date** - Arabella Yao, Database Product Manager, October 2021

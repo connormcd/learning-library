@@ -374,7 +374,7 @@ After the customer has taken action (add/edit/delete) about the product, the mod
 
 You now know how to customize and enhance the APEX page. You may now **proceed to the next lab**. 
 
-## **Acknowledgments**
+## Acknowledgments
 
 - **Author** - Mónica Godoy, Principal Product Manager
 - **Contributors** - Shakeeb Rahman, Architect

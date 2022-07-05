@@ -29,30 +29,32 @@ To connect to Oracle Database and run SQL commands, set the environment first.
 
 1. Log in to your host as *oracle*, the user who can perform database administration.
 
-2. Open a terminal window and change the current working directory to `$ORACLE_HOME/bin`.
+2. Open a terminal window and change the current working directory to `$ORACLE_HOME/bin`. 
 
-    ```
-    $ <copy>cd /u01/app/oracle/product/21.0.0/dbhome_1/bin</copy>
-    ```
+	```
+	$ <copy>cd /u01/app/oracle/product/21.0.0/dbhome_1/bin</copy>
+	```
 
-3. Run the command *oraenv* to set the environment variables, if not already set.
+3. Run the command *oraenv* to set the environment variables.
 
-    ```
-    $ <copy>./oraenv</copy>
-    ```
+	```
+	$ <copy>./oraenv</copy>
+	```
 
 4. Enter the Oracle SID *orcl*.
 
-    ```
-    ORACLE_SID = [oracle] ? <copy>orcl</copy>
-    The Oracle base has been set to /u01/app/oracle
-    ```
+	```
+	ORACLE_SID = [oracle] ? <copy>orcl</copy>
+	The Oracle base has been set to /u01/app/oracle
+	```
 
-This command also sets the Oracle home path to `/u01/app/oracle/product/21.0.0/dbhome_1`.
+	This command also sets the Oracle home path to `/u01/app/oracle/product/21.0.0/dbhome_1`.
 
 You have set the environment variables for the active terminal session. You can now connect to Oracle Database and run the commands.
 
 **Note:** Every time you open a new terminal window, you must set the environment variables to connect to Oracle Database from that terminal. Environment variables from one terminal do not apply automatically to other terminals.
+
+Alternatively, you may run the script file `.set-env-db.sh` from the home location and enter the number for `ORACLE_SID`, for example, *3* for `orcl`. It sets the environment variables automatically. 
 
 ## Task 2: Connect to SQL Plus and Explore the Container
 
@@ -107,12 +109,12 @@ You have set the environment variables for the active terminal session. You can 
     SQL> <copy>show pdbs</copy>
     ```
 
-    ```
-    CON_ID CON_NAME                  OPEN MODE  RESTRICTED
-    ---------- ------------------------- ---------- ----------
-    	 2 PDB$SEED                  READ ONLY  NO
-    	 3 ORCLPDB                   READ WRITE NO
-    ```
+	``` 
+		CON_ID CON_NAME                  OPEN MODE  RESTRICTED
+	---------- ------------------------- ---------- ----------
+			 2 PDB$SEED                  READ ONLY  NO
+			 3 ORCLPDB                   READ WRITE NO
+	```
 
 5.  Check the version of the core library components. 
 

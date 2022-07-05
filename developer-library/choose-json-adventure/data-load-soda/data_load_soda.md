@@ -174,7 +174,7 @@ In this section, you will start by building up a URL that will allow you to acce
 
 
     ```
-    curl -o airportDelays.json https://objectstorage.us-ashburn-1.oraclecloud.com/p/MLihHjg3-Qc6SaUk16-H7FyekF-4o0dQxvRsk1uGywCPX1iZxGdqaYkAs5vcNR3B/n/c4u04/b/developer-library/o/airportDelays.json
+    curl -o airportDelays.json https://objectstorage.us-ashburn-1.oraclecloud.com/p/LNAcA6wNFvhkvHGPcWIbKlyGkicSOVCIgWLIu6t7W2BQfwq2NSLCsXpTL9wVzjuP/n/c4u04/b/livelabsfiles/o/developer-library/airportDelays.json
     ```
 
 3. Now that we have the file staged, we can run the full cURL command to load the JSON into our collection. Use the OCI Cloud Shell to do this:

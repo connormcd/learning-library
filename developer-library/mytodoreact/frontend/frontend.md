@@ -2,9 +2,9 @@
 
 ## Introduction
 
-In this lab, you will deploy a pre-built ReactJS application locally, then build it for production and host it on the Oracle Cloud Infrastructure (OCI).
+In this lab you will deploy a pre-built ReactJS application locally then build it for production and host it on Oracle Cloud Infrastucture.
 
-Estimated time: 15 minutes
+Estimated time: 10 minutes
 
 Watch the video below for a quick walk through of the lab.
 
@@ -38,9 +38,8 @@ The index.css file has all the styles for the application.
 In this lab, you will:
 - Clone the workshop git repository **on your laptop**
 - Set the API Gateway endpoint
-- Run the ReactJS frontend code in development mode and build for production
-- Host the production build on the OCI Object Storage
-
+- Run the ReactJS frontend code in Dev Mode then Build for Production
+- Host the production build on the Oracle Cloud's object storage
 ### Prerequisites
 
 1. This lab requires the completion of **Setup Dev Environment** and **Backend (Java/Helidon)**. This lab also requires admin rights.
@@ -63,160 +62,190 @@ In this lab, you will:
 
 6. Make sure **git** is installed; if not please follow the instructions @ `https://bit.ly/3DXyjiL`.
 
-## Task 1: Configure API.js
+## **Task 1**: Configure API.js
+In this task you will edit API.js to point to the correct endpoint that will be allowed to access the APIs used in your application
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-1. Clone the git repository to a directory on your laptop; we only need the front end in this lab.
-
-	```bash
-	<copy>git clone https://github.com/oracle/oci-react-samples.git</copy>
+1. Clone the git repository to a directory on your laptop (we only need the front end in this lab)
+	```
+	<copy>
+	mkdir reacttoo
+	cd reacttodo
+	git clone https://github.com/oracle/oci-react-samples.git
+	</copy>
 	```
 
-2. Navigate to the `frontend` directory.
-     ```bash
-     <copy>cd frontend</copy>
-    ```
-
-3. Run the following `npm` commands to install the required packages.
-
-	```bash
-	<copy>npm install --save typescript</copy>
+2. Navigate to frontend
 	```
-	
-	```bash
-	<copy>npm install</copy>
+	<copy>
+	cd oci-react-samples/mtdrworkshop/frontend
+	</copy>
 	```
 
-4. In case of errors: delete `package-lock.json` and the  `node_modules` directory, then re-run ` npm install` followed by `npm audit fix`.
+3. Run the following npm commands to install the required packages
 
-    ```bash
-	<copy>npm audit fix </copy>
 	```
+	<copy>
+	npm install --save typescript
+	</copy>
+	```
+	```
+	<copy>
+	npm install
+	</copy>
+	```
+    In case of errors, try the following command
+	```
+	<copy>
+	npm audit fix --force
+	</copy>
+	```
+  Ideally, npm -version should return > 6.14.x AND Node version > 14.16.x
+  If npm version < 6.14.x then install the latest Node using
+   https://bit.ly/3evGlEo
 
-	>**Note**: Ideally, the `npm -version` should be higher than  `6.14.x`  and `node version` higher than 14.16.x 
-	
-5. If `npm` version is inferior to 6.14.x then install the latest `node` using https://bit.ly/3evGlEo.
+4. Update API_LIST in API.js
 
-6. Update API\_LIST in API.js.
+  Make sure to be in frontend/src directory
+	```
+	<copy>
+	cd frontend/src
+	</copy>
+	```
+ In the Cloud console, navigate to **Developer Services > API Management >Gateways**
 
-	\* Navigate to the `frontend/src` directory.
-		```bash 
-		<copy>cd frontend/src</copy>
-		```
-	\* In the Oracle Cloud Console, navigate to **Developer Services** and select **API Management**.
-	
-	* Click your gateway and go to **Deployment**
-	
-	* Copy the endpoint
-	
-	* Paste the endpoint as the value of API_LIST and append **/todolist**
+ 	![](images/api-gateway-navigate.png)
 
-	**Example:** const API_LIST = 'https://xxxxxxxxxx.apigateway.eu-frankfurt-1.oci.customer-oci.com/todolist'
+   Click on your Gateway and go to Deployment
+   Copy the Deployment Endpoint
 
-7. Save the modified API.js file.
+	![](images/Api-gtw-deploy.png)
 
-## Task 2: Run in Dev Mode then Build for Production
+ - Paste the endpoint as the value of API_LIST and append "/todolist"
 
-1. In the project directory, **run the app** in the development  mode and **play with it**.
+  Example:
+  const API_LIST = 'https://xxxxxxxxxx.apigateway.eu-frankfurt-1.oci.customer-oci.com/todolist';
 
-	```bash
-	<copy>npm start</copy>
+  - Save the modified API.js file
+
+## **Task 2**: Run in Dev Mode then Build for Production
+Here you will run the application locally in development mode, then run in production mode to create the build folder.
+1. In the project directory, run the app in the development mode <br />
+
+	```
+	<copy>
+	npm start
+	</copy>
 	```
 
 2. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-    > **Note:**
-	* The page will reload if you make edits
-	* You will also see any lint errors in the console
+3. The page will reload if you make edits.<br />
+   You will also see any lint errors in the console.
 
-3. Cancel the developer mode execution and build the app for production into the `build` folder.<br />
+4. Cancel the developer mode execution and build the app for production to the `build` folder. This will create a folder named `build` for you<br />
 
-	\* Press **Ctrl-c** to cancel the developer mode executions.
+- Issue "Ctrl-c" to cancel the developer mode executions
 
-	\* Execute `npm run build`.
+- Execute npm run build
+	```
+	<copy>
+	npm run build
+	</copy>
+	```
+It correctly bundles React in production mode (into the build folder) and optimizes the build for the best performance.
 
-	```bash
-	<copy>npm run build</copy>
+  ![](images/Run-build.png " ")
+
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+## **Task 3**: Hosting on the Oracle Cloud's Object Storage
+The build folder will be uploaded to object storage so you can access your application from OCI.
+
+1. Open up the hamburger menu in the top-left corner of the Console and select
+**Object Storage > Object Storage**.
+
+  ![](images/object-store-navigate.png)
+  Create the 'mtdrworkshop' (or another name if that's taken) bucket
+
+  ![](images/Create-bucket.png)
+
+  Enter in the bucket details.
+  ![](images/bucket-details.png)
+
+  Edit visibility to public
+
+  ![](images/edit-visibility.png)
+2. Install the Staci utility for copying directories to OCI object storage
+   bucket with folder hierarchies
+
+  - git clone https://github.com/maxjahn/staci.git
+
+	```
+	<copy>
+	git clone https://github.com/maxjahn/staci.git
+	</copy>
 	```
 
-	 `npm` correctly bundles React in production mode (in the build folder) and optimizes the build for best performance.
+  - cd staci
 
-	![run build](images/Run-build.png " ")
+	```
+	<copy>
+	cd staci
+	</copy>
+	```
+  - go mod init staci
 
-	The build is minified and the file name includes the hashes.<br />
-	Your app is ready to be deployed!
+	```
+	<copy>
+	go mod init staci
+	</copy>
+	```
+  - go get -d
 
-	See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## Task 3: Host on the Oracle Cloud Infrastructure Object Storage
-
-1. Open up the navigation menu in the top-left corner of the Oracle Cloud Console and select
-**Storage** then select **Buckets** under **Object Storage**.
-
-2. Create the **mtdrworkshop** bucket in your root compartment and make it **Public**.
-	![Create Bucket 0](images/Create-bucket.png " ")
-	![Create Bucket 1](images/Create-bucket-2.png " ")
-	![Create bucket 3](images/Public-bucket.png " ")
-
-
-3. Install the Staci utility for copying directories to the Oracle Cloud Infrastructure (OCI) object storage
-   bucket while preserving folder hierarchies.
-
-	\* Execute `git clone https://github.com/maxjahn/staci.git`.
-
-	```bash
-	<copy>git clone https://github.com/maxjahn/staci.git</copy>
+	```
+	<copy>
+	go get -d
+	</copy>
 	```
 
-	\* Navigate to the **staci** directory.
+  - go build
 
-    ```bash
-    <copy>cd staci</copy>
-     ```
-	\* Execute `go mod init staci`.
+	```
+	<copy>
+	go build
+	</copy>
+	```
+3. If you have never used your laptop for connecting to an Oracle Cloud account, you need to setup an **OCI config file** and create an **API key**
+    * Follow Step #2 in the following doc https://bit.ly/3vM7v2h for that purpose.
 
-     ```bash
-     <copy>go mod init staci</copy>
-     ```
+4. Upload a static build into the bucket, using the staci binary.
+`-source build` should be the path to `build` from `npm run build` earlier. `-target mtdrworkshop` should be the name of the bucket
 
-	\* Execute `go get -d`.
-
-     ```bash
-     <copy>go get -d</copy>
-     ```
-
-	\* Execute `go build`.
-
-    ```bash
-    <copy>go build</copy>
-    ```
-
-4. If you have never used your laptop for connecting to an Oracle Cloud account, you need to setup an **OCI config file** and create an **API key**.
-	
-	\* Follow Step #2 in the following doc `https://bit.ly/3vM7v2h` for that purpose.
-
-5. Upload a static build into the bucket, using the staci binary.
-
-	```bash
-	<copy>./staci/staci -source build -target mtdrworkshop</copy>
+	```
+	<copy>
+	./staci/staci -source build -target mtdrworkshop
+	</copy>
 	```
 
-	- The application is visible in the 'mtdrworkshop' bucket of your tenancy.
+- The application is visible in the 'mtdrworkshop' bucket of your tenancy
 
-6. Click the index.html object and copy its URL.
+- Click on the index.html object and copy the URL of the index object
 
-	![bucket index](images/bucket-index.png " ")
+  ![](images/bucket-index.png " ")
 
-	You may now run the application from OCI Object Store, using the URL of the index that you've copied above.
+- You may now run the application from Object store, using the URL of the index that you've copied above.
 
-	![MyToDo](images/MyToDo.png " ")
-
-
+  ![](images/my-todo.png " ")
+  
 You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
-* **Author** -  Kuassi Mensah, Dir. Product Management, Java Database Access
+* **Authors** -  Kuassi Mensah, Dir. Product Management, Java Database Access; Peter Song, Developer Advocate JDBC
 * **Contributors** - Jean de Lavarene, Sr. Director of Development, JDBC/UCP
-* **Last Updated By/Date** - Arabella Yao,  Database Product Manager, October 2021
+* **Last Updated By/Date** - Peter Song, Developer Advocate JDBC

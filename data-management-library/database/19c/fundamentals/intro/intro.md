@@ -31,9 +31,19 @@ The following general database overall enhancement labs are available:
 - Use RMAN to Connect to a PDB to Use the Recovery Catalog
 - Explore Automatic Deletion of Flashback Logs
 
-If you would like to watch us do the workshop, click [here](https://youtu.be/Kdw7uugt0-E).
+If you would like to watch us do the general enhancement labs, click [here](https://youtu.be/Kdw7uugt0-E).
+
+### Security Enhancement Labs
+
+The following security enhancement labs are available:
+
+- Explore Oracle-Supplied Schema-Only Accounts
+- Protect Application Data by Using Database Vault Operations Control
+- Restrict Users from Executing the AUDIT POLICY and NOAUDIT POLICY SQL Commands by Using Oracle Database Vault Command Rules
+- Audit Direct User Activities
+- Handle Operations on Oracle-Managed and User-Managed Tablespaces Encrypted in TDE
 
 ## Acknowledgements
 
 - **Author**- Jody Glover, Principal User Assistance Developer, Database Development
-- **Last Updated By/Date** - Jody Glover, Database team, September 21 2021
+- **Last Updated By/Date** - Matthew McDaniel, Austin Specialist Hub, February 24 2022

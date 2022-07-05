@@ -33,15 +33,19 @@ In this section, you execute the `SELECT` statement to retrieve data from tables
 
 1. You can display all columns of data in a table by entering an asterisk * after the SELECT keyword. Execute the following statement to view all rows and columns in the  `PROMOTIONS` table:
 
-    `SELECT *
-    FROM sh.promotions;`
+    ````
+    <copy>SELECT *
+    FROM sh.promotions;</copy>
+    ````
 
     ![](./images/select-star-from-sh-promotions.png " ")
 
 2. You can display specific columns of data in a table by specifying the column names in the SELECT statement. Execute the following statement to view the `PROMO_NAME` and `PROMO_END_DATE` columns in the `PROMOTIONS` table:
 
-    `SELECT promo_name, promo_end_date
-    FROM sh.promotions;`
+    ````
+    <copy>SELECT promo_name, promo_end_date
+    FROM sh.promotions;</copy>
+    ````
 
     ![](./images/select-promo-name-promo-end-date-from-promotions.png " ")
 
@@ -50,11 +54,13 @@ In this section, you use the `WHERE` clause to restrict the rows that are return
 
 1. Modify the `SELECT` statement. Execute the following query to restrict the number of rows to where the `PROMO_SUBCATEGORY` has a value of `radio commercial`:
 
-    `SELECT *`
+    ````
+    <copy>SELECT *
 
-    `FROM sh.promotions`
+    FROM sh.promotions
 
-    `WHERE promo_subcategory='radio commercial';`
+    WHERE promo_subcategory='radio commercial';</copy>
+    ````
 
     ![](./images/where-promo-subcategory-equals-radio-commercial.png " ")
 
@@ -62,27 +68,31 @@ In this section, you use the `WHERE` clause to restrict the rows that are return
 
 In this section, you use the `ORDER BY` clause to sort the rows that are retrieved from the `SELECT` statement. You specify the column based on the rows that must be sorted. You also specify the `ASC` keyword to display rows in ascending order (default), and you specify the `DESC` keyword to display rows in descending order.
 
-1. Execute the following `SELECT` statement to retrieve the `CUST_LAST_NAME`, `CUST_CREDIT_LIMIT`, and `CUST_YEAR_OF_BIRTH` columns of customers who live in the `Noord Holland` CUST_STATE_PROVINCE. Sort the rows in ascending order based on the `CUST_YEAR_OF_BIRTH` column.
+1. Execute the following `SELECT` statement to retrieve the `CUST_LAST_NAME`, `CUST_CREDIT_LIMIT`, and `CUST_YEAR_OF_BIRTH` columns of customers who live in the `Noord Holland` CUST\_STATE\_PROVINCE. Sort the rows in ascending order based on the `CUST_YEAR_OF_BIRTH` column.
 
-    `SELECT cust_last_name, cust_credit_limit, cust_year_of_birth`
+    ````
+    <copy>SELECT cust_last_name, cust_credit_limit, cust_year_of_birth
 
-    `FROM   sh.customers`
+    FROM   sh.customers
 
-    `WHERE  cust_state_province='Noord-Holland'`
+    WHERE  cust_state_province='Noord-Holland'
 
-    `ORDER BY cust_year_of_birth;`
+    ORDER BY cust_year_of_birth;</copy>
+    ````
 
     ![](./images/order-by-cust-year-of-birth.png " ")  
 
 2. Modify the `SELECT` statement to display rows in descending order. Use the `DESC` keyword.
 
-    `SELECT cust_last_name, cust_credit_limit, cust_year_of_birth`
+    ````
+    <copy>SELECT cust_last_name, cust_credit_limit, cust_year_of_birth
 
-    `FROM   sh.customers`
+    FROM   sh.customers
 
-    `WHERE  cust_state_province='Noord-Holland'`
+    WHERE  cust_state_province='Noord-Holland'
 
-    `ORDER BY cust_year_of_birth DESC;`
+    ORDER BY cust_year_of_birth DESC;</copy>
+    ````
 
   ![](./images/order-by-cust-year-of-birth-desc.png " ")  
 
@@ -118,5 +128,5 @@ Click [here](https://docs.oracle.com/en/database/oracle/oracle-database/19/cncpt
 - **Author** - Rick Green, Principal Developer, Database User Assistance
 - **Contributor** - Supriya Ananth
 - **Adapted for Cloud by** - Rick Green
-- **Last Updated By/Date** - Rick Green, April 2021
+- **Last Updated By/Date** - Kamryn Vinson, April 2022
 

@@ -1,0 +1,8 @@
+{
+    "orderId": "1000",
+    "product": "Laptop",
+    "quantity": 5,
+    "unitPrice": 1500,
+    "discount": 0,
+    "country": "US"
+}

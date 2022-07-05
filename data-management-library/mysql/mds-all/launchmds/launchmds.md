@@ -441,7 +441,9 @@ Estimated Time: 10 minutes
     ````   
 4. Make sure **(root)** compartment is selected.
 
-5. Choose an operating system or image source (for this lab , select Oracle Linux),
+5. Choose an operating system or image source (for this lab , select Oracle Linux 7.9)
+
+    **NOTE** Be sure to select image Oracle Linux 7.9 otherwise the PHP install will not work.
 
 6. Edit Configure placement and hardware
 
@@ -1101,6 +1103,10 @@ Subtask 1 – Install App Server (APACHE)
 Subtask 2 – Install PHP    
 
 1.	Install php:
+
+    **NOTE** This PHP installation only works on a Compute instance with the  Oracle Linux 7.9 image.  
+    
+    If you receive any errors then delete the MDS-Client Compute and go back to **Task 5** to create a new MDS-Client compute.
 
     ````
     <copy> sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm </copy>

@@ -17,7 +17,7 @@ In this section we will download sample Ansible resources and configure it to wo
     <copy>
     mkdir ansible
     cd ansible
-    wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/7Sz28HZHtw8txIQDBPaYJiJFJB3opsTD78aE4Sv176zIJaz79Z6dJI5749En8KB1/n/c4u04/b/oci-library/o/oci_ansible.zip
+    wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/Ei1_2QRw4M8tQpk59Qhao2JCvEivSAX8MGB9R6PfHZlqNkpkAcnVg4V3-GyTs1_t/n/c4u04/b/livelabsfiles/o/oci-library/oci_ansible.zip
     unzip oci_ansible.zip
     </copy>
     ```

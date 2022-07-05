@@ -43,6 +43,8 @@ This lab assumes you have:
 
 ## Task 1: Prepare your environment
 
+> **NOTE:** Unless otherwise stated, all passwords will be `Ora4U_1234`. When copying and pasting a command that includes a password, please replace the word `password` with `Ora4U_1234`. This only applies to instances created through OCI Resource Manager with our provided terraform scripts.
+
 In this lab, you require two PDBs. The `workshop-installed` compute instance comes with a container database (CDB1) that has one PDB already created called PDB1. In this task, you add another PDB to CDB1 called PDB2. You also create a tablespace called `TEST` in PDB1 and make sure that there is no tablespace by that name in PDB2.
 
 1. Open a terminal window on the desktop.
@@ -78,7 +80,7 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
 6. Connect to PDB1 in CDB1 as the `SYS` user.
 
     ```
-    $ <copy>sqlplus system/Ora4U_1234@PDB1</copy>
+    $ <copy>sqlplus system/password@PDB1</copy>
     ```
 
 7. View the content of the `HR.TABTEST` table.
@@ -94,7 +96,7 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
 8. Connect to PDB2 in CDB1 as the `SYS` user.
 
     ```
-    $ <copy>CONNECT system/Ora4U_1234@PDB2</copy>
+    $ <copy>CONNECT system/password@PDB2</copy>
     Connected.
     ```
 
@@ -125,7 +127,7 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
 1. Connect to PDB1 in CDB1 as the `SYS` user.
 
     ```
-    $ <copy>CONNECT system/Ora4U_1234@PDB1</copy>
+    $ <copy>CONNECT system/password@PDB1</copy>
     Connected.
     ```
 
@@ -143,10 +145,10 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
     SQL> <copy>EXIT</copy>
     ```
 
-4. Run the following Oracle Data Pump Export command (`expdp`) to export the `TEST` tablespace from `PDB1` in transportable tablespace mode. A dump file is created in `/tmp/PDB1.dmp`.
+4. Run the following Oracle Data Pump Export command (`expdp`) to export the `TEST` tablespace from `PDB1` in transportable tablespace mode. A dump file is created in `/tmp/PDB1.dmp`. Please note the use of `password`.
 
     ```
-    $ <copy>expdp \"sys/Ora4U_1234@PDB1 as sysdba\" \
+    $ <copy>expdp \"sys/password@PDB1 as sysdba\" \
       DIRECTORY=dp_pdb1 \
       DUMPFILE=PDB1.dmp \
       TRANSPORT_TABLESPACES=test \
@@ -182,7 +184,7 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
 1. Connect to PDB2 as the `SYS` user.
 
     ```
-    $ <copy>sqlplus system/Ora4U_1234@PDB2</copy>
+    $ <copy>sqlplus system/password@PDB2</copy>
     ```
 
 2. Create a target directory in PDB2 called `dp_pdb2` equal to `/tmp`. Later on during the import operations, Oracle Data Pump Import uses this directory.
@@ -196,7 +198,7 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
 3. Create an `HR` user in PDB2. You need to pre-create the users that have objects in the transportable tablespace.
 
     ```
-    SQL> <copy>CREATE USER hr IDENTIFIED BY Ora4U_1234;</copy>
+    SQL> <copy>CREATE USER hr IDENTIFIED BY password;</copy>
 
     User created.
     ```
@@ -216,12 +218,12 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
 
 ## Task 4: Import PDB1's `TEST` tablespace into `PDB2` while keeping the imported tablespace in read-only mode
 
-1. Run the Oracle Data Pump Import utility, `impdp`, to import PDB1's `TEST` tablespace into `PDB2`. Set the `TRANSPORTABLE` parameter equal to `KEEP_READ_ONLY`. The `DIRECTORY` parameter specifies the location in which the import job can find the dump file set.
+1. Run the Oracle Data Pump Import utility, `impdp`, to import PDB1's `TEST` tablespace into `PDB2`. Set the `TRANSPORTABLE` parameter equal to `KEEP_READ_ONLY`. The `DIRECTORY` parameter specifies the location in which the import job can find the dump file set. Please note the use of `password`.
 
     *The `KEEP_READ_ONLY` value for the `TRANSPORTABLE` parameter is a new feature!*
 
     ```
-    $ <copy>impdp \'sys/Ora4U_1234@PDB2 as sysdba\' \
+    $ <copy>impdp \'sys/password@PDB2 as sysdba\' \
       DIRECTORY=dp_pdb2 \
       DUMPFILE=PDB1.dmp \
       TRANSPORT_DATAFILES='/u01/app/oracle/oradata/CDB1/PDB2/test01.dbf' \
@@ -245,7 +247,7 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
 2. Connect to PDB2.
 
     ```
-    $ <copy>sqlplus system/Ora4U_1234@PDB2</copy>
+    $ <copy>sqlplus system/password@PDB2</copy>
     ```
 
 3. Verify that the `TEST` tablespace is still in read-only mode after the import.
@@ -280,12 +282,12 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
     $ <copy>cp /u01/app/oracle/oradata/CDB1/PDB1/test01.dbf  /u01/app/oracle/oradata/CDB1/PDB2</copy>
     ```
 
-4. Run the following Oracle Data Dump Import command to import PDB1's `TEST` tablespace into PDB2 without rebuilding the bitmap. Set the `TRANSPORTABLE` parameter equal to `NO_BITMAP_REBUILD`.
+4. Run the following Oracle Data Dump Import command to import PDB1's `TEST` tablespace into PDB2 without rebuilding the bitmap. Set the `TRANSPORTABLE` parameter equal to `NO_BITMAP_REBUILD`. Please note the use of `password`.
 
     *The `NO_BITMAP_REBUILD` value for the `TRANSPORTABLE` parameter is a new feature!*
 
     ```
-    $ <copy>impdp \'sys/Ora4U_1234@PDB2 as sysdba\' \
+    $ <copy>impdp \'sys/password@PDB2 as sysdba\' \
     DIRECTORY=dp_pdb2 \
     DUMPFILE=PDB1.dmp \
     TRANSPORT_DATAFILES='/u01/app/oracle/oradata/CDB1/PDB2/test01.dbf' \
@@ -310,7 +312,7 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
 5. Connect to PDB2 as the `SYS` user.
 
     ```
-    $ <copy>sqlplus sys/Ora4U_1234@PDB2 AS SYSDBA</copy>
+    $ <copy>sqlplus sys/password@PDB2 AS SYSDBA</copy>
     ```
 
 6. Verify that the `TEST` tablespace is in `READ ONLY` mode after the import.
@@ -355,12 +357,12 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
     $ <copy>$HOME/labs/19cnf/create_drop_TBS.sh</copy>
     ```
 
-2. Run the Oracle Data Pump Export transportable operation with the `TTS_CLOSURE_CHECK` parameter set to `TEST_MODE` mode.
+2. Run the Oracle Data Pump Export transportable operation with the `TTS_CLOSURE_CHECK` parameter set to `TEST_MODE` mode. Please note the use of `password`.
 
     *The `TEST_MODE` value for the `TTS_CLOSURE_CHECK` parameter is a new feature!*
 
     ```
-    $ <copy>expdp \"sys/Ora4U_1234@PDB1 as sysdba\" \
+    $ <copy>expdp \"sys/password@PDB1 as sysdba\" \
       DIRECTORY=dp_pdb1 \
       dumpfile=PDB1.dmp \
       TRANSPORT_TABLESPACES=test \
@@ -392,10 +394,10 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
     Job "SYS"."SYS_EXPORT_TRANSPORTABLE_01" successfully completed at Thu Aug 26 14:37:46 2021 elapsed 0 00:00:28
     ```
 
-3. Question: Can you use the dump file to import the `TEST` tablespace into PDB2? Try running the following Oracle Data Pump Import command to find out.
+3. Question: Can you use the dump file to import the `TEST` tablespace into PDB2? Try running the following Oracle Data Pump Import command to find out. Please note the use of `password`.
 
     ```
-    $ <copy>impdp \"sys/Ora4U_1234@PDB2 as sysdba\" \
+    $ <copy>impdp \"sys/password@PDB2 as sysdba\" \
       DIRECTORY=dp_pdb2 \
       dumpfile=PDB1.dmp \
       TRANSPORT_DATAFILES='/u02/app/oracle/oradata/CDB1/PDB2/test01.dbf' \
@@ -416,12 +418,12 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
 
 ## Task 7: Export the `TEST` tablespace from `PDB1` with the `TTS_CLOSURE_CHECK` parameter set to `OFF` to skip the closure check
 
-1. Try running the Oracle Data Pump Export transportable operation again with the `TTS_CLOSURE_CHECK` parameter set to `OFF`. This setting skips the closure check. Of course you are sure that the transportable tablespace set is contained!
+1. Try running the Oracle Data Pump Export transportable operation again with the `TTS_CLOSURE_CHECK` parameter set to `OFF`. This setting skips the closure check. Of course you are sure that the transportable tablespace set is contained! Please note the use of `password`.
 
     *The `OFF` value for the `TTS_CLOSURE_CHECK` parameter is a new feature!*
 
     ```
-    $ <copy>expdp \"sys/Ora4U_1234@PDB1 as sysdba\" \
+    $ <copy>expdp \"sys/password@PDB1 as sysdba\" \
     DIRECTORY= dp_pdb1 \
     dumpfile=PDB1.dmp \
     TRANSPORT_TABLESPACES=test \
@@ -454,7 +456,7 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
 3. Connect to PDB1 as the `SYS` user.
 
     ```
-    $ <copy>sqlplus system/Ora4U_1234@PDB1</copy>
+    $ <copy>sqlplus system/password@PDB1</copy>
     ```
 
 4. Set the `TEST` tablespace to be read-only.
@@ -471,10 +473,10 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
     SQL> <copy>EXIT</copy>
     ```
 
-6. Export the tablespace again with the `TTS_CLOSURE_CHECK` parameter set to `OFF`.
+6. Export the tablespace again with the `TTS_CLOSURE_CHECK` parameter set to `OFF`. Please note the use of `password`.
 
     ```
-    $ <copy>expdp \"sys/Ora4U_1234@PDB1 as sysdba\" \
+    $ <copy>expdp \"sys/password@PDB1 as sysdba\" \
     DIRECTORY= dp_pdb1 \
     dumpfile=PDB1.dmp \
     TRANSPORT_TABLESPACES=test \
@@ -514,10 +516,10 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
     $ <copy>cp /u01/app/oracle/oradata/CDB1/PDB1/test01.dbf  /u01/app/oracle/oradata/CDB1/PDB2</copy>
     ```
 
-2. Run Oracle Data Pump Import to import the `TEST` tablespace.
+2. Run Oracle Data Pump Import to import the `TEST` tablespace. Please note the use of `password`.
 
     ```
-    $ <copy>impdp \'sys/Ora4U_1234@PDB2 as sysdba\' \
+    $ <copy>impdp \'sys/password@PDB2 as sysdba\' \
       DIRECTORY=dp_pdb2 \
       DUMPFILE=PDB1.dmp \
       TRANSPORT_DATAFILES='/u01/app/oracle/oradata/CDB1/PDB2/test01.dbf'</copy>
@@ -543,7 +545,7 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
 3. Connect to PDB2 as the `SYS` user.
 
     ```
-    $ <copy>sqlplus system/Ora4U_1234@PDB2</copy>
+    $ <copy>sqlplus system/password@PDB2</copy>
     ```
 
 4. Run the following query to verify that the `TEST` tablespace is still in read-only mode.
@@ -586,5 +588,5 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
 ## Acknowledgements
 
 - **Author**: Dominique Jeunot's, Consulting User Assistance Developer
-- **Contributor** - Jody Glover, Principal User Assistance Developer
+- **Contributor** - Jody Glover, Consulting User Assistance Developer, Database Development
 - **Last Updated By**: Blake Hendricks, Solutions Engineer, September 22 2021

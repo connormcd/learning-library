@@ -88,7 +88,7 @@ Note:In the future, Oracle's Redwood theme will be the default look and feel and
 
 ## **Task 3**: Load an excel file
 
-Donwload the file: [OAC_TD_Expenses.xlsx](https://objectstorage.us-ashburn-1.oraclecloud.com/p/xDyJzRM2_kEk4fOAlKjPTjJ8ll6ouMiq0S04UNwgs98aDp1Fg1-MBPopxH6ly394/n/c4u04/b/labfiles/o/OAC_TD_Expenses.xlsx)
+Donwload the file: [OAC_TD_Expenses.xlsx](https://objectstorage.us-ashburn-1.oraclecloud.com/p/jyHA4nclWcTaekNIdpKPq3u2gsLb00v_1mmRKDIuOEsp--D6GJWS_tMrqGmb85R2/n/c4u04/b/livelabsfiles/o/labfiles/OAC_TD_Expenses.xlsx)
 
 1. Click on “Create”
 

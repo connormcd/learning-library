@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I get User's ILMPOLICIES?",
+         "description": "",
+         "filename": "sprint-ilm-policies.md"
+      },
+      {
+         "title": "How do I add storage tier policy to move old data to a different tablespace?",
+         "description": "",
+         "filename": "../sprint-ilm-storagetier/sprint-ilm-storagetier.md"
+      }
+   ],
+   "task_type": "Sections"
+}

@@ -1,0 +1,27 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How can I create a new Machine Learning user in Oracle Autonomous Database?",
+         "description": "",
+         "filename": "sprint-create-ml-user.md"
+      },
+      {
+         "title": "How can I grant my new Machine Learning user privileges to access ADB Data Tools?",
+         "description": "",
+         "filename": "../sprint-grant-ml-user-priv-dbtools/sprint-grant-ml-user-priv-dbtools.md"
+      },
+      {
+         "title": "How can I create a new Machine Learning Notebook in Oracle Autonomous Database?",
+         "description": "",
+         "filename": "../sprint-create-ml-notebook/sprint-create-ml-notebook.md"
+      },
+      {
+         "title": "How can I define paragraphs using the md, SQL, PL/SQL, and Python interpreters in Oracle Machine Learning Notebook?",
+         "description": "",
+         "filename": "../sprint-define-paragraphs-ml-notebook/sprint-define-paragraphs-ml-notebook.md"
+      }
+   ],
+   "task_type": "Sections"
+}

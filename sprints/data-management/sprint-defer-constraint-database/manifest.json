@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How can I delay applying a foreign key constraint while updating thousands of rows in an Oracle database?",
+         "description": "",
+         "filename": "sprint-defer-constraint-database.md"
+      },
+      {
+         "title": "How can I index columns in the Oracle database?",
+         "description": "",
+         "filename": "../sprint-sql/index-columns/index-columns.md"
+      }
+   ],
+   "task_type": "Sections"
+}

@@ -27,66 +27,22 @@ For ease of execution of this workshop, your VM instance has been pre-configured
 
 2. Click on ***Launch Workshop***
 
-3. In the expanded **Workshop Details**, look for the instance(s) and write down the public IP address(es).
+3. Click on *Remote Desktop* link.
 
-   ![](images/novnc-get-public-ip.png " ")
+    ![](images/launch-ll-workshop-novnc.png " ")
 
-4. Open a new browser tab and navigate to this URL to get started with labs execution.
+    This should take you directly to your remote desktop in a single click.
 
-    ```
-    <copy>http://<your public-ip from above>:6080/vnc.html?password=LiveLabs.Rocks_99&resize=scale&quality=9&autoconnect=true</copy>
-    ```
+    ![](images/novnc-launch-get-started-2.png " ")
 
-    e.g.
+    *Note:* While rare, you may see an error titled “*Deceptive Site Ahead*” or similar depending on your browser type as shown below.
 
-    ```
-    <copy>http://111.111.111.111:6080/vnc.html?password=LiveLabs.Rocks_99&resize=scale&quality=9&autoconnect=true</copy>
-    ```
+    Public IP addresses used for LiveLabs provisioning comes from a pool of reusable addresses and this error is due to the fact that the address was previously used by a compute instance long terminated, but that wasn't properly secured, got compromised and was flagged.
 
-    *Note:* The IP address `111.111.111.111` is made up for illustration only. Provide the correct IP address.
-
-    *Note:* While rare, you may see an error on the browser - “*Deceptive Site Ahead*” or similar depending on your browser type as shown below.
-
-    Public IP addresses used for LiveLabs provisioning comes from a pool of reusable addresses and this error is due to the fact that the address was previously used by a compute instance long terminated, but that wasn't properly secured, got bridged and was flagged. You can safely ignore and proceed by clicking on *Details*, and finally on *Visit this unsafe site*.
+    You can safely ignore and proceed by clicking on *Details*, and finally on *Visit this unsafe site*.
 
     ![](images/novnc-deceptive-site-error.png " ")
 
-## Task 2: Enable Full-screen Display
-For seamless desktop integration and to make the best use of your display, perform the following tasks to render your remote desktop session in fullscreen mode.
-
-1. Click on the small gray tab on the middle-left side of your screen to open the control bar.
-
-    ![](./images/novnc-fullscreen-1.png " ")
-
-2. Select *Fullscreen* to render the session on your entire screen.
-
-    ![](./images/novnc-fullscreen-2.png " ")
-    ![](./images/novnc-fullscreen-3.png " ")
-
-## Task 3: Enable Copy/Paste from Local to Remote Desktop
-During the execution of your labs you may need to copy text from your local PC/Mac to the remote desktop, such as commands from the lab guide. While such direct copy/paste isn't supported as you will realize, you may proceed as indicated below to enable an alternative local-to-remote clipboard with Input Text Field.
-
-1. Continuing from the last task above, Select the *clipboard* icon
-
-    ![](./images/novnc-clipboard-1.png " ")
-
-2. Copy some text from your local computer as illustrated below and paste into the clipboard widget, then finally open up the desired application (e.g. Terminal) and paste accordingly using *mouse controls*
-
-    ![](./images/novnc-clipboard-2.png " ")
-
-    *Note:* Please make sure you initialize your clipboard with step [1] shown in the screenshot above before opening the target application in which you intend to paste the text. Otherwise will find the *paste* function in the context menu grayed out when attempting to paste for the first time.
-
-## Task 4: Open Your Workshop Guide
-
-1. If the two *Firefox* browser windows are not already open, click on the icon from the remote desktop. This will launch two windows.
-
-    ![](./images/firefox-launch-1.png " ")
-
-2. On the left windows is a workshop guide that may or may not be the correct guide as many VM images are shared by multiple workshops. To ensure that the guide displayed is the correct one, click on *Workshop Guides* from the browser toolbar bookmarks area and select the appropriate guide for your workshop.
-
-    ![](./images/firefox-launch-2.png " ")
-
-You may now [proceed to the next lab](#next).
 
 ## Appendix 1: Login to Host using SSH Key Based Authentication (Optional) - Choose a path
 
@@ -148,7 +104,7 @@ Your options are:
 
 If you are unable to ssh in, check out the troubleshooting tips below.
 
-You may now [proceed to the next lab](#next).
+You may now proceed to the next lab
 
 ## Appendix 1B: Connect via MAC or Windows CYGWIN Emulator
 Depending on your workshop, you may need to connect to the instance via a secure shell client (SSH). If you're instructed in the next lab(s) to execute tasks via an SSH terminal, review the options below and select the one that best meet your needs.
@@ -162,7 +118,7 @@ Depending on your workshop, you may need to connect to the instance via a secure
     ```
     ![](./images/em-mac-linux-ssh-login.png " ")
 
-You may now [proceed to the next lab](#next).
+You may now proceed to the next lab
 
 ## Appendix 1C: Connect via Windows using Putty
 On Windows, you can use PuTTY as an SSH client. PuTTY enables Windows users to connect to remote systems over the internet using SSH and Telnet. SSH is supported in PuTTY, provides for a secure shell, and encrypts information before it's transferred.
@@ -198,7 +154,7 @@ On Windows, you can use PuTTY as an SSH client. PuTTY enables Windows users to c
 1.  In the category section, **Click** session.
 2.  In the saved sessions section, name your session, for example ( EM13C-ABC ) and **Click** Save.
 
-You may now [proceed to the next lab](#next).
+You may now proceed to the next lab
 
 ## Appendix: Troubleshooting Tips
 
@@ -233,6 +189,5 @@ To use PuTTYgen to convert a key into .ppk format, complete the following steps:
 4. Go to **File**, and then click **Save private key** to save the key in .ppk format.
 
 ## Acknowledgements
-* **Author** - Rene Fontcha, LiveLabs Platform Lead, NA Technology
-* **Contributors** - LiveLabs Team, Tom McGinn
+* **Author** - Rene Fontcha, LiveLabs Platform Lead, NA Technology 
 * **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, June 2021

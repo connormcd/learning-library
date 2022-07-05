@@ -28,7 +28,7 @@ If you are using Gradle and the GraalVM SDK with Native Image installed (Native 
 Open up the Terminal pane and run the following command:
 
     <copy>
-    ./gradlew nativeImage
+    ./gradlew nativeCompile
     </copy>
 
 After some time the native image executable will be built to `build/native-image/application`.
@@ -36,7 +36,7 @@ After some time the native image executable will be built to `build/native-image
 You can now run the native executable from Terminal:
 
     <copy>
-    ./build/native-image/application
+    ./build/native/nativeCompile/example-atp
     </copy>
 
 ## Building a Native Image with Maven

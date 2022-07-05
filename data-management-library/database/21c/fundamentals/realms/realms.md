@@ -3,7 +3,7 @@
 ## Introduction
 This lab shows how to prevent local users from creating Oracle Database Vault controls on common users objects which would prevent common users from accessing local data in their own schema in PDBs. A PDB local Database Vault Owner can create a realm around common Oracle schemas like `DVSYS` or `CTXSYS` and prevent it functioning correctly. For the purposes of this practice, the `C##TEST1` custom schema is created in CDB root to show this feature.
 
-Estimated Lab Time: 40 minutes
+Estimated Time: 40 minutes
 
 ### Objectives
 
@@ -12,18 +12,16 @@ In this lab, you will:
 
 ### Prerequisites
 
-* An Oracle Free Tier, Paid or LiveLabs Cloud Account
-* Lab: SSH Keys
-* Lab: Create a DBCS VM Database
-* Lab: 21c Setup
+* An Oracle Account
+* SSH Keys
+* Create a DBCS VM Database
+* 21c Setup
 
 ## Task 1: Configure and enable Database Vault at the CDB and PDB levels
 
 1. Configure and enable Database Vault at the CDB root level and at the PDB level. The script creates the `HR.G_EMP` table in the root container and also the `HR.L_EMP` table in `PDB21`.
 
-
     ```
-
     $ <copy>cd /home/oracle/labs/M104781GC10</copy>
 
     $ <copy>/home/oracle/labs/M104781GC10/setup_DV.sh</copy>
@@ -117,22 +115,18 @@ In this lab, you will:
     SQL> EXIT
 
     $
-
     ```
 
 ## Task 2: Test table data accessibility with no realm on common objects
 
 1. Connect to the CDB root as `C##SEC_ADMIN` to verify the status of `DV_ALLOW_COMMON_OPERATION`. This is the default behavior: it allows local users to create Database Vault controls on common users objects.
 
-
     ```
-
     $ <copy>sqlplus c##sec_admin</copy>
 
     Enter password: <i>WElcome123##</i>
     ```
     ```
-
     SQL> <copy>SELECT * FROM DVSYS.DBA_DV_COMMON_OPERATION_STATUS;</copy>
 
     NAME                      STATU
@@ -140,20 +134,16 @@ In this lab, you will:
     DV_ALLOW_COMMON_OPERATION FALSE
 
     SQL>
-
     ```
 
 2. Connect to the CDB root as `C##TEST1`, the table common owner.
 
-
     ```
-
     SQL> <copy>CONNECT c##test1</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
     ```
     ```
-
     SQL> <copy>SELECT * FROM c##test1.g_emp;</copy>
 
     NAME           SALARY
@@ -161,20 +151,16 @@ In this lab, you will:
     EMP_GLOBAL       1000
 
     SQL>
-
     ```
 
 3. Connect to the CDB root as `C##TEST2`, another common user.
 
-
     ```
-
     SQL> <copy>CONNECT c##test2</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
     ```
     ```
-
     SQL> <copy>SELECT * FROM c##test1.g_emp;</copy>
 
     NAME           SALARY
@@ -182,41 +168,33 @@ In this lab, you will:
     EMP_GLOBAL       1000
 
     SQL>
-
     ```
 
 4. Connect to `PDB21` as `C##TEST1`, the table common owner.
 
-
     ```
-
     SQL> <copy>CONNECT c##test1@PDB21</copy>
     Enter password: <i>WElcome123##</i>
 
     Connected.
     ```
     ```
-
     SQL> <copy>SELECT * FROM c##test1.l_emp;</copy>
     NAME           SALARY
     ---------- ----------
     EMP_LOCAL        2000
 
     SQL>
-
     ```
 
 5. Connect to `PDB21` as `C##TEST2`, another common user.
 
-
     ```
-
     SQL> <copy>CONNECT c##test2@PDB21</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
     ```
     ```
-
     SQL> <copy>SELECT * FROM c##test1.l_emp;</copy>
 
     NAME           SALARY
@@ -224,22 +202,18 @@ In this lab, you will:
     EMP_LOCAL        2000
 
     SQL>
-
     ```
 
 ## Task 3: Test table data accessibility with a common regular or mandatory realm on common objects
 
 1. Create a common regular realm on `C##TEST1` tables in the CDB root.
 
-
     ```
-
     SQL> <copy>CONNECT c##sec_admin</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
     ```
     ```
-
     SQL> <copy>BEGIN
     DBMS_MACADM.CREATE_REALM(
       realm_name    => 'Root Test Realm',
@@ -264,13 +238,11 @@ In this lab, you will:
     PL/SQL procedure successfully completed.
 
     SQL>
-
     ```
 
 2. Connect to the CDB root as `C##TEST1`, the table common owner.
 
     ```
-
     SQL> <copy>CONNECT c##test1</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -283,13 +255,11 @@ In this lab, you will:
     EMP_GLOBAL       1000
 
     SQL>
-
     ```
 
 3. Connect to the CDB root as `C##TEST2`, another common user.
 
     ```
-
     SQL> <copy>CONNECT c##test2</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -302,13 +272,11 @@ In this lab, you will:
     ORA-01031: insufficient privileges
 
     SQL>
-
     ```
 
 4. Connect to `PDB21` as `C##TEST1`, the table common owner.
 
     ```
-
     SQL> <copy>CONNECT c##test1@PDB21</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -321,13 +289,11 @@ In this lab, you will:
     EMP_LOCAL        2000
 
     SQL>
-
     ```
 
 5. Connect to `PDB21` as `C##TEST2`, another common user.
 
     ```
-
     SQL> <copy>CONNECT c##test2@PDB21</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -340,13 +306,11 @@ In this lab, you will:
     EMP_LOCAL        2000
 
     SQL>
-
     ```
 
 6. Drop the realm.
 
     ```
-
     SQL> <copy>CONNECT c##sec_admin</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -357,14 +321,11 @@ In this lab, you will:
     PL/SQL procedure successfully completed.
 
     SQL>
-
     ```
 
 7. Create a common mandatory realm on `C##TEST1` tables in the CDB root.
 
-
     ```
-
     SQL> <copy>BEGIN
     DBMS_MACADM.CREATE_REALM(
     realm_name    => 'Root Test Realm',
@@ -378,7 +339,6 @@ In this lab, you will:
     PL/SQL procedure successfully completed.
     ```
     ```
-
     SQL> <copy>BEGIN
     DBMS_MACADM.ADD_OBJECT_TO_REALM(
     realm_name   => 'Root Test Realm',
@@ -391,13 +351,11 @@ In this lab, you will:
     PL/SQL procedure successfully completed.
 
     SQL>
-
     ```
 
 8. Connect to the CDB root as `C##TEST1`, the table common owner.
 
     ```
-
     SQL> <copy>CONNECT c##test1</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -411,13 +369,11 @@ In this lab, you will:
 
 
     SQL>
-
     ```
 
 9. Connect to the CDB root as `C##TEST2`, another common user.
 
     ```
-
     SQL> <copy>CONNECT c##test2</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -431,13 +387,11 @@ In this lab, you will:
 
 
     SQL>
-
     ```
 
 10. Connect to `PDB21` as `C##TEST1`, the table common owner.
 
     ```
-
     SQL> <copy>CONNECT c##test1@PDB21</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -450,13 +404,11 @@ In this lab, you will:
     EMP_LOCAL        2000
 
     SQL>
-
     ```
 
 11. Connect to `PDB21` as `C##TEST2`, another common user.
 
     ```
-
     SQL> <copy>CONNECT c##test2@PDB21</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -469,13 +421,11 @@ In this lab, you will:
     EMP_LOCAL        2000
 
     SQL>
-
     ```
 
 12. Drop the realm.
 
     ```
-
     SQL> <copy>CONNECT c##sec_admin</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -486,16 +436,13 @@ In this lab, you will:
     PL/SQL procedure successfully completed.
 
     SQL>
-
     ```
 
 ## Task 4: Test table data accessibility on common objects with a PDB regular or mandatory realm
 
 1. Create a PDB regular realm on `C##TEST1` tables in `PDB21`.
 
-
     ```
-
     SQL> <copy>CONNECT sec_admin@PDB21</copy>
 
     Enter password: <i>WElcome123##</i>
@@ -503,7 +450,6 @@ In this lab, you will:
     Connected.
     ```
     ```
-
     SQL> <copy>BEGIN
     DBMS_MACADM.CREATE_REALM(
       realm_name    => 'Test Realm',
@@ -530,13 +476,11 @@ In this lab, you will:
     PL/SQL procedure successfully completed.
 
     SQL>
-
     ```
 
 2. Connect to the CDB root as `C##TEST1`, the table common owner.
 
     ```
-
     SQL> <copy>CONNECT c##test1</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -549,13 +493,11 @@ In this lab, you will:
     EMP_GLOBAL       1000
 
     SQL>
-
     ```
 
 3. Connect to the CDB root as `C##TEST2`, another common user.
 
     ```
-
     SQL> <copy>CONNECT c##test2</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -568,13 +510,11 @@ In this lab, you will:
     EMP_GLOBAL       1000
 
     SQL>
-
     ```
 
 4. Connect to `PDB21` as `C##TEST1`, the table common owner.
 
     ```
-
     SQL> <copy>CONNECT c##test1@PDB21</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -587,13 +527,11 @@ In this lab, you will:
     EMP_LOCAL        2000
 
     SQL>
-
     ```
 
 5. Connect to `PDB21` as `C##TEST2`, another common user.
 
     ```
-
     SQL> <copy>CONNECT c##test2@PDB21</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -606,13 +544,11 @@ In this lab, you will:
     ORA-01031: insufficient privileges
 
     SQL>
-
     ```
 
 6. Drop the realm.
 
     ```
-
     SQL> <copy>CONNECT c##sec_admin@PDB21</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -622,20 +558,17 @@ In this lab, you will:
     PL/SQL procedure successfully completed.
 
     SQL>
-
     ```
 
 7. Create a PDB mandatory realm on `C##TEST1` tables in `PDB21`.
 
 
     ```
-
     SQL> <copy>CONNECT sec_admin@PDB21</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
     ```
     ```
-
     SQL> <copy>BEGIN
     DBMS_MACADM.CREATE_REALM(
       realm_name    => 'Test Realm',
@@ -661,13 +594,11 @@ In this lab, you will:
     PL/SQL procedure successfully completed.
 
     SQL>
-
     ```
 
 8. Connect to the CDB root as `C##TEST1`, the table common owner.
 
     ```
-
     SQL> <copy>CONNECT c##test1</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -680,13 +611,11 @@ In this lab, you will:
     EMP_GLOBAL       1000
 
     SQL>
-
     ```
 
 9. Connect to the CDB root as `C##TEST2`, another common user.
 
     ```
-
     SQL> <copy>CONNECT c##test2</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -699,13 +628,11 @@ In this lab, you will:
     EMP_GLOBAL       1000
 
     SQL>
-
     ```
 
 10. Connect to `PDB21` as `C##TEST1`, the table common owner.
 
     ```
-
     SQL> <copy>CONNECT c##test1@PDB21</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -718,13 +645,11 @@ In this lab, you will:
     ORA-01031: insufficient privileges
 
     SQL>
-
     ```
 
 11. Connect to `PDB21` as `C##TEST2`, another common user.
 
     ```
-
     SQL> <copy>CONNECT c##test2@PDB21</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -737,13 +662,11 @@ In this lab, you will:
     ORA-01031: insufficient privileges
 
     SQL>
-
     ```
 
 12. Drop the realm.
 
     ```
-
     SQL> <copy>CONNECT c##sec_admin@PDB21</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -753,7 +676,6 @@ In this lab, you will:
     PL/SQL procedure successfully completed.
 
     SQL>
-
     ```
 
 ## Task 5: Restrict local users from creating Oracle Database Vault controls on common objects
@@ -761,7 +683,6 @@ In this lab, you will:
 1. Restrict the local users from creating Oracle Database Vault controls on common objects.
 
     ```
-
     SQL> <copy>CONNECT c##sec_admin</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -784,16 +705,13 @@ In this lab, you will:
     DV_ALLOW_COMMON_OPERATION TRUE
 
     SQL>
-
     ```
 
 ## Task 6: Test table data accessibility with a common regular or mandatory realm on common objects
 
 1. Create a common regular realm on `C##TEST1` tables in the CDB root.
 
-
     ```
-
     SQL> <copy>CONNECT c##sec_admin</copy>
 
     Enter password: <i>WElcome123##</i>
@@ -801,7 +719,6 @@ In this lab, you will:
     Connected.
     ```
     ```
-
     SQL> <copy>BEGIN
     DBMS_MACADM.CREATE_REALM(
       realm_name    => 'Root Test Realm',
@@ -815,7 +732,6 @@ In this lab, you will:
     PL/SQL procedure successfully completed.
     ```
     ```
-
     SQL> <copy>BEGIN
     DBMS_MACADM.ADD_OBJECT_TO_REALM(
       realm_name   => 'Root Test Realm',
@@ -828,13 +744,11 @@ In this lab, you will:
     PL/SQL procedure successfully completed.
 
     SQL>
-
     ```
 
 2. Connect to the CDB root as `C##TEST1`, the table common owner.
 
     ```
-
     SQL> <copy>CONNECT c##test1</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -847,13 +761,11 @@ In this lab, you will:
     EMP_GLOBAL       1000
 
     SQL>
-
     ```
 
 3. Connect to the CDB root as `C##TEST2`, another common user.
 
     ```
-
     SQL> <copy>CONNECT c##test2</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -866,13 +778,11 @@ In this lab, you will:
     ORA-01031: insufficient privileges
 
     SQL>
-
     ```
 
 4. Connect to `PDB21` as `C##TEST1`, the table common owner.
 
     ```
-
     SQL> <copy>CONNECT c##test1@PDB21</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -885,13 +795,11 @@ In this lab, you will:
     EMP_LOCAL        2000
 
     SQL>
-
     ```
 
 5. Connect to `PDB21` as `C##TEST2`, another common user.
 
     ```
-
     SQL> <copy>CONNECT c##test2@PDB21</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -904,13 +812,11 @@ In this lab, you will:
     EMP_LOCAL        2000
 
     SQL>
-
     ```
 
 6. Drop the realm.
 
     ```
-
     SQL> <copy>CONNECT c##sec_admin</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -921,14 +827,11 @@ In this lab, you will:
     PL/SQL procedure successfully completed.
 
     SQL>
-
     ```
 
 7. Create a common mandatory realm on `C##TEST1` tables in the CDB root.
 
-
     ```
-
     SQL> <copy>BEGIN
    DBMS_MACADM.CREATE_REALM(
     realm_name    => 'Root Test Realm',
@@ -942,7 +845,6 @@ In this lab, you will:
   PL/SQL procedure successfully completed.
   ```
   ```
-
   SQL> <copy>BEGIN
    DBMS_MACADM.ADD_OBJECT_TO_REALM(
     realm_name   => 'Root Test Realm',
@@ -955,16 +857,11 @@ In this lab, you will:
     PL/SQL procedure successfully completed.
 
     SQL>
-
     ```
-
-
-
 
 8. Connect to the CDB root as `C##TEST1`, the table common owner.
 
     ```
-
     SQL> <copy>CONNECT c##test1</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -978,13 +875,11 @@ In this lab, you will:
 
 
     SQL>
-
     ```
 
 9. Connect to the CDB root as `C##TEST2`, another common user.
 
     ```
-
     SQL> <copy>CONNECT c##test2</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -998,13 +893,11 @@ In this lab, you will:
 
 
     SQL>
-
     ```
 
 10. Connect to `PDB21` as `C##TEST1`, the table common owner.
 
     ```
-
     SQL> <copy>CONNECT c##test1@PDB21</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -1017,13 +910,11 @@ In this lab, you will:
     EMP_LOCAL        2000
 
     SQL>
-
     ```
 
 11. Connect to `PDB21` as `C##TEST2`, another common user.
 
     ```
-
     SQL> <copy>CONNECT c##test2@PDB21</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -1036,13 +927,11 @@ In this lab, you will:
     EMP_LOCAL        2000
 
     SQL>
-
     ```
 
 12. Drop the realm.
 
     ```
-
     SQL> <copy>CONNECT c##sec_admin</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -1053,16 +942,13 @@ In this lab, you will:
     PL/SQL procedure successfully completed.
 
     SQL>
-
     ```
 
 ## Task 7: Test table data accessibility on common objects with a PDB regular or mandatory realm
 
 1. Create a PDB regular realm on `C##TEST1` tables in `PDB21`.
 
-
     ```
-
     SQL> <copy>CONNECT sec_admin@PDB21</copy>
 
     Enter password: <i>WElcome123##</i>
@@ -1070,7 +956,6 @@ In this lab, you will:
     Connected.
     ```
     ```
-
     SQL> <copy>BEGIN
     DBMS_MACADM.CREATE_REALM(
     realm_name    => 'Test Realm1',
@@ -1084,7 +969,6 @@ In this lab, you will:
     PL/SQL procedure successfully completed.
     ```
     ```
-
     SQL> <copy>BEGIN
     DBMS_MACADM.ADD_OBJECT_TO_REALM(
     realm_name   => 'Test Realm1',
@@ -1108,13 +992,11 @@ In this lab, you will:
     // *Cause: When ALLOW COMMON OPERATION was set to TRUE, a smaller scope user was not allowed to add a larger scope user's object or a larger scope role to a realm.
     // *Action: When ALLOW COMMON OPERATION is TRUE, do not add a larger scope user's object or a larger scope role to a realm.
     SQL>
-
     ```
 
 2. Connect to the CDB root as `C##TEST1`, the table common owner.
 
     ```
-
     SQL> <copy>CONNECT c##test1</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -1127,13 +1009,11 @@ In this lab, you will:
     EMP_GLOBAL       1000
 
     SQL>
-
     ```
 
 3. Connect to the CDB root as `C##TEST2`, another common user.
 
     ```
-
     SQL> <copy>CONNECT c##test2</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -1146,13 +1026,11 @@ In this lab, you will:
     EMP_GLOBAL       1000
 
     SQL>
-
     ```
 
 4. Connect to `PDB21` as `C##TEST1`, the table common owner.
 
     ```
-
     SQL> <copy>CONNECT c##test1@PDB21</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -1165,13 +1043,11 @@ In this lab, you will:
     EMP_LOCAL        2000
 
     SQL>
-
     ```
 
 5. Connect to `PDB21` as `C##TEST2`, another common user.
 
     ```
-
     SQL> <copy>CONNECT c##test2@PDB21</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -1184,13 +1060,11 @@ In this lab, you will:
     EMP_LOCAL        2000
 
     SQL>
-
     ```
 
 6. Drop the realm.
 
     ```
-
     SQL> <copy>CONNECT c##sec_admin@PDB21</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -1201,14 +1075,11 @@ In this lab, you will:
     PL/SQL procedure successfully completed.
 
     SQL>
-
     ```
 
 7. Create a PDB mandatory realm on `C##TEST1` tables in `PDB21`.
 
-
     ```
-
     SQL> <copy>CONNECT sec_admin@PDB21</copy>
 
     Enter password: <i>WElcome123##</i>
@@ -1216,7 +1087,6 @@ In this lab, you will:
     Connected.
     ```
     ```
-
     SQL> <copy>BEGIN
     DBMS_MACADM.CREATE_REALM(
       realm_name    => 'Test Realm1',
@@ -1230,7 +1100,6 @@ In this lab, you will:
     PL/SQL procedure successfully completed.
     ```
     ```
-
     SQL> <copy>BEGIN
     DBMS_MACADM.ADD_OBJECT_TO_REALM(
       realm_name   => 'Test Realm1',
@@ -1253,13 +1122,11 @@ In this lab, you will:
     ORA-06512: at line 2
 
     SQL>
-
     ```
 
 8. Connect to the CDB root as `C##TEST1`, the table common owner.
 
     ```
-
     SQL> <copy>CONNECT c##test1</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -1272,13 +1139,11 @@ In this lab, you will:
     EMP_GLOBAL       1000
 
     SQL>
-
     ```
 
 9. Connect to the CDB root as `C##TEST2`, another common user.
 
     ```
-
     SQL> <copy>CONNECT c##test2</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -1291,13 +1156,11 @@ In this lab, you will:
     EMP_GLOBAL       1000
 
     SQL>
-
     ```
 
 10. Connect to `PDB21` as `C##TEST1`, the table common owner.
 
     ```
-
     SQL> <copy>CONNECT c##test1@PDB21</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -1310,13 +1173,11 @@ In this lab, you will:
     EMP_LOCAL        2000
 
     SQL>
-
     ```
 
 11. Connect to `PDB21` as `C##TEST2`, another common user.
 
     ```
-
     SQL> <copy>CONNECT c##test2@PDB21</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -1329,13 +1190,11 @@ In this lab, you will:
     EMP_LOCAL        2000
 
     SQL>
-
     ```
 
 12. Drop the realm.
 
     ```
-
     SQL> <copy>CONNECT sec_admin@PDB21</copy>
     Enter password: <i>WElcome123##</i>
     Connected.
@@ -1347,7 +1206,6 @@ In this lab, you will:
 
     SQL> <copy>EXIT</copy>
     $
-
     ```
 
 ## Task 8: Summary
@@ -1362,9 +1220,7 @@ Let's summarize the behavior of data access on common users objects in PDBs when
 
 1. Run the `disable_DV.sh` script to disable Database Vault in both the PDB and the CDB root.
 
-
     ```
-
     $ <copy>/home/oracle/labs/M104781GC10/disable_DV.sh</copy>
     ...
 
@@ -1373,14 +1229,10 @@ Let's summarize the behavior of data access on common users objects in PDBs when
 
     SQL> exit
     $
-
     ```
 
-You may now [proceed to the next lab](#next).
-
-
 ## Acknowledgements
+
 * **Author** - Donna Keesling, Database UA Team
 * **Contributors** -  David Start, Kay Malcolm, Database Product Management
 * **Last Updated By/Date** -  David Start, December 2020
-

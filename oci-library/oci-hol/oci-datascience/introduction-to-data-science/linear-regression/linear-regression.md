@@ -4,13 +4,21 @@
 
 This lab will guide you through a practical example of how to train and apply a regression model. You have access to a dataset with house sale data. The dataset includes the Sale Price and many attributes that describe some aspect of the house, including size, area, features, et cetera. You will use this dataset to build a regression model that can be used to estimate what a house with certain characteristics might sell for.
 
-There are many applications of regression in business. The main use cases are around forecasting and optimization. For example, predicting future demand for products, estimating the optimal price for a product and fine-tuning manufacturing and delivery processes. In other words, the principles that you learn with this exercise are applicable to those business scenarios as well.
+There are many uses of regression in business. Some well spread examples are around forecasting and optimization. For example, predicting future demand for products, estimating the optimal price for a product and fine-tuning manufacturing and delivery processes. In other words, the principles that you learn with this exercise are applicable to those business scenarios as well.
 
-This video will cover additional theory that you require to be able to do the exercise.
+This video covers additional theory that you require to be able to do the exercise.
 
-[](youtube:y_GpyF-y1xw)
+[](youtube:Xpb2bwYIXu8)
 
-Estimated lab time: 90 minutes (video 8 minutes, exercise +/- 80 minutes)
+This video covers some background on the OCI Data Science service.
+
+[](youtube:-OK_3TinUG4)
+
+This video covers a walkthrough of the lab.
+
+[](youtube:to60VVcpITk)
+
+Estimated lab time: 90 minutes
 
 ### Objectives
 
@@ -20,125 +28,46 @@ In this lab you will:
 * Become familiar with the OCI Data Science service.
 
 ### Prerequisites
-
 * An Oracle Free Tier, Always Free, Paid or LiveLabs Cloud Account (see prerequisites in workshop menu)
+* You've completed the previous lab. You have successfully provisioned a notebook.
 
-## Task 1: Provision OCI Data Science
+## Task 1: Install a Conda package
 
-This guide shows how to use the Resource Manager to provision the service using Resource Manager. This process is mostly automated. However, if you prefer a step-by-step manual approach to control every aspect of the provisioning, please follow the following instructions instead: [manual provisioning steps](https://docs.cloud.oracle.com/en-us/iaas/data-science/data-science-tutorial/tutorial/get-started.htm#concept_tpd_33q_zkb).
+ A Conda package is a collection of libraries, programs, components and metadata. It defines a reproducible set of libraries that are used in the data science environment.
 
-1. Download the terraform configuration source
+1. Click on "Environment Explorer"
 
-    Download [Terraform configuration source](https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/Y1AdqPkxQdFho1SEuMMO7W8DlMWAkr0FUwdnL-m3ysgXirfHz9IV48yyAkRARF-b/n/odca/b/datascienceworkshop/o/oci-ods-orm.zip) and store it on your local PC. Depending on the browser you might have to use Left/Right click to do this. Make sure the extension of the saved file is .zip
+    ![Upload Dataset](images/choose-conda.png)
 
-2. In your Oracle Cloud console, open the menu.
-   ![](./images/openmenu.png)
+2. Search for a suitable Conda environment that suits the type of development that we're going to do.
 
-3. Select Resource Manager -> Stacks.
+   - Search for the "TensorFlow 2.7 for CPU on Python 3.7" Conda environment. At the time of writing this lab, it was at the top of the list, you may have to use the search field to find it.
+   - Open the details by clicking on the down arrow at the right.
+   - Copy the installation command to the clipboard by clicking on the Copy button.
 
-   ![](./images/resourcemanager.png)
+    ![Upload Dataset](images/get-install-cmd.png)
 
-4. Click the "Create Stack" button.
+3. Open a terminal window by clicking on **File**, **New** and then **Terminal**.
 
-   ![](./images/createstackbutton.png)
+    ![Upload Dataset](images/open-terminal.png)
 
-5. Select the configuration source you download earlier
+4. Paste the command from the clipboard.
 
-    Select ".ZIP" and drag the file you downloaded to the box.
+   `odsc conda install -s tensorflow27_p37_cpu_v1`
 
-    ![](./images/select-zip.png)
+5. You will receive a prompt related to what version number you want. Press `Enter` to select the default.
 
-6. Choose a compartment that you've created or use Root.
+6. Wait for the conda package to be installed.
 
-   ![](./images/newimage3.png)
-
-7. Click "Next".
-
-   ![](./images/newimage4.png)
-
-8. Disable Project and Notebook creation
-
-    In the section "Project and Notebook Configuration" *uncheck* the checkbox "Create a Project and Notebook Session" (we will create them using the console later).
-
-    ![](./images/disable-ods-creation.png)
-
-9. Make sure "Enable Vault Support" is disabled
-
-   ![](./images/newimage6.png)
-
-10. Make sure "Provision Functions and API Gateway" is disabled
-
-   ![](./images/disablefunctions.png)
-
-11. Click "Next".
-
-   ![](./images/newimage7.png)
-
-12. Click "Create".
-
-   ![](./images/create.png)
-
-13. Run the job
-
-   Go to "Terraform Actions" and choose "Apply".
-
-   ![](./images/applytf.png)
-
-14. Click Apply once more to confirm the submission of the job.
-
-   Provisioning should take about 5 minutes after which the status of the Job should become "Succeeded".
-
-15. Create Oracle Data Science Project
-
-    Open the OCI Data Science projects and choose "Create Project".
-
-    ![](./images/open-ods.png)
-
-    ![](./images/create-project-1.png)
-
-    Choose a name and description and press "Create".
-
-    ![](./images/create-project-2.png)
-
-16. Provision an Oracle Data Science notebook
-
-    ![](./images/create-notebook-1.png)
-
-    - Select a name.
-    - We recommend you choose VM.Standard2.8 (*not* VM.Standard.*E*2.8) as the shape. This is a high performance shape, which will be useful for tasks such as AutoML.
-    - Set blockstorage to 50 GByte.
-    - Select defaults for VCN and subnet. These should point to the resources that were created earlier by the resource manager.
-
-    ![](./images/create-notebook-2.png)
-
-    Finally click "Create". The process should finish after about 5 minutes and the status of the notebook will change to "Active".
-
-## Task 2: Open the OCI Data Science notebook
-
-1. Open the notebook that was provisioned
-
-   The name of the notebook may be different than shown here in the screenshot.
-
-   ![](./images/open-notebook.png)
-
-   ![](./images/open-notebook2.png)
-
-## Task 3: Install a Conda Package
-
-   A Conda package is a collection of libraries, programs, components and metadata. It defines a reproducible set of libraries that are used in the data science environment. We are going to use the General Machine Learning for CPUs conda. The following commands will install this Conda.
-
-   1. Open a terminal window by clicking on **File**, **New** and then **Terminal**.
-   1. Run the command: `odsc conda install -s mlcpuv1`
-   1. You will receive a prompt related to what version number you want. Press `Enter` to select the default.
-   1. Wait for the conda package to be installed.
+    ![Image](images/result-conda-install.png)
 
    This will take about 5 minutes.
 
-## Task 4: Prepare the House Sales Data for analysis
+## Task 2: Prepare the House Sales Data for analysis
 
-1. Download the dataset with the house prices and characteristics.
+The following assumes that you are logged into the Data Science service that you created in the previous lab.
 
-    Download [The training dataset](files/housesales.csv) (the dataset is public). Depending on the browser you might have to use Left/Right click to do this. Make sure the extension of the saved file is .csv
+1. Download [The training dataset](https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/ppAp1f2IRW2AP7H32-6NqyxPFV3scK5SAdATDQl1qAn86F5uGUd1W7d5AJJdB8mz/n/fruktknlrefu/b/workshop-intro-to-ds/o/housesales.csv) (the dataset is public). Depending on the browser you might have to use Left/Right click to do this. **Make sure the extension of the saved file is .csv, in some cases the browser may try to save it as .xls instead**.
 
 2. Review the dataset (e.g. use a text editor).
 
@@ -148,17 +77,17 @@ This guide shows how to use the Resource Manager to provision the service using 
 
    ![Upload Dataset](images/uploaddataset.png)
 
-## Task 5: Start the Python notebook
+## Task 3: Start the Python notebook
 
-1. Open Launcher
+1. Create a Notebook
 
-    If you don't have a launcher open yet, do so by going to File -> New Launcher. ![Start Python notebook](images/new-launcher.png).
+    If you don't have a launcher open yet, do so by going to File -> New Launcher.
 
-2. Start notebook
+    It is **important** to select the Python environment with the right Conda environment that we just installed. Look for the notebook that uses Conda **"TensorFlow 2.7 for CPU on Python 3.7"** and choose "Create Notebook".
 
-    It is **important** to select the Python environment with the right Conda environment that we just installed. Look for the notebook that uses Conda **"mlcpuv1"** and open it. ![Start Python notebook](images/start-python-notebook.png)
+    ![Start Python notebook](images/start-notebook.png).
 
-## Task 6: Data Exploration
+## Task 4: Data Exploration
 
 The goals of Data Exploration are to identify what data you have and what is usable, identify issues such as missing values and outliers, and to form ideas of new features that could be calculated (Feature Engineering). Later on we'll use the knowledge that we gain during Data Exploration to decide which data transformations to perform.
 
@@ -195,6 +124,15 @@ The goals of Data Exploration are to identify what data you have and what is usa
 
    Follow the copy-paste approach every time you see a piece of code like this.
 
+   Have a look at the bottom left of the window.
+   When a command is still running it will show "Busy". When it has finished, you will see "Idle".
+
+   **Always make sure that the last command has finished running (status=Idle) before running another cell.**
+
+   If all is well, in this case you should not see any error message. The cursor simply moves to the next cell.
+
+   ![Run Script](images/noresult.png)
+
 3. Load the training data
 
    We'll split this into train and test later. All these type of data operations are handled by the Pandas library (named `"pd"` here)
@@ -205,6 +143,8 @@ The goals of Data Exploration are to identify what data you have and what is usa
     </copy>
     ```
 
+    This step does not output anything.
+
 4. Check how much data we have
 
    Is the dataset large enough to train a model?
@@ -214,6 +154,10 @@ The goals of Data Exploration are to identify what data you have and what is usa
     alldata.shape
     </copy>
     ```
+
+    Result:
+
+    ![Run Script](images/step1.png)
 
     This shows that there are 1460 rows, which at first sight looks like a good enough to train an initial model. The data is not extensive enough for production use but would help establish a good baseline. We also see that there are 80 input features that we can potentially use to predict our target variable.
 
@@ -229,6 +173,10 @@ The goals of Data Exploration are to identify what data you have and what is usa
     </copy>
     ```
 
+    Result:
+
+    ![Run Script](images/step2.png)
+
 6. Let's check if there are any empty values
 
     ```python
@@ -236,6 +184,10 @@ The goals of Data Exploration are to identify what data you have and what is usa
     alldata['SalePrice'].isnull().sum()
     </copy>
     ```
+
+    Result:
+
+    ![Run Script](images/step3.png)
 
 7. Let's check the price range:
 
@@ -247,6 +199,10 @@ The goals of Data Exploration are to identify what data you have and what is usa
     print('Min Sales Price (%d) - Max Sales Price (%d)' % (minPrice,maxPrice))
     </copy>
     ```
+
+    Result:
+
+    ![Run Script](images/step4.png)
 
     This tells us that *SalePrice* is an integer and has numbers in the range that we would expect from house prices. There are no empty values. We could see however that the price range is very wide from a 34900 up to 755000. This would require to scale the price to allow the algorithm to learn better.
 
@@ -260,6 +216,12 @@ The goals of Data Exploration are to identify what data you have and what is usa
     </copy>
     ```
 
+    Result:
+
+    ![Run Script](images/step5.png)
+
+    As we can see there are too many, maybe more useful will be to separate them and see only the numerical and the categorical ones.
+
 9. Separate the columns into numerical and categorical
 
     Let's get a list of all numeric features first.
@@ -270,7 +232,9 @@ The goals of Data Exploration are to identify what data you have and what is usa
     </copy>
     ```
 
-    As we can see there are too many, maybe more useful will be to separate them and see only the numerical and the categorical ones.
+    Result:
+
+    ![Run Script](images/step6.png)
 
 10. Show a sample of numerical columns
 
@@ -282,6 +246,10 @@ The goals of Data Exploration are to identify what data you have and what is usa
     </copy>
     ```
 
+    Result:
+
+    ![Run Script](images/step7.png)
+
 11. Show a list of categorical columns
 
    We could do the same for all categorical variables, notice this time we use the property `exclude` in the `select_dtypes` function...
@@ -292,6 +260,10 @@ The goals of Data Exploration are to identify what data you have and what is usa
     </copy>
     ```
 
+    Result:
+
+    ![Run Script](images/step8.png)
+
 12. Show a sample of categorical variables
 
     ```python
@@ -299,6 +271,10 @@ The goals of Data Exploration are to identify what data you have and what is usa
     alldata.select_dtypes(exclude=[np.number])
     </copy>
     ```
+
+    Result:
+
+    ![Run Script](images/step9.png)
 
 13. What can we conclude about the columns?
 
@@ -340,15 +316,19 @@ The goals of Data Exploration are to identify what data you have and what is usa
     </copy>
     ```
 
-      We can conclude that:
-    `GrLivArea`: There is a linear correlation with `SalePrice`; We can draw a straight line from the bottom-left to the top-right.
-    `TotalBsmtSF`: It appears to be an relationship between `TotalBsmtSF` and `SalePrice` too but not that obvious. It seems a higher basement sizes lead to higher prices but we could notice that there are some outliers.
-    `OveralQual`: As expected, there is a higher sales price when overal quality perception is higher. But that is not nessary for the entire price range. Probably the quality of the house is not enough and the price would depend on the location or the zoning as well.
-    `YearBuilt`: This relationship is a little less obvious, but there's a trend for higher prices for more recent construction.
+    Result:
+
+    ![Run Script](images/step10.png)
+
+    We can draw these conclusions:
+    - `GrLivArea`: There is a linear correlation with `SalePrice`; We can draw a straight line from the bottom-left to the top-right.
+    - `TotalBsmtSF`: There appears to be an relationship between `TotalBsmtSF` and `SalePrice` too, but not that obvious. It seems a higher basement sizes lead to higher prices but we could notice that there are some outliers.
+    - `OveralQual`: As expected, there is a higher sales price when overall quality perception is higher. But that is not necessary for the entire price range. Probably the quality of the house is not enough and the price would depend on the location or the zoning as well.
+    - `YearBuilt`: This relationship is a little less obvious, but there's a trend for higher prices for more recent construction.
 
     These attributes appear to be of predictive value and we definitely want to keep them in our training set!
 
-    On another note, we see several `outliers`. In particular, the attribute `GrLivArea` shows that there are some houses with exceptionally large living areas given their price. We could notice this also for the `TotalBsmtSF`. Generally it is recommended to build the initial model with all the available values first and then start removing outliers to see if this would improve the prediction and make the model generalize better.
+    On another note, we see several **outliers**. In particular, the attribute `GrLivArea` shows that there are some houses with exceptionally large living areas given their price. We could notice this also for the `TotalBsmtSF`. Generally it is recommended to build the initial model with all the available values first and then start removing outliers to see if this would improve the prediction and make the model generalize better.
 
 16. Is the categorical attribute `MSZoning` also correlated with `SalePrice`?
 
@@ -364,7 +344,11 @@ The goals of Data Exploration are to identify what data you have and what is usa
     </copy>
     ```
 
-   What can we conclude from this? The boxplots for the various types of properties look very different. From the plot we could see that the residential areas seems to be more expensive as expected than commercial but the price range is high. So, again, MSZoning appears to contain important
+    Result:
+
+    ![Run Script](images/step11.png)
+
+   What can we conclude from this? The boxplots for the various types of properties look very different. From the plot we could see that the residential areas seems to be more expensive than commercial, but the price range is high. So, again, MSZoning appears to contain important
    information to predict the price.
 
 17. What is the relationship between Neighborhood and SalePrice?
@@ -381,7 +365,11 @@ The goals of Data Exploration are to identify what data you have and what is usa
     </copy>
     ```
 
-   The plot is not necessary conclusive, but it appears that as expected some areas are more expensive than others. As such we should keep this columns and use it in the model. Notice that some areas shown very large range of prices and spikes like `NridgHt` or `StoneBr` or very large outliers like in `NoRidge` with prices more than double as the usual range for that neighborhood. After the initial model build you could try to remove these outliers and test if the model would have better performance.
+   Result:
+
+   ![Run Script](images/step12.png)
+
+   The plot is not necessary conclusive, but it appears that as expected some areas are more expensive than others. As such we should keep this columns and use it in the model. Notice that some areas shown very large range of prices and spikes like **NridgHt** or **StoneBr** or very large outliers like in **NoRidge** with prices more than double as the usual range for that neighborhood. After the initial model build you could try to remove these outliers and test if the model would have better performance.
 
 18. A different approach: Systematically checking for correlation between input features and our target
 
@@ -394,6 +382,10 @@ The goals of Data Exploration are to identify what data you have and what is usa
     corr.SalePrice
     </copy>
     ```
+
+    Result:
+
+    ![Run Script](images/step13.png)
 
    The conclusion is that our intuition of thinking that `TotalBsmtSF`, `OverallQual`, `GrLivArea` and `YearBuilt` are of importance, was correct. However, there are other features listed as high correlation, such as `GarageCars`, `GarageArea` and `Fullbath`.
 
@@ -427,6 +419,10 @@ The goals of Data Exploration are to identify what data you have and what is usa
     </copy>
     ```
 
+    Result:
+
+    ![Run Script](images/step14.png)
+
     There are a lot of attributes with missing values. This is especially the case for attributes `PoolQC`, `MiscFeature`, `Alley`, `Fence` and `FireplaceQu`.
 
 20. Let's investigate the attributes with most missing values in detail
@@ -455,9 +451,13 @@ The goals of Data Exploration are to identify what data you have and what is usa
     </copy>
     ```
 
-    We can conclude from this that the values of the Target variable currently deviate from the Normal Distribution. You see that it is left skewed. The regression algorithms that we will use later on has problems with such a distribution. We will have to address this problem.
+    Result:
 
-## Task 7: Data Preparation
+    ![Run Script](images/step15.png)
+
+    We can conclude from this that the values of the Target variable currently deviate from the Normal Distribution. You see that it is left skewed. The regression algorithms that we will use later on has problems with such a distribution. This is another problem that we will have to address during data preparation phase.
+
+## Task 5: Data Preparation
 
    During Data Exploration, we have realized that several changes must be made to the dataset. Data Preparation is a logical result of Data Exploration; we will now take action based on the insights that we gained earlier.
 
@@ -481,9 +481,11 @@ The goals of Data Exploration are to identify what data you have and what is usa
     </copy>
     ```
 
+    This step does not output anything.
+
 2. Handling Outliers
 
-   Do you remember that the scatter chart for `GrLivArea` showed several outliers? Let's remove these two outliers, by identifying the houses with the highest `GrLivArea`.
+   Do you remember that the scatter chart for `GrLivArea` showed several outliers (scroll back to see this if necessary)? Let's remove these two outliers, by identifying the houses with the highest `GrLivArea`.
 
    Show the IDs of the houses with the highest GrLivArea.
 
@@ -492,6 +494,10 @@ The goals of Data Exploration are to identify what data you have and what is usa
     alldata.sort_values(by = 'GrLivArea', ascending = False)[:2]
     </copy>
     ```
+
+    Result:
+
+    ![Run Script](images/step16.png)
 
 3. Remove the Outliers
 
@@ -508,11 +514,15 @@ The goals of Data Exploration are to identify what data you have and what is usa
     </copy>
     ```
 
-      You notice that those outliers have disappeared.
+    Result:
+
+    ![Run Script](images/step17.png)
+
+    You notice that those outliers have disappeared.
 
 4. Handling the skewed distribution of the Target variable
 
-   Do you remember that the histogram of `SalePrice` showed a positive skew? We can solve this problem by converting the target variable. We use a `-log-` transformation to make the variable fit normal distribution. Let's make the log transformation and show the histogram again to check the result.
+   Do you remember that the histogram of `SalePrice` showed a positive skew? We can solve this problem by converting the target variable. We use a **log** transformation to make the variable fit normal distribution. Let's make the log transformation and show the histogram again to check the result.
 
     ```python
     <copy>
@@ -521,6 +531,10 @@ The goals of Data Exploration are to identify what data you have and what is usa
     fig = plot.figure()
     </copy>
     ```
+
+    Result:
+
+    ![Run Script](images/step18.png)
 
     You will notice that the sales price now follows a normal distribution. We will use the newly created `y` variable later to fit our model.
 
@@ -548,12 +562,14 @@ The goals of Data Exploration are to identify what data you have and what is usa
     </copy>
     ```
 
+    This step does not output anything.
+
 6. Separating Target and Input Features
 
     Scikit Learn expects that we deliver the data for training in two parts:
 
-    - A dataset with a single column, the target, in this case `SalePrice`. We did this already earlier by taking the `log` of the `SalePrice` and storing it in `"y"` variable.
-    - A dataset with all the input columns, in this case all columns apart from `SalePrice`. We will place this in variable "X".
+    - A dataset with a single column, the target, in this case `SalePrice`. We did this already earlier by taking the **log** of the `SalePrice` and storing it in `"y"` variable.
+    - A dataset with all the input columns, in this case all columns apart from `SalePrice`. We will place this in variable `"X"`.
 
     Get all the data with the exception of the `SalePrice` and place it in variable X:
 
@@ -563,13 +579,15 @@ The goals of Data Exploration are to identify what data you have and what is usa
     </copy>
     ```
 
+    This step does not output anything.
+
 7. Convert categorical values to numbers
 
    Most ML algorithms can only work with numbers. Therefore we should convert categories to numbers first.
 
    For all attributes we will assume that they are Nominal (as opposed to Ordinal), meaning that there's no order/sequence in the values that it can take. The go-to method to encode Nominal categorical values is Onehot Encoding. This will convert each separate value of a category into its own column that can take a value of 1 or 0. The Pandas `get_dummies` function does OneHot encoding.
 
-   You will see that after this the `SaleType` column has been converted into `SaleType_ConLw`, `SaleType_New`, et cetera. The dataset now only has numerical values.
+   You will see that after this the `SaleType` column has been converted into `SaleType_ConLw`, `SaleType_New`, et cetera. The same transformation has taken place on all categorical variables. The dataset now only has numerical values.
 
     ```python
     <copy>
@@ -578,7 +596,11 @@ The goals of Data Exploration are to identify what data you have and what is usa
     </copy>
     ```
 
-## Task 8: Building the model
+    Result:
+
+    ![Run Script](images/step19.png)
+
+## Task 6: Building the model
 
    We will build a simple Linear Regression model. We will use the Scikit-Learn library for this.
 
@@ -600,6 +622,8 @@ The goals of Data Exploration are to identify what data you have and what is usa
     </copy>
     ```
 
+    This step does not output anything.
+
 2. Build the model
 
    Now we're ready to build the model (on the training data only). Building the model is also called "fitting".
@@ -611,7 +635,11 @@ The goals of Data Exploration are to identify what data you have and what is usa
     </copy>
     ```
 
-## Task 9: Verifying the performance of the model
+    If all is well, you should not see any output, meaning that there are no errors.
+
+    That's it! After all our hard word of data exploration and preparation, training the model was relatively simple!
+
+## Task 7: Verifying the performance of the model
 
 How accurate is our model? We will use the Test dataset for this.
 
@@ -623,6 +651,8 @@ How accurate is our model? We will use the Test dataset for this.
     </copy>
     ```
 
+    This step does not output anything.
+
 2. Look at the prediction of one particular house
 
     From the given test set we get the data of one house and check the predicted value.
@@ -633,6 +663,10 @@ How accurate is our model? We will use the Test dataset for this.
     </copy>
     ```
 
+    Result:
+
+    ![Run Script](images/step20.png)
+
 3. Convert the value back to an actual house price
 
     You would notice that the price above is strange, it shows a number that doesn't seem to be a normal house Sales Price. If you remember we scaled the SalePrice by using np.log(SalePrice) to get the prices in smaller range and help the algorithm generalize and learn better. To get the real price now we need to revert back this scale. To do so we have to use np.exp.
@@ -642,6 +676,12 @@ How accurate is our model? We will use the Test dataset for this.
     np.exp(y_predicted[0])
     </copy>
     ```
+
+    Result:
+
+    ![Run Script](images/step21.png)
+
+    This appears to be an actual house price.
 
 4. An intuitive, visual approach to verification
 
@@ -663,15 +703,17 @@ How accurate is our model? We will use the Test dataset for this.
     </copy>
     ```
 
+    Result:
+
+    ![Run Script](images/step22.png)
+
     In ideal circumstances we'd like to see the predictions falling on the line of actual values. This would mean that Predicted and Actual Sale Prices are the same. In our case, although the points are not oriented in a perfectly straight line, the model appears to be fairly accurate.
 
 5. A measurable approach to verification
 
     How can we express the accuracy of the model in a more mathematical way? For that we use a quality metric, in this case we could use [RMSE](https://en.wikipedia.org/wiki/Root-mean-square_deviation).
 
-    `RMSE` measures the distance between the predictions and the actual values. A lower value for RMSE means a higher accuracy.
-
-    RMSE by itself is not easy to interpret, but it can be used to compare different versions of a model, to see whether a change you've made has resulted in an improvement. Scikit-Learn has a function to calculate RMSE.
+    `RMSE` measures the distance between the predictions and the actual values. A lower value for RMSE means a higher accuracy. Scikit-Learn has a function to calculate RMSE.
 
     ```python
     <copy>
@@ -679,90 +721,15 @@ How accurate is our model? We will use the Test dataset for this.
     </copy>
     ```
 
-## Task 10: Store the model in the catalog and deploy it
+    Result:
 
-1. Make sure you have a working model
+    ![Run Script](images/step23.png)
 
-    The following requires that you built a model successfully in steps 1 to 9. If you had any problems, you can download a [prebuilt notebook](files/house-price-prediction.ipynb) with all the steps done for you. Depending on the browser you might have to use Left/Right click to do this. Make sure the extension of the saved file is .ipynb
+    RMSE by itself is not easy to interpret, but it can be used to compare different versions of a model, to see whether a change you've made has resulted in an improvement. So we can use it later on when we change the model configuration and check whether the changes improved/worsened the accuracy.
 
-    After you've downloaded it, drag it into OCI Data Science and open it (using the right Conda environment "mlcpuv1". Then  run all the cells before going to the next step.
-
-2. Store the model in the model catalog
-
-    If we want applications/business processes to make good use of our model, then we need to deploy it first. We start by publishing the model to the model catalog. The following will **serialize** the model along with some other artifacts and store it in the catalog under the name "house-price-model".
-
-    ```python
-    <copy>
-    import ads
-    from ads.common.model_artifact import ModelArtifact
-    from ads.common.model_export_util import prepare_generic_model
-    import os
-    from os import path
-    from joblib import dump
-    import cloudpickle
-    ads.set_auth(auth='resource_principal')
-    path_to_model_artifacts = "house-price"
-    generic_model_artifact = prepare_generic_model(
-        path_to_model_artifacts,
-        force_overwrite=True,
-        function_artifacts=False,
-        data_science_env=True)
-    with open(path.join(path_to_model_artifacts, "model.pkl"), "wb") as outfile: cloudpickle.dump(model, outfile)
-    catalog_entry = generic_model_artifact.save(display_name='house-price-model',
-        description='Model to predict house prices')
-    </copy>
-    ```
-
-3. Deploy the model
-
-    Now we're going to deploy this model to its own compute instance. This will take the model from the catalog and create a runtime version of it that's ready to receive requests. This uses normal OCI compute shapes. Next, choose "Create Deployment".
-
-    ![](./images/go-to-model-catalog.png)
-    ![](./images/create-deployment-button.png)
-
-    - Give the model deployment a name, e.g. "house price model deployment"
-    - Choose the right model (house-price-model)
-    - Choose a shape, one instance of VM.Standard2.1 is sufficient. Note that we could have chosen multiple instances, this is useful for models that are used very intensively.
-
-    Finally, submit the deployment. This should take about 10 minutes. Finally, you should see that the compute instance is active.
-
-    ![](./images/deployed-model.png)
-
-## Bonus: Train the model using AutoML
-
-   OCI Data Science comes with a Python library SDK called ADS (Accelerated Data Science) that allows you to streamline the entire lifecycle of machine learning models, from data acquisition to model evaluation and interpretation. It also comes with the Oracle AutoML engine, which automates Feature Selection, Algorithm Selection, Feature Encoding and Hyperparameter Tuning.
-
-   We will use it to train a model for the same problem as above (House Price Prediction), but this time automating the process using the various AutoML features. Once we've done that we will evaluate it using the ADS evaluation features and compare it with our "manually" built model that we created earlier.
-
-   This exercise will demonstrate how you can be more productive by using the various features of the ADS library.
-
-   In this case, we've already prepared the notebook that you will run.
-
-1. Download the notebook
-
-  Download the [AutoML and Model Evaluation notebook](files/lab100-bonus-1.ipynb). Depending on the browser you might have to use Left/Right click to do this. Make sure the extension of the saved file is .ipynb
-
-2. Upload the notebook to OCI Data Science by dragging it to the left panel.
-
-    Open it by double clicking it.
-
-    ![Upload Notebook](images/uploadnotebook.png)
-
-3. Choose the right Conda environment
-
-    You can do this by clicking on the Python icon on the top-right and selecting the mlcpuv1 environment.
-
-    ![Select Conda environment](images/select-conda-env.png)
-
-4. Open the Notebook that you've just uploaded
-
-   Now go through each of the cells and run them one by one.
-
-   This notebook demonstrates how you can be more productive by using the various features of the ADS library. You need far less code to create a well performing model quickly.
+    Congratulations on building your first model!
 
 [Proceed to the next section](#next).
 
 ## Acknowledgements
-* **Authors** - Jeroen Kloosterman - Product Strategy Manager - Oracle Digital, Lyudmil Pelov - Senior Principal Product Manager - A-Team Cloud Solution Architects, Fredrick Bergstrand - Sales Engineer Analytics - Oracle Digital, Hans Viehmann - Group Manager - Spatial and Graph Product Management
-* **Last Updated By/Date** - Jeroen Kloosterman, Oracle Digital, Jan 2021
-
+* **Authors** - Jeroen Kloosterman - Product Strategy Director, Lyudmil Pelov - Senior Principal Product Manager

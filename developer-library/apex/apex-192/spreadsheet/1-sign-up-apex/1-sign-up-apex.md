@@ -150,5 +150,5 @@ You may now proceed to the [next lab](?lab=lab-2-create-app-spreadsheet).
 ## **Acknowledgements**
 
  - **Author/Contributors** -  David Peake, Consulting Member of Technical Staff
- - **Last Updated By/Date** - Tom McGinn, Database Cloud Services, Product Management, June 2020
+ - **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

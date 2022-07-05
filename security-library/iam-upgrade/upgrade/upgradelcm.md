@@ -15,24 +15,22 @@ An Oracle Identity and Access Management (IAM) deployment consists of a number o
 - Optionally, Oracle HTTP Server and Webgate securing access to Oracle Access Manager and Oracle Identity Governance
 
 There are different upgrade strategies that you can employ for an upgrade of Oracle Internet Directory, Oracle Unified Directory, and Oracle Identity and Access Management. The strategy you choose will depend mainly on your business needs. This lab uses a Multi-hop in-place upgrade outlined in the Upgrade strategies document :
-[Oracle IAM Upgrade Strategies](https://docs.oracle.com/en/middleware/fusion-middleware/iamus/place-upgrade-strategies.html#GUID-9F906AE2-5BDF-426D-A97C-AC546ABFBD28)  
+[Oracle IAM Upgrade Strategies](https://docs.oracle.com/en/middleware/fusion-middleware/iamus/place-upgrade-strategies.html#GUID-9F906AE2-5BDF-426D-A97C-AC546ABFBD28)
 
 The in-place upgrade allows you to take your existing deployment and upgrade it in place.
 - When performing an upgrade, you should make as few changes as possible in each stage to ensure that the upgrade is successful.
 - For example, it is not recommended to perform multiple upgrade activities such as upgrading Oracle Identity and Access Management, changing the directory, updating the operating system, and so on, all at the same time.
-- If you want to perform such an upgrade, you must do it in stages. You must validate each stage before moving on to the next. The benefit of this approach is that it helps you to identify precisely where the issue occurred, and correct it or undo it before you continue the exercise.  
+- If you want to perform such an upgrade, you must do it in stages. You must validate each stage before moving on to the next. The benefit of this approach is that it helps you to identify precisely where the issue occurred, and correct it or undo it before you continue the exercise.
 
 ### Objectives
 In this lab, you will:
 * Become familiar with the in-place upgrade process for Oracle IAM 11.1.2.3 to Oracle IAM 12.2.1.4
 
-### Prerequisites  
+### Prerequisites
 
 This lab assumes you have:
 - A Paid or LiveLabs Oracle Cloud account
-- SSH Private Key to access the host via SSH
 - You have completed:
-    - Lab: Generate SSH Keys (*Free-tier* and *Paid Tenants* only)
     - Lab: Prepare Setup (*Free-tier* and *Paid Tenants* only)
     - Lab: Environment Setup
     - Lab: Initialize Environment
@@ -46,61 +44,61 @@ This lab assumes you have:
   * Perform all steps outlined in *section 6.6* of Upgrading Oracle Unified Directory guide - [6.6 Upgrading an Existing Oracle Unified Directory Server Instance](https://docs.oracle.com/en/middleware/idm/unified-directory/12.2.1.3/oudig/updating-oracle-unified-directory-software.html#GUID-506B9DAC-2FDB-47C9-8E00-CC1F99215E81)
 
   * Update the keystore encryption strength using the steps below to update keystore encryption strength and change the password for 12c upgrade
-      List current keystore contents and enter the keystore password  
-  ```
-  <copy>keytool -list -v -keystore /u01/app/oracle/config/domains/IAMGovernanceDomain/config/fmwconfig/default-keystore.jks -storepass IAMUpgrade12c##</copy>
-  ```  
+      List current keystore contents and enter the keystore password
+        ```
+        <copy>keytool -list -v -keystore /u01/app/oracle/config/domains/IAMGovernanceDomain/config/fmwconfig/default-keystore.jks -storepass IAMUpgrade12c##</copy>
+        ```
 
   * •	Create a temporary folder called /tmp/keystore and then generate new keys using the keytool command
-  ```
-  <copy>
-  keytool -genkeypair -keystore /tmp/keystore/default-keystore.jks -keyalg RSA -validity 3600 -alias xell -dname "CN=wsidmhost.idm.oracle.com, OU=Identity, O=Oracle, C=US" -keysize 2048 -storepass IAMUpgrade12c## -keypass IAMUpgrade12c##
-  </copy>
-  ```
+        ```
+        <copy>
+        keytool -genkeypair -keystore /tmp/keystore/default-keystore.jks -keyalg RSA -validity 3600 -alias xell -dname "CN=wsidmhost.idm.oracle.com, OU=Identity, O=Oracle, C=US" -keysize 2048 -storepass IAMUpgrade12c## -keypass IAMUpgrade12c##
+        </copy>
+        ```
 
   * Generate Signing Certificate
-  ```
-  <copy>
-  keytool -certreq -alias xell -file /tmp/keystore/xell.csr -keypass IAMUpgrade12c## -keystore /tmp/keystore/default-keystore.jks -storepass IAMUpgrade12c## -storetype jks
-  </copy>
-  ```  
+    ```
+    <copy>
+    keytool -certreq -alias xell -file /tmp/keystore/xell.csr -keypass IAMUpgrade12c## -keystore /tmp/keystore/default-keystore.jks -storepass IAMUpgrade12c## -storetype jks
+    </copy>
+    ```
 
   * Export the Certificate
-  ```
-  <copy>
-  keytool -export -alias xell -file /tmp/keystore/xlserver.cert -keypass IAMUpgrade12c## -keystore /tmp/keystore/default-keystore.jks -storepass IAMUpgrade12c## -storetype jks
-  </copy>
-  ```
+    ```
+    <copy>
+    keytool -export -alias xell -file /tmp/keystore/xlserver.cert -keypass IAMUpgrade12c## -keystore /tmp/keystore/default-keystore.jks -storepass IAMUpgrade12c## -storetype jks
+    </copy>
+    ```
 
   * Trust the Certificate
-  ```
-  <copy>
-  keytool -import -trustcacerts -alias xeltrusted -noprompt -file /tmp/keystore/xlserver.cert -keystore /tmp/keystore/default-keystore.jks -storepass IAMUpgrade12c##
-  </copy>
-  ```
+    ```
+    <copy>
+    keytool -import -trustcacerts -alias xeltrusted -noprompt -file /tmp/keystore/xlserver.cert -keystore /tmp/keystore/default-keystore.jks -storepass IAMUpgrade12c##
+    </copy>
+    ```
 
   * Import Certificate
-  ```
-  <copy>
-  keytool -importkeystore -srckeystore /tmp/keystore/default-keystore.jks -destkeystore /u01/app/oracle/config/domains/IAMGovernanceDomain/config/fmwconfig/default-keystore.jks -srcstorepass IAMUpgrade12c## -deststorepass IAMUpgrade12c## -noprompt
-  </copy>
-  ```  
+    ```
+    <copy>
+    keytool -importkeystore -srckeystore /tmp/keystore/default-keystore.jks -destkeystore /u01/app/oracle/config/domains/IAMGovernanceDomain/config/fmwconfig/default-keystore.jks -srcstorepass IAMUpgrade12c## -deststorepass IAMUpgrade12c## -noprompt
+    </copy>
+    ```
 
   * Move .cert and .csr
-  ```
-  <copy>
-  cp /tmp/keystore/x*.* /u01/app/oracle/config/domains/IAMGovernanceDomain/config/fmwconfig/
-  </copy>
-  ```  
+    ```
+    <copy>
+    cp /tmp/keystore/x*.* /u01/app/oracle/config/domains/IAMGovernanceDomain/config/fmwconfig/
+    </copy>
+    ```
 
   * Confirm keystore
-  ```
-  <copy>
-  keytool -list -v -keystore /u01/app/oracle/config/domains/IAMGovernanceDomain/config/fmwconfig/default-keystore.jks -storepass IAMUpgrade12c##
-  </copy>
-  ```  
+    ```
+    <copy>
+    keytool -list -v -keystore /u01/app/oracle/config/domains/IAMGovernanceDomain/config/fmwconfig/default-keystore.jks -storepass IAMUpgrade12c##
+    </copy>
+    ```
 
-    Update password for xell in EM to "IAMUpgrade12c##"  
+    Update password for xell in EM to "IAMUpgrade12c##"
       * Open EM console
       * Navigate to Weblogic Domain > IAMGovernanceDomain
       * Right click IAMGovernanceDomain
@@ -120,32 +118,32 @@ This lab assumes you have:
     - Perform all the steps listed in the section to upgrade OAM
     - Please note that *step 4*, needs to be done once for OIM and once for OAM
 
-  ![](./images/step2.png " ")
+  ![Oracle Support Upgrade Advisor](./images/step2.png " ")
 
 3. Apply 12.2.1.3 patches mentioned in the Stack Patch Bundle:
     Apply Stack Patch Bundle for Oracle Identity Management Products using the MOS document link provided below:
-      - [Stack Patch Bundle Page for OIG](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=320313382903924&id=2657920.1&_adf.ctrl-state=13r3ivrcxc_110)  
+      - [Stack Patch Bundle Page for OIG](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=320313382903924&id=2657920.1&_adf.ctrl-state=13r3ivrcxc_110)
       - [Download and Apply SPB for 12.2.1.3](https://support.oracle.com/epmos/faces/PatchSearchResults?_adf.ctrl-state=r390fd14k_135&_afrLoop=321341144687003)
 
 ##  **STEP 2**: Upgrade IAM Components from 12.2.1.3 to 12.2.1.4
 
-1. Upgrade OUD from 12.2.1.3 to 12.2.1.4  
-    Upgrade OUD using the instructions in *section 6.4* of the documentation below  
+1. Upgrade OUD from 12.2.1.3 to 12.2.1.4
+    Upgrade OUD using the instructions in *section 6.4* of the documentation below
     - [Upgrade OUD 12.2.1.3 to 12.2.1.4](https://docs.oracle.com/en/middleware/idm/unified-directory/12.2.1.4/oudig/updating-oracle-unified-directory-software.html#GUID-506B9DAC-2FDB-47C9-8E00-CC1F99215E81)
 
 2. Upgrade OAM 12.2.1.3 to 12.2.1.4:
-    Upgrade OAM using the Upgrade Advisor for OAM 12cR2 PS4 (OAM 12.2.1.4.0)  
+    Upgrade OAM using the Upgrade Advisor for OAM 12cR2 PS4 (OAM 12.2.1.4.0)
     - [Upgrade to Oracle Access Manager 12cR2 PS4](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=320632596387945&id=2564763.2&_adf.ctrl-state=13r3ivrcxc_167)
     - Navigate to *step 4: Configure* and select *Upgrade*
 
-    ![](./images/step6.png " ")
+    ![Upgrade Advisor for OAM 12cR2 PS4 (OAM 12.2.1.4.0)](./images/step6.png " ")
 
-3. Upgrade OIG 12.2.1.3 to 12.2.1.4  
-    Upgrade OIG using the Upgrade Advisor for OIG 12cR2 PS4 (OAM 12.2.1.4.0)  
+3. Upgrade OIG 12.2.1.3 to 12.2.1.4
+    Upgrade OIG using the Upgrade Advisor for OIG 12cR2 PS4 (OAM 12.2.1.4.0)
     - [Upgrade Advisor for Oracle Identity Governance/Oracle Identity Manager 12cR2 PS4](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=320673956019924&id=2667893.2&_adf.ctrl-state=13r3ivrcxc_220)
      - Navigate to *step 4: Configure/Upgrade*
 
-    ![](./images/step7.png " ")
+    ![Upgrade Advisor for OIG 12cR2 PS4 (OAM 12.2.1.4.0)](./images/step7.png " ")
 
 4. Apply 12.2.1.4 patches mentioned in stack patch Bundle:
     Apply Stack Patch Bundle for Oracle Identity Management Products using the MOS document link provided below:
@@ -179,7 +177,7 @@ This lab assumes you have:
     - Navigate to oamconsole: Configuration/Settings/Access Manager Settings/Webgate Traffic Load Balancer/OAM Server port
       - Change the port to OAM server port 14100
     - Navigate to Oamconsole: Application Security/Agents/Webgate_IDM_11g
-      - Replace the existing User Defined Parameter contents with the below list:  
+      - Replace the existing User Defined Parameter contents with the below list:
           - maxSessionTimeUnits=minutes
           - OAMRestEndPointHostName=wsidmhost.idm.oracle.com
           - client_request_retry_attempts=1
@@ -211,7 +209,7 @@ This lab assumes you have:
         - It should return LISTEN
         - Validates OAM server is listening on OAP port
 
-3. Validate OIG:  
+3. Validate OIG:
     - Access the Oracle Identity Governance pagees with the following URL:
         - [Oracle Identity Self Service](http://wsidmhost.idm.oracle.com:7778/identity)
         - [Oracle Identity System Administration](http://wsidmhost.idm.oracle.com:7778/sysadmin)
@@ -235,6 +233,6 @@ This lab assumes you have:
 - You can find more information about the upgrade strategies [here](https://docs.oracle.com/en/middleware/fusion-middleware/iamus/place-upgrade-strategies.html#GUID-9F906AE2-5BDF-426D-A97C-AC546ABFBD28)
 
 ## Acknowledgements
-* **Author** - Anbu Anbarasu, Director, Cloud Platform COE  
+* **Author** - Anbu Anbarasu, Director, Cloud Platform COE
 * **Contributors** -  Eric Pollard - Sustaining Engineering, Ajith Puthan - IAM Support, Rene Fontcha
-* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, April 2021
+* **Last Updated By/Date** - Sahaana Manavalan, LiveLabs Developer, NA Technology, May 2022

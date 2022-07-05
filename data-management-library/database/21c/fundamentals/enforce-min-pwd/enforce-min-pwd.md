@@ -3,7 +3,7 @@
 ## Introduction
 This lab shows how to enforce CDB-wide the minimum password length for the database user accounts without restricting access to the database user profiles.
 
-Estimated Lab Time: 15 minutes
+Estimated Time: 15 minutes
 
 ### Objectives
 In this lab, you will:
@@ -11,19 +11,16 @@ In this lab, you will:
 
 ### Prerequisites
 
-* An Oracle Free Tier, Paid or LiveLabs Cloud Account
-* Lab: SSH Keys
-* Lab: Create a DBCS VM Database
-* Lab: 21c Setup
-
+* An Oracle Account
+* SSH Keys
+* Create a DBCS VM Database
+* 21c Setup
 
 ## Task 1: Create a mandatory profile in the CDB root
 
 1. Connect to the CDB root in `CDB21`.
 
-
     ```
-
     $ <copy>sqlplus sys@CDB21 AS SYSDBA</copy>
 
     SQL*Plus: Release 21.0.0.0.0 - Production on Wed Aug 12 09:45:45 2020
@@ -37,7 +34,6 @@ In this lab, you will:
     ```
 
 2. Create the mandatory root profile. The mandatory root profile acts as an always-on user profile. Mandatory profile limits are enforced in addition to the existing limits from the profile which the user is assigned to. This creates a union effect in the sense that the password complexity verification script of the mandatory profile will be executed before the password complexity script from the profile of the user account if any.
-
 
     ```
     SQL> <copy>COL resource_name FORMAT A30</copy>
@@ -82,6 +78,7 @@ In this lab, you will:
 ## Task 2: Set the `MANDATORY_USER_PROFILE` initialization parameter  
 
 1. Set the initialization parameter
+
     ```
     SQL> <copy>ALTER SYSTEM SET mandatory_user_profile=C##PROF_MIN_PASS_LEN;</copy>
     System altered.
@@ -92,13 +89,14 @@ In this lab, you will:
     ------------------------------------ ----------- ------------------------------
     mandatory_user_profile               string      C##PROF_MIN_PASS_LEN
     SQL>
-
     ```
+
     *The password verify function of the mandatory profile is envisioned to be always enforced from the `CDB$ROOT` which means that the password resource limit is always fetched and executed from the `CDB$ROOT` and enforced on the PDBs in the entire CDB depending on the `MANDATORY_USER_PROFILE` initialization parameter.*
 
 ## Task 3: Replace the password verification functio`n` to enforce the minimum password length.
 
 1. Replace the verification function
+
     ```
     SQL> <copy>CREATE OR REPLACE FUNCTION ora12c_stig_verify_function
               ( username VARCHAR2, password VARCHAR2, old_password VARCHAR2)
@@ -117,7 +115,6 @@ In this lab, you will:
     Function created.
 
     SQL>
-
     ```
 
 ## Task 4: Test
@@ -131,7 +128,6 @@ In this lab, you will:
     Connected.
     ```
     ```
-
     SQL> <copy>CREATE USER john IDENTIFIED BY pass;</copy>
     CREATE USER john IDENTIFIED BY pass
     *
@@ -140,17 +136,14 @@ In this lab, you will:
     ORA-20000: password length less than 10 characters
     ```
     ```
-
     SQL> <copy>CREATE USER john IDENTIFIED BY password123;</copy>
     User created.
     ```
     ```
-
     SQL> <copy>DROP USER john CASCADE;</copy>
     User dropped.
 
     SQL>
-
     ```
 
 ## Task 5: Reset the configuration
@@ -162,7 +155,6 @@ In this lab, you will:
     Connected.
     ```
     ```
-
     SQL> <copy>DROP PROFILE c##prof_min_pass_len;</copy>
     DROP PROFILE c##prof_min_pass_len
     *
@@ -170,7 +162,6 @@ In this lab, you will:
     ORA-02381: cannot drop C##PROF_MIN_PASS_LEN profile
     ```
     ```
-
     SQL> <copy>!oerr ora 2381</copy>
     02381, 00000, "cannot drop %s profile"
     //  *Cause:  An attempt was made to drop PUBLIC_DEFAULT or a mandatory profile,
@@ -197,7 +188,6 @@ In this lab, you will:
     System altered.
     ```
     ```
-
     SQL> <copy>SHOW PARAMETER mandatory_user_profile</copy>
 
     NAME                                 TYPE        VALUE
@@ -205,7 +195,6 @@ In this lab, you will:
     mandatory_user_profile               string      C##PROF_MIN_PASS_LEN
     ```
     ```
-
     SQL> <copy>DROP PROFILE c##prof_min_pass_len;</copy>
     DROP PROFILE c##prof_min_pass_len
     *
@@ -222,6 +211,7 @@ In this lab, you will:
     ```
 
 4. Connect to the instance and remove the profile
+
     ```
     SQL> <copy>sqlplus sys@cdb21 AS SYSDBA</copy>
     Connected.
@@ -234,20 +224,16 @@ In this lab, you will:
     mandatory_user_profile               string
     ```
     ```
-
     SQL> <copy>DROP PROFILE c##prof_min_pass_len;</copy>
     Profile dropped.
 
     SQL> <copy>EXIT</copy>
 
     $
-
     ```
 
-You may now [proceed to the next lab](#next).
-
 ## Acknowledgements
+
 * **Author** - Donna Keesling, Database UA Team
 * **Contributors** -  David Start, Kay Malcolm, Database Product Management
 * **Last Updated By/Date** -  David Start, December 2020
-

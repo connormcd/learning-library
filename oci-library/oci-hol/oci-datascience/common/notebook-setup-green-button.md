@@ -18,39 +18,34 @@ In this lab, you:
 ### Prerequisites
 
 * A tenancy that is configured to work with the Data Science service.
-* A configured project, VCN, and subnet.
+* A configured project.
 * An account that has permission to create a Data Science notebook session.
 
 ## Task 1: Creating a Notebook Session
 
 1. [Login to the OCI Console](https://www.oracle.com/cloud/sign-in.html).
-1. Open the navigation menu.
 1. Click the **Navigation Menu** in the upper left, navigate to **Analytics & AI**, and select **Data Science**. 
-	
-	![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/analytics-ml-datascience.png " ")
+	![Navigation to Data Science service](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/analytics-ml-datascience.png " ")
 
 1. Select the compartment for the project.
 1. Click the name of the project to contain the notebook session.
-    ![](./../speed-up-ds-with-the-ads-sdk/images/select-project.png)
+    ![Select a project](./../common/images/select-project.png)
 
 1. Click **Create Notebook Session**.
-    ![](./../speed-up-ds-with-the-ads-sdk/images/create-notebook.png)
+    ![Create a notebook](./../common/images/create-notebook.png)
 
 1. Confirm that the compartment that is selected is the compartment that is assigned to your account. The **Workshop Details** section at the top of the instructions page lists the compartment. If the compartment is different, change it to the one listed in the **Workshop Details** section.
 1. (Optional, but recommended) Enter a unique name for the notebook session (limit of 255 characters). If you do not provide a name, a name is automatically generated for you.
-1. Select a VM shape. The [Compute Shapes](https://docs.cloud.oracle.com/en-us/iaas/Content/Compute/References/computeshapes.htm) page has details on the specifications. For this lab, select a VM.Standard2.4.
+1. Select a VM shape. The [Compute Shapes](https://docs.cloud.oracle.com/en-us/iaas/Content/Compute/References/computeshapes.htm) page has details on the specifications. For this lab, it is recommended that you use an Intel VM.Standard2.4. Click the **Select** button in the compute shape. This will open the select shape window. To choose the shape, click **Intel**, then check the box beside **VM.Standard2.4**, and finally click **Select**.
 1. Enter the block volume in GB. The suggested size is 100 Gb or larger.
-1. Confirm that the compartment for the VCN is the same as the one that is listed in the **Workshop Details** section at the top of the instructions page. If not, change it to that compartment.
-1. Confirm that the VCN is the one assigned to your account. It should be prefix with the same code as the compartment. For example, if your compartment is ``LL####-COMPARTMENT`` the VCN must be ``Data Science VCN``.
-1. Confirm that the compartment for the subnet is the same as the one that is listed in the **Workshop Details** section at the top of the instructions page. If not, change it to that compartment.
-1. Confirm that the subnet is the one assigned to your account. It should be prefix with the same code as the compartment. For example, if your compartment is ``LL####-COMPARTMENT`` the subnet must be ``Data Science - Private``.
+1. In the networking resources section, select the default networking option.
 1. (Optional) Add tags to the notebook session by selecting a tag namespace, then entering the key and the value. You can add more tags to the compartment by clicking **+Additional Tags**, see [Working with Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm#workingtags).
 1. (Optional) View the details for your notebook session immediately after creation by selecting **VIEW DETAIL PAGE ON CLICKING CREATE.**. 
 1. Click **Create**.
-    ![](./../speed-up-ds-with-the-ads-sdk/images/create-ns.png)
+    ![Create a notebook session](./../common/images/create-notebook-session-vm-standard24.png)
 
     While the notebook session is being created, you can navigate away from the current page.
-    ![](./../speed-up-ds-with-the-ads-sdk/images/creating-ns.png)
+    ![creating a notebook session](./../common/images/creating-notebook-session.png)
 
 ## Task 2: Opening a Notebook Session
 
@@ -58,35 +53,32 @@ Once the notebook session has been created the notebook session page shows the n
 
 1. [Login to the OCI Console](https://www.oracle.com/cloud/sign-in.html).
 1. Open the navigation menu.
-1. Under **Data and AI**, select **Data Science**, and then click **Projects**.
-    ![](./../speed-up-ds-with-the-ads-sdk/images/select-projects.png)
-
+1. Under **Data and AI** and select **Data Science**. This will open the **Projects** page.
 1. Select the compartment for the project.
 1. Click the name of the project to contain the notebook session. This will open the Projects page.
-    ![](./../speed-up-ds-with-the-ads-sdk/images/select-project.png)
+    ![Select a project](./../common/images/select-project.png)
 
 1. Click the name of the notebook session. This will open the Notebook Session page.
-    ![](./../speed-up-ds-with-the-ads-sdk/images/click-ns.png)
+    ![Click on notebook session](./../common/images/click-notebook-session.png)
+
+1. If the notebook is in the **Creating** state, then wait until it is in the **Active** state.
 
 1. If the notebook is in an **Active** state, then click **Open**.
-    ![](./../speed-up-ds-with-the-ads-sdk/images/click-open.png)
+    ![Click open](./../common/images/open-notebook-session.png)
 
 1. If the notebook is in an **Inactive** state, then:
     1. Click **Activate** to open the **Activate Notebook Session** dialog with the configuration from the last time the notebook session was activated or created.
-    1. Select a VM shape. The [Compute Shapes](https://docs.cloud.oracle.com/en-us/iaas/Content/Compute/References/computeshapes.htm) page has details on the specifications. For this lab, select a VM.Standard2.4.
+    1. Select a VM shape. The [Compute Shapes](https://docs.cloud.oracle.com/en-us/iaas/Content/Compute/References/computeshapes.htm) page has details on the specifications. For this lab, it is recommended that you use an Intel VM.Standard2.4. Click the **Select** button in the compute shape. This will open the select shape window. To choose the shape, click **Intel**, then check the box beside **VM.Standard2.4**, and finally click **Select**.
     1. Enter the block volume in GB. The suggested size is 100 Gb or larger. The size of the block storage can be increased, but not decreased. 
-    1. Confirm that the compartment for the VCN is the same as the one that is listed in the **Workshop Details** section at the top of the instructions page. If not, change it to that compartment.
-    1. Confirm that the VCN is the one assigned to your account. It should be prefix with the same code as the compartment. For example, if your compartment is ``LL####-COMPARTMENT`` the VCN must be ``LL####-VCN``.
-    1. Confirm that the compartment for the subnet is the same as the one that is listed in the **Workshop Details** section at the top of the instructions page. If not, change it to that compartment.
-    1. Confirm that the subnet is the one assigned to your account. It should be prefix with the same code as the compartment. For example, if your compartment is ``LL####-COMPARTMENT`` the subnet must be ``LL####-Subnet-Private``.
+    1. In the networking resources section, select the default networking option.
     1. Click **Activate** and the notebook session status changes to **Updating**.
     1. When the notebook session status changes to **Active**, click **Open**
 
-You can *proceed to the next lab*.
+You can **proceed to the next lab**.
 
 ## Acknowledgements
 
 * **Author**: [John Peach](https://www.linkedin.com/in/jpeach/), Principal Data Scientist
 * **Last Updated By/Date**:
-    * [John Peach](https://www.linkedin.com/in/jpeach/), Principal Data Scientist, November 2020
+    * [John Peach](https://www.linkedin.com/in/jpeach/), Principal Data Scientist, April 2022
 

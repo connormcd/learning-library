@@ -1,12 +1,3 @@
-/* DELETE THIS FILE IN THE NEXT RELEASE - PLEASE USE ADB-PROVISION-CONDITIONAL.MD FILE INSTEAD AND SPECIFY THE VERSION YOU WANT IN YOUR MANIFEST:
-{
-  "title": "Lab 1: Provision an ADB Instance",
-  "description": "Provisioning an Autonomous Database Instance",
-  "type": "freetier",
-  "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/data-management-library/autonomous-database/shared/adb-provision/adb-provision-conditional.md"
-},
-*/# Provision an Autonomous Database (ADW and ATP)
-
 ## Introduction
 
 This lab walks you through the steps to get started using the Oracle Autonomous Database (Autonomous Data Warehouse [ADW] and Autonomous Transaction Processing [ATP]) on Oracle Cloud. In this lab, you provision a new ADW instance.
@@ -50,7 +41,7 @@ To complete this lab, you need to have the following:
 
     ![Autonomous Databases console.](./images/no-adb-freetier.png " ")
 
-6. If you are using a Free Trial or Always Free account, and you want to use Always Free Resources, you need to be in a region where Always Free Resources are available. You can see your current default **region** in the top, right hand corner of the page.
+6. You can see your current default **region** in the top, right hand corner of the page.
 
     ![Select region on the far upper-right corner of the page.](./images/Region.png " ")
 
@@ -88,7 +79,6 @@ To complete this lab, you need to have the following:
 
 6. Configure the database:
 
-    - __Always Free__ - If your Cloud Account is an Always Free account, you can select this option to create an always free autonomous database. An always free database comes with 1 CPU and 20 GB of storage. For this lab, we recommend you leave Always Free unchecked.
     - __Choose database version__ - Select a database version from the available versions.
     - __OCPU count__ - Number of CPUs for your service. For this lab, specify __1 CPU__. If you choose an Always Free database, it comes with 1 CPU.
     - __Storage (TB)__ - Select your storage capacity in terabytes. For this lab, specify __1 TB__ of storage. Or, if you choose an Always Free database, it comes with 20 GB of storage.
@@ -111,12 +101,13 @@ To complete this lab, you need to have the following:
 
     ![Enter password and confirm password.](./images/Picture100-26d.png " ")
 8. Choose network access:
-    - For this lab, accept the default, "Allow secure access from everywhere".
-    - If you want to restrict access to specified IP addresses and VCNs, select "Secure access from allowed IPs and VCNs only." You can control and restrict access to your Autonomous Database by setting network access control lists (ACLs). You can select from 4 IP notation types: IP Address, CIDR Block, Virtual Cloud Network, Virtual Cloud Network OCID).
-    - If you want a private endpoint, to enable traffic only from the VCN you specify - and to block access to the database from all public IPs or VCNs, select "Private endpoint access only" in the Choose network access area.
-    - If you select "Secure access from allowed IPs and VCNs only" or "Private endpoint access only", you can use the checkbox to require mutual TLS (mTLS) authentication to authenticate connections to your database. If you don't select this checkbox, TLS or mTLS can be used.
+    - For this lab, accept the default, "Secure access from everywhere."
+    - If you want to allow traffic only from the IP addresses and VCNs you specify - where access to the database from all public IPs or VCNs is blocked, select "Secure access from allowed IPs and VCNs only" in the Choose network access area.
+    - If you want to restrict access to a private endpoint within an OCI VCN, select "Private endpoint access only" in the Choose network access area.
+    - If the "Require mutual TLS (mTLS) authentication" option is selected, mTLS will be required to authenticate connections to your Autonomous Database. TLS connections allow you to connect to your Autonomous Database without a wallet, if you use a JDBC thin driver with JDK8 or above. See the [documentation for network options](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/support-tls-mtls-authentication.html#GUID-3F3F1FA4-DD7D-4211-A1D3-A74ED35C0AF5) for options to allow TLS, or to require only mutual TLS (mTLS) authentication.
 
-    ![](./images/network-access.png " ")
+
+    ![](./images/Picture100-26e.png " ")
 
 9. Choose a license type. For this lab, choose __License Included__. The two license types are:
 
@@ -125,11 +116,15 @@ To complete this lab, you need to have the following:
 
     ![](./images/license.png " ")
 
-10. Click __Create Autonomous Database__.
+10. For this lab, do not provide a contact email address. The "Contact Email" field allows you to list contacts to receive operational notices and announcements as well as unplanned maintenance notifications.
+
+    ![Do not provide a contact email address.](images/contact-email-field.png)
+
+11. Click __Create Autonomous Database__.
 
     ![Click Create Autonomous Database.](./images/Picture100-27.png " ")
 
-11.  Your instance will begin provisioning. In a few minutes, the state will turn from Provisioning to Available. At this point, your Autonomous Data Warehouse database is ready to use! Have a look at your instance's details here including its name, database version, OCPU count, and storage size.
+12.  Your instance will begin provisioning. In a few minutes, the state will turn from Provisioning to Available. At this point, your Autonomous Data Warehouse database is ready to use! Have a look at your instance's details here including its name, database version, OCPU count, and storage size.
 
     ![Database instance homepage.](./images/Picture100-32.png " ")
 

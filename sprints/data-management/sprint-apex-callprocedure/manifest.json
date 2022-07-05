@@ -1,0 +1,22 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I call a procedure in Oracle Apex on a button submit and pass page parameters?",
+         "description": "",
+         "filename": "sprint-apex-callprocedure.md"
+      },
+      {
+         "title": "How can I send mail from Oracle Apex?",
+         "description": "",
+         "filename": "../sprint-send-apexmail/sprint-apex-sendmail.md"
+      },
+      {
+         "title": "How do I send mails with DBMS SCHEDULER Jobs?",
+         "description": "",
+         "filename": "../sprint-sendmail-jobs/sprint-sendmail-jobs.md"
+      }
+   ],
+   "task_type": "Sections"
+}

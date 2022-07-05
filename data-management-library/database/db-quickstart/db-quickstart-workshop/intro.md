@@ -29,9 +29,7 @@ Oracle’s Autonomous Database is the perfect quick-start service for fast data 
 Estimated Workshop Time: 70 minutes
 
 ### Workshop Prerequisites
-- An Oracle Cloud Account - Please view this workshop's LiveLabs landing page to see which environments are supported
-
-*Note: If you have a **Free Trial** account, when your Free Trial expires your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. **[Click here for the Free Tier FAQ page.](https://www.oracle.com/cloud/free/faq.html)***
+- An Oracle Cloud Account
 
 ### Workshop Objectives
 - Get comfortable with Oracle's public cloud services
@@ -69,4 +67,4 @@ Use these links to get more information about Oracle Autonomous Database:
 - **Author** - Rick Green, Principal Developer, Database User Assistance
 - **Contributor** - Supriya Ananth
 - **Adapted for Cloud by** - Rick Green
-- **Last Updated By/Date** - Rick Green, April 2021
+- **Last Updated By/Date** - Kamryn Vinson, April 2022

@@ -451,7 +451,7 @@ In this task, you will create a dynamic actions to:
 
 You now know how to add validations, processes, branches, and dynamic actions to your APEX page. You may now **proceed to the next lab**. 
 
-## **Acknowledgments**
+## Acknowledgments
 
 - **Author** - Mónica Godoy, Principal Product Manager
 - **Contributors** - Shakeeb Rahman, Architect

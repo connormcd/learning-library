@@ -43,7 +43,6 @@ Free Trial or an existing Oracle Cloud account (Not all services in this worksho
 - [Oracle Technology Network](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html)
 
 ## Acknowledgements
-* **Author** - Gerald Venzl, Master Product Manager, Database Development
-* **Adapted for Cloud by** -  Tom McGinn, Sr. Principal Product Manager, Database and Database Cloud Service
+* **Author** - Gerald Venzl, Master Product Manager, Database Development 
 * **Contributor** - Arabella Yao, Product Manager Intern, Database Management, June 2020
-* **Last Updated By/Date** - Tom McGinn, June 2021
+* **Last Updated By/Date** - Madhusudhan Rao, Apr 2022

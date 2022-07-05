@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I connect to the Database from the terminal?",
+         "description": "",
+         "filename": "connecting-db-terminal.md"
+      },
+      {
+         "title": "How do I connect to the instance via SSH?",
+         "description": "",
+         "filename": "../sprint-connect-to-instance-via-ssh/instance-ssh.md"
+      }
+   ],
+   "task_type": "Sections"
+}

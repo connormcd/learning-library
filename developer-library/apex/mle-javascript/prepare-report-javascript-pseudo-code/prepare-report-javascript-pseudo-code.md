@@ -268,5 +268,5 @@ You have examined how to write JavaScript code in SQL Workshop and the project r
 ## **Acknowledgements**
 
  - **Author/Contributors** -  Salim Hlayel, Principal Product Manager
- - **Last Updated By/Date** - Tom McGinn, Database Innovations Architect, Product Management, July 2020
+ - **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

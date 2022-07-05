@@ -29,7 +29,7 @@ Estimated time: 20 minutes
 
    ![Create compartment](./images/createcompartment.png " ")
 
-## Task 2: Create a Dynamic Group 
+## Task 2: Create a Dynamic Group
 
 To interact with the Oracle Cloud Infrastructure service end-points, customers must explicitly consent to let the management agents carry on the communication.
 
@@ -49,7 +49,7 @@ In this step, a dynamic group is created using the Identity and Access Managemen
       <copy>
       ALL {resource.type='managementagent', resource.compartment.id='ocid1.compartment.oc1.examplecompartmentid'}  </copy>
       ```
-Where resource.type='managementagent' is the managementagent resource type definition for Management Agent at dynamic group level, and resource.compartment.id value is the compartment id used in step 1. 
+Where resource.type='managementagent' is the managementagent resource type definition for Management Agent at dynamic group level, and resource.compartment.id value is the compartment id used in step 1.
 
 ## Task 3: Create a Group
 
@@ -63,9 +63,8 @@ Where resource.type='managementagent' is the managementagent resource type defin
    - **Description:** Enter a description (for example, "New group for OCI Database Management").
    - Click **Create**.
 
-
       ![](./images/creategroup.png " ")
-   
+
       ![](./images/newgroup.png " ")
 
 ## Task 4: Managing Users, Groups
@@ -75,13 +74,13 @@ Where resource.type='managementagent' is the managementagent resource type defin
    a) From the Oracle Cloud Console **Navigation menu** (aka hamburger menu) located in the upper left, under **Identity & Security**, go to **Identity** and then select **Policies**.
 
    b) On the left side, select root compartment.
-   
+
     *NOTE*: You may need to click on the + sign next to your main compartment name to be able to see the sub-compartment **dbmgmt-demo**. If you do, and you still don't see the sub-compartment, **Refresh your browser**. Sometimes your browser caches the compartment information and does not update its internal cache.
 
    c) After you have selected the **root** compartment, click **Create Policy**.
 
       ![Create Policy](./images/policies.png " ")
-   
+
    d) Enter a unique **Name** for your policy (For example, "Policy-for-dbmgmt-group"). Note that the name cannot contain spaces.
 
    e) Enter a **Description** (for example, "Policy for OCI DB Management").
@@ -97,7 +96,7 @@ Where resource.type='managementagent' is the managementagent resource type defin
       ALLOW GROUP dbmgmt-group TO MANAGE management-agents IN COMPARTMENT dbmgmt-demo
       ALLOW GROUP dbmgmt-group TO MANAGE management-agent-install-keys IN COMPARTMENT dbmgmt-demo
       ALLOW GROUP dbmgmt-group TO READ METRICS IN COMPARTMENT dbmgmt-demo
-      ALLOW GROUP dbmgmt-group TO READ USERS IN TENANCY 
+      ALLOW GROUP dbmgmt-group TO READ USERS IN TENANCY
       ALLOW GROUP dbmgmt-group TO MANAGE external-database-family in COMPARTMENT dbmgmt-demo
       ALLOW GROUP dbmgmt-group TO MANAGE dbmgmt-family in COMPARTMENT dbmgmt-demo
       ALLOW DYNAMIC-GROUP dbmgmt_dynamic_group TO MANAGE management-agents IN COMPARTMENT dbmgmt-demo
@@ -110,7 +109,7 @@ Where resource.type='managementagent' is the managementagent resource type defin
 2. Create a New User
 
    a) From the Oracle Cloud Console **Navigation menu** (aka hamburger menu) located in the upper left, under **Identity & Security**, go to **Identity** and then select **Users**.
-   
+
    b) Click **Create User**.
 
    c) In the **New User** dialog box, enter the following:
@@ -140,11 +139,10 @@ Where resource.type='managementagent' is the managementagent resource type defin
 
    e) Click the **Copy** link and then click **Close**. Make sure to copy this password to your notepad.
 
-
 4. Add User to a Group
 
       a) Sign in back with the ***admin*** account.
-      
+
       b) From the **Users** list, click the user account that you just created (for example, "dbmgmt_user") to go to the user details page.
 
       c) Under the **Resources** menu on the left, click **Groups.**
@@ -157,7 +155,7 @@ Where resource.type='managementagent' is the managementagent resource type defin
       ![Press the Add button](./images/addusertogroup.png " ")
 
       g) On the top right corner of Oracle Cloud Console, click on **Profile** and then click **Sign Out** to sign out of the Oracle Cloud website.
-      
+
       ![Sign Out](./images/signout.png " ")
 
 5. Verify user permissions when a user belongs to a specific group
@@ -179,9 +177,6 @@ Where resource.type='managementagent' is the managementagent resource type defin
       e) Open the **Navigation menu**. Under **Identity & Security**, go to **Identity** and then select **Groups**.
 
       f) The message **Authorization failed or requested resource not found** appears. This is expected, since your user has no permission to modify groups. (Note: You may instead get the "An unexpected error occurred" message instead. That is also fine.)
-
-
-You may now proceed to the next lab.
 
 ## Acknowledgements
 

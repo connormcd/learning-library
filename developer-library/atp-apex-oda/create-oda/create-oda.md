@@ -62,8 +62,15 @@ In this lab, you will:
 
 3. Fill the information as in the next image. **Development** edition is perfect for this workshop and develop new **Digital Assistant** systems until you want to move to production. Finally click "**Create**" bottom:
 
-    - **Name**: ODA
-    - **Description**: My Oracle Digital Assistant
+    - **Name**:
+        ```
+        <copy>ODA</copy>
+        ```
+
+    - **Description**:
+        ```
+        <copy>My Oracle Digital Assistant</copy>
+        ```
     - **Shape**: Development
 
     ![ODA Menu](./images/oda_3.png)
@@ -73,7 +80,11 @@ In this lab, you will:
 
     ![ODA Menu](./images/oda_4.png)
 
-5. You will have to **Log-in** again with your **Account name**, **User** and **Password**.
+5. If you see your **Oracle Cloud Account** in the next screen, **clik on it**, otherwise follow the next steps to `Sign in with a different user account`.
+
+    ![Oracle Cloud Account](./images/oracle_cloud_account_oda_dashboard.png)
+
+6. You will have to **Log-in** again with your **Account name**, **User** and **Password**. Follow this step, just if you are `Sign in with a different user account`.
 
     Ensure you are on the right **Tenancy** or **Account** and click **Continue**.
 
@@ -84,11 +95,11 @@ In this lab, you will:
     ![ODA Log in](./images/oda-tenancy-1.png)
     ![ODA Log in](./images/oda-tenancy-2.png)
 
-6. Provide your **Username**, **Password** and click **Sign In** to visit **Oracle Digital Assistant Home** page.
+7. Provide your **Username**, **Password** and click **Sign In** to visit **Oracle Digital Assistant Home** page.
 
     ![ODA Log in](./images/oda-login-2-new.png)
 
-7. You will be on the Oracle Digital Assistant **Dashboard** where you can start building your bots.
+8. You will be on the Oracle Digital Assistant **Dashboard** where you can start building your bots.
 
     ![ODA Menu](./images/oda_5_new2.png)
 
@@ -106,4 +117,4 @@ You may now [proceed to the next lab](#next).
 
 - **Author** - Victor Martin - Technology Product Strategy Manager, Priscila Iruela - Technology Product Strategy Director
 - **Contributors** - Melanie Ashworth-March
-- **Last Updated By/Date** - Anoosha Pilli, March 2021
+- **Last Updated By/Date** - Priscila Iruela, June 2022

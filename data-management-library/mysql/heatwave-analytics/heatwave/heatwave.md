@@ -2,7 +2,7 @@
 
 ## Introduction
 
-HeatWave accelerates MySQL queries by 400x using massively parallel processing to provide real-time analytics. So in this lab we will run queries with HeatWave enabled and without and finally observe the results.
+MySQL HeatWave is 6.5X faster than Amazon Redshift at half the cost, 7X faster than Snowflake at one-fifth the cost, and 1400X faster than Amazon Aurora at half the cost. So in this lab we will run queries with HeatWave enabled and without and finally observe the results.
 
 Estimated Time: 20 minutes
 

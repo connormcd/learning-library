@@ -1,10 +1,10 @@
-# Mashing up additional Data Sets, Contextual Data Preparation
+# Mash up additional Data Sets, Contextual Data Preparation
 
 ## Introduction
 
 In this lab, you will learn about mashing up Data Sets. You can blend data from one data set with data from another data set.
 
-_Estimated Lab Time_: 15 minutes
+_Estimated Time_: 15 minutes
 
 ![Connect Data Sets](../mash-datasets/images/connect-datasets.png)
 
@@ -14,14 +14,8 @@ _Estimated Lab Time_: 15 minutes
 
 ### Prerequisites
 
-* An Oracle Cloud Free Tier or Paid account
-* You should have completed  
-    * Lab 1: Provisioning your Autonomous Database instance
-    * Lab 2: Provisioning your Oracle Analytics Cloud instance
-    * Lab 3: Connecting OAC to ADW and adjusting Data Set properties
-    * Lab 5: Gaining Insights with Visual Data Dialog
-    * Lab 6: Monitoring and Ad-hoc scaling up ADW activity for optimal OAC experience
-    * Lab 7: Building simple Interactive Analysis
+* An [_Oracle Cloud Free Tier Account_](https://www.oracle.com/cloud/free/) or a Paid account
+* All previous labs successfully completed
 
 ## Task 1: Add Additional Data Set
 
@@ -42,7 +36,8 @@ Select **Add Data Set...**
 3.  Create Data Set.  
 Click **Create Data Set** button, Click 'Drop data file here or click to browse' area and Select the location where you've copied 'customers.xlsx' file.
 
-    ![Add Data Set](../mash-datasets/images/add-dataset2.png)
+    ![Add Data Set](../mash-datasets/images/add-dataset2.png)  
+    ![Add Data Set](../mash-datasets/images/add-dataset-3.png)
 
 4.  Lets change the properties of the Data Set.  
 Set **CUST\_ID** as an **Attribute** so that we can join to our existing Data Set.  
@@ -102,65 +97,50 @@ Type **Above 130**  (instead of Group 3), select **Add All**.
      ![Add Income Group](../mash-datasets/images/prepscript-group4.png)
 
 14. Apply Script to activate the changes.  
-Click **Apply Script**.
+Click **Apply Script** and **Save**.
 
      ![Apply Script](../mash-datasets/images/apply-script.png)
+     ![Save](../mash-datasets/images/save-script.png)
 
 ## Task 2: Join the Data Sets
 
 When you add more than one data set to a project, the system tries to find matches for the data that’s added. It automatically matches external dimensions where they share a common name and have a compatible data type with attributes in the existing data set.  
 Lets join the Data Sets using **CUST\_ID** as the join condition between the data sets.
 
-1.  Go to **Data Diagram** tab.  
+1.  Go back to **Training01** tab and Click **Add to Workbook**.  
+
+    ![Training 01](../mash-datasets/images/add-to-workbook.png)
+
+2.  Go to **Data** pane > **Data Diagram** tab.  
 In this tab, you can view a representation of the **different datasets** included in the project and their **relationships**.  
 Click on **Data Diagram** tab
 
     ![Data Diagram](../mash-datasets/images/datadiagram.png)
 
-2.  **Connect** Data Sets.  
-Currently, there is no relationship defined, so you see both as isolated boxes.  
-Mouse  hover on the imaginary dotted line **between** the two Data Sets and click on the **0 number** that will appear.
-
-    ![Connect Data Sets](../mash-datasets/images/datadiagram-join.png)
-
-
 3.  **Blend Data** Sets.  
-A **pop-up window** appears allowing you to define a **new relation** between the datasets (join).  
-Click on **Add Another Match** button.
+Mouse  hover on the imaginary dotted line **between** the two Data Sets and click on the **1 number** that will appear.
+A **pop-up window** appears allowing you to check or define a **new relation** between the datasets (join).  
+Click **OK** button
 
     ![Blend Data Sets](../mash-datasets/images/datadiagram-blend1.png)
 
-4.  **Blend Data** Sets.  
-Select **CUST\_ID**column from both Data Sets.
-
-    ![Blend Data Sets](../mash-datasets/images/datadiagram-blend2.png)
-
-5.  Lets extend the new Data Set as a dimension as the mashup data set doesn't contain any metrics.  
-Click **Add Facts** and select **Extend a Dimension**.
-
-    ![Extend a Dimension](../mash-datasets/images/datadiagram-blend3.png)
-
-6.  Click **OK** button.
-
-    ![OK](../mash-datasets/images/datadiagram-blend4.png)
-
-7. Click **Visualize** tab
+4. Click **Visualize** tab
 
     ![Visualize](../mash-datasets/images/visualize.png)
 
 You have just finished learning about data mash-up and various options to connect Data Sets.
 
-You may now [proceed to the next lab](#next)
+You may now **proceed to the next lab**.
 
 ## Want to Learn More?
 
-* [Blend Data that You Added](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/blend-data-that-you-added.html)
-* [About Mismatched Values in Blended Data](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/mismatched-values-blended-data.html)
-* [Change Data Blending in a Project](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/change-data-blending-project.html)
+* [Blend Datasets](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/work-workbooks-datasets.html#GUID-E72DAB5D-2CD4-4474-BDFD-D36082AAA1AC)
+* [About Mismatched Values in Blended Data](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/work-workbooks-datasets.html#GUID-EDC5BCF9-2DE3-48AB-8A2A-ED87200FEC45)
+* [Change Data Blending in a Visualization](https://docs.oracle.com/en/cloud/paas/analytics-cloud/acubi/work-workbooks-datasets.html#GUID-2F56344C-9841-4CB7-871F-B3868AC200E2)
 
 ## **Acknowledgements**
 
 - **Author** - Lucian Dinescu, Product Strategy, Analytics
 - **Contributors** -
-- **Reviewed by** - Shiva Oleti, Product Strategy, Analytics
-- **Last Updated By/Date** - Lucian Dinescu, April 2021
+- **Reviewed by** - Shiva Oleti, Product Strategy, Analytics, Sebastien Demanche, Andor Imre (Oracle Cloud Center of Excellence)
+- **Last Updated By/Date** - Lucian Dinescu, March 2022

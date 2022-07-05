@@ -15,7 +15,7 @@ The 4 database instances sample information like this:
 
 Following is the topology used for System Managed Sharding we will create in this workshop:
 
-![image-20201201125945082](images/image-20201201125945082.png)
+![System topology diagram.](images/systemtopology.png)
 
 Estimated Lab Time: 60 minutes.
 
@@ -1244,9 +1244,9 @@ The following steps need to do in all the shard database side. We only provide s
 
    
 
-You may now [proceed to the next lab](#next).
+You may now proceed to the next lab.
 
 ## Acknowledgements
 * **Author** - Minqiao Wang, DB Product Management, Dec 2020
-* **Last Updated By/Date** - Minqiao Wang, Jun 2021
+* **Last Updated By/Date** - Andres Quintana, April 2022
 

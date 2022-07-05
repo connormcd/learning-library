@@ -1,0 +1,17 @@
+{
+    "workshoptitle": "LiveLabs Sprints",
+    "help": "livelabs-help-oci_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "How do I get the URI for a bucket in Object Storage?",
+            "description": "",
+            "filename": "sprint-get-bucket-uri.md"
+        },
+        {
+            "title": "How do I know the name space of my bucket in Object Storage?",
+            "description": "",
+            "filename": "../sprint-know-bucket-namespace/sprint-know-bucket-namespace.md"
+        }
+    ],
+    "task_type": "Sections"
+}

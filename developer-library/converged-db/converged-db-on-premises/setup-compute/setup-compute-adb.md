@@ -28,7 +28,7 @@ This lab assumes you have:
 If you already have a VCN setup, please visit the appendix to see how to optionally create a stack with just Compute + ADB.
 
 1.  Click on the link below to download the Resource Manager zip file you need to build your environment.  
-      - [converged-db-adb.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/kRDaL2RIx7SyrunGBPwPbSF0sMJr0kEriJimtcjsBQfdRPk_vYH-3fzwC2icHfbE/n/c4u04/b/workshop-terraform-src/o/converged-db-adb.zip)
+      - [converged-db-adb.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/LNAcA6wNFvhkvHGPcWIbKlyGkicSOVCIgWLIu6t7W2BQfwq2NSLCsXpTL9wVzjuP/n/c4u04/b/livelabsfiles/o/developer-library/converged-db-adb.zip)
 
 2.  Save in your downloads folder.
 3.  Login to Oracle Cloud

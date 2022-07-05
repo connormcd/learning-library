@@ -1,0 +1,27 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-oci_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I cancel the deletion of a vault?",
+         "description": "",
+         "filename": "sprint-cancel-vault-deletion.md"
+      },
+      {
+         "title": "How can I create a new vault?",
+         "description": "",
+         "filename": "../sprint-create-vault/sprint-create-vault.md"
+      },
+      {
+         "title": "How do I move a vault to a different compartment?",
+         "description": "",
+         "filename": "../sprint-move-vault/sprint-move-vault.md"
+      },
+      {
+         "title": "How do I back up a vault?",
+         "description": "",
+         "filename": "../sprint-backup-vault/sprint-backup-vault.md"
+      }
+   ],
+   "task_type": "Sections"
+}

@@ -111,9 +111,9 @@ Add a new navigation menu entry to allow:
     ![](./images/new-entry.png " ")
 
 
-You now know how to enhance and mantain both navigation menu and navigation bar. You may now **proceed to the next lab**. 
+You now know how to enhance and maintain both navigation menu and navigation bar.
 
-## **Acknowledgments**
+## Acknowledgments
 
 - **Author** - Monica Godoy, Principal Product Manager
 - **Last Updated By/Date** - Arabella Yao, Database Product Manager, October 2021

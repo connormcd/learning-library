@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How can I have workshop content and the Oracle Cloud console side-by-side on the screen?",
+         "description": "",
+         "filename": "./workshop-cloud-account-side-by-side.md"
+      },
+      {
+         "title": "How can I request support from the Oracle LiveLabs team?",
+         "description": "",
+         "filename": "../request-email-support/request-email-support.md"
+      }
+   ],
+   "task_type": "Sections"
+}

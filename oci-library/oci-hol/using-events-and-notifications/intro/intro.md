@@ -22,5 +22,5 @@ Estimated time: 30 minutes
 - **Author** - Kay Malcolm, Director, Product Management
 - **Adapted by** -  Yaisah Granillo, Cloud Solution Engineer, NA Cloud
 - **Contributors** - LiveLabs QA Team (Arabella Yao, Product Manager Intern | Isa Kessinger, QA Intern)
-- **Last Updated By/Date** - Tom McGinn, August 2020
+- **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

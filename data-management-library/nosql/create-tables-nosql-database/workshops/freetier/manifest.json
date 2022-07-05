@@ -18,7 +18,14 @@
         },
 		    {
           "title": "Lab 2: Run the Sample NoSQL Application",
-          "filename": "../../run-sample-application/run-sample-application.md"
+          "filename": "../../run-sample-application/run-sample-application.md",
+          "type": {
+            "Java" : "Java",
+            "Python" : "Python",
+            "Go" : "Go",
+            "Node.js" :"Node.js",
+            "C-sharp" : "C#"
+            }
         },
         {
           "title": "Need Help?",

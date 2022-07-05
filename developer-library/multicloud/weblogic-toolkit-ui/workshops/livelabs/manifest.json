@@ -1,0 +1,57 @@
+{
+  "workshoptitle": "Oracle WebLogic Kubernetes ToolKit UI",
+  "help": "livelabs-help-weblogic_us@oracle.com",
+  "tutorials": [
+    {
+      "title": "Introduction",
+      "description": "Migrate An Application to OCI with WebLogic Kubernetes Toolkit",
+      "filename": "../../introduction/introduction.md"
+    },
+    {
+      "title": "Lab 1: Environment Setup",
+      "description": "Verify Setup of compute instance",
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/verify-compute/verify-compute-ssh-and-novnc.md"
+    },
+    {
+      "title": "Lab 2: Set up the resources",
+      "filename": "../../create-environment/create-environment.md"
+    },
+    {
+      "title": "Lab 3: Modifying a WKT UI Project and Creation of Model file",
+      "filename": "../../create-model/create-model.md"
+    },
+    {
+      "title": "Lab 4: Creation of Auxiliary Image and Pushing it in Oracle Container Image Registry",
+      "filename": "../../create-image/create-image.md"
+    },
+    {
+      "title": "Lab 5: Deploy WebLogic Operator to Oracle Kubernetes Cluster (OKE)",
+      "filename": "../../deploy-operator/deploy-operator.md"
+    },
+    {
+      "title": "Lab 6: Deploy WebLogic Domain to Oracle Kubernetes Cluster (OKE)",
+      "filename": "../../deploy-domain/deploy-domain.md"
+    },
+    {
+      "title": "Lab 7: Deploy Ingress Controller to Oracle Kubernetes Cluster (OKE)",
+      "filename": "../../deploy-ingress/deploy-ingress.md"
+    },
+    {
+      "title": "Lab 8: Testing Application Deployment",
+      "filename": "../../access-application/access-application.md"
+    },
+    {
+      "title": "Lab 9: Scaling a WebLogic Cluster (Optional)",
+      "filename": "../../scale-cluster/scale-cluster.md"
+    },
+    {
+      "title": "Lab 10: Making a upgrade in WebLogic Server Version (Optional)",
+      "filename": "../../upgrade-version/upgrade-version.md"
+    },
+    {
+      "title": "Need Help?",
+      "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-livelabs.md"
+    }
+  ]
+}

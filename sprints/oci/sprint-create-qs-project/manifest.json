@@ -1,0 +1,60 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+     {
+        "title": "How do I create the required Query Service policies?",
+        "type": "tenancy",
+        "description": " ",
+        "filename": "./../sprint-create-qs-policies/sprint-create-qs-policies.md"
+     },
+      {
+        "title": "How do I create a Query Service project?",
+        "type": "tenancy",
+        "description": " ",
+        "filename": "./../sprint-create-qs-project/sprint-create-qs-project.md"
+      },
+      {
+         "title": "How do I query data in Query Service?",
+         "type": "tenancy",
+         "description": " ",
+         "filename": "./../sprint-query-data-qs/sprint-query-data-qs.md"
+      },
+      {
+         "title": "How do I use the project detail page in Query Service?",
+         "type": "tenancy",
+         "description": " ",
+         "filename": "./../sprint-explore-qs-project-detail/sprint-explore-qs-project-detail.md"
+      },
+      {
+        "title": "How do I create an Object Storage table in Query Service?",
+        "type": "tenancy",
+        "description": " ",
+        "filename": "./../sprint-create-obj-table-qs/sprint-create-obj-table-qs.md"
+      },
+      {
+         "title": "How can I create a bucket in Oracle Cloud?",
+         "type": "tenancy",
+         "description": " ",
+         "filename": "./../sprint-create-bucket/sprint-create-bucket.md"
+      },
+      {
+         "title": "How can I change bucket visibility settings?",
+         "description": " ",
+         "filename": "./../sprint-change-bucket-visibility/sprint-change-bucket-visibility.md"
+      },
+      {
+         "title": "How do I upload my files to Object Storage?",
+         "type": "tenancy",
+         "description": " ",
+         "filename": "./../sprint-upload-files/sprint-upload-files.md"
+      },
+      {
+         "title": "How do I create an OCI compartment? (Optional)",
+         "type": "tenancy",
+         "description": "This lab walks you through how to create a new OCI compartment.",
+         "filename": "./../../oci/sprint-create-compartment/sprint-create-compartment.md"
+      }
+   ],
+   "task_type": "Sections"
+}

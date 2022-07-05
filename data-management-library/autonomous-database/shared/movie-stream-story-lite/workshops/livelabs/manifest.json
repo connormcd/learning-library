@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Action! MovieStream Analytics Produce the Best Picture with Oracle Cloud",
+    "workshoptitle": "Produce Your Company's Best Picture with Converged Database Analytics",
     "help": "livelabs-help-db_us@oracle.com",
     "tutorials": [
       {
@@ -28,7 +28,7 @@
       {
         "title": "Lab 4: Working with JSON Data",
         "filename": "../../working-with-semi-structured-data/working-with-semi-structured-data.md"
-        
+
       },
       {
           "title": "Lab 5: Use OML to predict customer churn",

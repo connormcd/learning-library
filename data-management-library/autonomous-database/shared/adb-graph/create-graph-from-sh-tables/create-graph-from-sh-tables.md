@@ -8,6 +8,8 @@ Autonomous Data Warehouse - Shared Infrastructure (ADW) or Autonomous Transactio
 
 Estimated Time: 30 minutes.
 
+## Note: *Update in progress. Will have errors.*
+
 ### Objectives
 
 - Learn how to model a graph from the Sales History (SH) sample data set

@@ -4,9 +4,9 @@
 
 The requirements of many companies' business objectives demand the processing of very large volumes of data, in many different formats and imported from a large number of sources. To efficiently manage this information flood we need an high performance, integrated platform capable of minimizing transformations and copies while keeping secure and easy access to data.
 
-Oracle Cloud Lake House fully meets these challenges and becomes the primary, integrated platform for your data management and data analytics offering performance, availability and security.
+Oracle Cloud Data Lakehouse fully meets these challenges and becomes the primary, integrated platform for your data management and data analytics offering performance, availability and security.
 
-The Oracle Cloud Data Lake House LiveLab will demonstrate a typical usage scenario, highlighting some of the tools building the foundation of the data lake house.
+The Oracle Cloud Data Lakehouse LiveLab will demonstrate a typical usage scenario, highlighting some of the tools in  building the foundation of the data lake house.
 
 Estimated Time: 70 minutes
 
@@ -19,7 +19,7 @@ This lab walks you through how Oracle Cloud Infrastructure services along with t
 ![Data Lake Overview](images/data_lake_overview.png " ")
 
 You will learn the following:
-- How to configure users, policies
+- How to configure users and policies
 - Setup Autonomous Data Warehouse, Object Store and OCI Data Integration for supporting the Data Lake
 - Learn about the OCI Data Catalog and add data assets
 - Create new OCI Data Flow applications for filtering data and adding it as new data asset

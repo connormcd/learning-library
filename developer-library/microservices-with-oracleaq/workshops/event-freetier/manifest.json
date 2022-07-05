@@ -1,5 +1,5 @@
 {
-  "workshoptitle": "Unified Observability in Grafana with Converged Oracle Database",
+  "workshoptitle": "Get started with Oracle AQ and Oracle TEQ events and messaging",
   "help": "livelabs-help-db_us@oracle.com",
 	"tutorials": [
       {
@@ -11,18 +11,24 @@
         "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/event-register-free-tier-account.md"
       },
       {
-        "title": "Lab 1: Setup",
-        "filename": "../../../microservices-with-converged-db/setup/setup.md"
+        "title": "Lab 1: Set up the environment",
+        "filename": "../../setup/setup.md"
       },
       {
-        "title": "Lab 2: AQ....",
-        "filename": "../../lab2/lab2.md",
-        "type": "event-freetier"
+        "title": "Lab 2: Understand AQ- Enqueue/Dequeue",
+        "filename": "../../aq-enqueue-dequeue/aq-enqueue-dequeue.md"
       },
       {
-        "title": "Lab 7: Tear down",
-        "filename": "../../teardown/teardown.md",
-        "type": "event-freetier"
+        "title": "Lab 3: Use workflow with AQ (Second-factor Authentication)",
+        "filename": "../../aq-workflow/aq-workflow.md"
+      },
+      {
+        "title": "Lab 4: Understand TEQ- Enqueue/Dequeue",
+        "filename": "../../teq-enqueue-dequeue/teq-enqueue-dequeue.md"
+      },
+      {
+        "title": "Lab 5: Use workflow with TEQ (Second-factor Authentication)",
+        "filename": "../../teq-workflow/teq-workflow.md"
       },
       {
         "title": "Need Help?",

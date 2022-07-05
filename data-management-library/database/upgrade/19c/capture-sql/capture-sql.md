@@ -4,14 +4,15 @@
 
 In this lab, you will capture and preserve SQL statements and information as well as the AWR. We will use this collection later on following a performance stability method guideline.
 
-*Estimated Lab Time*: 15 minutes
+Estimated Time:: 15 minutes
 
-![](./images/performance_prescription_01.png " ")
+![performance prescription](./images/performance_prescription_01.png " ")
 
 Watch the video below for a quick walk through of the lab.
-[](youtube:XTJC8yBDhkQ)
+[Watch the video](youtube:XTJC8yBDhkQ)
 
 ### About SQL Tuning Sets
+
 A SQL tuning set (STS) is a database object that you can use as input to tuning tools.
 An STS includes:
 
@@ -22,28 +23,31 @@ An STS includes:
 
 An STS allows you to transport SQL between databases. You can export SQL tuning sets from one database to another, enabling transfer of SQL workloads between databases for remote performance diagnostics and tuning.
 
-
 ### Objectives
+
 In this lab, you will:
+
 * Collect Statements from AWR
 * Collect Statements from Cursor Cache
 * Optional - Export AWR
 
 ### Prerequisites
+
 This lab assumes you have:
-- A Free Tier, Paid or LiveLabs Oracle Cloud account
+
+- An Oracle Cloud account
 - You have completed:
-    - Lab: Prepare Setup (*Free-tier* and *Paid Tenants* only)
+    - Lab: Prepare Setup 
     - Lab: Environment Setup
     - Lab: Initialize Environment
 
-## Task 1: Collect Statements from AWR
+## Task 1: Collect statements from AWR
 
 In order to collect SQL Statements directly from AWR (Automatic Workload Repository) you will call a SQL script which:
 - Creates a SQL Tuning Set (STS)
 - Populates the STS with SQL information stored in AWR
 
-1.  In your open SQL*plus session connected to UPGR run the below script stored in the path- /home/oracle/scripts:    
+1.  In your open SQL*plus session connected to UPGR run the below script stored in the path- /home/oracle/scripts:
 
     ```
     <copy>
@@ -52,9 +56,9 @@ In order to collect SQL Statements directly from AWR (Automatic Workload Reposit
     ```
 
 2. The number of statements in SQL Tuning Set “STS_CaptureAWR” will be displayed.
-    ![](./images/upgrade_19c_10.png " ")
+    ![The number of statements in SQL Tuning Set are displayed](./images/upgrade_19c_10.png " ")
 
-## Task 2: Collect Statements from Cursor Cache
+## Task 2: Collect statements from Cursor Cache
 
 You can also collect statements directly from the Cursor Cache. This is more resource intense but helpful in case of OLTP applications. Be careful when you poll the cursor cache too frequently.
 
@@ -76,12 +80,12 @@ You can also collect statements directly from the Cursor Cache. This is more res
     select name, owner, statement_count from dba_sqlset;
     </copy>
     ```
-    ![](./images/sqlset.png " ")
+    ![check how many statements you collected in each SQL Tuning Set](./images/sqlset.png " ")
 
     It is very likely that you will get different statement counts. One of the reasons could be that often the capture from cursor cache will catch more statements compared to those written down from ASH (Active Session History) into AWR. And it does not play any role for the lab whether the number of statements matches the number in the screenshots or not.
 
 
-## Task 3: Optional - Export AWR
+## Task 3: Optional - export AWR
 
 When you migrate databases, exporting and preserving the AWR is important. When you upgrade, the AWR remains in the database. This exercise is done for protection but it is not necessary for the flow of the lab. **You will specify a START and an END snapshot number** to export the AWR data between these two snapshots.
 
@@ -92,27 +96,27 @@ When you migrate databases, exporting and preserving the AWR is important. When 
     @?/rdbms/admin/awrextr.sql
     </copy>
     ```
-    ![](./images/upgrade_19c_11.png " ")
+    ![Export the AWR by running the sql stored in your Oracle home](./images/upgrade_19c_11.png " ")
 
 2. Hit **RETURN**.
 
-    ![](./images/upgrade_19c_12.png " ")
+    ![Hit RETURN](./images/upgrade_19c_12.png " ")
 
 3. Type **2** and Hit **RETURN**.
-   ![](./images/snapday2.png " ")
+   ![Type 2](./images/snapday2.png " ")
 
-    ![](./images/snapid.png " ")
+    ![Hit RETURN](./images/snapid.png " ")
 
 4. Type: 154. (Your snapshot number may be different.)  Hit RETURN.
 
-    ![](./images/upgrade_19c_15.png " ")
+    ![Type 154 and Hit RETURN](./images/upgrade_19c_15.png " ")
 
 5. Type: DATA\_PUMP\_DIR.  Hit RETURN
 
-    ![](./images/upgrade_19c_16.png " ")
+    ![Type DATA_PUMP_DIR and Hit RETURN](./images/upgrade_19c_16.png " ")
     Enter value for file_name:
     Hit **RETURN**
-    ![](./images/upgrade_19c_17.png " ")
+    ![Enter value for file name and Hit RETURN](./images/upgrade_19c_17.png " ")
     This will take now a few minutes.
 
 6. Exit from SQL*Plus.
@@ -123,7 +127,7 @@ When you migrate databases, exporting and preserving the AWR is important. When 
     </copy>
     ```
 
-You may now [proceed to the next lab](#next).
+You may now *proceed to the next lab*.
 
 ## Learn More
 

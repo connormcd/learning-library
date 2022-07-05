@@ -10,7 +10,7 @@ If at any point you run into trouble completing the steps, the full source code 
     git clone -b lab2 https://github.com/graemerocher/micronaut-hol-example.git
     </copy>
 
-If you were unable to setup the Autonomous Database and necessary cloud resources you can also checkout a version of the code that uses an in-memory database:
+If you were unable to set up the Autonomous Database and necessary cloud resources you can also checkout a version of the code that uses an in-memory database:
 
     <copy>
     git clone -b lab2-h2 https://github.com/graemerocher/micronaut-hol-example.git
@@ -30,7 +30,9 @@ In this lab you will:
 
 ## Task 1: Create a new Micronaut application
 
-1. There are several ways you can get started creating a new Micronaut application. If you have the Micronaut CLI installed (see the [Installation instructions](https://micronaut-projects.github.io/micronaut-starter/latest/guide/#installation) for how to install) you can use the `mn` command to create a new application. Which will setup an application that uses the Oracle driver and Micronaut Data JDBC.
+There are several ways you can get started creating a new Micronaut application.
+
+1. If you have the Micronaut CLI installed (see the [Installation instructions](https://micronaut-projects.github.io/micronaut-starter/latest/guide/#installation) for how to install) you can use the `mn` command to create a new application. This will create an application that uses Micronaut Data JDBC and has support for Autonomous Database.
 
     ```
     <copy>
@@ -39,9 +41,9 @@ In this lab you will:
     </copy>
     ```
 
-> **NOTE:** By default Micronaut will use the [Gradle](https://gradle.org/) build tool, however you can add `--build maven` if you prefer Maven.
+> **NOTE:** By default Micronaut uses the [Gradle](https://gradle.org/) build tool, however you can add `--build maven` if you prefer Maven.
 
-2. If you do not have the Micronaut CLI installed and are running on Linux or OS X you can alternatively `curl` and `unzip`:
+2. If you do not have the Micronaut CLI installed, you can `curl` and `unzip`:
 
     ```
     <copy>
@@ -51,17 +53,19 @@ In this lab you will:
     </copy>
     ```
 
-3. If none of these options are viable you can also navigate to [Micronaut Launch](https://micronaut.io/launch/) in a browser and perform the following steps:
+3. If none of these options are viable, open [Micronaut Launch](https://micronaut.io/launch/) in a web browser and perform the following steps:
 
-* Click the `Features` button and select the `oracle` and `data-jdbc` features
 * Choose JDK 11 as the Java version.
-* Then click `Generate` -> `Download Zip` which will produce a zip you can download and unzip locally with the created application.
+* Choose `example-atp` as the Name
+* Choose `example.atp` as the Base Package
+* Click the `Features` button and select the `oracle` and `data-jdbc` features
+* Then click `Generate` -> `Download Zip` which will download a zip file you can unzip locally with the created application.
 
 ![Create with Launch](images/launch.png)
 
 ## Task 2: Configure the Micronaut Application
 
-To configure the Micronaut application to work with Autonomous Database open the `src/main/resources/application.yml` file and modify the default datasource connection settings as follows replacing the `password` entry with the password you chose for the schema user in the previous lab:
+To configure the Micronaut application to work with Autonomous Database, open the `src/main/resources/application.yml` file and modify the default datasource connection settings as follows replacing the `password` entry with the password you chose for the schema user in the previous lab:
 
     <copy>
     micronaut:
@@ -82,6 +86,10 @@ To configure the Micronaut application to work with Autonomous Database open the
           oracle:
             jdbc:
               fanEnabled: false
+    netty:
+      default:
+        allocator:
+          max-order: 3
     </copy>
 
 > **NOTE**: The password you enter should be the Schema user password not the Admin password for the Autonomous Database instance.
@@ -91,9 +99,9 @@ To configure the Micronaut application to work with Autonomous Database open the
 If you are using Gradle add the following dependencies to the `build.gradle` file in the root of your project inside the `dependencies` block:
 
     <copy>
-    runtimeOnly("com.oracle.database.security:oraclepki:21.1.0.0")
-    runtimeOnly("com.oracle.database.security:osdt_cert:21.1.0.0")
-    runtimeOnly("com.oracle.database.security:osdt_core:21.1.0.0")
+    runtimeOnly("com.oracle.database.security:oraclepki:21.5.0.0")
+    runtimeOnly("com.oracle.database.security:osdt_cert:21.5.0.0")
+    runtimeOnly("com.oracle.database.security:osdt_core:21.5.0.0")
     </copy>
 
 Alternatively if you are using Maven, add the following dependencies to your `pom.xml` inside the `<dependencies>` element:
@@ -102,19 +110,19 @@ Alternatively if you are using Maven, add the following dependencies to your `po
     <dependency>
         <groupId>com.oracle.database.security</groupId>
         <artifactId>oraclepki</artifactId>
-        <version>21.1.0.0</version>
+        <version>21.5.0.0</version>
         <scope>runtime</scope>
     </dependency>
     <dependency>
         <groupId>com.oracle.database.security</groupId>
         <artifactId>osdt_cert</artifactId>
-        <version>21.1.0.0</version>
+        <version>21.5.0.0</version>
         <scope>runtime</scope>
     </dependency>
     <dependency>
         <groupId>com.oracle.database.security</groupId>
         <artifactId>osdt_core</artifactId>
-        <version>21.1.0.0</version>
+        <version>21.5.0.0</version>
         <scope>runtime</scope>
     </dependency>
     </copy>
@@ -264,7 +272,7 @@ If you created a Vault with secrets for the user and admin passwords in the prev
         datasources:
           default:
             ocid: OCID_ATP
-            walletPassword: ${ATP_ADMIN_PASSWORD}
+            walletPassword: ${ATP_WALLET_PASSWORD}
             username: mnocidemo
             password: ${ATP_USER_PASSWORD}
         </copy>
@@ -278,7 +286,7 @@ If you created a Vault with secrets for the user and admin passwords in the prev
 
     ![Compartment menu](images/dbocid2.png)
 
-3. If you are not using Vault secrets, replace __${ATP\_ADMIN\_PASSWORD}__ with the cleartext admin database password, and replace __${ATP\_USER\_PASSWORD}__ with the cleartext user database password.
+3. If you are not using Vault secrets, replace __${ATP\_WALLET\_PASSWORD}__ with the cleartext wallet password, and replace __${ATP\_USER\_PASSWORD}__ with the cleartext database user password.
 
 ## Task 8: Configure OCI authentication (Optional)
 

@@ -1,0 +1,12 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-oci_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I create a VCN using OCI CLI?",
+         "description": "",
+         "filename": "sprint-create-vcn.md"
+      }
+   ],
+   "task_type": "Sections"
+}

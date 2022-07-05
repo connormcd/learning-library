@@ -135,11 +135,11 @@ The following values should be supplied:
     </copy>
     ```
 
-Then install GraalVM 21.2.0:
+Then install GraalVM 22:
 
     <copy>
     yum check-update
-    sudo yum install graalvm21-ee-11-native-image.x86_64
+    sudo yum install graalvm22-ee-11.x86_64
     </copy>
 
 Open up the firewall to port 8080:

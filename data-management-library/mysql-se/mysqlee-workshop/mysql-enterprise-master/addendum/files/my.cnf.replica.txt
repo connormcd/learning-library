@@ -1,0 +1,52 @@
+#Content of file my.cnf.replica
+
+[mysqld]
+# General configurations
+port=3307
+mysqlx_port=33070
+server_id=20
+socket=/mysql/temp/mysql.sock
+mysqlx_socket=/mysql/temp/mysqlx.sock
+
+user=mysqluser
+
+# File locations
+basedir=/mysql/mysql-latest
+plugin-dir=/mysql/mysql-latest/lib/plugin
+datadir=/mysql/data
+tmpdir=/mysql/temp
+log-error=/mysql/log/err_log.log
+general_log_file=/mysql/log/gl_log.log
+slow_query_log_file=/mysql/log/sq_log.log
+
+# Maximum limits
+max-connections=200
+open-files-limit=5000
+
+# Security setting for file load
+secure-file-priv=/mysql/data
+
+# InnoDB settings
+innodb_flush_log_at_trx_commit=1
+innodb_buffer_pool_size=512M
+
+# MyISAM settings
+key_buffer_size=124M
+
+# Enable binary logs
+log-bin=/mysql/binlog/binlog
+binlog-format=row
+sync_binlog = 1
+master-info-repository=TABLE
+relay-log-info-repository=TABLE
+gtid-mode=on
+enforce-gtid-consistency=true
+
+# Performance Monitor
+performance_schema_consumer_events_statements_history_long = ON
+# Plugin load example (MySQL Enterprise Thread Pool)
+plugin-load=thread_pool.so;audit_log.so
+
+audit_log=FORCE_PLUS_PERMANENT
+audit_log_rotate_on_size=20971520
+audit_log_policy=Login 

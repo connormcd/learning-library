@@ -98,7 +98,7 @@ You may now [proceed to the next lab](#next).
 
 ## **Acknowledgements**
 
-- **Created By/Date** - Tom McGinn, Database Innovations Architect, Database Product Management, March 2020
+- **Created By/Date** - Kay Malcolm, Database Product Management, March 2020
 - **Last Updated By/Date** - John Peach, Kamryn Vinson, Database Product Management, November 2020
 
 

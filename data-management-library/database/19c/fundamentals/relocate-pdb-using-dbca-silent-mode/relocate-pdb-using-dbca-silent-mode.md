@@ -25,6 +25,8 @@ This lab assumes you have:
 
 ## Task 1: Prepare your environment
 
+> **NOTE:** Unless otherwise stated, all passwords will be `Ora4U_1234`. When copying and pasting a command that includes a password, please replace the word `password` with `Ora4U_1234`. This only applies to instances created through OCI Resource Manager with our provided terraform scripts.
+
 To prepare your environment, enable `ARCHIVELOG` mode on CDB1 and CDB2, verify that the default listener is started, and verify that PDB1 has sample data. CDB1, PDB1, and CDB2 all use the default listener.
 
 1. Open a terminal window on the desktop.
@@ -134,7 +136,7 @@ To prepare your environment, enable `ARCHIVELOG` mode on CDB1 and CDB2, verify t
 11. (Optional) If in the previous step you find that you do not have an `HR.EMPLOYEES` table, run the `hr_main.sql` script to create the HR user and `EMPLOYEES` table in `PDB1`.
 
     ```
-    SQL> <copy>@/home/oracle/labs/19cnf/hr_main.sql Ora4U_1234 USERS TEMP $ORACLE_HOME/demo/schema/log/</copy>
+    SQL> <copy>@/home/oracle/labs/19cnf/hr_main.sql password USERS TEMP $ORACLE_HOME/demo/schema/log/</copy>
     ```
 
 ## Task 2: Create a common user and grant it privileges
@@ -144,14 +146,14 @@ A common user is a database user that has the same identity in the `root` contai
 1. Connect to CDB1 as the `SYS` user.
 
     ```
-    SQL> <copy>CONNECT sys/Ora4U_1234@CDB1 as sysdba</copy>
+    SQL> <copy>CONNECT sys/password@CDB1 as sysdba</copy>
     Connected.
     ```
 
 2. Create a common user named `c##remote_user` in CDB1.
 
     ```
-    SQL> <copy>CREATE USER c##remote_user IDENTIFIED BY Ora4U_1234 CONTAINER=ALL;</copy>
+    SQL> <copy>CREATE USER c##remote_user IDENTIFIED BY password CONTAINER=ALL;</copy>
 
     User created.
     ```
@@ -172,7 +174,7 @@ A common user is a database user that has the same identity in the `root` contai
 
 ## Task 3: Use DBCA in silent mode to relocate PDB1 from CDB1 to CDB2
 
-1. Run the `-relocatePDB` command in DBCA in silent mode to relocate PDB1 from CDB1 to CDB2.
+1. Run the `-relocatePDB` command in DBCA in silent mode to relocate PDB1 from CDB1 to CDB2. Please note the use of `password`.
 
     *This is the new feature!*
 
@@ -182,11 +184,11 @@ A common user is a database user that has the same identity in the `root` contai
     -remotePDBName PDB1 \
     -remoteDBConnString CDB1 \
     -sysDBAUserName SYSTEM \
-    -sysDBAPassword Ora4U_1234 \
+    -sysDBAPassword password \
     -remoteDBSYSDBAUserName SYS \
-    -remoteDBSYSDBAUserPassword Ora4U_1234 \
+    -remoteDBSYSDBAUserPassword password \
     -dbLinkUsername c##remote_user \
-    -dbLinkUserPassword Ora4U_1234 \
+    -dbLinkUserPassword password \
     -sourceDB CDB2 \
     -pdbName PDB1</copy>
 
@@ -254,7 +256,7 @@ A common user is a database user that has the same identity in the `root` contai
 
 ## Task 5: Relocate PDB1 back to CDB1
 
-1. Try to run the `-relocatePDB` command in DBCA in silent mode to relocate PDB1 from CDB2 back to CDB1.
+1. Try to run the `-relocatePDB` command in DBCA in silent mode to relocate PDB1 from CDB2 back to CDB1. Please note the use of `password`.
 
     ```
     $ <copy>dbca -silent \
@@ -262,11 +264,11 @@ A common user is a database user that has the same identity in the `root` contai
     -remotePDBName PDB1 \
     -remoteDBConnString CDB2 \
     -sysDBAUserName SYS \
-    -sysDBAPassword Ora4U_1234 \
+    -sysDBAPassword password \
     -remoteDBSYSDBAUserName SYSTEM \
-    -remoteDBSYSDBAUserPassword Ora4U_1234 \
+    -remoteDBSYSDBAUserPassword password \
     -dbLinkUsername c##remote_user \
-    -dbLinkUserPassword Ora4U_1234 \
+    -dbLinkUserPassword password \
     -sourceDB CDB1 \
     -pdbName PDB1</copy>
 
@@ -289,13 +291,13 @@ A common user is a database user that has the same identity in the `root` contai
 4. Connect to CDB2 as the `SYS` user.
 
     ```
-    $ <copy>sqlplus sys/Ora4U_1234@CDB2 as sysdba</copy>
+    $ <copy>sqlplus sys/password@CDB2 as sysdba</copy>
     ```
 
 5. Create a common user named `c##remote_user` in CDB2.
 
     ```
-    SQL> <copy>CREATE USER c##remote_user IDENTIFIED BY Ora4U_1234 CONTAINER=ALL;</copy>
+    SQL> <copy>CREATE USER c##remote_user IDENTIFIED BY password CONTAINER=ALL;</copy>
 
     User created.
     ```
@@ -314,7 +316,7 @@ A common user is a database user that has the same identity in the `root` contai
     SQL> <copy>exit</copy>
     ```
 
-8. Rerun the `-relocatePDB` command in DBCA in silent mode to relocate PDB1 from CDB2 back to CDB1. This time you shouldn't get any error messages.
+8. Rerun the `-relocatePDB` command in DBCA in silent mode to relocate PDB1 from CDB2 back to CDB1. This time you shouldn't get any error messages. Please note the use of `password`.
 
     ```
     $ <copy>dbca -silent \
@@ -322,11 +324,11 @@ A common user is a database user that has the same identity in the `root` contai
     -remotePDBName PDB1 \
     -remoteDBConnString CDB2 \
     -sysDBAUserName SYS \
-    -sysDBAPassword Ora4U_1234 \
+    -sysDBAPassword password \
     -remoteDBSYSDBAUserName SYSTEM \
-    -remoteDBSYSDBAUserPassword Ora4U_1234 \
+    -remoteDBSYSDBAUserPassword password \
     -dbLinkUsername c##remote_user \
-    -dbLinkUserPassword Ora4U_1234 \
+    -dbLinkUserPassword password \
     -sourceDB CDB1 \
     -pdbName PDB1</copy>
 

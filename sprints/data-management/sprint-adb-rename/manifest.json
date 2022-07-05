@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I rename Autonomous Database?",
+         "description": "",
+         "filename": "sprint-adb-rename.md"
+      },
+      {
+         "title": "How do I clone Autonomous Database?",
+         "description": "",
+         "filename": "../sprint-adb-clone/sprint-adb-clone.md"
+      }
+   ],
+   "task_type": "Sections"
+}

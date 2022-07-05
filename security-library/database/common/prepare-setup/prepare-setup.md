@@ -11,7 +11,7 @@ This lab will show you how to download the Oracle Resource Manager (ORM) stack z
 
 ### Prerequisites
 This lab assumes you have:
-- An Oracle Free Tier or Paid Cloud account
+- An Oracle Cloud account
 
 ## Task 1: Download Oracle Resource Manager (ORM) stack zip file
 1.  Click on the link below to download the Resource Manager zip file you need to build your environment:
@@ -36,6 +36,9 @@ This lab assumes you have:
 </if>
 <if type="database-vault">
     - [dbsec-mkplc-vm01-database-vault.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/i-s1WT5M2QKEaTau4uETMh5WKFWx5ge5_27_AeTEFFG6IZaClky5WS53HoHJDgrP/n/natdsecurity/b/stack/o/dbsec-mkplc-vm01-database-vault.zip)
+</if>
+<if type="data-safe">
+    - [dbsec-mkplc-vm01-data-safe.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/i5Y5Aw1HrFU3Pli2EyRt9babAXAuTJkULeWYdPRblEQv8X0dTTvQgoWhIOQG8S7o/n/natdsecurity/b/stack/o/dbsec-mkplc-vm01-data-safe.zip)
 </if>
 <if type="dbsat">
     - [dbsec-mkplc-vm01-dbsat.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/QCMNJEix6fNLEtQvzKKqIMqmuXarwOo9O8LxjWY0i6aVEz1QbpBfY_Pyfyi_yBB1/n/natdsecurity/b/stack/o/dbsec-mkplc-vm01-dbsat.zip)
@@ -88,10 +91,10 @@ Using the details from the two steps above, proceed to the lab *Environment Setu
   -  Create Stack:  *Compute + Networking*
   -  Create Stack:  *Compute only* with an existing VCN where security lists have been updated as per *Step 2* above
 
-You may now [proceed to the next lab](#next).
+You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
 * **Author** - Rene Fontcha, Master Principal Solutions Architect, NA Technology
 * **Contributors** - Kay Malcolm, Product Manager, Database Product Management
-* **Last Updated By/Date** - Rene Fontcha, Master Principal Solutions Architect, NA Technology, September 2021
+* **Last Updated By/Date** - Marion Smith, Technical Program Manager, April 2022

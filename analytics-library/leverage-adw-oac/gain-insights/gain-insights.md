@@ -1,10 +1,10 @@
-# Gaining Insights with Visual Data Dialog
+# Gain Insights with Visual Data Dialog
 
 ## Introduction
 
-After you ask your business question(s) and get  automated generated visual(s), you are going to explore the visual and gain additional insights with Advanced Analytics.
+After you ask your business question(s) and get  automated generated visuals, you are going to explore the visuals and gain additional insights with Advanced Analytics.
 
-_Estimated Lab Time:_ 20 minutes
+_Estimated Time:_ 20 minutes
 
 ![Gain Insights](./images/gaininsights.png)
 
@@ -15,17 +15,13 @@ _Estimated Lab Time:_ 20 minutes
 
 ### Prerequisites
 
-* An Oracle Cloud Free Tier or Paid account
-* You should have completed  
-    * Lab 1: Provisioning your Autonomous Database instance
-    * Lab 2: Provisioning your Oracle Analytics Cloud instance
-    * Lab 3: Connecting OAC to ADW and adjusting Data Set properties
-
+* An [_Oracle Cloud Free Tier Account_](https://www.oracle.com/cloud/free/) or a Paid account
+* All previous labs successfully completed
 ## Task 1: Gain Insights with Visuals
 
 1.  **Search** for your Data Set.  
 Lets go back in the web mode; in the **Home** Page of OAC, a dialog bar appearing at the top can be leveraged to **ask** your business questions using natural language.  
-Click the **Search** bar and **Type** in the bar area **"show me value by sales week" “for customers” "by channel"**.  
+Click the **Search** bar and **Type** in the bar area **show me value by sales week for customers by channel**.  
 As you enter the information, the application returns search results in a drop-down list. The system can be searched by column names or data elements or both. Best fit results are returned immediately
 
 2.  Press **SHIFT + ENTER** to visualize data
@@ -34,12 +30,12 @@ As you enter the information, the application returns search results in a drop-d
 
     In order to **enable searching** and ask questions, you already have **indexed** the Data Set as part of the previous chapter.
 
-3.  Mouse Hover on the first visualization and Click **Explore as Project** 
+3.  Mouse Hover on the first visualization and Click **Explore as Workbook** 
 
     ![Explore Data](../gain-insights/images/biask8.png)
 
 4.  **Explore** your Visualization.  
-A new Canvas Page will be opened  
+A new Workbook will be opened  
 
     ![Explore Data](../gain-insights/images/valuebysalesweekforcustomersbychannel.png)
 
@@ -83,10 +79,10 @@ Go to **Analytics** tab, and is you click on "Linear" you can select a different
 
     ![Trend Line Properties Pane](../gain-insights/images/addtrendline-properties.png)  
     It's Linear Trend with 95% Confidence Interval.  
-    > please check this [blog](https://blogs.oracle.com/analytics/how-to-add-functions-with-a-simple-right-click-in-oracle-analytics) for deeper details.
+    > **Note:** please check this [blog](https://blogs.oracle.com/analytics/how-to-add-functions-with-a-simple-right-click-in-oracle-analytics) for details
 
 4.  Add a **Forecast**  
-Adding a **Forecast** is pretty much the same way as the Trend lines one.  
+Adding a **Forecast** is pretty much the same process as the Trend lines one.  
 
     Forecasting is the process of making predictions about the future based on past and present data and most commonly by analysis of trends.  
     Right-click your visualization, select **Add Statistics** and choose **Forecast**.  
@@ -98,7 +94,7 @@ Adding a **Forecast** is pretty much the same way as the Trend lines one.
     ![Add Forecast](../gain-insights/images/addforecast2.png)
 
 6.  The **Properties** of the Forecast can be controlled on the "**Chart Properties**" pane from bottom left side.  
-Go to **Analytics** tab, and click on "Linear" you can select a different Method (Exponential, Polynomial).
+Go to **Analytics** tab, and click on "Linear" you can select a different Method (ARIMA, ETS).
 
     ![Forecast Properties Pane](../gain-insights/images/addforecast-propertiessmall.png)  
     Method is Next 3 periods, Model is Seasonal ARIMA (a regular pattern of changes that repeats over time periods), with 95% Prediction Interval.  
@@ -106,8 +102,7 @@ Go to **Analytics** tab, and click on "Linear" you can select a different Method
 
 You have just finished to learn how to start from direct questions on your data. You can move and explore automated generated visuals and enhancing by adding one-click advanced analytics functions to get further future looking insights.
 
-You may now [proceed to the next lab](#next)
-
+You may now **proceed to the next lab**.
 ## Want to Learn More?
 
 * [How to Add Functions with a Simple Right-Click in Oracle Analytics](https://blogs.oracle.com/analytics/how-to-add-functions-with-a-simple-right-click-in-oracle-analytics)  
@@ -118,5 +113,5 @@ You may now [proceed to the next lab](#next)
 
 - **Author** - Lucian Dinescu, Product Strategy, Analytics
 - **Contributors** -
-- **Reviewed by** - Shiva Oleti, Product Strategy, Analytics 
-- **Last Updated By/Date** - Lucian Dinescu, April 2021
+- **Reviewed by** - Shiva Oleti, Product Strategy, Analytics, Sebastien Demanche, Andor Imre (Oracle Cloud Center of Excellence) 
+- **Last Updated By/Date** - Lucian Dinescu, February 2022

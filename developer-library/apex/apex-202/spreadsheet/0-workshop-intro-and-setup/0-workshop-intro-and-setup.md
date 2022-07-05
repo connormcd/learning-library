@@ -46,6 +46,6 @@ If the menu is not displayed, you can open by clicking the menu button (![Menu i
 ## **Acknowledgements**
 
  - **Author** -  Salim Hlayel, Principal Product Manager, June 2020
- - **Contributors** - Tom McGinn, Arabella Yao
+ - **Contributors** - Arabella Yao
  - **Last Updated By/Date** - Salim Hlayel, Principal Product Manager, November 2020
 

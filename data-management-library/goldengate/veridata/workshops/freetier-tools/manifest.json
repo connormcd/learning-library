@@ -1,0 +1,62 @@
+{
+  "workshoptitle": "Column Mapping and Purging Data in Oracle GoldenGate Veridata",
+  "help": "livelabs-help-db_us@oracle.com",
+  "tutorials": [
+    {
+      "title": "Introduction",
+      "description": "This lab provides an overview of Oracle GoldenGate Veridata.",
+      "filename": "../../intro/intro-tools.md"
+    },
+    {
+      "title": "Get Started",
+      "description": "This is the prerequisites for customers using Free Trial and Paid tenancies, and Always Free accounts (if applicable). The title of the lab and the Contents Menu title (the title above) match for Prerequisite lab. This lab is always first.",
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login.md"
+    },
+    {
+      "title": "Lab 1: Prepare Setup",
+      "description": "How to download your ORM stack and update security rules for an existing VCN",
+      "filename": "../../prepare-setup/prepare-setup.md",
+      "type": "tools"
+    },
+    {
+      "title": "Lab 2: Environment Setup",
+      "description": "How to provision the workshop environment and connect to it",
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/setup-compute-generic/setup-compute-novnc-ssh.md"
+    },
+    {
+      "title": "Lab 3: Initialize Environment",
+      "description": "Initialize Environment",
+      "filename": "../../initialize-environment/initialize-environment.md"
+    },
+    {
+      "title": "Lab 4: Create Datasource Connections",
+      "description": "This lab walks you through the steps to create datasource connections.",
+      "filename": "./../../ggv-create-connections/ggv-create-connections.md"
+    },
+    {
+      "title": "Lab 5: Create Groups and Compare Pairs ",
+      "description": "This lab walks you through the steps to create groups and compare pairs.",
+      "filename": "./../../ggv-create-groups-compare-pairs/ggv-create-groups-compare-pairs.md"
+    },
+    {
+      "title": "Lab 6: Create and Execute Jobs ",
+      "description": "This lab walks you through the steps to create Jobs and execute them.",
+      "filename": "./../../ggv-create-execute-jobs/ggv-create-execute-jobs.md"
+    },
+    {
+      "title": "Lab 7:  Add and Remove Mappings ",
+      "description": "This lab walks you through the steps to add and remove mappings in Oracle GoldenGate Veridata.",
+      "filename": "./../../ggv-add-remove-mapping/ggv-add-remove-mapping.md"
+    },
+    {
+      "title": "Lab 8:  Purge Data and Delete Directories ",
+      "description": "This lab walks you through the Purge Data and Delete Directories features in Oracle GoldenGate Veridata.",
+      "filename": "./../../ggv-purge-delete-directories/ggv-purge-delete-directories.md"
+    },
+    {
+      "title": "Need Help?",
+      "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-freetier.md"
+    }
+  ]
+}

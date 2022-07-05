@@ -47,6 +47,8 @@ To avoid installing tools on your local computer, we are going to use Cloud Shel
 
     Where `tasks-cc` is the name of the custom component module. And `tasks` is the name of our first custom component implementation.
 
+    > NOTE: If you get the message: `Ok to proceed? (y)`. Type **y** to continue.
+
 3. The **result** should look like this:
 
     ```bash
@@ -243,4 +245,4 @@ We cannot cover the use of vi but we will share the commands needed to change th
 
 - **Author** - Victor Martin - Technology Product Strategy Manager, Priscila Iruela - Technology Product Strategy Director
 - **Contributors** - Melanie Ashworth-March
-- **Last Updated By/Date** - Kamryn Vinson, October 2020
+- **Last Updated By/Date** - Priscila Iruela, June 2022

@@ -1,5 +1,5 @@
 ﻿
-# Loading Data
+# Load Data
 
 ## Introduction
 
@@ -59,7 +59,7 @@ When you have completed these details, press **Create**.
 
     ![ALT text is not available for this image](images/3021448426.png)
 
-## Task 2: Inspect the Data 
+## Task 2: Inspect the Data
 
 1. Navigate to the Data Load main page and press the **Explore** card.
 

@@ -1,5 +1,5 @@
 {
-  "workshoptitle": "Unified Observability in Grafana with Converged Oracle Database",
+  "workshoptitle": "Get started with Oracle AQ and Oracle TEQ events and messaging",
   "help": "livelabs-help-db_us@oracle.com",
 	"tutorials": [
       {
@@ -11,36 +11,24 @@
         "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
       },
       {
-        "title": "Lab 1: Setup",
-        "filename": "../../setup/setup_paid.md"
+        "title": "Lab 1: Set up the environment",
+        "filename": "../../setup/setup.md"
       },
       {
-        "title": "Lab 2: Data-centric microservices walkthrough with Helidon MP",
-        "filename": "../../walkthrough-helidon/walkthrough-helidon.md"
+        "title": "Lab 2: Understand AQ- Enqueue/Dequeue",
+        "filename": "../../aq-enqueue-dequeue/aq-enqueue-dequeue.md"
       },
       {
-        "title": "Lab 3: Polyglot microservices",
-        "filename": "../../polyglot/polyglot.md"
+        "title": "Lab 3: Use workflow with AQ (Second-factor Authentication)",
+        "filename": "../../aq-workflow/aq-workflow.md"
       },
       {
-        "title": "Lab 4: Scaling",
-        "filename": "../../scaling/scaling.md"
+        "title": "Lab 4: Understand TEQ- Enqueue/Dequeue",
+        "filename": "../../teq-enqueue-dequeue/teq-enqueue-dequeue.md"
       },
       {
-        "title": "Lab 5: Observability",
-        "filename": "../../observability/observability.md"
-      },
-      {
-        "title": "Lab 6: Create an APEX app to view and update data",
-        "filename": "../../apex/apex.md"
-      },
-      {
-        "title": "Lab 7: Transactional tests: compare MongoDB, Postgres, and Kafka to Oracle DB with TEQ/AQ",
-        "filename": "../../transactional/transactional.md"
-      },
-      {
-        "title": "Lab 8: Tear down",
-        "filename": "../../teardown/teardown.md"
+        "title": "Lab 5: Use workflow with TEQ (Second-factor Authentication)",
+        "filename": "../../teq-workflow/teq-workflow.md"
       },
       {
         "title": "Need Help?",

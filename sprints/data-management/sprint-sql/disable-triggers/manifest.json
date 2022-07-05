@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How can I disable triggers for a table in the Oracle database?",
+         "description": "",
+         "filename": "./disable-triggers.md"
+      },
+      {
+         "title": "How can I create triggers for a table in the Oracle database?",
+         "description": "",
+         "filename": "../create-triggers/create-triggers.md"
+      }
+   ],
+   "task_type": "Sections"
+}

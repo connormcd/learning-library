@@ -4,30 +4,34 @@
 
 In this lab, you will now unplug an Oracle 12.2.0.1 pluggable database (PDB) from CDB1 and plug it into 19c’s CDB2, including all the necessary steps.
 
-*Estimated Lab Time*: 20 minutes
+Estimated Time: 20 minutes
 
 Watch the video below for a quick walk through of the lab.
-[](youtube:k4m09ejlAxU)
+[Watch the video](youtube:k4m09ejlAxU)
 
 ### About Unplug Plug Upgrade
+
 You can upgrade PDBs by unplugging a PDB from an earlier release CDB, plugging it into a later release CDB, and then upgrading that PDB to the later release.
 
 Unless a PDB from a lower release plugged into a CDB of a higher release hasn't been upgraded, it will open "restricted" only. As each PDB has its own dictionary, it needs to be upgraded to match the version of the CDB. PDBs always need to match the version of the CDB$ROOT.
 
 The unplug/plug/upgrade can be fully automated with AutoUpgrade.
 
-
 ### Objectives
+
 In this lab, you will:
+
 * Preparation work in CDB1
 * Use AutoUpgrade to check the source PDB before unplugging it
 * Unplug, plug and upgrade with AutoUpgrade
 
 ### Prerequisites
+
 This lab assumes you have:
-- A Free Tier, Paid or LiveLabs Oracle Cloud account
+
+- An Oracle Cloud account
 - You have completed:
-    - Lab: Prepare Setup (*Free-tier* and *Paid Tenants* only)
+    - Lab: Prepare Setup 
     - Lab: Environment Setup
     - Lab: Initialize Environment
 
@@ -49,7 +53,8 @@ This lab assumes you have:
     exit
     </copy>
     ```
-![](./images/unplug_PDB3_02.png " ")
+
+    ![Startup CDB1](./images/unplug_PDB3_02.png " ")
 
 ## Task 2: Analyze the source PDB with AutoUpgrade
 
@@ -60,7 +65,8 @@ This lab assumes you have:
     cat /home/oracle/scripts/PDB3.cfg
     </copy>
     ```
-    ![](./images/unplug_PDB3_03.png " ")
+
+    ![cat pdb3](./images/unplug_PDB3_03.png " ")
 
     ```
     global.autoupg_log_dir=/home/oracle/logs
@@ -81,7 +87,8 @@ This lab assumes you have:
     java -jar $OH19/rdbms/admin/autoupgrade.jar -mode analyze -config /home/oracle/scripts/PDB3.cfg
     </copy>
     ```
-    ![](./images/unplug_PDB3_04.png " ")
+
+    ![Invoke AutoUpgrade to analyze PDB3](./images/unplug_PDB3_04.png " ")
 
     If you get the following error:
 
@@ -100,7 +107,6 @@ This lab assumes you have:
     <copy>
     java -jar $OH19/rdbms/admin/autoupgrade.jar -config /home/oracle/scripts/PDB3.cfg -clear_recovery_data
     rm -rf /home/oracle/logs
-
     </copy>
     ```
 
@@ -109,14 +115,14 @@ This lab assumes you have:
 
 3. Check the output of the analyze run with Mozilla Firefox
 
-
     ```
     <copy>
     firefox /home/oracle/logs/cfgtoollogs/upgrade/auto/status/status.html &
     </copy>
     ```
-    ![](./images/unplug_PDB3_05.png " ")
-    ![](./images/unplug_PDB3_06.png " ")
+
+    ![Check the output](./images/unplug_PDB3_05.png " ")
+    ![Check the output](./images/unplug_PDB3_06.png " ")
 
     There shouldn't be any issue to be fixed by yourself in PDB3. AutoUpgrade will take care on everything for you.
 
@@ -124,14 +130,14 @@ This lab assumes you have:
 
 1. Now you can start AutoUpgade in deploy mode and let the tool unplug and plug and upgrade PDB3 within CDB2
 
-
     ```
     <copy>
     . cdb2
     java -jar $OH19/rdbms/admin/autoupgrade.jar -mode deploy -config /home/oracle/scripts/PDB3.cfg
     </copy>
     ```
-    ![](./images/unplug_PDB3_07.png " ")
+
+    ![start AutoUpgade in deploy mode](./images/unplug_PDB3_07.png " ")
 
 
 2. Open another xterm and monitor the progress in Mozilla Firefox. The page will refresh automatically every other minute. The entire process will take approximately 15-20 minutes until completion including the PDB3 upgrade.
@@ -141,8 +147,9 @@ This lab assumes you have:
     firefox /home/oracle/logs/cfgtoollogs/upgrade/auto/state.html &
     </copy>
     ```
-    ![](./images/unplug_PDB3_08.png " ")
-    ![](./images/unplug_PDB3_09.png " ")
+
+    ![Open another xterm and monitor the progress in Mozilla Firefox](./images/unplug_PDB3_08.png " ")
+    ![completed including the PDB3 upgrade](./images/unplug_PDB3_09.png " ")
 
 3. Finally open a SQL*Plus session and control whether all PDBs are open read/write. Use the xterm where the upgrade has been run from or open a new xterm.
 
@@ -153,7 +160,8 @@ This lab assumes you have:
     show pdbs
     </copy>
     ```
-    ![](./images/unplug_PDB3_10.png " ")
+    
+    ![open a SQL*Plus session and control whether all PDBs are open](./images/unplug_PDB3_10.png " ")
 
 
     This should be the result now:
@@ -176,6 +184,7 @@ Congratulations! You completed all stages of this Upgrade to Oracle Database 19c
 * [Upgrading Multitenant Using Unplug-Plug](https://docs.oracle.com/en/database/oracle/oracle-database/19/spupu/upgrade-multitenant-architecture-sequentially.html#GUID-8F9AAFA1-690D-4F70-8448-E66D765AF136)
 
 ## Acknowledgements
+
 * **Author** - Mike Dietrich, Database Product Management
 * **Contributors** -  Roy Swonger, Sanjay Rupprel, Cristian Speranta, Kay Malcolm
 * **Last Updated By/Date** - Mike Dietrich, July 2021

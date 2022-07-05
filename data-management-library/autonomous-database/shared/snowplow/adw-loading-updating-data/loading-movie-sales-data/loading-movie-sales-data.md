@@ -58,12 +58,14 @@ In this step, we will add a link from the Autonomous Data Warehouse to the publi
 
 6. Click the **+ Add Cloud Storage** button.
 
-7. Enter the **Name** of the cloud storage location as "MovieData", and keep the default selection of **Cloud Store** as Oracle.
+7. Enter the **Name** of the cloud storage location as **MovieData**.
 
-8. Under **Object Store URI**, copy and paste the closest regional location to where your Autonomous Data Warehouse is running from the options below, so that the database can load data from the files as quickly as possible.
+8. As the files in the bucket we are loading from is a public bucket, select **No Credential**.
 
-*For example, if your ADW is located in our UK-London data center then you would select the first regional URI string for "Europe, Middle East, Africa" which is for a public bucket located in the London data center: 'https://objectstorage.uk-london-1.oraclecloud.com/n/dwcsprod/b/moviestream_tools_live_lab_20211112/o/'*
-:
+9. Select **Bucket URI** and under **Bucket URI**, copy and paste the closest regional location **Regional URI String** to where your Autonomous Data Warehouse is running from the options below, so that the database can load data from the files as quickly as possible.
+
+	*For example, if your ADW is located in our UK-London data center then you would select the first regional URI string for "Europe, Middle East, Africa" which is for a public bucket located in the London data center: 'https://objectstorage.uk-london-1.oraclecloud.com/n/dwcsprod/b/moviestream_tools_live_lab_20211112/o/'*
+
 <div style="margin-left: 80px;">
 <br>
 <table class="wrapped relative-table confluenceTable" style="width: 100.0%;">
@@ -125,11 +127,13 @@ In this step, we will add a link from the Autonomous Data Warehouse to the publi
 <br>
 </div>
 
-9. As this is a public bucket, select **No Credential**. The final screen should look like this, noting that the URL will vary depending on your region:
+10. The final screen should look like this, noting that the URL will vary depending on your region:
 
-    ![Final view of Add Cloud Storage](images/location.png)
+    ![view of Add Cloud Storage](images/verifylocation.png)
 
-10. Click the **Test** button to ensure the details are valid. Then click **Create**.
+11. Click the **Next** button to ensure the details are valid. The Cloud Data section shows the folders in the bucket. Then click **Create**.
+
+	![Final view of Add Cloud Storage](images/viewfiles.png)
 
 ## Task 2: Load Sales Data
 
@@ -147,7 +151,7 @@ All the MovieStream data files for this workshop are stored in a public bucket i
 
 3. The left hand side of the screen shows our **MOVIEDATA** cloud location, and a list of folders containing files for loading. Expand the **movie\_sales\_fact** folder to show a list of csv files. We can see that there is a file for each month of sales data.
 
-4. As we want to load all the files into a single table, rather than selecting any one file, we want to drag the whole **movie\_sales\_fact** folder to the right hand pane. This then shows a prompt to confirm that we want to load all 35 objects to a single target table. Click **OK**.
+4. As we want to load all the files into a single table, rather than selecting any one file, we want to drag the whole **movie\_sales\_fact** folder to the right hand pane. This then shows a prompt to confirm that we want to load all 35 objects to a single target table. Click **Yes**.
 
 5. We now have a card in the right hand pane, representing a single data loading task that we can run. Click the pencil icon to review and edit its settings.
 
@@ -160,9 +164,9 @@ All the MovieStream data files for this workshop are stored in a public bucket i
 
     ![Run data load](images/rundataload.png)
 
-If your autonomous database is running with 8 OCPUs, and the object storage files are located in the same region as your autonomous database, the data load task should take between 4 to 7 minutes. The time taken will vary depending on how many OCPUs there are, and how close the data is.
+	If your autonomous database is running with 8 OCPUs, and the object storage files are located in the same region as your autonomous database, the data load task should take between 4 to 7 minutes. The time taken will vary depending on how many OCPUs there are, and how close the data is.
 
-Note that you can scale your autonomous database up and down to use more or fewer OCPUs from the console page on Oracle Cloud Infrastructure.
+	Note that you can scale your autonomous database up and down to use more or fewer OCPUs from the console page on Oracle Cloud Infrastructure.
 
 8. Once the data load task is complete, a green tick icon appears next to it. Click **Explore Catalog** in the bottom right to check the data has loaded properly.
 
@@ -189,4 +193,4 @@ Please *proceed to the next lab*.
 
 * **Authors** - Keith Laker and Mike Matthews, ADB Product Management
 * **Adapted for Cloud by** - Richard Green, Principal Developer, Database User Assistance
-* **Last Updated By/Date** - Mike Matthews, November 2021
+* **Last Updated By/Date** - Anoosha Pilli, April 2022

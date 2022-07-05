@@ -158,12 +158,12 @@ In this lab, you will be guided through the following tasks:
 
 8. On Configure hardware, keep default shape as **MySQL.HeatWave.VM.Standard.E3**
 
-    Data Storage Size (GB) Set value to:  **100**
+    Data Storage Size (GB) Set value to:  **1024**
 
     ```
-    <copy>100</copy>
+    <copy>1024</copy>
     ```
-    ![MDS](./images/04mysql07-3-100.png" ")
+    ![MDS](./images/04mysql07-3-100-2.png" ")
 
 9. On Configure Backups, disable 'Enable Automatic Backup'
 
@@ -478,4 +478,4 @@ algorithm, it will predict the number of nodes needed.
 
 * **Author** - Perside Foster, MySQL Solution Engineering
 * **Contributors** - Mandy Pang, MySQL Principal Product Manager,  Priscila Galvao, MySQL Solution Engineering, Nick Mader, MySQL Global Channel Enablement & Strategy Manager, Frédéric Descamps, MySQL Community Manager
-* **Last Updated By/Date** - Perside Foster, MySQL Solution Engineering, September 2021
+* **Last Updated By/Date** - Perside Foster, MySQL Solution Engineering, February 2022

@@ -2,12 +2,9 @@
 
 ## About this Workshop
 
-Market Basket Analysis is the data mining technique of finding correlations between different entities. It is how retailers recommend products based on purchase history, or how 
-video streaming companies recommend videos based on search history. In this lab, we will use the Apriori Algorithm to perform a Market Basket Analysis on a dataset consisting 
-of online retail sales to discover insight between different products. This lab will be broken down into four parts: getting started with OCI Data Science, accessing the data 
-using ADW, Object Storage, or uploading locally), creating a model using the Apriori Algorithm and deploying the model.
+Market Basket Analysis is the data mining technique of finding correlations between different entities. It is how retailers recommend products based on purchase history, or how video streaming companies recommend videos based on videos watched. In this lab, we will use the Apriori Algorithm to perform a Market Basket Analysis on a dataset consisting of online retail sales to discover insight between different products. This lab will be broken down into four parts: getting started with OCI Data Science, accessing the data using ADW, Object Storage, or uploading locally), creating a model using the Apriori Algorithm and deploying the model.
 
-Estimated workshop time: 90 minutes (this includes all the labs in this workshop)
+Estimated time: 1 hour
 
 ### Objectives
 

@@ -158,5 +158,5 @@ You may proceed to the next lab.
 
 - **Author** - Salim Hlayel, APEX Product Management
 - **Contributors** - Arabella Yao, Dylan McLeod, Jaden McElvey, LiveLabs QA, Tammy Bednar, Product Management
-- **Last Updated By/Date** - Tom McGinn, September 2020
+- **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

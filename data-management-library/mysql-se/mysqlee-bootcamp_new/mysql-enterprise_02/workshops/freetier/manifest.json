@@ -1,0 +1,168 @@
+{
+    "workshoptitle": "MySQL Enterprise Edition - Implementation Essentials Bootcamp",
+    "include": {"starter-file.sql":"../../data-load/files/starter-file.sql",
+                "sample.json":"../../data-load/files/sample.json",
+                "step2.md":"../../data-load/files/step2.md"},
+    "help": "livelabs-help-**enterarea**_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "Introduction",
+            "description": "The Introduction is always first. The title and contents menu title match for the Introduction.",
+            "filename": "../../00-introduction/00-introduction.md"
+        },
+        {
+            "title": "Lab 1a:Download Material and Software",
+            "description": "Download Material and Software",
+            "filename": "../../01a-mysqlee-download/01a-mysqee-download.md"
+        },
+        {
+            "title": "Lab 1b: Create VCN",
+            "description": "Create a VCN (Virtual Cloud Network)",
+            "filename": "../../01b-create-vcn/01b-create-vcn.md"
+        },
+        {
+            "title": "Lab 1c: Create Application Server",
+            "description": "Create Application server creation and test",
+            "filename": "../../01c-app-server/01c-app-server.md"
+        },
+        {
+            "title": "Lab 1d: Install CLI",
+            "description": "OCI Command Line Interface installation",
+            "filename": "../../01d-oci-cli/01d-oci-cli.md"
+        },
+        {
+            "title": "Lab 1e: Setup Environme",
+            "description": " Setup Environment",
+            "filename": "../../01e-setup-environment/01e-setup-environment.md"
+        },
+        {
+            "title": "Lab 2a: Install MySQL Community",
+            "description": "Install MySQL Community",
+            "filename": "../../02a-install-community/02a-install-community.md"
+        },
+
+        {
+            "title": "Lab 2b: Open Subnet Ports to Access MySQL",
+            "description": "Open Subnet Ports to Access MySQL",
+            "filename": "../../02b-open-mysql-ports/02b-open-mysql-ports.md"
+        },
+
+        {
+            "title": "Lab 2c: Install Detailed MySQL EE on Linux",
+            "description": "Install Detailed MySQL EE on Linux",
+            "filename": "../../02c-install-detailed-mysql/02c-install-detailed-mysql.md"
+        },
+
+        {
+            "title": "Lab 2zzz: Install MySQL Enterprise Edition",
+            "description": "Install MySQL Enterprise Edition",
+            "filename": "../../02b-install-ee/02b-install-ee.md"
+        },
+        {
+            "title": "Lab 8: Install - Veirify MySQL Enterprise Edition ",
+            "description": "Install - Veirify MySQL Enterprise Edition",
+            "filename": "../../install-verify-ee/install-verify-ee.md"
+        },
+        {
+            "title": "Lab 9: Install - MySQL Shell",
+            "description": "Install - MySQL Shell",
+            "filename": "../../install-shell/install-shell.md"
+        },
+        {
+            "title": "Lab 10: Security - MySQL Users",
+            "description": "Security - MySQL Users",
+            "filename": "../../security-user/security-user.md"
+        },
+        {
+            "title": "Lab 11: Security - MySQL User Roles",
+            "description": "Security - MySQL User Roles",
+            "filename": "../../security-user-role/security-user-role.md"
+        },
+
+        {
+            "title": "Lab 12: Security - MySQL Enterprise Firewall",
+            "description": "Security - MySQL Enterprise Firewall",
+            "filename": "../../security-firewall/security-firewall.md"
+        },
+        {
+            "title": "Lab 13: Security - MySQL Enterprise Audit",
+            "description": "Security - MySQL Enterprise Audit",
+            "filename": "../../security-audit/security-audit.md"
+        },
+        {
+            "title": "Lab 14: Security - Data Masking",
+            "description": "Security - Data Masking",
+            "filename": "../../security-masking/security-masking.md"
+        },
+        {
+            "title": "Lab 15: Database Design - MySQL Tables",
+            "description": "Database Design - MySQL Tables",
+            "filename": "../../design-tables/design-tables.md"
+        },
+        {
+            "title": "Lab 16: Database Design - MySQL JSON",
+            "description": "Database Design - MySQL JSON",
+            "filename": "../../design-json/design-json.md"
+        },
+        {
+            "title": "Lab 17: Database Design - MySQL Document Store",
+            "description": "Database Design - MySQL Document Store",
+            "filename": "../../design-docstore/design-docstore.md"
+        },
+        {
+            "title": "Lab 18: MySQL Enterprise Monitor - Manager",
+            "description": "MySQL Enterprise Monitor - Manager",
+            "filename": "../../monitor-manager/monitor-manager.md"
+        },
+        {
+            "title": "Lab 19: MySQL Enterprise Monitor - Agent",
+            "description": "MySQL Enterprise Monitor - Agentr",
+            "filename": "../../monitor-agent/monitor-agent.md"
+        },
+        {
+            "title": "Lab 20: MySQL Backup - Logical",
+            "description": "MySQL Backup - Logical",
+            "filename": "../../backup-logical/backup-logical.md"
+        },
+        {
+            "title": "Lab 21: MySQL Backup - Enterprise",
+            "description": "MySQL Backup - Enterprise",
+            "filename": "../../backup-enterprise/backup-enterprise.md"
+        },
+        {
+            "title": "Lab 22: High Availability - Replication Prepare",
+            "description": "High Availability - Replication Prepare",
+            "filename": "../../ha-replica-prepare/ha-replica-prepare.md"
+        },
+        {
+            "title": "Lab 23: High Availability - Replication Create",
+            "description": "High Availability - Replication Create",
+            "filename": "../../ha-replica-create/ha-replica-create.md"
+        },
+        {
+            "title": "Lab 24: High Availability - INNODB Cluster",
+            "description": "High Availability - INNODB Cluster",
+            "filename": "../../ha-innodb-cluster/ha-innodb-cluster.md"
+        },
+        {
+            "title": "Lab 25: MySQL Database Service and HeatWave",
+            "description": "MySQL Database Service and HeatWave",
+            "filename": "../../mds-heatwave/mds-heatwave.md"
+        },
+        {
+            "title": "Lab 26: Addemdum",
+            "description": "Addemdum",
+            "filename": "../../addendum/addendum.md"
+        },
+        {
+            "title": "Lab 27: Marco",
+            "description": "Marco",
+            "filename": "../../marco_bc/marco_bc.md"
+        },
+        {
+            "title": "Need Help?",
+            "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+            "filename":"https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-freetier.md"
+        }
+    ]
+}

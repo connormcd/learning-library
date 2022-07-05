@@ -65,6 +65,10 @@ This lab assumes you have completed the following labs:
 
     ![Create Modules slider](./images/rest-6.png)
 
+    Also select **Not Protected** with the **Protected By Privilege** select list.
+
+    ![Protected By Privilege** select list](./images/rest-6a.png)
+
 7. When the **Create Module** slider looks like the below image (**NOTE: your URL hostname will be different than the below image**), left click the **Create** button.
 
     ![Create Modules slider](./images/rest-7.png)
@@ -286,6 +290,6 @@ You may now [proceed to the next lab](#next).
 ## Acknowledgements
 
 - **Author** - Jeff Smith, Distinguished Product Manager and Brian Spendolini, Trainee Product Manager
-- **Last Updated By/Date** - Brian Spendolini, September 2021
-- **Workshop Expiry Date** - April 2022
+- **Last Updated By/Date** - Brian Spendolini, April 2022
+- **Workshop Expiry Date** - June 2022
 

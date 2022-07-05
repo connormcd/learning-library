@@ -27,7 +27,7 @@ This workshop requires a certain number of ports to be available, a requirement 
 | Port           |Description                            |
 | :------------- | :------------------------------------ |
 | 22             | SSH                                   |
-| 8080           | Guacamole                             |
+| 6080           | NoVNC                                 |
 
 1.  Go to *Networking >> Virtual Cloud Networks*
 2.  Choose your network
@@ -48,4 +48,4 @@ Using the details from the two steps above, proceed to the lab *Environment Setu
 
 * **Author** - Rene Fontcha, Master Principal Solutions Architect, NA Technology
 * **Contributors** - Kay Malcolm, Product Manager, Database Product Management
-* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, December 2020
+* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, April 2022

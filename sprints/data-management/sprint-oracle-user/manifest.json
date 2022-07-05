@@ -1,0 +1,22 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I create an Oracle user account in Oracle Linux?",
+         "description": "",
+         "filename": "sprint-oracle-user.md"
+      },
+      {
+         "title": "How do I set bash profile in Oracle Linux?",
+         "description": "",
+         "filename": "../sprint-bashprofile/sprint-bashprofile.md"
+      },
+      {
+         "title": "How do I create a new database user?",
+         "description": "",
+         "filename": "../sprint-create-user/sprint-create-user.md"
+      }
+   ],
+   "task_type": "Sections"
+}

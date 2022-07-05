@@ -49,7 +49,7 @@ Before the existing database can be migrated to the sharded database, you must d
 2. Download the sharded demo schema SQL scripts `sdb-app-schema.sql`.
 
     ```
-    [oracle@cata ~]$ <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/ZkoZi3PVSwYGZAscZNDRzOLlqdKypfJEnM15czI6ud6nM5POU8MHkcXHXnp1NJ27/n/c4u04/b/data-management-library-files/o/Oracle%20Sharding/sdb-app-schema.sql</copy>
+    [oracle@cata ~]$ <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/Oracle%20Sharding/sdb-app-schema.sql</copy>
     ```
 
     
@@ -1274,15 +1274,15 @@ Migrate application to the sharded database a slight change to the application c
 
     
 
-12. From you laptop, launch a browser and use the URL: `http://xxx.xxx.xxx.xxx:8081`. Using the public ip address of the catalog host and the port number is 8081.
+12. From your computer, launch a browser and use the URL: `http://xxx.xxx.xxx.xxx:8081`. Using the public ip address of the catalog host and the port number is 8081.
 
-    ![image-20201130144513997](images/image-20201130144513997.png)
+    ![Display of catalog host.](images/cataloghost.png)
 
     
 
-13. Scroll down the screen, you can see the Last inserted orders:
+13. Scroll down the screen, you can see the last inserted orders:
 
-    ![image-20201130142515011](images/image-20201130142515011.png)
+    ![Display of last insterted orders.](images/lastinsertedorders.png)
 
     
 
@@ -1290,8 +1290,8 @@ Migrate application to the sharded database a slight change to the application c
 
      
 
-You may now [proceed to the next lab](#next).
+You may now proceed to the next lab.
 
 ## Acknowledgements
 * **Author** - Minqiao Wang, DB Product Management, Dec 2020  
-* **Last Updated By/Date** - Minqiao Wang, Jun 2021
+* **Last Updated By/Date** - Andres Quintana, April 2022

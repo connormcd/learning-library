@@ -152,7 +152,7 @@ Add a connection to the **moviestream\_landing** bucket to your new **Oracle Obj
        * **Type:** Select **Pre-Authenticated Request** from drop-down list.
        * **Pre-Authenticated Request URL:** Click **Copy** to copy the following URL, and then paste it in this field.
          ```
-         <copy>https://objectstorage.us-ashburn-1.oraclecloud.com/p/vtAnTOoRSGlZ6izqz2XGtRjHpXo8EE_Zu9nVm48YmMCd-Tn8xak_hxHodY8R43Oa/n/c4u04/b/moviestream_landing/o/</copy>
+         <copy>https://objectstorage.us-ashburn-1.oraclecloud.com/p/YtpqXpUpPx1pPXFQa4Githwxx4bxp12q2yZJsCyzN0Y9-kpYr5nAOvLvwZfLHxXF/n/c4u04/b/moviestream_landing/o/</copy>
 
          ```   
        * **Make this the default connection for the data asset:** Leave this checkbox unchecked.

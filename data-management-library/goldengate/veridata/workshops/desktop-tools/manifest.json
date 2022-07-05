@@ -1,0 +1,56 @@
+{
+  "workshoptitle": "Column Mapping and Purging Data in Oracle GoldenGate Veridata",
+  "help": "livelabs-help-db_us@oracle.com",
+  "tutorials": [
+  {
+    "title": "Introduction",
+      "description": "This lab provides an introduction of Oracle GoldenGate Veridata.",
+    "filename": "../../intro/intro-tools.md"
+  },
+  {
+    "title": "Get Started with noVNC Remote Desktop",
+    "description": "Using noVNC Remote Desktop",
+    "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/remote-desktop/using-novnc-remote-desktop.md"
+  },
+  {
+    "title": "Lab 1: Initialize Environment",
+    "description": "Initialize Environment",
+    "filename": "../../initialize-environment/initialize-environment.md"
+  },
+  {
+    "title": "Lab 2: Provision an Instance",
+    "description": "Provisioning the Lab Environment",
+    "filename": "../../provision/provision.md"
+  },
+  {
+      "title": "Lab 3: Create Datasource Connections",
+      "description": "This lab walks you through the steps to create datasource connections.",
+      "filename": "./../../ggv-create-connections/ggv-create-connections.md"
+    },
+    {
+      "title": "Lab 4: Create Groups and Compare Pairs ",
+      "description": "This lab walks you through the steps to create groups and compare pairs.",
+      "filename": "./../../ggv-create-groups-compare-pairs/ggv-create-groups-compare-pairs.md"
+    },
+    {
+      "title": "Lab 5: Create and Execute Jobs ",
+      "description": "This lab walks you through the steps to create Jobs and execute them.",
+      "filename": "./../../ggv-create-execute-jobs/ggv-create-execute-jobs.md"
+    },
+    {
+      "title": "Lab 6:  Add and Remove Mappings ",
+      "description": "This lab walks you through the steps to add and remove mappings in Oracle GoldenGate Veridata.",
+      "filename": "./../../ggv-add-remove-mapping/ggv-add-remove-mapping.md"
+    },
+    {
+      "title": "Lab 7:  Purge Data and Delete Directories ",
+      "description": "This lab walks you through the Purge Data and Delete Directories features in Oracle GoldenGate Veridata.",
+      "filename": "./../../ggv-purge-delete-directories/ggv-purge-delete-directories.md"
+    },
+    {
+      "title": "Need Help?",
+      "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-livelabs.md"
+    }
+  ]
+}

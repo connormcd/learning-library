@@ -110,5 +110,5 @@ This completes Lab 2. You now know how to utilize Quick SQL to build a simple ta
 
  - **Author** -  David Peake, Consulting Member of Technical Staff
  - **Contributors** - Jaden McElvey, Technical Lead - Oracle LiveLabs Intern
- - **Last Updated By/Date** - Tom McGinn, Database Cloud Services, Product Management, June 2020
+ - **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

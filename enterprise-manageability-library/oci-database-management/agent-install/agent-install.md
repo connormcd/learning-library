@@ -4,7 +4,6 @@
 
 In this lab, you will go through the steps to download and install the management agent to be used in the context of Database Management service.
 
-
 Estimated Time: 20 minutes
 
 ### Objectives
@@ -40,17 +39,17 @@ This lab assumes you have completed the following labs:
 
     a) From the Oracle Cloud Console **Navigation menu** (aka hamburger menu) located in the upper left, click **Observability & Management** and select **Management Agent**.
 
-    b) Select compartment **dbmgmt-demo** from the list of compartments on the left 
+    b) Select compartment **dbmgmt-demo** from the list of compartments on the left
 
-    ![Management Agents](./images/managementagents.png " ") 
+    ![Management Agents](./images/managementagents.png " ")
 
-2.  On the Management Agents home page, click **Download and Keys** from the left menu to view the Agent Install Keys pane. The Agent Install Keys pane is displayed at the bottom of the page. 
+2.  On the Management Agents home page, click **Download and Keys** from the left menu to view the Agent Install Keys pane. The Agent Install Keys pane is displayed at the bottom of the page.
 
     a) On the Agent Install Keys pane, click **Create Key** to create a key
 
-    ![Agent Install Pane](./images/agentinstallpane.png " ") 
+    ![Agent Install Pane](./images/agentinstallpane.png " ")
 
-    b) Enter the required details in the Create Key window 
+    b) Enter the required details in the Create Key window
 
     -  In the **Key Name** field, specify a name (db-demo) to identify the key.
     -  In the **Compartment** field, select the compartment **dbmgmt-demo** from the drop-down list. This is the compartment where the agent resource will be created.
@@ -58,27 +57,26 @@ This lab assumes you have completed the following labs:
     -  In the **Valid for** field, specify a number that indicates the period the key is valid for. Default value is 1 Week.
     -  Click **Create**.
 
-        ![Create Agent Install Key](./images/createkey.png " ") 
+        ![Create Agent Install Key](./images/createkey.png " ")
 
 3.  On the Agent Install Keys section, identify the row with the agent key named as **db-demo**. Click on the three dots and choose the option **Download Key to File** to save the install key to your local desktop.  
 
-    ![Agent Install Keys](./images/agentinstallkeys.png " ") 
+    ![Agent Install Keys](./images/agentinstallkeys.png " ")
 
-
-## Task 3: Install the agent 
+## Task 3: Install the agent
 
 1. Open up the terminal of your choice and log in to the compute instance you created in the previous lab.
 2. Copy the following commands into your terminal.  
-    
+
     ```
     <copy>
     sudo rpm -ivh oracle.mgmt_agent.rpm
     </copy>
     ```
-![Install Agent RPM](./images/installagentrpm.png " ") 
+![Install Agent RPM](./images/installagentrpm.png " ")
 
 3. Create a response file named input.rsp using a text editor under /opt/oracle/mgmt\_agent. Copy the contents of the downloaded install key into input.rsp file. Note that you have switched to the mgmt\_agent user now. The agent installation process creates a new user called mgmt\_agent. All agent files are copied and installed by mgmt_agent user. After creating the response file, check the file permissions and ensure it has read permissions for all users.
-  
+
     ```
     <copy>
     sudo -u mgmt_agent sh
@@ -87,9 +85,9 @@ This lab assumes you have completed the following labs:
     </copy>
     ```
 
-    ![Create input](./images/createinput.png " ") 
+    ![Create input](./images/createinput.png " ")
 
-    ![Input file](./images/inputfile.png " ") 
+    ![Input file](./images/inputfile.png " ")
 
 4. Update **AgentDisplayName** and **CredentialWalletPassword** as below in input.rsp. Password of the agent wallet that the user provides is a custom password for the wallet to store sensitive information. Password minimum length is 8 characters and must contain alphabetic characters combined with numbers or special characters.
 
@@ -100,15 +98,14 @@ This lab assumes you have completed the following labs:
     </copy>
     ```
 
-5. As **opc** user, configure the management agent using the response file. 
+5. As **opc** user, configure the management agent using the response file.
 
     ```
     <copy>
     sudo /opt/oracle/mgmt_agent/agent_inst/bin/setup.sh opts=/opt/oracle/mgmt_agent/input.rsp
     </copy>
     ```
-![Agent Setup](./images/agentsetup.png " ") 
-
+![Agent Setup](./images/agentsetup.png " ")
 
 ## Task 4: Verify the Management Agent Installation
 
@@ -117,10 +114,7 @@ This lab assumes you have completed the following labs:
 3. Select compartment **dbmgmt-demo** from the list of compartments on the left.
 4. From the Agents list, look for the agent that was recently installed using the Created column which displays the date of the agent installation or the Host column which displays the host name where the agent was installed.
 
-    ![Verify Agent](./images/verifyagent.png " ") 
-
-
-You may now proceed to the next lab.
+    ![Verify Agent](./images/verifyagent.png " ")
 
 ## Acknowledgements
 

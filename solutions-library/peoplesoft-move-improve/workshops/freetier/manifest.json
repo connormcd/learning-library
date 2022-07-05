@@ -3,78 +3,91 @@
     "help": "livelabs-help-oci_us@oracle.com",
 	"tutorials": [
           {
-              "title": "Introduction",
-              "description": "The Introduction is always second. The title and contents menu title match for the Introduction.",
-              "filename": "../../0introduction/introduction.md"
+            "title": "Introduction",
+            "description": "The Introduction is always second. The title and contents menu title match for the Introduction.",
+            "filename": "../../0introduction/introduction.md"
           },
           {
-              "title": "Getting Started",
-              "description": "Prerequisites for LiveLabs (Oracle-owned tenancies). The title of the lab and the Contents Menu title (the title above) match for Prerequisite lab. This lab is always first.",
-              "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
+            "title": "Getting Started",
+            "description": "Prerequisites for LiveLabs (Oracle-owned tenancies). The title of the lab and the Contents Menu title (the title above) match for Prerequisite lab. This lab is always first.",
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
           },
           {
-              "title": "Lab 1: Creating Identity and Access Management (IAM) Resources",
-              "description": "Labs that follow the introduction are numbered, starting with Lab 1",
-              "filename": "../../1iam/iam.md"
+            "title": "Lab 1: Creating Identity and Access Management (IAM) Resources",
+            "description": "Labs that follow the introduction are numbered, starting with Lab 1",
+            "filename": "../../1iam/iam.md"
           },
           {
-              "title": "Lab 2: Provisioning the PeopleSoft Cloud Manager using Marketplace",
-              "filename": "../../2provision-cm/provision-cm.md"
+            "title": "Lab 2: Provisioning the PeopleSoft Cloud Manager using Marketplace",
+            "filename": "../../2provision-cm/provision-cm.md"
           },
           {
-              "title": "Lab 3: Configuring Cloud Manager Settings",
-              "filename": "../../3configure-cm/configure-cm.md"
+            "title": "Lab 3: FOR MAC USERS ONLY: Accessing Private Cloud Manager Instance via SSH and Logging in via Browser",
+            "filename": "../../3macssh/macssh.md"
           },
           {
-            "title": "Lab 4: Subscribing to PeopleSoft Download Channels",
-            "filename": "../../4channels/channels.md"
+            "title": "Lab 4: Provisioning a Windows VM Compute in OCI",
+            "filename": "../../4windows-optional/windows-optional.md"
           },
           {
-              "title": "Lab 5: Reviewing and Updating the Topology",
-              "filename": "../../5topology/topology.md"
+            "title": "Lab 5: FOR WINDOWS VM ONLY: Accessing Private Cloud Manager Instance via SSH and Logging in via Browser",
+            "filename": "../../5winssh/winssh.md"
+          },
+          {
+            "title": "Lab 6: Configuring Cloud Manager Settings",
+            "filename": "../../6configure-cm/configure-cm.md"
+          },
+          {
+            "title": "Lab 7: Setting Up File Storage System",
+            "filename": "../../7fileserver/fileserver.md"
+          },
+
+          {
+            "title": "Lab 8: Subscribing to PeopleSoft Download Channels",
+            "filename": "../../8channels/channels.md"
+          },
+          {
+            "title": "Lab 9: Reviewing and Updating the Topology",
+            "filename": "../../9topology/topology.md"
           },
           
           {
-              "title": "Lab 6: Creating a new Environment Template",
-              "filename": "../../6env-template/env-template.md"
+              "title": "Lab 10: Creating a new Environment Template",
+              "filename": "../../10env-template/env-template.md"
           },
           {
-              "title": "Lab 7: Creating Environment in PeopleSoft",
-              "filename": "../../7psft-env/psft-env.md"
+              "title": "Lab 11: Creating an Environment in PeopleSoft",
+              "filename": "../../11psft-env/psft-env.md"
           },
           {
-            "title": "Lab 8: Cloning an Environment",
-            "filename": "../../8clone/clone.md"
+            "title": "Lab 12: Cloning an Environment",
+            "filename": "../../12clone/clone.md"
           },
           {
-            "title": "Lab 9: Backing up and Restoring an Environment",
-            "filename": "../../9backup/backup.md"
+            "title": "Lab 13: Backing up and Restoring an Environment",
+            "filename": "../../13backup/backup.md"
           },
           {
-            "title": "Lab 10: Patching an Environment",
-            "filename": "../../10patching/patching.md"
+            "title": "Lab 14: Patching an Environment",
+            "filename": "../../14patching/patching.md"
           },
           {
-            "title": "Lab 11: Upgrading an Environment",
-            "filename": "../../11upgrading/upgrading.md"
+            "title": "Lab 15: Upgrading an Environment",
+            "filename": "../../15upgrading/upgrading.md"
           },
           {
-            "title": "Lab 12: Setting Governance Policies",
-            "filename": "../../12governance-policies/policies.md"
+            "title": "Lab 16: Setting Governance Policies",
+            "filename": "../../16governance-policies/policies.md"
           },
           {
-            "title": "Lab 13: Selective Adoption",
-            "filename": "../../13selective-adoption/adoption.md"
+            "title": "Lab 17: Selective Adoption",
+            "filename": "../../17selective-adoption/adoption.md"
           },
           {
-            "title": "Lab 14: Refreshing an Environment",
-            "filename": "../../14refresh/refresh.md"
+            "title": "Lab 18: Refreshing an Environment",
+            "filename": "../../18refresh/refresh.md"
           },
-          
-          {
-              "title": "Windows VM Compute Lab (Optional): Provisioning Windows Compute in OCI",
-              "filename": "../../windows-optional/windows-optional.md"
-          },
+
           {
               "title": "Need Help?",
               "description": "Solutions to Common Problems and Directions for Receiving Live Help",

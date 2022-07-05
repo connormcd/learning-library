@@ -76,37 +76,13 @@ You should already be in the on-premises environment logged in as the `oracle` u
 
     ```bash
     <copy>
-    zip wlst.zip SimpleDB.ear SimpleHTML.ear check.sh deploy_app.py deply_datasource.py deplopy.sh gen_env.sh oradatasource.tpl
+    zip wlst.zip SimpleDB.ear SimpleHTML.ear check.sh deploy_app.py deploy_datasource.py deploy.sh gen_env.sh oradatasource.tpl
     </copy>
     ```
 
 2. Copy the files to the target admin server:
 
-    If you provisioned in a *Public Subnet*, set the variable:
-
-    ```bash
-    <copy>
-    export TARGET_WLS_SERVER=<Public IP of the WLS Admin server>
-    </copy>
-    ```
-
-    Then run:
-    
-    ```bash
-    <copy>
-    scp wlst.zip opc@${TARGET_WLS_SERVER}:~/
-    </copy>
-    ```
-
-    Get into the admin server with SSH:
-
-    ```bash
-    <copy>
-    ssh opc@${TARGET_WLS_SERVER}
-    </copy>
-    ```
-
-    If you provisioned in a *Private Subnet* set the variables:
+    Set the variables:
 
     ```bash
     <copy>
@@ -176,13 +152,13 @@ export DB_DOMAIN=
 
 export DB_SID=RIDERS
 export DB_PDB=PDB
-export DB_PWD=YpdCNR6nua4nahj8__
+export DB_PWD=****************
 export DB_BUNDLE=basic
 
 export DS_NAME=JDBCConnection
 export DS_JNDI_NAME=jdbc.JDBCConnectionDS
 export DS_USER=riders
-export DS_PASSWORD=Nge29v2rv#1YtSIS#
+export DS_PASSWORD=********************
 
 export ADMIN_USERNAME=weblogic
 export ADMIN_PASSWORD=welcome1
@@ -213,6 +189,7 @@ It pulls the WebLogic information from the metadata endpoint v1 with calls to `c
     ```
     DB_HOST=<Private IP of the DB node>
     DB_DOMAIN=nonjrfdbsubnet.nonjrfvcn.oraclevcn.com <This is the part of the connection string without the CDB name>
+    DB_PWD=<Your SYS password>
     ```
 
 2. Save the file by typing `CTRL+x` then `y`.

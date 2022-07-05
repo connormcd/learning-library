@@ -1,4 +1,4 @@
-# Improving the Movie Details Page
+# Improve the Movie Details Page
 
 ## Introduction
 At this point, you have built out the basic functionality of your Watchlist app. However, while the app is usable, it is not entirely user friendly. In this lab, you will revamp the Movie Details page UI to make it easier to read and understand.
@@ -11,7 +11,10 @@ In this lab, you will:
 - Add the movie overview.  
 - Style the regions with CSS.
 
-## Task 1: Creating the Movie Details Header
+### Prerequisites
+- Completion of workshop through Lab 7
+
+## Task 1: Create the Movie Details Header
 On your current Movie Details page, all that displays are simple form fields with the data that comes from the Movie Details API. While that tells you information about a movie, you want to be able to view it in a nicer format. To start, you can utilize a few columns to create a nice header that includes the movie poster, the background image, and the movie title.
 
 1. In the Page Designer tab in your browser, navigate to page 3 - Movie Details.
@@ -129,7 +132,7 @@ On your current Movie Details page, all that displays are simple form fields wit
 
 8. Now you will have a nice header that includes the movie title, poster image, and background image, and some of the movie details.
 
-## Task 2: Adding the Movie Overview
+## Task 2: Add the Movie Overview
 In addition to the header, you want to be able to see the overview of the movie, but formatted in a way that is better for viewing than in a form.
 
 1. In the rendering pane on the left, right click on Content Body and select **Create Region**.
@@ -150,7 +153,7 @@ In addition to the header, you want to be able to see the overview of the movie,
 
     ![](images/8-2-2-overview.png " ")
 
-## Task 3: Adding Custom CSS
+## Task 3: Add Custom CSS
 As the last step for the Movie Details page enhancements, you will add some custom CSS to style the page header you created and the cast cards that will be added in Lab 9. While the original layout and format of the Cards can get you pretty far, a little custom CSS goes a long way in really rounding out the entire look of a region and a page.
 
 1. At the top of the rendering pane, click on **Page 3: Movie Details**.
@@ -195,6 +198,8 @@ As the last step for the Movie Details page enhancements, you will add some cust
 
     ![](images/8-3-5-runtime-app.png " ")
 
+You have now enhanced the Movie Details page and know how to improve your application with custom CSS. You may now **proceed to the next lab**.
+
 ## Resources
 
 - [Cards Documentation](https://docs.oracle.com/en/database/oracle/application-express/21.1/htmdb/managing-cards.html#GUID-0F5699C1-D198-4951-9E9C-175F6D79936B)  
@@ -208,6 +213,12 @@ Stuck on a step or struggling with the lab? You can download a copy of the Movie
 
 - You can import Lab 8 to your APEX workspace by clicking **Import** in the App Builder home page and following the wizard steps.
 
-- If you have not previously imported Lab 4 or higher, follow the instructions in the <a href="?lab=creating-movie-details-page#Stuck?DownloadtheApplicationHere" target="_blank">Stuck?</a> section of Lab 4 to provide credentials for the Movie Details REST source.
+- When the install wizard prompts you for Credentials, follow the instructions in the <a href="?lab=creating-movie-details-page#Stuck?DownloadtheApplicationHere" target="_blank">Stuck?</a> section of Lab 4 to update the API key for the Movie Details REST source.
 
-- Follow the instructions in the <a href="?lab=creating-rest-sources#Stuck?DownloadtheApplicationHere" target="_blank">Stuck?</a> section of Lab 2 to update the Popular and Search Movies API keys.
+- Follow the instructions in the <a href="?lab=creating-movie-search-page#Stuck?DownloadtheApplicationHere" target="_blank">Stuck?</a> section of Lab 3 to update the Popular and Search Movies API keys.
+
+## Acknowledgments
+
+- **Author** - Paige Hanssen
+- **Additional Contributors** - Kay Jasanya, Shakeeb Rahman, Steve Muench, Monica Godoy, Eli Feuerstein, Carlos Maciel, Dalia Vazquez
+- **Last Updated By/Date** - Paige Hanssen, March 2022

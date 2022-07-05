@@ -1,0 +1,86 @@
+{
+    "workshoptitle": "Oracle Integration Insight",
+    "help": "livelabs-help-**enterarea**_us@oracle.com",
+    "tutorials": [
+        {
+            "title": "Introduction",
+            "description": "Introduction to Oracle Integration Insight",
+            "filename": "../../introduction/introduction.md"
+        },
+        {
+            "title": "Get Started",
+            "description": "This is the prerequisites for customers using Free Trial and Paid tenancies, and Always Free accounts (if applicable). The title of the lab and the Contents Menu title (the title above) match for Prerequisite lab. This lab is always first one",
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
+        },
+        {
+            "title": "Lab 1: Provision Oracle Integration",
+            "filename": "../../../../../common/provision-oic/provision.md"
+        },
+        {
+            "title": "Lab 2: Setup Workshop Prerequisites",
+            "description": "Oracle Insight Setup",
+            "filename": "../../setup/setup.md"
+        },
+        {
+            "title": "Lab 3: Key Concepts",
+            "description": "Oracle Insight Key Concepts",
+            "filename": "../../key-concepts/key-concepts.md"
+        },
+        
+        {
+            "title": "Lab 4: Oracle Insight Navigation",
+            "description": "Oracle Insight Navigation",
+            "filename": "../../navigation/navigation.md"
+        },      
+        {
+            "title": "Lab 5: Create a Model",
+            "description": "Create a Model",
+            "filename": "../../create-a-model/create-a-model.md"
+        },
+        {
+            "title": "Lab 6: Map Milestones",
+            "description": "Map Milestones",
+            "filename": "../../mapping-milestones/mapping-milestones.md"
+        },
+        {
+            "title": "Lab 7: Insight Console",
+            "description": "Insight Console",
+            "filename": "../../mapping-test/insight-console.md"
+        },
+        {
+            "title": "Lab 8: Create Indicators",
+            "description": "Create Indicators",
+            "filename": "../../create-indicators/create-indicators.md"
+        },
+        {
+            "title": "Lab 9: Map Indicators",
+            "description": "Map Indicators",   
+            "filename": "../../map-indicators/map-indicators.md"
+        },
+        {
+            "title": "Lab 10: Indicators Test",
+            "description": "Indicators Test",
+            "filename": "../../indicators-test/indicators-test.md"
+        },
+        {
+            "title": "Lab 11: Custom Dashboards",
+            "description": "Custom Dashboards",
+            "filename": "../../custom-dashboards/custom-dashboards.md"
+        },
+        {
+            "title": "Lab 12: Define an Alert",
+            "description": "Define an Alert",
+            "filename": "../../define-an-alert/define-an-alert.md"
+        },
+        {
+            "title": "Roles and Personas",
+            "description": "Roles and Personas",
+            "filename": "../../roles-and-personas/roles-and-personas.md"
+        },
+        {
+            "title": "Need Help?",
+            "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+            "filename":"https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-livelabs.md"
+        }
+    ]
+}

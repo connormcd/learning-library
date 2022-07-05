@@ -23,6 +23,7 @@ In this step, you will create an *Autonomous Transaction Processing* database an
     ![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/database-atp.png " ")
 
 <if type="livelabs">
+
 2. Select your compartment from the List Scope on the left by entering all or part of your LiveLabs user id in the search text field. Then select the compartment assigned to you for your reservation.
 
     ![](images/livelabs-compartment.png)
@@ -88,14 +89,14 @@ In this step, you will create an *Autonomous Transaction Processing* database an
     ![](images/log-in-to-workspace.png " ")
 
 
-## **Summary**
+## Summary
 
 This completes the lab setup. At this point, you know how to create an APEX Workspace and you are ready to start building amazing apps, fast.
 
 You may now *proceed to the next lab*.
 
-## **Acknowledgements**
+## Acknowledgements
 
  - **Author/Contributors** -  Salim Hlayel, Principle Product Manager
  - **Contributor** - Oracle LiveLabs Team (Arabella Yao, Product Manager Intern | Jaden McElvey, Technical Lead)
- - **Last Updated By/Date** - Tom McGinn, Database Cloud Services, Product Management, June 2020
+ - **Last Updated By/Date** - Madhusudhan Rao, Apr 2022

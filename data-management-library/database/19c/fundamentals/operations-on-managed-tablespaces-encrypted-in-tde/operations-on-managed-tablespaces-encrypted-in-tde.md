@@ -13,13 +13,15 @@ Estimated Time: 15 minutes
 - Prepare the CDB to use TDE
 - Encrypt Oracle-managed and user-managed tablespaces
 - Handle encrypted data in Oracle-managed and user-managed tablespaces when keystore is closed
-- Reset your environment.
+- Reset your environment
 
 ### Prerequisites
 This lab assumes you have:
 - Obtained and signed in to your `workshop-installed` compute instance
 
-## Prepare your environment
+## Task 1: Prepare your environment
+
+> **NOTE:** Unless otherwise stated, all passwords will be `Ora4U_1234`. When copying and pasting a command that includes a password, please replace the word `password` with `Ora4U_1234`. This only applies to instances created through OCI Resource Manager with our provided terraform scripts.
 
 1. Open a terminal window on the desktop.
 
@@ -30,7 +32,7 @@ This lab assumes you have:
     CDB1
     ```
 
-## Task 1: Prepare the CDB to use TDE
+## Task 2: Prepare the CDB to use TDE
 1. Make the directory for the CDB1 with tde_wallet
 
     ```
@@ -52,7 +54,7 @@ This lab assumes you have:
 3. Create the keystore for the CDB in /u01/app/oracle/admin/CDB1/tde_wallet
 
     ```
-    SQL> <copy>ADMINISTER KEY MANAGEMENT CREATE KEYSTORE '/u01/app/oracle/admin/CDB1/tde_wallet' IDENTIFIED BY Ora4U_1234;</copy>
+    SQL> <copy>ADMINISTER KEY MANAGEMENT CREATE KEYSTORE '/u01/app/oracle/admin/CDB1/tde_wallet' IDENTIFIED BY password;</copy>
 
     keystore altered.
     ```
@@ -60,7 +62,7 @@ This lab assumes you have:
 4. Open the keystore.
 
     ```
-    SQL> <copy>ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY Ora4U_1234 CONTAINER=ALL;</copy>
+    SQL> <copy>ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY password CONTAINER=ALL;</copy>
 
     keystore altered.
     ```
@@ -68,7 +70,7 @@ This lab assumes you have:
 5. Set the TDE master encryption key.
 
     ```
-    SQL> <copy>ADMINISTER KEY MANAGEMENT SET KEY IDENTIFIED BY Ora4U_1234 WITH BACKUP CONTAINER=ALL;</copy>
+    SQL> <copy>ADMINISTER KEY MANAGEMENT SET KEY IDENTIFIED BY password WITH BACKUP CONTAINER=ALL;</copy>
 
     keystore altered.
     ```
@@ -96,13 +98,13 @@ This lab assumes you have:
     OMTBS             NO
     ```
 
-## Task 2: Encrypt Oracle-managed and user-managed tablespaces
+## Task 3: Encrypt Oracle-managed and user-managed tablespaces
 In this section, you close the keystore and see which operations on Oracle-managed tablespaces and user-managed tablespaces can be handled on the metadata and data.
 
 1. Close the keystore.
 
     ```
-    SQL> <copy>ADMINISTER KEY MANAGEMENT SET KEYSTORE CLOSE IDENTIFIED BY Ora4U_1234 CONTAINER = ALL;</copy>
+    SQL> <copy>ADMINISTER KEY MANAGEMENT SET KEYSTORE CLOSE IDENTIFIED BY password CONTAINER = ALL;</copy>
 
     keystore altered.
     ```
@@ -130,7 +132,7 @@ In this section, you close the keystore and see which operations on Oracle-manag
 4. Open the keystore.
 
     ```
-    SQL> <copy>ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY Ora4U_1234 CONTAINER = ALL;</copy>
+    SQL> <copy>ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY password CONTAINER = ALL;</copy>
 
     keystore altered.
     ```
@@ -168,11 +170,11 @@ In this section, you close the keystore and see which operations on Oracle-manag
     6 rows selected.
     ```
 
-## Task 3: Handle encrypted data in Oracle-managed and user-managed tablespaces when keystore is closed
+## Task 4: Handle encrypted data in Oracle-managed and user-managed tablespaces when keystore is closed
 1. Close the keystore.
 
     ```
-    SQL> <copy>ADMINISTER KEY MANAGEMENT SET KEYSTORE CLOSE IDENTIFIED BY Ora4U_1234 CONTAINER = ALL;</copy>
+    SQL> <copy>ADMINISTER KEY MANAGEMENT SET KEYSTORE CLOSE IDENTIFIED BY password CONTAINER = ALL;</copy>
     ```
 
 2. Change the encryption algorithm in SYSTEM tablespace.
@@ -236,11 +238,11 @@ The operation completes because the operation affects only the data of the Oracl
 Operations on user-managed tablespaces still raise the ORA-28365 "wallet is not open" error when the CDB root keystore is closed.
 The behavior is the same in pluggable databases (PDBs).
 
-## Task 4: Clean up the environment
+## Task 5: Clean up the environment
 1. Open the keystore.
 
     ```
-    SQL> <copy>ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY Ora4U_1234 CONTAINER = ALL;</copy>
+    SQL> <copy>ADMINISTER KEY MANAGEMENT SET KEYSTORE OPEN IDENTIFIED BY password CONTAINER = ALL;</copy>
 
     Keystore altered.
     ```
@@ -265,6 +267,8 @@ The behavior is the same in pluggable databases (PDBs).
 
     ```
     SQL> <copy>ALTER TABLESPACE system ENCRYPTION DECRYPT;</copy>
+
+    Tablespace altered.
     ```
 
 5. Quit the session.
@@ -273,11 +277,12 @@ The behavior is the same in pluggable databases (PDBs).
     SQL> <copy>EXIT</copy>
     ```
 
+    You may now **proceed to the next lab**.
 
 
 ## Acknowledgements
 
 - **Author**- Dominique Jeunot, Consulting User Assistance Developer
 - **Technical Contributor** - Blake Hendricks, Austin Specalist Hub.
-- **Last Updated By/Date** - Matthew McDaniel, Austin Specialists Hub, December 21 2021
+- **Last Updated By/Date** - Matthew McDaniel, Austin Specialist Hub, December 21 2021
 

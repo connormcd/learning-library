@@ -7,7 +7,7 @@
             "filename": "./../../intro/intro.md"
         },
         {
-            "title": "Getting Started",
+            "title": "Get Started",
             "description": "Login to Oracle Cloud",
             "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
         },
@@ -20,7 +20,7 @@
             "filename": "../../../identity-access-management/iam/identity-access-management.md"
         },
         {
-            "title": "Lab 3: Virtual Cloud Networks",
+            "title": "Lab 3: Create Virtual Cloud Networks",
             "type": "freetier",
             "filename": "../../../virtual-cloud-networks/vcn/virtual-cloud-networks.md"
         },
@@ -30,14 +30,14 @@
             "filename": "../../../compute-service/cs/compute-service.md"
         },
         {
-            "title": "Lab 5: Block Volume",
+            "title": "Lab 5: Create and Attach a Block Volume",
             "type": "freetier",
             "filename": "../../../block-volume/bv/block-volume.md"
         },
         {
-            "title": "Lab 6: Object Storage",
+            "title": "Lab 6: Create an Object Storage",
             "type": "freetier",
-            "filename": "../../../object-storage/os/object-storage.md"
+            "filename": "../../../object-storage/object-storage/object-storage.md"
         },
         {
             "title": "Need Help?",

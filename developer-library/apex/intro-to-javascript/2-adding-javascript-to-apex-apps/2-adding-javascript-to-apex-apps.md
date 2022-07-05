@@ -227,7 +227,7 @@ In the last step, you added JavaScript code directly to page and component level
 
 1.  The following code contains the `doWork` function that's being invoked on the home page and the function that's styling the colors of the Sales by Category chart. The only change to the second function is that it now has a name (it was an anonymous function before).
 
-    **Click** <a href="https://objectstorage.us-ashburn-1.oraclecloud.com/p/ykn56CgKR287nffCKxW3_uo-f8sv6Esm6db7qeiO8LrM7lQ49sDsXvv_PRbwcg-3/n/c4u04/b/developer-library/o/sample-db-app.js" download="sample-db-app.js" target="\_blank">here</a> and use the **Save File** dialog box to download the Javascript file for this lab `sample-db-app.js` to your local computer.
+    **Click** <a href="https://objectstorage.us-ashburn-1.oraclecloud.com/p/LNAcA6wNFvhkvHGPcWIbKlyGkicSOVCIgWLIu6t7W2BQfwq2NSLCsXpTL9wVzjuP/n/c4u04/b/livelabsfiles/o/developer-library/sample-db-app.js" download="sample-db-app.js" target="\_blank">here</a> and use the **Save File** dialog box to download the Javascript file for this lab `sample-db-app.js` to your local computer.
 
    Or you can save the code in a new file on your computer named **sample-db-app.js**.
 

@@ -1,0 +1,54 @@
+{
+    "workshoptitle": "Howard University Database Systems Course",
+    "help": "eugenio.galiano@oracle.com",
+    "tutorials": [
+        {
+            "title": "Introduction",
+            "filename": "../../introduction/introduction.md"
+        },
+        {
+            "title": "Get Started",
+            "filename": "../../get-started/get-started.md"
+        },
+        {
+            "title": "Lab 1: Database Basics",
+            "filename": "../../database-basics/database-basics.md"
+        },
+        {
+            "title": "Lab 2: Tables, Keys, SQL Basics",
+            "filename": "../../tables-keys-sql/tables-keys-sql.md"
+        },
+        {
+            "title": "Lab 3: Low Code Database Application Development",
+            "filename": "../../low-code-db-app-dev/low-code-db-app-dev.md"
+        }, 
+        {
+            "title": "Lab 4: Developing with JSON in the Oracle Database",
+            "filename": "../../json/json.md"
+        }, 
+        {
+            "title": "Lab 5: Security",
+            "filename": "../../security/security.md"
+        },
+        {
+            "title": "Lab 6: Intro to Machine Learning",
+            "filename": "../../machine-learning/machine-learning.md"
+        },
+        {
+            "title": "Lab 7: Intro to Graph Database",
+            "filename": "../../graph/graph.md"
+        }, 
+        {
+            "title": "Lab 8: Intro to Spatial",
+            "filename": "../../spatial/spatial.md"
+        },  
+        {
+            "title": "Need Help?",
+            "filename":"../../need-help/need-help.md"
+        },
+        {
+            "title": "Acknowledgements",
+            "filename":"../../acknowledgements/acknowledgements.md"
+        }
+    ]
+}

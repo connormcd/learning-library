@@ -20,7 +20,7 @@ The following example shows how to create a keystore with a single key that is v
 
 `keytool -genkeypair -v -keystore c:\mykeystore\releasesigning.keystore -alias releaseKeyAlias -keyalg RSA -keysize 2048 -validity 10000`
 
-If you do not want to create a key, right-click [this sample keystore file](https://objectstorage.us-ashburn-1.oraclecloud.com/p/TwD3lpEZPD0KKzY7tQ84WKPaP-MoX-8GYAjkFQ0GvNnJjLtGV4P9Gf9bM2hibIQS/n/c4u04/b/developer-library/o/vbcsdoc.keystore) and download it to your file system to use in this lab. Here are the credentials for the keystore file:
+If you do not want to create a key, right-click [this sample keystore file](https://objectstorage.us-ashburn-1.oraclecloud.com/p/LNAcA6wNFvhkvHGPcWIbKlyGkicSOVCIgWLIu6t7W2BQfwq2NSLCsXpTL9wVzjuP/n/c4u04/b/livelabsfiles/o/developer-library/vbcsdoc.keystore) and download it to your file system to use in this lab. Here are the credentials for the keystore file:
 
   -   **Keystore Password**: `vbcsdoc_ks_pass`
   -   **Key alias**: `vbcsdoc_ksalias`

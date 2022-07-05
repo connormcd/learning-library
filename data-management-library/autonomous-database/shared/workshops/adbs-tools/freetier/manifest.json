@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Introduction to Autonomous Database Tools",
+    "workshoptitle": "Important Tools for Everyone Using Oracle Autonomous Database",
     "help": "livelabs-help-db_us@oracle.com",
     "tutorials": [
         {
@@ -10,7 +10,7 @@
         {
           "title": "Get Started",
           "description": "Getting an OCI Account",
-          "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
+          "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login.md"
         },
         {
           "title": "Lab 1: Provision an ADB Instance",
@@ -33,5 +33,6 @@
           "description": "Solutions to Common Problems and Directions for Receiving Live Help",
           "filename":"https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-freetier.md"
       }
+      
     ]
 }

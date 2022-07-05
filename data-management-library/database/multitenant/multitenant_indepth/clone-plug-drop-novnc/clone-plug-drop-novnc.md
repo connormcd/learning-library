@@ -5,7 +5,7 @@ Oracle Multitenant enables an Oracle Database to function as a container databas
 
 [](youtube:kzTQGs75IjA)
 
-*Estimated Workshop Time*: 2 hour 
+*Estimated Workshop Time*: 2 hour
 
 ### Objectives
 
@@ -40,9 +40,7 @@ In this lab, we have two CDBs (CDB1 & CDB2) created, and listening on different 
     Connect to CDB1 instance
     ```
     <copy>
-    sqlplus /nolog
-    connect sys/oracle@localhost:1523/cdb1 as sysdba
-    exit
+    sqlplus  sys/oracle@localhost:1523/cdb1 as sysdba
     </copy>
     ```
     Note: SYS and SYSTEM username/password are common across all CDBs and PDBs. If you need a customized Global user across CDBs and PDBs we can create user having username starting with "C##" at the CDB level. i.e., "C##<username>" or C##vijay
@@ -76,7 +74,7 @@ This section looks at how to create a new PDB. You will create a pluggable datab
     ```
     <copy>show  pdbs;</copy>
     ```
-
+    ![](./images/showpdbsbefore.png " ")
     ```
     <copy>
     create pluggable database PDB2 admin user PDB_Admin identified by oracle;
@@ -87,7 +85,7 @@ This section looks at how to create a new PDB. You will create a pluggable datab
     </copy>
     ```
 
-    ![](./images/showpdbsbefore.png " ")
+
 
     ![](./images/createpdb.png " ")
 
@@ -169,36 +167,30 @@ This section looks at how to create a new PDB. You will create a pluggable datab
 
     ![](./images/step1.9-containers.png " ")
 
-## Task 3: Clone a PDB
-This section looks at how to clone a PDB.
+## Task 3: Hot Clone PDB
+This section looks at how to clone a PDB. In Oracle 12.1 when Multitenant feature was introduced, we had to change source PDB to READ ONLY mode to clone. However, since 12.2, we can clone a PDB  when the source is open in READ WRITE mode. This feature is also called HOT clone. Hot Clone relies on reading the online Redolog files and Archivelog files. -- If all the changes are available in the online Redolog files, then Hot cloneing will successed even in NOARCHIVELOG mode.
 
 The tasks you will accomplish in this step are:
 - Clone a pluggable database **PDB2** into **PDB3**
 
-1. Start SQLPLUS if you aren't already in a SQLPLUS session.
-
-    ```
-    <copy>sqlplus /nolog </copy>
-
-    ```
 1. Connect to the container **CDB1**.
 
     ```
     <copy>connect sys/oracle@localhost:1523/cdb1 as sysdba</copy>
     ```
-
-2. Change the pluggable database **PDB2** to read only.
+2. check the status of archive log mode.
+    ```
+    <copy>archive log list</copy>
+    SQL> archive log list
+    Database log mode	         No Archive Mode
+    Automatic archival	       Disabled
+    Archive destination	       /u01/app/oracle/product/19c/dbhome_1/dbs/arch
+    Oldest online log sequence     83
+    Current log sequence	         85
 
     ```
-    <copy>alter pluggable database PDB2 open read only force;
-    show pdbs</copy>
-    ```
 
-   ![](./images/alterplug.png " ")
-
-   ![](./images/showpdbs.png " ")
-
-3. Create a pluggable database **PDB3** from the read only database **PDB2**.
+2. Create a pluggable database **PDB3** from  **PDB2**.
 
     ```
     <copy>create pluggable database PDB3 from PDB2;
@@ -210,22 +202,19 @@ The tasks you will accomplish in this step are:
     ```
     <copy>show pdbs</copy>
     ```
+    ```
+    SQL> show pdbs
 
-   ![](./images/createpdb3.png " ")
-
-4. Change **PDB2** back to read write.
+    CON_ID      CON_NAME		OPEN MODE  RESTRICTED
+    ---------- ----------- ---------- ----------
+        	 2   PDB$SEED			READ ONLY  NO
+        	 3   PDB1 			  READ WRITE NO
+        	 4   PDB2 			  READ WRITE NO
+        	 5   PDB3 			  READ WRITE NO
 
     ```
-    <copy>alter pluggable database PDB2 open read write force;</copy>
-    ```
 
-    ```
-    <copy>show pdbs</copy>
-    ```
-
-   ![](./images/pdb2write.png " ")
-
-5. Connect to **PDB2** and show the table **MY_TAB**.
+4. Connect to **PDB2** and show the table **MY_TAB**.
 
     ```
     <copy>connect pdb_admin/oracle@localhost:1523/pdb2</copy>
@@ -237,7 +226,7 @@ The tasks you will accomplish in this step are:
 
    ![](./images/pdb2mytab.png " ")
 
-6. Connect to **PDB3** and show the table **MY_TAB**.
+5. Connect to **PDB3** and show the table **MY_TAB**.
 
     ```
     <copy>connect pdb_admin/oracle@localhost:1523/pdb3</copy>
@@ -528,19 +517,7 @@ The tasks you will accomplish in this step are:
     <copy>connect sys/oracle@localhost:1523/cdb1 as sysdba</copy>
     ```
 
-2. Change **PDB2** to read only.
-
-    ```
-    <copy>alter pluggable database PDB2 open read only force;</copy>
-    ```
-
-    ```
-    <copy>show pdbs</copy>
-    ```
-
-    ![](./images/step6.2-pdbreadonly.png " ")
-
-3. Create a pluggable database **GOLDPDB** from the read only database **PDB2**.
+2. Create a pluggable database **GOLDPDB** from the read only database **PDB2**.
 
     ```
     <copy>create pluggable database GOLDPDB from PDB2;</copy>
@@ -554,19 +531,24 @@ The tasks you will accomplish in this step are:
     <copy>show pdbs</copy>
     ```
 
-    ![](./images/step6.3-goldpdb.png " ")
-
-4. Change **PDB2** back to read write.
-
     ```
-    <copy>alter pluggable database PDB2 open read write force;</copy>
-    ```
+    SQL> create pluggable database GOLDPDB from PDB2;
 
-    ```
-    <copy>show pdbs</copy>
-    ```
+    Pluggable database created.
 
-    ![](./images/step6.4-mountgoldpdb.png " ")
+    SQL> alter pluggable database GOLDPDB open force;
+
+    Pluggable database altered.
+
+    SQL> show pdbs
+
+        CON_ID CON_NAME			  OPEN MODE  RESTRICTED
+    ---------- -------------- ---------- ----------
+    	 2       PDB$SEED			   READ ONLY  NO
+    	 3       PDB1 			     READ WRITE NO
+    	 5       PDB2 			     READ WRITE NO
+    	 6       GOLDPDB			   READ WRITE NO
+    ```
 
 5. Unplug **GOLDPDB** from **CDB1**.
 
@@ -685,21 +667,18 @@ The tasks you will accomplish in this step are:
 
     ![](./images/step6.12-guid.png " ")
 
-## Task 8: PDB Hot Clones
+## Task 8: Remote Clone
 This section looks at how to hot clone a pluggable database.
 
 The tasks you will accomplish in this step are:
 - Create a pluggable database **OE** in the container database **CDB1**
 - Create a load against the pluggable database **OE**
-- Create a hot clone **OE_DEV** in the container database **CDB2** from the pluggable database **OE**
+- Create a remote clone **OE_DEV** in the container database **CDB2** from the pluggable database **OE**
+- Create a snapshot clone from **OE_DEV**. Open the snapshot clone and do DML operations.
 
 [](youtube:djp-ogM71oE)
 
-1. Start SQLPLUS if you aren't already in a SQLPLUS session.
 
-    ```
-    <copy>sqlplus /nolog </copy>
-    ```
 1. Connect to the container **CDB1**.
     ```
     <copy>connect sys/oracle@localhost:1523/cdb1 as sysdba</copy>
@@ -720,11 +699,8 @@ The tasks you will accomplish in this step are:
     ```
 
     ```
-    <copy>grant create session, create table to soe;</copy>
-    ```
-
-    ```
-    <copy>alter user soe quota unlimited on system;</copy>
+    <copy>grant create session, create table to soe;
+          alter user soe quota unlimited on system;</copy>
     ```
 
     ![](./images/oe.png " ")
@@ -748,17 +724,6 @@ The tasks you will accomplish in this step are:
 
  4. Open a new terminal window, login into your instance, sudo to the oracle user, and execute write-load.sh. Leave this window open and running throughout for the rest of this lab.
 
-    ```
-    <copy>cd .ssh</copy>
-    ```
-
-    ```
-    <copy>ssh -i ~/.ssh/sshkeyname opc@Your Compute Instance Public IP Address</copy>
-    ```
-
-    ```
-    <copy>sudo su - oracle</copy>
-    ```
 
     ```
     <copy>cd /home/oracle/labs/multitenant</copy>
@@ -768,11 +733,11 @@ The tasks you will accomplish in this step are:
     <copy>./write-load.sh</copy>
     ```
 
-    ![](./images/step7.4-writeloadscript.png " ")
+
 
     Leave this window open and running for the next few steps in this lab.
 
-5. Go back to your original terminal window.  Connect to **CDB2** and create the pluggable **OE\_DEV** from the database link **oe@cdb1\_link**.
+5. Go back to your original terminal window.  Connect to **CDB2** and create the **REMOTE CLONE**  **OE\_DEV** from the database link **oe@cdb1\_link**.
 
     ```
     <copy>connect sys/oracle@localhost:1524/cdb2 as sysdba</copy>
@@ -786,8 +751,29 @@ The tasks you will accomplish in this step are:
     <copy>alter pluggable database oe_dev open;</copy>
     ```
 
+
     ![](./images/step7.5-createoedev.png " ")
 
+6. Verify the remote DB link is pointing to CDB1.
+
+       ```
+       <copy>
+       set linewidth 180
+       set pages 100
+       column owner format A13
+       column db_link format A13
+       select owner,db_link,host from dba_db_links;
+       </copy>
+       set linewidth 180
+
+        OWNER	      DB_LINK         
+        ------------- -------------
+        HOST
+        --------------------------------------------------------------------------------
+        SYS	      CDB1_LINK
+        (DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1523)) (CONN
+        ECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = cdb1)))
+       ```
 6. Connect as **SOE** to **OE\_DEV** and check the number of records in the **sale\_orders** table.
 
     ```
@@ -812,27 +798,51 @@ The tasks you will accomplish in this step are:
 
     ![](./images/step7.7-checkrecordsoe.png " ")
 
-8. Close and remove the **OE_DEV** pluggable database.
+     While DML operations are going on in source PDB, We could create a remote clone.
+
+## Task 9: Snanshot Clone
+  You can create a snapshot copy PDB by executing a CREATE PLUGGABLE DATABASE ... FROM ... **SNAPSHOT COPY** statement.
+
+  A snapshot copy reduces the time required to create the clone because it does not include a complete copy of the source data files. Furthermore, the snapshot copy PDB occupies a fraction of the space of the source PDB.
+
+  A snapshot copy reduces the time required to create the clone because it does not include a complete copy of the source data files. Furthermore, the snapshot copy PDB occupies a fraction of the space of the source PDB. Snapshot copy works in all the Unix
+
+  You need CLONEDB=true and source PDB is open in read-only mode. Oracle Database creates a snapshot copy PDB using copy-on-write technology. The snapshot copy PDB contains sparse files, not full copies.
+  All UNIX systems meet the requirements to create snapshot copy including Oracle ACFS and ZFS.
+
+1. Open **OE_DEV** pluggable database in READ ONLY mode and create a snapshot.
 
     ```
     <copy>connect sys/oracle@localhost:1524/cdb2 as sysdba</copy>
     ```
 
     ```
-    <copy>alter pluggable database oe_dev close;</copy>
+    <copy>alter pluggable database oe_dev open read only force;</copy>
     ```
 
     ```
-    <copy>drop pluggable database oe_dev including datafiles;</copy>
+    <copy>create pluggable database oe_snap from OE_DEV snapshot copy;
+          alter pluggable database oe_snap open;  </copy>
     ```
 
-    ![](./images/step7.8-closeoedev.png " ")
+2. Connect to SOE user in the **OE_SNAP** pdb and perform DML operations.
 
-9. Leave the **OE** pluggable database open with the load running against it for the rest of the steps in this lab.
+    ```
+    <copy>connect soe/soe@localhost:1524/oe_snap</copy>
+    ```
 
-You can see that the clone of the pluggable database worked without having to stop the load on the source database. In the next step, you will look at how to refresh a clone.
+    ```
+    <copy>select count(*) from sale_orders;
+          insert into sale_orders select * from sale_orders;
+          commit;
+          select count(*) from sale_orders;</copy>
+    ```
+    You can refer to the [documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/cloning-a-pdb.html#GUID-E4EAE488-5371-4B8A-A839-2ADFA7507705) for more information.
+    PDB Snapshot Copy is a good way to create test and Dev environments from a production. You can drop the snapshots once the testing is done. You can take a snapshot copy of a refreshable PDB from production to ensure you get the latest dataset to run tests. In the next task, we will learn about refreshable PDBs.
 
-## Task 9: PDB Refresh
+
+
+## Task 10: PDB Refresh
 This section looks at how to hot clone a pluggable database, open it for read only and then refresh the database.
 
 [](youtube:L9l7v6dH-e8)
@@ -842,11 +852,10 @@ The tasks you will accomplish in this step are:
 - Create a hot clone **OE_REFRESH**` in the container database **CDB2** from the pluggable database **OE**
 - Refresh the **OE_REFRESH**` pluggable database.
 
-1. Start SQLPLUS if you aren't already in a SQLPLUS session.
 
-    ```
-    <copy>sqlplus /nolog </copy>
-    ```
+1. Leave the **OE** pluggable database open with the load running against it for the rest of the steps in this lab. If the scripts is done running, you can restart the load by executing ./write-load.sh
+
+
 1. Connect to the container **CDB2**.
     ```
     <copy>connect sys/oracle@localhost:1524/cdb2 as sysdba</copy>
@@ -864,6 +873,8 @@ The tasks you will accomplish in this step are:
 
     ![](./images/step8.2-createoerefresh.png " ")
 
+    The **OE\_REFRESH** PDB can be refreshed as long as its not open in READ-WRITE mode.
+
 3. Connect as **SOE** to the pluggable database **OE\_REFRESH** and count the number of records in the **sale\_orders** table.
 
     ```
@@ -876,7 +887,7 @@ The tasks you will accomplish in this step are:
 
     ![](./images/step8.3-connectassoe.png " ")
 
-4. Close the pluggable database **OE_REFRESH** and refresh it from the **OE** pluggable database.
+4. Close the pluggable database **OE_REFRESH** to refresh it from the **OE** pluggable database.
 
     ```
     <copy>conn sys/oracle@localhost:1524/oe_refresh as sysdba</copy>
@@ -930,12 +941,13 @@ The tasks you will accomplish in this step are:
 
 7. Leave the **OE** pluggable database open with the load running against it for the rest of this lab.
 
-## Task 10: PDB Relocation
+## Task 11: PDB Relocation
 
-This section looks at how to relocate a pluggable database from one container database to another. One important note, either both container databases need to be using the same listener in order for sessions to keep connecting or local and remote listeners need to be setup correctly. For this lab we will change **CDB2** to use the same listener as **CDB1**.
+This section looks at how to relocate a pluggable database from one container database to another. One important note, If both container databases are on the same host, then we need to be using the same listener, then we only change LOCAL_LISTENER. If the the container databases are on two seperate servers, then we need to configure REMOTE_LISTENER.
+For this lab we will change REMOTE_LISTENER for **CDB1** and **CDB2** to point at the other container.
 
 The tasks you will accomplish in this step are:
-- Change **CDB2** to use the same listener as **CDB1**
+- Change REMOTE_LISTER parameter for **CDB1** and  **CDB1**
 - Relocate the pluggable database **OE** from **CDB1** to **CDB2** with the load still running
 - Once **OE** is open the load should continue working.
 
@@ -946,19 +958,21 @@ The tasks you will accomplish in this step are:
     ```
 1. Connect to the container **CDB2**.
     ```
-    <copy>conn sys/oracle@localhost:1524/cdb2 as sysdba;</copy>
+    <copy>conn sys/oracle@localhost:1523/cdb1 as sysdba;</copy>
     ```
 
     ```
-    <copy>alter system set local_listener='LISTCDB1' scope=both;</copy>
+    <copy>alter system set REMOTE_LISTENER = "(ADDRESS=(PROTOCOL=tcp)(HOST=localhost)(PORT=1524))" scope=both;</copy>
     ```
 
-    ![](./images/step9.1-changelistener.png " ")
 
-2. Connect to **CDB2** and relocate **OE** using the database link **oe@cdb1_link**.
+2. Connect to **CDB2**, set REMOTE_LISTENER and relocate **OE** using the database link **oe@cdb1_link**.
 
     ```
-    <copy>conn sys/oracle@localhost:1523/cdb2 as sysdba;</copy>
+    <copy>
+    conn sys/oracle@localhost:1523/cdb2 as sysdba;
+    alter system set REMOTE_LISTENER = "(ADDRESS=(PROTOCOL=tcp)(HOST=localhost)(PORT=1523))" scope=both;
+    </copy>
     ```
 
     ```
@@ -981,39 +995,10 @@ The tasks you will accomplish in this step are:
 
     ![](./images/step9.3-showcdb1pdbs.png " ")
 
-4. Close and remove the **OE** pluggable database.
-
-    ```
-    <copy>conn sys/oracle@localhost:1523/cdb2 as sysdba</copy>
-    ```
-
-    ```
-    <copy>alter pluggable database oe close;</copy>
-    ```
-
-    ```
-    <copy>drop pluggable database oe including datafiles;</copy>
-    ```
-
+  Observer that the write load is still running, but the PDB OE has been relocated from CDB1 to CDB2.
     ![](./images/step9.4-removeoepdb.png " ")
 
 5. The load program isn't needed anymore and that window can be closed.
-
-6. If you are going to continue to use this environment you will need to change **CDB2** back to use **LISTCDB2**.
-
-    ```
-    <copy>sqlplus /nolog</copy>
-    ```
-
-    ```
-    <copy>conn sys/oracle@localhost:1523/cdb2 as sysdba;</copy>
-    ```
-
-    ```
-    <copy>alter system set local_listener='LISTCDB2' scope=both;</copy>
-    ```
-
-    ![](./images/step9.6-changetolistcdb2.png " ")
 
 ## Lab Cleanup
 

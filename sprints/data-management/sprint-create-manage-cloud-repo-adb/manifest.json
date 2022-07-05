@@ -1,0 +1,32 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I create, update, delete, and list cloud repositories?",
+         "description": "",
+         "filename": "sprint-create-manage-cloud-repo-adb.md"
+      },
+      {
+         "title": " How can I create a Database Credential for an OCI User?",
+         "description": "",
+         "filename": "../sprint-create-db-credential/sprint-create-db-credential.md"
+      },
+      {
+         "title": "How do I initialize a cloud code repository?",
+         "description": "",
+         "filename": "../sprint-initialize-cloud-repo-adb/sprint-initialize-cloud-repo-adb.md"
+      },
+      {
+         "title": "How do I use file operations with a cloud code repository?",
+         "description": "",
+         "filename": "../sprint-file-ops-cloud-repo-adb/sprint-file-ops-cloud-repo-adb.md"
+      },
+      {
+         "title": "How do I use SQL install operations with a cloud code repository?",
+         "description": "",
+         "filename": "../sprint-sql-ops-cloud-repo-adb/sprint-sql-ops-cloud-repo-adb.md"
+      }
+   ],
+   "task_type": "Sections"
+}

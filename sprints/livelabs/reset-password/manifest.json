@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How can I reset my Oracle LiveLabs reservation tenancy password?",
+         "description": "",
+         "filename": "./reset-password.md"
+      },
+      {
+         "title": "How can I extend my Oracle LiveLabs reservation?",
+         "description": "",
+         "filename": "../extend-reservation/extend-reservation.md"
+      }
+   ],
+   "task_type": "Sections"
+}

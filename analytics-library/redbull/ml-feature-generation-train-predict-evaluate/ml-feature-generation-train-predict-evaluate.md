@@ -13,7 +13,7 @@ We will do the following:
 - Evaluate the accuracy of the model: we will take a visual approach in OAC to compare predicted scores with actual scores.
 - Finally, we will draw conclusions on the entire exercise.
 
-Estimated Time: 20 minutes
+Estimated Lab Time: 20 minutes
 
 ### Objectives
 - Learn how to generate new features from one or more data sets
@@ -46,7 +46,7 @@ Estimated Time: 20 minutes
 
    ![pic1](images/manage-ml-users.png)
 
-   If sign-in is requested, sign in with `ADMIN`, password `Oracle_12345`.
+   If sign-in is requested, sign in with `ADMIN` and the secure password for the admin user.
 
 5. Check **Show All Users**, then click on the `F1` user.
 
@@ -68,7 +68,7 @@ We will run these SQL statements in a Notebook. A notebook is not just a conveni
 
 1. **Download** the prepared notebook that contain the SQL instructions to Generate the new Features:
 
-   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/8EVz39WrfDLErwJPlqWUP6U_ClrmVuZBeBiCV5A_nVdurePGbN9FRO7_vSxqReMt/n/odca/b/workshops-livelabs-do-not-delete/o/redbull-notebook.json" target="\_blank">Notebook to Generate Features</a>
+   <a href="https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/PeMeH0b0dmnYER-OpqcMh_UWCUbBxhWQ27Sf0PcqEDs25kDKqx8aXHmp90Xbf2xw/n/fruktknlrefu/b/workshop-redbull-analytics/o/redbull-notebook.json" target="\_blank">Notebook to Generate Features</a>
 
    Save the file on your local machine. Make sure that the file is saved with extension `.json`.
 
@@ -76,11 +76,11 @@ We will run these SQL statements in a Notebook. A notebook is not just a conveni
 
    ![pic1](images/open-service-console.png)
 
-3. Choose **Development** > **Oracle Machine Learning Notebooks**.
+3. Choose **Development** > **Oracle Machine Learning User Interface**.
 
    ![pic1](images/start-oml.png)
 
-4. Sign in with the user `F1`, password `Oracle_12345`.
+4. Sign in with the user `F1` and the secure password for the F1 user.
 
    ![pic1](images/sign-in-f1.png)
 
@@ -339,14 +339,6 @@ Now it's time to predict the race score on our _test_ data set: 2020. We can do 
 
    Verify that the "Treat As" value for each column is set as in the screenshot (adapt if necessary):
 
-   > `RACEID`: Attribute
-   >
-   > `NAME_YEAR`: Attribute
-   >
-   > `SCORE`: Measure
-   >
-   > `Prediction`: Measure
-
    Verify that the "Default Aggregation" for SCORE and Prediction is as in the screenshot (adapt if necessary):
 
    ![pic1](images/save-data.png)
@@ -427,15 +419,21 @@ Now it's time to predict the race score on our _test_ data set: 2020. We can do 
 
 ## **Task 9:** Bonus exercise: Predict the scores for the 2021 season
 
-In 2021, Formula 1 appears to be more exciting than ever. Red Bull is a serious contender for the world title. The fight between Hamilton and Verstappen is closer than ever.
+In 2021, Formula 1 appears to be very exciting. At least judging by how close Hamilton and Verstappen are during the year. The final race was also a very close call for Red Bull. Now the question is: does our model "agree"? Will the predictions of the model indicate that 2021 was an exciting year for Formula 1?
 
-The question is: will our ML model confirm that 2021 is an exciting season?
+1. Adapt the data flow to predict the scores for 2021
 
-Your challenge is to predict the score values for 2021 and plot the predicted scores. Note that this workshop has data until round 11, the Hungarian Grand Prix of August 2021.
+Your challenge is to predict the score values for 2021 and plot the predicted scores. This means that you will have to adapt the Data Flow to predict until for YEAR 2021 (instead of 2020). We will not give detailed instructions here. Review the rest of the lab if you need hints on how to do this.
 
-This means that you will have to adapt the Data Flow to predict until ROUND 11 of YEAR 2021 and then visualize the results, in a similar way as you've done for 2020.
+2. If all is well, you should be able to produce the chart below:
 
-So what do you think? Do the predicted scores reflect the actual level of excitement of 2021?
+   ![pic1](images/predicted-2021.png)
+
+3. Conclusion
+
+   This showed that indeed there have been some very high scoring races throughout the year. For example, the Hungarian and Bahrain races were very interesting for the fans, according to our model.
+
+**So what do you think? Do the predicted scores reflect the actual level of excitement of 2021?**
 
 ## **Task 10:** Conclusions and next steps
 
@@ -449,5 +447,4 @@ What this tells us is that these factors are indeed important for the experience
 Congratulations on completing the workshop! Now you've learned the basics of machine learning, hopefully you are inspired to apply it to many more challenges!
 
 ## **Acknowledgements**
-
 - **Author** - Jeroen Kloosterman, Technology Product Strategy Director

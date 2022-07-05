@@ -12,11 +12,11 @@ Extend this with the move to autonomy provided by Oracle Autonomous Database, a 
 
 With the Oracle Autonomous Database, developers can fully concentrate on the applications they write and the business’s requirements, rather than having to think about the data tier. And to make this even easier the Oracle Autonomous Database environment can be provisioned in minutes with a few simple clicks or an API call to the Oracle Cloud.
 
+Estimated Time: 115 minutes
+
 ## About the Oracle Database 19c New Features Workshop
 
 This workshop lets you try out new features in Oracle Database 19c. All the labs are independent of each other, so you don't need to do them in any particular order. If needed, a lab starts with instructions on how to prepare your environment, and ends with instructions on how to restore your environment back to its original state. For most lab steps, you enter a command in the terminal window. For database actions, you use SQL*Plus.
-
-> **Note**: Currently, this workshop is not supported in an Always Free environment. If you are using the LiveLabs environment (green button), please note that the **Install Oracle Database 19c with Automatic Root Script Execution** lab is not available.
 
 ### Security Enhancement Labs
 
@@ -31,4 +31,4 @@ The following security enhancement labs are available:
 ## Acknowledgements
 
 - **Author**- Jody Glover, Principal User Assistance Developer, Database Development
-- **Last Updated By/Date** - Matthew McDaniel, Austin Specialists Hub, December 13 2021
+- **Last Updated By/Date** - Matthew McDaniel, Austin Specialists Hub, February 16 2021

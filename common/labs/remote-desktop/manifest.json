@@ -1,14 +1,14 @@
 {
-  "workshoptitle": "Workshop Guide Selection",
+  "workshoptitle": "Use noVNC remote desktop",
   "help": "livelabs-help-db_us@oracle.com",
   "tutorials": [
     {
-      "title": "Open Your Workshop Guide",
+      "title": "Use noVNC remote desktop",
       "description": "Instructions for opening the correct workshop guide for compute images supporting multiple workshops",
-      "filename": "./../open-workshop-guide/open-workshop-guide.md"
+      "filename": "./using-novnc-remote-desktop.md"
     },
     {
-      "title": "Need Help?",
+      "title": "Need help?",
       "description": "Solutions to Common Problems and Directions for Receiving Live Help",
       "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-livelabs.md"
     }

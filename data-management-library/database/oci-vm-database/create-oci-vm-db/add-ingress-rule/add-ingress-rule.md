@@ -46,6 +46,6 @@ Oracle Cloud Infrastructure provides a quick and easy way to create an Oracle Da
 * [Oracle Cloud Infrastructure: Connecting to a DB System](https://docs.cloud.oracle.com/en-us/iaas/Content/Database/Tasks/connectingDB.htm)
 
 ## Acknowledgements
-* **Author** -Tom McGinn, Sr. Principal Product Manager, Database and Database Cloud Service
-* **Last Updated By/Date** - Tom McGinn, March 2020
+* **Author** - Kay Malcolm, Database Product Management
+* **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 * **Contributor** - Arabella Yao, Product Manager Intern, Database Management, June 2020

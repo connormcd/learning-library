@@ -41,7 +41,7 @@ In this section, you will be provisioning an ADW database and an ATP database us
 First, we are going to create an ADW Instance.
 
 1.  Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, and select **Autonomous Data Warehouse**.
-	
+
 	![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/database-adw.png " ")
 
 2.  Choose your **Compartment** by clicking on the drop-down list and then click **Create Autonomous Database**.
@@ -64,7 +64,7 @@ First, we are going to create an ADW Instance.
 
     ![](./images/010.png  " ")
 
-7.  In **Choose network access**, keep the default access type **Allow secure access from everywhere**. Under **Choose a license type**, select **License Included** and click **Create Autonomous Database**.
+7.  In **Choose network access**, keep the default access type **Allow secure access from everywhere**. Under **Choose a license type**, select **License Included** and click **Create Autonomous Database**. Leave the **Provide contacts for operational notifications and announcements** field blank.
 
     ![](./images/provision.png  " ")
 
@@ -102,7 +102,7 @@ You now have created your first ADW instance. Now, we are going to work on very 
 
     ![](./images/010.png  " ")
 
-7.  In **Choose network access**, keep the default access type **Allow secure access from everywhere**. Under **Choose a license type**, select **Bring Your Own License (BYOL)** and click **Create Autonomous Database**.
+7.  In **Choose network access**, keep the default access type **Allow secure access from everywhere**. Under **Choose a license type**, select **Bring Your Own License (BYOL)** and click **Create Autonomous Database**. Leave the **Provide contacts for operational notifications and announcements** field blank.
 
     ![](./images/atp-provision.png  " ")
 
@@ -117,7 +117,7 @@ You now have created your first ATP instance.
 ## Task 3: Create ML User in ADW
 
 1.  Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, select **Autonomous Data Warehouse** and navigate to your ADW instance.
-	
+
 	![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/database-adw.png " ")
 
     ![](./images/adw-instance.png " ")
@@ -149,26 +149,27 @@ You now have created your first ATP instance.
 ## Task 4: Grant Privileges to ML_USER to access Database Actions
 
 1.  Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, select **Autonomous Data Warehouse** and navigate to your ADW instance.
-	
+
 	![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/database-adw.png " ")
 
     ![](./images/adw-instance.png " ")
 
-2.  Select **Tools** on the Autonomous Database Details page.
 
-    ![](./images/tools.png " ")
-
-3. Select **Open Database Actions** under the tools.
+2. Click **Database Actions**.
 
     ![](./images/open-database-actions.png  " ")
 
-4. On the Database Actions login page, log in with your ADW credentials, provide the **Username - ADMIN** and click **Next**. Then provide the <if type="freetier">**Password** you created for the Autonomous instance.</if><if type="livelabs">password **WELcome__1234**</if> and click **Sign in**.
+	A **Launch DB Actions** screen appears.
+
+	![](./images/launch-db-actions.png)
+
+4. On the Database Actions login page, if you are prompted, log in with your ADW credentials, provide the **Username - ADMIN** and click **Next**. Then provide the <if type="freetier">**Password** you created for the Autonomous instance.</if><if type="livelabs">password **WELcome__1234**</if> and click **Sign in**.
 
     ![](./images/ml-admin.png " ")
 
     ![](./images/ml-admin-password.png " ")
 
-5. From the Database Action menu, select **SQL**.
+5. From the Database Actions Development menu, select **SQL**.
 
     ![](./images/sql.png " ")
 
@@ -176,7 +177,7 @@ You now have created your first ATP instance.
 
     ![](./images/click-x.png  " ")
 
-7.  By default, only the ADMIN user can use the SQL Developer Web. To enable ML\_USER to use it, you need to enter the following and execute the procedure to grant SQL developer web access to ML\_USER.
+7.  By default, only the ADMIN user can use the SQL Developer Web. To enable ML\_USER to use it, enter the following and click the **Run Statement** button to grant SQL developer web access to ML\_USER.
 
     ````
     <copy>
@@ -197,7 +198,7 @@ You now have created your first ATP instance.
     ![](./images/grant-mluser-access.png " ")
     ![](./images/mluser-access-granted.png " ")
 
-8.  Grant storage privileges to ML\_USER.
+8.  Enter the following code and click **Run Statement** to grant storage privileges to ML\_USER.
 
     ````
     <copy>
@@ -206,6 +207,8 @@ You now have created your first ATP instance.
     ````
 
     ![](./images/storage-privileges.png " ")
+
+9. Now, on the right, click the ADMIN profile dropdown and click **Sign Out** of the ADMIN account.
 
 ## Task 5: Download the Necessary Files
 
@@ -219,7 +222,7 @@ You now have created your first ATP instance.
 
 ## Task 6: Upload the data files to ML_USER
 
-1. On the tab with your ADW instance, click on **Open Database Actions** under Tools.
+1. On the tab with your ADW instance, click **Database Actions**.
 
     ![](./images/open-database-actions.png  " ")
 
@@ -233,11 +236,11 @@ You now have created your first ATP instance.
 
     ![](images/data-load.png)
 
-4. Leave the default selections - **Load data** and **Local File** and click **Next**.
+4. Leave the default selections - **LOAD DATA** and **LOCAL FILE** and click **Next**.
 
     ![](images/to-load-data.png)
 
-5. Drag and drop the **credit\_scoring\_100k.csv** from the directory where you downloaded and unzipped the install file onto the Drag and Drop target or click on **Select files** to browse the credit\_scoring\_100k.csv file and upload it.
+5. Drag and drop the **credit\_scoring\_100k.csv** from the directory where you downloaded and unzipped the install file onto the Data Load Drag and drop target or click on **Select Files** to browse the credit\_scoring\_100k.csv file and upload it.
 
     ![](images/select-files.png)
 
@@ -247,19 +250,15 @@ You now have created your first ATP instance.
 
     ![](images/run2.png)
 
-7. Notice the *Status: Running(1/1)* while loading the data. The status will be updated to *Status: Completed(1/1)* once the data loading job is completed.
+7. Notice the *Status: Running(0/1)* while loading the data. The status will be updated to *Status: Completed(1/1)* once the data loading job is completed.
 
     ![](./images/loading.png " ")
 
     ![](images/load-complete.png)
 
-8. Click on the hamburger menu and click on **Development**. From the database actions development menu, select **SQL**.
+8. Click the hamburger menu and select **SQL** under  **Development**.
 
-    ![](images/hamburger-menu.png)
-
-    ![](images/development.png)
-
-    ![](images/development-sql.png)
+  ![](images/development-sql.png)
 
 9. Click on the **X** in the popup to dismiss the Help.
 
@@ -275,4 +274,3 @@ You now have created your first ATP instance.
 
 - **Author** - Derrick Cameron, Leah Bracken (v2)
 - **Last Updated By/Date** - Anoosha Pilli, Product Manager, DB Product Management, March 2021
-

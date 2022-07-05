@@ -1,0 +1,12 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I connect to a PDB?",
+         "description": "",
+         "filename": "sprint-connect-pdb.md"
+      }
+   ],
+   "task_type": "Sections"
+}

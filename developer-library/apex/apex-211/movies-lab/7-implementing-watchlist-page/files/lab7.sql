@@ -105,7 +105,7 @@ wwv_flow_api.create_flow(
 ,p_logo_type=>'T'
 ,p_logo_text=>'Movies Watchlist'
 ,p_app_builder_icon_name=>'app-icon.svg'
-,p_proxy_server=>nvl(wwv_flow_application_install.get_proxy,'appoci-proxy01-vip.oraclevcn.com:80')
+,p_proxy_server=>nvl(wwv_flow_application_install.get_proxy,'')
 ,p_no_proxy_domains=>nvl(wwv_flow_application_install.get_no_proxy_domains,'')
 ,p_flow_version=>'Release 1.0'
 ,p_flow_status=>'AVAILABLE_W_EDIT_LINK'
@@ -766,7 +766,7 @@ wwv_flow_api.create_web_source_param(
 ,p_name=>'api_key'
 ,p_param_type=>'QUERY_STRING'
 ,p_is_required=>false
-,p_value=>'2d0f5737b3ed7179809f5bef37127439'
+,p_value=>''
 );
 wwv_flow_api.create_web_source_param(
  p_id=>wwv_flow_api.id(14321735187165922407)
@@ -813,7 +813,7 @@ wwv_flow_api.create_web_source_param(
 ,p_name=>'api_key'
 ,p_param_type=>'QUERY_STRING'
 ,p_is_required=>false
-,p_value=>'2d0f5737b3ed7179809f5bef37127439'
+,p_value=>''
 );
 wwv_flow_api.create_web_source_param(
  p_id=>wwv_flow_api.id(14321906061755940244)
@@ -13282,7 +13282,7 @@ wwv_flow_api.create_page_item(
 ,p_source=>'RUNTIME'
 ,p_source_type=>'FACET_COLUMN'
 ,p_display_as=>'NATIVE_RANGE'
-,p_lov=>'STATIC2:Over 3 hours;180|,2 to 3 hours;120|180,90 minutes to 20 hours;90|120,Less than 90 minutes;|90'
+,p_lov=>'STATIC2:Over 3 hours;180|,2 to 3 hours;120|180,90 minutes to 2 hours;90|120,Less than 90 minutes;|90'
 ,p_item_template_options=>'#DEFAULT#'
 ,p_attribute_01=>'Y'
 ,p_attribute_02=>'N'
@@ -13513,7 +13513,7 @@ wwv_flow_api.create_web_source_comp_param(
 ,p_web_src_param_id=>wwv_flow_api.id(14321734782032922406)
 ,p_page_plug_id=>wwv_flow_api.id(14415627952732712449)
 ,p_value_type=>'STATIC'
-,p_value=>'2d0f5737b3ed7179809f5bef37127439'
+,p_value=>''
 );
 wwv_flow_api.create_web_source_comp_param(
  p_id=>wwv_flow_api.id(14500168345802461602)
@@ -13614,7 +13614,7 @@ wwv_flow_api.create_web_source_comp_param(
 ,p_web_src_param_id=>wwv_flow_api.id(14321905656443940244)
 ,p_page_plug_id=>wwv_flow_api.id(14500168526708461604)
 ,p_value_type=>'STATIC'
-,p_value=>'2d0f5737b3ed7179809f5bef37127439'
+,p_value=>''
 );
 wwv_flow_api.create_web_source_comp_param(
  p_id=>wwv_flow_api.id(14500168867374461607)

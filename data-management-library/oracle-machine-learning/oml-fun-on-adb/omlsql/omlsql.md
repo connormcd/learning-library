@@ -1,4 +1,4 @@
-# Use Oracle Machine Learning for SQL
+# Introduction to Oracle Machine Learning for SQL
 
 ## Introduction
 
@@ -10,7 +10,6 @@ Estimated Time: 30 minutes
 OML4SQL provides a powerful, state-of-the-art machine learning capability within Oracle Database. You can use OML4SQL to build and deploy predictive and descriptive machine learning models, add intelligent capabilities to existing and new applications. OML4SQL offers an extensive set of in-database algorithms for performing a variety of machine learning tasks, such as classification, regression, anomaly detection, feature extraction, clustering, and market basket analysis, among others. The programmatic interfaces to OML4SQL are PL/SQL for building and maintaining models and a family of SQL functions for scoring.
 
 ### Objectives
-
 
 In this lab, you will:
 * Explore the data using SQL queries
@@ -24,12 +23,32 @@ This lab assumes you have:
 * An Oracle Cloud account
 * All previous labs successfully completed
 
-
-
-
 ## Task 1: Examine the Data
 
-You will use the `SALES` table from the `SH` schema. You can access the table by running the `SELECT` statements in OML Notebooks.
+1. Click the hamburger icon ![Hamburger image](images/hamburger.png) to open the left navigation menu and click **Notebooks**.
+
+2. The Notebooks page opens with all the notebooks listed in it. Click the **OML4SQL Time Series ESM (1)** notebook to open it.
+
+![Notebooks listed](images/notebooklist.png)
+
+3. The _OML4SQL Time Series ESM (1)_ notebook opens in the notebook editor. Click the gear icon to view and set the interpreter binding order.
+
+5. Click the play icon next to the **OML4SQL Time Series ESM (1)** title to run all paragraphs of the notebook.
+
+  ![Run all paragraphs](images/timeseries-run-all-paragraphs.png)
+
+6.Click **OK** in the confirmation window to run all paragraphs.
+
+![Run all paragraphs confirmation](images/timeseries-run-all-confirmation.png)
+
+7. The paragraphs start running one by one and display the status next to the paragraph titles. When the paragraph is running, the status displays **PENDING** and when it finishes, it displays **FINISHED**.
+
+![Paragraph running](images/timeseries-para-pending.png)
+
+ ![Paragraph finished](images/timeseries-para-finished.png)
+
+In this notebook you are using the `SALES` table from the `SH` schema. You can access the table by running the `SELECT` statements in OML Notebooks.
+
 The following table displays information about the attributes from the `SALES` table:
 
 | Attribute Name | Information |
@@ -42,30 +61,30 @@ The following table displays information about the attributes from the `SALES` t
 |`QUANTITY_SOLD` |The number of items sold|
 |`AMOUNT_SOLD` |	The amount or sales data|
 
-
 ## Task 2: Prepare the Data
+
 In this step, you will prepare the data by creating a view.
 The following steps help you to create a view and view the data:
 1. Prepare a view called `ESM_SH_DATA` by selecting the necessary columns from `SH.SALES` table. For this example, select `TIME_ID` and `AMOUNT_SOLD`.
 
     ```
-       <copy>
-    	%script
-    	CREATE OR REPLACE VIEW ESM_SH_DATA AS
-    	SELECT TIME_ID, AMOUNT_SOLD FROM SH.SALES;
+    <copy>
+    %script
+    CREATE OR REPLACE VIEW ESM_SH_DATA AS
+    SELECT TIME_ID, AMOUNT_SOLD FROM SH.SALES;
 
-    	</copy>
+    </copy>
+
+     ```
+
+  The output is as follows:
 
     ```
+    View ESM_SH_DATA created.
+    --------------------------
+    ```
 
-      The output is as follows:
-
-      ```
-      View ESM_SH_DATA created.
-
-      ---------------------------
-      ```
-
+    > **Note:** If you are reserving a workshop, some of the table views may already exist.
 
 2. Count the number of rows to ensure that we have the same amount of data. Run the following query:
 
@@ -75,6 +94,7 @@ The following steps help you to create a view and view the data:
     SELECT count(*) from ESM_SH_DATA;
     </copy>
     ```
+
 The output is follows:
 
     ```
@@ -87,21 +107,21 @@ The output is follows:
 
 3. View the `ESM_SH_DATA`.
 
-
     ```
     <copy>
     %sql
     SELECT * from ESM_SH_DATA
     WHERE rownum <11;
-
     </copy>
     ```
 
 	![Displays few rows from the created view](images/timeseries-table-view.png)
 
 ## Task 3: Build Your Model
+
 To build a model using the time series data, you will use the Exponential Smoothing algorithm on the `ESM_SH_DATA` view that is generated during the data preparation stage. In this example you build a time series model by applying the Holt-Winters model on time series aggregated on a quarterly interval.
 1. Build a Holt-Winters model with the `ESM_SH_DATA` table, run the following script:
+
     ```sql
         <copy>
         %script
@@ -115,8 +135,6 @@ To build a model using the time series data, you will use the Exponential Smooth
     &nbsp;
              -- algorithm = exponential smoothing
              v_setlst('ALGO_NAME')            := 'ALGO_EXPONENTIAL_SMOOTHING';
-
-
 
                  -- accumulation interval = quarter
                  v_setlst('EXSM_INTERVAL')        := 'EXSM_INTERVAL_QTR';
@@ -141,18 +159,16 @@ To build a model using the time series data, you will use the Exponential Smooth
         END;
         </copy>
 
-
     ```
 
     The output is as follows:
+
     ```
         PL/SQL procedure successfully completed.
         ---------------------------
         PL/SQL procedure successfully completed.
 
     ```
-
-
 
     Examine the script:
     - `v_setlist` is a variable to store `SETTING_LIST`.
@@ -172,11 +188,13 @@ To build a model using the time series data, you will use the Exponential Smooth
     - `SET_LIST`: Specifies `SETTING_LIST`.
     - `CASE_ID_COLUMN_NAME`: A unique case identifier column in the training data. In this example, `case_id` is `TIME_ID`. If there is a composite key, you must create a new attribute before creating the model.
     - `TARGET_COLUMN_NAME`: Specifies the column that is to be predicted. Also referred to as the target variable of the model. In other words, the value the model predicts. In this example, you are predicting the sale of products in terms of their dollar price. Therefore, in this example, the `TARGET_COLUMN_NAME` is `AMOUNT_SOLD`.
-    >**Note:** Any parameters or settings not specified are either system-determined or default values are used.
 
+    > **Note:** Any parameters or settings not specified are either system-determined or default values are used.
 
 ## Task 4: Evaluate Your Model
+
 Evaluate your model by viewing diagnostic metrics and performing quality checks. To obtain more insights about the model and view model settings, you can query data dictionary views and model detail views. Specific model detail views display model statistics which can help you evaluate the model. Model detail views are specific to the algorithm. The names of model detail views begin with `DM$xx` where _xx_ corresponds to the view prefix. See [Model Detail Views](https://docs.oracle.com/en/database/oracle/machine-learning/oml4sql/21/dmprg/model-detail-views.html#GUID-AF7C531D-5327-4456-854C-9D6424C5F9EC).
+
 1. You can review the model settings by running the following query:
 
     ```
@@ -202,6 +220,7 @@ Evaluate your model by viewing diagnostic metrics and performing quality checks.
     ```
 
 	![Review diagnostic metrics](images/timeseries-diagnosticview.png)
+
 The `DM$VG` view for time series contains the global information of the model along with the estimated smoothing constants, the estimated initial state, and global diagnostic measures.
 
 - `NAME`: Indicates the diagnostic attribute name.
@@ -220,6 +239,7 @@ In exponential smoothing, a series extends infinitely into the past, but that in
 Note that _α_ is associated with the error or noise of the series, _β_ is associated with the trend, and _γ_ is associated with the seasonality factors.
 
 ## Task 5: Access Forecasts from Your Model
+
 For a time series model, you use the `DM$VP` view to retrieve the forecasts for the requested time periods.
 1. Query the `DM$VP` model detail view to see the forecast (sales for four quarters). The `DM$VP` view for time series contains the result of an ESM model. The output has a set of records such as partition, `CASE_ID`, value, prediction, lower, upper, and so on and ordered by partition and `CASE_ID` (time). Run the following statement:
 
@@ -244,8 +264,8 @@ For a time series model, you use the `DM$VP` view to retrieve the forecasts for 
 	- `round(PREDICTION,2) FORECAST_SOLD`: Specifies the predicted value as `FORECAST_SOLD` rounded to two decimal places.
 	- `round(LOWER,2) LOWER_BOUND, round(UPPER,2) UPPER_BOUND`: Specifies the lower and upper confidence levels rounded to two decimal places.
 
-2. To see a visual representation of the predictions in OML Notebooks, run the same query above with the following settings:
-Click **settings** and drag `DATE_ID` to **keys** and `FORECASTED_SOLD (avg)`, `ACTUAL_SOLD (avge)`, `LOWER_BOUND (avg)`, and `UPPER_BOUND(avg)` to **values**.
+2. To see a visual representation of the predictions in OML Notebooks, run the same query above without ```DESC``` in the ```ORDER BY``` clause. Click the Line Chart graph and apply the following settings:
+Click **settings** and drag `DATE_ID` to **keys** and `FORECASTED_SOLD`, `ACTUAL_SOLD`, `LOWER_BOUND`, and `UPPER_BOUND` to **values**. By default, the columns in the **values** field show `(sum)`. For example,  `ACTUAL_SOLD (sum)`. Click the column name and change it to `(avg)`. Change all the column names in the **values** field to show `(avg)`.
 
     ```
     <copy>
@@ -258,26 +278,23 @@ Click **settings** and drag `DATE_ID` to **keys** and `FORECASTED_SOLD (avg)`, `
     </copy>
     ```
 
+  ![Line Chart icon](images/timeseries-line-chart.png)
 
-	![A visual representation of the forecast](images/timeseries-forecast-graph.png)
+  ![Displays the Line Graph settings](images/timeseries-graph-settings.png)
 
-
+  ![A visual representation of the forecast](images/timeseries-forecast-graph.png)
 
 This completes the prediction step. The model has successfully forecast sales for the next four quarters.
 
-You may now **proceed to the next lab**.
-
-
 ## Learn More
-
 
 * [Time series use case](https://docs.oracle.com/en/database/oracle/machine-learning/oml4sql/21/mlsql/time-series.html#GUID-B5AF253F-DF52-416C-A621-0B7F6ECFFF7E)
 * [PL/SQL API Packages](https://docs.oracle.com/en/database/oracle/machine-learning/oml4sql/21/dmapi/DBMS_DATA_MINING.html#GUID-7B9145D4-831F-46B3-977F-01AF77ACA4A1)
 * [Model Detail Views](https://docs.oracle.com/en/database/oracle/machine-learning/oml4sql/21/dmapi/model-detail-views.html#GUID-AF7C531D-5327-4456-854C-9D6424C5F9EC)
 * [Exponential Smoothing](https://docs.oracle.com/en/database/oracle/machine-learning/oml4sql/21/dmcon/expnential-smoothing.html#GUID-65C7E533-E403-4F71-A5FE-EC034745904F)
 
-
 ## Acknowledgements
-* **Author** - Sarika Surampudi, Senior User Assistance Developer, Oracle Database User Assistance Development
-* **Contributors** -  Mark Hornick, Sr. Director, Data Science and Oracle Machine Learning Product Management; Sherry LaMonica, Principal Member of Technical Staff, Oracle Machine Learning
-* **Last Updated By/Date** - Sarika Surampudi, December 2021
+
+* **Author** - Sarika Surampudi, Principal User Assistance Developer, Oracle Database User Assistance Development
+* **Contributors** -  Mark Hornick, Sr. Director, Data Science and Oracle Machine Learning Product Management; Sherry LaMonica, Consulting Member of Technical Staff, Machine Learning;  Marcos Arancibia, Senior Principal Product Manager, Machine Learning
+* **Last Updated By/Date** - Sarika Surampudi, June 2022

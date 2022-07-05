@@ -10,7 +10,7 @@
         {
             "title": "Get Started",
             "description": "Login to Oracle Cloud",
-            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login-livelabs2.md"
         },         
         {
             "title": "Lab 1: Provision an Autonomous Database Instance",
@@ -34,7 +34,12 @@
             "filename": "../../recommend/recommend.md"
         },  
         {
-            "title": "Lab 5: Apply the Recommendation",
+            "title": "Lab 5: View Recommendation",
+            "description": "View the details of the recommendation",
+            "filename": "../../view-recommendation/view-recommendation.md"
+        },    
+        {
+            "title": "Lab 6: Apply the Recommendation",
             "description": "Execute Apply API to Apply the Recommendation",
             "filename": "../../apply/apply.md"
         },                             

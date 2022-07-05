@@ -144,13 +144,13 @@ This lab assumes you have already completed the following:
 1. Still in the shard3 host with oracle user. Download the SQL script `nonshard-app-schema.sql`.
 
     ```
-    [oracle@shd3 ~]$ <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/_wAzMJHX9Kz8sFn3kd12KMov3HxTPiAyX0winrn7sbh9T7RXYSsR6f_tyAxIdYhi/n/c4u04/b/data-management-library-files/o/Oracle%20Sharding/nonshard-app-schema.sql</copy>
-    --2020-12-06 10:45:06--  https://objectstorage.us-ashburn-1.oraclecloud.com/p/_wAzMJHX9Kz8sFn3kd12KMov3HxTPiAyX0winrn7sbh9T7RXYSsR6f_tyAxIdYhi/n/c4u04/b/data-management-library-files/o/Oracle%20Sharding/nonshard-app-schema.sql
+    [oracle@shd3 ~]$ <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/Oracle%20Sharding/nonshard-app-schema.sql</copy>
+    --2020-12-06 10:45:06--  https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/Oracle%20Sharding/nonshard-app-schema.sql
     Resolving github.com (github.com)... 140.82.112.3
     Connecting to github.com (github.com)|140.82.112.3|:443... connected.
     HTTP request sent, awaiting response... 302 Found
-    Location: https://objectstorage.us-ashburn-1.oraclecloud.com/p/_wAzMJHX9Kz8sFn3kd12KMov3HxTPiAyX0winrn7sbh9T7RXYSsR6f_tyAxIdYhi/n/c4u04/b/data-management-library-files/o/Oracle%20Sharding/nonshard-app-schema.sql [following]
-    --2020-12-06 10:45:08--  https://objectstorage.us-ashburn-1.oraclecloud.com/p/_wAzMJHX9Kz8sFn3kd12KMov3HxTPiAyX0winrn7sbh9T7RXYSsR6f_tyAxIdYhi/n/c4u04/b/data-management-library-files/o/Oracle%20Sharding/nonshard-app-schema.sql
+    Location: https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/Oracle%20Sharding/nonshard-app-schema.sql [following]
+    --2020-12-06 10:45:08--  https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/Oracle%20Sharding/nonshard-app-schema.sql
     Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.76.133
     Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.76.133|:443... connected.
     HTTP request sent, awaiting response... 200 OK
@@ -476,13 +476,13 @@ This lab assumes you have already completed the following:
 2. Download the `sdb_demo_app.zip`  file.
 
     ```
-    [oracle@cata ~]$ <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/iQr8DVOvWtGnYnrFdRqiPxuUuTQz_BbEIQpDY4HHxeCDJ1qSD6ccX-vYc6J1d71w/n/c4u04/b/data-management-library-files/o/Oracle%20Sharding/sdb_demo_app.zip</copy>
-    --2020-12-06 10:50:35--  https://objectstorage.us-ashburn-1.oraclecloud.com/p/iQr8DVOvWtGnYnrFdRqiPxuUuTQz_BbEIQpDY4HHxeCDJ1qSD6ccX-vYc6J1d71w/n/c4u04/b/data-management-library-files/o/Oracle%20Sharding/sdb_demo_app.zip
+    [oracle@cata ~]$ <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/Oracle%20Sharding/sdb_demo_app.zip</copy>
+    --2020-12-06 10:50:35--  https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/Oracle%20Sharding/sdb_demo_app.zip
     Resolving github.com (github.com)... 140.82.113.3
     Connecting to github.com (github.com)|140.82.113.3|:443... connected.
     HTTP request sent, awaiting response... 302 Found
-    Location: https://objectstorage.us-ashburn-1.oraclecloud.com/p/iQr8DVOvWtGnYnrFdRqiPxuUuTQz_BbEIQpDY4HHxeCDJ1qSD6ccX-vYc6J1d71w/n/c4u04/b/data-management-library-files/o/Oracle%20Sharding/sdb_demo_app.zip [following]
-    --2020-12-06 10:50:37--  https://objectstorage.us-ashburn-1.oraclecloud.com/p/iQr8DVOvWtGnYnrFdRqiPxuUuTQz_BbEIQpDY4HHxeCDJ1qSD6ccX-vYc6J1d71w/n/c4u04/b/data-management-library-files/o/Oracle%20Sharding/sdb_demo_app.zip
+    Location: https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/Oracle%20Sharding/sdb_demo_app.zip [following]
+    --2020-12-06 10:50:37--  https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/Oracle%20Sharding/sdb_demo_app.zip
     Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.88.133
     Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.88.133|:443... connected.
     HTTP request sent, awaiting response... 200 OK
@@ -1161,9 +1161,9 @@ In this step, you will export the demo application data and copy the dmp file to
 
     
 
-You may now [proceed to the next lab](#next).
+You may now proceed to the next lab..
 
 ## Acknowledgements
 * **Author** - Minqiao Wang, DB Product Management, Dec 2020 
-* **Last Updated By/Date** - Minqiao Wang, Jun 2021
+* **Last Updated By/Date** - Andres Quintana, April 2022
 

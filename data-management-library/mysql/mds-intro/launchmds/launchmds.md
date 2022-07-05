@@ -280,7 +280,7 @@ If you are a Linux, Mac, or  Windows 10 Powershell user, skip the first step.
 
      ![Connect](./images/06connect01.png " ")
 
-3. Install MySQL release package with the following command (you will need a MySQL client tool to connect to your new MySQL Database System from your client machine):
+5. Install MySQL release package with the following command (you will need a MySQL client tool to connect to your new MySQL Database System from your client machine):
 
      ```
      <copy>[opc@...]$ sudo yum -y install https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm</copy>
@@ -288,7 +288,7 @@ If you are a Linux, Mac, or  Windows 10 Powershell user, skip the first step.
 
      ![Connect](./images/06connect03.png " ")
 
-4. Install MySQL Shell with the following command:
+6. Install MySQL Shell with the following command:
 
      ```
      <copy>[opc@...]$ sudo yum install –y mysql-shell</copy>
@@ -296,13 +296,13 @@ If you are a Linux, Mac, or  Windows 10 Powershell user, skip the first step.
 
      ![Connect](./images/06connect05.png " ")
 
-4. From your compute instance, connect to MySQL using the MySQL Shell client tool.
+7. From your compute instance, connect to MySQL using the MySQL Shell client tool.
 
      > **Note:** The endpoint (IP address) can be found on the MySQL Database System Details page, under **Endpoints**.
 
      ![Connect](./images/06connect06.png " ")
 
-5.  Use the following command to connect to MySQL using the MySQL Shell client tool. For example,  **mysqlsh -uadmin -p -h132.145.170.990**.
+8.  Use the following command to connect to MySQL using the MySQL Shell client tool. For example,  **mysqlsh -uadmin -p -h132.145.170.990**.
 
      ```
      <copy>[opc@...]$ mysqlsh -u<MDS_admin_username> -p -h<MDS_endpoint></copy>
@@ -310,7 +310,7 @@ If you are a Linux, Mac, or  Windows 10 Powershell user, skip the first step.
 
      ![Connect](./images/06connect07.png " ")
 
-6. On MySQL Shell, switch to SQL mode to try some SQL commands. Type the following command at the prompt:    
+9. On MySQL Shell, switch to SQL mode to try some SQL commands. Type the following command at the prompt:    
 
      ```
      <copy>\SQL</copy>
@@ -318,19 +318,19 @@ If you are a Linux, Mac, or  Windows 10 Powershell user, skip the first step.
 
      ![Connect](./images/06connect13.png " ")
 
-7. To display a list of databases, type the following command at the prompt:
+10. To display a list of databases, type the following command at the prompt:
 
      ```
      <copy>SHOW DATABASES;</copy>
      ```
 
-8. To display the database version, current date, and user, type the following command at the prompt:
+11. To display the database version, current date, and user, type the following command at the prompt:
 
      ```
      <copy>SELECT VERSION(), CURRENT_DATE, USER();</copy>
      ```
 
-9. To display MysQL user and host from user table type the following command at the prompt:
+12. To display MysQL user and host from user table type the following command at the prompt:
 
      ```
      <copy>SELECT USER, HOST FROM mysql.user;</copy>
@@ -338,7 +338,7 @@ If you are a Linux, Mac, or  Windows 10 Powershell user, skip the first step.
 
      > **Note:** Optionally, you can use MySQL Workbench from your local machine to connect to the MySQL endpoint using your new compute instance as a jump box.
 
-10. If required, in your pre-installed **MySQL Workbench**, configure a connection using the **Standard TCP/IP over SSH** method and use the credentials of the compute instance for SSH.
+13. If required, in your pre-installed **MySQL Workbench**, configure a connection using the **Standard TCP/IP over SSH** method and use the credentials of the compute instance for SSH.
 
    - MySQL Workbench configuration for MySQL MySQL Database Service:
 
@@ -362,7 +362,7 @@ If you are a Linux, Mac, or  Windows 10 Powershell user, skip the first step.
 
     ![MDS](./images/04mysql07.png " ")
 
-3. Select one of the following actions:
+4. Select one of the following actions:
 
     - Start: Starts a stopped database system. After the database system is started, the **Stop** action is enabled and the **Start** option is disabled.
     - Stop: Stops a running database system. After the database system is powered off, the **Start** action is enabled.
@@ -373,7 +373,7 @@ If you are a Linux, Mac, or  Windows 10 Powershell user, skip the first step.
        - Billing for OCPUs resumes if you restart the database system.
        - If you selected **Stop** or **Restart**, the Stop/Restart MySQL Database System dialog box is displayed.
 
-4. Select a shutdown type:
+5. Select a shutdown type:
 
      - Fast: Flushes dirty pages before shutting down the database system. Some flush operations must        be performed during the next startup, potentially increasing the duration of the start-up    process.
      - Slow: Flushes dirty pages and purges undo log pages for older transactions. The shutdown itself can take longer, but the subsequent startup is faster.

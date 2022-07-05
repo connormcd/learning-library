@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+     {
+        "title": "How do I create an Object Storage table in Query Service?",
+        "type": "tenancy",
+        "description": "",
+        "filename": "./../sprint-create-obj-table-qs.md"
+     }
+   ],
+   "task_type": "Sections"
+}

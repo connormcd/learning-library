@@ -272,18 +272,19 @@ In this section, you are adding DB software image version 19.7 to Gold Image *Ti
 
     ![](images/a3ba55228f1e4a239c81bd01ed86c299.png " ")
 
-3. Review and execute the following command to add Image version 19.7 to "*Tier1 SIDB Linux-x64*"
+3. Review and execute the following command to create new Image version 19.7 to "*Tier1 SIDB 19c Linux-x64*"
 
     ```
-    <copy>emcli db_software_maintenance -createSoftwareImage -input_file="data:/home/oracle/fleet/sidb19c_tier1.inp"</copy>
+    <copy>emcli db_software_maintenance -createSoftwareImage -input_file="data:/home/oracle/fleet/sidb19c_tier1_ui.inp"</copy>
     ```
 
     **OR**  
+
     ```
-    <copy>sh add_image_version197_tier1_sidb_x64.sh</copy>
+    <copy>sh create_image_version197_tier1_sidb_x64.sh</copy>
     ```
 
-    ![](images/d3f1d7ec4ab73bd6e50aab47fbf3ffca.png " ")
+    ![](images/create_image_197.png " ")
 
 4. Navigate to ***Enterprise >> Provisioning and Patching >> Procedure Activity*** to Review Execution Details of this operation via Enterprise Manager Console. Click on ‘CreateGoldImage\*’ run
 
@@ -295,25 +296,39 @@ In this section, you are adding DB software image version 19.7 to Gold Image *Ti
 
     With the new version successfully added we can proceed to activate it by setting the Status *Current*
 
-6. View a list of versions available for the image
-
-    ```
-    <copy>emcli db_software_maintenance -getVersions -image_id=A5F3D8523BDF635BE0531A00000AA55B</copy>
-    ```
-
-    ![](images/9bba5ae0276141179ba6b22e984ba3f7.png " ")
-
-7. Using the VERSION ID from Step above, review and execute the following command to set Version Name 19.7 to Status Current
-
-    ```
-    <copy>emcli db_software_maintenance -updateVersionStatus -status=CURRENT -version_id=A79931EC777968D6E0532A00000A806B</copy>
-    ```
-
-    ![](images/7796c07b2b8273dc93221a84b784dc63.png " ")
 
 ## Task 6: Deploy New Image Version
 
-1. Run the block below to deploy a new Oracle Home.
+1. Before we deploy a new Oracle Home, we need to ensure that we unsubscribe finance database  from previous associated image.
+
+    Review and execute the following command to unsubscribe finance database from ***Tier #1 SI DB Linux64*** image. If finance database is not subscribed to any image, then we can move to next step, where we will subscribe it to 19.7 image.
+
+
+    ```
+    <copy>emcli db_software_maintenance -getTargetSubscriptions -target_name=finance.subnet.vcn.oraclevcn.com  -target_type=oracle_database</copy>
+    ```
+
+    ```
+    <copy>emcli db_software_maintenance -unsubscribeTarget -target_name=finance.subnet.vcn.oraclevcn.com -target_type=oracle_database -image_id="{Insert IMAGE ID of 19c from above output}"</copy>
+    ```
+
+    ![](images/unsubscribe_finance.png " ")
+
+    We now need to subscribe finance database to 19.7 image which we had created in step 3 of previous task.      
+
+
+    ![](images/finance_subscribe_197.png " ")
+
+
+    ```
+    <copy>emcli db_software_maintenance -getImages</copy>
+    ```
+
+    ```
+    <copy>emcli db_software_maintenance -subscribeTarget -target_name=finance.subnet.vcn.oraclevcn.com -target_type=oracle_database -image_id="{Insert IMAGE ID of 19c from above output}"</copy>
+    ```
+
+   Review and execute the following command to deploy a new Oracle Home.
 
     ```
     <copy>emcli db_software_maintenance -performOperation -name="deploy197" -purpose=DEPLOY_DB_SOFTWARE -target_type=oracle_database -target_list=finance.subnet.vcn.oraclevcn.com -normal_credential=ORACLE:SYSMAN -privilege_credential=ROOT:SYSMAN -input_file="data:/home/oracle/fleet/deploy197_finance.inp" -procedure_name_prefix="DEPLOY"</copy>

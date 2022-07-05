@@ -69,7 +69,7 @@ This lab assumes you have completed the following labs:
 5. Time to get ready for the data load. To start, we need to download the csv file. Using the Cloud Shell, enter the following command:
 
     ````
-    <copy>curl -o 2M.csv https://objectstorage.us-ashburn-1.oraclecloud.com/p/7uNJU4XM-W70-Hdbjc_HvdN5vnZNzi1rcgiU5VOAvbMa4JknH5Gd9zq0rlX35QcS/n/c4u04/b/developer-library/o/2M.csv</copy>
+    <copy>curl -o 2M.csv https://objectstorage.us-ashburn-1.oraclecloud.com/p/LNAcA6wNFvhkvHGPcWIbKlyGkicSOVCIgWLIu6t7W2BQfwq2NSLCsXpTL9wVzjuP/n/c4u04/b/livelabsfiles/o/developer-library/2M.csv</copy>
     ````
 
 6. Now that we have the file local, we can load it into the database. Remember that cURL command we saved just a bit ago? Time to alter a few commands in there and run it via the Cloud Shell. 
@@ -123,6 +123,15 @@ This lab assumes you have completed the following labs:
     -H "Content-Type:text/csv" --user "admin:123456ZAQWSX!!" \
     "https://coolrestlab-adb21.adb.eu-frankfurt-1.oraclecloudapps.com/ords/admin/csv_data/batchload?batchRows=5000&errorsMax=20"
     ```
+
+    Here is a template command you can use. Just fill in **ADMIN\_PASSWORD** and **ADB\_URL** with your environment's values.
+
+    ```
+    curl --write-out '%{time_total}' -X POST --data-binary "@2M.csv" \
+    -H "Content-Type:text/csv" --user "admin:ADMIN_PASSWORD" \
+    "https://ADB_URL/ords/admin/csv_data/batchload?batchRows=5000&errorsMax=20"
+    ```
+
 
     There it is, the final cURL command we will use to load the data into the table. Remember to replace **PASSWORD** with your password you used when we first created the user in Lab 1.
 
@@ -214,6 +223,6 @@ You may now [proceed to the next lab](#next).
 ## Acknowledgements
 
 - **Author** - Jeff Smith, Distinguished Product Manager and Brian Spendolini, Trainee Product Manager
-- **Last Updated By/Date** - Brianna Ambler, June 2021
-- **Workshop Expiry Date** - May 2022
+- **Last Updated By/Date** - Brian Spendolini, April 2022
+- **Workshop Expiry Date** - June 2022
 

@@ -1,19 +1,18 @@
 # Create MySQL Database Service
 
-![MySQL Database Service](images/mds_banner.png)
+![MySQL Database Service](images/mds-banner.png)
 
 ## Introduction
 
 **MySQL Database Service** is a fully-managed Oracle Cloud Infrastructure service, developed, managed, and supported by the MySQL team in Oracle.
 
 [](youtube:f-fVabi1tRA)
- 
 
-Estimated Lab Time: 30 minutes.
+Estimated Time: 30 minutes.
 
 ### Objectives
 
-In this lab, you will:
+In this section, you will:
 
 - Create an instance of MySQL in Oracle Cloud.
 - Connect and create the Database.
@@ -21,50 +20,62 @@ In this lab, you will:
 
 ### Prerequisites
 
-- All previous labs have been successfully completed.
+- All previous sections have been successfully completed.
 
 ## Task 1: Create an Instance of MySQL in the Cloud
 
-1. Go to **Menu** > **Databases** > **DB Systems**.
+1. Go to **Menu**, **Databases** and then click **DB Systems**.
 
-   ![](images/mysql_menu.png)
+   ![DB System Dashboard](images/mysql-menu.png)
 
 2. Click **Create MySQL DB System**.
 
    Make sure your **root** compartment (or the one you want) is selected.
 
-   ![](images/mysql_create_button.png)
+   ![Create MySQL DB System](images/mysql-create-button.png)
 
       - Name your MySQL instance: `mysql-analytics`
+         ```
+         <copy>mysql-analytics</copy>
+         ```
       - Description (optional): `MySQL instance for Analytics`
+         ```
+         <copy>MySQL instance for Analytics</copy>
+         ```
 
 3. Between the three options, pick `HeatWave`. `Standalone` will work for the test, but it doesn't include the Analytics Engine that will improve performance for Analytics.
 
    For Username and password:
 
       - Username: `root`
-      - Password: `R2d2&C3po!`
-      - Confirm Password: `R2d2&C3po!`
+         ```
+         <copy>root</copy>
+         ```
+      - Password: `<your_password>`
+      - Confirm Password: `<your_password>`
 
-   ![](images/mysql_create_db_fields.png)
+   ![MySQL create db fields](images/mysql-create-db-fields.png)
 
 4. **Network** configuration:
 
       - Virtual Cloud Network: `nature`
       - Subnet: `Private Subnet-nature (Regional)`
 
-   ![](images/mysql_vcn_fields.png)
+   ![MySQL vcn fields](images/mysql-vcn-fields.png)
 
 5. Everything else is good by **default**:
 
       - Configure placement: `AD-1`
       - Configure hardware: `MySQL.HeatWave.VM.Standard.E3` or Standalone (selected above) `MySQL.VM.Standard.E3.1.8GB`
       - Data Storage Size (GB): `50`
+         ```
+         <copy>50</copy>
+         ```
       - Configure Backups: `Enable Automatic Backups`
 
 6. Click **Create**.
 
-   ![](images/mysql_shape_fields.png)
+   ![MySQL shape fields](images/mysql-shape-fields.png)
 
    The provisioning is around **10 minutes**. The icon should change to `ACTIVE` in green:
 
@@ -72,9 +83,9 @@ In this lab, you will:
 
    ![Active](images/mds-active.png)
 
-7. **Copy the private IP address** from the MySQL DB System Information page. It will look like `10.0.1.xxx`.
+7. **Copy the Private IP address** from the MySQL DB System Information page. It will look like `10.0.1.xxx`.
 
-   ![](images/mysql_private_ip.png)
+   ![MySQL private IP](images/mysql-private-ip.png)
 
 ---
 
@@ -82,22 +93,22 @@ In this lab, you will:
 
 1. Connect with **Cloud Shell** (if you close it or it is no longer active).
 
-   ![](images/cloud_shell.png)
+   ![Cloud Shell Dashboard](images/cloud-shell.png)
 
       - (If you are NOT inside the bastion host already) SSH into the bastion host: `ssh -i ~/.ssh/bastion opc@PUBLIC_IP`
       - Run MySQL Shell (replace `PRIVATE_IP` with your MDS IP value): 
          ```
-         <copy>curl -L https://bit.ly/3yoHvem | mysqlsh --sql --save-passwords=always root@PRIVATE_IP</copy>
+         <copy>curl -sL https://bit.ly/3yoHvem | mysqlsh --sql --save-passwords=always root@PRIVATE_IP</copy>
          ```
-   This command will download the SQL script, and pipe the content to MySQL Shell to be executed as SQL code. We also indicate with `--save-passwords=always` to save the password securely for future uses of MySQL Shell.
+   This command will download the SQL script, and pipe the content to MySQL Shell to be executed as SQL code. We also indicate with `--save-passwords=always` to save the password securely for future uses of MySQL Shell. It can take a few minutes, be patient.
 
 2. If the terminal asks for the **password** (`Please provide the password for 'root@PRIVATE_IP':`).
 
-      - Type the MySQL DB password: `R2d2&C3po!`
+      - Type the MySQL DB password: `<your_password>`
 
    If there is no error on the console, everything is ready to proceed.
 
-   ![Create Schema Terminal](images/create_schema_mysql_terminal.png)
+   ![Create Schema Terminal](images/create-schema-mysql-terminal.png)
 
 ---
 
@@ -107,23 +118,23 @@ In this lab, you will:
 
 2. Go to the **Resources Menu** > **HeatWave**.
 
-   ![](images/mds_heatwave_menu.png)
+   ![MDS Heatwave menu](images/mds-heatwave-menu.png)
 
 3. Your HeatWave is disabled, add the HeatWave Cluster. Click **Add HeatWave Cluster**.
 
-   ![](images/mds_heatwave_add_cluster.png)
+   ![MDS Heatwave Add cluster](images/mds-heatwave-add-cluster.png)
 
 4. Leave the default values, and click **Add HeatWave Cluster**.
 
-   ![](images/mds_heatwave_select_shape.png)
+   ![MDS Heatwave shape](images/mds-heatwave-select-shape.png)
 
    Wait for the Cluster to be **created**.
 
-   ![](images/mds_heatwave_creating.png)
+   ![MDS Heatwave creating](images/mds-heatwave-creating.png)
 
 5. **HeatWave** will be `Active` and the cluster nodes will be as well in `Active` state.
 
-   ![](images/mds_heatwave_active.png)
+   ![MDS Heatwave active](images/mds-heatwave-active.png)
 
 Congratulations! You are ready to go to the next Lab!
 
@@ -131,6 +142,6 @@ Congratulations! You are ready to go to the next Lab!
 
 ## **Acknowledgements**
 
-- **Author** - Victor Martin, Technology Product Strategy Manager
+- **Author** - Victor Martin, Technology Product Strategy Director
 - **Contributors** - Priscila Iruela
-- **Last Updated By/Date** - Brianna Ambler, June 2021
+- **Last Updated By/Date** - Priscila Iruela, June 2022

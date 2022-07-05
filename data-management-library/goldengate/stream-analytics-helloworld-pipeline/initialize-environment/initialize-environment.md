@@ -29,7 +29,7 @@ Now with access to your remote desktop session, validate your environment before
     - Apache Spark Master
     - Apache Spark Slave
 
-2. On the web browser window on the right preloaded with *Golden Gate Stream Analytics* login page, provide the credentials below to login:
+2. On the web browser window on the right preloaded with *GoldenGate Stream Analytics* login page, provide the credentials below to login:
 
     - Username
 
@@ -40,8 +40,15 @@ Now with access to your remote desktop session, validate your environment before
     - Password
 
     ```
-    <copy>welcome1</copy>
+    <copy>xY3q3svdHt8=</copy>
     ```
+
+    ![GGSA Login](./images/ggsa-login.png "")
+    ![GGSA Landing](./images/ggsa-landing.png "")
+
+    *Note:* If the browser window is not fully loaded with the login page displayed, Double click on the *Get Started with Your Workshop* icon on the upper left corner in your remote desktop to relaunch.
+
+    ![Get Started with your Workshop](./images/get-started-icon.png "")
 
 3. Confirm successful login. Note that it takes about 5 minutes after instance provisioning for all processes to fully start.
 
@@ -57,7 +64,7 @@ Now with access to your remote desktop session, validate your environment before
 
     If successful, the page above is displayed and your environment is ready.  
 
-    You may now [proceed to the next lab](#next).
+    You may now [proceed to the next lab].
 
 4. If you are unable to login, or the login page is not functioning after reloading from the *Workshop Links* bookmark folder, validate the services:
 
@@ -142,12 +149,45 @@ Now with access to your remote desktop session, validate your environment before
     | Apache Kafka Server (Broker)    | kafka.service                |
     | MySQL Server                    | mysqld.service               |
     | Oracle Stream Analytics         | osa.service                  |
-    | The nginx HTTP and reverse proxy| nginx.service    |
+    | The nginx HTTP and reverse proxy| nginx.service                |
     | Apache Spark Master             | spark-master.service         |
     | Apache Spark Slave              | spark-slave.service          |
 
+## Appendix 2: External Web Access
+
+If for any reason you want to login from a location that is external to your remote desktop session such as your workstation/laptop, then refer to the details below.
+
+1.  GGSA Console
+
+    - Username
+
+    ```
+    <copy>osaadmin</copy>
+    ```
+
+    - Password
+
+    ```
+    <copy>xY3q3svdHt8=</copy>
+    ```
+
+    - URL
+
+    ```
+    <copy>https://[Instance Public_IP Address]/osa</copy>
+    ```
+
+    *Note:* Substitute *[Instance Public IP]* with the correct host's public IP address
+
+2. You may see an error on the browser while accessing the Web Console - “*Your connection is not private*” as shown below. Ignore and add the exception to proceed.
+
+    For Chrome browser, click on *Advanced* to expand and select *Proceed to [Instance Public IP] (unsafe)*
+
+    ![Privacy Error](images/login-ggsa-external-1.png " ")
+    ![GGSA Login](images/login-ggsa-external-2.png " ")
+    ![GGSA Landing](images/login-ggsa-external-3.png " ")
 
 ## Acknowledgements
 * **Author** - Pratibha Manjunath, Senior User Assistance Developer, GoldenGate Stream Analytics
-* **Contributors** - Ashish Kumar, Sumathi Nelapati
-* **Last Updated By/Date** - Pratibha Manjunath, GoldenGate Stream Analytics, December 2021
+* **Contributors** - Ashish Kumar, Sumathi Nelapati, Rene Fontcha
+* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, January 2022

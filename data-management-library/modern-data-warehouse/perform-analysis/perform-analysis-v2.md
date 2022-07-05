@@ -16,7 +16,7 @@ Estimated Lab Time: 15 minutes
 
 - The source and destination Autonomous Data Warehouses (ADW) and Analytics Cloud (OAC) instance.
 - Access to the ModernDW file needed to recreate an analytics project.
-    - [ModernDW.dva](https://objectstorage.us-ashburn-1.oraclecloud.com/p/4CYxFxh-zXj8Ke32RMTnGQa0mEoiHsAgBO0Kc7qbqQUTtkFD8YpJN25ybT4Amr83/n/c4u04/b/data-management-library-files/o/modern-data-warehouse/ModernDW.dva)
+    - [ModernDW.dva](https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/modern-data-warehouse/ModernDW.dva)
 
 **Note:** Please download the file above before continuing.
 

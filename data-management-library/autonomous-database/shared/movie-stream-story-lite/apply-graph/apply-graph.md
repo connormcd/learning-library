@@ -17,15 +17,15 @@ When you model your data as a graph, you can run graph algorithms on your data t
 
 In this lab you will use a graph created from the tables MOVIE, CUSTOMER\_PROMOTIONS, and CUSTSALES\_PROMOTIONS. MOVIE and CUSTOMER\_PROMOTIONS are vertex tables (every row in these tables becomes a vertex). CUSTSALES\_PROMOTIONS connects the two tables, and is the edge table. Every time a customer in CUSTOMER\_PROMOTIONS rents a movie in the table MOVIE, that is an edge in the graph. This graph has been created for you for use in this lab.  
 
-You have the choice of over 60 pre-built algorithms when analyzing a graph. In this lab you will use the **WhomToFollow** algorithm that clusters users based on the movies they have rented. A customer in a cluster is likely to like movies liked by other customers in the same cluster. WhomToFollow is used in social network analysis to identify who you should follow; here we use it to identify movie recommendations that will most interest a customer.  
+You have the choice of over 60 pre-built algorithms when analyzing a graph. In this lab you will use the **Personalized SALSA** algorithm, which is a good choice for product recommendations. Customer vertices map to *hubs* and movies map to *authorities*. Higher hub scores indicate a closer relationship between customers. Higher authority scores indicate that the vertex (or movie) is plays a more important role in establishing that closeness.
 
 ### Objectives
 
 In this lab, you will use the Graph Studio feature of Autonomous Database to:
 * Use a notebook
 * Run a few PGQL graph queries
-* Run WhomToFollow from the algorithm library
-* Query the results
+* Use python to run Personalized SALSA from the algorithm library
+* Query and save the recommendations
 
 ### Prerequisites
 
@@ -79,7 +79,7 @@ The MOVIE_RECOMMENDATIONS graph has been created for you from the tables CUSTOME
 
  You can import a notebook that has the graph queries and analytics. Each paragraph in the notebook has an explanation.  You can review the explanation, and then run the query or analytics algorithm.   
 
-  [Click here to download the notebook](files/Movie_Movie_Recommendations.dsnb) and save it to a folder on your local computer.  This notebook includes graph queries and analytics for the MOVIE_RECOMMENDATIONS graph.
+  [Click here to download the notebook](files/movie_recommendations_psalsa.dsnb) and save it to a folder on your local computer.  This notebook includes graph queries and analytics for the MOVIE_RECOMMENDATIONS graph.
 
  1. Import a notebook by clicking on the notebook icon on the left, and then clicking on the **import notebook** icon on the far right.
 

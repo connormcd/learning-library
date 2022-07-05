@@ -10,7 +10,7 @@ This Oracle SOA workshop demonstrates an implementation of business use case for
 - Register the composite with Service Bus and deploy
 - REST-api enabled the composite on SOA server in JDeveloper
 
-This workshop consists of 4 separate labs and are recommended to be performed in the order provided.  
+This workshop consists of 4 separate labs and are recommended to be performed in the order provided.
 
 | # | Lab | Estimate Time |
 | --- | --- | --- |
@@ -60,5 +60,5 @@ You may now proceed to the next lab.
 
 ## Acknowledgements
 * **Author for LiveLabs** - Daniel Tarudji
-* **Contributors** - Rene Fontcha, Meghana Banka, Tom McGinn, Kamryn Vinson
-* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, November 2020
+* **Contributors** - Rene Fontcha, Meghana Banka, Kamryn Vinson, Sahaana Manavalan
+* **Last Updated By/Date** - Sahaana Manavalan, LiveLabs Developer, NA Technology, February 2022

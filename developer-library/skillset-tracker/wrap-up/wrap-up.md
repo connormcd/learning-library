@@ -23,7 +23,7 @@ Estimated Lab Time: 6 hours
 
 
 ## Task 1: Download the full Skillset Tracking application code
-Before proceeding, you must first download the zip file with the code that can be found [here](https://objectstorage.us-ashburn-1.oraclecloud.com/p/FCkf-hjTxrlpKNHF9Y-Ofpfg35DTBsOQDalozYSjvK_JfH98sdytIR8ZgF0Cr5GN/n/c4u03/b/labfiles/o/SkillsetTrackerApplicationCode.zip). After downloading, you can unzip the archive.
+Before proceeding, you must first download the zip file with the code that can be found [here](https://objectstorage.us-ashburn-1.oraclecloud.com/p/jyHA4nclWcTaekNIdpKPq3u2gsLb00v_1mmRKDIuOEsp--D6GJWS_tMrqGmb85R2/n/c4u04/b/livelabsfiles/o/labfiles/SkillsetTrackerApplicationCode.zip). After downloading, you can unzip the archive.
 
 In the _SkillsetTrackerApplicationCode_ directory you can find two folders:
 

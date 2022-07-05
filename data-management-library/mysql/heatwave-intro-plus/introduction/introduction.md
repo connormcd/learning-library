@@ -7,7 +7,7 @@ Oracle MySQL Database Service is a fully managed database service that lets deve
 In this workshop, you will learn how to create a MySQL HeatWave Cluster, connect to the cluster using MySQL Shell and MySQL Workbench, and run queries on HeatWave. You will learn how easy it is to create and manage MySQL HeatWave, and how MySQL HeatWave enables you to make informed business-critical decision with real-time insights.
 
 
-_Estimated Lab Time:_ 4 hours
+_Estimated Lab Time:_ 2 hours +
 
 <if type="odbw">If you would like to watch us do the workshop, click [here](https://youtu.be/ppolVUzOBSQ).</if>
 

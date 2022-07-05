@@ -1,1 +1,0 @@
-A screenshot showing a table with a filter set to show only User Entitlement Changes.

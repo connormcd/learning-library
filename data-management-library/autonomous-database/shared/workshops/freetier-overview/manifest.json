@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Autonomous Database Quickstart Workshop",
+    "workshoptitle": "Load and Analyze Your Data with Autonomous Database",
     "help": "livelabs-help-db_us@oracle.com",
 	"tutorials": [
         {
@@ -10,7 +10,7 @@
         {
             "title": "Get Started",
             "description": "Get a Free Trial",
-            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login.md"
         },
         {
             "title": "Lab 1: Provision an Autonomous Database",
@@ -44,5 +44,6 @@
             "description": "Solutions to Common Problems and Directions for Receiving Live Help",
             "filename":"https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-freetier.md"
         }
+        
     ]
 }

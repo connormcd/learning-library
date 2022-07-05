@@ -10,7 +10,7 @@
     {
       "title": "Lab 1: Environment Setup",
       "description": "Verify Setup of compute instance",
-      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/verify-compute/verify-compute-novnc.md"
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/verify-compute/verify-compute-ssh-and-novnc.md"
     },
     {
       "title": "Lab 2: Initialize Environment",
@@ -18,12 +18,12 @@
       "filename": "../../initialize-environment/initialize-environment.md"
     },
     {
-      "title": "Lab 3: Building Applications with Oracle Sharding",
+      "title": "Lab 3: Build Applications with Oracle Sharding",
       "description": "About Eshop",
       "filename": "../../eshop/eshop.md"
     },
     {
-      "title": "Lab 4: Exploring Sharding Topology",
+      "title": "Lab 4: Explore Sharding Topology",
       "description": "Exploring Sharding Topology",
       "filename": "../../topology/topology.md"
     },

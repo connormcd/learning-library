@@ -27,7 +27,7 @@ In this lab, you will:
 
 ### Prerequisites
 
-* An Oracle Free Tier, Always Free, Paid or LiveLabs Cloud Account
+* LiveLabs Cloud Account
 * Have successfully completed the previous labs
 
 ## Task 1: Create a Blockchain Table
@@ -263,4 +263,4 @@ You may now [proceed to the next lab](#next).
 
 * **Author** - Rayes Huang, Mark Rakhmilevich, Anoosha Pilli
 * **Contributors** - Anoosha Pilli, Brianna Ambler, Product Manager, Oracle Database
-* **Last Updated By/Date** - Anoosha Pilli, September 2021
+* **Last Updated By/Date** - Marion Smith, April 2022

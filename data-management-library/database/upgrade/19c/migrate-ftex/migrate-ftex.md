@@ -8,12 +8,13 @@ As part of the lab, you will move an Oracle 11.2.0.4 database, FTEX, directly in
 
 It is important to mention that this feature works cross-platform and cross-Endianness!
 
-*Estimated Lab Time*: 15 minutes
+Estimated Time: 15 minutes
 
 Watch the video below for a quick walk through of the lab.
-[](youtube:cIC9UBdnJ7Q)
+[Watch the video](youtube:cIC9UBdnJ7Q)
 
 ### About Transportable Export/Import
+
 You can use full transportable export/import to upgrade a database from an Oracle Database 11g Release 2 (11.2.0.3) or later to Oracle Database 19c.
 
 To do so, install Oracle Database 19c and create an empty (pluggable) database. Next, use full transportable export/import to transport the Oracle Database 11g Release 2 (11.2.0.3) or later database into the Oracle Database 19c database.
@@ -21,16 +22,19 @@ To do so, install Oracle Database 19c and create an empty (pluggable) database. 
 ### Objectives
 
 In this lab, you will:
+
 * Create a new PDB2
 * Prepare FTEX
 * Migrate FTEX into PDB2
 * Migration to Oracle Cloud or Cloud Machine
 
 ### Prerequisites
+
 This lab assumes you have:
-- A Free Tier, Paid or LiveLabs Oracle Cloud account
+
+- An Oracle Cloud account
 - You have completed:
-    - Lab: Prepare Setup (*Free-tier* and *Paid Tenants* only)
+    - Lab: Prepare Setup 
     - Lab: Environment Setup
     - Lab: Initialize Environment
 
@@ -46,13 +50,16 @@ At first, as with every other Transportable Tablespace migration, we need to cre
     sqlplus / as sysdba
     </copy>
     ```
-    ![](./images/trans_exp_1.png " ")
+
+    ![Login to CDB2](./images/trans_exp_1.png " ")
+
     ```
     <copy>
     create pluggable database PDB2 admin user adm identified by adm file_name_convert=('pdbseed', 'pdb2');
     </copy>
     ```
-    ![](./images/trans_exp_2.png " ")
+
+    ![create a new PDB](./images/trans_exp_2.png " ")
 
 2.  The admin user needs to exist when a PDB gets created. You can delete it later on if desired. Once the PDB2 is created you need to start it up and create some additional objects for the migration.
 
@@ -63,7 +70,9 @@ At first, as with every other Transportable Tablespace migration, we need to cre
     alter session set container=PDB2;
     </copy>
     ```
-    ![](./images/trans_exp_3.png " ")
+
+    ![start PDB2 up](./images/trans_exp_3.png " ")
+
     ```
     <copy>
     create directory mydir as '/u02/oradata/CDB2/mydir';
@@ -72,7 +81,8 @@ At first, as with every other Transportable Tablespace migration, we need to cre
     exit
     </copy>
     ```
-    ![](./images/trans_exp_4.png " ")
+
+    ![create some additional objects for the migration](./images/trans_exp_4.png " ")
 
     We will use the database link to allow Data Pump pulling all information via the database link. The task can be done without the database link but then two operations are necessary, an expdp and an impdp.
 
@@ -88,7 +98,7 @@ Before we can transport anything, we need to prepare the FTEX database.
     sqlplus / as sysdba
     </copy>
     ```
-    ![](./images/trans_exp_5.png " ")
+    ![switch the one tablespace](./images/trans_exp_5.png " ")
 
     ```
     <copy>
@@ -96,7 +106,7 @@ Before we can transport anything, we need to prepare the FTEX database.
     exit
     </copy>
     ```
-    ![](./images/trans_exp_6.png " ")
+    ![we will migrate to Read-Only](./images/trans_exp_6.png " ")
 
 2. Migrate FTEX into PDB2.  At first of course you need to transfer the file (aka "copy") to the new environment.
 
@@ -105,7 +115,7 @@ Before we can transport anything, we need to prepare the FTEX database.
     cp /u02/oradata/FTEX/users01.dbf /u02/oradata/CDB2/pdb2
     </copy>
     ```
-    ![](./images/trans_exp_7.png " ")
+    ![Migrate FTEX into PDB2](./images/trans_exp_7.png " ")
 
 3. Then you need to initiate the transport operation. In this case Data Pump will take over the usual manual steps from Transportable Tablespaces. The keywords TRANSPORTABLE=ALWAYS and FULL=Y advice Data Pump to use the Full Transportable Export/Import feature. VERSION=12 is needed as we use an 11g database as source.
 
@@ -118,7 +128,7 @@ Before we can transport anything, we need to prepare the FTEX database.
 
     Please ignore the password warning errors: UDI-28002: operation generated ORACLE error 28002 and ORA-28002: the password will expire within 7 days.
 
-    ![](./images/trans_exp_8.png " ")
+    ![initiate the transport operation](./images/trans_exp_8.png " ")
 
     THIS IS AN ALTERNATE OPTION ONLY - DON'T EXECUTE IT IF YOU HAVE RUN THE IMPDP ALREADY!
     In the /home/oracle/IMP directory you will find a file called ft.par . This is the parameter file for Data Pump containing the above parameters. You can use it instead of typing the long line above with:
@@ -159,7 +169,7 @@ Before we can transport anything, we need to prepare the FTEX database.
     exit
     </copy>
     ```
-    ![](./images/trans_exp_10.png " ")
+    ![Shutdown the FTEX database](./images/trans_exp_10.png " ")
 
 6. You can now connect to the migrated PDB.
 
@@ -169,7 +179,7 @@ Before we can transport anything, we need to prepare the FTEX database.
     sqlplus "system/oracle@PDB2"
     </copy>
     ```
-    ![](./images/trans_exp_11.png " ")
+    ![connect to the migrated PDB](./images/trans_exp_11.png " ")
 
     ```
     <copy>
@@ -178,15 +188,15 @@ Before we can transport anything, we need to prepare the FTEX database.
     exit
     </copy>
     ```
-    ![](./images/trans_exp_12.png " ")
+    ![connect to the migrated PDB](./images/trans_exp_12.png " ")
 
 7. Note: You have to switch into the 19c environment to do this. If you execute the same “show” commands from the 11.2 SQL*Plus, you will receive errors.
 
 ## Task 3: Migration to Oracle Cloud or Cloud Machine
 
-The Migration to Oracle Cloud or Cloud Machine feature can be used to migrate to Oracle Cloud or ExaCC machines.
+1. The Migration to Oracle Cloud or Cloud Machine feature can be used to migrate to Oracle Cloud or ExaCC machines.
 
-You may now [proceed to the next lab](#next).
+You may now *proceed to the next lab*.
 
 ## Learn More
 
@@ -194,6 +204,7 @@ You may now [proceed to the next lab](#next).
 * [Transportable Export/Import](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/transporting-data.html#GUID-FA4AAD15-5305-45A9-9644-DB7D7DCD30D2)
 
 ## Acknowledgements
+
 * **Author** - Mike Dietrich, Database Product Management
 * **Contributors** -  Roy Swonger, Sanjay Rupprel, Cristian Speranta, Kay Malcolm
 * **Last Updated By/Date** - Mike Dietrich, July 2021

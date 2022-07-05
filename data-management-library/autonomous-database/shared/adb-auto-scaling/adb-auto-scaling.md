@@ -42,23 +42,23 @@ In tasks 1 through 3, with auto scaling **disabled**, you will have 3 SQL Develo
 
 ## Task 1: Disable Auto Scaling and Create Four Connections in SQL Developer Web to your ADW Database
 
-1. You created an Autonomous Data Warehouse database in an earlier lab named *Provision Autonomous Database*. Go to the details page for the database, click the **More Actions** button and select **Scale Up/Down**, and deselect the **Auto Scaling** checkbox to disable auto scaling if you have not done so already.
+1. You created an Autonomous Data Warehouse database **ADW Finance Mart** in the earlier lab named *Provision Autonomous Database*. Go to the details page for the database, click the **More Actions** button and select **Manage Scaling**. In the Manage scaling dialog, deselect the **OCPU auto scaling** checkbox to disable auto scaling if you have not done so already. Click **Apply**, which will close the dialog and return you to the details page for the database.
 
-    ![](images/disable-auto-scaling.png " ")
+    ![Remove the checkbox for OCPU auto scaling.](images/disable-auto-scaling.png " ")
 
-2. Go back to the Details page for your autonomous database. Click the **Database Actions** button. In the log-in dialog, provide the username `admin` and the administrator password you specified when you created the Autonomous Database. On the Database Actions **Launchpad**, click the **SQL** card. (Note that you can alternatively use SQL Developer desktop client instead of SQL Developer Web.)
+2. On the Details page for your autonomous database, wait a few minutes for the **SCALING IN PROGRESS** message to change to **AVAILABLE**. Click the **Database Actions** button. In the log-in dialog, provide the username `admin` and the administrator password you specified when you created the Autonomous Database. On the Database Actions **Launchpad**, click the **SQL** card. (Note that you can alternatively use SQL Developer desktop client instead of SQL Developer Web.)
 
-    ![](./images/database-actions-launchpad.png)
+    ![Click SQL card in Database Actions Launchpad.](./images/database-actions-launchpad.png)
 
 3. Create and save 4 SQL Developer Web worksheets. In SQL Developer Web worksheets, you choose the consumer group from the drop-down menu in the upper-right corner.:
     - Save the first worksheet with the name **Setup**. You will use this worksheet with the LOW consumer group in Task 2, to run the setup that creates a procedure for running test queries. The LOW consumer group is appropriate for non-CPU-intensive tasks such as this creation of a procedure.
     - Save the other 3 worksheets with the names **Query 1**, **Query 2**, and **Query 3**. In later tasks, you will use these 3 worksheets to simultaneously run the test queries using the HIGH consumer group. For real production workloads, you will typically use the MEDIUM or HIGH consumer groups, since they have higher parallelism and lower concurrency. A worksheet using the HIGH consumer group gets top priority. You may read [more about consumer groups here](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/user/manage-priorities.html#GUID-80E464A7-8ED4-45BB-A7D6-E201DD4107B7).
 
-  ![](./images/save-worksheets.png " ")
+  ![Save the worksheets.](./images/save-worksheets.png " ")
 
     **Note:** When you re-open a saved worksheet, it opens by default with the LOW consumer group. If you want to run a script in the re-opened worksheet using the HIGH consumer group, you need to manually change it from LOW to HIGH. For more information on using the HIGH, MEDIUM and LOW consumer groups, see the documentation [Predefined Database Service Names for Autonomous Data Warehouse](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/user/connect-predefined.html#GUID-9747539B-FD46-44F1-8FF8-F5AC650F15BE).
 
-  ![](./images/create-four-worksheets.png " ")
+  ![Consumer Group drop-down menu showing HIGH highlighted.](./images/create-four-worksheets.png " ")
 
 ## Task 2: Create the `test_proc` Procedure to Generate the Test Workload
 In this task, you run a script that will:
@@ -187,13 +187,13 @@ In this task, you run a script that will:
 
 3. While the 3 procedure instances are running concurrently, which in our test runs for approximately 4.5 minutes on a 1 OCPU system (you may see different execution times), go to your Autonomous Database's console page and click **Performance Hub**. In Performance Hub, click the **SQL Monitoring** tab, and look at the Monitored SQL to see that each worksheet is running your procedure.
 
-    ![](./images/sql-monitoring-during-query-with-auto-scaling-disabled.png " ")
+    ![In Performance Hub click the SQL Monitoring tab.](./images/sql-monitoring-during-query-with-auto-scaling-disabled.png " ")
 
 4. Go back to your SQL Developer Web worksheets. Make sure all 3 tests in the worksheets indicate that the queries have **executed** completely. You can see if the test procedure is still running, completed successfully or failed in the worksheet's status at the bottom of the page.
 
     **Note**: If your test procedure fails after running for a while, you may be behind a VPN that is timing out your query. You may need to disconnect from that VPN to run this test.
 
-    ![](./images/procedure-successfully-completed.png " ")
+    ![Screenshot of a Worksheet indicating that the PL/SQL procedure completed successfully.](./images/procedure-successfully-completed.png " ")
 
 5. In your **Setup** worksheet, run the following script to view your test's results:
 
@@ -225,7 +225,7 @@ In this task, you run a script that will:
 
     (**Note**: The value CPU\_COUNT displays 2x the number of OCPUs available, as each OCPU has 2 CPU threads. Thus, for 1 OCPU we see the CPU_COUNT of 2.)
 
-    ![](./images/test-one-results.png " ")
+    ![Screenshot shows the results of running the test.](./images/test-one-results.png " ")
 
   In the next tasks, let's see if auto scaling reduces query time and increases CPU and IO usage.
 
@@ -234,9 +234,9 @@ In tasks 4 through 6, you will enable auto scaling and again have 3 SQL Develope
 
 ## Task 4: Enable Auto Scaling
 
-1. Enable auto scaling, to allow you to use 3X the amount of base CPU and IO. Go to the details page for the database, click the **More Actions** drop-down menu and select  **Scale Up/Down**, and select the **Auto Scaling** checkbox to **re-enable** auto scaling.
+1. Enable auto scaling, to allow you to use 3X the amount of base CPU and IO. Go to the details page for the database, click the **More Actions** drop-down menu and select  **Manage Scaling**, and select the **Auto Scaling** checkbox to **re-enable** auto scaling.
 
-    ![](images/enable-auto-scaling.png " ")
+    ![Click the checkbox to re-enable auto scaling.](images/enable-auto-scaling.png " ")
 
 ## Task 5: Run the Procedure Again Concurrently on Three Worksheets After Enabling Auto Scaling
 
@@ -248,11 +248,11 @@ In tasks 4 through 6, you will enable auto scaling and again have 3 SQL Develope
 
 2. While the procedures are running, the monitored SQL in Performance Hub shows 3 queries executing. In the previous test, before you enabled Auto Scaling, the procedure's 3 query sessions averaged 4.5 minutes to run. After enabling Auto Scaling and immediately getting access to 3x the amount of CPU and IO, the queries now require approximately 3x less time; we see below less than 2 minutes to run.
 
-    ![](images/monitored-sql-while-three-procedures-running-with-auto-scaling.png " ")
+    ![Monitored SQL shows three queries executing and consuming less database time.](images/monitored-sql-while-three-procedures-running-with-auto-scaling.png " ")
 
 3. As before, go back to your SQL Developer Web worksheets to be sure all 3 tests in the worksheets indicate that the queries have **executed** completely.
 
-    ![](images/procedure-successfully-completed.png " ")
+    ![Worksheet shows that the PL/SQL procedure completed successfully.](images/procedure-successfully-completed.png " ")
 
 ## Task 6: Review the Improved Performance After Enabling Auto Scaling
 
@@ -282,7 +282,7 @@ In tasks 4 through 6, you will enable auto scaling and again have 3 SQL Develope
 
 2. Let's examine the improved performance after enabling auto scaling. **Test 1** had auto scaling **disabled** and **Test 2** had auto scaling **enabled**:
 
-  ![](images/test-two-results.png " ")
+  ![Screenshot shows the improved performance of Test 2 after enabling auto scaling.](images/test-two-results.png " ")
 
     These numbers look great! After enabling auto scaling we see that:
 
@@ -296,14 +296,14 @@ In tasks 4 through 6, you will enable auto scaling and again have 3 SQL Develope
 
 3. Go to your Autonomous Database console page and click **Performance Hub**. Move your mouse cursor in the **Activity** panel above the SQL Monitoring panel, and drag the rectangle horizontally across to cover the portion of the timeline that indicates your recent query activity. This will fill in the **ASH Analytics** panel at the bottom, with information from the completed test.
 
-    ![](./images/drag-rectangle-to-cover-period-of-queries.png " ")
+    ![Screenshot of Performance Hub Activity panel showing ASH Analytics panel.](./images/drag-rectangle-to-cover-period-of-queries.png " ")
 
 4. Scroll down and view the **Average Active Sessions** chart. View the Average Active Sessions chart by Wait Class in the 2nd test after auto scaling is enabled.  Since there are 3 OCPUs available to the running queries, we now see:
 - The **inflated I/O waits** (in blue) due to the unavailability of resources reduces significantly.
 - Consequently, the workload becomes more efficient (CPU-bound) and is able to utilize more CPU (in dark green) reducing the average time spent on running each query.
 - The **Scheduler waits** (in light green) on CPU/IO resources almost entirely disappears.
 
-  ![](images/graph-by-wait-class-auto-scaling-enabled.png " ")
+  ![Screenshot showing Average Active Sessions.](images/graph-by-wait-class-auto-scaling-enabled.png " ")
 
     **Things to Note**
 
@@ -319,4 +319,4 @@ For more information about auto scaling, see the documentation [Use Auto Scaling
 
 - **Authors** - Rick Green, Database User Assistance; Nilay Panchal, ADB Product Management
 - **Contributors** - John Zimmerman, Real World Performance Team; Keith Laker, ADB Product Management
-- **Last Updated By/Date** - Rick Green, November 2021
+- **Last Updated By/Date** - Rick Green, March 2022

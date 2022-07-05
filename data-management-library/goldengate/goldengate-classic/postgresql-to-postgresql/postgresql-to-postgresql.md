@@ -65,8 +65,19 @@ total 333868
 <copy>tar -xf ggs_Linux_x64_PostgreSQL_64bit.tar  </copy>
 ```
 
-## Task 3: Execute the ggsci commands from goldengate for postgreSQL home
-1. Execute the ggsci command from terminal
+## **STEP 3**: Execute the ggsci commands from goldengate for postgreSQL home
+1. Switch to Oracle user
+![](./images/terminalSU.png " ")
+ ```
+ <copy>sudo su - oracle</copy>
+ ```
+
+
+2. Set environment variables
+```<copy>LD_LIBRARY_PATH=/u01/app/oracle/product/19.3.0.0/db100/lib:/lib:/usr/lib:/u01/ggpost/lib
+export OGG_HOME=/u01/ggpost</copy>
+```
+2. Execute the ggsci command from terminal
 
 Execute remaining subdirectories in the installation location
 
@@ -114,7 +125,7 @@ GGSCI (ogg-classic) 2> <copy>edit params mgr</copy>
 ```
 2. Append the ***port number*** as ***7811***  in the manager param file  
 To specify this port, use the PORT parameter in the Manager parameter file.
-
+![](./images/mgrParams.png " ")
 ```
 
 <copy>PORT 7811</copy>
@@ -138,12 +149,12 @@ GGSCI (ogg-classic) 5> <copy>info all</copy>
 Program     Status      Group       Lag at Chkpt  Time Since Chkpt
 
 MANAGER     RUNNING
-
+```
 
 GGSCI (ogg-classic) 6>
 
 
-** STEP 7**: ODBC configuration
+## **STEP 7**: ODBC configuration
 
 In this step you will add the databse connection details to communicate with source and target database.
 
@@ -269,7 +280,7 @@ GGSCI (ogg-classic as ggadmin@sourcedsn) 4> <copy>REGISTER EXTRACT E_POST</copy>
 Enable supplemental logging for the user tables to be captured from PostgreSQL.
 
 ```
-GGSCI (ogg-classic as ggadmin@sourcedsn) 4> <copy>ADD TRANDATAT public.* </copy>
+GGSCI (ogg-classic as ggadmin@sourcedsn) 4> <copy>ADD TRANDATA public.* </copy>
 
 2020-08-20 12:38:16  INFO    Logging of supplemental log data is enabled for table public.actor with REPLICA IDENTITY set to DEFAULT
 ```
@@ -403,6 +414,11 @@ Log Read Checkpoint  File ./dirdat/pa000000000
 
 
 GGSCI (ogg-classic as ggadmin@targetdsn) 7>
+```
+8. Get info on all processes
+![](./images/infoall.png " ")
+```
+<copy>info all</copy>
 ```
 
 ## Task 9: Execuating  DML statments against source database
@@ -569,7 +585,7 @@ You have reached *End of the lab*
 
 ## Acknowledgements
 * **Author** -Madhu Kumar S, Data Integration Team, Oracle, November 2020
-* **Contributors** - Brian Elliott, Meghana Banka, Rene Fontcha
-* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, November 2020
+* **Contributors** - Brian Elliott, Meghana Banka, Rene Fontcha, Andrew Hong
+* **Last Updated By/Date** - Andrew Hong, Solution Engineer, March 2022
 
 

@@ -250,7 +250,6 @@ Now that the source side is setup, let us configure GG on the target side (HBase
 
     ```
     <copy>http://<Your Host Public IP address>:8888</copy>
-    e.g: http://111.222.111.222:8888
     ```
 
     - Credentials: cloudera/cloudera

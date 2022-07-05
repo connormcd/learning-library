@@ -11,15 +11,15 @@
       "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
     },
     {
-      "title": "Lab 1: Provisioning your Autonomous Database instance",
+      "title": "Lab 1: Provision your Oracle Autonomous Data Warehouse Database (ADW) instance",
       "filename": "../../provision-adw/provision-adw.md"
     },
     {
-      "title": "Lab 2: Provisioning your Oracle Analytics Cloud instance",
+      "title": "Lab 2: Provision your Oracle Analytics Cloud (OAC) instance",
       "filename": "../../provision-oac/provision-oac.md"
     },
     {
-      "title": "Lab 3: Connecting OAC to ADW and adjusting Data Set properties",
+      "title": "Lab 3: Connect OAC to ADW and adjust Data Set properties",
       "filename": "../../connect-oac-adw/connect-oac-adw.md"
     },
 	{
@@ -27,23 +27,23 @@
       "filename": "../../immediate-insights/immediate-insights.md"
     },
 	{
-      "title": "Lab 5: Asking direct questions on data",
+      "title": "Lab 5: Ask Direct Questions on Data",
       "filename": "../../ask-direct-questions/ask-direct-questions.md"
     },
 	{
-      "title": "Lab 6: Gaining insights with visual data dialog",
+      "title": "Lab 6: Gain Insights with Visual Data Dialog",
       "filename": "../../gain-insights/gain-insights.md"
     },
 	{
-      "title": "Lab 7: Monitoring and Ad-hoc scaling up ADW activity for optimal OAC experience",
+      "title": "Lab 7: Monitor ADW activity and OAC Query Logs",
       "filename": "../../monitor-adw/monitor-adw.md"
     },
   	{
-      "title": "Lab 8: Building simple Interactive Analysis",
+      "title": "Lab 8: Build a simple Interactive Workbook",
       "filename": "../../build-analysis/build-analysis.md"
     },
     {
-      "title": "Lab 9: Mashing up additional Data Sets, Contextual Data Preparation",
+      "title": "Lab 9: Mash up additional Data Sets, Contextual Data Preparation",
       "filename": "../../mash-datasets/mash-datasets.md"
     },
     {
@@ -51,11 +51,11 @@
       "filename": "../../geo-maps/geo-maps.md"
     },
     {
-      "title": "Lab 11: Leveraging OAC Data Flow with ADW",
+      "title": "Lab 11: Leverage OAC Data Flow with ADW",
       "filename": "../../data-flows/data-flows.md"
     },
     {
-      "title": "Lab 12: Leveraging Database functions with OAC",
+      "title": "Lab 12: Leverage Database functions with OAC",
       "filename": "../../db-functions/db-functions.md"
     },
     {

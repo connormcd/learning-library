@@ -3,7 +3,7 @@
 ## Introduction
 This lab will show you how to login to your pre-created compute instance running on Oracle Cloud.
 
-*Estimated Lab Time*: 5 minutes
+*Estimated Time*: 5 minutes
 
 ### Objectives
 In this lab, you will:
@@ -41,7 +41,7 @@ For ease of execution of this workshop, your VM instance has been pre-configured
     ![](images/novnc-deceptive-site-error.png " ")
 
 
-You may now [proceed to the next lab](#next).
+You may now proceed to the next lab.
 
 
 ## Acknowledgements

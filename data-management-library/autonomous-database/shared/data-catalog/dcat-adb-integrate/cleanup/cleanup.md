@@ -30,13 +30,13 @@ You can terminate your Data Catalog instance that you created in this workshop a
 
 2. On the **Data Catalogs** page, in the row for the **`training-dcat-instance`** Data Catalog instance, click the **Actions** icon (three dots), and then select **Terminate** from the context menu.
 
-   ![](./images/dcat-instance-actions.png " ")
+   ![The Data Catalog instance is highlighted and labeled as 1. The Actions icon is highlighted and labeled as 2. The Actions context menu is displayed and labeled as 3. The Terminate menu option is highlighted.](./images/dcat-instance-actions.png " ")
 
 3. A **Terminate** dialog box is displayed. Enter **delete** in the **TYPE "DELETE" TO CONFIRM DELETE** field, and then click **Terminate**. The Data Catalog instance goes into a **Deleting** state. When the delete is completed, the instance is no longer displayed, and all of the resources in the deleted instance are permanently deleted.
 
     >**Note:** You might need to refresh your browser to confirm the deletion of the Data Catalog instance.
 
-   ![](./images/dcat-instance-deleted.png " ")
+   ![The Data Catalogs page shows "No data catalogs found".](./images/dcat-instance-deleted.png " ")
 
 ## Task 2: Delete Your Autonomous Database Instance
 
@@ -46,15 +46,15 @@ You can terminate your ADW instance that you created in this workshop as follows
 
 2. On the **Autonomous Databases** page, in the **List Scope** section, select the **`training-dcat-compartment`** compartment from the **Compartment** drop-down list. In the row for the **`DB-DCAT-Integration`** Autonomous Database instance, click the **Actions** icon (three dots), and then select **Terminate** from the context menu.
 
-   ![](./images/adb-instance-actions.png " ")
+   ![The Autonomous Database instance is highlighted and labeled as 1. The Actions icon is highlighted and labeled as 2. The Actions context menu is displayed and labeled as 3. The Terminate menu option is highlighted.](./images/adb-instance-actions.png " ")
 
-3. A **Terminate** dialog box is displayed. Enter **DB-DCAT Integration** in the **To confirm, enter the name of the database that you want to terminate** field, and then click **Terminate Autonomous Database**.
+3. A **Terminate Autonomous Database** dialog box is displayed. Enter **DB-DCAT Integration** in the **To confirm, enter the name of the database that you want to terminate** field, and then click **Terminate Autonomous Database**.
 
-    ![](./images/terminate-adb.png " ")
+    ![On the Terminate Autonomous Database dialog box, the Terminate Autonomous Database button is highlighted.](./images/terminate-adb.png " ")
 
     The **State** of the Autonomous Database instance goes into **Terminating**. When the ADB is deleted, the **State** changes to **Terminated**.
 
-    ![](./images/ADB-terminated.png " ")
+    ![The state of your Autonomous Database is Terminated.](./images/ADB-terminated.png " ")
 
 
 ## Task 2: Delete Dynamic Group and Access Policies
@@ -76,7 +76,7 @@ To delete a compartment, it must be empty of all resources. Before you initiate 
 
 3. A confirmation message box is displayed. Click **Delete**. The state of the deleted compartment changes from **Active** to **Deleting** until the compartment is successfully deleted. You can click on the compartment name link in the **Name** column to display the status of this operation.
 
-    ![](./images/delete-compartment.png " ")
+    ![Click Delete to confirm the deletion.](./images/delete-compartment.png " ")
 
 This concludes the workshop.
 
@@ -87,5 +87,11 @@ This concludes the workshop.
 
 ## Acknowledgements
 
-* **Author:** Lauran Serhal, Principal User Assistance Developer, Oracle Database and Big Data
-* **Last Updated By/Date:** Lauran Serhal, November 2021
+* **Author:** Lauran Serhal, Consulting User Assistance Developer, Oracle Autonomous Database and Big Data
+* **Last Updated By/Date:** Lauran Serhal, February 2022
+
+Data about movies in this workshop were sourced from Wikipedia.
+
+Copyright (C) Oracle Corporation.
+
+Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included in the section entitled [GNU Free Documentation License](https://oracle.github.io/learning-library/data-management-library/autonomous-database/shared/adb-15-minutes/introduction/files/gnu-free-documentation-license.txt)

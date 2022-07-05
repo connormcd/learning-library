@@ -1,0 +1,13 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How do I use the project detail page in Query Service?",
+         "type": "tenancy",
+         "description": " ",
+         "filename": "./../sprint-explore-qs-project-detail/sprint-explore-qs-project-detail.md"
+      }
+   ],
+   "task_type": "Sections"
+}

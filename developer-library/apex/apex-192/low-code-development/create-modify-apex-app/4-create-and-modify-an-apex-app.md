@@ -240,5 +240,5 @@ You have completed the lab, well done! At this point you should have a basic und
 ## Acknowledgements
 * **Author** - David Peake, Senior Principal Product Manager, Oracle Application Express
 * **Contributors** - Jaden McElvey, Technical Lead - Oracle LiveLabs Intern
-* **Last Updated By/Date** - Tom McGinn, Learning Architect, Database User Assistance, March 2020
+* **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

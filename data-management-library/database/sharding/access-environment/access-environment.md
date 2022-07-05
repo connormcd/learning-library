@@ -4,7 +4,7 @@
 
 In this lab you will be assigned with 4 compute instances like the following:
 
-![image-20210318090352132](images/image-20210318090352132.png)
+![Four compute instances](images/image-20210318090352132.png)
 
 The databases are automatically installed in the instances. The public IPs and private IPs are dynamic assigned. The hostnames, CDB and PDB names are fixed, Like the following:
 
@@ -61,7 +61,7 @@ This lab assumes you have already completed the following:
 
 2.  Enter a name for the session and click **Save**.
 
-    ![](./images/putty-setup.png " ")
+    ![Enter a name for the session.](./images/putty-setup.png " ")
 
 3.  Click **Connection** > **Data** in the left navigation pane and set the Auto-login username to **opc**.
 
@@ -69,7 +69,7 @@ This lab assumes you have already completed the following:
 
 5.  Navigate to the location where you saved your SSH private key file, select the file, and click Open.  NOTE:  You cannot connect while on VPN or in the Oracle office on clear-corporate (choose clear-internet).
 
-    ![](./images/putty-auth.png " ")
+    ![Navigate to saved SSH private key.](./images/putty-auth.png " ")
 
 6.  The file path for the SSH private key file now displays in the Private key file for authentication field.
 
@@ -86,11 +86,11 @@ This lab assumes you have already completed the following:
     tail -f /u01/ocidb/buildsingle.log
     </copy>
     ````
-    ![](./images/tailOfBuildDBInstanceLog.png " ")
+    ![Configure the log of the database.](./images/tailofbuilddbinstanceLog.png " ")
 
 2.  When you see the following message, the database setup is complete - **Completed successfully in XXXX seconds** (this may take up to 30 minutes). You can press Ctrl-C to exit from the tail command.
 
-    ![](./images/tailOfBuildDBInstanceLog_finished.png " ")
+    ![The database setup is complete.](./images/tailofbuilddbinstancelog-finished.png " ")
 
 3.  Run the following command to verify the database with the SID **ORCL** is up and running.
 
@@ -100,7 +100,7 @@ This lab assumes you have already completed the following:
     </copy>
     ````
 
-    ![](./images/pseforcl.png " ")
+    ![Verify the database.](./images/pseforcl.png " ")
 
 4. Verify the listener is running:
 
@@ -110,7 +110,7 @@ This lab assumes you have already completed the following:
     </copy>
     ````
 
-    ![](./images/pseftns.png " ")
+    ![Verify the listener.](./images/pseftns.png " ")
 
 5.  Do the same steps to the 4 VMs, make sure all the databases are running. 
 
@@ -160,7 +160,7 @@ This lab assumes you have already completed the following:
 
        
 
-    ![](./images/sqlplus_login_orclpdb.png " ")
+    ![Connect to shard3 database.](./images/sqlplus-login-orclpdb.png " ")
     
 6.  To leave `sqlplus` you need to use the exit command. Copy and paste the text below into your terminal to exit sqlplus.
 
@@ -180,9 +180,9 @@ This lab assumes you have already completed the following:
 
 You now have 4 Oracle Database 19c instances running on Oracle Cloud Compute VMs. 
 
-You may now [proceed to the next lab](#next).
+You may now **proceed to the next lab**.
 
 ## Acknowledgements
 * **Author** - Minqiao Wang, DB Product Management 
-* **Last Updated By/Date** - Minqiao Wang, Jun 2021
+* **Last Updated By/Date** - Andres Quintana, April 2022
 

@@ -1,0 +1,27 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How can I insert data into a table in the Oracle database?",
+         "description": "",
+         "filename": "./insert-data.md"
+      },
+      {
+         "title": "How can I query a table in the Oracle database?",
+         "description": "",
+         "filename": "../query-tables/query-tables.md"
+      },
+      {
+         "title": "How can I update data in a table in the Oracle database?",
+         "description": "",
+         "filename": "../update-data/update-data.md"
+      },
+      {
+         "title": "How can I compress data in a table in the Oracle database?",
+         "description": "",
+         "filename": "../compress-data/compress-data.md"
+      }
+   ],
+   "task_type": "Sections"
+}

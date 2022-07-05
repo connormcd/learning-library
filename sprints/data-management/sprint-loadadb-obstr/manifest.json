@@ -1,0 +1,22 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How can I copy data from Object Storage to ADB?",
+         "description": "",
+         "filename": "sprint-loadadb-obstr.md"
+      },
+      {
+         "title": "How can I create an AUTH token?",
+         "description": "",
+         "filename": "../../oci/sprint-gen-oauth-token/sprint-gen-oauth-token.md"
+      },
+      {
+         "title": "How can I create a Database Credential?",
+         "description": "",
+         "filename": "../sprint-create-db-credential/sprint-create-db-credential.md"
+      }
+   ],
+   "task_type": "Sections"
+}

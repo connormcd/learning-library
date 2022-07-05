@@ -18,6 +18,7 @@
         {
             "title": "Lab 2: Connect Oracle GoldenGate to Autonomous Data Warehouse ",
             "description": "Connect Oracle GoldenGate to its target database",
+            "type": "livelabs",
             "filename": "../../oggmp-atp/oggmp-atp.md"
         },
         {

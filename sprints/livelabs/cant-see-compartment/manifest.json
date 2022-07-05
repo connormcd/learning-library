@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-db_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "I can't see my compartment assigned in the LiveLabs reservation?",
+         "description": "",
+         "filename": "./cant-see-compartment.md"
+      },
+      {
+         "title": "I can't see the resource in the compartment assigned in the LiveLabs reservation?",
+         "description": "",
+         "filename": "../cant-see-resource-in-compartment/cant-see-resource-in-compartment.md"
+      }
+   ],
+   "task_type": "Sections"
+}

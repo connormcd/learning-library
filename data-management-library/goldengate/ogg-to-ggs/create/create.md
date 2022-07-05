@@ -116,7 +116,7 @@ Although the GGADMIN user is created during the database registration process, i
 
     ![](images/05-02.png " ")
 
-3.  On the SourceATP Database Details page, click **Tools**, and then click **Open Database Actions**.
+3.  On the SourceATP Database Details page, click **Database Actions**.
 
     ![](images/05-04.png " ")
 
@@ -183,4 +183,4 @@ In this lab, you created the OCI GoldenGate deployment and registered the source
 ## Acknowledgements
 * **Author** - Jenny Chan, Consulting User Assistance Developer, Database User Assistance
 * **Contributors** -  Julien Testut, Database Product Management
-* **Last Updated By/Date** - Jenny Chan, October 2021
+* **Last Updated By/Date** - Jenny Chan, February 2022

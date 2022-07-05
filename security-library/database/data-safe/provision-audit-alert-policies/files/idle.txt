@@ -1,1 +1,0 @@
-A screenshot showing the  Collection State value for a target database set to IDLE.

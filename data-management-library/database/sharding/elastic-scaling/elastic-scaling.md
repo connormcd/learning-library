@@ -461,13 +461,13 @@ This lab assumes you have already completed the following:
 
 10. From you laptop, launch a browser and use the URL: `http://xxx.xxx.xxx.xxx:8081`. Using the public ip address of the catalog host and the port number is 8081.
 
-    ![image-20201208164029240](images/image-20201208164029240.png)
+    ![Display of catalog host and port.](images/cataloghost.png)
 
     
 
-11. Scroll down the screen, you can see the Last inserted orders:
+11. Scroll down the screen, you can see the last inserted orders:
 
-    ![image-20201208164117229](images/image-20201208164117229.png)
+    ![Display of last inserted orders.](images/lastinsertedorders.png)
 
     
 

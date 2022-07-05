@@ -4,6 +4,8 @@
 
 Simcenter STAR-CCM+ is a complete multiphysics solution for the simulation of products and designs. This Runbook will take you through the process of deploying a Simcenter STAR-CCM+ cluster on Oracle Cloud with low latency networking between the compute nodes. Running Simcenter STAR-CCM+ on Oracle Cloud is quite straightforward, follow along this guide for all the tips and tricks.
 
+Please note: You need to provide your own license for Simcenter STAR-CCM+!
+
 ![](images/simulation.png " ")
 
 ## Architecture

@@ -2,17 +2,18 @@
 
 ## Introduction
 
-This lab walks you through the steps to create and run an Extract, instantiate the target database using Oracle Data Pump, and create and run a Replicat in the Oracle GoldenGate Deployment Console.
+This lab walks you through the steps to create and run an Extract, instantiate the target database using Oracle Data Pump, and create and run a Replicat in the Oracle Cloud Infrastructure (OCI) GoldenGate Deployment Console.
 
 Estimated time: 15 minutes
 
 ### About Extracts and Replicats
+
 An Extract is a process that extracts, or captures, data from a source database. A Replicat is a process that delivers data to a target database.
 
 ### Objectives
 
 In this lab, you will:
-* Log in to the Oracle GoldenGate deployment console
+* Log in to the OCI GoldenGate deployment console
 * Add transaction data and a checkpoint table
 * Add and run an Extract
 * Add and run a Replicat
@@ -29,7 +30,7 @@ This lab assumes that you completed all preceding labs, and your deployment is i
 
 3.  On the Deployment Details page, click **Launch Console**.
 
-    ![Click Launch Console](images/01-03-ggs-launchconsole.png " ")
+    ![Deployment Details page](images/01-03-ggs-launchconsole.png " ")
 
 4.  On the OCI GoldenGate Deployment Console sign in page, enter **oggadmin** for User Name and the password you provided when you created the deployment, and then click **Sign In**.
 
@@ -43,37 +44,37 @@ This lab assumes that you completed all preceding labs, and your deployment is i
 
 1.  Open the navigation menu and then click **Configuration**.
 
-    ![](images/02-01-nav-config.png " ")
+    ![Administration Service navigation menu](images/02-01-nav-config.png " ")
 
 2.  Click **Connect to database SourceATP**.
 
-    ![](images/02-02-connect-source.png " ")
+    ![Credentials list with Connect to database SourceATP highlighted](images/02-02-connect-source.png " ")
 
 3.  Next to **TRANDATA Information** click **Add TRANDATA**.
 
-    ![](images/02-03-trandata.png " ")
+    ![Add TRANDATA](images/02-03-trandata.png " ")
 
 4.  For **Schema Name**, enter **SRC\_OCIGGLL**, and then click **Submit**.
 
-    ![](images/02-04-schema-name.png " ")
+    ![Schema Name field populated with SRC_OCIGGLL](images/02-04-schema-name.png " ")
 
 5.  To verify, click **Search TRANDATA**, and then enter **SRC\_OCIGGLL** into the Search field and click **Search**.
 
-    ![](images/02-05-search.png " ")
+    ![Search icon highlighted](images/02-05-search.png " ")
 
-    ![](images/01-05-trandata.png " ")
+    ![SRC_OCIGGLL entered in search field and search results returned](images/01-05-trandata.png " ")
 
 6.  Click **Connect to database TargetADW**.
 
-    ![](images/02-06.png " ")
+    ![Credentials list with Connect to database TargetADW highlighted](images/02-06.png " ")
 
 7.  Next to Checkpoint, click **Add Checkpoint**.
 
-    ![](images/02-06-add-checkpoint.png " ")
+    ![Add Checkpoint highlighted](images/02-06-add-checkpoint.png " ")
 
 8.  For **Checkpoint Table**, enter **"SRCMIRROR\_OCIGGLL"."CHECKTABLE"**, and then click **Submit**.
 
-    ![](images/02-07-checktable.png " ")
+    ![Populated Checkpoint table field and submit button highlighted](images/02-07-checktable.png " ")
 
 To return to the GoldenGate Deployment Console Home page, click **Overview** in the left navigation.
 
@@ -85,7 +86,7 @@ To return to the GoldenGate Deployment Console Home page, click **Overview** in 
 
 2.  On the Add Extract page, select **Integrated Extract**, and then click **Next**.
 
-    ![](images/03-02.png " ")
+    ![Add Extract page with Integrated Extract highlighted](images/03-02.png " ")
 
 3.  For **Process Name**, enter UAEXT.
 
@@ -101,7 +102,7 @@ To return to the GoldenGate Deployment Console Home page, click **Overview** in 
 
 7.  Under Managed Options, enable **Critical to deployment health**.
 
-    ![](images/03-07.png " ")
+    ![Critical to deployment health highlighted](images/03-07.png " ")
 
 8.  Click **Next**.
 
@@ -153,7 +154,7 @@ To return to the GoldenGate Deployment Console Home page, click **Overview** in 
 
     If the query returns any rows, then you must locate the transaction's SCN and then either commit or rollback the transaction.
 
-    ![](images/04-02-sql.png " ")
+    ![Run statement and no query results highlighted](images/04-02-sql.png " ")
 
 ## Task 5: Export data using Oracle Data Pump (ExpDP)
 
@@ -161,15 +162,15 @@ Before using Oracle Data Pump to export data from the source database, first cre
 
 1.  From the Oracle Cloud Console navigation menu (hamburger icon), click **Storage**, and then **Buckets**.
 
-    ![](images/05-01-storage-buckets.png " ")
+    ![Object Storage bucket in Oracle Cloud navigation menu](images/05-01-storage-buckets.png " ")
 
 2.  On the **Buckets in &lt;compartment-name&gt;** page, click **Create Bucket**.
 
-    ![](images/05-02-create-bucket.png " ")
+    ![Buckets in compartment page](images/05-02-create-bucket.png " ")
 
 3.  In the **Create Bucket** panel, enter a name, and then click **Create**.
 
-    ![](images/05-03-bucket.png " ")
+    ![Create Bucket panel](images/05-03-bucket.png " ")
 
 4.  From the list of buckets, click the bucket you created. You're brought to the bucket Details page.
 
@@ -179,25 +180,29 @@ Before using Oracle Data Pump to export data from the source database, first cre
     <copy>https://objectstorage.&lt;region&gt;.oraclecloud.com/n/&lt;namespace&gt;/b/&lt;bucket-name&gt;/o/</copy>
     ```
 
-    For example, if your region is Phoenix, your namespace is c4u04, and your bucket name ADB-LLStore, then your URI would be: `https://objectstorage.us-phoenix-1.oraclecloud.com/n/c4u04/b/ADB-LLStore/o/`.
+    For example, if your region is Phoenix, your namespace (tenancy) is c4u04, and your bucket name ADB-LLStore, then your URI would be: `https://objectstorage.us-phoenix-1.oraclecloud.com/n/c4u04/b/ADB-LLStore/o/`.
+
+    To find your &lt;region&gt;, click on the three dots to the right of your bucket, click **Create Pre-Authenticated Request**. In the dialog, you can see your region code to put into the bucket URL.
+
+    ![Find Region Code](images/bucket-region.png " ")
 
 6.  In the Oracle Cloud Console global header, click **Profile** (user icon), and then select your username.
 
-    ![](images/05-06-profile.png " ")
+    ![Profile menu](images/05-06-profile.png " ")
 
 7.  On the User Details page, under **Resources**, click **Auth Tokens**, and then click **Generate Token**.
 
-    ![](images/05-07-auth-token.png " ")
+    ![Resources on User Details page](images/05-07-auth-token.png " ")
 
 8.  In the Generate Token dialog, enter a description, and then click **Generate Token**.
 
-    ![](images/05-08-generate-token.png " ")
+    ![Generate Token dialog](images/05-08-generate-token.png " ")
 
 9.  Click **Copy**, and then click **Close**.
 
     > **Note:** *Paste the token to a text editor for use in the next step.*
 
-    ![](images/05-09-copy-token.png " ")
+    ![Copy highlighted](images/05-09-copy-token.png " ")
 
 10. In the source database SQL window, enter the following script, replace the placeholders with your user name and token value, and then click **Run Statement**:
 
@@ -211,7 +216,10 @@ Before using Oracle Data Pump to export data from the source database, first cre
 END;</copy>
     ```
 
-    ![](images/05-10-create-credential.png " ")
+    > **Note:** If you're using a federated user, then the username should be in the following format: `oracle/<user-name>`
+
+
+    ![SQL worksheet](images/05-10-create-credential.png " ")
 
 11. Use the following script to create the Export Data job using Oracle Data Pump ExpDP. Ensure that you replace the Object Store URI (`https://objectstorage.<region>.oraclecloud.com/n/<namespace>/b/<bucket-name>/o/`) with **your URI** from step 5. `SRC_OCIGGLL.dmp` is a file that will be created when this script runs.
 
@@ -285,7 +293,7 @@ END;</copy>
 END;</copy>
     ```
 
-    ![](images/05-11.png " ")
+    ![SQL worksheet Run Script highlighted](images/05-11.png " ")
 
 ## Task 6: Import data using Oracle Data Pump (ImpDP)
 
@@ -293,15 +301,15 @@ Before importing data to the target database, create a credential in the target 
 
 1. In the **Oracle Cloud Console**, open the navigation menu (hamburger icon), select **Oracle Database**, and then click **Autonomous Data Warehouse**.
 
-    ![](images/06-01.png " ")
+    ![Autonomous Data Warehouse in Oracle Cloud navigation menu](images/06-01.png " ")
 
 2. In the list of Autonomous Data Warehouses, click **TargetADW**.
 
-    ![](images/06-02.png " ")
+    ![Autonomous Data Warehouse page](images/06-02.png " ")
 
-3. On the **TargetADW Details** page, click **Tools**, and then click **Open Database Actions**.
+3. On the **TargetADW Details** page, click **Database Actions**.
 
-    ![](images/06-03.png " ")
+    ![TargetADW Details page](images/database-actions.png " ")
 
 4. Log in to Database Actions as ADMIN, and then click **SQL**.
 
@@ -318,7 +326,9 @@ Before importing data to the target database, create a credential in the target 
     </copy>
     ```
 
-    ![](images/06-05.png " ")
+    > **Note:** If you're using a federated user, then the username should be in the following format: `oracle/<user-name>`
+
+    ![Script in SQL Worksheet](images/06-05.png " ")
 
 6.  Enter the following script and then click **Run Statement** to import data using ImpDP:
 
@@ -406,17 +416,17 @@ Before importing data to the target database, create a credential in the target 
     END;</copy>
     ```
 
-    ![](images/06-06.png " ")
+    ![Run script highlighted](images/06-06.png " ")
 
 ## Task 7: Add and run the Replicat
 
 1.  On the GoldenGate Deployment Console Home page, click **Add Replicat** (plus icon).
 
-    ![Click Add Replicat](images/03-01-ggs-add-replicat.png)
+    ![GoldenGate Deployment Console Home page](images/03-01-ggs-add-replicat.png)
 
 2.  On the Add Replicat page, select **Nonintegrated Replicat**, and then click **Next**.
 
-    ![](images/07-02.png " ")
+    ![Add Replicat page](images/07-02.png " ")
 
 3.  On the Replicat Options page, for **Process Name**, enter **Rep**.
 
@@ -432,7 +442,7 @@ Before importing data to the target database, create a credential in the target 
 
 8.  Under **Managed Options**, enable **Critical to deployment health**, and then click **Next**.
 
-    ![](images/07-08.png " ")
+    ![Critical to deployment health highlighted](images/07-08.png " ")
 
 9.  In the **Parameter File** text area, replace **MAP \*.\*, TARGET \*.\*;** with the following script:
 
@@ -477,8 +487,6 @@ Before importing data to the target database, create a credential in the target 
 
     The yellow exclamation point icon changes to a green checkmark.
 
-In this lab, you created and ran an Extract and Replicat. You may now **proceed to the next lab**.
-
 ## Learn more
 
 * [Creating an Extract](https://docs.oracle.com/en/cloud/paas/goldengate-service/using/goldengate-deployment-console.html#GUID-3B004DB0-2F41-4FC2-BDD4-4DE809F52448)
@@ -486,5 +494,5 @@ In this lab, you created and ran an Extract and Replicat. You may now **proceed 
 
 ## Acknowledgements
 * **Author** - Jenny Chan, Consulting User Assistance Developer, Database User Assistance
-* **Contributors** -  Denis Gray, Database Product Management
-* **Last Updated By/Date** - Jenny Chan, October 2021
+* **Contributors** -  Denis Gray, Database Product Management; Arabella Yao, Database Product Management
+* **Last Updated By/Date** - Arabella Yao, May 2022

@@ -2,9 +2,9 @@
 
 ## Introduction
 
-In this lab we will review and startup all components required to successfully run this workshop.
+We will review and startup all components required to run this workshop in this lab successfully.
 
-*Estimated Lab Time:* 10 Minutes.
+*Estimated Time:* 10 Minutes.
 
 ### Objectives
 - Initialize the workshop environment.
@@ -169,7 +169,9 @@ You may now [proceed to the next lab](#next).
 
 *Note*: After you login, you may see a this pop-up screen about **Memory Check**. Click **Ok** or close.
 
+You may now **proceed to the next lab**.
+
 ## Acknowledgements
 * **Author** - Anuradha Chepuri, Principal UA Developer, Oracle GoldenGate User Assistance
-* **Contributors** -  Nisharahmed Soneji, Sukin Varghese , Rene Fontcha
-* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, November 2021
+* **Contributors** -  Nisharahmed Soneji, Sukin Varghese, Rene Fontcha
+* **Last Updated By/Date** - Anuradha Chepuri, May 2022

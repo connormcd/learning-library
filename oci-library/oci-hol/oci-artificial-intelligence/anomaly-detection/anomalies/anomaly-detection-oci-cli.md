@@ -1,4 +1,4 @@
-# Lab 4: (Advanced Session) Access Anomaly Detection Service with REST API
+#  (Advanced Session) Access Anomaly Detection Service with OCI CLI
 
 ## Introduction
 
@@ -6,19 +6,20 @@ Our anomaly detection services also support to use CLI (Command Line Interface) 
 
 In this lab session, we will show how to use OCI CLI tools to call our services. You can setup the configuration, execute those commands/codes, to see the results.
 
-*Estimated Lab Time*: 45 minutes
+*Estimated Time*: 45 minutes
 
-### Objectives:
+### Objectives
 
 * Learn how to use OCI CLI to communicate with our anomaly detection service endpoints, by using Oracle Cloud Shell.
 
-### Prerequisites:
+### Prerequisites
+
 * Familiar with Oracle Cloud Shell. Refer [docs here](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/cloudshellintro.htm)
 * You have permission to use cloud shell; ask tenancy administrator to add policy if not.
 * Familiar with local editing IDEs, such as VS Code or Sublime, etc
 * Familiar with Linux editing tools, such as vi, or nano
 
-## **TASK 1:** Setup API Signing Key
+## TASK 1: Setup API Signing Key
 
 We need to generate proper authentication configuration (API Signing Key pair) in order to use OCI CLI to communicate properly to the services on your behalf.
 
@@ -54,10 +55,9 @@ region=us-ashburn-1
 key_file=<path to your private keyfile> # TODO</copy>
 ```
 
-
 To know more about API key and config file, please visit [Generating API KEY](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm) and [SDK and CLI Configuration File](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdkconfig.htm#SDK_and_CLI_Configuration_File)
 
-## **TASK 2:** Activate Cloud Shell with Configuration
+## TASK 2: Activate Cloud Shell with Configuration
 
 ### 1. Get permission to Use Cloud shell
 
@@ -107,8 +107,7 @@ chmod 600 .oci/config </copy>
 The final structure of `.oci` folder will be like this:
 ![](../images/cloud-shell-oci-folder.png " ")
 
-
-## **TASK 3:** Execute OCI Anomaly Detection Commands
+## TASK 3: Execute OCI Anomaly Detection Commands
 
 ### 1. Try the main anomaly-detection command
 ```
@@ -169,7 +168,6 @@ Now run the following command with the previous project id:
 
 Now, in the output, record the id value, which is the model id.
 
-
 ### 5. Detect Anomaly with the Model
 
 Finally, you can use the following command example to make detection with the model built earlier.
@@ -209,11 +207,10 @@ The content of data.json can be like the following:
 
 Congratulations on completing this lab session!
 
-[Proceed to the next section](#next).
-
 ## Acknowledgements
+
 * **Authors**
     * Jason Ding - Principal Data Scientist - Oracle AI Services
     * Haad Khan - Senior Data Scientist - Oracle AI Services
 * **Last Updated By/Date**
-    * Jason Ding - Principal Data Scientist, August 2021
+    * Jason Ding - Principal Data Scientist, Nov 2021

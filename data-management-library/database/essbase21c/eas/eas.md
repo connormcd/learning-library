@@ -67,7 +67,7 @@ To manage an application using EAS Lite:
 ## Task 2: Access the EAS Lite Web Console
 
 1.	Open a web browser and navigate to the URL of the EAS managed server. For example,
-      
+
       ```
       <copy>
       http://[Instance-Public-IP]:9100/easconsole

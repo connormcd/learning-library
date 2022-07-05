@@ -30,6 +30,7 @@ In this lab, you will:
 *List the prerequisites for this lab using the format below. Fill in whatever knowledge, accounts, etc. is needed to complete the lab. **Do NOT list** each previous lab as a prerequisite.*
 
 This lab assumes you have:
+
 * An Oracle account
 * All previous labs successfully completed
 
@@ -45,13 +46,13 @@ This lab assumes you have:
 
     ![](images/sample1.png)
 
-    The image alt text is optional.
+	The image alt text is optional.
 
     ![image alt text](images/sample1.png)
 
-2. Image with a link to the text description below it. This provides screen readers with an accessible way to "see" the image. The `sample1.txt` file must be added to the `files` folder.
+2.	Image with a link to the text description below it. This provides screen readers with an accessible way to "see" the image. The `sample1.txt` file must be added to the `files` folder. 
 
-    ![Image alt text](images/sample1.png "Image title")
+	![Image alt text](images/sample1.png "Image title")
 
 3. Inline image icon ![Image alt text](images/sample2.png) click **Navigation**.
 
@@ -69,7 +70,7 @@ This lab assumes you have:
  | 2 |Some text or a link | More text |
  | 3 | Some text or a link | More text |
 
-6. You can also include bulleted lists - make sure to indent 4 spaces:
+6.	You can also include bulleted lists - make sure to indent 4 spaces:
 
     - List item 1
     - List item 2

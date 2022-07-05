@@ -1,53 +1,53 @@
 {
-    "workshoptitle": "Oracle Database 19c New Features - Performance Enhancements",
+    "workshoptitle": "Discover new performance features in Oracle Database 19c",
     "help": "livelabs-help-db_us@oracle.com",
     "tutorials": [
       {
           "title": "Introduction",
           "description": "Introduction to Oracle Database 19c and the Oracle Database 19c New Features Workshop.",
-          "filename": "../../intro/intro.md"
+          "filename": "../../intro/intro-performance.md"
       },
       {
-          "title": "Getting Started",
+          "title": "Get started",
           "description": "This is the prerequisites for customers using Free Trial and Paid tenancies, and Always Free accounts (if applicable). The title of the lab and the Contents Menu title (the title above) match for Prerequisite lab. This lab is always first.",
           "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md",
           "type": "freetier"
       },
       {
-          "title": "Prepare Your Environment",
+          "title": "Prepare your environment",
           "description": "Steps to create the workshop-staged and workshop-installed compute instances.",
-          "filename": "./../../prepare-environment/prepare-environment.md",
+          "filename": "./../../prepare-environment/prepare-environment-performance.md",
           "type": "freetier"
       },
       {
-        "title": "Initialize Your Environment",
+        "title": "Initialize your environment",
         "description": "Steps to verify the workshop-installed compute instance and download the lab files.",
-        "filename": "./../../initialize-environment/initialize-environment.md",
+        "filename": "./../../initialize-environment/initialize-environment-performance.md",
         "type": "freetier"
       },
       {
-          "title": "Use Memoptimized Rowstore - Fast Ingest",
-          "description": "TBA",
+          "title": "Lab 1: Use Memoptimized Rowstore - Fast Ingest",
+          "description": "Observe the behavior of Memoptimze Rowstore and observe how inserts are optimized.",
           "filename": "./../../use-memoptimized-rowstore-fast-ingest/use-memoptimized-rowstore-fast-ingest.md"
       },
       {
-          "title": "Complete an ADDM Analysis Inside of a PDB",
-          "description": "TBA",
+          "title": "Lab 2: Complete an ADDM analysis inside a PDB",
+          "description": "Complete an ADDM analysis inside of a PDB, also perform an analysis of a CDB.",
           "filename": "./../../complete-an-addm-analysis-inside-a-pdb/complete-an-addm-analysis-inside-a-pdb.md"
       },
       {
-          "title": "Use Real-Time SQL Monitoring as a SQL Developer",
-          "description": "TBA",
+          "title": "Lab 3: Use Real-Time SQL Monitoring as a SQL Developer",
+          "description": "Use Real-Time SQL Monitoring as a SQL Developer.",
           "filename": "./../../use-real-time-sql-monitoring-as-a-sql-developer/use-real-time-sql-monitoring-as-a-sql-developer.md"
       },
       {
-          "title": "Wait for In-Memory Objects to be Populated",
-          "description": "TBA",
+          "title": "Lab 4: Wait for in-memory objects to be populated",
+          "description": "Wait for in-memory objects to be populated.",
           "filename": "./../../wait-for-in-memory-objects-to-be-populated/wait-for-in-memory-objects-to-be-populated.md"
       },
       {
-          "title": "Configure and Use Database Replay at the PDB Level",
-          "description": "TBA",
+          "title": "Lab 5: Configure and use Database Replay at the PDB level",
+          "description": "Observe how Database Replay works at the PDB level.",
           "filename": "./../../configure-and-use-database-replay-at-the-pdb-level/configure-and-use-database-replay-at-the-pdb-level.md"
       },
         {

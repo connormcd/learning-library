@@ -2,11 +2,12 @@
 
 ## Introduction
 
-This lab walks you through the steps to create an Oracle Cloud Infrastructure GoldenGate deployment.
+This lab walks you through the steps to create an Oracle Cloud Infrastructure (OCI) GoldenGate deployment.
 
 Estimated time: 5 minutes
 
 ### About Oracle Cloud Infrastructure GoldenGate Deployments
+
 A Oracle Cloud Infrastructure GoldenGate deployment manages the resources it requires to function. The GoldenGate deployment also lets you access the GoldenGate deployment console, where you can access the OCI GoldenGate deployment console to create and manage processes such as Extracts and Replicats.
 
 ### Objectives
@@ -27,17 +28,17 @@ This lab assumes that you completed all preceding labs.
 
 1.  Open the **Navigation Menu**, navigate to **Oracle Database**, and select **GoldenGate**.
 
-    ![](images/database-goldengate.png " ")
+    ![GoldenGate in Oracle Cloud navigation menu](images/database-goldengate.png " ")
 
 2.  On the GoldenGate **Overview** page, click **Deployments**.
 
-    ![](images/01-02-ggs-overview.png " ")
+    ![GoldenGate Overview page](images/01-02-ggs-overview.png " ")
 
 3.  You may need to select a compartment. Under List Scope, from the Comparment dropdown, expand the root compartment, and then select the compartment associated with your username. For example, if your LiveLab username is LL1234-user, expand root, and then select the compartment **LL1234-COMPARTMENT**.
 
 4.  On the Deployments page, click **Create Deployment**.
 
-    ![Click Create Deployment](images/01-02-01.png "")
+    ![Deployments page](images/01-02-01.png "")
 
 5.  In the Create Deployment panel, enter **GGSDeployment** for Name.
 
@@ -51,7 +52,7 @@ This lab assumes that you completed all preceding labs.
 
 10. Click **Show Advanced Options**, and then select **Create Public Endpoint**.
 
-    ![Create GoldenGate Deployment](images/01-09.png " ")
+    ![Completed Create GoldenGate Deployment fields](images/01-09.png " ")
 
 11. Click **Next**.
 
@@ -61,9 +62,11 @@ This lab assumes that you completed all preceding labs.
 
 14. For Administrator Password, enter a password. Take note of this password.
 
+>**Note:** This password needs to match password of a database user that we will use later. In order to make sure the password works for both, we suggest you enter a password containing only upper case letters, lower case letters, numbers, and underscores. If you are using the green button (run on LiveLabs tenancy), you can use your database admin password given to you on the reservation page.
+
 15. Click **Create**.
 
-    ![](images/02-13.png " ")
+    ![Completed GoldenGate details](images/02-13.png " ")
 
 You're brought to the Deployment Details page. It takes a few minutes for the deployment to be created. Its status will change from CREATING to ACTIVE when it is ready for you to use.
 
@@ -93,7 +96,7 @@ On the Deployment Details page, you can:
 
 After you log in, you're brought to the GoldenGate deployment console home page. Here, you can access the GoldenGate Administration, Performance Metrics, Distribution, and Receiver Services, as well as add Extracts and Replicats for your data replication tasks.
 
-In this lab, you created an OCI Deployment, reviewed its Deployment details, and launched the Deployment Console. You may now **proceed to the next lab**.
+In this lab, you created an OCI Deployment, reviewed its Deployment details, and launched the Deployment Console.
 
 ## Learn More
 
@@ -101,5 +104,5 @@ In this lab, you created an OCI Deployment, reviewed its Deployment details, and
 
 ## Acknowledgements
 * **Author** - Jenny Chan, Consulting User Assistance Developer, Database User Assistance
-* **Contributors** -  Denis Gray, Database Product Management
-* **Last Updated By/Date** - Jenny Chan, October 2021
+* **Contributors** -  Denis Gray, Database Product Management; Arabella Yao, Database Product Management
+* **Last Updated By/Date** - Arabella Yao, May 2022

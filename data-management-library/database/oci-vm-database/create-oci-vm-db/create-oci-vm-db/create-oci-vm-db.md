@@ -92,5 +92,5 @@ You may now [proceed to the next lab](#next).
 * [Oracle Cloud Infrastructure: Connecting to a DB System](https://docs.cloud.oracle.com/en-us/iaas/Content/Database/Tasks/connectingDB.htm)
 
 ## Acknowledgements
-* **Author** - Tom McGinn, Learning Architect, Database User Assistance
-* **Last Updated By/Date** - Tom McGinn, March 2020
+* **Author** - Kay Malcolm, Database Product Management
+* **Last Updated By/Date** - Madhusudhan Rao, Apr 2022

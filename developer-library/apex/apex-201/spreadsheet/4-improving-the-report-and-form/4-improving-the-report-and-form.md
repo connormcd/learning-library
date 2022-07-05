@@ -177,5 +177,5 @@ You now know how _end-users_ can define custom reports using Interactive Reports
 ## **Acknowledgements**
 
  - **Author/Contributors** -  Salim Hlayel, Principle Product Manager
- - **Last Updated By/Date** - Tom McGinn, Database Innovations Architect, Product Management, July 2020
+ - **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

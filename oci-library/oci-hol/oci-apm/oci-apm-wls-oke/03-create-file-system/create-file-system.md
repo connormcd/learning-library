@@ -2,23 +2,21 @@
 
 ## Introduction
 
-In this lab, you will create a file system in the Oracle cloud Infrastructure. You will also create security rules to allow network traffic and mount the file system to the Kubernetes pods.  
+In this lab, you will create a file system in the Oracle Cloud Infrastructure. You will also create security rules to allow network traffic and mount the file system to the Kubernetes pods.  
 
-
-Estimated time: 20 minutes
+Estimated time: 30 minutes
 
 ### Objectives
+
 * Create a file system in the Oracle Cloud
 *	Create security rules in the network
 *	Create a YAML file, which defines Storage Class, Persistent Volume and Persistent Volume Claim
 *	Mount the volume to the Kubernetes cluster by applying the YAML, which recreates the Kubernetes pods with the new storage configuration
 
-
 ### Prerequisites
 
-* Requires OCI quota to create a file system and associated resources
-* Completion of the Lab 1 and Lab 2
-
+* OCI quota and permissions to create a file system and associated resources. See **[Creating File Systems](https://docs.oracle.com/en-us/iaas/Content/File/Tasks/creatingfilesystems.htm)** and **[Service Limits](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/servicelimits.htm#top)** in the Oracle Cloud documentation.
+* Completion of the Task 1 and Lab 2
 
 ## Task 1: Create a file system in the Oracle Cloud
 
@@ -30,26 +28,27 @@ Estimated time: 20 minutes
 
    ![Oracle Cloud console, file systems](images/3-1-2-filesystem.png " ")
 
-3.	In the **File System Information** section, click **Edit Details**.
+3. On the Create File System page, in the **File System Information** section, click **Edit Details**.
 
    ![Oracle Cloud console, file systems](images/3-1-3-filesystem.png " ")
 
-4.	Enter ***apmlab-fss*** in the **Name** field. Set the same **Availability Domain** and **Compartment** where the cluster is running.  
+4.	On the Create File System page, enter ***apmlab-fss*** into the **Name** field.
+<br><br>
+Then drop down and select the **Compartment** where the cluster is running. You can find this information in the Cluster page (**Developer Services** > **Kubernetes Clusters (OKE)**). Leave the other fields with default values.
 
    ![Oracle Cloud console, file systems](images/3-1-4-filesystem.png " ")
 
-5.	At the **Export Information** section verify the **Export Path** is set to /apmlab-fss. This is where the file system will be mounted. You will provision APM Java agent at this location.
+5. Scrolling down the Create File System page, in the **Export Information** section, verify that the **Export Path** is set to /apmlab-fss. This is where the file system will be mounted. You will provision APM Java agent at this location.
 
-6.	At the **Mount Target Information**, click **Edit Details** to expand the section. Click the link **Click here to enable compartment selections**.
+6. In the **Mount Target Information** section, click **Edit Details** (upper right side) to expand the section. Then click the link **Click here to enable compartment selections**.
 
    ![Oracle Cloud console, file systems](images/3-1-5-filesystem.png " ")
 
-7.	In the **Create in Compartment** field, ensure the same compartment that the cluster uses, is selected.
+7. In the Mount Target Information section, locate the **Create in Compartment** field, ensure the same compartment that the cluster uses, is selected.
 
-8.	Make sure **Create New Mount Target** is selected.  Select the same **Virtual Cloud Network** that the cluster is using. Select ***oke-k8sApiEndpoint-subnet..*** for **Subnet**. Leave the other fields by default and click **Create**.
+8. Next, then check that the **Create New Mount Target** is selected. Select the same **Virtual Cloud Network** that the cluster is using. Select ***oke-k8sApiEndpoint-subnet..*** for **Subnet**. Leave the other fields by default and click **Create**.
 
    ![Oracle Cloud console, file systems](images/3-1-6-filesystem.png " ")
-
 
     > ***NOTE***: Ensure that oke-k8sApiEndpoint-subnet.. is selected for the Subnet.
     ![Oracle Cloud console, file systems](images/3-1-7-filesystem.png " ")
@@ -58,21 +57,19 @@ Estimated time: 20 minutes
 
    ![Oracle Cloud console, file systems](images/3-1-8-filesystem.png " ")
 
-10.	Click **Copy** next to the **OCID**. Save the value in a text file on your laptop. Also, note down the **IP Address**. You will need these values in the next steps.
+10.	Click **Copy** next to the **OCID**. Save the value in a text file on your computer. Also, take a note of the **IP Address** as you will need these values in the next steps.
 
    ![Oracle Cloud console, file systems](images/3-1-9-filesystem.png " ")
 
 ## Task 2: Create security rules in the network
 
-
-1.	Point mouse cursor over the **“i”** icon next to **Subnet** and review the message. As the message indicates, security rules must be configured before mounting the file system, and that is what you will be doing the next.
+1. In the Mount Target Information section point your mouse cursor over the **“i”**  icon next to **Subnet** and review the message. As the message indicates, security rules must be configured before mounting the file system, and that is what you will be doing next.
 
    ![Oracle Cloud console, Security Rules](images/3-2-1-securityrules.png " ")
 
 2.	Click the **Subnet** link to open the Subnet page.
 
    ![Oracle Cloud console, Security Rules](images/3-2-2-securityrules.png " ")
-
 
     >***NOTE***: If the click does not land at the subnet page properly, copy the subnet name and paste into the search box at the top of the Oracle Cloud console.  Find the correct link shows up under **Resources** and click.
    ![Oracle Cloud console, Security Rules](images/3-2-3-securityrules.png " ")
@@ -85,7 +82,6 @@ Estimated time: 20 minutes
 
    ![Oracle Cloud console, Security Rules](images/3-2-5-securityrules.png " ")
 
-
 5.	In the **Add Ingress Rules** dialog, enter the following information:
 
      *	Stateless: **No**
@@ -93,58 +89,56 @@ Estimated time: 20 minutes
      *	Source CIDR: **0.0.0.0/0**
      *	IP Protocol: **TCP**
      *	Source Port Range:  leave as default (All)
-     *	Destination Port Range: **111** 	
-     *	Description: **Security rule for apmlab-fss**
-
+     *	Destination Port Range: **111,2048-2050** 	
+     *	Description: **Ingress security rule for apmlab-fss**
 
    ![Oracle Cloud console, Security Rules](images/3-2-6-securityrules.png " ")
 
-6.	Create additional rules for **TCP** destination port **2048**, **2049** and **2050**. Use the same values with the rule created above except for the **Destination Port Range**.
-
-7.	Create security rules for **UDP** destination port **111** and **2048**.  
+6.	Click **+ Another Ingress Rule** button and create additional rule for **UDP**, with the destination port range **111,2048**. Use the same values with the rule created above for the rest of the fields.<br><br> Click **Add Ingress Rules** button which creates 4 ingress rules in the security list.
 
    ![Oracle Cloud console, Security Rules](images/3-2-7-securityrules.png " ")
 
-8.	After the configuration, your security rules for the **Ingress Rules** should look like the image below, .
+7.	After the configuration, your **Ingress Rules** have 4 additional security rules as in the image below.
 
    ![Oracle Cloud console, Security Rules](images/3-2-8-securityrules.png " ")
 
-9.	Click **Egress Rules**, which located at the left side of the screen.
+8.	Click **Egress Rules**, which is located at the left side of the screen.
 
    ![Oracle Cloud console, Security Rules](images/3-2-9-securityrules.png " ")
 
-10.	Click **Add Egress Rules** button.
+9.	Click **Add Egress Rules** button.
 
    ![Oracle Cloud console, Security Rules](images/3-2-10-securityrules.png " ")
 
-11.	In the Add Egress Rules dialog, enter the following information:
+10.	In the **Add Egress Rules** dialog, enter the following information:
 
     *	Stressless: **No**
     *	Source Type: **CIDR**
     *	Source CIDR: **0.0.0.0/0**
     *	IP Protocol: **TCP**
     *	Source Port Range:  leave as default (All)
-    *	Destination Port Range: **111** 	
-    *	Description: **Security rule for apmlab-fss**
+    *	Destination Port Range: **111,2048-2050**
+    *	Description: **Egress security rule for apmlab-fss**
 
    ![Oracle Cloud console, Security Rules](images/3-2-11-securityrules.png " ")
 
-12.	Create additional rules for **TCP** destination port **2048**, **2049** and **2050**. Use the same values with the rule created above except for the **Destination Port Range**.
-13.	Create security rules for **UDP** destination port **111**.
-14.	After the configuration, your security rules for the **Egress Rules** should look like the image below.
+11.	Click **+ Another Egress Rule** button and create additional rule for **UDP**, with the destination port **111**. Use the same values with the rule created above for the rest of the fields.<br><br> Click **Add Egress Rules** button which creates 3 egress rules in the security list.
+
+   ![Oracle Cloud console, Security Rules](images/3-2-11-2-securityrules.png " ")
+
+12.	After the configuration, your **Egress Rules** has 3 additional security rules as in the image below.
 
    ![Oracle Cloud console, Security Rules](images/3-2-12-securityrules.png " ")
 
 ## Task 3: Mount the file system to Kubernetes pods
 
-1.	Click the **>..** icon from the top right corner in the Oracle Cloud console, to start the Cloud Shell.
-
+1. Click the **>..**  icon from the top right corner in the Oracle Cloud console menu bar, to start a Cloud Shell environment which will appear at the bottom of your page.
    ![Oracle Cloud console, Menu](images/3-3-1-menu.png " ")
 
     >	***NOTE***: If the Cloud Shell is already running but the window is minimized, you can restore the window by clicking the bar icon or the arrow icon at the toolbar.
       ![Oracle Cloud console, Menu](images/3-3-2-menu.png " ")
 
-2.  Run the oci cd (Container Engine) command that you saved in the Lab 1, Task1, step6.
+2.  Run the oci ce (Container Engine) command that you saved in the Lab 1, Task1, step6.
 
    ![Oracle Cloud console, Cloud Shell](images/1-7-cloudshell.png " ")
 
@@ -169,9 +163,8 @@ Estimated time: 20 minutes
 
 5. Manually copy the contents below and paste it to the file just created. Ensure to replace the **mntTargetID** and **server IP** with the values copied in the Lab 3, Task 1, step 10 in this Workshop.
 
-
-        kind: StorageClass
         apiVersion: storage.k8s.io/v1
+        kind: StorageClass
         metadata:
           name: apmlab-fss
         provisioner: oracle.com/apmlab-fss
@@ -191,7 +184,7 @@ Estimated time: 20 minutes
           mountOptions:
             - nosuid
           nfs:
-            server:<Server IP of your Mount Target>
+            server: <Server IP of your Mount Target>
             path: "/apmlab-fss"
             readOnly: false
         ---
@@ -208,8 +201,6 @@ Estimated time: 20 minutes
               storage: 10Gi
           volumeName: apmlab-fsspv
 
-
-
      >***Suggested Editing Tips***:
    	* Use your mouse to select the text above, and manually copy and paste it into a text file.
     * Auto copy is not provided as it may break the indentation.
@@ -220,9 +211,7 @@ Estimated time: 20 minutes
 
 ## Task 4: Recreate Kubernetes pods
 
-
 1.	From the home directory, execute the following command to add the storage objects to the Kubernetes cluster.
-
 
     ``` bash
     <copy>
@@ -241,12 +230,12 @@ Estimated time: 20 minutes
     vi ~/domain.yaml
     </copy>
     ```
-3.	Find the **volumes:** section. At this point, the section is commented.
+
+3.	Find the **volumes:** section. At this point, the section is commented out.
 
    ![Oracle Cloud console, Cloud Shell](images/3-3-4-cloudshell.png " ")
 
 4.	Uncomment the **volume** section, then replace the values as below, then save the file.
-
 
         volumes:
         - name: apmlab-nfs
@@ -258,7 +247,6 @@ Estimated time: 20 minutes
 
    ![Oracle Cloud console, Cloud Shell](images/3-3-5-cloudshell.png " ")
 
-
     >***NOTE***: ensure that the line “volumes:” is set with the same indentation level with the line “env:”.
 
 5.	Run the following command. This will recreate the pods, with the new object configurations.
@@ -268,16 +256,20 @@ Estimated time: 20 minutes
     kubectl apply -f domain.yaml -n sample-domain1-ns
     </copy>
     ```
+
    ![Oracle Cloud console, Cloud Shell](images/3-3-6-cloudshell.png " ")
 
-6.	Run the following command to ensure the pods are in the running state. You may need to wait for few minutes to see the status updated.
+6.	Run the following command to ensure the pods are in the running state. You may need to wait for a few minutes to see all the pods are restarted and their status updated.
 
     ``` bash
     <copy>
     kubectl get pods -n sample-domain1-ns
     </copy>
     ```
+
     ![Oracle Cloud console, Cloud Shell](images/3-3-7-cloudshell.png " ")
+
+    >***NOTE***: Verify the **AGE** column to ensure the pods are restarted. It typically takes 5 to 7 minutes to have all the pods restarted.
 
 7.	Execute the following command to access the Kubernetes pods.
 
@@ -294,6 +286,7 @@ Estimated time: 20 minutes
     cd /; ls
     </copy>
     ```
+
     ![Oracle Cloud console, Cloud Shell](images/3-3-8-cloudshell.png " ")
 
 9.	Move to the ***apmlab-fss*** and create a directory ***apmagent***
@@ -303,6 +296,7 @@ Estimated time: 20 minutes
     cd apmlab-fss; mkdir apmagent
     </copy>
     ```
+
 10.	Ensure the ***apmagent*** directory is created
 
     ``` bash
@@ -310,6 +304,7 @@ Estimated time: 20 minutes
     ls
     </copy>
     ```
+
     ![Oracle Cloud console, Cloud Shell](images/3-3-9-cloudshell.png " ")
 
 11.	Go back to the Cloud Shell.
@@ -320,19 +315,16 @@ Estimated time: 20 minutes
     exit
     </copy>
     ```
+
     ![Oracle Cloud console, Cloud Shell](images/3-3-10-cloudshell.png " ")
 
     >***Debugging TIPS***: If you cannot find the apmlab-fss directory, or the pods do not start running, execute the following command from the Cloud Shell to troubleshoot. <br> kubectl get events --sort-by=.metadata.creationTimestamp -n sample-domain1-ns
-
-
-
-
-You may now [proceed to the next lab](#next).
 
 ## Acknowledgements
 
 * **Author** - Yutaka Takatsu, Product Manager, Enterprise and Cloud Manageability
 - **Contributors** - Steven Lemme, Senior Principal Product Manager,<br>
 David Le Roy, Director, Product Management,<br>
+Mahesh Sharma, Consulting Member of Technical Staff,<br>
 Avi Huber, Senior Director, Product Management
-* **Last Updated By/Date** - Yutaka Takatsu, December 2021
+* **Last Updated By/Date** - Yutaka Takatsu, January 2022

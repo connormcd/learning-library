@@ -1,9 +1,24 @@
+"""
+Author: OCI Anomaly Detection Team
+Description: This python script showcases how to programmatically create
+various OCI Anomaly Detection resources using the Python SDK.
+Dated: 05-04-2022
+
+Notes:
+Capture updates made to the script below.
+
+ID05042022: ganrad: (Bugfix) Script was throwing exception for 'date_today' - Unknown function (line # 164).
+ID05052022: ganrad: Commented out print statement to reduce verbose output.
+"""
+
+import os
 import oci
 import time
 import json
 import pandas as pd
 import numpy as np
-from datetime import datetime, timedelta
+#from datetime import datetime, timedelta # ID05042022.o
+from datetime import datetime, date, timedelta # ID05042022.n
 
 from oci.config import from_file
 from oci.ai_anomaly_detection.models import *
@@ -22,13 +37,17 @@ from oci.ai_anomaly_detection.models.inline_detect_anomalies_request import Inli
 
 # change the following constants accordingly
 # ## If using the instance in data science platform, please refer this page https://dzone.com/articles/quick-and-easy-configuration-of-oracle-data-scienc to setup the content of config file
-CONFIG_FILENAME = "/home/<USERNAME>/.oci/config" # TODO: Update USERNAME
+
+CONFIG_FILENAME = "/Users/USERNAME/.oci/config" # TODO: Update USERNAME
 SERVICE_ENDPOINT="https://anomalydetection.aiservice.us-ashburn-1.oci.oraclecloud.com" # Need to Update propery if different
-NAMESPACE = "abcdefg" # Need to Update propery if different
-BUCKET_NAME = "anomaly-detection-bucket" # Need to Update propery if different
+NAMESPACE = "UPDATE_NS" # Need to Update propery if different
+BUCKET_NAME = "UPDATE_BUCKET_NAME" # Need to Update propery if different
 training_file_name="demo-training-data.csv" # Need to Update propery if different
 
-compartment_id = "ocid1.tenancy.oc1..aaaaaaaa....." #Compartment of the project, Need to Update propery if different
+#compartment_id = os.getenv('OCI_COMPARTMENT') #Compartment of the project, Need to Update propery if different
+compartment_id = "ocid1.tenancy.oc1..aaaa........" #Compartment of the project, Need to Update propery if different
+print("-*-*- Compartment ID=[" + compartment_id + "] -*-*-")
+
 config = from_file(CONFIG_FILENAME)
 
 ad_client = AnomalyDetectionClient(
@@ -40,8 +59,8 @@ print("-*-*-*-PROJECT-*-*-*-")
 
 # CREATE CALL
 proj_details = CreateProjectDetails(
-    display_name="Test Project",
-    description="Test Project description",
+    display_name="Test-Project",
+    description="Project description",
     compartment_id=compartment_id,
 )
 create_res = ad_client.create_project(create_project_details=proj_details)
@@ -74,8 +93,8 @@ dObjDeatils = DataSourceDetailsObjectStorage(
 )
 
 da_details = CreateDataAssetDetails(
-    display_name="Test DataAsset",
-    description="description DataAsset",
+    display_name="Test-DataAsset",
+    description="DataAsset Description",
     compartment_id=compartment_id,
     project_id=project_id,
     data_source_details=dObjDeatils,
@@ -106,8 +125,8 @@ mTrainDetails = ModelTrainingDetails(
     target_fap=0.02, training_fraction=0.7, data_asset_ids=dataAssetIds
 )
 mDetails = CreateModelDetails(
-    display_name="DisplayNameModel",
-    description="description Model",
+    display_name="Test-Model",
+    description="Model description",
     compartment_id=compartment_id,
     project_id=project_id,
     model_training_details=mTrainDetails,
@@ -146,7 +165,8 @@ print("-*-*-*-DETECT-*-*-*-")
 num_rows = 200
 signalNames = ["temperature_1", "temperature_2", "temperature_3", "temperature_4", "temperature_5", "pressure_1", "pressure_2", "pressure_3", "pressure_4", "pressure_5"]
 df = pd.DataFrame(np.random.rand(num_rows, len(signalNames)), columns=signalNames)
-df.insert(0, 'timestamp', pd.date_range(start=date_today, periods=num_rows, freq='min'))
+#df.insert(0, 'timestamp', pd.date_range(start=date_today, periods=num_rows, freq='min')) # ID05042022.o
+df.insert(0, 'timestamp', pd.date_range(start=date.today(), periods=num_rows, freq='min')) # ID05042022.n
 df['timestamp'] = df['timestamp'].apply(lambda x: x.strftime('%Y-%m-%dT%H:%M:%SZ'))
 
 # Now create the Payload from the dataframe
@@ -156,6 +176,12 @@ for index, row in df.iterrows():
     values = list(row[signalNames])
     dItem = DataItem(timestamp=timestamp, values=values)
     payloadData.append(dItem)
+
+# ID05052022.so
+#print("*********** Detect Payload ************");
+#print(payloadData)
+#print("***************************************");
+# ID05052022.eo
 
 inline = InlineDetectAnomaliesRequest(model_id=model_id, request_type="INLINE", signal_names=signalNames, data=payloadData)
 

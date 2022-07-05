@@ -1,38 +1,39 @@
-# Building and deploying Python application stacks on dedicated autonomous infrastructure
+# Build and deploy Python application stacks on dedicated autonomous infrastructure
 
 ## Introduction
-The Oracle Cloud Infrastructure marketplace provides a pre-built image with necessary client tools and drivers to build applications on autonomous databases. As an application developer you can now provision a developer image within minutes and connect it to your dedicated or serverless database deployment. 
+The Oracle Linux Cloud Developer image provides the latest development tools, languages, and Oracle Cloud Infrastructure Software Development Kits (SDKs) to rapidly deploy a comprehensive development environment. You can use the command line and GUI tools to write, debug, and run code in various languages, and develop modern applications on Oracle Cloud Infrastructure.  and drivers to build applications on autonomous databases. 
+As an application developer you can now provision a developer image within minutes and connect it to your dedicated or serverless database deployment.
+ As an application developer you can now provision a developer image within minutes and connect it to your dedicated or serverless database deployment.
 
 The image is pre-configured with tools and language drivers to help you build applications written in node.js, python, java and golang.
-For a complete list of features, login to your OCI account, select 'Marketplace' from the top left menu and browse details on the 'Oracle Developer Cloud Image'.
+For a complete list of features, and preinstalled components click [this documentation](https://docs.oracle.com/en-us/iaas/oracle-linux/developer/index.htm).
 
 *In this lab we will configure and deploy a python application in a developer client VM and connect it to an autonomous database.*
+
+Estimated time: 20 minutes
 
 ### Objectives
 
 As an application developer,
 
 1. Learn how to deploy a python application and connect it to your dedicated autonomous database instance.
-   
 
 ### Required Artifacts
 
    - An Oracle Cloud Infrastructure account.
-   - A pre-provisioned instance of Oracle Developer Client image in an application subnet. Refer to [Lab 8](?lab=lab-8-configuring-development-system).
-   - A pre-provisioned dedicated autonomous database instance. Refer to [Lab 7](?lab=lab-7-provisioning-databases).
-   - A network that provides connectivity between the application and database subnets. Refer to [Lab 1](?lab=lab-1-prepare-private-network).
-
+   - A pre-provisioned instance of Oracle Developer Client image in an application subnet. Refer to the lab **Configuring a Development System** in the **Autonomous Database Dedicated for Developers and Database Users** workshop on how provision a developer client.
+   - A pre-provisioned dedicated autonomous database instance. Refer to the lab **Provisioning Databases** in the **Autonomous Database Dedicated for Developers and Database Users** workshop on how to provision an ATP database.
+   - A network that provides connectivity between the application and database subnets. Refer to the lab **Prepare Private Network for OCI Implementation** in the **Autonomous Database Dedicated for Fleet Administrators** workshop.
 
 ## Task 1: Instances Setup
 
-- Click the **Navigation Menu** in the upper left, navigate to **Compute**, and select **Instances**.
+- Log in to your Oracle Cloud Infrastructure account and select **Compute** —> **Instances** from top left menu.
+    ![This image shows the result of performing the above step.](./images/compute1.png " ")
 
-	![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/compute-instances.png " ")
+- Select the right Oracle Developer Cloud image you created in the earlier lab, **Configure a Development System**.
 
-- Select the right Oracle Developer Cloud image you created in [Lab 8](?lab=lab-8-configuring-development-system).
-
-- Copy the public IP address of the instance in a note pad. 
-    ![](./images/Compute2.png " ")
+- Copy the public IP address of the instance in a note pad.
+    ![This image shows the result of performing the above step.](./images/compute2.png " ")
 
 **Mac / Linux users**
 
@@ -48,13 +49,13 @@ As an application developer,
 
 **Windows users**
 
-- You can connect to and manage linux host mahine using SSH client. Recent versions of Windows 10 provide OpenSSH client commands to create and manage SSH keys and make SSH connections from a command prompt.
+- You can connect to and manage linux host machine using SSH client. Recent versions of Windows 10 provide OpenSSH client commands to create and manage SSH keys and make SSH connections from a command prompt.
 
-- Other common Windows SSH clients you can install locally is PuTTY. Click [here](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows) to follow the steps to connect to linux host machine from you windows using PuTTY.
+- Other common Windows SSH clients you can install locally is PuTTY. Click [this link for documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows) to follow the steps to connect to linux host machine from you windows using PuTTY.
 
 ## Task 2: Download sample python application
 
-- In your developer client ssh session,
+- In your developer client ssh session:
 
     ```
     <copy>
@@ -62,7 +63,7 @@ As an application developer,
     </copy>
     ```
 
-- Lets download a sample python application for the purpose of this lab,
+- Let's download a sample python application for the purpose of this lab:
 
     ```
     <copy>
@@ -70,7 +71,7 @@ As an application developer,
     </copy>
     ```
 
-- Unzip the application. 
+- Unzip the application.
 
     ```
     <copy>
@@ -81,23 +82,23 @@ As an application developer,
 
 ## Task 3: Transfer database wallet to developer client
 
-- Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, and select **Autonomous Transaction Processing**.
-    ![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/database-atp.png " ")
+- Login to Oracle Cloud Infrastructure account and select **Autonomous Transaction Processing** from menu.
+    ![This image shows the result of performing the above step.](./images/atpd1.png " ")
 
-- Click on Autonomous Database and select your previously created database.
-    ![](./images/atpd2.png " ")
+- Click **Autonomous Database* and select your previously created database.
+    ![This image shows the result of performing the above step.](./images/atpd2.png " ")
 
-- Click on DB Connection and under Download Client Credential(Wallet) click *Download*.
-    ![](./images/atpd3.png " ")
+- Click *DB Connection* and under Download Client Credential(Wallet) click **Download**.
+    ![This image shows the result of performing the above step.](./images/atpd3.png " ")
 
-- Provide a password and download the wallet to a local folder. 
-    ![](./images/atpd4.png " ")
+- Provide a password and download the wallet to a local folder.
+    ![This image shows the result of performing the above step.](./images/atpd4.png " ")
 
     The credentials zip file contains the encryption wallet, Java keystore and other relevant files to make a secure TLS 1.2 connection to your database from client applications. Store this file in a secure location.
 
     Let us now secure copy the downloaded wallet to developer client machine.
 
-- Open Terminal in your laptop and type in the following commands
+- Open Terminal in your laptop and type in the following commands:
 
     *Note: Please change path and name of your private ssh keyhole,  wallet and the ip address of your developer client in the command below.*
 
@@ -107,7 +108,7 @@ As an application developer,
     </copy>
     ```
 
-    ![](./images/atpd5.png " ")
+    ![This image shows the result of performing the above step.](./images/atpd5.png " ")
 
 
 ## Task 4: Run your python application
@@ -160,16 +161,18 @@ Now that you have successfully SCP'd the encryption to your client machine, let'
     echo $TNS_ADMIN
     </copy>
     ```
-    ![](./images/TNSadmin.png " ")
+    ![This image shows the result of performing the above step.](./images/tnsadmin.png " ")
 
-- That's all! Lets fire up our python app and see if it makes a connection to the database.
+- That's all! Let's start up our python app and see if it makes a connection to the database.
 
     ```
     <copy>
     python exampleConnection.py ADMIN PASSWORD dbname_tp
     </copy>
     ```
-    ![](./images/pythonSuccess.png " ")
+    ![This image shows the result of performing the above step.](./images/pythonsuccess.png " ")
+
+You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
@@ -177,5 +180,7 @@ Now that you have successfully SCP'd the encryption to your client machine, let'
 
 - **Author** - Tejus S. & Kris Bhanushali
 - **Adapted by** -  Yaisah Granillo, Cloud Solution Engineer
-- **Last Updated By/Date** - Kris Bhanushali, June 2020
+- **Last Updated By/Date** - Kris Bhanushali, Autonomous Database Product Management, April 2022
 
+## See an issue or have feedback?  
+Please submit feedback [here](https://apexapps.oracle.com/pls/apex/f?p=133:1:::::P1_FEEDBACK:1).   Select 'Autonomous DB on Dedicated Exadata' as workshop name, include Lab name and issue / feedback details. Thank you!

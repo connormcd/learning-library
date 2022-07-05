@@ -22,7 +22,7 @@ Estimated workshop Time 15 minutes.
 Return to the Oracle Cloud Infrastructure Console accessing from **Oracle Home Page** (oracle.com) and sign in into your cloud account.
 Click in **View Account** and **Sign in to Cloud**.
 
-![Oracle Console SignIn](./images/lab200_1.png)
+![Oracle Console SignIn](./images/cloud-signin.png)
 
 1. Click on the menu icon on the left. Verify that you are signed in as a **Single Sign On** (Federated user) user by selecting the **Profile** icon in the top right hand side of your screen. If your username is shown as:
 
@@ -30,7 +30,7 @@ Click in **View Account** and **Sign in to Cloud**.
     
     Then you are **connected** as a **Single Sign On** user.
 
-    ![Federated User](./images/lab200_2.png)
+    ![Federated User](./images/federated-user.png)
 
     If your username is shown as:
 
@@ -38,12 +38,12 @@ Click in **View Account** and **Sign in to Cloud**.
     
     Then you are **signed in** as an **Oracle Cloud Infrastructure** user.
 
-    ![OCI User](./images/lab200_3.png)
+    ![OCI User](./images/oci-user.png)
 
     If your user does not contain the identity provider (**oracleidentitycloudprovider**), please logout and select to authenticate
     using **Single Sign On**.
 
-    ![Oracle Console SignIn](./images/lab200_4.png)
+    ![Oracle Console SignIn](./images/console-signin.png)
 
     To be capable of using **Oracle Analytics Cloud** we need to be Sign-On as a **Single Sign-On** (SSO) user.
 
@@ -62,9 +62,13 @@ Click in **View Account** and **Sign in to Cloud**.
     - **Compartment**: Select a valid compartment in your tenancy
     
     - **Instance Name**: `WORKSHOPADWOAC`
-    
-    - **Description**: &lt;optional&gt;
-    
+        ```
+        <copy>WORKSHOPADWOAC</copy>
+        ```
+    - **Description**: &lt;Optional&gt;
+        ```
+        <copy>Analytics Instance for the cloud</copy>
+        ```
     - **Feature Set**: Enterprise Analytics (important)
     
     - **Capacity**: 1 - Non Production
@@ -73,24 +77,23 @@ Click in **View Account** and **Sign in to Cloud**.
 
 4. Select **Create**.
 
-    ![OAC Instance Creation](./images/lab200_6.png)
+    ![OAC Instance Creation](./images/oac-creation-details-new.png)
 
 5. On the **Confirmation** screen, select **Create**.
 
     The Analytics instance page will be displayed with a status of **CREATING**.
 
-    ![OAC Instance Creating](./images/lab200_7.png)
+    ![OAC Instance Creating](./images/oac-creating.png)
 
     ***Reminder***: Provisioning an Oracle Analytics Cloud instance can take over **40 minutes**.
 
 6. The Analytics instance page will be displayed with a status of **ACTIVE**.
 
-    ![OAC Instance Active](./images/lab200_8.png)
+    ![OAC Instance Active](./images/oac-active.png)
 
 
 ## **Acknowledgements**
 
 - **Author** - Priscila Iruela - Technology Product Strategy Director, Juan Antonio Martin Pedro - Analytics Business Development
 - **Contributors** - Victor Martin, Melanie Ashworth-March, Andrea Zengin
-- **Last Updated By/Date** - Kamryn Vinson, October 2020
-
+- **Last Updated By/Date** - Priscila Iruela, June 2022

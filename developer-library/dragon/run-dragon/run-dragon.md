@@ -315,8 +315,8 @@ Congratulations! You have completed the very first DRAGON Stack workshop!
 
 ## Acknowledgements
 * **Author** - Loic Lefevre, Principal Product Manager
-* **Contributors** - Tom McGinn, Kamryn Vinson
-* **Last Updated By/Date** - Tom McGinn, Database Product Management, November 2020
+* **Contributors** - Kamryn Vinson
+* **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 
 ![DRAGON Stack logo](./images/dragon-logo.png)
 

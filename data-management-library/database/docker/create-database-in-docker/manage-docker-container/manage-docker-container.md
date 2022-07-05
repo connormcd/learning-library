@@ -52,7 +52,6 @@ Congratulations! You have completed this workshop. Oracle has also provided buil
 * [Oracle Docker Github repo](https://github.com/oracle/docker-images/tree/master/OracleDatabase)
 
 ## Acknowledgements
-* **Author** - Gerald Venzl, Master Product Manager, Database Development
-* **Adapted for Cloud by** -  Tom McGinn, Sr. Principal Product Manager, Database and Database Cloud Service
+* **Author** - Gerald Venzl, Master Product Manager, Database Development 
 * **Contributor** - Arabella Yao, Product Manager Intern, Database Management, June 2020
-* **Last Updated By/Date** - Tom McGinn, June 2021
+* **Last Updated By/Date** - Madhusudhan Rao, Apr 2022

@@ -16,12 +16,6 @@ In this lab, you will:
 * Create Object Store Buckets for our csv files
 * Create a secret using the Secrets Service and the OCI Vault
 
-### Prerequisites
-
-This lab assumes you have:
-* Completed the [Getting Started](https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md) lab
-
-
 ## Task 1: Create a Compartment
 
 We are going to create a **Compartment** for this lab so that our functions, logs, database and other OCI components reside in a single place.
@@ -112,7 +106,7 @@ Let's start off by creating a dynamic group. This group will be used with policy
 
     **Matching Rules:** 
     
-    The Match any rules defined below radio button is selected. **Be sure to replace **YOUR COMPARTMENT OCID** with exactly that, your compartment OCID you copied in setup 1**
+    The Match any rules defined below radio button is selected. **Be sure to replace *YOUR COMPARTMENT OCID* with exactly that, your compartment OCID you copied in setup 1**
 
     **Rule 1 text is:** 
 
@@ -183,7 +177,7 @@ Next, we need to associate our dynamic group to some policies so that it has the
 
     ![Show manual editor toggle switch](./images/pol-8.png)
 
-6. Copy and paste the following policy code into the text area. You will need to change the text **YOUR_REGION** to reflect the OCI region you are in. You can reference the documentation [here](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/regions.htm) to find your **Region Identifier** to replace the **YOUR_REGION** text. For example, if we were in the Phoenix OCI region, the policy would be:
+6. Copy and paste the following policy code into the text area. You will need to change the text **YOUR\_REGION** to reflect the OCI region you are in. You can reference the documentation [here](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/regions.htm) to find your **Region Identifier** to replace the **YOUR\_REGION** text. For example, if we were in the Phoenix OCI region, the policy would be:
     ```
     Allow service objectstorage-us-phoenix-1 to manage object-family in tenancy
     ```
@@ -213,7 +207,7 @@ Next, we need to associate our dynamic group to some policies so that it has the
 
     ![ADB from the menu](./images/adb-1.png)
 
-2. On the Autonomous Database page, change your compartment to the livelabs compartment using the **Compartment** dropdown on the left side of the page.
+2. On the Autonomous Database page, change your compartment to the livelabs compartment using the **Compartment** drop-down on the left side of the page.
 
     ![ADB compartment dropdown](./images/adb-2.png)
 
@@ -222,9 +216,9 @@ Next, we need to associate our dynamic group to some policies so that it has the
     ![Create Autonomous Database button](./images/adb-3.png)
 
 
-4. In the **Create Autonomous Database** page, we start in the **Provide basic information for the Autonomous Database** section. Here we can ensure our **Compartment** is **livelabs** and give our database a **Display Name**. We can use **ORDS ADB** as the Display Name.
+4. In the **Create Autonomous Database** page, we start in the **Provide basic information for the Autonomous Database** section. Here we can ensure our **Compartment** is **livelabs** and give our database a **Display Name**. We can use **ORDSADB** as the Display Name.
 
-    **Display Name:** ORDS ADB
+    **Display Name:** ORDSADB
 
     ````
     <copy>

@@ -1,0 +1,17 @@
+{
+   "workshoptitle": "LiveLabs Sprints",
+   "help": "livelabs-help-oci_us@oracle.com",
+   "tutorials": [
+      {
+         "title": "How can I create Pre-Authenticated Request for an object in the bucket?",
+         "description": "",
+         "filename": "sprint-create-par-link.md"
+      },
+      {
+         "title": "How can I create Pre-Authenticated Request for a bucket?",
+         "description": "",
+         "filename": "../sprint-create-par-link-bucket/sprint-create-par-link-bucket.md"
+      }
+   ],
+   "task_type": "Sections"
+}
